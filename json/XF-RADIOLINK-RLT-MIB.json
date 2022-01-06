@@ -1,0 +1,6931 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entLogicalIndex",
+      "entPhysicalIndex"
+    ],
+    "HC-PerfHist-TC-MIB": [
+      "HCPerfCurrentCount"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ],
+    "XF-TOP-MIB": [
+      "xfRadioLink"
+    ]
+  },
+  "xfRadioLinkRltMIB": {
+    "name": "xfRadioLinkRltMIB",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-11-05 00:00",
+        "description": " Rev PC17 xfFrameFormatType MO: added definition of FF type for: - 2-boards MIMO - SISO CA - XPIC CA "
+      },
+      {
+        "revision": "2020-09-17 00:00",
+        "description": " Rev PC16 Added object xfRLTMeasuredHopLength in xfRLTTable: "
+      },
+      {
+        "revision": "2020-06-10 00:00",
+        "description": " Rev PC15 TR#3054036: MIB Range validation failed: - xfRLTNumOfRLPSwitch "
+      },
+      {
+        "revision": "2020-06-03 00:00",
+        "description": " Rev PC14 TR#3052599: extended range for following objects (adding 0 as valid value): - xfCarrierTermActualCapacity - xfActualTDMCapacity - xfCarrierTermActualLicensedCapacity "
+      },
+      {
+        "revision": "2020-05-28 00:00",
+        "description": " Rev PC13 xfACMCapacity range extended to add 0 as valid value (TR#3045800) "
+      },
+      {
+        "revision": "2020-04-30 00:00",
+        "description": " Rev PC12 xfRLTTDMIfTable: added 'xfTDMHopLength' object for TDM traffic delay compensation "
+      },
+      {
+        "revision": "2020-03-04 00:00",
+        "description": " Rev PC11 xfRLTCapability: added 'capTXswoAndSSD' capability bit for TX switchover and SSD "
+      },
+      {
+        "revision": "2019-10-14 00:00",
+        "description": " Rev PC10 In xfCarrierTerminationCapability table, xfACMprofile object is extended in order to support 8192QAM and 16384QAM modulations. For the same reason, following tables are updated: - xfRLPMACMCurrent24hTable - xfRLPMACMInterval24hTable - xfRLPMACMCurrent15mTable - xfRLPMACMInterval15mTable "
+      },
+      {
+        "revision": "2019-10-09 00:00",
+        "description": " Rev PC9 new MIb added: xfRLPMMimoCurrentTable xfRLPMMimoCurrent24hTable xfRLPMMimoInterval24hTable xfRLPMMimoCurrent15mTable xfRLPMMimoInterval15mTable "
+      },
+      {
+        "revision": "2019-07-18 00:00",
+        "description": " Rev PC8 xfRLTTxSwitchOverConfiguration: removed value 'remote' "
+      },
+      {
+        "revision": "2019-06-07 00:00",
+        "description": " Rev PC7 Added Selective Space Diversity support xfRLTProtectionSwitchMode: added value 'txSwitchDisabled' xfRLTTxSwitchOverConfiguration: added values 'local' and 'remote' "
+      },
+      {
+        "revision": "2019-03-26 00:00",
+        "description": " Rev PC6 xfRLTCapability: added description for 'capMIMO' capability bit "
+      },
+      {
+        "revision": "2019-03-25 00:00",
+        "description": " Rev PC5 xfRLTCapability: added 'capMIMO' capability bit for MIMO "
+      },
+      {
+        "revision": "2019-02-28 00:00",
+        "description": " Rev PC4 xfMIMOCTmember1-4 in xfMIMOGroupTable changed access to read-only. xfRLTEncryptionOperStatus: changed values to UP and DOWN. "
+      },
+      {
+        "revision": "2019-02-20 00:00",
+        "description": " Rev PC3 xfFrameFormatType MO: added definition of FF type for Long Haul 2-boards XPIC. "
+      },
+      {
+        "revision": "2019-01-30 00:00",
+        "description": " Rev PC2 xfRLTCapability: added capRLEncryption capability bit for Radio Link Encryption. "
+      },
+      {
+        "revision": "2019-01-11 00:00",
+        "description": " Rev PC1 Added xfRLTEncryptionTable for Radio Link Encryption. "
+      },
+      {
+        "revision": "2018-11-24 00:00",
+        "description": " Rev PB32 xfRLTFeRltSeverity renamed to xfRLTRltSeverity. "
+      },
+      {
+        "revision": "2018-10-24 00:00",
+        "description": " Rev PB31 Changed naming of xfRLTEnhancedACMProtectionMode values in xfRLTProtectionTable: - basic -> activeTransmitter - maximumThroughput -> maximumCapacity Changed name of capEnhAcmMaxThroughput into capEnhAcmMaxCapacity. "
+      },
+      {
+        "revision": "2018-10-03 00:00",
+        "description": " Rev PB30 Added xfRLTEnhancedACMProtectionOperStatus in xfRLTProtectionTable. "
+      },
+      {
+        "revision": "2018-09-17 00:00",
+        "description": " Rev PB29 - Added xfRLTEnhancedACMProtectionMode in xfRLTProtectionTable. - Added cap bit in xfRLTCapability for Enhanced ACM Protection: Maximum Throughput. - Added cap bit in xfRLTCapability for Enhanced ACM Protection: Maximum Protection. "
+      },
+      {
+        "revision": "2018-08-27 00:00",
+        "description": " Rev PB28 xfCarrierTermXPI: modified description. "
+      },
+      {
+        "revision": "2018-08-16 00:00",
+        "description": " Rev PB27 xfCarrierTermXPICOperStatus: Removed reference to SNIR in MO description. "
+      },
+      {
+        "revision": "2018-07-09 00:00",
+        "description": " Rev PB26 xfFrameFormatType MO: added definition of FF type for 2-boards XPIC. "
+      },
+      {
+        "revision": "2018-04-13 00:00",
+        "description": " Rev PB25 Type of MOs: - xfRLTActualTxTotalCapacity - xfRLTActualTxPacketCapacity - xfRLTLimitedTotalCapacity - xfCGIfMaxSpeed - xfRLWANActualCapacity - xfRLWANLimitedCapacity changed to Gauge32. "
+      },
+      {
+        "revision": "2018-04-09 00:00",
+        "description": " Rev PB24 In table xfRLTTable: - Added bit(12) capXpicMembersAutoSelection(12) - Added bit(13) capManualEqpSwitch(13) "
+      },
+      {
+        "revision": "2018-03-23 00:00",
+        "description": " Rev PB23 Added to xfXPICPairTable second index: * xfXpicPairIndex "
+      },
+      {
+        "revision": "2018-03-13 00:00",
+        "description": " Rev PB22 Added to xfCGIfAlarms the alarm: * unableToProtectEqp "
+      },
+      {
+        "revision": "2018-01-30 00:00",
+        "description": " Rev PB21 In table xfRLTTable: - xfRLTCapability bit(1) changed to capTDMWithEQP(1) - Added bit(11) capXpicBetweenBoards(11) "
+      },
+      {
+        "revision": "2017-12-27 00:00",
+        "description": " Rev PB20 Added values to MO xfRLTMode in xfRLTTable: - onePlusOneRadioLinkProtectionAndEquipmentProtection - twoPlusZeroRadioLinkBondingAndEquipmentProtection - twoPlusTwoRadioLinkProtectionAndEquipmentProtection - fourPlusZeroRadioLinkBondingAndEquipmentProtection Added capability bits to xfRLTCapability in xfRLTTable: - capTDM - capCsPlurality - capCtAutoSelection - capOnePlusZero - capOnePlusOneRadioLinkProtection - capTwoPlusZeroAdvancedRadioLinkBonding - capOnePlusOneRadioLinkProtectionWithEQP - capTwoPlusZeroRadioLinkBondingWithEQP - capTwoPlusTwoRadioLinkProtectionWithEQP - capFourPlusZeroRadioLinkBondingWithEQP "
+      },
+      {
+        "revision": "2017-09-19 00:00",
+        "description": " Rev PB19 - Type of MOs in table xfRLPMContinuousCounterTable changed to PerfCurrentCount/HCPerfCurrentCount. - Removed MO xfRLTProtectionPMReset in table xfRLTProtectionTable. "
+      },
+      {
+        "revision": "2017-08-03 00:00",
+        "description": " Rev PB18 Introduction in xfRLPMContinuousCounterTable of MOs: - xfPMCurrentESR - xfPMCurrentSESR - xfPMCurrentBBER "
+      },
+      {
+        "revision": "2017-05-03 00:00",
+        "description": " Rev. PB17 - Updated description for xfCarrierTermActualLicensedCapacity MO. "
+      },
+      {
+        "revision": "2017-02-01 00:00",
+        "description": " Rev. PB16 - Added to xfCGIfAlarms the alarms: * txSwitchover * remoteTxSwitchOver * unableToProtect * rfInputThresholdProtection "
+      },
+      {
+        "revision": "2017-01-30 00:00",
+        "description": " Rev. PB15 - Added the MOs xfRLTNumOfRLPSwitch and xfRLTProtectionPMReset in table xfRLTProtectionTable. "
+      },
+      {
+        "revision": "2016-11-04 00:00",
+        "description": " Rev. PB14 - Added the MO xfRLTHighestSeverityAlarm in table xfRLTHierarchyModuleTable. "
+      },
+      {
+        "revision": "2016-09-29 00:00",
+        "description": " Rev. PB13 - Added xfRLTProtectionTable. - Move unused Protection MOs from xfRLTTable to xfRLTProtectionTable "
+      },
+      {
+        "revision": "2016-09-08 00:00",
+        "description": " Rev. PB12 - Updated description for xfTDMMaxTributaries MO. "
+      },
+      {
+        "revision": "2016-07-18 00:00",
+        "description": " Rev. PB11 - Updated description for xfPMPerfReset MO. "
+      },
+      {
+        "revision": "2016-06-10 00:00",
+        "description": " Rev. PB10 - Added new table 'xfRLTHierarchyModuleTable'. "
+      },
+      {
+        "revision": "2016-06-06 00:00",
+        "description": " Rev. PB9 - 'xfRLTCapability' and 'xfRLTInventoryLastChange' MOs added to 'xfRLTTable'. "
+      },
+      {
+        "revision": "2016-06-01 00:00",
+        "description": " Rev. PB8 - Modified syntax for 'xfXPICCTmember1' and 'xfXPICCTmember2' MOs. "
+      },
+      {
+        "revision": "2016-05-02 00:00",
+        "description": " Rev. PB7 - Added xfRLWANIfTable. "
+      },
+      {
+        "revision": "2016-04-29 00:00",
+        "description": " Rev. PB6 - Changed enum for xfCGIfHopViewStatus MO. "
+      },
+      {
+        "revision": "2016-04-12 00:00",
+        "description": " Rev. PB5 - Updated description for xfPMPerfReset MO. - Updated description for xfCarrierTermActualCapacity MO. - Updated description for xfRLTActualTXPacketCapacity MO. - Extended list of possible values for xfRLTStatus MO. "
+      },
+      {
+        "revision": "2016-03-01 00:00",
+        "description": " Rev. PB4 - Changed syntax for xfRLTManualSwitchCommand MO. - NotApplicable value added to xfCarrierTermXPICOperStatus and xfCarrierTermMIMOOperStatus. "
+      },
+      {
+        "revision": "2016-02-22 00:00",
+        "description": " Rev. PB2 - xfCarrierTermXPICOperStatus: added value 'testing'. - xfRLTTxSwitchFarEnd MO renamed into xfRLTTxSwitchOverConfiguration - xfRLTResetTxSwitchAlarm MO renamed into xfRLTTxSwitchOverAlarmReset, syntax changed. - Description updated for some MOs. "
+      },
+      {
+        "revision": "2016-02-05 00:00",
+        "description": " Rev. PB1 - Modified in xfCarrierTerminationCapabilityTable: * xfACMProfile: removed non-XPIC / XPIC definition * xfFrameFormatType: Standard definition added, other values updated * xfChannelSpacing: added 60 MHz and 80 MHz for ANSI, changed vaue for 112 MHz - Modified in xfCarrierTerminationTable: * xfCarrierTermXPICOperStatus: updated list of possible values * xfCarrierTermMIMOOperStatus: updated list of possible values * xfCarrierTermOperStatus: updated list of possible values - Added in xfRLTTable: * xfRLTManualSwitchCommand * xfRLTTxSwitchFarEnd * xfRLTResetTxSwitchAlarm * xfRLTfeRltSeverity - Added in xfRLTDMIfTable: * xfTDMMaxTributaries - Added in xfCGIfTable: * xfCGIfHopViewStatus - Added in xfCarrierTerminationTable: * xfCarrierTermActualRxACM * xfCarrierTermFeCTSeverity - Added in xfXPICPairTable: * xfXPICAutoRestore "
+      },
+      {
+        "revision": "2015-11-25 00:00",
+        "description": " Rev. PA31 - Added RLT ID alarm in MO xfCGIfAlarms of xfCGIfTable. - Range of xfCarrierTermWantedLicensedCapacity extended, it starts from 0 now (instead of 1). - Value 'other' for xfCarrierTermPreamble renamed with 'notSpecified'. - Value 'other' for xfCarrierTermReferenceSEC renamed with 'notSpecified'. - Updated description for following objects: * xfCarrierTermPreamble * xfCarrierTermReferenceSEC * xfCarrierTermBerAlarmThreshold - Updated names and/or values list for following objects: * xfRLTFarEndIdCheck * xfTDMRxLoop * xfTDMEnable * xfXPICPairAdminStatus * xfXPICPairRecovery * xfMIMOGroupAdminStatus * xfMIMOGroupRecovery "
+      },
+      {
+        "revision": "2015-11-16 00:00",
+        "description": " Rev. PA30 Value 'other' for xfCarrierTermPolarization renamed with 'notSpecified'. "
+      },
+      {
+        "revision": "2015-11-10 00:00",
+        "description": " Rev. PA29 Added status 'testing' to xfCarrierTermOperStatus object. Size of xfTDMDistinguishedName object limited to 32 characters. "
+      },
+      {
+        "revision": "2015-11-05 00:00",
+        "description": " Rev. PA28 Updated definition of xfPMACMStatus object in xfRLPMACMConfigTable. "
+      },
+      {
+        "revision": "2015-09-16 00:00",
+        "description": " Rev. PA27 * Updated list of possible values for xfCarrierTermReferenceSEC object. * Added RLT PM tables: - xfRLPMContinuousCounterTable - xfRLPMACMConfigTable - xfRLPMACMCurrent24hTable - xfRLPMACMInterval24hTable - xfRLPMACMCurrent15mTable - xfRLPMACMInterval15mTable "
+      },
+      {
+        "revision": "2015-08-27 00:00",
+        "description": " Rev. PA26 * xfIfStatus object is read-only now. * Changed names of possible values for xfTDMRxLoop object. "
+      },
+      {
+        "revision": "2015-08-20 00:00",
+        "description": " Rev. PA25 * xfRadioChannelTable renamed into xfCarrierTerminationTable. Overall review of table's objects, including renaming of *RadioChannel* into *CarrierTerm*. Removed XPIC and MIMO related objects (but Oper Status). * xfRadioChannelCapabilityTable renamed into xfCarrierTerminationCapabilityTable. * xfRLTTable added: - xfRLTReset - xfRLTFadeNotificationTimer * xfXPICPairTable added: - xfXPICPairRecovery - xfXPICPairRestore * xfMIMOGroupTable added: - xfMIMOGroupRecovery - xfMIMOGroupRestore * xfRLTDMIfTable added: - xfTDMDistinguishedName - xfTDMRxLoop "
+      },
+      {
+        "revision": "2015-07-07 00:00",
+        "description": " Rev. PA24 * Modified RLT table. * Added xfXPICPairTable. * Added xfMIMOGroupTable. "
+      },
+      {
+        "revision": "2015-06-30 00:00",
+        "description": " Rev. PA23 Added chsp112MHz value to xfChannelSpacing object. "
+      },
+      {
+        "revision": "2015-06-04 00:00",
+        "description": " Rev. PA22 Added second index, liIfIndex, in xfLIMappingtable. "
+      },
+      {
+        "revision": "2015-06-03 00:00",
+        "description": " Rev. PA21 Removed xfWantedTDMCapacity in xfRLTDMIfTable. "
+      },
+      {
+        "revision": "2015-05-11 00:00",
+        "description": " Rev. PA20 Added xfCGIfIndex to xfCGIfTable. "
+      },
+      {
+        "revision": "2015-05-08 00:00",
+        "description": " Rev. PA19 Added xfCGIfTable. "
+      },
+      {
+        "revision": "2015-05-06 00:00",
+        "description": " Rev. PA18 Removed: xfRLTDMIfTable xfTDMAllocation Added: xfRLTDMIfTable xfWantedTDMAllocation xfActualTDMAllocation "
+      },
+      {
+        "revision": "2015-04-20 00:00",
+        "description": " Rev. PA17 Removed rcEntLogicalIndex in xfRadioChannelTable. "
+      },
+      {
+        "revision": "2015-04-13 00:00",
+        "description": " Rev. PA16 Removed xfRLWANIfTable. "
+      },
+      {
+        "revision": "2015-03-30 00:00",
+        "description": " Rev. PA15 Changed type for xfACMIndex object in xfACMProfileCapacityTable. "
+      },
+      {
+        "revision": "2015-03-19 00:00",
+        "description": " Rev. PA14 * xfRLTDMIfIndex object added in xfRLTDMIfTable. * xfRLWANIfIndex object added in xfRLWANIfTable. * Changed names of values for xfACMProfile object. * Changed type from Integer32 to RadioChannelACMIndex for objects - xfRadioChannelMinACMIndex - xfRadioChannelActualACMIndex - xfRadioChannelMaxACMIndex "
+      },
+      {
+        "revision": "2015-03-11 00:00",
+        "description": " Rev. PA13 xfRadioChannelBerAlarmThresholdCapability object removed. "
+      },
+      {
+        "revision": "2015-03-09 00:00",
+        "description": " Rev. PA12 * xfRadioFrameType changed to xfFrameFormatType. * xfACMMinCapacity changed to xfMinACMCapacity. * xfACMMaxCapacity changed to xfMaxACMCapacity. "
+      },
+      {
+        "revision": "2015-03-06 00:00",
+        "description": " Rev. PA11 * cgIfDescr changed to cgTypeIndex. * Minor adjustments to avoid sintax check warning. "
+      },
+      {
+        "revision": "2015-03-05 00:00",
+        "description": " Rev. PA10 * Adjustements to objects in xfRadioChannelTable. - Descriptions updated. - For enumerative objects, value (1) is always used for 'other'. * xfRadioLinkRltConformance added. "
+      },
+      {
+        "revision": "2015-02-25 00:00",
+        "description": " Rev. PA9 * <xfChannel> changed to <xfRadioChannel> for all applicable objects and tables. * Removed object <xfRadioChannelSpectrumEfficiencyClassCapability>. * Wrong spelling corrected: xfChanneMinACMIndex --> xfRadioChannelMinACMIndex. * Changed objects names: xfRadioChannelStatus -> xfRadioChannelOperStatus xfXPICOper --> xfXPICAdminStatus xfXPICStatus --> xfXPICOperStatus xfMIMOOper --> xfMIMOAdminStatus xfMIMOStatus --> xfIMIMOOperStatus xfXPICPaired --> xfXPICRadioChannelPaired xfMIMOPaired --> xfMIMORadioChannelPaired xfRCPreamble --> xfRadioChannelPreamble xfChannelMSELevel --> xfMSELevel * Added new objects: xfXPICRestore xfMIMORestore xfRadioChannelRestore xfRadioChannelAutoRemoveLoopEnable xfRadioChannelBerAlarmThreshold "
+      },
+      {
+        "revision": "2015-02-18 00:00",
+        "description": " Rev. PA8 XfRadioChannelTable: Changed: xfXPICMIMORecovery --> xfXPICRecovery xfXPICMIMOPaired --> xfXPICPaired Added: xfMIMORecovery xfMIMOPaired xfRLTTable Changed: xfActualCapacity --> xfRLTActualCapacity "
+      },
+      {
+        "revision": "2015-02-10 00:00",
+        "description": " Rev. PA7 Added: xfSelectedFrameID MO in xfRadioChannelTable Changed: xfXPICMIMOPaired to R-W "
+      },
+      {
+        "revision": "2015-01-29 00:00",
+        "description": " Rev. PA6 Added: xfACMProfileCapacityTable Modified: xfChannelCapabilityTable - added the following MOs: xfRadioFrameType xfACMMinCapacity xfACMMaxCapacity xfACMProfile "
+      },
+      {
+        "revision": "2014-12-12 00:00",
+        "description": " Rev. PA5 Removed: xfRadioChannelTable: xfRadioChannelName Added: xfRadioChannelTable: xfRadioChannelStatus xfXPICOper xfMIMOOper xfXPICMIMORecovery xfXPICMIMOPaired xfRCPreamble xfRLTDMIfTable xfTDMAllocation xfRLWANIfTable xfWANMinSpeed xfMaxMaxSpeed "
+      },
+      {
+        "revision": "2014-12-10 00:00",
+        "description": " Rev. PA4 Minor change to compile with Wind River compiler. "
+      },
+      {
+        "revision": "2014-12-02 00:00",
+        "description": " Rev. PA3 Table removed: xfRadioLinkRltTable Table renamed: xfRadioChannelMappingTable --> xfRadioChannelTable xfRLTTerminalTable --> xfRLTTable, xfRLLogicalToIfTable --> xfLIMappingTable Table added: xfChannelGroupTable, xfTrafficTable, xfRLTDMIfTable, xfRLWANIfTable. Object value removed: equipmentProtection in ChannelGroupType Changed ifName to ifIndex in xfChannelGroupTable index Changed ifName to ifIndex in xfLIMappingTable and removed ifIndex as table index Added in: xfLIMappingTable the MOs: xfLIName xfLIIfDescr xfRadioChannelTable the MOs: xfRadioChannelID xfChanneMinRowIndex xfChannelActualRowIndex xfChannelMaxRowIndex xfChannelCapabilitiesLastChange xfChannelSpectrumEfficiencyClass xfChannelSpectrumEfficiencyClassCapability xfChannelActualCapacity xfChannelCapacityLicense xfXPICStatus xfMIMOStatus xfXPILevel xfChannelMSELevel "
+      },
+      {
+        "revision": "2014-12-01 00:00",
+        "description": " Rev. PA2 Table added: xfRadioLinkRltTable, xfRLLogicalToIfTable xfRadioChannelMappingTable, xfRLTTerminalTable. "
+      },
+      {
+        "revision": "2014-11-11 00:00",
+        "description": " Rev. PA1 Initial revision. "
+      }
+    ]
+  },
+  "CarrierTermACMIndex": {
+    "name": "CarrierTermACMIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acm4QAMStrong": 1,
+          "acm4QAMStd": 2,
+          "acm4QAMLight": 3,
+          "acm16QAMStrong": 4,
+          "acm16QAMStd": 5,
+          "acm16QAMLight": 6,
+          "acm32QAMStrong": 7,
+          "acm32QAMStd": 8,
+          "acm32QAMLight": 9,
+          "acm64QAMStrong": 10,
+          "acm64QAMStd": 11,
+          "acm64QAMLight": 12,
+          "acm128QAMStrong": 13,
+          "acm128QAMStd": 14,
+          "acm128QAMLight": 15,
+          "acm256QAMStrong": 16,
+          "acm256QAMStd": 17,
+          "acm256QAMLight": 18,
+          "acm512QAMStrong": 19,
+          "acm512QAMStd": 20,
+          "acm512QAMLight": 21,
+          "acm1024QAMStrong": 22,
+          "acm1024QAMStd": 23,
+          "acm1024QAMLight": 24,
+          "acm2048QAMStrong": 25,
+          "acm2048QAMStd": 26,
+          "acm2048QAMLight": 27,
+          "acm4096QAMStrong": 28,
+          "acm4096QAMStd": 29,
+          "acm4096QAMLight": 30,
+          "acm8192QAMStrong": 31,
+          "acm8192QAMStd": 32,
+          "acm8192QAMLight": 33,
+          "acm16384QAMStrong": 34,
+          "acm16384QAMStd": 35,
+          "acm16384QAMLight": 36
+        }
+      }
+    },
+    "status": "current"
+  },
+  "xfRadioLinkRltObjects": {
+    "name": "xfRadioLinkRltObjects",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1",
+    "class": "objectidentity"
+  },
+  "xfRadioLinkRltPmObjects": {
+    "name": "xfRadioLinkRltPmObjects",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2",
+    "class": "objectidentity"
+  },
+  "xfRadioLinkRltConformance": {
+    "name": "xfRadioLinkRltConformance",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.3",
+    "class": "objectidentity"
+  },
+  "xfChannelGroupTable": {
+    "name": "xfChannelGroupTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfChannelGroupEntry": {
+    "name": "xfChannelGroupEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "cgIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "cgTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgIfIndex": {
+    "name": "cgIfIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgTypeIndex": {
+    "name": "cgTypeIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "bonding": 2,
+          "rlp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfIfStatus": {
+    "name": "xfIfStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ready": 2,
+          "notReady": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfLIMappingTable": {
+    "name": "xfLIMappingTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfLIMappingEntry": {
+    "name": "xfLIMappingEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "liEntLogicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "liIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "liEntLogicalIndex": {
+    "name": "liEntLogicalIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "liIfIndex": {
+    "name": "liIfIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfLIName": {
+    "name": "xfLIName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfLIIfDescr": {
+    "name": "xfLIIfDescr",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTerminationTable": {
+    "name": "xfCarrierTerminationTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfCarrierTerminationEntry": {
+    "name": "xfCarrierTerminationEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfCarrierTermDistinguishedName": {
+    "name": "xfCarrierTermDistinguishedName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermLabel": {
+    "name": "xfCarrierTermLabel",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermOperStatus": {
+    "name": "xfCarrierTermOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "down": 2,
+          "up": 3,
+          "degraded": 4,
+          "testing": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermRadioFrameId": {
+    "name": "xfCarrierTermRadioFrameId",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermPreamble": {
+    "name": "xfCarrierTermPreamble",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSpecified": 1,
+          "preambleA": 2,
+          "preambleB": 3,
+          "preambleC": 4,
+          "preambleD": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermSelectedMinACM": {
+    "name": "xfCarrierTermSelectedMinACM",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CarrierTermACMIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermActualACM": {
+    "name": "xfCarrierTermActualACM",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CarrierTermACMIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermSelectedMaxACM": {
+    "name": "xfCarrierTermSelectedMaxACM",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CarrierTermACMIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermCapabilitiesLastChange": {
+    "name": "xfCarrierTermCapabilitiesLastChange",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermReferenceSEC": {
+    "name": "xfCarrierTermReferenceSEC",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSpecified": 1,
+          "sec2": 2,
+          "sec4L": 3,
+          "sec4H": 4,
+          "sec5LB": 5,
+          "sec5HB": 6,
+          "sec6LB": 7,
+          "sec6HB": 8,
+          "sec7B": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermWantedLicensedCapacity": {
+    "name": "xfCarrierTermWantedLicensedCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermActualLicensedCapacity": {
+    "name": "xfCarrierTermActualLicensedCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermActualCapacity": {
+    "name": "xfCarrierTermActualCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermPolarization": {
+    "name": "xfCarrierTermPolarization",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSpecified": 1,
+          "horizontal": 2,
+          "vertical": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermXPICOperStatus": {
+    "name": "xfCarrierTermXPICOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "locked": 2,
+          "unlocked": 3,
+          "mute": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermMIMOOperStatus": {
+    "name": "xfCarrierTermMIMOOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "locked": 2,
+          "unlocked": 3,
+          "mute": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermSNIR": {
+    "name": "xfCarrierTermSNIR",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermXPI": {
+    "name": "xfCarrierTermXPI",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermReset": {
+    "name": "xfCarrierTermReset",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noReset": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermRestore": {
+    "name": "xfCarrierTermRestore",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noRestore": 2,
+          "restore": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermAutoRemoveLoopEnable": {
+    "name": "xfCarrierTermAutoRemoveLoopEnable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermBerAlarmThreshold": {
+    "name": "xfCarrierTermBerAlarmThreshold",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ber1e3": 2,
+          "ber1e4": 3,
+          "ber1e5": 4,
+          "ber1e6": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCarrierTermActualRxACM": {
+    "name": "xfCarrierTermActualRxACM",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CarrierTermACMIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTermFeCTSeverity": {
+    "name": "xfCarrierTermFeCTSeverity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "feCtSeverity0": 0,
+        "feCtSeverity1": 1,
+        "feCtSeverity2": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCarrierTerminationCapabilityTable": {
+    "name": "xfCarrierTerminationCapabilityTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfCarrierTerminationCapabilityEntry": {
+    "name": "xfCarrierTerminationCapabilityEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRadioFrameId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfRadioFrameId": {
+    "name": "xfRadioFrameId",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfChannelSpacing": {
+    "name": "xfChannelSpacing",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chspOther": 1,
+          "chsp3500kHz": 2,
+          "chsp7MHz": 3,
+          "chsp10MHz": 4,
+          "chsp14MHz": 5,
+          "chsp20MHz": 6,
+          "chsp28MHz": 7,
+          "chsp30MHz": 8,
+          "chsp40MHz": 9,
+          "chsp50MHz": 10,
+          "chsp56MHz": 11,
+          "chsp60MHz": 12,
+          "chsp80MHz": 13,
+          "chsp112MHz": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfFrameFormatType": {
+    "name": "xfFrameFormatType",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "standard": 2,
+          "xpic": 3,
+          "mimo": 4,
+          "longHaulStandard": 5,
+          "longHaulXpic": 6,
+          "xpic2boards": 7,
+          "longHaulXpic2boards": 8,
+          "mimo2boards": 9,
+          "sisoCA": 10,
+          "xpicCA": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMinACMCapacity": {
+    "name": "xfMinACMCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMaxACMCapacity": {
+    "name": "xfMaxACMCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfACMProfile": {
+    "name": "xfACMProfile",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "qam4Strong": 1,
+        "qam4Std": 2,
+        "qam4Light": 3,
+        "qam16Strong": 4,
+        "qam16Std": 5,
+        "qam16Light": 6,
+        "qam32Strong": 7,
+        "qam32Std": 8,
+        "qam32Light": 9,
+        "qam64Strong": 10,
+        "qam64Std": 11,
+        "qam64Light": 12,
+        "qam128Strong": 13,
+        "qam128Std": 14,
+        "qam128Light": 15,
+        "qam256Strong": 16,
+        "qam256Std": 17,
+        "qam256Light": 18,
+        "qam512Strong": 19,
+        "qam512Std": 20,
+        "qam512Light": 21,
+        "qam1024Strong": 22,
+        "qam1024Std": 23,
+        "qam1024Light": 24,
+        "qam2048Strong": 25,
+        "qam2048Std": 26,
+        "qam2048Light": 27,
+        "qam4096Strong": 28,
+        "qam4096Std": 29,
+        "qam4096Light": 30,
+        "qam8192Strong": 31,
+        "qam8192Std": 32,
+        "qam8192Light": 33,
+        "qam16384Strong": 34,
+        "qam16384Std": 35,
+        "qam16384Light": 36
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfACMProfileCapacityTable": {
+    "name": "xfACMProfileCapacityTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfACMProfileCapacityEntry": {
+    "name": "xfACMProfileCapacityEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfACMIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfACMIndex": {
+    "name": "xfACMIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CarrierTermACMIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfACMCapacity": {
+    "name": "xfACMCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTTable": {
+    "name": "xfRLTTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLTEntry": {
+    "name": "xfRLTEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "rltEntLogicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rltEntLogicalIndex": {
+    "name": "rltEntLogicalIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTDistinguishedName": {
+    "name": "xfRLTDistinguishedName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTIpAddress": {
+    "name": "xfRLTIpAddress",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTIPv6Address": {
+    "name": "xfRLTIPv6Address",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTNeName": {
+    "name": "xfRLTNeName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTNeType": {
+    "name": "xfRLTNeType",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTId": {
+    "name": "xfRLTId",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTExpectedFarEndId": {
+    "name": "xfRLTExpectedFarEndId",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTFarEndIdCheck": {
+    "name": "xfRLTFarEndIdCheck",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTStatus": {
+    "name": "xfRLTStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "down": 2,
+          "up": 3,
+          "degraded": 4,
+          "resourceUnavailable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTMode": {
+    "name": "xfRLTMode",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "onePlusZero": 2,
+          "onePlusOneRadioLinkProtection": 3,
+          "twoPlusZeroAdvancedRadioLinkBonding": 4,
+          "onePlusOneRadioLinkProtectionAndEquipmentProtection": 5,
+          "twoPlusZeroRadioLinkBondingAndEquipmentProtection": 6,
+          "twoPlusTwoRadioLinkProtectionAndEquipmentProtection": 7,
+          "fourPlusZeroRadioLinkBondingAndEquipmentProtection": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTActualTXTotalCapacity": {
+    "name": "xfRLTActualTXTotalCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTActualTXPacketCapacity": {
+    "name": "xfRLTActualTXPacketCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTLimitedTotalCapacity": {
+    "name": "xfRLTLimitedTotalCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTRltSeverity": {
+    "name": "xfRLTRltSeverity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rltSeverity0": 0,
+        "rltSeverity1": 1,
+        "rltSeverity2": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTCapability": {
+    "name": "xfRLTCapability",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "xpicCapability0": 0,
+        "capTDMWithEQP": 1,
+        "capCsPlurality": 2,
+        "capCtAutoSelection": 3,
+        "capOnePlusZero": 4,
+        "capOnePlusOneRadioLinkProtection": 5,
+        "capTwoPlusZeroAdvancedRadioLinkBonding": 6,
+        "capOnePlusOneRadioLinkProtectionWithEQP": 7,
+        "capTwoPlusZeroRadioLinkBondingWithEQP": 8,
+        "capTwoPlusTwoRadioLinkProtectionWithEQP": 9,
+        "capFourPlusZeroRadioLinkBondingWithEQP": 10,
+        "capXpicBetweenBoards": 11,
+        "capXpicMembersAutoSelection": 12,
+        "capManualEqpSwitch": 13,
+        "capEnhAcmMaxCapacity": 14,
+        "capEnhAcmMaxProtection": 15,
+        "capRLEncryption": 16,
+        "capMIMO": 17,
+        "capTXswoAndSSD": 18
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTInventoryLastChange": {
+    "name": "xfRLTInventoryLastChange",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTCpriMode": {
+    "name": "xfRLTCpriMode",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTReset": {
+    "name": "xfRLTReset",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rltNoReset": 2,
+          "rltReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTMeasuredHopLength": {
+    "name": "xfRLTMeasuredHopLength",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfTrafficTable": {
+    "name": "xfTrafficTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfTrafficEntry": {
+    "name": "xfTrafficEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "trEntLogicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "trEntLogicalIndex": {
+    "name": "trEntLogicalIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfTDMEnable": {
+    "name": "xfTDMEnable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTDMIfTable": {
+    "name": "xfRLTDMIfTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLTDMIfEntry": {
+    "name": "xfRLTDMIfEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTDMIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfRLTDMIfIndex": {
+    "name": "xfRLTDMIfIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfActualTDMCapacity": {
+    "name": "xfActualTDMCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfWantedTDMAllocation": {
+    "name": "xfWantedTDMAllocation",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "firstE1": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfActualTDMAllocation": {
+    "name": "xfActualTDMAllocation",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "firstE1": 0
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfTDMIfAlarms": {
+    "name": "xfTDMIfAlarms",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ber0": 0,
+        "ber1": 1,
+        "ber2": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfTDMRxLoop": {
+    "name": "xfTDMRxLoop",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfTDMDistinguishedName": {
+    "name": "xfTDMDistinguishedName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfTDMMaxTributaries": {
+    "name": "xfTDMMaxTributaries",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfTDMHopLength": {
+    "name": "xfTDMHopLength",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfCGIfTable": {
+    "name": "xfCGIfTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfCGIfEntry": {
+    "name": "xfCGIfEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCGIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfCGIfIndex": {
+    "name": "xfCGIfIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCGIfMinSpeed": {
+    "name": "xfCGIfMinSpeed",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCGIfMaxSpeed": {
+    "name": "xfCGIfMaxSpeed",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCGIfRCNum": {
+    "name": "xfCGIfRCNum",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCGIfAlarms": {
+    "name": "xfCGIfAlarms",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "hccNe0": 0,
+        "hccNe1": 1,
+        "hccNe2": 2,
+        "rltId0": 3,
+        "rltId1": 4,
+        "rltId2": 5,
+        "txSwitchover0": 6,
+        "txSwitchover1": 7,
+        "txSwitchover2": 8,
+        "remoteTxSwitchOver0": 9,
+        "remoteTxSwitchOver1": 10,
+        "remoteTxSwitchOver2": 11,
+        "unableToProtect0": 12,
+        "unableToProtect1": 13,
+        "unableToProtect2": 14,
+        "rfInputThresholdProtection0": 15,
+        "rfInputThresholdProtection1": 16,
+        "rfInputThresholdProtection2": 17,
+        "unableToProtectEqp0": 18,
+        "unableToProtectEqp1": 19,
+        "unableToProtectEqp2": 20
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfCGIfHopViewStatus": {
+    "name": "xfCGIfHopViewStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "down": 2,
+          "up": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfXPICPairTable": {
+    "name": "xfXPICPairTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfXPICPairEntry": {
+    "name": "xfXPICPairEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXpicPairIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xpicPairEntLogicalIIndex": {
+    "name": "xpicPairEntLogicalIIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfXPICPairAdminStatus": {
+    "name": "xfXPICPairAdminStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfXPICPairNumber": {
+    "name": "xfXPICPairNumber",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfXPICPairRecovery": {
+    "name": "xfXPICPairRecovery",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfXPICPairRestore": {
+    "name": "xfXPICPairRestore",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "xpicNoRestore": 2,
+          "xpicRestore": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfXPICCTmember1": {
+    "name": "xfXPICCTmember1",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfXPICCTmember2": {
+    "name": "xfXPICCTmember2",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfXPICAutoRestore": {
+    "name": "xfXPICAutoRestore",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfXpicPairIndex": {
+    "name": "xfXpicPairIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMIMOGroupTable": {
+    "name": "xfMIMOGroupTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfMIMOGroupEntry": {
+    "name": "xfMIMOGroupEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mimoGroupEntLogicalIIndex": {
+    "name": "mimoGroupEntLogicalIIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMIMOGroupAdminStatus": {
+    "name": "xfMIMOGroupAdminStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfMIMOGroupNumber": {
+    "name": "xfMIMOGroupNumber",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfMIMOGroupRecovery": {
+    "name": "xfMIMOGroupRecovery",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfMIMOGroupRestore": {
+    "name": "xfMIMOGroupRestore",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mimoNoRestore": 2,
+          "mimoRestore": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfMIMOCTmember1": {
+    "name": "xfMIMOCTmember1",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMIMOCTmember2": {
+    "name": "xfMIMOCTmember2",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMIMOCTmember3": {
+    "name": "xfMIMOCTmember3",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfMIMOCTmember4": {
+    "name": "xfMIMOCTmember4",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLWANIfTable": {
+    "name": "xfRLWANIfTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLWANIfEntry": {
+    "name": "xfRLWANIfEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfRLWANIfIndex": {
+    "name": "xfRLWANIfIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLWANDistinguishedName": {
+    "name": "xfRLWANDistinguishedName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLWANCompAdminStatus": {
+    "name": "xfRLWANCompAdminStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "down": 2,
+          "mlhcUp": 3,
+          "mlhcPlcUp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLWANCompConnStatus": {
+    "name": "xfRLWANCompConnStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disconnected": 2,
+          "connected": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLWANMlhcMplsMode": {
+    "name": "xfRLWANMlhcMplsMode",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mplsOnly": 2,
+          "controlWord": 3,
+          "l2": 4,
+          "l3": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLWANMlhcOperStatus": {
+    "name": "xfRLWANMlhcOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "down": 2,
+          "up": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLWANPlcOperStatus": {
+    "name": "xfRLWANPlcOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "down": 2,
+          "up": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLWANActualCapacity": {
+    "name": "xfRLWANActualCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLWANLimitedCapacity": {
+    "name": "xfRLWANLimitedCapacity",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTHierarchyModuleTable": {
+    "name": "xfRLTHierarchyModuleTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLTHierarchyModuleEntry": {
+    "name": "xfRLTHierarchyModuleEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTMHIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfRLTMHIndex": {
+    "name": "xfRLTMHIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTModuleIndex": {
+    "name": "xfRLTModuleIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTEntPhysicalIndex": {
+    "name": "xfRLTEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTPhysicalCointainedIn": {
+    "name": "xfRLTPhysicalCointainedIn",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTPhysicalParentRelPos": {
+    "name": "xfRLTPhysicalParentRelPos",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTEntityPhysicalDescr": {
+    "name": "xfRLTEntityPhysicalDescr",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTModuleSlotPosition": {
+    "name": "xfRLTModuleSlotPosition",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTFEDistinguishedName": {
+    "name": "xfRLTFEDistinguishedName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTNEDistinguishedName": {
+    "name": "xfRLTNEDistinguishedName",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTInterfaceIndex": {
+    "name": "xfRLTInterfaceIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTHighestSeverityAlarm": {
+    "name": "xfRLTHighestSeverityAlarm",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 0,
+          "major": 1,
+          "minor": 2,
+          "warning": 3,
+          "clear": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTProtectionTable": {
+    "name": "xfRLTProtectionTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLTProtectionEntry": {
+    "name": "xfRLTProtectionEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTProtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfRLTProtIndex": {
+    "name": "xfRLTProtIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTProtectionSwitchMode": {
+    "name": "xfRLTProtectionSwitchMode",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "auto": 2,
+          "manual": 3,
+          "autoRevertive": 4,
+          "txSwitchDisable": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTProtectionStatus": {
+    "name": "xfRLTProtectionStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unprotected": 2,
+          "protected": 3,
+          "unableToProtect": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTRevertivePreferredTX": {
+    "name": "xfRLTRevertivePreferredTX",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTProtectionWaitToRestoreTime": {
+    "name": "xfRLTProtectionWaitToRestoreTime",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTFadeNotificationTimer": {
+    "name": "xfRLTFadeNotificationTimer",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTManualSwitchCommand": {
+    "name": "xfRLTManualSwitchCommand",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "txManualSwitch": 2,
+          "txManualNoSwitch": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTTxSwitchOverConfiguration": {
+    "name": "xfRLTTxSwitchOverConfiguration",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notSupported": 2,
+          "enable": 3,
+          "disable": 4,
+          "enableLocal": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTTxSwitchOverAlarmReset": {
+    "name": "xfRLTTxSwitchOverAlarmReset",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "txSwitchOverAlarmNoReset": 2,
+          "txSwitchOverAlarmReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTNumOfRLPSwitch": {
+    "name": "xfRLTNumOfRLPSwitch",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTEnhancedACMProtectionMode": {
+    "name": "xfRLTEnhancedACMProtectionMode",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activeTransmitter": 2,
+          "maximumCapacity": 3,
+          "maximumProtection": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTEnhancedACMProtectionOperStatus": {
+    "name": "xfRLTEnhancedACMProtectionOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notApplicable": 2,
+          "enhAcmProtActive": 3,
+          "enhAcmProtNotActive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTEncryptionTable": {
+    "name": "xfRLTEncryptionTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLTEncryptionEntry": {
+    "name": "xfRLTEncryptionEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEncryptionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfRLTEncryptionIndex": {
+    "name": "xfRLTEncryptionIndex",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTEncryptionAdminStatus": {
+    "name": "xfRLTEncryptionAdminStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLTEncryptionOperStatus": {
+    "name": "xfRLTEncryptionOperStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLTEncryptionMasterKey": {
+    "name": "xfRLTEncryptionMasterKey",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfRLPMContinuousCounterTable": {
+    "name": "xfRLPMContinuousCounterTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMContinuousCounterEntry": {
+    "name": "xfRLPMContinuousCounterEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMTimeElapsed": {
+    "name": "xfPMTimeElapsed",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMCurrentES": {
+    "name": "xfPMCurrentES",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMCurrentSES": {
+    "name": "xfPMCurrentSES",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMCurrentBBE": {
+    "name": "xfPMCurrentBBE",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMCurrentUAS": {
+    "name": "xfPMCurrentUAS",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMCurrentBB": {
+    "name": "xfPMCurrentBB",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfReset": {
+    "name": "xfPMPerfReset",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "noReset": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfPMCurrentESR": {
+    "name": "xfPMCurrentESR",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMCurrentSESR": {
+    "name": "xfPMCurrentSESR",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMCurrentBBER": {
+    "name": "xfPMCurrentBBER",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMACMConfigTable": {
+    "name": "xfRLPMACMConfigTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMACMConfigEntry": {
+    "name": "xfRLPMACMConfigEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMACMSetThreshold15m": {
+    "name": "xfPMACMSetThreshold15m",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfPMACMSetThreshold24h": {
+    "name": "xfPMACMSetThreshold24h",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfPMACMResetThreshold15m": {
+    "name": "xfPMACMResetThreshold15m",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xfPMACMStatus": {
+    "name": "xfPMACMStatus",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "acm15m0": 0,
+        "acm15m1": 1,
+        "acm15m2": 2,
+        "acm24h0": 3,
+        "acm24h1": 4,
+        "acm24h2": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMValidData": {
+    "name": "xfPMACMValidData",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "valid15m4QAMStrong": 0,
+        "valid15m4QAMStd": 1,
+        "valid15m4QAMLight": 2,
+        "valid15m16QAMStrong": 3,
+        "valid15m16QAMStd": 4,
+        "valid15m16QAMLight": 5,
+        "valid15m32QAMStrong": 6,
+        "valid15m32QAMStd": 7,
+        "valid15m32QAMLight": 8,
+        "valid15m64QAMStrong": 9,
+        "valid15m64QAMStd": 10,
+        "valid15m64QAMLight": 11,
+        "valid15m128QAMStrong": 12,
+        "valid15m128QAMStd": 13,
+        "valid15m128QAMLight": 14,
+        "valid15m256QAMStrong": 15,
+        "valid15m256QAMStd": 16,
+        "valid15m256QAMLight": 17,
+        "valid15m512QAMStrong": 18,
+        "valid15m512QAMStd": 19,
+        "valid15m512QAMLight": 20,
+        "valid15m1024QAMStrong": 21,
+        "valid15m1024QAMStd": 22,
+        "valid15m1024QAMLight": 23,
+        "valid15m2048QAMStrong": 24,
+        "valid15m2048QAMStd": 25,
+        "valid15m2048QAMLight": 26,
+        "valid15m4096QAMStrong": 27,
+        "valid15m4096QAMStd": 28,
+        "valid15m4096QAMLight": 29,
+        "valid15m8192QAMStrong": 30,
+        "valid15m8192QAMStd": 31,
+        "valid15m8192QAMLight": 32,
+        "valid15m16384QAMStrong": 33,
+        "valid15m16384QAMStd": 34,
+        "valid15m16384QAMLight": 35
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMACMCurrent24hTable": {
+    "name": "xfRLPMACMCurrent24hTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMACMCurrent24hEntry": {
+    "name": "xfRLPMACMCurrent24hEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMACMCurrent24h4QAMStrong": {
+    "name": "xfPMACMCurrent24h4QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h4QAMStd": {
+    "name": "xfPMACMCurrent24h4QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h4QAMLight": {
+    "name": "xfPMACMCurrent24h4QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h16QAMStrong": {
+    "name": "xfPMACMCurrent24h16QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h16QAMStd": {
+    "name": "xfPMACMCurrent24h16QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h16QAMLight": {
+    "name": "xfPMACMCurrent24h16QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h32QAMStrong": {
+    "name": "xfPMACMCurrent24h32QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h32QAMStd": {
+    "name": "xfPMACMCurrent24h32QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h32QAMLight": {
+    "name": "xfPMACMCurrent24h32QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h64QAMStrong": {
+    "name": "xfPMACMCurrent24h64QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h64QAMStd": {
+    "name": "xfPMACMCurrent24h64QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h64QAMLight": {
+    "name": "xfPMACMCurrent24h64QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h128QAMStrong": {
+    "name": "xfPMACMCurrent24h128QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h128QAMStd": {
+    "name": "xfPMACMCurrent24h128QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h128QAMLight": {
+    "name": "xfPMACMCurrent24h128QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h256QAMStrong": {
+    "name": "xfPMACMCurrent24h256QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h256QAMStd": {
+    "name": "xfPMACMCurrent24h256QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h256QAMLight": {
+    "name": "xfPMACMCurrent24h256QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h512QAMStrong": {
+    "name": "xfPMACMCurrent24h512QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h512QAMStd": {
+    "name": "xfPMACMCurrent24h512QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h512QAMLight": {
+    "name": "xfPMACMCurrent24h512QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h1024QAMStrong": {
+    "name": "xfPMACMCurrent24h1024QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h1024QAMStd": {
+    "name": "xfPMACMCurrent24h1024QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h1024QAMLight": {
+    "name": "xfPMACMCurrent24h1024QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h2048QAMStrong": {
+    "name": "xfPMACMCurrent24h2048QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h2048QAMStd": {
+    "name": "xfPMACMCurrent24h2048QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h2048QAMLight": {
+    "name": "xfPMACMCurrent24h2048QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h4096QAMStrong": {
+    "name": "xfPMACMCurrent24h4096QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h4096QAMStd": {
+    "name": "xfPMACMCurrent24h4096QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h4096QAMLight": {
+    "name": "xfPMACMCurrent24h4096QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h8192QAMStrong": {
+    "name": "xfPMACMCurrent24h8192QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h8192QAMStd": {
+    "name": "xfPMACMCurrent24h8192QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h8192QAMLight": {
+    "name": "xfPMACMCurrent24h8192QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h16384QAMStrong": {
+    "name": "xfPMACMCurrent24h16384QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h16384QAMStd": {
+    "name": "xfPMACMCurrent24h16384QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent24h16384QAMLight": {
+    "name": "xfPMACMCurrent24h16384QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMACMInterval24hTable": {
+    "name": "xfRLPMACMInterval24hTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMACMInterval24hEntry": {
+    "name": "xfRLPMACMInterval24hEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMACMInterval24h4QAMStrong": {
+    "name": "xfPMACMInterval24h4QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h4QAMStd": {
+    "name": "xfPMACMInterval24h4QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h4QAMLight": {
+    "name": "xfPMACMInterval24h4QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h16QAMStrong": {
+    "name": "xfPMACMInterval24h16QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h16QAMStd": {
+    "name": "xfPMACMInterval24h16QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h16QAMLight": {
+    "name": "xfPMACMInterval24h16QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h32QAMStrong": {
+    "name": "xfPMACMInterval24h32QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h32QAMStd": {
+    "name": "xfPMACMInterval24h32QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h32QAMLight": {
+    "name": "xfPMACMInterval24h32QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h64QAMStrong": {
+    "name": "xfPMACMInterval24h64QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h64QAMStd": {
+    "name": "xfPMACMInterval24h64QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h64QAMLight": {
+    "name": "xfPMACMInterval24h64QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h128QAMStrong": {
+    "name": "xfPMACMInterval24h128QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h128QAMStd": {
+    "name": "xfPMACMInterval24h128QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h128QAMLight": {
+    "name": "xfPMACMInterval24h128QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h256QAMStrong": {
+    "name": "xfPMACMInterval24h256QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h256QAMStd": {
+    "name": "xfPMACMInterval24h256QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h256QAMLight": {
+    "name": "xfPMACMInterval24h256QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h512QAMStrong": {
+    "name": "xfPMACMInterval24h512QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h512QAMStd": {
+    "name": "xfPMACMInterval24h512QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h512QAMLight": {
+    "name": "xfPMACMInterval24h512QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h1024QAMStrong": {
+    "name": "xfPMACMInterval24h1024QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h1024QAMStd": {
+    "name": "xfPMACMInterval24h1024QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h1024QAMLight": {
+    "name": "xfPMACMInterval24h1024QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h2048QAMStrong": {
+    "name": "xfPMACMInterval24h2048QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h2048QAMStd": {
+    "name": "xfPMACMInterval24h2048QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h2048QAMLight": {
+    "name": "xfPMACMInterval24h2048QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h4096QAMStrong": {
+    "name": "xfPMACMInterval24h4096QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h4096QAMStd": {
+    "name": "xfPMACMInterval24h4096QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h4096QAMLight": {
+    "name": "xfPMACMInterval24h4096QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24hValidData": {
+    "name": "xfPMACMInterval24hValidData",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h8192QAMStrong": {
+    "name": "xfPMACMInterval24h8192QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h8192QAMStd": {
+    "name": "xfPMACMInterval24h8192QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h8192QAMLight": {
+    "name": "xfPMACMInterval24h8192QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h16384QAMStrong": {
+    "name": "xfPMACMInterval24h16384QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h16384QAMStd": {
+    "name": "xfPMACMInterval24h16384QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval24h16384QAMLight": {
+    "name": "xfPMACMInterval24h16384QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.4.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMACMCurrent15mTable": {
+    "name": "xfRLPMACMCurrent15mTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMACMCurrent15mEntry": {
+    "name": "xfRLPMACMCurrent15mEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMACMCurrent15m4QAMStrong": {
+    "name": "xfPMACMCurrent15m4QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m4QAMStd": {
+    "name": "xfPMACMCurrent15m4QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m4QAMLight": {
+    "name": "xfPMACMCurrent15m4QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m16QAMStrong": {
+    "name": "xfPMACMCurrent15m16QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m16QAMStd": {
+    "name": "xfPMACMCurrent15m16QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m16QAMLight": {
+    "name": "xfPMACMCurrent15m16QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m32QAMStrong": {
+    "name": "xfPMACMCurrent15m32QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m32QAMStd": {
+    "name": "xfPMACMCurrent15m32QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m32QAMLight": {
+    "name": "xfPMACMCurrent15m32QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m64QAMStrong": {
+    "name": "xfPMACMCurrent15m64QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m64QAMStd": {
+    "name": "xfPMACMCurrent15m64QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m64QAMLight": {
+    "name": "xfPMACMCurrent15m64QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m128QAMStrong": {
+    "name": "xfPMACMCurrent15m128QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m128QAMStd": {
+    "name": "xfPMACMCurrent15m128QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m128QAMLight": {
+    "name": "xfPMACMCurrent15m128QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m256QAMStrong": {
+    "name": "xfPMACMCurrent15m256QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m256QAMStd": {
+    "name": "xfPMACMCurrent15m256QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m256QAMLight": {
+    "name": "xfPMACMCurrent15m256QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m512QAMStrong": {
+    "name": "xfPMACMCurrent15m512QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m512QAMStd": {
+    "name": "xfPMACMCurrent15m512QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m512QAMLight": {
+    "name": "xfPMACMCurrent15m512QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m1024QAMStrong": {
+    "name": "xfPMACMCurrent15m1024QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m1024QAMStd": {
+    "name": "xfPMACMCurrent15m1024QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m1024QAMLight": {
+    "name": "xfPMACMCurrent15m1024QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m2048QAMStrong": {
+    "name": "xfPMACMCurrent15m2048QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m2048QAMStd": {
+    "name": "xfPMACMCurrent15m2048QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m2048QAMLight": {
+    "name": "xfPMACMCurrent15m2048QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m4096QAMStrong": {
+    "name": "xfPMACMCurrent15m4096QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m4096QAMStd": {
+    "name": "xfPMACMCurrent15m4096QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m4096QAMLight": {
+    "name": "xfPMACMCurrent15m4096QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m8192QAMStrong": {
+    "name": "xfPMACMCurrent15m8192QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m8192QAMStd": {
+    "name": "xfPMACMCurrent15m8192QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m8192QAMLight": {
+    "name": "xfPMACMCurrent15m8192QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m16384QAMStrong": {
+    "name": "xfPMACMCurrent15m16384QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m16384QAMStd": {
+    "name": "xfPMACMCurrent15m16384QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMCurrent15m16384QAMLight": {
+    "name": "xfPMACMCurrent15m16384QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMACMInterval15mTable": {
+    "name": "xfRLPMACMInterval15mTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMACMInterval15mEntry": {
+    "name": "xfRLPMACMInterval15mEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15mIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMACMInterval15mIntervalNumber": {
+    "name": "xfPMACMInterval15mIntervalNumber",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m4QAMStrong": {
+    "name": "xfPMACMInterval15m4QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m4QAMStd": {
+    "name": "xfPMACMInterval15m4QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m4QAMLight": {
+    "name": "xfPMACMInterval15m4QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m16QAMStrong": {
+    "name": "xfPMACMInterval15m16QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m16QAMStd": {
+    "name": "xfPMACMInterval15m16QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m16QAMLight": {
+    "name": "xfPMACMInterval15m16QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m32QAMStrong": {
+    "name": "xfPMACMInterval15m32QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m32QAMStd": {
+    "name": "xfPMACMInterval15m32QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m32QAMLight": {
+    "name": "xfPMACMInterval15m32QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m64QAMStrong": {
+    "name": "xfPMACMInterval15m64QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m64QAMStd": {
+    "name": "xfPMACMInterval15m64QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m64QAMLight": {
+    "name": "xfPMACMInterval15m64QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m128QAMStrong": {
+    "name": "xfPMACMInterval15m128QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m128QAMStd": {
+    "name": "xfPMACMInterval15m128QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m128QAMLight": {
+    "name": "xfPMACMInterval15m128QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m256QAMStrong": {
+    "name": "xfPMACMInterval15m256QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m256QAMStd": {
+    "name": "xfPMACMInterval15m256QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m256QAMLight": {
+    "name": "xfPMACMInterval15m256QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m512QAMStrong": {
+    "name": "xfPMACMInterval15m512QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m512QAMStd": {
+    "name": "xfPMACMInterval15m512QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m512QAMLight": {
+    "name": "xfPMACMInterval15m512QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m1024QAMStrong": {
+    "name": "xfPMACMInterval15m1024QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m1024QAMStd": {
+    "name": "xfPMACMInterval15m1024QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m1024QAMLight": {
+    "name": "xfPMACMInterval15m1024QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m2048QAMStrong": {
+    "name": "xfPMACMInterval15m2048QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m2048QAMStd": {
+    "name": "xfPMACMInterval15m2048QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m2048QAMLight": {
+    "name": "xfPMACMInterval15m2048QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m4096QAMStrong": {
+    "name": "xfPMACMInterval15m4096QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m4096QAMStd": {
+    "name": "xfPMACMInterval15m4096QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m4096QAMLight": {
+    "name": "xfPMACMInterval15m4096QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15mValidData": {
+    "name": "xfPMACMInterval15mValidData",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m8192QAMStrong": {
+    "name": "xfPMACMInterval15m8192QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m8192QAMStd": {
+    "name": "xfPMACMInterval15m8192QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m8192QAMLight": {
+    "name": "xfPMACMInterval15m8192QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m16384QAMStrong": {
+    "name": "xfPMACMInterval15m16384QAMStrong",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m16384QAMStd": {
+    "name": "xfPMACMInterval15m16384QAMStd",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMACMInterval15m16384QAMLight": {
+    "name": "xfPMACMInterval15m16384QAMLight",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.6.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMMimoCurrentTable": {
+    "name": "xfRLPMMimoCurrentTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMMimoCurrentEntry": {
+    "name": "xfRLPMMimoCurrentEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMPerfCurrentEta": {
+    "name": "xfPMPerfCurrentEta",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfEtaMinLast7days": {
+    "name": "xfPMPerfEtaMinLast7days",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfEtaMaxLast7days": {
+    "name": "xfPMPerfEtaMaxLast7days",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMMimoCurrent24hTable": {
+    "name": "xfRLPMMimoCurrent24hTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMMimoCurrent24hEntry": {
+    "name": "xfRLPMMimoCurrent24hEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMPerfCurrent24hElapsedTime": {
+    "name": "xfPMPerfCurrent24hElapsedTime",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfCurrent24hEtaMin": {
+    "name": "xfPMPerfCurrent24hEtaMin",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfCurrent24hEtaMax": {
+    "name": "xfPMPerfCurrent24hEtaMax",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMMimoInterval24hTable": {
+    "name": "xfRLPMMimoInterval24hTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMMimoInterval24hEntry": {
+    "name": "xfRLPMMimoInterval24hEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMPerfInterval24hValidData": {
+    "name": "xfPMPerfInterval24hValidData",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfInterval24hEtaMin": {
+    "name": "xfPMPerfInterval24hEtaMin",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfInterval24hEtaMax": {
+    "name": "xfPMPerfInterval24hEtaMax",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMMimoCurrent15mTable": {
+    "name": "xfRLPMMimoCurrent15mTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMMimoCurrent15mEntry": {
+    "name": "xfRLPMMimoCurrent15mEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMPerfCurrent15mElapsedTime": {
+    "name": "xfPMPerfCurrent15mElapsedTime",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfCurrent15mEtaMin": {
+    "name": "xfPMPerfCurrent15mEtaMin",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfCurrent15mEtaMax": {
+    "name": "xfPMPerfCurrent15mEtaMax",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRLPMMimoInterval15mTable": {
+    "name": "xfRLPMMimoInterval15mTable",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xfRLPMMimoInterval15mEntry": {
+    "name": "xfRLPMMimoInterval15mEntry",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval15mIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xfPMPerfInterval15mIntervalNumber": {
+    "name": "xfPMPerfInterval15mIntervalNumber",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfInterval15mEtaMin": {
+    "name": "xfPMPerfInterval15mEtaMin",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfInterval15mEtaMax": {
+    "name": "xfPMPerfInterval15mEtaMax",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfPMPerfInterval15mValidData": {
+    "name": "xfPMPerfInterval15mValidData",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xfRadioLinkRltCompliances": {
+    "name": "xfRadioLinkRltCompliances",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.3.1",
+    "class": "objectidentity"
+  },
+  "xfRadioLinkRltGroups": {
+    "name": "xfRadioLinkRltGroups",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.3.2",
+    "class": "objectidentity"
+  },
+  "xfRadioLinkRltFullCompliance": {
+    "name": "xfRadioLinkRltFullCompliance",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "xfRadioLinkRltCompleteGroup",
+        "module": "XF-RADIOLINK-RLT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "xfRadioLinkRltCompleteGroup": {
+    "name": "xfRadioLinkRltCompleteGroup",
+    "oid": "1.3.6.1.4.1.193.81.3.4.5.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "cgIfIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "cgTypeIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfIfStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "liEntLogicalIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "liIfIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfLIName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfLIIfDescr"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermDistinguishedName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermLabel"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermOperStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermRadioFrameId"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermPreamble"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermSelectedMinACM"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermActualACM"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermSelectedMaxACM"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermCapabilitiesLastChange"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermReferenceSEC"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermWantedLicensedCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermActualLicensedCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermActualCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermPolarization"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermXPICOperStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermMIMOOperStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermSNIR"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermXPI"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermReset"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermRestore"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermAutoRemoveLoopEnable"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermBerAlarmThreshold"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermActualRxACM"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCarrierTermFeCTSeverity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRadioFrameId"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfChannelSpacing"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfFrameFormatType"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMinACMCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMaxACMCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfACMProfile"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfACMIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfACMCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "rltEntLogicalIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTDistinguishedName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTIpAddress"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTIPv6Address"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTNeName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTNeType"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTId"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTExpectedFarEndId"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTFarEndIdCheck"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTMode"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTActualTXTotalCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTActualTXPacketCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTLimitedTotalCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTRltSeverity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTCapability"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTInventoryLastChange"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTCpriMode"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTReset"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTMeasuredHopLength"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "trEntLogicalIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfTDMEnable"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTDMIfIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfActualTDMCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfWantedTDMAllocation"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfActualTDMAllocation"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfTDMIfAlarms"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfTDMRxLoop"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfTDMDistinguishedName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfTDMMaxTributaries"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfTDMHopLength"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCGIfIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCGIfMinSpeed"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCGIfMaxSpeed"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCGIfRCNum"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCGIfAlarms"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfCGIfHopViewStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xpicPairEntLogicalIIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXPICPairAdminStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXPICPairNumber"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXPICPairRecovery"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXPICPairRestore"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXPICCTmember1"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXPICCTmember2"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXPICAutoRestore"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfXpicPairIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "mimoGroupEntLogicalIIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOGroupAdminStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOGroupNumber"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOGroupRecovery"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOGroupRestore"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOCTmember1"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOCTmember2"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOCTmember3"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfMIMOCTmember4"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMTimeElapsed"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentES"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentSES"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentBBE"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentUAS"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentBB"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfReset"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentESR"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentSESR"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMCurrentBBER"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMSetThreshold15m"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMSetThreshold24h"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMResetThreshold15m"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMValidData"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h4QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h4QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h4QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h16QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h16QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h16QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h32QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h32QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h32QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h64QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h64QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h64QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h128QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h128QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h128QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h256QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h256QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h256QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h512QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h512QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h512QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h1024QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h1024QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h1024QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h2048QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h2048QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h2048QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h4096QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h4096QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h4096QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h8192QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h8192QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h8192QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h16384QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h16384QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent24h16384QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h4QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h4QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h4QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h16QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h16QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h16QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h32QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h32QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h32QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h64QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h64QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h64QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h128QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h128QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h128QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h256QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h256QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h256QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h512QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h512QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h512QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h1024QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h1024QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h1024QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h2048QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h2048QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h2048QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h4096QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h4096QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h4096QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24hValidData"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h8192QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h8192QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h8192QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h16384QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h16384QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval24h16384QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m4QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m4QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m4QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m16QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m16QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m16QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m32QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m32QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m32QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m64QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m64QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m64QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m128QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m128QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m128QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m256QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m256QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m256QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m512QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m512QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m512QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m1024QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m1024QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m1024QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m2048QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m2048QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m2048QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m4096QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m4096QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m4096QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m8192QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m8192QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m8192QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m16384QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m16384QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMCurrent15m16384QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15mIntervalNumber"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m4QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m4QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m4QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m16QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m16QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m16QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m32QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m32QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m32QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m64QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m64QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m64QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m128QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m128QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m128QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m256QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m256QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m256QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m512QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m512QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m512QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m1024QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m1024QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m1024QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m2048QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m2048QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m2048QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m4096QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m4096QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m4096QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15mValidData"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m8192QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m8192QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m8192QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m16384QAMStrong"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m16384QAMStd"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMACMInterval15m16384QAMLight"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANIfIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANDistinguishedName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANCompAdminStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANCompConnStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANMlhcMplsMode"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANMlhcOperStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANPlcOperStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANActualCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLWANLimitedCapacity"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTMHIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTModuleIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEntPhysicalIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTPhysicalCointainedIn"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTPhysicalParentRelPos"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEntityPhysicalDescr"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTModuleSlotPosition"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTNEDistinguishedName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTFEDistinguishedName"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTInterfaceIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTHighestSeverityAlarm"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTProtIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTProtectionSwitchMode"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTProtectionStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTRevertivePreferredTX"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTProtectionWaitToRestoreTime"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTFadeNotificationTimer"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTManualSwitchCommand"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTTxSwitchOverConfiguration"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTTxSwitchOverAlarmReset"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTNumOfRLPSwitch"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEnhancedACMProtectionMode"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEnhancedACMProtectionOperStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEncryptionIndex"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEncryptionAdminStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEncryptionOperStatus"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfRLTEncryptionMasterKey"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfCurrentEta"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfEtaMinLast7days"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfEtaMaxLast7days"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfCurrent24hElapsedTime"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfCurrent24hEtaMin"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfCurrent24hEtaMax"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval24hValidData"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval24hEtaMin"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval24hEtaMax"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfCurrent15mElapsedTime"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfCurrent15mEtaMin"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfCurrent15mEtaMax"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval15mIntervalNumber"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval15mEtaMin"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval15mEtaMax"
+      },
+      {
+        "module": "XF-RADIOLINK-RLT-MIB",
+        "object": "xfPMPerfInterval15mValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-RADIOLINK-RLT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:31 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "XF-RADIOLINK-RLT-MIB"
+  }
+}

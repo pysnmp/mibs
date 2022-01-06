@@ -1,0 +1,3007 @@
+{
+  "imports": {
+    "class": "imports",
+    "EPON-EOC-MIB": [
+      "epon",
+      "mediaConverter"
+    ],
+    "FD-OLT-MIB": [
+      "directionId",
+      "linkId",
+      "oltId"
+    ],
+    "FD-ONU-MIB": [
+      "uniPortId",
+      "onuId"
+    ],
+    "FD-SWITCH-MIB": [
+      "swSniPortId"
+    ],
+    "FD-SYSTEM-MIB": [
+      "ponCardSlotId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "performance": {
+    "name": "performance",
+    "oid": "1.3.6.1.4.1.34592.1.3.5",
+    "class": "moduleidentity"
+  },
+  "StatsCollection": {
+    "name": "StatsCollection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "octetTrans": 1,
+          "totFrameTrans": 2,
+          "ucFrameTrans": 3,
+          "bcFrameTrans": 4,
+          "mcFrameTrans": 5,
+          "crc32Errors": 6,
+          "undersizeFrames": 7,
+          "oversizeFrames": 8,
+          "framesDropped": 9,
+          "octetsDropped": 10,
+          "bandwidth": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alarmThreshHold": {
+    "name": "alarmThreshHold",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1",
+    "class": "objectidentity"
+  },
+  "swThresholdTable": {
+    "name": "swThresholdTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swThresholdEntry": {
+    "name": "swThresholdEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "statsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "statsId": {
+    "name": "statsId",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatsCollection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sniPortThresholdLo": {
+    "name": "sniPortThresholdLo",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sniPortThresholdHi": {
+    "name": "sniPortThresholdHi",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oltThresholdTable": {
+    "name": "oltThresholdTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltThresholdEntry": {
+    "name": "oltThresholdEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "statsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oltThresholdLo": {
+    "name": "oltThresholdLo",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oltThresholdHi": {
+    "name": "oltThresholdHi",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuUniThresholdTable": {
+    "name": "onuUniThresholdTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuUniThresholdEntry": {
+    "name": "onuUniThresholdEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "statsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuUniThresholdLo": {
+    "name": "onuUniThresholdLo",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuUniThresholdHi": {
+    "name": "onuUniThresholdHi",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swTrafficChangeTable": {
+    "name": "swTrafficChangeTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTrafficChangeEntry": {
+    "name": "swTrafficChangeEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SWITCH-MIB",
+        "object": "swSniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "statsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSniPortTrafficChangeVal": {
+    "name": "swSniPortTrafficChangeVal",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltTrafficChangeTable": {
+    "name": "oltTrafficChangeTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltTrafficChangeEntry": {
+    "name": "oltTrafficChangeEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "statsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oltTrafficChangeVal": {
+    "name": "oltTrafficChangeVal",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTrafficChangeTable": {
+    "name": "onuTrafficChangeTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuTrafficChangeEntry": {
+    "name": "onuTrafficChangeEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "onuId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "statsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuTrafficChangeVal": {
+    "name": "onuTrafficChangeVal",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "statistics": {
+    "name": "statistics",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2",
+    "class": "objectidentity"
+  },
+  "llidStatsTable": {
+    "name": "llidStatsTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llidStatsEntry": {
+    "name": "llidStatsEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "linkId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llidOctetsTransferred": {
+    "name": "llidOctetsTransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidTotFrameTransferred": {
+    "name": "llidTotFrameTransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidUniFrametransferred": {
+    "name": "llidUniFrametransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidBroadFrametransferred": {
+    "name": "llidBroadFrametransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidMulFrametransferred": {
+    "name": "llidMulFrametransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidCrc32Errors": {
+    "name": "llidCrc32Errors",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidUndersizeFrames": {
+    "name": "llidUndersizeFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidOversizeFrames": {
+    "name": "llidOversizeFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidFrom0to64OctetFrames": {
+    "name": "llidFrom0to64OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidFrom65to127OctetFrames": {
+    "name": "llidFrom65to127OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidFrom128to255OctetFrames": {
+    "name": "llidFrom128to255OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidFrom256to511OctetFrames": {
+    "name": "llidFrom256to511OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidFrom512to1023OctetFrames": {
+    "name": "llidFrom512to1023OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidFrom1024to1518OctetFrames": {
+    "name": "llidFrom1024to1518OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidMore1519ctetFrames": {
+    "name": "llidMore1519ctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidFramesDropped": {
+    "name": "llidFramesDropped",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidOctetsDropped": {
+    "name": "llidOctetsDropped",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidOctetsDelayed": {
+    "name": "llidOctetsDelayed",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidOctetsGranted": {
+    "name": "llidOctetsGranted",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidUnusedGrantedOctets": {
+    "name": "llidUnusedGrantedOctets",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidMaximumDelay": {
+    "name": "llidMaximumDelay",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidLineCodeViolation": {
+    "name": "llidLineCodeViolation",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidErrFrameSecond": {
+    "name": "llidErrFrameSecond",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidErrFramePeriod": {
+    "name": "llidErrFramePeriod",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidSumErrFrameSecond": {
+    "name": "llidSumErrFrameSecond",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llidStatsOperation": {
+    "name": "llidStatsOperation",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fresh": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuUniPortStatsTable": {
+    "name": "onuUniPortStatsTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuUniPortStatsEntry": {
+    "name": "onuUniPortStatsEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "onuId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuUniOctetsTransferred": {
+    "name": "onuUniOctetsTransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniTotFrameTransferred": {
+    "name": "onuUniTotFrameTransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniUniFrametransferred": {
+    "name": "onuUniUniFrametransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniBroadFrametransferred": {
+    "name": "onuUniBroadFrametransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniMulFrametransferred": {
+    "name": "onuUniMulFrametransferred",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniCrc32Errors": {
+    "name": "onuUniCrc32Errors",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniUndersizeFrames": {
+    "name": "onuUniUndersizeFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOversizeFrames": {
+    "name": "onuUniOversizeFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniCollosions": {
+    "name": "onuUniCollosions",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFrom0to64OctetFrames": {
+    "name": "onuUniFrom0to64OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFrom65to127OctetFrames": {
+    "name": "onuUniFrom65to127OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFrom128to255OctetFrames": {
+    "name": "onuUniFrom128to255OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFrom256to511OctetFrames": {
+    "name": "onuUniFrom256to511OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFrom512to1023OctetFrames": {
+    "name": "onuUniFrom512to1023OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFrom1024to1518OctetFrames": {
+    "name": "onuUniFrom1024to1518OctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniMore1519ctetFrames": {
+    "name": "onuUniMore1519ctetFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFramesDropped": {
+    "name": "onuUniFramesDropped",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOctetsDropped": {
+    "name": "onuUniOctetsDropped",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOctetsDelayed": {
+    "name": "onuUniOctetsDelayed",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOctetsGranted": {
+    "name": "onuUniOctetsGranted",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniUnusedGrantedOctets": {
+    "name": "onuUniUnusedGrantedOctets",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniCrc8Errors": {
+    "name": "onuUniCrc8Errors",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniPauseFrames": {
+    "name": "onuUniPauseFrames",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniStatsOperation": {
+    "name": "onuUniStatsOperation",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fresh": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "performanceMonitor": {
+    "name": "performanceMonitor",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3",
+    "class": "objectidentity"
+  },
+  "hisPerformanceMonitor": {
+    "name": "hisPerformanceMonitor",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1",
+    "class": "objectidentity"
+  },
+  "swSniHisMonitorTable": {
+    "name": "swSniHisMonitorTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSniHisMonitorEntry": {
+    "name": "swSniHisMonitorEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SWITCH-MIB",
+        "object": "swSniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniHisMonitorTimeSerial",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSniHisMonitorTimeSerial": {
+    "name": "swSniHisMonitorTimeSerial",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSniOctetTransHis": {
+    "name": "swSniOctetTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniTotalFrameTransHis": {
+    "name": "swSniTotalFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniUCFrameTransHis": {
+    "name": "swSniUCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniBCFrameTransHis": {
+    "name": "swSniBCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniMCFrameTransHis": {
+    "name": "swSniMCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniCRC32ErrorsHis": {
+    "name": "swSniCRC32ErrorsHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniUndersizeFramesHis": {
+    "name": "swSniUndersizeFramesHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniOversizeFramesHis": {
+    "name": "swSniOversizeFramesHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniFramesDroppedHis": {
+    "name": "swSniFramesDroppedHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniOctetsDroppedHis": {
+    "name": "swSniOctetsDroppedHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniBandwidthHis": {
+    "name": "swSniBandwidthHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltHisMonitorTable": {
+    "name": "oltHisMonitorTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltHisMonitorEntry": {
+    "name": "oltHisMonitorEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltHisMonitorTimeSerial",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oltHisMonitorTimeSerial": {
+    "name": "oltHisMonitorTimeSerial",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltOctetTransHis": {
+    "name": "oltOctetTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltTotalFrameTransHis": {
+    "name": "oltTotalFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltUCFrameTransHis": {
+    "name": "oltUCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltBCFrameTransHis": {
+    "name": "oltBCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltMCFrameTransHis": {
+    "name": "oltMCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltCRC32ErrorsHis": {
+    "name": "oltCRC32ErrorsHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltUndersizeFramesHis": {
+    "name": "oltUndersizeFramesHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltOversizeFramesHis": {
+    "name": "oltOversizeFramesHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltFramesDroppedHis": {
+    "name": "oltFramesDroppedHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltOctetsDroppedHis": {
+    "name": "oltOctetsDroppedHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltBandwidthHis": {
+    "name": "oltBandwidthHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniHisMonitorTable": {
+    "name": "onuUniHisMonitorTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuUniHisMonitorEntry": {
+    "name": "onuUniHisMonitorEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "onuId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniHisMonitorTimeSerial",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuUniHisMonitorTimeSerial": {
+    "name": "onuUniHisMonitorTimeSerial",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuUniOctetTransHis": {
+    "name": "onuUniOctetTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniTotalFrameTransHis": {
+    "name": "onuUniTotalFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniUCFrameTransHis": {
+    "name": "onuUniUCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniBCFrameTransHis": {
+    "name": "onuUniBCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniMCFrameTransHis": {
+    "name": "onuUniMCFrameTransHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniCRC32ErrorsHis": {
+    "name": "onuUniCRC32ErrorsHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniUndersizeFramesHis": {
+    "name": "onuUniUndersizeFramesHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOversizeFramesHis": {
+    "name": "onuUniOversizeFramesHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFramesDroppedHis": {
+    "name": "onuUniFramesDroppedHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOctetsDroppedHis": {
+    "name": "onuUniOctetsDroppedHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniBandwidthHis": {
+    "name": "onuUniBandwidthHis",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "realTimePerformanceMonitor": {
+    "name": "realTimePerformanceMonitor",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2",
+    "class": "objectidentity"
+  },
+  "monitorTimeout": {
+    "name": "monitorTimeout",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorOperator": {
+    "name": "monitorOperator",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monitorStart": 1,
+          "monitorStop": 2,
+          "monitorResultClear": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSniMonitorTable": {
+    "name": "swSniMonitorTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSniMonitorEntry": {
+    "name": "swSniMonitorEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SWITCH-MIB",
+        "object": "swSniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSniOctetTransRel": {
+    "name": "swSniOctetTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniTotalFrameTransRel": {
+    "name": "swSniTotalFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniUCFrameTransRel": {
+    "name": "swSniUCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniBCFrameTransRel": {
+    "name": "swSniBCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniMCFrameTransRel": {
+    "name": "swSniMCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniCRC32ErrorsRel": {
+    "name": "swSniCRC32ErrorsRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniUndersizeFramesRel": {
+    "name": "swSniUndersizeFramesRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniOversizeFramesRel": {
+    "name": "swSniOversizeFramesRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniFramesDroppedRel": {
+    "name": "swSniFramesDroppedRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniOctetsDroppedRel": {
+    "name": "swSniOctetsDroppedRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniBandwidthRel": {
+    "name": "swSniBandwidthRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSniMonitorCtrTable": {
+    "name": "swSniMonitorCtrTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSniMonitorCtrEntry": {
+    "name": "swSniMonitorCtrEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SWITCH-MIB",
+        "object": "swSniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSniMonitorMap": {
+    "name": "swSniMonitorMap",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oltMonitorTable": {
+    "name": "oltMonitorTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltMonitorEntry": {
+    "name": "oltMonitorEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oltOctetTransRel": {
+    "name": "oltOctetTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltTotalFrameTransRel": {
+    "name": "oltTotalFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltUCFrameTransRel": {
+    "name": "oltUCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltBCFrameTransRel": {
+    "name": "oltBCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltMCFrameTransRel": {
+    "name": "oltMCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltCRC32ErrorsRel": {
+    "name": "oltCRC32ErrorsRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltUndersizeFramesRel": {
+    "name": "oltUndersizeFramesRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltOversizeFramesRel": {
+    "name": "oltOversizeFramesRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltFramesDroppedRel": {
+    "name": "oltFramesDroppedRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltOctetsDroppedRel": {
+    "name": "oltOctetsDroppedRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltBandwidthRel": {
+    "name": "oltBandwidthRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltMonitorCtrTable": {
+    "name": "oltMonitorCtrTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltMonitorCtrEntry": {
+    "name": "oltMonitorCtrEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oltMonitorMap": {
+    "name": "oltMonitorMap",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuUniMonitorTable": {
+    "name": "onuUniMonitorTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuUniMonitorEntry": {
+    "name": "onuUniMonitorEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "onuId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuUniOctetTransRel": {
+    "name": "onuUniOctetTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniTotalFrameTransRel": {
+    "name": "onuUniTotalFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniUCFrameTransRel": {
+    "name": "onuUniUCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniBCFrameTransRel": {
+    "name": "onuUniBCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniMCFrameTransRel": {
+    "name": "onuUniMCFrameTransRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniCRC32ErrorsRel": {
+    "name": "onuUniCRC32ErrorsRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniUndersizeRel": {
+    "name": "onuUniUndersizeRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOversizeFramesRel": {
+    "name": "onuUniOversizeFramesRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniFramesDroppedRel": {
+    "name": "onuUniFramesDroppedRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniOctetsDroppedRel": {
+    "name": "onuUniOctetsDroppedRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniBandwidthRel": {
+    "name": "onuUniBandwidthRel",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuUniMonitorCtrTable": {
+    "name": "onuUniMonitorCtrTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuUniMonitorCtrEntry": {
+    "name": "onuUniMonitorCtrEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "onuId",
+        "implied": 0
+      },
+      {
+        "module": "FD-ONU-MIB",
+        "object": "uniPortId",
+        "implied": 0
+      },
+      {
+        "module": "FD-OLT-MIB",
+        "object": "directionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuUniMonitorMap": {
+    "name": "onuUniMonitorMap",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.3.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "performanceConform": {
+    "name": "performanceConform",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6",
+    "class": "objectidentity"
+  },
+  "performanceGroups": {
+    "name": "performanceGroups",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1",
+    "class": "objectidentity"
+  },
+  "alarmThresholdGroup": {
+    "name": "alarmThresholdGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "sniPortThresholdLo"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "sniPortThresholdHi"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniPortTrafficChangeVal"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltThresholdLo"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltThresholdHi"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltTrafficChangeVal"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniThresholdLo"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniThresholdHi"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuTrafficChangeVal"
+      }
+    ],
+    "status": "current"
+  },
+  "fdOltStatsGroup": {
+    "name": "fdOltStatsGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidOctetsTransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidTotFrameTransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidUniFrametransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidBroadFrametransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidMulFrametransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidCrc32Errors"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidUndersizeFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidOversizeFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidFrom0to64OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidFrom65to127OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidFrom128to255OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidFrom256to511OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidFrom512to1023OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidFrom1024to1518OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidMore1519ctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidFramesDropped"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidOctetsDropped"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidOctetsDelayed"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidOctetsGranted"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidUnusedGrantedOctets"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidMaximumDelay"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidLineCodeViolation"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidErrFrameSecond"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidErrFramePeriod"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidSumErrFrameSecond"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "llidStatsOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "fdOnuStatsGroup": {
+    "name": "fdOnuStatsGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetsTransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniTotFrameTransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniUniFrametransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniBroadFrametransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniMulFrametransferred"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniCrc32Errors"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniUndersizeFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOversizeFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniCollosions"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFrom0to64OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFrom65to127OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFrom128to255OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFrom256to511OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFrom512to1023OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFrom1024to1518OctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniMore1519ctetFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFramesDropped"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetsDropped"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetsDelayed"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetsGranted"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniUnusedGrantedOctets"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniCrc8Errors"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniPauseFrames"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniStatsOperation"
+      }
+    ],
+    "status": "current"
+  },
+  "swHisMonitorGroup": {
+    "name": "swHisMonitorGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniOctetTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniTotalFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniUCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniBCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniMCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniCRC32ErrorsHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniUndersizeFramesHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniOversizeFramesHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniFramesDroppedHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniOctetsDroppedHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniBandwidthHis"
+      }
+    ],
+    "status": "current"
+  },
+  "oltHisMonitorGroup": {
+    "name": "oltHisMonitorGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltOctetTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltTotalFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltUCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltBCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltMCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltCRC32ErrorsHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltUndersizeFramesHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltOversizeFramesHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltFramesDroppedHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltOctetsDroppedHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltBandwidthHis"
+      }
+    ],
+    "status": "current"
+  },
+  "onuHisMonitorGroup": {
+    "name": "onuHisMonitorGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniTotalFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniUCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniBCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniMCFrameTransHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniCRC32ErrorsHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniUndersizeFramesHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOversizeFramesHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFramesDroppedHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetsDroppedHis"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniBandwidthHis"
+      }
+    ],
+    "status": "current"
+  },
+  "swRelMonitorGroup": {
+    "name": "swRelMonitorGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniOctetTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniTotalFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniUCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniBCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniMCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniCRC32ErrorsRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniUndersizeFramesRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniOversizeFramesRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniFramesDroppedRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniOctetsDroppedRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniBandwidthRel"
+      }
+    ],
+    "status": "current"
+  },
+  "oltRelMonitorGroup": {
+    "name": "oltRelMonitorGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltOctetTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltTotalFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltUCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltBCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltMCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltCRC32ErrorsRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltUndersizeFramesRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltOversizeFramesRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltFramesDroppedRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltOctetsDroppedRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltBandwidthRel"
+      }
+    ],
+    "status": "current"
+  },
+  "onuRelMonitorGroup": {
+    "name": "onuRelMonitorGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniTotalFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniUCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniBCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniMCFrameTransRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniCRC32ErrorsRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniUndersizeRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOversizeFramesRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniFramesDroppedRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniOctetsDroppedRel"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniBandwidthRel"
+      }
+    ],
+    "status": "current"
+  },
+  "monitorMapGroup": {
+    "name": "monitorMapGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "onuUniMonitorMap"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "monitorTimeout"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "monitorOperator"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "oltMonitorMap"
+      },
+      {
+        "module": "FD-PERFORMANCE-MIB",
+        "object": "swSniMonitorMap"
+      }
+    ],
+    "status": "current"
+  },
+  "performanceCompliances": {
+    "name": "performanceCompliances",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.2",
+    "class": "objectidentity"
+  },
+  "performanceCompliance": {
+    "name": "performanceCompliance",
+    "oid": "1.3.6.1.4.1.34592.1.3.5.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alarmThresholdGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "fdOltStatsGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "fdOnuStatsGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "swHisMonitorGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "oltHisMonitorGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "onuHisMonitorGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "swRelMonitorGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "oltRelMonitorGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "onuRelMonitorGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      },
+      {
+        "object": "monitorMapGroup",
+        "module": "FD-PERFORMANCE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-PERFORMANCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FD-PERFORMANCE-MIB"
+  }
+}

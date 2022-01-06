@@ -1,0 +1,1441 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IANA-RTPROTO-MIB": [
+      "IANAipRouteProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAutonomousSystemNumber"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIetfIpForward": {
+    "name": "ciscoIetfIpForward",
+    "oid": "1.3.6.1.4.1.9.10.85",
+    "class": "moduleidentity"
+  },
+  "cInetCidrRouteNumber": {
+    "name": "cInetCidrRouteNumber",
+    "oid": "1.3.6.1.4.1.9.10.85.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetCidrRouteDiscards": {
+    "name": "cInetCidrRouteDiscards",
+    "oid": "1.3.6.1.4.1.9.10.85.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetCidrRouteTable": {
+    "name": "cInetCidrRouteTable",
+    "oid": "1.3.6.1.4.1.9.10.85.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetCidrRouteEntry": {
+    "name": "cInetCidrRouteEntry",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteInstance",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteDestType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRoutePfxLen",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteNextHopType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cInetCidrRouteInstance": {
+    "name": "cInetCidrRouteInstance",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetCidrRouteDestType": {
+    "name": "cInetCidrRouteDestType",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetCidrRouteDest": {
+    "name": "cInetCidrRouteDest",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetCidrRoutePfxLen": {
+    "name": "cInetCidrRoutePfxLen",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetCidrRouteNextHopType": {
+    "name": "cInetCidrRouteNextHopType",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetCidrRouteNextHop": {
+    "name": "cInetCidrRouteNextHop",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetCidrRouteIfIndex": {
+    "name": "cInetCidrRouteIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteType": {
+    "name": "cInetCidrRouteType",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reject": 2,
+          "local": 3,
+          "remote": 4,
+          "blackhole": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteProto": {
+    "name": "cInetCidrRouteProto",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetCidrRouteAge": {
+    "name": "cInetCidrRouteAge",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetCidrRouteNextHopAS": {
+    "name": "cInetCidrRouteNextHopAS",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteMetric1": {
+    "name": "cInetCidrRouteMetric1",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteMetric2": {
+    "name": "cInetCidrRouteMetric2",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteMetric3": {
+    "name": "cInetCidrRouteMetric3",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteMetric4": {
+    "name": "cInetCidrRouteMetric4",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteMetric5": {
+    "name": "cInetCidrRouteMetric5",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetCidrRouteStatus": {
+    "name": "cInetCidrRouteStatus",
+    "oid": "1.3.6.1.4.1.9.10.85.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIpForwardConformance": {
+    "name": "cIpForwardConformance",
+    "oid": "1.3.6.1.4.1.9.10.85.5",
+    "class": "objectidentity"
+  },
+  "cIpForwardGroups": {
+    "name": "cIpForwardGroups",
+    "oid": "1.3.6.1.4.1.9.10.85.5.1",
+    "class": "objectidentity"
+  },
+  "cIpForwardCompliances": {
+    "name": "cIpForwardCompliances",
+    "oid": "1.3.6.1.4.1.9.10.85.5.2",
+    "class": "objectidentity"
+  },
+  "cIpForwardCompliance2": {
+    "name": "cIpForwardCompliance2",
+    "oid": "1.3.6.1.4.1.9.10.85.5.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cInetForwardCidrRouteGroup",
+        "module": "CISCO-IETF-IP-FORWARD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cInetForwardCidrRouteGroup": {
+    "name": "cInetForwardCidrRouteGroup",
+    "oid": "1.3.6.1.4.1.9.10.85.5.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteNumber"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteDiscards"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteType"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteProto"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteAge"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteNextHopAS"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteMetric1"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteMetric2"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteMetric3"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteMetric4"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteMetric5"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cInetCidrRouteStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cIpCidrRouteNumber": {
+    "name": "cIpCidrRouteNumber",
+    "oid": "1.3.6.1.4.1.9.10.85.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteTable": {
+    "name": "cIpCidrRouteTable",
+    "oid": "1.3.6.1.4.1.9.10.85.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteEntry": {
+    "name": "cIpCidrRouteEntry",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteTos",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cIpCidrRouteDest": {
+    "name": "cIpCidrRouteDest",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteMask": {
+    "name": "cIpCidrRouteMask",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteTos": {
+    "name": "cIpCidrRouteTos",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteNextHop": {
+    "name": "cIpCidrRouteNextHop",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteIfIndex": {
+    "name": "cIpCidrRouteIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteType": {
+    "name": "cIpCidrRouteType",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reject": 2,
+          "local": 3,
+          "remote": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteProto": {
+    "name": "cIpCidrRouteProto",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "icmp": 4,
+          "egp": 5,
+          "ggp": 6,
+          "hello": 7,
+          "rip": 8,
+          "isIs": 9,
+          "esIs": 10,
+          "ciscoIgrp": 11,
+          "bbnSpfIgp": 12,
+          "ospf": 13,
+          "bgp": 14,
+          "idpr": 15,
+          "ciscoEigrp": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteAge": {
+    "name": "cIpCidrRouteAge",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteInfo": {
+    "name": "cIpCidrRouteInfo",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteNextHopAS": {
+    "name": "cIpCidrRouteNextHopAS",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteMetric1": {
+    "name": "cIpCidrRouteMetric1",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteMetric2": {
+    "name": "cIpCidrRouteMetric2",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteMetric3": {
+    "name": "cIpCidrRouteMetric3",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteMetric4": {
+    "name": "cIpCidrRouteMetric4",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteMetric5": {
+    "name": "cIpCidrRouteMetric5",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpCidrRouteStatus": {
+    "name": "cIpCidrRouteStatus",
+    "oid": "1.3.6.1.4.1.9.10.85.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cIpForwardCompliance": {
+    "name": "cIpForwardCompliance",
+    "oid": "1.3.6.1.4.1.9.10.85.5.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIpForwardCidrRouteGroup",
+        "module": "CISCO-IETF-IP-FORWARD-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cIpForwardCidrRouteGroup": {
+    "name": "cIpForwardCidrRouteGroup",
+    "oid": "1.3.6.1.4.1.9.10.85.5.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteNumber"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteDest"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteMask"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteTos"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteNextHop"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteType"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteProto"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteAge"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteInfo"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteNextHopAS"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteMetric1"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteMetric2"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteMetric3"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteMetric4"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteMetric5"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpCidrRouteStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cIpForwardNumber": {
+    "name": "cIpForwardNumber",
+    "oid": "1.3.6.1.4.1.9.10.85.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cIpForwardTable": {
+    "name": "cIpForwardTable",
+    "oid": "1.3.6.1.4.1.9.10.85.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cIpForwardEntry": {
+    "name": "cIpForwardEntry",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardDest",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardProto",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardPolicy",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cIpForwardDest": {
+    "name": "cIpForwardDest",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cIpForwardMask": {
+    "name": "cIpForwardMask",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardPolicy": {
+    "name": "cIpForwardPolicy",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cIpForwardNextHop": {
+    "name": "cIpForwardNextHop",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cIpForwardIfIndex": {
+    "name": "cIpForwardIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardType": {
+    "name": "cIpForwardType",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "local": 3,
+          "remote": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "invalid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardProto": {
+    "name": "cIpForwardProto",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "icmp": 4,
+          "egp": 5,
+          "ggp": 6,
+          "hello": 7,
+          "rip": 8,
+          "is-is": 9,
+          "es-is": 10,
+          "ciscoIgrp": 11,
+          "bbnSpfIgp": 12,
+          "ospf": 13,
+          "bgp": 14,
+          "idpr": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cIpForwardAge": {
+    "name": "cIpForwardAge",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cIpForwardInfo": {
+    "name": "cIpForwardInfo",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardNextHopAS": {
+    "name": "cIpForwardNextHopAS",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardMetric1": {
+    "name": "cIpForwardMetric1",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardMetric2": {
+    "name": "cIpForwardMetric2",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardMetric3": {
+    "name": "cIpForwardMetric3",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardMetric4": {
+    "name": "cIpForwardMetric4",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardMetric5": {
+    "name": "cIpForwardMetric5",
+    "oid": "1.3.6.1.4.1.9.10.85.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "cIpForwardOldCompliance": {
+    "name": "cIpForwardOldCompliance",
+    "oid": "1.3.6.1.4.1.9.10.85.5.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIpForwardMultiPathGroup",
+        "module": "CISCO-IETF-IP-FORWARD-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cIpForwardMultiPathGroup": {
+    "name": "cIpForwardMultiPathGroup",
+    "oid": "1.3.6.1.4.1.9.10.85.5.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardNumber"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardDest"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardMask"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardPolicy"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardNextHop"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardType"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardProto"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardAge"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardInfo"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardNextHopAS"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardMetric1"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardMetric2"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardMetric3"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardMetric4"
+      },
+      {
+        "module": "CISCO-IETF-IP-FORWARD-MIB",
+        "object": "cIpForwardMetric5"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-IP-FORWARD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-IP-FORWARD-MIB"
+  }
+}

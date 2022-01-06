@@ -1,0 +1,310 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001",
+      "rlQosApps"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlQosApps": {
+    "name": "rlQosApps",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-06-02 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "rlIscsiQos": {
+    "name": "rlIscsiQos",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1",
+    "class": "objectidentity"
+  },
+  "rlIscsiQosEnable": {
+    "name": "rlIscsiQosEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIscsiQosFlowTable": {
+    "name": "rlIscsiQosFlowTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIscsiQosFlowEntry": {
+    "name": "rlIscsiQosFlowEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-QOS-APPS-MIB",
+        "object": "rlIscsiQosFlowDestTcpPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-QOS-APPS-MIB",
+        "object": "rlIscsiQosFlowType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-QOS-APPS-MIB",
+        "object": "rlIscsiQosFlowDestAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-QOS-APPS-MIB",
+        "object": "rlIscsiQosFlowDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIscsiQosFlowDestTcpPort": {
+    "name": "rlIscsiQosFlowDestTcpPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIscsiQosFlowType": {
+    "name": "rlIscsiQosFlowType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "both": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIscsiQosFlowDestAddressType": {
+    "name": "rlIscsiQosFlowDestAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIscsiQosFlowDestAddress": {
+    "name": "rlIscsiQosFlowDestAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIscsiQosFlowStatus": {
+    "name": "rlIscsiQosFlowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIscsiQosProfileTable": {
+    "name": "rlIscsiQosProfileTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIscsiQosProfileEntry": {
+    "name": "rlIscsiQosProfileEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-QOS-APPS-MIB",
+        "object": "rlIscsiQosProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIscsiQosProfileIndex": {
+    "name": "rlIscsiQosProfileIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIscsiQosProfileVpt": {
+    "name": "rlIscsiQosProfileVpt",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIscsiQosProfileDscp": {
+    "name": "rlIscsiQosProfileDscp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIscsiQosProfileQueue": {
+    "name": "rlIscsiQosProfileQueue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIscsiQosProfileStatus": {
+    "name": "rlIscsiQosProfileStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.232.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-QOS-APPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-QOS-APPS-MIB"
+  }
+}

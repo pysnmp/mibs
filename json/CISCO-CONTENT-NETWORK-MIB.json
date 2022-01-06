@@ -1,0 +1,340 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoContentNetworkMIB": {
+    "name": "ciscoContentNetworkMIB",
+    "oid": "1.3.6.1.4.1.9.9.216",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-10-11 18:25",
+        "description": "Deprecated: ccnNotifServerStart ccnNotifServerStop Added: ccnNotifOffline ccnNotifNeedsAttention ccnNotifWaitingForCdm ccnNotifOnline"
+      },
+      {
+        "revision": "2001-05-23 21:34",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoContentNetworkMIBObjects": {
+    "name": "ciscoContentNetworkMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.216.1",
+    "class": "objectidentity"
+  },
+  "ccnReport": {
+    "name": "ccnReport",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1",
+    "class": "objectidentity"
+  },
+  "ccnReportDns": {
+    "name": "ccnReportDns",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.1",
+    "class": "objectidentity"
+  },
+  "ccnReportAcct": {
+    "name": "ccnReportAcct",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.2",
+    "class": "objectidentity"
+  },
+  "ccnReportDnsRequestRate": {
+    "name": "ccnReportDnsRequestRate",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "requests-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccnReportDnsClientCount": {
+    "name": "ccnReportDnsClientCount",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "clients",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccnReportDnsRequests": {
+    "name": "ccnReportDnsRequests",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccnReportAcctBytesServed": {
+    "name": "ccnReportAcctBytesServed",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccnReportAcctObjectsCached": {
+    "name": "ccnReportAcctObjectsCached",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "objects",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccnReportAcctCacheHitRate": {
+    "name": "ccnReportAcctCacheHitRate",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "objects-per-minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccnReportAcctCacheMissRate": {
+    "name": "ccnReportAcctCacheMissRate",
+    "oid": "1.3.6.1.4.1.9.9.216.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "objects-per-minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoContentNetworkMIBNotif": {
+    "name": "ciscoContentNetworkMIBNotif",
+    "oid": "1.3.6.1.4.1.9.9.216.2",
+    "class": "objectidentity"
+  },
+  "ccnNotifications": {
+    "name": "ccnNotifications",
+    "oid": "1.3.6.1.4.1.9.9.216.2.0",
+    "class": "objectidentity"
+  },
+  "ccnNotifServerStart": {
+    "name": "ccnNotifServerStart",
+    "oid": "1.3.6.1.4.1.9.9.216.2.0.1",
+    "class": "notificationtype",
+    "status": "deprecated"
+  },
+  "ccnNotifServerStop": {
+    "name": "ccnNotifServerStop",
+    "oid": "1.3.6.1.4.1.9.9.216.2.0.2",
+    "class": "notificationtype",
+    "status": "deprecated"
+  },
+  "ccnNotifOffline": {
+    "name": "ccnNotifOffline",
+    "oid": "1.3.6.1.4.1.9.9.216.2.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ccnNotifNeedsAttention": {
+    "name": "ccnNotifNeedsAttention",
+    "oid": "1.3.6.1.4.1.9.9.216.2.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ccnNotifWaitingForCdm": {
+    "name": "ccnNotifWaitingForCdm",
+    "oid": "1.3.6.1.4.1.9.9.216.2.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ccnNotifOnline": {
+    "name": "ccnNotifOnline",
+    "oid": "1.3.6.1.4.1.9.9.216.2.0.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ccnMIBConformance": {
+    "name": "ccnMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.216.3",
+    "class": "objectidentity"
+  },
+  "ccnMIBCompliances": {
+    "name": "ccnMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.216.3.1",
+    "class": "objectidentity"
+  },
+  "ccnMIBGroups": {
+    "name": "ccnMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.216.3.2",
+    "class": "objectidentity"
+  },
+  "ccnMIBCompliance": {
+    "name": "ccnMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.216.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccnReportingGroup",
+        "module": "CISCO-CONTENT-NETWORK-MIB"
+      },
+      {
+        "object": "ccnNotifGroup",
+        "module": "CISCO-CONTENT-NETWORK-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccnMIBComplianceRev1": {
+    "name": "ccnMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.216.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccnReportingGroup",
+        "module": "CISCO-CONTENT-NETWORK-MIB"
+      },
+      {
+        "object": "ccnNotifGroupRev1",
+        "module": "CISCO-CONTENT-NETWORK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccnReportingGroup": {
+    "name": "ccnReportingGroup",
+    "oid": "1.3.6.1.4.1.9.9.216.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnReportDnsRequestRate"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnReportDnsClientCount"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnReportDnsRequests"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnReportAcctBytesServed"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnReportAcctObjectsCached"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnReportAcctCacheHitRate"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnReportAcctCacheMissRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ccnNotifGroup": {
+    "name": "ccnNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.216.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnNotifServerStart"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnNotifServerStop"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccnNotifGroupRev1": {
+    "name": "ccnNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.216.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnNotifOffline"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnNotifNeedsAttention"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnNotifWaitingForCdm"
+      },
+      {
+        "module": "CISCO-CONTENT-NETWORK-MIB",
+        "object": "ccnNotifOnline"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CONTENT-NETWORK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CONTENT-NETWORK-MIB"
+  }
+}

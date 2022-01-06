@@ -1,0 +1,336 @@
+{
+  "imports": {
+    "class": "imports",
+    "NSCRTV-ROOT": [
+      "propertyIdent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "analogPropertyTable": {
+    "name": "analogPropertyTable",
+    "oid": "1.3.6.1.4.1.17409.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "analogPropertyEntry": {
+    "name": "analogPropertyEntry",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-HFCEMS-PROPERTY-MIB",
+        "object": "analogParameterOID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "analogParameterOID": {
+    "name": "analogParameterOID",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmEnable": {
+    "name": "alarmEnable",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogAlarmState": {
+    "name": "analogAlarmState",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aasNominal": 1,
+          "aasHIHI": 2,
+          "aasHI": 3,
+          "aasLO": 4,
+          "aasLOLO": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "analogAlarmHIHI": {
+    "name": "analogAlarmHIHI",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogAlarmHI": {
+    "name": "analogAlarmHI",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogAlarmLO": {
+    "name": "analogAlarmLO",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogAlarmLOLO": {
+    "name": "analogAlarmLOLO",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogAlarmDeadband": {
+    "name": "analogAlarmDeadband",
+    "oid": "1.3.6.1.4.1.17409.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "discretePropertyTable": {
+    "name": "discretePropertyTable",
+    "oid": "1.3.6.1.4.1.17409.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "discretePropertyEntry": {
+    "name": "discretePropertyEntry",
+    "oid": "1.3.6.1.4.1.17409.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-HFCEMS-PROPERTY-MIB",
+        "object": "discreteParameterOID",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-HFCEMS-PROPERTY-MIB",
+        "object": "discreteAlarmValue",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "discreteParameterOID": {
+    "name": "discreteParameterOID",
+    "oid": "1.3.6.1.4.1.17409.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "discreteAlarmValue": {
+    "name": "discreteAlarmValue",
+    "oid": "1.3.6.1.4.1.17409.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "discreteAlarmEnable": {
+    "name": "discreteAlarmEnable",
+    "oid": "1.3.6.1.4.1.17409.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enableMajor": 2,
+          "enableMinor": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "discreteAlarmState": {
+    "name": "discreteAlarmState",
+    "oid": "1.3.6.1.4.1.17409.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dasNominal": 1,
+          "dasDiscreteMajor": 6,
+          "dasDiscreteMinor": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "currentAlarmTable": {
+    "name": "currentAlarmTable",
+    "oid": "1.3.6.1.4.1.17409.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "currentAlarmEntry": {
+    "name": "currentAlarmEntry",
+    "oid": "1.3.6.1.4.1.17409.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-HFCEMS-PROPERTY-MIB",
+        "object": "currentAlarmOID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "currentAlarmOID": {
+    "name": "currentAlarmOID",
+    "oid": "1.3.6.1.4.1.17409.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "currentAlarmState": {
+    "name": "currentAlarmState",
+    "oid": "1.3.6.1.4.1.17409.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "caasHIHI": 2,
+          "caasHI": 3,
+          "caasLO": 4,
+          "caasLOLO": 5,
+          "caasDiscreteMajor": 6,
+          "caasDiscreteMinor": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "currentAlarmValue": {
+    "name": "currentAlarmValue",
+    "oid": "1.3.6.1.4.1.17409.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/NSCRTV-HFCEMS-PROPERTY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NSCRTV-HFCEMS-PROPERTY-MIB"
+  }
+}

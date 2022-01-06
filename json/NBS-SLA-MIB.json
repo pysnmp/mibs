@@ -1,0 +1,1972 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsSlaMib": {
+    "name": "nbsSlaMib",
+    "oid": "1.3.6.1.4.1.629.216",
+    "class": "moduleidentity"
+  },
+  "nbsSlaTrafficGenGrp": {
+    "name": "nbsSlaTrafficGenGrp",
+    "oid": "1.3.6.1.4.1.629.216.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSlaLossGainGrp": {
+    "name": "nbsSlaLossGainGrp",
+    "oid": "1.3.6.1.4.1.629.216.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSlaPerfMonGrp": {
+    "name": "nbsSlaPerfMonGrp",
+    "oid": "1.3.6.1.4.1.629.216.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenTableSize": {
+    "name": "nbsSlaTrafficGenTableSize",
+    "oid": "1.3.6.1.4.1.629.216.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenTable": {
+    "name": "nbsSlaTrafficGenTable",
+    "oid": "1.3.6.1.4.1.629.216.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenEntry": {
+    "name": "nbsSlaTrafficGenEntry",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-SLA-MIB",
+        "object": "nbsSlaTrafficGenIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsSlaTrafficGenIfIndex": {
+    "name": "nbsSlaTrafficGenIfIndex",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenAction": {
+    "name": "nbsSlaTrafficGenAction",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "start": 2,
+          "stop": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "stop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenFrameSize": {
+    "name": "nbsSlaTrafficGenFrameSize",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenFrameSizeType": {
+    "name": "nbsSlaTrafficGenFrameSizeType",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "random": 2,
+          "fixed": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fixed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenFrameCount": {
+    "name": "nbsSlaTrafficGenFrameCount",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenFrameCountType": {
+    "name": "nbsSlaTrafficGenFrameCountType",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "continuous": 2,
+          "fixed": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "continuous",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenInterPacketGap": {
+    "name": "nbsSlaTrafficGenInterPacketGap",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 12,
+            "max": 134217727
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1249928,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenMaxHeaders": {
+    "name": "nbsSlaTrafficGenMaxHeaders",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenMaxPattern": {
+    "name": "nbsSlaTrafficGenMaxPattern",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenHeaders": {
+    "name": "nbsSlaTrafficGenHeaders",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 48,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenDa": {
+    "name": "nbsSlaTrafficGenDa",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenDaType": {
+    "name": "nbsSlaTrafficGenDaType",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "random": 2,
+          "fixed": 3,
+          "increment": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "random",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenSa": {
+    "name": "nbsSlaTrafficGenSa",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenSaType": {
+    "name": "nbsSlaTrafficGenSaType",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "random": 2,
+          "fixed": 3,
+          "increment": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "random",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenTag": {
+    "name": "nbsSlaTrafficGenTag",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenTagType": {
+    "name": "nbsSlaTrafficGenTagType",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "random": 2,
+          "fixed": 3,
+          "increment": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "random",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenPattern": {
+    "name": "nbsSlaTrafficGenPattern",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaTrafficGenPatternType": {
+    "name": "nbsSlaTrafficGenPatternType",
+    "oid": "1.3.6.1.4.1.629.216.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "random": 2,
+          "fixed": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "random",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaLossGainTableSize": {
+    "name": "nbsSlaLossGainTableSize",
+    "oid": "1.3.6.1.4.1.629.216.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainTable": {
+    "name": "nbsSlaLossGainTable",
+    "oid": "1.3.6.1.4.1.629.216.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSlaLossGainEntry": {
+    "name": "nbsSlaLossGainEntry",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-SLA-MIB",
+        "object": "nbsSlaLossGainIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsSlaLossGainIfIndex": {
+    "name": "nbsSlaLossGainIfIndex",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSlaLossGainAction": {
+    "name": "nbsSlaLossGainAction",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "inactive": 2,
+          "start": 3,
+          "stop": 4,
+          "inProgress": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notSupported",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaLossGainInterval": {
+    "name": "nbsSlaLossGainInterval",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaLossGainEthMax": {
+    "name": "nbsSlaLossGainEthMax",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1518,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdAllFrames": {
+    "name": "nbsSlaLossGainRdAllFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdBadFrames": {
+    "name": "nbsSlaLossGainRdBadFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdDiscards": {
+    "name": "nbsSlaLossGainRdDiscards",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdUcastFrames": {
+    "name": "nbsSlaLossGainRdUcastFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdMcastFrames": {
+    "name": "nbsSlaLossGainRdMcastFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdBcastFrames": {
+    "name": "nbsSlaLossGainRdBcastFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize64": {
+    "name": "nbsSlaLossGainRdSize64",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize65to127": {
+    "name": "nbsSlaLossGainRdSize65to127",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize128to255": {
+    "name": "nbsSlaLossGainRdSize128to255",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize256to511": {
+    "name": "nbsSlaLossGainRdSize256to511",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize512to1023": {
+    "name": "nbsSlaLossGainRdSize512to1023",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize1024toEthMax": {
+    "name": "nbsSlaLossGainRdSize1024toEthMax",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSizeEthMaxto2047": {
+    "name": "nbsSlaLossGainRdSizeEthMaxto2047",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize2048to4095": {
+    "name": "nbsSlaLossGainRdSize2048to4095",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize4096to8191": {
+    "name": "nbsSlaLossGainRdSize4096to8191",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdSize8192orMore": {
+    "name": "nbsSlaLossGainRdSize8192orMore",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdFrameDivisor": {
+    "name": "nbsSlaLossGainRdFrameDivisor",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdAllOctets": {
+    "name": "nbsSlaLossGainRdAllOctets",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdBadOctets": {
+    "name": "nbsSlaLossGainRdBadOctets",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdOctetDivisor": {
+    "name": "nbsSlaLossGainRdOctetDivisor",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainRdTimeSpan": {
+    "name": "nbsSlaLossGainRdTimeSpan",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdAllFrames": {
+    "name": "nbsSlaLossGainAdAllFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdBadFrames": {
+    "name": "nbsSlaLossGainAdBadFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdDiscards": {
+    "name": "nbsSlaLossGainAdDiscards",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdUcastFrames": {
+    "name": "nbsSlaLossGainAdUcastFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdMcastFrames": {
+    "name": "nbsSlaLossGainAdMcastFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdBcastFrames": {
+    "name": "nbsSlaLossGainAdBcastFrames",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize64": {
+    "name": "nbsSlaLossGainAdSize64",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize65to127": {
+    "name": "nbsSlaLossGainAdSize65to127",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize128to255": {
+    "name": "nbsSlaLossGainAdSize128to255",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize256to511": {
+    "name": "nbsSlaLossGainAdSize256to511",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize512to1023": {
+    "name": "nbsSlaLossGainAdSize512to1023",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize1024toEthMax": {
+    "name": "nbsSlaLossGainAdSize1024toEthMax",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSizeEthMaxto2047": {
+    "name": "nbsSlaLossGainAdSizeEthMaxto2047",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize2048to4095": {
+    "name": "nbsSlaLossGainAdSize2048to4095",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize4096to8191": {
+    "name": "nbsSlaLossGainAdSize4096to8191",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdSize8192orMore": {
+    "name": "nbsSlaLossGainAdSize8192orMore",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdFrameDivisor": {
+    "name": "nbsSlaLossGainAdFrameDivisor",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdAllOctets": {
+    "name": "nbsSlaLossGainAdAllOctets",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdBadOctets": {
+    "name": "nbsSlaLossGainAdBadOctets",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdOctetDivisor": {
+    "name": "nbsSlaLossGainAdOctetDivisor",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaLossGainAdTimeSpan": {
+    "name": "nbsSlaLossGainAdTimeSpan",
+    "oid": "1.3.6.1.4.1.629.216.2.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonTableSize": {
+    "name": "nbsSlaPerfMonTableSize",
+    "oid": "1.3.6.1.4.1.629.216.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonTable": {
+    "name": "nbsSlaPerfMonTable",
+    "oid": "1.3.6.1.4.1.629.216.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSlaPerfMonEntry": {
+    "name": "nbsSlaPerfMonEntry",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-SLA-MIB",
+        "object": "nbsSlaPerfMonIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsSlaPerfMonIfIndex": {
+    "name": "nbsSlaPerfMonIfIndex",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAction": {
+    "name": "nbsSlaPerfMonAction",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "inactive": 2,
+          "start": 3,
+          "stop": 4,
+          "reflect": 5,
+          "forward": 6,
+          "inProgress": 7,
+          "complete": 8,
+          "stopping": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaPerfMonSize": {
+    "name": "nbsSlaPerfMonSize",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaPerfMonDuration": {
+    "name": "nbsSlaPerfMonDuration",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsSlaPerfMonTimeLeft": {
+    "name": "nbsSlaPerfMonTimeLeft",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonEthMax": {
+    "name": "nbsSlaPerfMonEthMax",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1518,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvgAllSizes": {
+    "name": "nbsSlaPerfMonAvgAllSizes",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg64": {
+    "name": "nbsSlaPerfMonAvg64",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg65to127": {
+    "name": "nbsSlaPerfMonAvg65to127",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg128to255": {
+    "name": "nbsSlaPerfMonAvg128to255",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg256to511": {
+    "name": "nbsSlaPerfMonAvg256to511",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg512to1023": {
+    "name": "nbsSlaPerfMonAvg512to1023",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg1024toEthMax": {
+    "name": "nbsSlaPerfMonAvg1024toEthMax",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvgEthMaxto2047": {
+    "name": "nbsSlaPerfMonAvgEthMaxto2047",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg2048to4095": {
+    "name": "nbsSlaPerfMonAvg2048to4095",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg4096to8191": {
+    "name": "nbsSlaPerfMonAvg4096to8191",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonAvg8192orMore": {
+    "name": "nbsSlaPerfMonAvg8192orMore",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMinAllSizes": {
+    "name": "nbsSlaPerfMonMinAllSizes",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin64": {
+    "name": "nbsSlaPerfMonMin64",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin65to127": {
+    "name": "nbsSlaPerfMonMin65to127",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin128to255": {
+    "name": "nbsSlaPerfMonMin128to255",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin256to511": {
+    "name": "nbsSlaPerfMonMin256to511",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin512to1023": {
+    "name": "nbsSlaPerfMonMin512to1023",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin1024toEthMax": {
+    "name": "nbsSlaPerfMonMin1024toEthMax",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMinEthMaxto2047": {
+    "name": "nbsSlaPerfMonMinEthMaxto2047",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin2048to4095": {
+    "name": "nbsSlaPerfMonMin2048to4095",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin4096to8191": {
+    "name": "nbsSlaPerfMonMin4096to8191",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMin8192orMore": {
+    "name": "nbsSlaPerfMonMin8192orMore",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMaxAllSizes": {
+    "name": "nbsSlaPerfMonMaxAllSizes",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax64": {
+    "name": "nbsSlaPerfMonMax64",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax65to127": {
+    "name": "nbsSlaPerfMonMax65to127",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax128to255": {
+    "name": "nbsSlaPerfMonMax128to255",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax256to511": {
+    "name": "nbsSlaPerfMonMax256to511",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax512to1023": {
+    "name": "nbsSlaPerfMonMax512to1023",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax1024toEthMax": {
+    "name": "nbsSlaPerfMonMax1024toEthMax",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMaxEthMaxto2047": {
+    "name": "nbsSlaPerfMonMaxEthMaxto2047",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax2048to4095": {
+    "name": "nbsSlaPerfMonMax2048to4095",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax4096to8191": {
+    "name": "nbsSlaPerfMonMax4096to8191",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonMax8192orMore": {
+    "name": "nbsSlaPerfMonMax8192orMore",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFramesAllSizes": {
+    "name": "nbsSlaPerfMonFramesAllSizes",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames64": {
+    "name": "nbsSlaPerfMonFrames64",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames65to127": {
+    "name": "nbsSlaPerfMonFrames65to127",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames128to255": {
+    "name": "nbsSlaPerfMonFrames128to255",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames256to511": {
+    "name": "nbsSlaPerfMonFrames256to511",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames512to1023": {
+    "name": "nbsSlaPerfMonFrames512to1023",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames1024toEthMax": {
+    "name": "nbsSlaPerfMonFrames1024toEthMax",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFramesEthMaxto2047": {
+    "name": "nbsSlaPerfMonFramesEthMaxto2047",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames2048to4095": {
+    "name": "nbsSlaPerfMonFrames2048to4095",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames4096to8191": {
+    "name": "nbsSlaPerfMonFrames4096to8191",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonFrames8192orMore": {
+    "name": "nbsSlaPerfMonFrames8192orMore",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctetsAllSizes": {
+    "name": "nbsSlaPerfMonOctetsAllSizes",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets64": {
+    "name": "nbsSlaPerfMonOctets64",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets65to127": {
+    "name": "nbsSlaPerfMonOctets65to127",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets128to255": {
+    "name": "nbsSlaPerfMonOctets128to255",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets256to511": {
+    "name": "nbsSlaPerfMonOctets256to511",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets512to1023": {
+    "name": "nbsSlaPerfMonOctets512to1023",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets1024toEthMax": {
+    "name": "nbsSlaPerfMonOctets1024toEthMax",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctetsEthMaxto2047": {
+    "name": "nbsSlaPerfMonOctetsEthMaxto2047",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets2048to4095": {
+    "name": "nbsSlaPerfMonOctets2048to4095",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets4096to8191": {
+    "name": "nbsSlaPerfMonOctets4096to8191",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsSlaPerfMonOctets8192orMore": {
+    "name": "nbsSlaPerfMonOctets8192orMore",
+    "oid": "1.3.6.1.4.1.629.216.3.2.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SLA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-SLA-MIB"
+  }
+}

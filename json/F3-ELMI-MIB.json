@@ -1,0 +1,1161 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "OperationalState",
+      "PerfCounter64"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "cmEthernetNetPortIndex",
+      "cmEthernetAccPortIndex",
+      "cmFlowIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "f3ElmiMIB": {
+    "name": "f3ElmiMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-18 00:00",
+        "description": " Notes from release 201205180000Z (i)Initial Version."
+      }
+    ]
+  },
+  "f3ElmiConfigObjects": {
+    "name": "f3ElmiConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1",
+    "class": "objectidentity"
+  },
+  "f3ElmiStatsObjects": {
+    "name": "f3ElmiStatsObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2",
+    "class": "objectidentity"
+  },
+  "f3ElmiConformance": {
+    "name": "f3ElmiConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.3",
+    "class": "objectidentity"
+  },
+  "ELMIEvcStatus": {
+    "name": "ELMIEvcStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "partiallyActive": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ELMIEvcType": {
+    "name": "ELMIEvcType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "pointToMultipoint": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3AccPortElmiConfigTable": {
+    "name": "f3AccPortElmiConfigTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3AccPortElmiConfigEntry": {
+    "name": "f3AccPortElmiConfigEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetAccPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3AccPortElmiConfigIndex": {
+    "name": "f3AccPortElmiConfigIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3AccPortElmiConfigEnabled": {
+    "name": "f3AccPortElmiConfigEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3AccPortElmiConfigOperationalState": {
+    "name": "f3AccPortElmiConfigOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiConfigN393StatusCounter": {
+    "name": "f3AccPortElmiConfigN393StatusCounter",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3AccPortElmiConfigT392PollVerificationTimer": {
+    "name": "f3AccPortElmiConfigT392PollVerificationTimer",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3AccPortElmiConfigAsyncStatusEnabled": {
+    "name": "f3AccPortElmiConfigAsyncStatusEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3AccPortElmiConfigMinAsyncMessageInterval": {
+    "name": "f3AccPortElmiConfigMinAsyncMessageInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigTable": {
+    "name": "f3NetPortElmiConfigTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigEntry": {
+    "name": "f3NetPortElmiConfigEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetNetPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3NetPortElmiConfigIndex": {
+    "name": "f3NetPortElmiConfigIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigEnabled": {
+    "name": "f3NetPortElmiConfigEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigOperationalState": {
+    "name": "f3NetPortElmiConfigOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigN393StatusCounter": {
+    "name": "f3NetPortElmiConfigN393StatusCounter",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigT392PollVerificationTimer": {
+    "name": "f3NetPortElmiConfigT392PollVerificationTimer",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigAsyncStatusEnabled": {
+    "name": "f3NetPortElmiConfigAsyncStatusEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NetPortElmiConfigMinAsyncMessageInterval": {
+    "name": "f3NetPortElmiConfigMinAsyncMessageInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsTable": {
+    "name": "f3AccPortElmiStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsEntry": {
+    "name": "f3AccPortElmiStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetAccPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3AccPortElmiStatsIndex": {
+    "name": "f3AccPortElmiStatsIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsLastFullStatusSent": {
+    "name": "f3AccPortElmiStatsLastFullStatusSent",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsLastStatusCheckSent": {
+    "name": "f3AccPortElmiStatsLastStatusCheckSent",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsLastFullStatusReceived": {
+    "name": "f3AccPortElmiStatsLastFullStatusReceived",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsLastStatusCheckReceived": {
+    "name": "f3AccPortElmiStatsLastStatusCheckReceived",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsInvalidProtocolVersionFrames": {
+    "name": "f3AccPortElmiStatsInvalidProtocolVersionFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsInvalidMessageTypeFrames": {
+    "name": "f3AccPortElmiStatsInvalidMessageTypeFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsOutOfSequenceIEFrames": {
+    "name": "f3AccPortElmiStatsOutOfSequenceIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsDuplicateIEFrames": {
+    "name": "f3AccPortElmiStatsDuplicateIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsMissingMandatoryIEFrames": {
+    "name": "f3AccPortElmiStatsMissingMandatoryIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsErroredMandatoryIEFrames": {
+    "name": "f3AccPortElmiStatsErroredMandatoryIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsUnexpectedIEFrames": {
+    "name": "f3AccPortElmiStatsUnexpectedIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AccPortElmiStatsPVTExpirations": {
+    "name": "f3AccPortElmiStatsPVTExpirations",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsTable": {
+    "name": "f3NetPortElmiStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsEntry": {
+    "name": "f3NetPortElmiStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetNetPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3NetPortElmiStatsIndex": {
+    "name": "f3NetPortElmiStatsIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsLastFullStatusSent": {
+    "name": "f3NetPortElmiStatsLastFullStatusSent",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsLastStatusCheckSent": {
+    "name": "f3NetPortElmiStatsLastStatusCheckSent",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsLastFullStatusReceived": {
+    "name": "f3NetPortElmiStatsLastFullStatusReceived",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsLastStatusCheckReceived": {
+    "name": "f3NetPortElmiStatsLastStatusCheckReceived",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsInvalidProtocolVersionFrames": {
+    "name": "f3NetPortElmiStatsInvalidProtocolVersionFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsInvalidMessageTypeFrames": {
+    "name": "f3NetPortElmiStatsInvalidMessageTypeFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsOutOfSequenceIEFrames": {
+    "name": "f3NetPortElmiStatsOutOfSequenceIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsDuplicateIEFrames": {
+    "name": "f3NetPortElmiStatsDuplicateIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsMissingMandatoryIEFrames": {
+    "name": "f3NetPortElmiStatsMissingMandatoryIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsErroredMandatoryIEFrames": {
+    "name": "f3NetPortElmiStatsErroredMandatoryIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsUnexpectedIEFrames": {
+    "name": "f3NetPortElmiStatsUnexpectedIEFrames",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3NetPortElmiStatsPVTExpirations": {
+    "name": "f3NetPortElmiStatsPVTExpirations",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ElmiEvcStatusInfoTable": {
+    "name": "f3ElmiEvcStatusInfoTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ElmiEvcStatusInfoEntry": {
+    "name": "f3ElmiEvcStatusInfoEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetAccPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmFlowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ElmiEvcStatusInfoEvcID": {
+    "name": "f3ElmiEvcStatusInfoEvcID",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ElmiEvcStatusInfoEvcFlowID": {
+    "name": "f3ElmiEvcStatusInfoEvcFlowID",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ElmiEvcStatusInfoEvcStatus": {
+    "name": "f3ElmiEvcStatusInfoEvcStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ELMIEvcStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ElmiEvcStatusInfoEvcType": {
+    "name": "f3ElmiEvcStatusInfoEvcType",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ELMIEvcType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ElmiCompliances": {
+    "name": "f3ElmiCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.3.1",
+    "class": "objectidentity"
+  },
+  "f3ElmiGroups": {
+    "name": "f3ElmiGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.3.2",
+    "class": "objectidentity"
+  },
+  "f3ElmiCompliance": {
+    "name": "f3ElmiCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3ElmiConfigGroup",
+        "module": "F3-ELMI-MIB"
+      },
+      {
+        "object": "f3ElmiStatsGroup",
+        "module": "F3-ELMI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ElmiConfigGroup": {
+    "name": "f3ElmiConfigGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigEnabled"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigOperationalState"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigN393StatusCounter"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigT392PollVerificationTimer"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigAsyncStatusEnabled"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiConfigMinAsyncMessageInterval"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigEnabled"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigOperationalState"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigN393StatusCounter"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigT392PollVerificationTimer"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigAsyncStatusEnabled"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiConfigMinAsyncMessageInterval"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3ElmiEvcStatusInfoEvcID"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3ElmiEvcStatusInfoEvcFlowID"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3ElmiEvcStatusInfoEvcStatus"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3ElmiEvcStatusInfoEvcType"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ElmiStatsGroup": {
+    "name": "f3ElmiStatsGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.20.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsLastFullStatusSent"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsLastStatusCheckSent"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsLastFullStatusReceived"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsLastStatusCheckReceived"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsInvalidProtocolVersionFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsInvalidMessageTypeFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsOutOfSequenceIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsDuplicateIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsMissingMandatoryIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsErroredMandatoryIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsUnexpectedIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3AccPortElmiStatsPVTExpirations"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsLastFullStatusSent"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsLastStatusCheckSent"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsLastFullStatusReceived"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsLastStatusCheckReceived"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsInvalidProtocolVersionFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsInvalidMessageTypeFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsOutOfSequenceIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsDuplicateIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsMissingMandatoryIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsErroredMandatoryIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsUnexpectedIEFrames"
+      },
+      {
+        "module": "F3-ELMI-MIB",
+        "object": "f3NetPortElmiStatsPVTExpirations"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-ELMI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-ELMI-MIB"
+  }
+}

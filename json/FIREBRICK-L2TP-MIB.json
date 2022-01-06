@@ -1,0 +1,433 @@
+{
+  "imports": {
+    "class": "imports",
+    "FIREBRICK-MIB": [
+      "firebrickNewStyle"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "enterprises",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "fbL2tpMib": {
+    "name": "fbL2tpMib",
+    "oid": "1.3.6.1.4.1.24693.100.1701",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-04-06 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "fbL2tpGeneral": {
+    "name": "fbL2tpGeneral",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0",
+    "class": "objectidentity"
+  },
+  "fbL2tpGeneralTunnels": {
+    "name": "fbL2tpGeneralTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1",
+    "class": "objectidentity"
+  },
+  "fbL2tpGeneralSessions": {
+    "name": "fbL2tpGeneralSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2",
+    "class": "objectidentity"
+  },
+  "fbL2tpFreeTunnels": {
+    "name": "fbL2tpFreeTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1.0",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpOpeningTunnels": {
+    "name": "fbL2tpOpeningTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpLiveIncomingTunnels": {
+    "name": "fbL2tpLiveIncomingTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpLiveOutgoingTunnels": {
+    "name": "fbL2tpLiveOutgoingTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpClosingTunnels": {
+    "name": "fbL2tpClosingTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpFailedTunnels": {
+    "name": "fbL2tpFailedTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpClosedTunnels": {
+    "name": "fbL2tpClosedTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpFreeSessions": {
+    "name": "fbL2tpFreeSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.0",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpWaitingSessions": {
+    "name": "fbL2tpWaitingSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpOpeningSessions": {
+    "name": "fbL2tpOpeningSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpNegotiatingSessions": {
+    "name": "fbL2tpNegotiatingSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpAuthPendingSessions": {
+    "name": "fbL2tpAuthPendingSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpStartedSessions": {
+    "name": "fbL2tpStartedSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpLiveSessions": {
+    "name": "fbL2tpLiveSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpAcctPendingSessions": {
+    "name": "fbL2tpAcctPendingSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpClosingSessions": {
+    "name": "fbL2tpClosingSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpClosedSessions": {
+    "name": "fbL2tpClosedSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpSessionNegotiationSlotsFree": {
+    "name": "fbL2tpSessionNegotiationSlotsFree",
+    "oid": "1.3.6.1.4.1.24693.100.1701.0.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fbL2tpPeerTable": {
+    "name": "fbL2tpPeerTable",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerEntry": {
+    "name": "fbL2tpPeerEntry",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FIREBRICK-L2TP-MIB",
+        "object": "fbL2tpPeerAddressType",
+        "implied": 0
+      },
+      {
+        "module": "FIREBRICK-L2TP-MIB",
+        "object": "fbL2tpPeerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fbL2tpPeerAddressType": {
+    "name": "fbL2tpPeerAddressType",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerAddress": {
+    "name": "fbL2tpPeerAddress",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerLoginName": {
+    "name": "fbL2tpPeerLoginName",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerHostName": {
+    "name": "fbL2tpPeerHostName",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerInTunnels": {
+    "name": "fbL2tpPeerInTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerOutTunnels": {
+    "name": "fbL2tpPeerOutTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerOldestUptime": {
+    "name": "fbL2tpPeerOldestUptime",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerLiveTunnels": {
+    "name": "fbL2tpPeerLiveTunnels",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fbL2tpPeerSessions": {
+    "name": "fbL2tpPeerSessions",
+    "oid": "1.3.6.1.4.1.24693.100.1701.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/firebrick/FIREBRICK-L2TP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FIREBRICK-L2TP-MIB"
+  }
+}

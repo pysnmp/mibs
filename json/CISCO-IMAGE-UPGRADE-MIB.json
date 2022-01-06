@@ -1,0 +1,1649 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoImageUpgradeMIB": {
+    "name": "ciscoImageUpgradeMIB",
+    "oid": "1.3.6.1.4.1.9.9.360",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-28 00:00",
+        "description": "Added new group ciuUpgradeOpNewGroup. Added new enum 'systemPreupgradeBegin' to ciuUpgradeOpStatusOperation. Added ciuUpgradeOpLastCommand and ciuUpgradeOpLastStatus to the varbind list of ciuUpgradeOpCompletionNotify. Added new compliance ciuImageUpgradeComplianceRev4 and deprecated ciuImageUpgradeComplianceRev3. Added ciuUpgradeJobStatusNotifyOnCompletion."
+      },
+      {
+        "revision": "2008-03-18 00:00",
+        "description": "Added new enum 'compactFlashTcamSanity' to ciuUpgradeOpStatusOperation."
+      },
+      {
+        "revision": "2007-07-18 00:00",
+        "description": "Added new enums to ciuUpgradeOpStatusOperation."
+      },
+      {
+        "revision": "2006-12-21 00:00",
+        "description": "Added new enums to ciuUpgradeOpStatus and ciuUpgradeOpStatusOperation. Added new trap ciuUpgradeJobStatusNotify. Changed type for ciuUpgradeOpStatusModule to EntPhysicalIndexOrZero. Added ciuUpgradeNotificationGroupSup group, deprecated ciuImageUpgradeComplianceRev2 and added ciuImageUpgradeComplianceRev3 "
+      },
+      {
+        "revision": "2004-01-20 00:00",
+        "description": "Added new enums to ciuUpgradeOpStatus and ciuUpgradeOpStatusOperation. Corrected description for 'configSync' enum defined in ciuUpgradeOpStatusOperation object. "
+      },
+      {
+        "revision": "2003-11-04 00:00",
+        "description": "Updated compliance statement. Removed ciuImageLocInputGroup from conditionally mandatory."
+      },
+      {
+        "revision": "2003-10-28 00:00",
+        "description": "Added ciuUpgradeMiscInfoTable. Added more enums to ciuUpgradeOpStatusOperation. Added ciuUpgradeMiscInfoGroup, deprecated ciuImageUpgradeComplianceRev1 and added ciuImageUpgradeComplianceRev2."
+      },
+      {
+        "revision": "2003-07-11 00:00",
+        "description": "Changed: ciuImageLocInputURI identifier from 2 to 1, ciuImageLocInputEntryStatus identifier from 3 to 2 and ciuImageVariableName from 2 to 1. Added recommendedAction to ciuUpgradeOpStatusOperation."
+      },
+      {
+        "revision": "2003-07-08 00:00",
+        "description": "Added ciscoImageUpgradeMisc, added ciuUpgradeMiscAutoCopy under the group ciscoImageUpgradeMisc. Added ciuUpgradeMiscGroup, deprecated ciuImageUpgradeCompliance and added ciuImageUpgradeComplianceReve1."
+      },
+      {
+        "revision": "2003-06-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoImageUpgradeMIBNotifs": {
+    "name": "ciscoImageUpgradeMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.360.0",
+    "class": "objectidentity"
+  },
+  "ciscoImageUpgradeMIBObjects": {
+    "name": "ciscoImageUpgradeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.360.1",
+    "class": "objectidentity"
+  },
+  "ciscoImageUpgradeMIBConform": {
+    "name": "ciscoImageUpgradeMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.360.2",
+    "class": "objectidentity"
+  },
+  "ciscoImageUpgradeConfig": {
+    "name": "ciscoImageUpgradeConfig",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoImageUpgradeOp": {
+    "name": "ciscoImageUpgradeOp",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoImageUpgradeMisc": {
+    "name": "ciscoImageUpgradeMisc",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.10",
+    "class": "objectidentity"
+  },
+  "CiuImageVariableTypeName": {
+    "name": "CiuImageVariableTypeName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciuTotalImageVariables": {
+    "name": "ciuTotalImageVariables",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuImageVariableTable": {
+    "name": "ciuImageVariableTable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuImageVariableEntry": {
+    "name": "ciuImageVariableEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuImageVariableName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageVariableName": {
+    "name": "ciuImageVariableName",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiuImageVariableTypeName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuImageURITable": {
+    "name": "ciuImageURITable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuImageURIEntry": {
+    "name": "ciuImageURIEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuImageVariableName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageURI": {
+    "name": "ciuImageURI",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciuUpgradeOpCommand": {
+    "name": "ciuUpgradeOpCommand",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "done": 2,
+          "install": 3,
+          "check": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatus": {
+    "name": "ciuUpgradeOpStatus",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "invalidOperation": 2,
+          "failure": 3,
+          "inProgress": 4,
+          "success": 5,
+          "abortInProgress": 6,
+          "abortSuccess": 7,
+          "abortFailed": 8,
+          "successReset": 9,
+          "fsUpgReset": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpNotifyOnCompletion": {
+    "name": "ciuUpgradeOpNotifyOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciuUpgradeOpTimeStarted": {
+    "name": "ciuUpgradeOpTimeStarted",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpTimeCompleted": {
+    "name": "ciuUpgradeOpTimeCompleted",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpAbort": {
+    "name": "ciuUpgradeOpAbort",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusReason": {
+    "name": "ciuUpgradeOpStatusReason",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpLastCommand": {
+    "name": "ciuUpgradeOpLastCommand",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "done": 2,
+          "install": 3,
+          "check": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpLastStatus": {
+    "name": "ciuUpgradeOpLastStatus",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "invalidOperation": 2,
+          "failure": 3,
+          "inProgress": 4,
+          "success": 5,
+          "abortInProgress": 6,
+          "abortSuccess": 7,
+          "abortFailed": 8,
+          "successReset": 9,
+          "fsUpgReset": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpLastStatusReason": {
+    "name": "ciuUpgradeOpLastStatusReason",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeJobStatusNotifyOnCompletion": {
+    "name": "ciuUpgradeJobStatusNotifyOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciuUpgradeTargetTable": {
+    "name": "ciuUpgradeTargetTable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuUpgradeTargetEntry": {
+    "name": "ciuUpgradeTargetEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeTargetAction": {
+    "name": "ciuUpgradeTargetAction",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "image": 1,
+          "bios": 2,
+          "loader": 3,
+          "bootrom": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciuUpgradeTargetEntryStatus": {
+    "name": "ciuUpgradeTargetEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciuImageLocInputTable": {
+    "name": "ciuImageLocInputTable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuImageLocInputEntry": {
+    "name": "ciuImageLocInputEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuImageVariableName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageLocInputURI": {
+    "name": "ciuImageLocInputURI",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciuImageLocInputEntryStatus": {
+    "name": "ciuImageLocInputEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciuVersionCompChkTable": {
+    "name": "ciuVersionCompChkTable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuVersionCompChkEntry": {
+    "name": "ciuVersionCompChkEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuVersionCompImageSame": {
+    "name": "ciuVersionCompImageSame",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuVersionCompUpgradable": {
+    "name": "ciuVersionCompUpgradable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuVersionCompUpgradeAction": {
+    "name": "ciuVersionCompUpgradeAction",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "rollingUpgrade": 3,
+          "switchOverReset": 4,
+          "reset": 5,
+          "copy": 6,
+          "notApplicable": 7,
+          "plugin": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuVersionCompUpgradeBios": {
+    "name": "ciuVersionCompUpgradeBios",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuVersionCompUpgradeBootrom": {
+    "name": "ciuVersionCompUpgradeBootrom",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuVersionCompUpgradeLoader": {
+    "name": "ciuVersionCompUpgradeLoader",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuVersionCompUpgradeImpact": {
+    "name": "ciuVersionCompUpgradeImpact",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "nonDisruptive": 2,
+          "disruptive": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuVersionCompUpgradeReason": {
+    "name": "ciuVersionCompUpgradeReason",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionTable": {
+    "name": "ciuUpgradeImageVersionTable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionEntry": {
+    "name": "ciuUpgradeImageVersionEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeImageVersionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionIndex": {
+    "name": "ciuUpgradeImageVersionIndex",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionVarName": {
+    "name": "ciuUpgradeImageVersionVarName",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiuImageVariableTypeName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionRunning": {
+    "name": "ciuUpgradeImageVersionRunning",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionNew": {
+    "name": "ciuUpgradeImageVersionNew",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionUpgReqd": {
+    "name": "ciuUpgradeImageVersionUpgReqd",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusTable": {
+    "name": "ciuUpgradeOpStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusEntry": {
+    "name": "ciuUpgradeOpStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusOperIndex": {
+    "name": "ciuUpgradeOpStatusOperIndex",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusOperation": {
+    "name": "ciuUpgradeOpStatusOperation",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "copy": 3,
+          "verify": 4,
+          "versionExtraction": 5,
+          "imageSync": 6,
+          "configSync": 7,
+          "preUpgrade": 8,
+          "forceDownload": 9,
+          "moduleOnline": 10,
+          "hitlessLCUpgrade": 11,
+          "hitfulLCUpgrade": 12,
+          "unusedBootvar": 13,
+          "convertStartUp": 14,
+          "looseIncompatibility": 15,
+          "haSeqNumMismatch": 16,
+          "unknownModuleOnline": 17,
+          "recommendedAction": 18,
+          "recoveryAction": 19,
+          "remainingAction": 20,
+          "additionalInfo": 21,
+          "settingBootvars": 22,
+          "informLcmFsUpg": 23,
+          "sysmgrSaveRuntimeStateAndSuccessReset": 24,
+          "kexecLoadUpgImages": 25,
+          "fsUpgCleanup": 26,
+          "saveMtsState": 27,
+          "fsUpgBegin": 28,
+          "lcWarmBootStatus": 29,
+          "waitStateVerificationStatus": 30,
+          "informLcmFsUpgExternalLc": 31,
+          "externalLcWarmBootStatus": 32,
+          "total": 33,
+          "compactFlashTcamSanity": 34,
+          "systemPreupgradeBegin": 35
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusModule": {
+    "name": "ciuUpgradeOpStatusModule",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusSrcImageLoc": {
+    "name": "ciuUpgradeOpStatusSrcImageLoc",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusDestImageLoc": {
+    "name": "ciuUpgradeOpStatusDestImageLoc",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusJobStatus": {
+    "name": "ciuUpgradeOpStatusJobStatus",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "failed": 3,
+          "inProgress": 4,
+          "success": 5,
+          "planned": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusPercentCompl": {
+    "name": "ciuUpgradeOpStatusPercentCompl",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusJobStatusReas": {
+    "name": "ciuUpgradeOpStatusJobStatusReas",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeMiscAutoCopy": {
+    "name": "ciuUpgradeMiscAutoCopy",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciuUpgradeMiscInfoTable": {
+    "name": "ciuUpgradeMiscInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuUpgradeMiscInfoEntry": {
+    "name": "ciuUpgradeMiscInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeMiscInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeMiscInfoIndex": {
+    "name": "ciuUpgradeMiscInfoIndex",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciuUpgradeMiscInfoModule": {
+    "name": "ciuUpgradeMiscInfoModule",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeMiscInfoDescr": {
+    "name": "ciuUpgradeMiscInfoDescr",
+    "oid": "1.3.6.1.4.1.9.9.360.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciuUpgradeOpCompletionNotify": {
+    "name": "ciuUpgradeOpCompletionNotify",
+    "oid": "1.3.6.1.4.1.9.9.360.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpCommand"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatus"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpTimeCompleted"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpLastCommand"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpLastStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeJobStatusNotify": {
+    "name": "ciuUpgradeJobStatusNotify",
+    "oid": "1.3.6.1.4.1.9.9.360.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusOperation"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusModule"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusSrcImageLoc"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusDestImageLoc"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusJobStatus"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusPercentCompl"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusJobStatusReas"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatus"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageUpgradeCompliances": {
+    "name": "ciuImageUpgradeCompliances",
+    "oid": "1.3.6.1.4.1.9.9.360.2.1",
+    "class": "objectidentity"
+  },
+  "ciuImageUpgradeGroups": {
+    "name": "ciuImageUpgradeGroups",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2",
+    "class": "objectidentity"
+  },
+  "ciuImageUpgradeCompliance": {
+    "name": "ciuImageUpgradeCompliance",
+    "oid": "1.3.6.1.4.1.9.9.360.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciuImageUpgradeGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageVariableGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageURIGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageLocInputGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuVersionCompChkGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeImageVersionGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpStatusGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeNotificationGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciuImageUpgradeComplianceRev1": {
+    "name": "ciuImageUpgradeComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.360.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciuImageUpgradeGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageVariableGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageURIGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageLocInputGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuVersionCompChkGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeImageVersionGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpStatusGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeNotificationGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeMiscGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciuImageUpgradeComplianceRev2": {
+    "name": "ciuImageUpgradeComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.360.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciuImageUpgradeGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageVariableGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageURIGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageLocInputGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuVersionCompChkGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeImageVersionGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpStatusGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeNotificationGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeMiscGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeMiscInfoGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciuImageUpgradeComplianceRev3": {
+    "name": "ciuImageUpgradeComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.360.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciuImageUpgradeGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageVariableGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageURIGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageLocInputGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuVersionCompChkGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeImageVersionGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpStatusGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeNotificationGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeNotificationGroupSup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeMiscGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeMiscInfoGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciuImageUpgradeComplianceRev4": {
+    "name": "ciuImageUpgradeComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.360.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciuImageUpgradeGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageVariableGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageURIGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuImageLocInputGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuVersionCompChkGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeImageVersionGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpStatusGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeNotificationGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeNotificationGroupSup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeMiscGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeMiscInfoGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      },
+      {
+        "object": "ciuUpgradeOpNewGroup",
+        "module": "CISCO-IMAGE-UPGRADE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageUpgradeGroup": {
+    "name": "ciuImageUpgradeGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuTotalImageVariables"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageVariableGroup": {
+    "name": "ciuImageVariableGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuImageVariableName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageURIGroup": {
+    "name": "ciuImageURIGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuImageURI"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeOpGroup": {
+    "name": "ciuUpgradeOpGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpCommand"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatus"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpTimeStarted"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpTimeCompleted"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpAbort"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeTargetGroup": {
+    "name": "ciuUpgradeTargetGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeTargetAction"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeTargetEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuImageLocInputGroup": {
+    "name": "ciuImageLocInputGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuImageLocInputURI"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuImageLocInputEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuVersionCompChkGroup": {
+    "name": "ciuVersionCompChkGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompImageSame"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompUpgradable"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompUpgradeAction"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompUpgradeBios"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompUpgradeBootrom"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompUpgradeLoader"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompUpgradeImpact"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuVersionCompUpgradeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeImageVersionGroup": {
+    "name": "ciuUpgradeImageVersionGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeImageVersionVarName"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeImageVersionRunning"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeImageVersionNew"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeImageVersionUpgReqd"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeOpStatusGroup": {
+    "name": "ciuUpgradeOpStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusOperation"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusModule"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusSrcImageLoc"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusDestImageLoc"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusJobStatus"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusPercentCompl"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpStatusJobStatusReas"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeNotificationGroup": {
+    "name": "ciuUpgradeNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpCompletionNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeMiscGroup": {
+    "name": "ciuUpgradeMiscGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeMiscAutoCopy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeMiscInfoGroup": {
+    "name": "ciuUpgradeMiscInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeMiscInfoModule"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeMiscInfoDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeNotificationGroupSup": {
+    "name": "ciuUpgradeNotificationGroupSup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeJobStatusNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "ciuUpgradeOpNewGroup": {
+    "name": "ciuUpgradeOpNewGroup",
+    "oid": "1.3.6.1.4.1.9.9.360.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeJobStatusNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpLastCommand"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpLastStatus"
+      },
+      {
+        "module": "CISCO-IMAGE-UPGRADE-MIB",
+        "object": "ciuUpgradeOpLastStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IMAGE-UPGRADE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IMAGE-UPGRADE-MIB"
+  }
+}

@@ -1,0 +1,4337 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IEEE802dot11-MIB": [
+      "dot11SupportedDataRatesRxIndex",
+      "dot11AuthenticationAlgorithmsIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDot11IfMIB": {
+    "name": "ciscoDot11IfMIB",
+    "oid": "1.3.6.1.4.1.9.9.272",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-12-20 00:00",
+        "description": "- Added following objects in cd11IfStationConfigTable cd11IfMobileStationListIgnore cd11IfMobileStationScanChannel. - Added cd11Ifdot11MobileStationScanGroup OBJECT-GROUP - Added ciscoDot11IfComplianceRev4 MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2005-03-10 00:00",
+        "description": "Updated the cd11IfCurrentCarrierSet to define new carrier types."
+      },
+      {
+        "revision": "2004-06-06 00:00",
+        "description": "Modified the cd11IfPhyNativePowerUseStandard to read-write and updated cd11IfNativeTxPowerSupportTable and cd11IfRfNativePowerTable to add the object cd11IfRadioModulationClass as indices."
+      },
+      {
+        "revision": "2004-05-06 00:00",
+        "description": "Added cd11IfStationSwitchOverNotif and cd11IfRogueApDetectedNotif notifications"
+      },
+      {
+        "revision": "2004-04-17 00:00",
+        "description": "Added cd11IfVlanPsPacketForwardEnable and cd11IfPsPacketForwardEnable for PSPF support. Added cd11IfMultipleBssidEnable for MBSSID support. Modified Cd11IfVlanEncryptKeyEntry to add objects for WEP encryption support. Added cd11IfRogueApDetectedTable for rogue AP detection information. Added cd11IfFrequencyBandTable, cd11IfRfNativePowerTable, and cd11IfNativeTxPowerSupportTable to support per radio frequency band power configuration. Added cd11IfDataRatesSensitivityTable for receive sensitivity specifications of IEEE 802.11 radio."
+      },
+      {
+        "revision": "2004-02-27 00:00",
+        "description": "Updated the cd11IfStationRole object description. Modified CDot11IfCipherType textual convention to match the latest design. Updated cd11IfClientTxPowerTable power levels to allow negative dBm power. Modified the MODULE-COMPLIANCE for this MIB."
+      },
+      {
+        "revision": "2003-11-17 00:00",
+        "description": "Added cd11IfWorldModeCountry, cd11IfWorldMode, and cd11IfMobileStationScanParent to cd11IfStationConfigEntry. Added cd11IfPhyConcatenation to cd11IfPhyOperationEntry. Added cd11IfVlanEncryptKeyTransmit to Cd11IfVlanEncryptKeyEntry. Added cd11IfClientTxPowerTable, cd11IfOfdmTxPowerTable, cd11IfRadioMonitoringTable, and cd11IfVlanSecurityTable. Modified the MODULE-COMPLIANCE for this MIB."
+      },
+      {
+        "revision": "2003-07-13 00:00",
+        "description": "Added cd11IfPhyBasicRateSet to identify if a rate in the dot11OperationalRateSet is a Basic Rate, added cd11IfPhyMacSpecification to identify the IEEE 802.11 Standard being applied to the radio, modified the cd11IfPhyDsssCurrentChannel and cd11IfChanSelectChannel ranges to support 802.11A radio, and added new device types to cd11IfStationRole. Added cd11IfAuxSsidAuthAlgEapMethod, cd11IfAuxSsidAuthAlgMacMethod, cd11IfAuthAlgEapMethod, and cd11IfAuthAlgMacAddrMethod to specify the authentication method list."
+      },
+      {
+        "revision": "2002-12-29 00:00",
+        "description": "Added a new cd11IfVlanEncryptKeyTable to support per interface and VLAN encryption key and cd11IfDomainCapabilitySet to support the IEEE 802.11 dot11MultiDomainCapabilityTable."
+      },
+      {
+        "revision": "2002-08-01 00:00",
+        "description": "Corrected the description of roleBridge(2) of the cd11IfStationRole object and changed the roleAP(1) to roleWgb(1)."
+      },
+      {
+        "revision": "2002-07-04 00:00",
+        "description": "Changed cd11IfAuxSsidBroadcastSsid from read-only to read-write."
+      },
+      {
+        "revision": "2002-05-10 00:00",
+        "description": "The maximum value for cd11IfAuxiliarySsidLength is changed to '4095'. The new cd11IfAuxSsidIndex replaces cd11IfAuxSsid as the cd11IfAuxSsidTable index. New enumerate values are added to cd11IfStationRole. New MAC address authentication cd11IfAuthAlgRequireMacAddr and cd11IfAuxSsidAuthAlgRequireMac objects are added to the authentication algorithm tables."
+      },
+      {
+        "revision": "2002-04-11 00:00",
+        "description": "This is the initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDot11IfMIBNotifications": {
+    "name": "ciscoDot11IfMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.272.0",
+    "class": "objectidentity"
+  },
+  "ciscoDot11IfMIBObjects": {
+    "name": "ciscoDot11IfMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.272.1",
+    "class": "objectidentity"
+  },
+  "cd11IfConfigurations": {
+    "name": "cd11IfConfigurations",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1",
+    "class": "objectidentity"
+  },
+  "cd11IfStatistics": {
+    "name": "cd11IfStatistics",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2",
+    "class": "objectidentity"
+  },
+  "cd11IfManagement": {
+    "name": "cd11IfManagement",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1",
+    "class": "objectidentity"
+  },
+  "cd11IfPhyConfig": {
+    "name": "cd11IfPhyConfig",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2",
+    "class": "objectidentity"
+  },
+  "cd11IfMacStatistics": {
+    "name": "cd11IfMacStatistics",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1",
+    "class": "objectidentity"
+  },
+  "CDot11IfVlanIdOrZero": {
+    "name": "CDot11IfVlanIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "WepKeyType128": {
+    "name": "WepKeyType128",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CDot11IfMicAlgorithm": {
+    "name": "CDot11IfMicAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "micNone": 1,
+          "micMXX": 2,
+          "micMichael": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CDot11IfWepKeyPermuteAlgorithm": {
+    "name": "CDot11IfWepKeyPermuteAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wepPermuteNone": 1,
+          "wepPermuteIV": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CDot11IfCipherType": {
+    "name": "CDot11IfCipherType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ckip": 0,
+        "cmic": 1,
+        "tkip": 2,
+        "wep40": 3,
+        "wep128": 4,
+        "aesccm": 5
+      }
+    },
+    "status": "current"
+  },
+  "CDot11RadioFrequencyBandType": {
+    "name": "CDot11RadioFrequencyBandType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ism24G": 0,
+        "unii1": 1,
+        "unii2": 2,
+        "unii3": 3,
+        "cept": 4,
+        "japan49G": 5,
+        "japan50G": 6
+      }
+    },
+    "status": "current"
+  },
+  "CDot11RadioModulationClass": {
+    "name": "CDot11RadioModulationClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsss": 1,
+          "ofdm": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Cd11IfDot11UpgradeStatus": {
+    "name": "Cd11IfDot11UpgradeStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "upgradeNotApplicable": 2,
+          "upgradeNotDone": 3,
+          "upgradeNotNeeded": 4,
+          "upgradeDone": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cd11IfStationConfigTable": {
+    "name": "cd11IfStationConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfStationConfigEntry": {
+    "name": "cd11IfStationConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfStationRole": {
+    "name": "cd11IfStationRole",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleWgb": 1,
+          "roleBridge": 2,
+          "roleClient": 3,
+          "roleRoot": 4,
+          "roleRepeater": 5,
+          "roleApBridge": 6,
+          "roleApRepeater": 7,
+          "roleIBSS": 8,
+          "roleNrBridge": 9,
+          "roleApNrBridge": 10,
+          "roleScanner": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfCiscoExtensionsEnable": {
+    "name": "cd11IfCiscoExtensionsEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAllowBroadcastSsidAssoc": {
+    "name": "cd11IfAllowBroadcastSsidAssoc",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPrivacyOptionMaxRate": {
+    "name": "cd11IfPrivacyOptionMaxRate",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "500 Kb per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfEthernetEncapsulDefault": {
+    "name": "cd11IfEthernetEncapsulDefault",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encap802dot1H": 1,
+          "encapRfc1042": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfBridgeSpacing": {
+    "name": "cd11IfBridgeSpacing",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 38640
+          }
+        ]
+      }
+    },
+    "units": "Kilometers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfDesiredSsidMaxAssocSta": {
+    "name": "cd11IfDesiredSsidMaxAssocSta",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxiliarySsidLength": {
+    "name": "cd11IfAuxiliarySsidLength",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfVoipExtensionsEnable": {
+    "name": "cd11IfVoipExtensionsEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfDesiredSsidMicAlgorithm": {
+    "name": "cd11IfDesiredSsidMicAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfMicAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfDesiredSsidWepPermuteAlg": {
+    "name": "cd11IfDesiredSsidWepPermuteAlg",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfWepKeyPermuteAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfWorldMode": {
+    "name": "cd11IfWorldMode",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "legacy": 2,
+          "dot11d": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfWorldModeCountry": {
+    "name": "cd11IfWorldModeCountry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfMobileStationScanParent": {
+    "name": "cd11IfMobileStationScanParent",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPsPacketForwardEnable": {
+    "name": "cd11IfPsPacketForwardEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfMultipleBssidEnable": {
+    "name": "cd11IfMultipleBssidEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfMobileStationListIgnore": {
+    "name": "cd11IfMobileStationListIgnore",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfMobileStationScanChannel": {
+    "name": "cd11IfMobileStationScanChannel",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuthAlgorithmTable": {
+    "name": "cd11IfAuthAlgorithmTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfAuthAlgorithmEntry": {
+    "name": "cd11IfAuthAlgorithmEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationAlgorithmsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfAuthAlgRequireEap": {
+    "name": "cd11IfAuthAlgRequireEap",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuthAlgRequireMacAddr": {
+    "name": "cd11IfAuthAlgRequireMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuthAlgDefaultVlan": {
+    "name": "cd11IfAuthAlgDefaultVlan",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuthAlgEapMethod": {
+    "name": "cd11IfAuthAlgEapMethod",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuthAlgMacAddrMethod": {
+    "name": "cd11IfAuthAlgMacAddrMethod",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfWepDefaultKeysTable": {
+    "name": "cd11IfWepDefaultKeysTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfWepDefaultKeysEntry": {
+    "name": "cd11IfWepDefaultKeysEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWepDefaultKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfWepDefaultKeyIndex": {
+    "name": "cd11IfWepDefaultKeyIndex",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfWepDefaultKeyLen": {
+    "name": "cd11IfWepDefaultKeyLen",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfWepDefaultKeyValue": {
+    "name": "cd11IfWepDefaultKeyValue",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WepKeyType128",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfDesiredBssTable": {
+    "name": "cd11IfDesiredBssTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfDesiredBssEntry": {
+    "name": "cd11IfDesiredBssEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredBssIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfDesiredBssIndex": {
+    "name": "cd11IfDesiredBssIndex",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfDesiredBssAddr": {
+    "name": "cd11IfDesiredBssAddr",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidTable": {
+    "name": "cd11IfAuxSsidTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfAuxSsidEntry": {
+    "name": "cd11IfAuxSsidEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfAuxSsidIndex": {
+    "name": "cd11IfAuxSsidIndex",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfAuxSsid": {
+    "name": "cd11IfAuxSsid",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidBroadcastSsid": {
+    "name": "cd11IfAuxSsidBroadcastSsid",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidMaxAssocSta": {
+    "name": "cd11IfAuxSsidMaxAssocSta",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidMicAlgorithm": {
+    "name": "cd11IfAuxSsidMicAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfMicAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidWepPermuteAlg": {
+    "name": "cd11IfAuxSsidWepPermuteAlg",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfWepKeyPermuteAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgTable": {
+    "name": "cd11IfAuxSsidAuthAlgTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgEntry": {
+    "name": "cd11IfAuxSsidAuthAlgEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationAlgorithmsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgEnable": {
+    "name": "cd11IfAuxSsidAuthAlgEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgRequireEap": {
+    "name": "cd11IfAuxSsidAuthAlgRequireEap",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgRequireMac": {
+    "name": "cd11IfAuxSsidAuthAlgRequireMac",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgDefaultVlan": {
+    "name": "cd11IfAuxSsidAuthAlgDefaultVlan",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgEapMethod": {
+    "name": "cd11IfAuxSsidAuthAlgEapMethod",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAuxSsidAuthAlgMacMethod": {
+    "name": "cd11IfAuxSsidAuthAlgMacMethod",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfAssignedAidTable": {
+    "name": "cd11IfAssignedAidTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfAssignedAidEntry": {
+    "name": "cd11IfAssignedAidEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAssignedAid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfAssignedAid": {
+    "name": "cd11IfAssignedAid",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2007
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfAssignedSta": {
+    "name": "cd11IfAssignedSta",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyTable": {
+    "name": "cd11IfVlanEncryptKeyTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyEntry": {
+    "name": "cd11IfVlanEncryptKeyEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfVlanId": {
+    "name": "cd11IfVlanId",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyIndex": {
+    "name": "cd11IfVlanEncryptKeyIndex",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyLen": {
+    "name": "cd11IfVlanEncryptKeyLen",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyValue": {
+    "name": "cd11IfVlanEncryptKeyValue",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WepKeyType128",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyStatus": {
+    "name": "cd11IfVlanEncryptKeyStatus",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyTransmit": {
+    "name": "cd11IfVlanEncryptKeyTransmit",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanSecurityTable": {
+    "name": "cd11IfVlanSecurityTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfVlanSecurityEntry": {
+    "name": "cd11IfVlanSecurityEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanSecurityVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfVlanSecurityVlanId": {
+    "name": "cd11IfVlanSecurityVlanId",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfVlanSecurityVlanEnabled": {
+    "name": "cd11IfVlanSecurityVlanEnabled",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanBcastKeyChangeInterval": {
+    "name": "cd11IfVlanBcastKeyChangeInterval",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanBcastKeyCapabilChange": {
+    "name": "cd11IfVlanBcastKeyCapabilChange",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanBcastKeyClientLeave": {
+    "name": "cd11IfVlanBcastKeyClientLeave",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanSecurityCiphers": {
+    "name": "cd11IfVlanSecurityCiphers",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfCipherType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanSecurityRowStatus": {
+    "name": "cd11IfVlanSecurityRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanEncryptionMode": {
+    "name": "cd11IfVlanEncryptionMode",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "wep": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "cipher",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanWepEncryptOptions": {
+    "name": "cd11IfVlanWepEncryptOptions",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mandatory": 1,
+          "optional": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mandatory",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanWepEncryptMic": {
+    "name": "cd11IfVlanWepEncryptMic",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanWepEncryptKeyHashing": {
+    "name": "cd11IfVlanWepEncryptKeyHashing",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfVlanPsPacketForwardEnable": {
+    "name": "cd11IfVlanPsPacketForwardEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfRadioMonitoringTable": {
+    "name": "cd11IfRadioMonitoringTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfRadioMonitoringEntry": {
+    "name": "cd11IfRadioMonitoringEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRemoteRadioMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRemoteRadioMacAddr": {
+    "name": "cd11IfRemoteRadioMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfRadioMonitorPollingFreq": {
+    "name": "cd11IfRadioMonitorPollingFreq",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfRadioMonitorPollingTimeOut": {
+    "name": "cd11IfRadioMonitorPollingTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfLocalRadioMonitorStatus": {
+    "name": "cd11IfLocalRadioMonitorStatus",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "monitor": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfRadioMonitorRowStatus": {
+    "name": "cd11IfRadioMonitorRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cd11IfDot11UpgradeStatusTable": {
+    "name": "cd11IfDot11UpgradeStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfDot11UpgradeStatusEntry": {
+    "name": "cd11IfDot11UpgradeStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfDot11UpgradeStatus": {
+    "name": "cd11IfDot11UpgradeStatus",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cd11IfDot11UpgradeStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfPhyOperationTable": {
+    "name": "cd11IfPhyOperationTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfPhyOperationEntry": {
+    "name": "cd11IfPhyOperationEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfCurrentCarrierSet": {
+    "name": "cd11IfCurrentCarrierSet",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "usa": 0,
+          "europe": 1,
+          "japan": 2,
+          "spain": 3,
+          "france": 4,
+          "belgium": 5,
+          "israel": 6,
+          "canada": 7,
+          "australia": 8,
+          "japanWide": 9,
+          "world": 10,
+          "usa5GHz": 11,
+          "europe5GHz": 12,
+          "japan5GHz": 13,
+          "singapore5GHz": 14,
+          "taiwan5GHz": 15,
+          "china": 16,
+          "northAmer5GHzUNI3": 17,
+          "chnIreAus5GHzUNI3": 18,
+          "hkNZ5GHzUNI3": 19,
+          "korea5GHzUNI3": 20,
+          "mexAusNZ5GHz": 21,
+          "china5GHz": 22,
+          "korea5GHzUNI123E": 23,
+          "japan5GHzUNI12": 24,
+          "taiwan5GHzUNI23E": 25,
+          "israel5GhzUNI12": 26,
+          "usaFCC49PS": 27,
+          "japan5GHzUNI1": 28
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfModulationType": {
+    "name": "cd11IfModulationType",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "mok": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPreambleType": {
+    "name": "cd11IfPreambleType",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "long": 1,
+          "short": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfDomainCapabilitySet": {
+    "name": "cd11IfDomainCapabilitySet",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPhyBasicRateSet": {
+    "name": "cd11IfPhyBasicRateSet",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPhyMacSpecification": {
+    "name": "cd11IfPhyMacSpecification",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee802dot11a": 1,
+          "ieee802dot11b": 2,
+          "ieee802dot11g": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfPhyConcatenation": {
+    "name": "cd11IfPhyConcatenation",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPhyNativePowerUseStandard": {
+    "name": "cd11IfPhyNativePowerUseStandard",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPhyFhssTable": {
+    "name": "cd11IfPhyFhssTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfPhyFhssEntry": {
+    "name": "cd11IfPhyFhssEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfPhyFhssMaxCompatibleRate": {
+    "name": "cd11IfPhyFhssMaxCompatibleRate",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "500 Kb per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPhyDsssTable": {
+    "name": "cd11IfPhyDsssTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfPhyDsssEntry": {
+    "name": "cd11IfPhyDsssEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfPhyDsssMaxCompatibleRate": {
+    "name": "cd11IfPhyDsssMaxCompatibleRate",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "500 Kb per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPhyDsssChannelAutoEnable": {
+    "name": "cd11IfPhyDsssChannelAutoEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfPhyDsssCurrentChannel": {
+    "name": "cd11IfPhyDsssCurrentChannel",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 34,
+            "max": 34
+          },
+          {
+            "min": 36,
+            "max": 36
+          },
+          {
+            "min": 38,
+            "max": 38
+          },
+          {
+            "min": 40,
+            "max": 40
+          },
+          {
+            "min": 42,
+            "max": 42
+          },
+          {
+            "min": 44,
+            "max": 44
+          },
+          {
+            "min": 46,
+            "max": 46
+          },
+          {
+            "min": 48,
+            "max": 48
+          },
+          {
+            "min": 52,
+            "max": 52
+          },
+          {
+            "min": 56,
+            "max": 56
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 64,
+            "max": 64
+          },
+          {
+            "min": 149,
+            "max": 149
+          },
+          {
+            "min": 153,
+            "max": 153
+          },
+          {
+            "min": 157,
+            "max": 157
+          },
+          {
+            "min": 161,
+            "max": 161
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfSuppDataRatesPrivacyTable": {
+    "name": "cd11IfSuppDataRatesPrivacyTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfSuppDataRatesPrivacyEntry": {
+    "name": "cd11IfSuppDataRatesPrivacyEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfSuppDataRatesPrivacyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfSuppDataRatesPrivacyIndex": {
+    "name": "cd11IfSuppDataRatesPrivacyIndex",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfSuppDataRatesPrivacyValue": {
+    "name": "cd11IfSuppDataRatesPrivacyValue",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "500 Kb per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfSuppDataRatesPrivacyEnabl": {
+    "name": "cd11IfSuppDataRatesPrivacyEnabl",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfChanSelectTable": {
+    "name": "cd11IfChanSelectTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfChanSelectEntry": {
+    "name": "cd11IfChanSelectEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfChanSelectChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfChanSelectChannel": {
+    "name": "cd11IfChanSelectChannel",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 34,
+            "max": 34
+          },
+          {
+            "min": 36,
+            "max": 36
+          },
+          {
+            "min": 38,
+            "max": 38
+          },
+          {
+            "min": 40,
+            "max": 40
+          },
+          {
+            "min": 42,
+            "max": 42
+          },
+          {
+            "min": 44,
+            "max": 44
+          },
+          {
+            "min": 46,
+            "max": 46
+          },
+          {
+            "min": 48,
+            "max": 48
+          },
+          {
+            "min": 52,
+            "max": 52
+          },
+          {
+            "min": 56,
+            "max": 56
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 64,
+            "max": 64
+          },
+          {
+            "min": 149,
+            "max": 149
+          },
+          {
+            "min": 153,
+            "max": 153
+          },
+          {
+            "min": 157,
+            "max": 157
+          },
+          {
+            "min": 161,
+            "max": 161
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfChanSelectEnable": {
+    "name": "cd11IfChanSelectEnable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerTable": {
+    "name": "cd11IfClientTxPowerTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerEntry": {
+    "name": "cd11IfClientTxPowerEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfClientNumberTxPowerLevels": {
+    "name": "cd11IfClientNumberTxPowerLevels",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel1": {
+    "name": "cd11IfClientTxPowerLevel1",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel2": {
+    "name": "cd11IfClientTxPowerLevel2",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel3": {
+    "name": "cd11IfClientTxPowerLevel3",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel4": {
+    "name": "cd11IfClientTxPowerLevel4",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel5": {
+    "name": "cd11IfClientTxPowerLevel5",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel6": {
+    "name": "cd11IfClientTxPowerLevel6",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel7": {
+    "name": "cd11IfClientTxPowerLevel7",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientTxPowerLevel8": {
+    "name": "cd11IfClientTxPowerLevel8",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfClientCurrentTxPowerLevel": {
+    "name": "cd11IfClientCurrentTxPowerLevel",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerTable": {
+    "name": "cd11IfErpOfdmTxPowerTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerEntry": {
+    "name": "cd11IfErpOfdmTxPowerEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfErpOfdmNumberTxPowerLevels": {
+    "name": "cd11IfErpOfdmNumberTxPowerLevels",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel1": {
+    "name": "cd11IfErpOfdmTxPowerLevel1",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel2": {
+    "name": "cd11IfErpOfdmTxPowerLevel2",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel3": {
+    "name": "cd11IfErpOfdmTxPowerLevel3",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel4": {
+    "name": "cd11IfErpOfdmTxPowerLevel4",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel5": {
+    "name": "cd11IfErpOfdmTxPowerLevel5",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel6": {
+    "name": "cd11IfErpOfdmTxPowerLevel6",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel7": {
+    "name": "cd11IfErpOfdmTxPowerLevel7",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmTxPowerLevel8": {
+    "name": "cd11IfErpOfdmTxPowerLevel8",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfErpOfdmCurrentTxPowerLevel": {
+    "name": "cd11IfErpOfdmCurrentTxPowerLevel",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfFrequencyBandTable": {
+    "name": "cd11IfFrequencyBandTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfFrequencyBandEntry": {
+    "name": "cd11IfFrequencyBandEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfFrequencyBand",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRfFrequencyBand": {
+    "name": "cd11IfRfFrequencyBand",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfRfFrequencyUnits": {
+    "name": "cd11IfRfFrequencyUnits",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mHz": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mHz",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRfStartChannelNumber": {
+    "name": "cd11IfRfStartChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRfEndChannelNumber": {
+    "name": "cd11IfRfEndChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRfChannelSpacingNumber": {
+    "name": "cd11IfRfChannelSpacingNumber",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRfStartChannelFrequency": {
+    "name": "cd11IfRfStartChannelFrequency",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRfFrequencySpacing": {
+    "name": "cd11IfRfFrequencySpacing",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRfFrequencyBandType": {
+    "name": "cd11IfRfFrequencyBandType",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11RadioFrequencyBandType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfMaxChannelSwitchTime": {
+    "name": "cd11IfMaxChannelSwitchTime",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfNativeTxPowerSupportTable": {
+    "name": "cd11IfNativeTxPowerSupportTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfNativeTxPowerSupportEntry": {
+    "name": "cd11IfNativeTxPowerSupportEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfFrequencyBand",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRadioModulationClass",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfNativeTxPowerLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRadioModulationClass": {
+    "name": "cd11IfRadioModulationClass",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11RadioModulationClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfNativeTxPowerLevel": {
+    "name": "cd11IfNativeTxPowerLevel",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfNativeTxPower": {
+    "name": "cd11IfNativeTxPower",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRfNativePowerTable": {
+    "name": "cd11IfRfNativePowerTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfRfNativePowerEntry": {
+    "name": "cd11IfRfNativePowerEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfFrequencyBand",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRadioModulationClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfNativeNumberPowerLevels": {
+    "name": "cd11IfNativeNumberPowerLevels",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfNativeCurrentPowerLevel": {
+    "name": "cd11IfNativeCurrentPowerLevel",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cd11IfNativePowerUnits": {
+    "name": "cd11IfNativePowerUnits",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mW": 1,
+          "dBm": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mW",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfDataRatesSensitivityTable": {
+    "name": "cd11IfDataRatesSensitivityTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfDataRatesSensitivityEntry": {
+    "name": "cd11IfDataRatesSensitivityEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRadioModulationClass",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11SupportedDataRatesRxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRatesSensRequiredSnr": {
+    "name": "cd11IfRatesSensRequiredSnr",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRatesSensContention": {
+    "name": "cd11IfRatesSensContention",
+    "oid": "1.3.6.1.4.1.9.9.272.1.1.2.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfMacLayerCountersTable": {
+    "name": "cd11IfMacLayerCountersTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfMacLayerCountersEntry": {
+    "name": "cd11IfMacLayerCountersEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfTransDeferEnerDetects": {
+    "name": "cd11IfTransDeferEnerDetects",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRecFrameMacCrcErrors": {
+    "name": "cd11IfRecFrameMacCrcErrors",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfSsidMismatches": {
+    "name": "cd11IfSsidMismatches",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfRogueApDetectedTable": {
+    "name": "cd11IfRogueApDetectedTable",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfRogueApDetectedEntry": {
+    "name": "cd11IfRogueApDetectedEntry",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRogueApMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRogueApMacAddr": {
+    "name": "cd11IfRogueApMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfRogueApName": {
+    "name": "cd11IfRogueApName",
+    "oid": "1.3.6.1.4.1.9.9.272.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfStationSwitchOverNotif": {
+    "name": "cd11IfStationSwitchOverNotif",
+    "oid": "1.3.6.1.4.1.9.9.272.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfLocalRadioMonitorStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRogueApDetectedNotif": {
+    "name": "cd11IfRogueApDetectedNotif",
+    "oid": "1.3.6.1.4.1.9.9.272.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRogueApName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11IfMIBConformance": {
+    "name": "ciscoDot11IfMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.272.3",
+    "class": "objectidentity"
+  },
+  "ciscoDot11IfMIBCompliances": {
+    "name": "ciscoDot11IfMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.272.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11IfMIBGroups": {
+    "name": "ciscoDot11IfMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11IfCompliance": {
+    "name": "ciscoDot11IfCompliance",
+    "oid": "1.3.6.1.4.1.9.9.272.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cd11IfManagementGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyConfigGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMacStatisticsGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfDomainCapabilityGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11IfComplianceRev1": {
+    "name": "ciscoDot11IfComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.272.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cd11IfRadioManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfAssociationManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyConfigGroupRev1",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMacStatisticsGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfSsidAssociationGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfVlanManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfRemoteMonitoringGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyErpConfigGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11IfComplianceRev2": {
+    "name": "ciscoDot11IfComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.272.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cd11IfStationManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfAssociationManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyConfigGroupRev1",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMacStatisticsGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfNativeRadioManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfDataRatesSensitivityGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfSsidAssociationGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfVlanManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfVlanWepManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfRemoteMonitoringGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyErpConfigGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfRogueApDetectedGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMonitorNotificationGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11IfComplianceRev3": {
+    "name": "ciscoDot11IfComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.272.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cd11IfStationManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfAssociationManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyConfigGroupRev1",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMacStatisticsGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfNativeRadioManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfDataRatesSensitivityGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11Ifdot11UpgradeStatusGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfSsidAssociationGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfVlanManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfVlanWepManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfRemoteMonitoringGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyErpConfigGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfRogueApDetectedGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMonitorNotificationGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11IfComplianceRev4": {
+    "name": "ciscoDot11IfComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.272.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cd11IfStationManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfAssociationManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyConfigGroupRev1",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMacStatisticsGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfNativeRadioManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfDataRatesSensitivityGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11Ifdot11UpgradeStatusGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11Ifdot11MobileStationScanGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfSsidAssociationGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfVlanManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfVlanWepManageGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfRemoteMonitoringGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfPhyErpConfigGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfRogueApDetectedGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      },
+      {
+        "object": "cd11IfMonitorNotificationGroup",
+        "module": "CISCO-DOT11-IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfManagementGroup": {
+    "name": "cd11IfManagementGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfStationRole"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfCiscoExtensionsEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAllowBroadcastSsidAssoc"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPrivacyOptionMaxRate"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfEthernetEncapsulDefault"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfBridgeSpacing"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredSsidMaxAssocSta"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxiliarySsidLength"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVoipExtensionsEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredSsidMicAlgorithm"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredSsidWepPermuteAlg"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgRequireEap"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgRequireMacAddr"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgDefaultVlan"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWepDefaultKeyLen"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWepDefaultKeyValue"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredBssAddr"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsid"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidBroadcastSsid"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidMaxAssocSta"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidMicAlgorithm"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidWepPermuteAlg"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgRequireEap"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgRequireMac"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgDefaultVlan"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAssignedSta"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cd11IfPhyConfigGroup": {
+    "name": "cd11IfPhyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfCurrentCarrierSet"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfModulationType"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPreambleType"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyFhssMaxCompatibleRate"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyDsssMaxCompatibleRate"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyDsssChannelAutoEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyDsssCurrentChannel"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfSuppDataRatesPrivacyValue"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfSuppDataRatesPrivacyEnabl"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfChanSelectEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cd11IfMacStatisticsGroup": {
+    "name": "cd11IfMacStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfTransDeferEnerDetects"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRecFrameMacCrcErrors"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfSsidMismatches"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfVlanEncryptKeyConfigGroup": {
+    "name": "cd11IfVlanEncryptKeyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyLen"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyValue"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cd11IfDomainCapabilityGroup": {
+    "name": "cd11IfDomainCapabilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDomainCapabilitySet"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cd11IfPhyMacCapabilityGroup": {
+    "name": "cd11IfPhyMacCapabilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyBasicRateSet"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyMacSpecification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cd11IfAuthAlgMethodListGroup": {
+    "name": "cd11IfAuthAlgMethodListGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgEapMethod"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgMacAddrMethod"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgEapMethod"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgMacMethod"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cd11IfRadioManageGroup": {
+    "name": "cd11IfRadioManageGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfStationRole"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfCiscoExtensionsEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPrivacyOptionMaxRate"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfEthernetEncapsulDefault"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfBridgeSpacing"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVoipExtensionsEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxiliarySsidLength"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAllowBroadcastSsidAssoc"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredBssAddr"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAssignedSta"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWorldMode"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWorldModeCountry"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfMobileStationScanParent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cd11IfAssociationManageGroup": {
+    "name": "cd11IfAssociationManageGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredSsidMaxAssocSta"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredSsidMicAlgorithm"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredSsidWepPermuteAlg"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgRequireEap"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgRequireMacAddr"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgDefaultVlan"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgEapMethod"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuthAlgMacAddrMethod"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWepDefaultKeyLen"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWepDefaultKeyValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfSsidAssociationGroup": {
+    "name": "cd11IfSsidAssociationGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsid"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidBroadcastSsid"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidMaxAssocSta"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidMicAlgorithm"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidWepPermuteAlg"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgRequireEap"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgRequireMac"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgDefaultVlan"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgEapMethod"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxSsidAuthAlgMacMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfVlanManageGroup": {
+    "name": "cd11IfVlanManageGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyLen"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyValue"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyStatus"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptKeyTransmit"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanSecurityVlanEnabled"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanBcastKeyChangeInterval"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanBcastKeyCapabilChange"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanBcastKeyClientLeave"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanSecurityCiphers"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanSecurityRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRemoteMonitoringGroup": {
+    "name": "cd11IfRemoteMonitoringGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRadioMonitorPollingFreq"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRadioMonitorPollingTimeOut"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfLocalRadioMonitorStatus"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRadioMonitorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfPhyConfigGroupRev1": {
+    "name": "cd11IfPhyConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfCurrentCarrierSet"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfModulationType"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPreambleType"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDomainCapabilitySet"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyBasicRateSet"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyMacSpecification"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyConcatenation"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyDsssMaxCompatibleRate"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyDsssChannelAutoEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyDsssCurrentChannel"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyFhssMaxCompatibleRate"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfSuppDataRatesPrivacyValue"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfSuppDataRatesPrivacyEnabl"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfChanSelectEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientNumberTxPowerLevels"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel1"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel2"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel3"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel4"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel5"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel6"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel7"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientTxPowerLevel8"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfClientCurrentTxPowerLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfPhyErpConfigGroup": {
+    "name": "cd11IfPhyErpConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmNumberTxPowerLevels"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel1"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel2"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel3"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel4"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel5"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel6"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel7"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmTxPowerLevel8"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfErpOfdmCurrentTxPowerLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfVlanWepManageGroup": {
+    "name": "cd11IfVlanWepManageGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanEncryptionMode"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanWepEncryptOptions"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanWepEncryptMic"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanWepEncryptKeyHashing"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfRogueApDetectedGroup": {
+    "name": "cd11IfRogueApDetectedGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRogueApName"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfStationManageGroup": {
+    "name": "cd11IfStationManageGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfStationRole"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfCiscoExtensionsEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPrivacyOptionMaxRate"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfEthernetEncapsulDefault"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfBridgeSpacing"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVoipExtensionsEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAuxiliarySsidLength"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAllowBroadcastSsidAssoc"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDesiredBssAddr"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfAssignedSta"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWorldMode"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfWorldModeCountry"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfMobileStationScanParent"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPsPacketForwardEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfMultipleBssidEnable"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfVlanPsPacketForwardEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfNativeRadioManageGroup": {
+    "name": "cd11IfNativeRadioManageGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfPhyNativePowerUseStandard"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfFrequencyUnits"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfStartChannelNumber"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfEndChannelNumber"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfChannelSpacingNumber"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfStartChannelFrequency"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfFrequencySpacing"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRfFrequencyBandType"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfMaxChannelSwitchTime"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfNativeNumberPowerLevels"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfNativeCurrentPowerLevel"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfNativePowerUnits"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfNativeTxPower"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfDataRatesSensitivityGroup": {
+    "name": "cd11IfDataRatesSensitivityGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRatesSensRequiredSnr"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRatesSensContention"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfMonitorNotificationGroup": {
+    "name": "cd11IfMonitorNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.20",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfStationSwitchOverNotif"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfRogueApDetectedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11Ifdot11UpgradeStatusGroup": {
+    "name": "cd11Ifdot11UpgradeStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfDot11UpgradeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cd11Ifdot11MobileStationScanGroup": {
+    "name": "cd11Ifdot11MobileStationScanGroup",
+    "oid": "1.3.6.1.4.1.9.9.272.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfMobileStationListIgnore"
+      },
+      {
+        "module": "CISCO-DOT11-IF-MIB",
+        "object": "cd11IfMobileStationScanChannel"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DOT11-IF-MIB"
+  }
+}

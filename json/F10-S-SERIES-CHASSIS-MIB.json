@@ -1,0 +1,2037 @@
+{
+  "imports": {
+    "class": "imports",
+    "F10-CHASSIS-MIB": [
+      "chAlarmVarString",
+      "chAlarmVarPort",
+      "chAlarmVarSlot",
+      "chAlarmVarInteger"
+    ],
+    "FORCE10-SMI": [
+      "f10Mgmt"
+    ],
+    "FORCE10-TC": [
+      "F10HundredthdB",
+      "F10SSeriesPortType",
+      "F10ProcessorModuleType",
+      "F10SwDate",
+      "F10ChassisType",
+      "F10MfgDate"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
+      "MacAddress"
+    ]
+  },
+  "f10SSerChassisMib": {
+    "name": "f10SSerChassisMib",
+    "oid": "1.3.6.1.4.1.6027.3.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-10-03 12:00",
+        "description": "Initial version of this mib."
+      }
+    ]
+  },
+  "f10SSerChassisObject": {
+    "name": "f10SSerChassisObject",
+    "oid": "1.3.6.1.4.1.6027.3.10.1",
+    "class": "objectidentity"
+  },
+  "chObjects": {
+    "name": "chObjects",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.1",
+    "class": "objectidentity"
+  },
+  "chSysObjects": {
+    "name": "chSysObjects",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2",
+    "class": "objectidentity"
+  },
+  "chAlarmObjects": {
+    "name": "chAlarmObjects",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4",
+    "class": "objectidentity"
+  },
+  "CodeType": {
+    "name": "CodeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "UnitType": {
+    "name": "UnitType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "chNumStackUnits": {
+    "name": "chNumStackUnits",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chNumMaxStackableUnits": {
+    "name": "chNumMaxStackableUnits",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitIndexNext": {
+    "name": "chStackUnitIndexNext",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSwitchTypeTable": {
+    "name": "chSwitchTypeTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "chSwitchTypeEntry": {
+    "name": "chSwitchTypeEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSwitchTypeSID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chSwitchTypeSID": {
+    "name": "chSwitchTypeSID",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "chSwitchTypeModelID": {
+    "name": "chSwitchTypeModelID",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "chSwitchTypeCodeType": {
+    "name": "chSwitchTypeCodeType",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CodeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "chSwitchTypeMgmtPreference": {
+    "name": "chSwitchTypeMgmtPreference",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "chStackUnitTable": {
+    "name": "chStackUnitTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chStackUnitEntry": {
+    "name": "chStackUnitEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chStackUnitIndex": {
+    "name": "chStackUnitIndex",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chStackUnitNumber": {
+    "name": "chStackUnitNumber",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "chStackUnitSID": {
+    "name": "chStackUnitSID",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "chStackUnitMgmtStatus": {
+    "name": "chStackUnitMgmtStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mgmtUnit": 1,
+          "standbyUnit": 2,
+          "stackUnit": 3,
+          "unassigned": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "chStackUnitHwMgmtPreference": {
+    "name": "chStackUnitHwMgmtPreference",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "unsassigned": 1,
+          "assigned": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitAdmMgmtPreference": {
+    "name": "chStackUnitAdmMgmtPreference",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "chStackUnitModelID": {
+    "name": "chStackUnitModelID",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitStatus": {
+    "name": "chStackUnitStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "unsupported": 2,
+          "codeMismatch": 3,
+          "configMismatch": 4,
+          "unitDown": 5,
+          "notPresent": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitDescription": {
+    "name": "chStackUnitDescription",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "chStackUnitCodeVersion": {
+    "name": "chStackUnitCodeVersion",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitCodeVersionInFlash": {
+    "name": "chStackUnitCodeVersionInFlash",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitSerialNumber": {
+    "name": "chStackUnitSerialNumber",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitUpTime": {
+    "name": "chStackUnitUpTime",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitTemp": {
+    "name": "chStackUnitTemp",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitType": {
+    "name": "chStackUnitType",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitSysType": {
+    "name": "chStackUnitSysType",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10ChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitVendorId": {
+    "name": "chStackUnitVendorId",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitMfgDate": {
+    "name": "chStackUnitMfgDate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10MfgDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitMacAddress": {
+    "name": "chStackUnitMacAddress",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitPartNum": {
+    "name": "chStackUnitPartNum",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitProductRev": {
+    "name": "chStackUnitProductRev",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitProductOrder": {
+    "name": "chStackUnitProductOrder",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitCountryCode": {
+    "name": "chStackUnitCountryCode",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitNum10GigEtherPorts": {
+    "name": "chStackUnitNum10GigEtherPorts",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitNumGigEtherPorts": {
+    "name": "chStackUnitNumGigEtherPorts",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitNumFastEtherPorts": {
+    "name": "chStackUnitNumFastEtherPorts",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitNumFanTrays": {
+    "name": "chStackUnitNumFanTrays",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitNumPowerSupplies": {
+    "name": "chStackUnitNumPowerSupplies",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitNumPluggableModules": {
+    "name": "chStackUnitNumPluggableModules",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitRowStatus": {
+    "name": "chStackUnitRowStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "chSysPowerSupplyTable": {
+    "name": "chSysPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chSysPowerSupplyEntry": {
+    "name": "chSysPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber",
+        "implied": 0
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chSysPowerSupplyIndex": {
+    "name": "chSysPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPowerSupplyOperStatus": {
+    "name": "chSysPowerSupplyOperStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPowerSupplyType": {
+    "name": "chSysPowerSupplyType",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ac": 1,
+          "dc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysFanTrayTable": {
+    "name": "chSysFanTrayTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chSysFanTrayEntry": {
+    "name": "chSysFanTrayEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber",
+        "implied": 0
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysFanTrayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chSysFanTrayIndex": {
+    "name": "chSysFanTrayIndex",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysFanTrayOperStatus": {
+    "name": "chSysFanTrayOperStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPortTable": {
+    "name": "chSysPortTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chSysPortEntry": {
+    "name": "chSysPortEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber",
+        "implied": 0
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chSysPortIndex": {
+    "name": "chSysPortIndex",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPortType": {
+    "name": "chSysPortType",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10SSeriesPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPortAdminStatus": {
+    "name": "chSysPortAdminStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPortOperStatus": {
+    "name": "chSysPortOperStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "portDown": 2,
+          "portProblem": 3,
+          "cardProblem": 4,
+          "cardDown": 5,
+          "notPresent": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPortIfIndex": {
+    "name": "chSysPortIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysPortXfpRecvPower": {
+    "name": "chSysPortXfpRecvPower",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10HundredthdB",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortTable": {
+    "name": "chSysStackPortTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chSysStackPortEntry": {
+    "name": "chSysStackPortEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber",
+        "implied": 0
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chSysStackPortIndex": {
+    "name": "chSysStackPortIndex",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortConfiguredMode": {
+    "name": "chSysStackPortConfiguredMode",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stack": 1,
+          "ethernet": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortRunningMode": {
+    "name": "chSysStackPortRunningMode",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stack": 1,
+          "ethernet": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortLinkStatus": {
+    "name": "chSysStackPortLinkStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortLinkSpeed": {
+    "name": "chSysStackPortLinkSpeed",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortRxDataRate": {
+    "name": "chSysStackPortRxDataRate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortRxErrorRate": {
+    "name": "chSysStackPortRxErrorRate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortRxTotalErrors": {
+    "name": "chSysStackPortRxTotalErrors",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortTxDataRate": {
+    "name": "chSysStackPortTxDataRate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortTxErrorRate": {
+    "name": "chSysStackPortTxErrorRate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysStackPortTxTotalErrors": {
+    "name": "chSysStackPortTxTotalErrors",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysProcessorTable": {
+    "name": "chSysProcessorTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chSysProcessorEntry": {
+    "name": "chSysProcessorEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chSysProcessorModule": {
+    "name": "chSysProcessorModule",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10ProcessorModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysProcessorUpTime": {
+    "name": "chSysProcessorUpTime",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysProcessorNvramSize": {
+    "name": "chSysProcessorNvramSize",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysProcessorMemSize": {
+    "name": "chSysProcessorMemSize",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwModuleTable": {
+    "name": "chSysSwModuleTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chSysSwModuleEntry": {
+    "name": "chSysSwModuleEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chSysSwRuntimeImgVersion": {
+    "name": "chSysSwRuntimeImgVersion",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwRuntimeImgDate": {
+    "name": "chSysSwRuntimeImgDate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10SwDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwCurrentBootImgVersion": {
+    "name": "chSysSwCurrentBootImgVersion",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwCurrentBootImgDate": {
+    "name": "chSysSwCurrentBootImgDate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwCurrentBootImgStatus": {
+    "name": "chSysSwCurrentBootImgStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwBackupBootImgVersion": {
+    "name": "chSysSwBackupBootImgVersion",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwBackupBootImgDate": {
+    "name": "chSysSwBackupBootImgDate",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwBackupBootImgStatus": {
+    "name": "chSysSwBackupBootImgStatus",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwNextRebootImage": {
+    "name": "chSysSwNextRebootImage",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootImage-A": 1,
+          "bootImage-B": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chSysSwCurrentBootImage": {
+    "name": "chSysSwCurrentBootImage",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootImage-A": 1,
+          "bootImage-B": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitUtilTable": {
+    "name": "chStackUnitUtilTable",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chStackUnitUtilEntry": {
+    "name": "chStackUnitUtilEntry",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chStackUnitCpuType": {
+    "name": "chStackUnitCpuType",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F10ProcessorModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitCpuUtil5Sec": {
+    "name": "chStackUnitCpuUtil5Sec",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitCpuUtil1Min": {
+    "name": "chStackUnitCpuUtil1Min",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitCpuUtil5Min": {
+    "name": "chStackUnitCpuUtil5Min",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chStackUnitMemUsageUtil": {
+    "name": "chStackUnitMemUsageUtil",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chAlarmMibNotifications": {
+    "name": "chAlarmMibNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0",
+    "class": "objectidentity"
+  },
+  "chAlarmStackUnitDown": {
+    "name": "chAlarmStackUnitDown",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarInteger"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarString"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarSlot"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "chAlarmStackUnitUp": {
+    "name": "chAlarmStackUnitUp",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarInteger"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarString"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarSlot"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "chAlarmStackUnitReset": {
+    "name": "chAlarmStackUnitReset",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarInteger"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarString"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarSlot"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "chAlarmStackUnitOffline": {
+    "name": "chAlarmStackUnitOffline",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarInteger"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarString"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarSlot"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "chAlarmStackUnitCodeMismatch": {
+    "name": "chAlarmStackUnitCodeMismatch",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarInteger"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarString"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarSlot"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "chAlarmStackPortLinkUp": {
+    "name": "chAlarmStackPortLinkUp",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarInteger"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarString"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarSlot"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "chAlarmStackPortLinkDown": {
+    "name": "chAlarmStackPortLinkDown",
+    "oid": "1.3.6.1.4.1.6027.3.10.1.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarInteger"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarString"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarSlot"
+      },
+      {
+        "module": "F10-CHASSIS-MIB",
+        "object": "chAlarmVarPort"
+      }
+    ],
+    "status": "current"
+  },
+  "f10sSeriesMibConformance": {
+    "name": "f10sSeriesMibConformance",
+    "oid": "1.3.6.1.4.1.6027.3.10.2",
+    "class": "objectidentity"
+  },
+  "f10sSeriesMibCompliances": {
+    "name": "f10sSeriesMibCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.10.2.1",
+    "class": "objectidentity"
+  },
+  "f10sSeriesMibGroups": {
+    "name": "f10sSeriesMibGroups",
+    "oid": "1.3.6.1.4.1.6027.3.10.2.2",
+    "class": "objectidentity"
+  },
+  "f10sSeriesMibCompliance": {
+    "name": "f10sSeriesMibCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.10.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f10sSeriesComponentGroup",
+        "module": "F10-S-SERIES-CHASSIS-MIB"
+      },
+      {
+        "object": "f10sSeriesSystemGroup",
+        "module": "F10-S-SERIES-CHASSIS-MIB"
+      },
+      {
+        "object": "f10sSeriesNotificationGroup",
+        "module": "F10-S-SERIES-CHASSIS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f10sSeriesComponentGroup": {
+    "name": "f10sSeriesComponentGroup",
+    "oid": "1.3.6.1.4.1.6027.3.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chNumStackUnits"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chNumMaxStackableUnits"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitIndexNext"
+      }
+    ],
+    "status": "current"
+  },
+  "f10sSeriesSystemGroup": {
+    "name": "f10sSeriesSystemGroup",
+    "oid": "1.3.6.1.4.1.6027.3.10.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSwitchTypeSID"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSwitchTypeModelID"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSwitchTypeCodeType"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSwitchTypeMgmtPreference"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumber"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitSID"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitMgmtStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitHwMgmtPreference"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitAdmMgmtPreference"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitModelID"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitDescription"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitCodeVersion"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitCodeVersionInFlash"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitSerialNumber"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitUpTime"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitTemp"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitType"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitSysType"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitVendorId"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitMfgDate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitMacAddress"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitPartNum"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitProductRev"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitProductOrder"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitCountryCode"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNum10GigEtherPorts"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumGigEtherPorts"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumFastEtherPorts"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumFanTrays"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumPowerSupplies"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitNumPluggableModules"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitRowStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPowerSupplyIndex"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPowerSupplyOperStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPowerSupplyType"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysFanTrayIndex"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysFanTrayOperStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPortIndex"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPortType"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPortAdminStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPortOperStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPortIfIndex"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysPortXfpRecvPower"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortIndex"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortConfiguredMode"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortRunningMode"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortLinkStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortLinkSpeed"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortRxDataRate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortRxErrorRate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortRxTotalErrors"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortTxDataRate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortTxErrorRate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysStackPortTxTotalErrors"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysProcessorModule"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysProcessorUpTime"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysProcessorNvramSize"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysProcessorMemSize"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwRuntimeImgVersion"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwRuntimeImgDate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwCurrentBootImgVersion"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwCurrentBootImgDate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwCurrentBootImgStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwBackupBootImgVersion"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwBackupBootImgDate"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwBackupBootImgStatus"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwNextRebootImage"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chSysSwCurrentBootImage"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitCpuType"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitCpuUtil5Sec"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitCpuUtil1Min"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitCpuUtil5Min"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chStackUnitMemUsageUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "f10sSeriesNotificationGroup": {
+    "name": "f10sSeriesNotificationGroup",
+    "oid": "1.3.6.1.4.1.6027.3.10.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chAlarmStackUnitDown"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chAlarmStackUnitUp"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chAlarmStackUnitReset"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chAlarmStackUnitOffline"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chAlarmStackUnitCodeMismatch"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chAlarmStackPortLinkUp"
+      },
+      {
+        "module": "F10-S-SERIES-CHASSIS-MIB",
+        "object": "chAlarmStackPortLinkDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F10-S-SERIES-CHASSIS-MIB"
+  }
+}

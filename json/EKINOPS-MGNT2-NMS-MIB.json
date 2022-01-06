@@ -1,0 +1,1770 @@
+{
+  "imports": {
+    "class": "imports",
+    "EKINOPS-MIB": [
+      "EkiOnOff",
+      "ekinops"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "DateAndTime"
+    ],
+    "SNMPv2-TM": [
+      "SnmpUDPAddress"
+    ]
+  },
+  "mgnt2NMS": {
+    "name": "mgnt2NMS",
+    "oid": "1.3.6.1.4.1.20044.1000",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-07-26 15:00",
+        "description": "Initial version."
+      },
+      {
+        "revision": "2015-04-13 00:00",
+        "description": "Add bindings for Node Controller Add objects for Linux download Add objects for SoftwareDownload"
+      },
+      {
+        "revision": "2015-11-12 00:00",
+        "description": "Appropriate Limits on SYNTAX of some OBJECT-TYPE)"
+      },
+      {
+        "revision": "2016-06-06 00:00",
+        "description": "new synthesisAlarm alarmtype "
+      }
+    ]
+  },
+  "mgnt2NMSMibObject": {
+    "name": "mgnt2NMSMibObject",
+    "oid": "1.3.6.1.4.1.20044.1000.1",
+    "class": "objectidentity"
+  },
+  "mgnt2SupportMCConf": {
+    "name": "mgnt2SupportMCConf",
+    "oid": "1.3.6.1.4.1.20044.1000.2",
+    "class": "objectidentity"
+  },
+  "mgnt2SupportMCCompl": {
+    "name": "mgnt2SupportMCCompl",
+    "oid": "1.3.6.1.4.1.20044.1000.2.1",
+    "class": "objectidentity"
+  },
+  "mgnt2SupportMCGroup": {
+    "name": "mgnt2SupportMCGroup",
+    "oid": "1.3.6.1.4.1.20044.1000.2.2",
+    "class": "objectidentity"
+  },
+  "Mgnt2NotificationId": {
+    "name": "Mgnt2NotificationId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Mgnt2AlmProbableCause": {
+    "name": "Mgnt2AlmProbableCause",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "adapterError": 2,
+          "applicationSubsystemFailure": 3,
+          "bandwidthReduced": 4,
+          "callEstablishmentError": 5,
+          "communicationsProtocolError": 6,
+          "communicationsSubsystemFailure": 7,
+          "configurationOrCustomizationError": 8,
+          "congestion": 9,
+          "corruptData": 10,
+          "cpuCyclesLimitExceeded": 11,
+          "dataSetOrModemError": 12,
+          "degradedSignal": 13,
+          "dteDceInterfaceError": 14,
+          "enclosureDoorOpen": 15,
+          "equipmentMalfunction": 16,
+          "excessiveVibration": 17,
+          "fileError": 18,
+          "fireDetected": 19,
+          "floodDetected": 20,
+          "framingError": 21,
+          "heatingVentCoolingSystemProblem": 22,
+          "humidityUnacceptable": 23,
+          "inputOutputDeviceError": 24,
+          "inputDeviceError": 25,
+          "lanError": 26,
+          "leakDetected": 27,
+          "localNodeTransmissionError": 28,
+          "lossOfFrame": 29,
+          "lossOfSignal": 30,
+          "materialSupplyExhausted": 31,
+          "multiplexerProblem": 32,
+          "outOfMemory": 33,
+          "ouputDeviceError": 34,
+          "performanceDegraded": 35,
+          "powerProblem": 36,
+          "pressureUnacceptable": 37,
+          "processorProblem": 38,
+          "pumpFailure": 39,
+          "queueSizeExceeded": 40,
+          "receiveFailure": 41,
+          "receiverFailure": 42,
+          "remoteNodeTransmissionError": 43,
+          "resourceAtOrNearingCapacity": 44,
+          "responseTimeExecessive": 45,
+          "retransmissionRateExcessive": 46,
+          "softwareError": 47,
+          "softwareProgramAbnormallyTerminated": 48,
+          "softwareProgramError": 49,
+          "storageCapacityProblem": 50,
+          "temperatureUnacceptable": 51,
+          "thresholdCrossed": 52,
+          "timingProblem": 53,
+          "toxicLeakDetected": 54,
+          "transmitFailure": 55,
+          "transmitterFailure": 56,
+          "underlyingResourceUnavailable": 57,
+          "versionMismatch": 58,
+          "authenticationFailure": 59,
+          "breachOfConfidentiality": 60,
+          "cableTamper": 61,
+          "delayedInformation": 62,
+          "denialOfService": 63,
+          "duplicateInformation": 64,
+          "informationMissing": 65,
+          "informationModificationDetected": 66,
+          "informationOutOfSequence": 67,
+          "intrusionDetection": 68,
+          "keyExpired": 69,
+          "nonRepudiationFailure": 70,
+          "outOfHoursActivity": 71,
+          "outOfService": 72,
+          "proceduralError": 73,
+          "unauthorizedAccessAttempt": 74,
+          "unexpectedInformation": 75,
+          "informationalStatus": 1000
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2ObjectClassId": {
+    "name": "Mgnt2ObjectClassId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "chassis": 3,
+          "backplane": 4,
+          "container": 5,
+          "powerSupply": 6,
+          "fan": 7,
+          "sensor": 8,
+          "module": 9,
+          "port": 10,
+          "stack": 11,
+          "cpu": 12,
+          "mgnt": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2AlmSeverity": {
+    "name": "Mgnt2AlmSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "indeterminate": 5,
+          "cleared": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2AlmType": {
+    "name": "Mgnt2AlmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "communicationsAlarm": 2,
+          "qualityOfServiceAlarm": 3,
+          "processingErrorAlarm": 4,
+          "equipmentAlarm": 5,
+          "environmentalAlarm": 6,
+          "integrityViolation": 7,
+          "operationalViolation": 8,
+          "physicalViolation": 9,
+          "securityServiceOrMechanismViolation": 10,
+          "timeDomainViolation": 11,
+          "synthesisAlarm": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2EventType": {
+    "name": "Mgnt2EventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "objectCreation": 1,
+          "objectDeletion": 2,
+          "attributeValueChange": 3,
+          "stateChange": 4,
+          "activityLog": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2EventSourceType": {
+    "name": "Mgnt2EventSourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "event": 1,
+          "control": 2,
+          "config": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2LacState": {
+    "name": "Mgnt2LacState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accessDenied": 0,
+          "accessRequested": 1,
+          "accessGrantedCraft": 2,
+          "accessGrantedCli": 3,
+          "accessGrantedSnmp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2ServerAddress": {
+    "name": "Mgnt2ServerAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Mgnt2UploadDownloadFileEncoding": {
+    "name": "Mgnt2UploadDownloadFileEncoding",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ascii": 2,
+          "xml": 3,
+          "bin": 4,
+          "data": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2UploadDownloadFileCompression": {
+    "name": "Mgnt2UploadDownloadFileCompression",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCompression": 1,
+          "bzip": 2,
+          "gzip": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2UploadDownloadActionStatus": {
+    "name": "Mgnt2UploadDownloadActionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 0,
+          "start": 1,
+          "inProgress": 2,
+          "failed": 3,
+          "automatic": 4,
+          "abort": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2UploadDownloadErrorCode": {
+    "name": "Mgnt2UploadDownloadErrorCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "missingLogin": 1,
+          "missingPassword": 2,
+          "missingFile": 3,
+          "serverUnreachable": 4,
+          "badPassword": 5,
+          "noSpaceLeft": 6,
+          "corruptedFile": 7,
+          "canceled": 8,
+          "noWriteAccess": 9,
+          "undefinedError": 10,
+          "accessViolation": 11,
+          "fileExist": 12,
+          "wrongDirection": 13,
+          "wrongName": 14,
+          "wrongCompression": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2SoftwareDownloadActionStatus": {
+    "name": "Mgnt2SoftwareDownloadActionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "missingLogin": 1,
+          "missingPassword": 2,
+          "missingFile": 3,
+          "serverUnreachable": 4,
+          "badPassword": 5,
+          "noSpaceLeft": 6,
+          "corruptedFile": 7,
+          "canceled": 8,
+          "noWriteAccess": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mgnt2DownloadFileType": {
+    "name": "Mgnt2DownloadFileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pmPackage": 0,
+          "mgntPackage": 1,
+          "configurationFile": 2,
+          "logFile": 3,
+          "perfFile": 4,
+          "wavePlan": 5,
+          "adminPackage": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mgnt2ActiveAlmTable": {
+    "name": "mgnt2ActiveAlmTable",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmEntry": {
+    "name": "mgnt2ActiveAlmEntry",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmNotificationId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2ActiveAlmNotificationId": {
+    "name": "mgnt2ActiveAlmNotificationId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2NotificationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmProbableCause": {
+    "name": "mgnt2ActiveAlmProbableCause",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AlmProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmObjectClassIdentifier": {
+    "name": "mgnt2ActiveAlmObjectClassIdentifier",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2ObjectClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmSourcePm": {
+    "name": "mgnt2ActiveAlmSourcePm",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmBoardNumber": {
+    "name": "mgnt2ActiveAlmBoardNumber",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmSourcePortType": {
+    "name": "mgnt2ActiveAlmSourcePortType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmSourcePortNumber": {
+    "name": "mgnt2ActiveAlmSourcePortNumber",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmSeverity": {
+    "name": "mgnt2ActiveAlmSeverity",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AlmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmSpecificProblem": {
+    "name": "mgnt2ActiveAlmSpecificProblem",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmAdditionalText": {
+    "name": "mgnt2ActiveAlmAdditionalText",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmType": {
+    "name": "mgnt2ActiveAlmType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AlmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmTime": {
+    "name": "mgnt2ActiveAlmTime",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmNodeControllerIpAddress": {
+    "name": "mgnt2ActiveAlmNodeControllerIpAddress",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ActiveAlmChassisId": {
+    "name": "mgnt2ActiveAlmChassisId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogTable": {
+    "name": "mgnt2AlmLogTable",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2AlmLogEntry": {
+    "name": "mgnt2AlmLogEntry",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogNotificationId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2AlmLogNotificationId": {
+    "name": "mgnt2AlmLogNotificationId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2NotificationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogProbableCause": {
+    "name": "mgnt2AlmLogProbableCause",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AlmProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogObjectClassIdentifier": {
+    "name": "mgnt2AlmLogObjectClassIdentifier",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2ObjectClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogSourcePm": {
+    "name": "mgnt2AlmLogSourcePm",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogBoardNumber": {
+    "name": "mgnt2AlmLogBoardNumber",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogSourcePortType": {
+    "name": "mgnt2AlmLogSourcePortType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogSourcePortNumber": {
+    "name": "mgnt2AlmLogSourcePortNumber",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogSeverity": {
+    "name": "mgnt2AlmLogSeverity",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AlmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogSpecificProblem": {
+    "name": "mgnt2AlmLogSpecificProblem",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogAdditionalText": {
+    "name": "mgnt2AlmLogAdditionalText",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogAlarmType": {
+    "name": "mgnt2AlmLogAlarmType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2AlmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogTime": {
+    "name": "mgnt2AlmLogTime",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogNodeControllerIpAddress": {
+    "name": "mgnt2AlmLogNodeControllerIpAddress",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2AlmLogChassisId": {
+    "name": "mgnt2AlmLogChassisId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogTable": {
+    "name": "mgnt2EventLogTable",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2EventLogEntry": {
+    "name": "mgnt2EventLogEntry",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogNotificationId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2EventLogNotificationId": {
+    "name": "mgnt2EventLogNotificationId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2NotificationId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogObjectClassIdentifier": {
+    "name": "mgnt2EventLogObjectClassIdentifier",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2ObjectClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogSourcePm": {
+    "name": "mgnt2EventLogSourcePm",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogBoardNumber": {
+    "name": "mgnt2EventLogBoardNumber",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogSourcePortType": {
+    "name": "mgnt2EventLogSourcePortType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogSourcePortNumber": {
+    "name": "mgnt2EventLogSourcePortNumber",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogEventType": {
+    "name": "mgnt2EventLogEventType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2EventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogSourceType": {
+    "name": "mgnt2EventLogSourceType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2EventSourceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogReason": {
+    "name": "mgnt2EventLogReason",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogAdditionalText": {
+    "name": "mgnt2EventLogAdditionalText",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogTime": {
+    "name": "mgnt2EventLogTime",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogNodeControllerIpAddress": {
+    "name": "mgnt2EventLogNodeControllerIpAddress",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2EventLogChassisId": {
+    "name": "mgnt2EventLogChassisId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2UploadDownload": {
+    "name": "mgnt2UploadDownload",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5",
+    "class": "objectidentity"
+  },
+  "mgnt2UploadDownloadFilename": {
+    "name": "mgnt2UploadDownloadFilename",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadAddress": {
+    "name": "mgnt2UploadDownloadAddress",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2ServerAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadLogin": {
+    "name": "mgnt2UploadDownloadLogin",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadPasswd": {
+    "name": "mgnt2UploadDownloadPasswd",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadTxRetries": {
+    "name": "mgnt2UploadDownloadTxRetries",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadActionStatus": {
+    "name": "mgnt2UploadDownloadActionStatus",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2UploadDownloadActionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadErrorCode": {
+    "name": "mgnt2UploadDownloadErrorCode",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2UploadDownloadErrorCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadDirection": {
+    "name": "mgnt2UploadDownloadDirection",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadProgress": {
+    "name": "mgnt2UploadDownloadProgress",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadReceivedFiles": {
+    "name": "mgnt2UploadDownloadReceivedFiles",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadRemainingFiles": {
+    "name": "mgnt2UploadDownloadRemainingFiles",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadFileType": {
+    "name": "mgnt2UploadDownloadFileType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2DownloadFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadFileCompression": {
+    "name": "mgnt2UploadDownloadFileCompression",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2UploadDownloadFileCompression",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2UploadDownloadDeleteLastFile": {
+    "name": "mgnt2UploadDownloadDeleteLastFile",
+    "oid": "1.3.6.1.4.1.20044.1000.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EkiOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2Configuration": {
+    "name": "mgnt2Configuration",
+    "oid": "1.3.6.1.4.1.20044.1000.1.6",
+    "class": "objectidentity"
+  },
+  "mgnt2ConfigurationChecksum": {
+    "name": "mgnt2ConfigurationChecksum",
+    "oid": "1.3.6.1.4.1.20044.1000.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "mgnt2ConfigurationActionStatus": {
+    "name": "mgnt2ConfigurationActionStatus",
+    "oid": "1.3.6.1.4.1.20044.1000.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2ConfigurationActivationErrorCode": {
+    "name": "mgnt2ConfigurationActivationErrorCode",
+    "oid": "1.3.6.1.4.1.20044.1000.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2ConfigurationActivationErrorString": {
+    "name": "mgnt2ConfigurationActivationErrorString",
+    "oid": "1.3.6.1.4.1.20044.1000.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownload": {
+    "name": "mgnt2SoftwareDownload",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7",
+    "class": "objectidentity"
+  },
+  "mgnt2SoftwareDownloadActionStatus": {
+    "name": "mgnt2SoftwareDownloadActionStatus",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownloadActivationErrorCode": {
+    "name": "mgnt2SoftwareDownloadActivationErrorCode",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownloadActivationErrorString": {
+    "name": "mgnt2SoftwareDownloadActivationErrorString",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownloadActivationSlotNumber": {
+    "name": "mgnt2SoftwareDownloadActivationSlotNumber",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownloadActivationClearFile": {
+    "name": "mgnt2SoftwareDownloadActivationClearFile",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownloadActivationFilename": {
+    "name": "mgnt2SoftwareDownloadActivationFilename",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownloadActivationAutoRestart": {
+    "name": "mgnt2SoftwareDownloadActivationAutoRestart",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2SoftwareDownloadActivationFileType": {
+    "name": "mgnt2SoftwareDownloadActivationFileType",
+    "oid": "1.3.6.1.4.1.20044.1000.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2DownloadFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2LacTable": {
+    "name": "mgnt2LacTable",
+    "oid": "1.3.6.1.4.1.20044.1000.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mgnt2LacEntry": {
+    "name": "mgnt2LacEntry",
+    "oid": "1.3.6.1.4.1.20044.1000.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2LacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2LacIndex": {
+    "name": "mgnt2LacIndex",
+    "oid": "1.3.6.1.4.1.20044.1000.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2LacState": {
+    "name": "mgnt2LacState",
+    "oid": "1.3.6.1.4.1.20044.1000.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Mgnt2LacState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2LacNoResponseTimeOutPeriod": {
+    "name": "mgnt2LacNoResponseTimeOutPeriod",
+    "oid": "1.3.6.1.4.1.20044.1000.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mgnt2PolledInfo": {
+    "name": "mgnt2PolledInfo",
+    "oid": "1.3.6.1.4.1.20044.1000.1.10",
+    "class": "objectidentity"
+  },
+  "mgnt2PolledInfoLastAlarmNotificationId": {
+    "name": "mgnt2PolledInfoLastAlarmNotificationId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PolledInfoLastEventNotificationId": {
+    "name": "mgnt2PolledInfoLastEventNotificationId",
+    "oid": "1.3.6.1.4.1.20044.1000.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2PolledInfoConfigurationChecksum": {
+    "name": "mgnt2PolledInfoConfigurationChecksum",
+    "oid": "1.3.6.1.4.1.20044.1000.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgnt2TrapNMSAlarm": {
+    "name": "mgnt2TrapNMSAlarm",
+    "oid": "1.3.6.1.4.1.20044.1000.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogNotificationId"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogObjectClassIdentifier"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogProbableCause"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSeverity"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSpecificProblem"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogAdditionalText"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogAlarmType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogTime"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogNodeControllerIpAddress"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogChassisId"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2TrapNMSEvent": {
+    "name": "mgnt2TrapNMSEvent",
+    "oid": "1.3.6.1.4.1.20044.1000.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogNotificationId"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogObjectClassIdentifier"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogEventType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourceType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogReason"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogAdditionalText"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogTime"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogNodeControllerIpAddress"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogChassisId"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2SupportMc": {
+    "name": "mgnt2SupportMc",
+    "oid": "1.3.6.1.4.1.20044.1000.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mgnt2ActiveAlmGroup",
+        "module": "EKINOPS-MGNT2-NMS-MIB"
+      },
+      {
+        "object": "mgnt2AlmLogGroup",
+        "module": "EKINOPS-MGNT2-NMS-MIB"
+      },
+      {
+        "object": "mgnt2EventLogGroup",
+        "module": "EKINOPS-MGNT2-NMS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2ActiveAlmGroup": {
+    "name": "mgnt2ActiveAlmGroup",
+    "oid": "1.3.6.1.4.1.20044.1000.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmProbableCause"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmObjectClassIdentifier"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmSeverity"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2ActiveAlmTime"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2AlmLogGroup": {
+    "name": "mgnt2AlmLogGroup",
+    "oid": "1.3.6.1.4.1.20044.1000.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogProbableCause"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogObjectClassIdentifier"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogSeverity"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogAlarmType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2AlmLogTime"
+      }
+    ],
+    "status": "current"
+  },
+  "mgnt2EventLogGroup": {
+    "name": "mgnt2EventLogGroup",
+    "oid": "1.3.6.1.4.1.20044.1000.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogObjectClassIdentifier"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourcePm"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogBoardNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourcePortType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourcePortNumber"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogEventType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogSourceType"
+      },
+      {
+        "module": "EKINOPS-MGNT2-NMS-MIB",
+        "object": "mgnt2EventLogTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MGNT2-NMS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EKINOPS-MGNT2-NMS-MIB"
+  }
+}

@@ -1,0 +1,596 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxUserFirewallsRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxUserFirewalls": {
+    "name": "jnxUserFirewalls",
+    "oid": "1.3.6.1.4.1.2636.3.89.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-26 15:53",
+        "description": "MIB support for user firewall counters."
+      }
+    ]
+  },
+  "jnxUserFwTable": {
+    "name": "jnxUserFwTable",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1",
+    "class": "objectidentity"
+  },
+  "jnxUserFwJIMSServerScalar": {
+    "name": "jnxUserFwJIMSServerScalar",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2",
+    "class": "objectidentity"
+  },
+  "jnxUserFwDomainAuthTable": {
+    "name": "jnxUserFwDomainAuthTable",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserFwDomainAuthEntry": {
+    "name": "jnxUserFwDomainAuthEntry",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USERFIREWALL-MIB",
+        "object": "jnxUserFwDomain",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserFwDomain": {
+    "name": "jnxUserFwDomain",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwAuthCPCounter": {
+    "name": "jnxUserFwAuthCPCounter",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwAuthJIMSCounter": {
+    "name": "jnxUserFwAuthJIMSCounter",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwAuthValidCounter": {
+    "name": "jnxUserFwAuthValidCounter",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwAuthPendingCounter": {
+    "name": "jnxUserFwAuthPendingCounter",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwAuthInvalidCounter": {
+    "name": "jnxUserFwAuthInvalidCounter",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwAuthTotalCounter": {
+    "name": "jnxUserFwAuthTotalCounter",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwAuthADCounter": {
+    "name": "jnxUserFwAuthADCounter",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwADDomCtlrTable": {
+    "name": "jnxUserFwADDomCtlrTable",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserFwADDomCtlrEntry": {
+    "name": "jnxUserFwADDomCtlrEntry",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USERFIREWALL-MIB",
+        "object": "jnxUserFwADDomain",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-USERFIREWALL-MIB",
+        "object": "jnxUserFwADDomCtrlerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserFwADDomain": {
+    "name": "jnxUserFwADDomain",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwADDomCtrlerAddr": {
+    "name": "jnxUserFwADDomCtrlerAddr",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwADDomCtrlerName": {
+    "name": "jnxUserFwADDomCtrlerName",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwADDomCtrlerConnStatus": {
+    "name": "jnxUserFwADDomCtrlerConnStatus",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwADDomTotalLogQuery": {
+    "name": "jnxUserFwADDomTotalLogQuery",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwADDomFailedLogQuery": {
+    "name": "jnxUserFwADDomFailedLogQuery",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwADDomRecordsFetched": {
+    "name": "jnxUserFwADDomRecordsFetched",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwLDAPTable": {
+    "name": "jnxUserFwLDAPTable",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserFwLDAPEntry": {
+    "name": "jnxUserFwLDAPEntry",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USERFIREWALL-MIB",
+        "object": "jnxUserFwLDAPDomain",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-USERFIREWALL-MIB",
+        "object": "jnxUserFwLDAPHost",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserFwLDAPDomain": {
+    "name": "jnxUserFwLDAPDomain",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwLDAPHost": {
+    "name": "jnxUserFwLDAPHost",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwLDAPTotalQuery": {
+    "name": "jnxUserFwLDAPTotalQuery",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwLDAPFailedQuery": {
+    "name": "jnxUserFwLDAPFailedQuery",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwProbeTable": {
+    "name": "jnxUserFwProbeTable",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxUserFwProbeEntry": {
+    "name": "jnxUserFwProbeEntry",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-USERFIREWALL-MIB",
+        "object": "jnxUserFwDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserFwDomainName": {
+    "name": "jnxUserFwDomainName",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwTotalUserProbeNum": {
+    "name": "jnxUserFwTotalUserProbeNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwFailedUserProbeNum": {
+    "name": "jnxUserFwFailedUserProbeNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwPriServAddress": {
+    "name": "jnxUserFwPriServAddress",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwPriServQuerySentNum": {
+    "name": "jnxUserFwPriServQuerySentNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwPriServQueryRespNum": {
+    "name": "jnxUserFwPriServQueryRespNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwPriServQueryErrNum": {
+    "name": "jnxUserFwPriServQueryErrNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwPriServIPQuerySentNum": {
+    "name": "jnxUserFwPriServIPQuerySentNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwPriServIPQueryRespNum": {
+    "name": "jnxUserFwPriServIPQueryRespNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwPriServIPQueryErrNum": {
+    "name": "jnxUserFwPriServIPQueryErrNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwSecServAddress": {
+    "name": "jnxUserFwSecServAddress",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwSecServQuerySentNum": {
+    "name": "jnxUserFwSecServQuerySentNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwSecServQueryRespNum": {
+    "name": "jnxUserFwSecServQueryRespNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwSecServQueryErrNum": {
+    "name": "jnxUserFwSecServQueryErrNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwSecServIPQuerySentNum": {
+    "name": "jnxUserFwSecServIPQuerySentNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwSecServIPQueryRespNum": {
+    "name": "jnxUserFwSecServIPQueryRespNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxUserFwSecServIPQueryErrNum": {
+    "name": "jnxUserFwSecServIPQueryErrNum",
+    "oid": "1.3.6.1.4.1.2636.3.89.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-USERFIREWALL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-USERFIREWALL-MIB"
+  }
+}

@@ -1,0 +1,1367 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifDescr"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoQpLbgMIB": {
+    "name": "ciscoQpLbgMIB",
+    "oid": "1.3.6.1.4.1.9.9.824",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-21 00:00",
+        "description": "The table cqlqamPartitionTable describes the various parameters of QP such as QP's state, protocol, management IP, server IP, server state, associated QAM details and configured video route details. The table cqlloadBalanceGroupTable describes the LBG parameters such as total bandwidth, available bandwidth and reserved bandwidth of QAM & IP based sessions. The table cqllbgrouteTable describes the destination IP, udp range, reserved bandwidth of routes configured under LBG and flow count per route. Following objects were added to the MIB to provide trap notification support for the over subscribed Qam. cqlQamOverSubscribedAlert cqlQamOverSubscribedEnable Added object cqlqpServerIpList of type OCTET STRING for displaying multiple server IP's."
+      },
+      {
+        "revision": "2014-08-27 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoQpLbgNotifs": {
+    "name": "ciscoQpLbgNotifs",
+    "oid": "1.3.6.1.4.1.9.9.824.0",
+    "class": "objectidentity"
+  },
+  "ciscoQpLbgObjects": {
+    "name": "ciscoQpLbgObjects",
+    "oid": "1.3.6.1.4.1.9.9.824.1",
+    "class": "objectidentity"
+  },
+  "ciscoQpLbgConform": {
+    "name": "ciscoQpLbgConform",
+    "oid": "1.3.6.1.4.1.9.9.824.2",
+    "class": "objectidentity"
+  },
+  "cqlQpStateChange": {
+    "name": "cqlQpStateChange",
+    "oid": "1.3.6.1.4.1.9.9.824.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpState"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlQamAdd": {
+    "name": "cqlQamAdd",
+    "oid": "1.3.6.1.4.1.9.9.824.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlQamDelete": {
+    "name": "cqlQamDelete",
+    "oid": "1.3.6.1.4.1.9.9.824.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlLbgRouteAdd": {
+    "name": "cqlLbgRouteAdd",
+    "oid": "1.3.6.1.4.1.9.9.824.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpRouteDetails"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlLbgRouteDelete": {
+    "name": "cqlLbgRouteDelete",
+    "oid": "1.3.6.1.4.1.9.9.824.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpRouteDetails"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlQamOverSubscribedAlert": {
+    "name": "cqlQamOverSubscribedAlert",
+    "oid": "1.3.6.1.4.1.9.9.824.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpQamOversubscribedStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlqamPartitionTable": {
+    "name": "cqlqamPartitionTable",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqlqamPartitionEntry": {
+    "name": "cqlqamPartitionEntry",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cqlqpIndex": {
+    "name": "cqlqpIndex",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqlqpId": {
+    "name": "cqlqpId",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpMgmtIpAddrType": {
+    "name": "cqlqpMgmtIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpMgmtIp": {
+    "name": "cqlqpMgmtIp",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpServerIpAddrType": {
+    "name": "cqlqpServerIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpServerIp": {
+    "name": "cqlqpServerIp",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpState": {
+    "name": "cqlqpState",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "init": 2,
+          "active": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpProtocol": {
+    "name": "cqlqpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gqi": 1,
+          "ermi": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpKeepAliveTime": {
+    "name": "cqlqpKeepAliveTime",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpServerState": {
+    "name": "cqlqpServerState",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpGqiMacAddr": {
+    "name": "cqlqpGqiMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpGqiResetInterval": {
+    "name": "cqlqpGqiResetInterval",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpNumQams": {
+    "name": "cqlqpNumQams",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpQamCarrrierList": {
+    "name": "cqlqpQamCarrrierList",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpNumRoutes": {
+    "name": "cqlqpNumRoutes",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpRouteDetails": {
+    "name": "cqlqpRouteDetails",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiErrpComponentName": {
+    "name": "cqlqpErmiErrpComponentName",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiErrpStreamingZone": {
+    "name": "cqlqpErmiErrpStreamingZone",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiErrpHoldTime": {
+    "name": "cqlqpErmiErrpHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiErrpConnnectTime": {
+    "name": "cqlqpErmiErrpConnnectTime",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiErrpConnectRetry": {
+    "name": "cqlqpErmiErrpConnectRetry",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiRtspConnectTime": {
+    "name": "cqlqpErmiRtspConnectTime",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiRtspConnectRetry": {
+    "name": "cqlqpErmiRtspConnectRetry",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiRtspKeepAliveTime": {
+    "name": "cqlqpErmiRtspKeepAliveTime",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpErmiRtspSessionTimeout": {
+    "name": "cqlqpErmiRtspSessionTimeout",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpQamOversubscribedStatus": {
+    "name": "cqlqpQamOversubscribedStatus",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlqpServerIpList": {
+    "name": "cqlqpServerIpList",
+    "oid": "1.3.6.1.4.1.9.9.824.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlloadBalanceGroupTable": {
+    "name": "cqlloadBalanceGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.824.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqlloadBalanceGroupEntry": {
+    "name": "cqlloadBalanceGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.824.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cqllbgIndex": {
+    "name": "cqllbgIndex",
+    "oid": "1.3.6.1.4.1.9.9.824.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqllbgTotalBandwidth": {
+    "name": "cqllbgTotalBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.824.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgQamRsvBandwidth": {
+    "name": "cqllbgQamRsvBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.824.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgIpRsvBandwidth": {
+    "name": "cqllbgIpRsvBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.824.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgAvailableBandwidth": {
+    "name": "cqllbgAvailableBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.824.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgrouteTable": {
+    "name": "cqllbgrouteTable",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqllbgrouteEntry": {
+    "name": "cqllbgrouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cqllbgRouteIndex": {
+    "name": "cqllbgRouteIndex",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cqllbgQpId": {
+    "name": "cqllbgQpId",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgDstIpAddrType": {
+    "name": "cqllbgDstIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgDstIpAddr": {
+    "name": "cqllbgDstIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgUdpPortRangeMin": {
+    "name": "cqllbgUdpPortRangeMin",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgUdpPortRangeMax": {
+    "name": "cqllbgUdpPortRangeMax",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgGqiIngressPort": {
+    "name": "cqllbgGqiIngressPort",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgRsvBandwidth": {
+    "name": "cqllbgRsvBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgAllocatedBandwidth": {
+    "name": "cqllbgAllocatedBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqllbgNumFlows": {
+    "name": "cqllbgNumFlows",
+    "oid": "1.3.6.1.4.1.9.9.824.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cqlQpNotifyEnable": {
+    "name": "cqlQpNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.824.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cqlQamNotifyEnable": {
+    "name": "cqlQamNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.824.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cqlRouteNotifyEnable": {
+    "name": "cqlRouteNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.824.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cqlQamOverSubscribedEnable": {
+    "name": "cqlQamOverSubscribedEnable",
+    "oid": "1.3.6.1.4.1.9.9.824.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoQpLbgCompliances": {
+    "name": "ciscoQpLbgCompliances",
+    "oid": "1.3.6.1.4.1.9.9.824.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoQpLbgGroups": {
+    "name": "ciscoQpLbgGroups",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2",
+    "class": "objectidentity"
+  },
+  "cqlciscoQpLbgCompliance": {
+    "name": "cqlciscoQpLbgCompliance",
+    "oid": "1.3.6.1.4.1.9.9.824.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cqlciscoLbgRouteObjectGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoQpNotifsGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoQpObjectGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoQpLbgNotifsControlGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoLbgNotifsGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoLbgObjectGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cqlciscoQpLbgCompliance1": {
+    "name": "cqlciscoQpLbgCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.824.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cqlciscoLbgRouteObjectGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoLbgNotifsGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoLbgObjectGroup",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoQpNotifsGroup1",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoQpObjectGroup1",
+        "module": "CISCO-QP-LBG-MIB"
+      },
+      {
+        "object": "cqlciscoQpLbgNotifsControlGroup1",
+        "module": "CISCO-QP-LBG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlciscoQpNotifsGroup": {
+    "name": "cqlciscoQpNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQpStateChange"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamAdd"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamDelete"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cqlciscoLbgNotifsGroup": {
+    "name": "cqlciscoLbgNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlLbgRouteAdd"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlLbgRouteDelete"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlciscoQpObjectGroup": {
+    "name": "cqlciscoQpObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpId"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpMgmtIp"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpState"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpProtocol"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpKeepAliveTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpGqiResetInterval"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpServerIp"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpServerState"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpGqiMacAddr"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpNumQams"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpQamCarrrierList"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpNumRoutes"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpRouteDetails"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpComponentName"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpStreamingZone"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpConnectRetry"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpConnnectTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpHoldTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspConnectRetry"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspConnectTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspKeepAliveTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspSessionTimeout"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpMgmtIpAddrType"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpServerIpAddrType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cqlciscoLbgObjectGroup": {
+    "name": "cqlciscoLbgObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgTotalBandwidth"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgQamRsvBandwidth"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgIpRsvBandwidth"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgAvailableBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlciscoLbgRouteObjectGroup": {
+    "name": "cqlciscoLbgRouteObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgQpId"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgDstIpAddr"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgUdpPortRangeMin"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgUdpPortRangeMax"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgGqiIngressPort"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgAllocatedBandwidth"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgRsvBandwidth"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgNumFlows"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqllbgDstIpAddrType"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlciscoQpLbgNotifsControlGroup": {
+    "name": "cqlciscoQpLbgNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQpNotifyEnable"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamNotifyEnable"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlRouteNotifyEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cqlciscoQpNotifsGroup1": {
+    "name": "cqlciscoQpNotifsGroup1",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQpStateChange"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamAdd"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamDelete"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamOverSubscribedAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlciscoQpObjectGroup1": {
+    "name": "cqlciscoQpObjectGroup1",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpId"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpMgmtIpAddrType"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpMgmtIp"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpServerIpAddrType"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpServerIp"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpState"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpProtocol"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpKeepAliveTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpServerState"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpGqiMacAddr"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpGqiResetInterval"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpNumQams"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpQamCarrrierList"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpNumRoutes"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpRouteDetails"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpComponentName"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpStreamingZone"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpHoldTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpConnnectTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiErrpConnectRetry"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspConnectTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspConnectRetry"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspKeepAliveTime"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpErmiRtspSessionTimeout"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpQamOversubscribedStatus"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlqpServerIpList"
+      }
+    ],
+    "status": "current"
+  },
+  "cqlciscoQpLbgNotifsControlGroup1": {
+    "name": "cqlciscoQpLbgNotifsControlGroup1",
+    "oid": "1.3.6.1.4.1.9.9.824.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQpNotifyEnable"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamNotifyEnable"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlRouteNotifyEnable"
+      },
+      {
+        "module": "CISCO-QP-LBG-MIB",
+        "object": "cqlQamOverSubscribedEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-QP-LBG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-QP-LBG-MIB"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRmonConfigCapability": {
+    "name": "ciscoRmonConfigCapability",
+    "oid": "1.3.6.1.4.1.9.7.346",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-10-28 00:00",
+        "description": "Added capability statement crcCapV12R0233SXIPCat6K."
+      },
+      {
+        "revision": "2008-05-09 00:00",
+        "description": "Added capability statement ciscoRmonConfigCapDCOS."
+      },
+      {
+        "revision": "2007-06-28 00:00",
+        "description": "Added capability statement crcCapV12R0233SXHPCat6k."
+      },
+      {
+        "revision": "2006-01-18 00:00",
+        "description": "Added capability statements crcCapV12R0218SXDPCat6k and crcCapV12R0218SXEPCat6k."
+      },
+      {
+        "revision": "2005-08-24 10:00",
+        "description": "Added capability statement ciscoRmonConfigCapCatOSV08R0501."
+      },
+      {
+        "revision": "2004-03-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRmonConfigCapV12R0111ECat6K": {
+    "name": "ciscoRmonConfigCapV12R0111ECat6K",
+    "oid": "1.3.6.1.4.1.9.7.346.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.1(11E) on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "ciscoRmonConfigCapCatOSV6R0301": {
+    "name": "ciscoRmonConfigCapCatOSV6R0301",
+    "oid": "1.3.6.1.4.1.9.7.346.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 6.3(1).",
+    "status": "current"
+  },
+  "ciscoRmonConfigCapCatOSV08R0501": {
+    "name": "ciscoRmonConfigCapCatOSV08R0501",
+    "oid": "1.3.6.1.4.1.9.7.346.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco CatOS 8.5(1).",
+    "status": "current"
+  },
+  "crcCapV12R0218SXDPCat6k": {
+    "name": "crcCapV12R0218SXDPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.346.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)SXD on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "crcCapV12R0218SXEPCat6k": {
+    "name": "crcCapV12R0218SXEPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.346.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(18)SXE on Catalyst 6000/6500\n                         and Cisco 7600 series devices.",
+    "status": "current"
+  },
+  "crcCapV12R0233SXHPCat6k": {
+    "name": "crcCapV12R0233SXHPCat6k",
+    "oid": "1.3.6.1.4.1.9.7.346.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXH on Catalyst 6000/6500\n                         series devices.",
+    "status": "current"
+  },
+  "ciscoRmonConfigCapSanOSV34R1": {
+    "name": "ciscoRmonConfigCapSanOSV34R1",
+    "oid": "1.3.6.1.4.1.9.7.346.7",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco SanOS 3.4(1) on MDS9000 Storage Switches.",
+    "status": "current"
+  },
+  "crcCapV12R0233SXIPCat6K": {
+    "name": "crcCapV12R0233SXIPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.346.8",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(33)SXI on Catalyst 6000/6500\n                    series devices.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RMON-CONFIG-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-RMON-CONFIG-CAPABILITY"
+  }
+}

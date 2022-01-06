@@ -1,0 +1,2237 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-WIRELESS-TC-MIB": [
+      "CwrCwSeverelyErroredSecond",
+      "CwrPercentageValue",
+      "CwrFixedPointValue",
+      "CwrFixedPointScale",
+      "CwrCwConsecutiveSevErrSecond",
+      "CwrCwDegradedSecond",
+      "CwrUpdateTime",
+      "CwrCwErrorFreeSecond",
+      "WirelessGauge64",
+      "CwrFixedPointPrecision",
+      "CwrCwErroredSecond"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoWirelessLinkMetricsMIB": {
+    "name": "ciscoWirelessLinkMetricsMIB",
+    "oid": "1.3.6.1.4.1.9.9.181",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-04 10:03",
+        "description": "Imported Unsigned32 from SNMPv2-SMI."
+      },
+      {
+        "revision": "2000-02-14 19:10",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "p2mpLinkMetricsGroup": {
+    "name": "p2mpLinkMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.181.1",
+    "class": "objectidentity"
+  },
+  "p2mpSuLinkMetricsGroup": {
+    "name": "p2mpSuLinkMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.181.2",
+    "class": "objectidentity"
+  },
+  "p2mpHeLinkMetricsGroup": {
+    "name": "p2mpHeLinkMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.181.3",
+    "class": "objectidentity"
+  },
+  "p2mpMetricsPrecisionTable": {
+    "name": "p2mpMetricsPrecisionTable",
+    "oid": "1.3.6.1.4.1.9.9.181.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpMetricsPrecisionEntry": {
+    "name": "p2mpMetricsPrecisionEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpLinkMetricsScale": {
+    "name": "p2mpLinkMetricsScale",
+    "oid": "1.3.6.1.4.1.9.9.181.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpLinkMetricsPrecision": {
+    "name": "p2mpLinkMetricsPrecision",
+    "oid": "1.3.6.1.4.1.9.9.181.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuLinkMetricsThreshTable": {
+    "name": "p2mpSuLinkMetricsThreshTable",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSuLinkMetricsThreshEntry": {
+    "name": "p2mpSuLinkMetricsThreshEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSuLinkESThresh": {
+    "name": "p2mpSuLinkESThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSuLinkDSThresh": {
+    "name": "p2mpSuLinkDSThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSuLinkSESThresh": {
+    "name": "p2mpSuLinkSESThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSuLinkCSESThresh": {
+    "name": "p2mpSuLinkCSESThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSuLink1HrESAlarmThresh": {
+    "name": "p2mpSuLink1HrESAlarmThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSuLink1HrSESAlarmThresh": {
+    "name": "p2mpSuLink1HrSESAlarmThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSuLink1HrCSESAlarmThresh": {
+    "name": "p2mpSuLink1HrCSESAlarmThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSuLink1HrDCSAlarmThresh": {
+    "name": "p2mpSuLink1HrDCSAlarmThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpSu1SecMetricsTable": {
+    "name": "p2mpSu1SecMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSu1SecMetricsEntry": {
+    "name": "p2mpSu1SecMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1SecIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSu1SecIndex": {
+    "name": "p2mpSu1SecIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSu1SecUpdateTime": {
+    "name": "p2mpSu1SecUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1SecType": {
+    "name": "p2mpSu1SecType",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "errorFree": 1,
+          "errored": 2,
+          "degraded": 3,
+          "sevErrored": 4,
+          "syncLoss": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1SecTotalCodewords": {
+    "name": "p2mpSu1SecTotalCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1SecTotalErrCodewords": {
+    "name": "p2mpSu1SecTotalErrCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1SecValidDataPkt": {
+    "name": "p2mpSu1SecValidDataPkt",
+    "oid": "1.3.6.1.4.1.9.9.181.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinMetricsTable": {
+    "name": "p2mpSu1MinMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSu1MinMetricsEntry": {
+    "name": "p2mpSu1MinMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSu1MinIndex": {
+    "name": "p2mpSu1MinIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSu1MinUpdateTime": {
+    "name": "p2mpSu1MinUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinTotalCodewords": {
+    "name": "p2mpSu1MinTotalCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinTotalErrCodewords": {
+    "name": "p2mpSu1MinTotalErrCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinValidDataPkt": {
+    "name": "p2mpSu1MinValidDataPkt",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinErrorFreeSeconds": {
+    "name": "p2mpSu1MinErrorFreeSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwErrorFreeSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinErroredSeconds": {
+    "name": "p2mpSu1MinErroredSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwErroredSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinDegradedSeconds": {
+    "name": "p2mpSu1MinDegradedSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwDegradedSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinSevErroredSeconds": {
+    "name": "p2mpSu1MinSevErroredSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwSeverelyErroredSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinConsecSevErrSeconds": {
+    "name": "p2mpSu1MinConsecSevErrSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwConsecutiveSevErrSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinSyncLossSeconds": {
+    "name": "p2mpSu1MinSyncLossSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinTxPowerMax": {
+    "name": "p2mpSu1MinTxPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinTxPowerMin": {
+    "name": "p2mpSu1MinTxPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinTxPowerAvg": {
+    "name": "p2mpSu1MinTxPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinMainAntRxPowerMax": {
+    "name": "p2mpSu1MinMainAntRxPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinMainAntRxPowerMin": {
+    "name": "p2mpSu1MinMainAntRxPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinMainAntRxPowerAvg": {
+    "name": "p2mpSu1MinMainAntRxPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinDivAntRxPowerMax": {
+    "name": "p2mpSu1MinDivAntRxPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinDivAntRxPowerMin": {
+    "name": "p2mpSu1MinDivAntRxPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1MinDivAntRxPowerAvg": {
+    "name": "p2mpSu1MinDivAntRxPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.181.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrMetricsTable": {
+    "name": "p2mpSu1HrMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSu1HrMetricsEntry": {
+    "name": "p2mpSu1HrMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSu1HrIndex": {
+    "name": "p2mpSu1HrIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSu1HrUpdateTime": {
+    "name": "p2mpSu1HrUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrTotalCodewords": {
+    "name": "p2mpSu1HrTotalCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrTotalErrCodewords": {
+    "name": "p2mpSu1HrTotalErrCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrValidDataPkt": {
+    "name": "p2mpSu1HrValidDataPkt",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrErrorFreeSeconds": {
+    "name": "p2mpSu1HrErrorFreeSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwErrorFreeSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrErroredSeconds": {
+    "name": "p2mpSu1HrErroredSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwErroredSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrSevErroredSeconds": {
+    "name": "p2mpSu1HrSevErroredSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwSeverelyErroredSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrConsecSvErrSeconds": {
+    "name": "p2mpSu1HrConsecSvErrSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwConsecutiveSevErrSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrSyncLossSeconds": {
+    "name": "p2mpSu1HrSyncLossSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrDegradedSeconds": {
+    "name": "p2mpSu1HrDegradedSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCwDegradedSecond",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrTxPowerMax": {
+    "name": "p2mpSu1HrTxPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrTxPowerMin": {
+    "name": "p2mpSu1HrTxPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrTxPowerAvg": {
+    "name": "p2mpSu1HrTxPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrMainAntRxPowerMax": {
+    "name": "p2mpSu1HrMainAntRxPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrMainAntRxPowerMin": {
+    "name": "p2mpSu1HrMainAntRxPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrMainAntRxPowerAvg": {
+    "name": "p2mpSu1HrMainAntRxPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrDivAntRxPowerMax": {
+    "name": "p2mpSu1HrDivAntRxPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrDivAntRxPowerMin": {
+    "name": "p2mpSu1HrDivAntRxPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSu1HrDivAntRxPowerAvg": {
+    "name": "p2mpSu1HrDivAntRxPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.181.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuCumulativeLinkMetricsTable": {
+    "name": "p2mpSuCumulativeLinkMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSuCumulativeLinkMetricsEntry": {
+    "name": "p2mpSuCumulativeLinkMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSuAvailableSeconds": {
+    "name": "p2mpSuAvailableSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuUnAvailableSeconds": {
+    "name": "p2mpSuUnAvailableSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuPctAvailSeconds": {
+    "name": "p2mpSuPctAvailSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuSyncLossSeconds": {
+    "name": "p2mpSuSyncLossSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuPctErrorFreeSeconds": {
+    "name": "p2mpSuPctErrorFreeSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuPctErroredSeconds": {
+    "name": "p2mpSuPctErroredSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuPctSevErroredSeconds": {
+    "name": "p2mpSuPctSevErroredSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuPctDegradedSeconds": {
+    "name": "p2mpSuPctDegradedSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuInitialSyncSeconds": {
+    "name": "p2mpSuInitialSyncSeconds",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuSyncSuccessCount": {
+    "name": "p2mpSuSyncSuccessCount",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuLastSyncSuccessTime": {
+    "name": "p2mpSuLastSyncSuccessTime",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuSyncFailureCount": {
+    "name": "p2mpSuSyncFailureCount",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuLastSyncFailTime": {
+    "name": "p2mpSuLastSyncFailTime",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuSyncMedEffort": {
+    "name": "p2mpSuSyncMedEffort",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuSyncHighEffort": {
+    "name": "p2mpSuSyncHighEffort",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuEffectiveDataRate": {
+    "name": "p2mpSuEffectiveDataRate",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSuPercentEfficiency": {
+    "name": "p2mpSuPercentEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.181.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHeLinkMetricsThreshTable": {
+    "name": "p2mpHeLinkMetricsThreshTable",
+    "oid": "1.3.6.1.4.1.9.9.181.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHeLinkMetricsThreshEntry": {
+    "name": "p2mpHeLinkMetricsThreshEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHe1HrMinTotalCWThresh": {
+    "name": "p2mpHe1HrMinTotalCWThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpHe1HrPctErrCWThresh": {
+    "name": "p2mpHe1HrPctErrCWThresh",
+    "oid": "1.3.6.1.4.1.9.9.181.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrPercentageValue",
+      "class": "type"
+    },
+    "units": "0.00001 percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "p2mpHeBadSuTable": {
+    "name": "p2mpHeBadSuTable",
+    "oid": "1.3.6.1.4.1.9.9.181.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHeBadSuEntry": {
+    "name": "p2mpHeBadSuEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpBadSuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpBadSuIndex": {
+    "name": "p2mpBadSuIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpBadSuUpdateTime": {
+    "name": "p2mpBadSuUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpBadSuMacAddress": {
+    "name": "p2mpBadSuMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.181.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTotalErroredCodewords": {
+    "name": "p2mpTotalErroredCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpPctErroredCodewords": {
+    "name": "p2mpPctErroredCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHeCodewordErrorTable": {
+    "name": "p2mpHeCodewordErrorTable",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHeCodewordErrorEntry": {
+    "name": "p2mpHeCodewordErrorEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHeCWErrorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSuMacAddress": {
+    "name": "p2mpSuMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHeCWErrorIndex": {
+    "name": "p2mpHeCWErrorIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHeCWErrorUpdateTime": {
+    "name": "p2mpHeCWErrorUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTotalCodewords": {
+    "name": "p2mpTotalCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpErroredCodewords": {
+    "name": "p2mpErroredCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSINR": {
+    "name": "p2mpSINR",
+    "oid": "1.3.6.1.4.1.9.9.181.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1SecMetricsTable": {
+    "name": "p2mpHe1SecMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.181.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHe1SecMetricsEntry": {
+    "name": "p2mpHe1SecMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1SecIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHe1SecIndex": {
+    "name": "p2mpHe1SecIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHe1SecUpdateTime": {
+    "name": "p2mpHe1SecUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1SecTotalCodewords": {
+    "name": "p2mpHe1SecTotalCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1SecErroredCodewords": {
+    "name": "p2mpHe1SecErroredCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1MinMetricsTable": {
+    "name": "p2mpHe1MinMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.181.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHe1MinMetricsEntry": {
+    "name": "p2mpHe1MinMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1MinIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHe1MinIndex": {
+    "name": "p2mpHe1MinIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHe1MinUpdateTime": {
+    "name": "p2mpHe1MinUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1MinTotalCodewords": {
+    "name": "p2mpHe1MinTotalCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1MinErroredCodewords": {
+    "name": "p2mpHe1MinErroredCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1HrMetricsTable": {
+    "name": "p2mpHe1HrMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.181.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHe1HrMetricsEntry": {
+    "name": "p2mpHe1HrMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.181.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1HrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHe1HrIndex": {
+    "name": "p2mpHe1HrIndex",
+    "oid": "1.3.6.1.4.1.9.9.181.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHe1HrUpdateTime": {
+    "name": "p2mpHe1HrUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.181.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1HrTotalCodewords": {
+    "name": "p2mpHe1HrTotalCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHe1HrErroredCodewords": {
+    "name": "p2mpHe1HrErroredCodewords",
+    "oid": "1.3.6.1.4.1.9.9.181.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WirelessGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpMetricsMIBNotificationPrefix": {
+    "name": "p2mpMetricsMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2",
+    "class": "objectidentity"
+  },
+  "p2mpMetricsMIBNotification": {
+    "name": "p2mpMetricsMIBNotification",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2.0",
+    "class": "objectidentity"
+  },
+  "p2mpHeChPctErrCWThreshTrap": {
+    "name": "p2mpHeChPctErrCWThreshTrap",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1HrPctErrCWThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHeMacPctErrCWThreshTrap": {
+    "name": "p2mpHeMacPctErrCWThreshTrap",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpBadSuMacAddress"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpTotalErroredCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpPctErroredCodewords"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSuErrSecAlarmTrap": {
+    "name": "p2mpSuErrSecAlarmTrap",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrESAlarmThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSuSevErrSecAlarmTrap": {
+    "name": "p2mpSuSevErrSecAlarmTrap",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrSESAlarmThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSuConsecSevErrSecAlarmTrap": {
+    "name": "p2mpSuConsecSevErrSecAlarmTrap",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrCSESAlarmThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSuDegradedSecAlarmTrap": {
+    "name": "p2mpSuDegradedSecAlarmTrap",
+    "oid": "1.3.6.1.4.1.9.9.181.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrDCSAlarmThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpRadioLinkConformance": {
+    "name": "p2mpRadioLinkConformance",
+    "oid": "1.3.6.1.4.1.9.9.181.4",
+    "class": "objectidentity"
+  },
+  "p2mpRadioLinkCompliances": {
+    "name": "p2mpRadioLinkCompliances",
+    "oid": "1.3.6.1.4.1.9.9.181.4.1",
+    "class": "objectidentity"
+  },
+  "p2mpRadioLinkGroups": {
+    "name": "p2mpRadioLinkGroups",
+    "oid": "1.3.6.1.4.1.9.9.181.4.2",
+    "class": "objectidentity"
+  },
+  "p2mpRadioLinkCompliance": {
+    "name": "p2mpRadioLinkCompliance",
+    "oid": "1.3.6.1.4.1.9.9.181.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "p2mpComplianceLinkMetricsGroup",
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"
+      },
+      {
+        "object": "p2mpComplianceSuMetricsGroup",
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"
+      },
+      {
+        "object": "p2mpComplianceHeMetricsGroup",
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"
+      },
+      {
+        "object": "p2mpComplianceNotifGroup",
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceLinkMetricsGroup": {
+    "name": "p2mpComplianceLinkMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.181.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpLinkMetricsScale"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpLinkMetricsPrecision"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceSuMetricsGroup": {
+    "name": "p2mpComplianceSuMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.181.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLinkESThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLinkDSThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLinkSESThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLinkCSESThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrESAlarmThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrSESAlarmThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrCSESAlarmThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLink1HrDCSAlarmThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1SecUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1SecType"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1SecTotalCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1SecTotalErrCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1SecValidDataPkt"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinTotalCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinTotalErrCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinValidDataPkt"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinErrorFreeSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinErroredSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinSevErroredSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinConsecSevErrSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinSyncLossSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinDegradedSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinTxPowerMax"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinTxPowerMin"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinTxPowerAvg"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinMainAntRxPowerMax"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinMainAntRxPowerMin"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinMainAntRxPowerAvg"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinDivAntRxPowerMax"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinDivAntRxPowerMin"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1MinDivAntRxPowerAvg"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrTotalCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrTotalErrCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrValidDataPkt"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrErrorFreeSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrErroredSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrSevErroredSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrConsecSvErrSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrSyncLossSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrDegradedSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrTxPowerMax"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrTxPowerMin"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrTxPowerAvg"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrMainAntRxPowerMax"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrMainAntRxPowerMin"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrMainAntRxPowerAvg"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrDivAntRxPowerMax"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrDivAntRxPowerMin"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSu1HrDivAntRxPowerAvg"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuAvailableSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuUnAvailableSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuPctAvailSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuSyncLossSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuPctErrorFreeSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuPctErroredSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuPctSevErroredSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuPctDegradedSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuInitialSyncSeconds"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuSyncSuccessCount"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLastSyncSuccessTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuSyncMedEffort"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuSyncHighEffort"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuSyncFailureCount"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuLastSyncFailTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuEffectiveDataRate"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuPercentEfficiency"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceHeMetricsGroup": {
+    "name": "p2mpComplianceHeMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.181.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1HrMinTotalCWThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1HrPctErrCWThresh"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpBadSuUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpBadSuMacAddress"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpTotalErroredCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpPctErroredCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHeCWErrorUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpTotalCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpErroredCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSINR"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1SecUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1SecTotalCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1SecErroredCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1MinUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1MinTotalCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1MinErroredCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1HrUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1HrTotalCodewords"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHe1HrErroredCodewords"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceNotifGroup": {
+    "name": "p2mpComplianceNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.181.4.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHeChPctErrCWThreshTrap"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpHeMacPctErrCWThreshTrap"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuErrSecAlarmTrap"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuSevErrSecAlarmTrap"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuConsecSevErrSecAlarmTrap"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+        "object": "p2mpSuDegradedSecAlarmTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"
+  }
+}

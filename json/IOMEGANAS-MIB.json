@@ -1,0 +1,1034 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "enterprises",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "lenovoemc": {
+    "name": "lenovoemc",
+    "oid": "1.3.6.1.4.1.11369",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-03-01 10:11",
+        "description": ""
+      }
+    ]
+  },
+  "org": {
+    "name": "org",
+    "oid": "1.3",
+    "class": "objectidentity"
+  },
+  "dod": {
+    "name": "dod",
+    "oid": "1.3.6",
+    "class": "objectidentity"
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "private": {
+    "name": "private",
+    "oid": "1.3.6.1.4",
+    "class": "objectidentity"
+  },
+  "enterprises": {
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "iomegaNAS": {
+    "name": "iomegaNAS",
+    "oid": "1.3.6.1.4.1.11369.10",
+    "class": "objectidentity"
+  },
+  "iomegaNASInfo": {
+    "name": "iomegaNASInfo",
+    "oid": "1.3.6.1.4.1.11369.10.1",
+    "class": "objectidentity"
+  },
+  "systemPerformance": {
+    "name": "systemPerformance",
+    "oid": "1.3.6.1.4.1.11369.10.2",
+    "class": "objectidentity"
+  },
+  "iomegaNASFunctionStatus": {
+    "name": "iomegaNASFunctionStatus",
+    "oid": "1.3.6.1.4.1.11369.10.3",
+    "class": "objectidentity"
+  },
+  "iomegaNASStorage": {
+    "name": "iomegaNASStorage",
+    "oid": "1.3.6.1.4.1.11369.10.4",
+    "class": "objectidentity"
+  },
+  "iomegaNASDevice": {
+    "name": "iomegaNASDevice",
+    "oid": "1.3.6.1.4.1.11369.10.5",
+    "class": "objectidentity"
+  },
+  "iomegaNASSensor": {
+    "name": "iomegaNASSensor",
+    "oid": "1.3.6.1.4.1.11369.10.6",
+    "class": "objectidentity"
+  },
+  "iomegaNASEvent": {
+    "name": "iomegaNASEvent",
+    "oid": "1.3.6.1.4.1.11369.10.7",
+    "class": "objectidentity"
+  },
+  "iomegaNASNotifications": {
+    "name": "iomegaNASNotifications",
+    "oid": "1.3.6.1.4.1.11369.10.8",
+    "class": "objectidentity"
+  },
+  "deviceDescr": {
+    "name": "deviceDescr",
+    "oid": "1.3.6.1.4.1.11369.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "Iomega NAS BOX",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.11369.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netConfig": {
+    "name": "netConfig",
+    "oid": "1.3.6.1.4.1.11369.10.1.3",
+    "class": "objectidentity"
+  },
+  "ioTable": {
+    "name": "ioTable",
+    "oid": "1.3.6.1.4.1.11369.10.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ioEntry": {
+    "name": "ioEntry",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "ioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ioIndex": {
+    "name": "ioIndex",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskName": {
+    "name": "diskName",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioMgrs": {
+    "name": "ioMgrs",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioMgws": {
+    "name": "ioMgws",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioReqrs": {
+    "name": "ioReqrs",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioReqws": {
+    "name": "ioReqws",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioKbrs": {
+    "name": "ioKbrs",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioKbws": {
+    "name": "ioKbws",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioAvgQueue": {
+    "name": "ioAvgQueue",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioAvgWait": {
+    "name": "ioAvgWait",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioAvgSvc": {
+    "name": "ioAvgSvc",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioAvgUtil": {
+    "name": "ioAvgUtil",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ioCpuTime": {
+    "name": "ioCpuTime",
+    "oid": "1.3.6.1.4.1.11369.10.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bkupTable": {
+    "name": "bkupTable",
+    "oid": "1.3.6.1.4.1.11369.10.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bkupEntry": {
+    "name": "bkupEntry",
+    "oid": "1.3.6.1.4.1.11369.10.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "bkupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bkupIndex": {
+    "name": "bkupIndex",
+    "oid": "1.3.6.1.4.1.11369.10.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bkupClient": {
+    "name": "bkupClient",
+    "oid": "1.3.6.1.4.1.11369.10.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bkupltStatus": {
+    "name": "bkupltStatus",
+    "oid": "1.3.6.1.4.1.11369.10.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bkupTotalSpace": {
+    "name": "bkupTotalSpace",
+    "oid": "1.3.6.1.4.1.11369.10.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remoteAccess": {
+    "name": "remoteAccess",
+    "oid": "1.3.6.1.4.1.11369.10.3.2",
+    "class": "objectidentity"
+  },
+  "conTable": {
+    "name": "conTable",
+    "oid": "1.3.6.1.4.1.11369.10.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "conEntry": {
+    "name": "conEntry",
+    "oid": "1.3.6.1.4.1.11369.10.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "conIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "conIndex": {
+    "name": "conIndex",
+    "oid": "1.3.6.1.4.1.11369.10.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "conCount": {
+    "name": "conCount",
+    "oid": "1.3.6.1.4.1.11369.10.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "conProtocol": {
+    "name": "conProtocol",
+    "oid": "1.3.6.1.4.1.11369.10.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mediaService": {
+    "name": "mediaService",
+    "oid": "1.3.6.1.4.1.11369.10.3.4",
+    "class": "objectidentity"
+  },
+  "raidStatus": {
+    "name": "raidStatus",
+    "oid": "1.3.6.1.4.1.11369.10.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidLevel": {
+    "name": "raidLevel",
+    "oid": "1.3.6.1.4.1.11369.10.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTable": {
+    "name": "diskTable",
+    "oid": "1.3.6.1.4.1.11369.10.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskEntry": {
+    "name": "diskEntry",
+    "oid": "1.3.6.1.4.1.11369.10.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "diskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskIndex": {
+    "name": "diskIndex",
+    "oid": "1.3.6.1.4.1.11369.10.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskID": {
+    "name": "diskID",
+    "oid": "1.3.6.1.4.1.11369.10.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSize": {
+    "name": "diskSize",
+    "oid": "1.3.6.1.4.1.11369.10.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskStatus": {
+    "name": "diskStatus",
+    "oid": "1.3.6.1.4.1.11369.10.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usbTable": {
+    "name": "usbTable",
+    "oid": "1.3.6.1.4.1.11369.10.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "usbEntry": {
+    "name": "usbEntry",
+    "oid": "1.3.6.1.4.1.11369.10.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "usbIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "usbIndex": {
+    "name": "usbIndex",
+    "oid": "1.3.6.1.4.1.11369.10.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "usbManufacture": {
+    "name": "usbManufacture",
+    "oid": "1.3.6.1.4.1.11369.10.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usbModel": {
+    "name": "usbModel",
+    "oid": "1.3.6.1.4.1.11369.10.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usbType": {
+    "name": "usbType",
+    "oid": "1.3.6.1.4.1.11369.10.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanTable": {
+    "name": "fanTable",
+    "oid": "1.3.6.1.4.1.11369.10.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanEntry": {
+    "name": "fanEntry",
+    "oid": "1.3.6.1.4.1.11369.10.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "fanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fanIndex": {
+    "name": "fanIndex",
+    "oid": "1.3.6.1.4.1.11369.10.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fanName": {
+    "name": "fanName",
+    "oid": "1.3.6.1.4.1.11369.10.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanValue": {
+    "name": "fanValue",
+    "oid": "1.3.6.1.4.1.11369.10.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempTable": {
+    "name": "tempTable",
+    "oid": "1.3.6.1.4.1.11369.10.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempEntry": {
+    "name": "tempEntry",
+    "oid": "1.3.6.1.4.1.11369.10.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "tempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempIndex": {
+    "name": "tempIndex",
+    "oid": "1.3.6.1.4.1.11369.10.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tempName": {
+    "name": "tempName",
+    "oid": "1.3.6.1.4.1.11369.10.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempValue": {
+    "name": "tempValue",
+    "oid": "1.3.6.1.4.1.11369.10.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltTable": {
+    "name": "voltTable",
+    "oid": "1.3.6.1.4.1.11369.10.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "voltEntry": {
+    "name": "voltEntry",
+    "oid": "1.3.6.1.4.1.11369.10.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "voltIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "voltIndex": {
+    "name": "voltIndex",
+    "oid": "1.3.6.1.4.1.11369.10.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "voltName": {
+    "name": "voltName",
+    "oid": "1.3.6.1.4.1.11369.10.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltValue": {
+    "name": "voltValue",
+    "oid": "1.3.6.1.4.1.11369.10.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventID": {
+    "name": "eventID",
+    "oid": "1.3.6.1.4.1.11369.10.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventText": {
+    "name": "eventText",
+    "oid": "1.3.6.1.4.1.11369.10.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iomegaNASNotificationError": {
+    "name": "iomegaNASNotificationError",
+    "oid": "1.3.6.1.4.1.11369.10.8.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "deviceDescr"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "eventID"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "eventText"
+      }
+    ],
+    "status": "current"
+  },
+  "dns0": {
+    "name": "dns0",
+    "oid": "1.3.6.1.4.1.11369.10.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns1": {
+    "name": "dns1",
+    "oid": "1.3.6.1.4.1.11369.10.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wins0": {
+    "name": "wins0",
+    "oid": "1.3.6.1.4.1.11369.10.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wins1": {
+    "name": "wins1",
+    "oid": "1.3.6.1.4.1.11369.10.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raEnabled": {
+    "name": "raEnabled",
+    "oid": "1.3.6.1.4.1.11369.10.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mediaServiceEnabled": {
+    "name": "mediaServiceEnabled",
+    "oid": "1.3.6.1.4.1.11369.10.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iomegaNASNotificationWarn": {
+    "name": "iomegaNASNotificationWarn",
+    "oid": "1.3.6.1.4.1.11369.10.8.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "deviceDescr"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "eventID"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "eventText"
+      }
+    ],
+    "status": "current"
+  },
+  "iomegaNASNotificationInfo": {
+    "name": "iomegaNASNotificationInfo",
+    "oid": "1.3.6.1.4.1.11369.10.8.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "deviceDescr"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "eventID"
+      },
+      {
+        "module": "IOMEGANAS-MIB",
+        "object": "eventText"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/lenovo/IOMEGANAS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IOMEGANAS-MIB"
+  }
+}

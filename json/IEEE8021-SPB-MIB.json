@@ -1,0 +1,3162 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePort"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "dot1agCfmMaIndex",
+      "dot1agCfmMdIndex",
+      "dot1agCfmMepEntry"
+    ],
+    "IEEE8021-TC-MIB": [
+      "ieee802dot1mibs",
+      "IEEE8021PbbIngressEgress",
+      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbTeEsp"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrAny",
+      "VlanId",
+      "VlanIdOrNone"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "ieee8021SpbMib": {
+    "name": "ieee8021SpbMib",
+    "oid": "1.3.111.2.802.1.1.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Published as part of IEEE Std 802.1Q-2018. Cross references updated and corrected. Contact details corrected. Syntax error in ieee8021SpbEctDynamicEntryIngressCheckDiscards corrected."
+      },
+      {
+        "revision": "2015-06-23 00:00",
+        "description": "802.1Qca additions"
+      },
+      {
+        "revision": "2013-05-13 00:00",
+        "description": "802.1Qbp additions and corrections"
+      },
+      {
+        "revision": "2012-02-03 00:00",
+        "description": "802.1 Shortest Path Bridging MIB Initial Version"
+      }
+    ]
+  },
+  "IEEE8021SpbAreaAddress": {
+    "name": "IEEE8021SpbAreaAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "IEEE8021SpbEctAlgorithm": {
+    "name": "IEEE8021SpbEctAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "1x-",
+    "status": "current"
+  },
+  "IEEE8021SpbMode": {
+    "name": "IEEE8021SpbMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE8021SpbEctMode": {
+    "name": "IEEE8021SpbEctMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "spbm": 2,
+          "spbv": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE8021SpbDigestConvention": {
+    "name": "IEEE8021SpbDigestConvention",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "loopFreeBoth": 2,
+          "loopFreeMcastOnly": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE8021SpbLinkMetric": {
+    "name": "IEEE8021SpbLinkMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IEEE8021SpbAdjState": {
+    "name": "IEEE8021SpbAdjState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE8021SpbmSPsourceId": {
+    "name": "IEEE8021SpbmSPsourceId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "IEEE8021SpbDigest": {
+    "name": "IEEE8021SpbDigest",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "IEEE8021SpbMCID": {
+    "name": "IEEE8021SpbMCID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 51,
+            "max": 51
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "IEEE8021SpbBridgePriority": {
+    "name": "IEEE8021SpbBridgePriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "IEEE8021SpbMTID": {
+    "name": "IEEE8021SpbMTID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IEEE8021SpbServiceIdentifierOrAny": {
+    "name": "IEEE8021SpbServiceIdentifierOrAny",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 255,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ieee8021SpbObjects": {
+    "name": "ieee8021SpbObjects",
+    "oid": "1.3.111.2.802.1.1.26.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PcrObjects": {
+    "name": "ieee8021PcrObjects",
+    "oid": "1.3.111.2.802.1.1.26.3",
+    "class": "objectidentity"
+  },
+  "ieee8021SpbSys": {
+    "name": "ieee8021SpbSys",
+    "oid": "1.3.111.2.802.1.1.26.1.1",
+    "class": "objectidentity"
+  },
+  "ieee8021SpbSysAreaAddress": {
+    "name": "ieee8021SpbSysAreaAddress",
+    "oid": "1.3.111.2.802.1.1.26.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbAreaAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpbSysId": {
+    "name": "ieee8021SpbSysId",
+    "oid": "1.3.111.2.802.1.1.26.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpbSysControlAddr": {
+    "name": "ieee8021SpbSysControlAddr",
+    "oid": "1.3.111.2.802.1.1.26.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpbSysName": {
+    "name": "ieee8021SpbSysName",
+    "oid": "1.3.111.2.802.1.1.26.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbSysBridgePriority": {
+    "name": "ieee8021SpbSysBridgePriority",
+    "oid": "1.3.111.2.802.1.1.26.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbBridgePriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbmSysSPSourceId": {
+    "name": "ieee8021SpbmSysSPSourceId",
+    "oid": "1.3.111.2.802.1.1.26.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbmSPsourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpbvSysMode": {
+    "name": "ieee8021SpbvSysMode",
+    "oid": "1.3.111.2.802.1.1.26.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpbmSysMode": {
+    "name": "ieee8021SpbmSysMode",
+    "oid": "1.3.111.2.802.1.1.26.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpbSysDigestConvention": {
+    "name": "ieee8021SpbSysDigestConvention",
+    "oid": "1.3.111.2.802.1.1.26.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbDigestConvention",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "loopFreeBoth",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SpbMtidStaticTable": {
+    "name": "ieee8021SpbMtidStaticTable",
+    "oid": "1.3.111.2.802.1.1.26.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbMtidStaticTableEntry": {
+    "name": "ieee8021SpbMtidStaticTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbMtidStaticEntryMtid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbMtidStaticEntryMtid": {
+    "name": "ieee8021SpbMtidStaticEntryMtid",
+    "oid": "1.3.111.2.802.1.1.26.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbMTidStaticEntryMtidOverload": {
+    "name": "ieee8021SpbMTidStaticEntryMtidOverload",
+    "oid": "1.3.111.2.802.1.1.26.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbMtidStaticEntryRowStatus": {
+    "name": "ieee8021SpbMtidStaticEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.26.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbTopIx": {
+    "name": "ieee8021SpbTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicTable": {
+    "name": "ieee8021SpbTopIxDynamicTable",
+    "oid": "1.3.111.2.802.1.1.26.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicTableEntry": {
+    "name": "ieee8021SpbTopIxDynamicTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryTopIx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicEntryTopIx": {
+    "name": "ieee8021SpbTopIxDynamicEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicEntryAgreeDigest": {
+    "name": "ieee8021SpbTopIxDynamicEntryAgreeDigest",
+    "oid": "1.3.111.2.802.1.1.26.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbDigest",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicEntryMCID": {
+    "name": "ieee8021SpbTopIxDynamicEntryMCID",
+    "oid": "1.3.111.2.802.1.1.26.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMCID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicEntryAuxMCID": {
+    "name": "ieee8021SpbTopIxDynamicEntryAuxMCID",
+    "oid": "1.3.111.2.802.1.1.26.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMCID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticTable": {
+    "name": "ieee8021SpbEctStaticTable",
+    "oid": "1.3.111.2.802.1.1.26.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticTableEntry": {
+    "name": "ieee8021SpbEctStaticTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryBaseVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticEntryTopIx": {
+    "name": "ieee8021SpbEctStaticEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticEntryBaseVid": {
+    "name": "ieee8021SpbEctStaticEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAny",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticEntryEctAlgorithm": {
+    "name": "ieee8021SpbEctStaticEntryEctAlgorithm",
+    "oid": "1.3.111.2.802.1.1.26.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbEctAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00-80-c2-01",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbvEctStaticEntrySpvid": {
+    "name": "ieee8021SpbvEctStaticEntrySpvid",
+    "oid": "1.3.111.2.802.1.1.26.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticEntryRowStatus": {
+    "name": "ieee8021SpbEctStaticEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.26.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicTable": {
+    "name": "ieee8021SpbEctDynamicTable",
+    "oid": "1.3.111.2.802.1.1.26.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicTableEntry": {
+    "name": "ieee8021SpbEctDynamicTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryBaseVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicEntryTopIx": {
+    "name": "ieee8021SpbEctDynamicEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicEntryBaseVid": {
+    "name": "ieee8021SpbEctDynamicEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicEntryMode": {
+    "name": "ieee8021SpbEctDynamicEntryMode",
+    "oid": "1.3.111.2.802.1.1.26.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbEctMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicEntryLocalUse": {
+    "name": "ieee8021SpbEctDynamicEntryLocalUse",
+    "oid": "1.3.111.2.802.1.1.26.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicEntryRemoteUse": {
+    "name": "ieee8021SpbEctDynamicEntryRemoteUse",
+    "oid": "1.3.111.2.802.1.1.26.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicEntryIngressCheckDiscards": {
+    "name": "ieee8021SpbEctDynamicEntryIngressCheckDiscards",
+    "oid": "1.3.111.2.802.1.1.26.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticTable": {
+    "name": "ieee8021SpbAdjStaticTable",
+    "oid": "1.3.111.2.802.1.1.26.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticTableEntry": {
+    "name": "ieee8021SpbAdjStaticTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticEntryTopIx": {
+    "name": "ieee8021SpbAdjStaticEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticEntryIfIndex": {
+    "name": "ieee8021SpbAdjStaticEntryIfIndex",
+    "oid": "1.3.111.2.802.1.1.26.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticEntryMetric": {
+    "name": "ieee8021SpbAdjStaticEntryMetric",
+    "oid": "1.3.111.2.802.1.1.26.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbLinkMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticEntryIfAdminState": {
+    "name": "ieee8021SpbAdjStaticEntryIfAdminState",
+    "oid": "1.3.111.2.802.1.1.26.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbAdjState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticEntryRowStatus": {
+    "name": "ieee8021SpbAdjStaticEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.26.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicTable": {
+    "name": "ieee8021SpbAdjDynamicTable",
+    "oid": "1.3.111.2.802.1.1.26.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicTableEntry": {
+    "name": "ieee8021SpbAdjDynamicTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerSysId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryTopIx": {
+    "name": "ieee8021SpbAdjDynamicEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryIfIndex": {
+    "name": "ieee8021SpbAdjDynamicEntryIfIndex",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPeerSysId": {
+    "name": "ieee8021SpbAdjDynamicEntryPeerSysId",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPort": {
+    "name": "ieee8021SpbAdjDynamicEntryPort",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryIfOperState": {
+    "name": "ieee8021SpbAdjDynamicEntryIfOperState",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbAdjState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPeerSysName": {
+    "name": "ieee8021SpbAdjDynamicEntryPeerSysName",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPeerAgreeDigest": {
+    "name": "ieee8021SpbAdjDynamicEntryPeerAgreeDigest",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbDigest",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPeerMCID": {
+    "name": "ieee8021SpbAdjDynamicEntryPeerMCID",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMCID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPeerAuxMCID": {
+    "name": "ieee8021SpbAdjDynamicEntryPeerAuxMCID",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMCID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryLocalCircuitID": {
+    "name": "ieee8021SpbAdjDynamicEntryLocalCircuitID",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID": {
+    "name": "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPortIdentifier": {
+    "name": "ieee8021SpbAdjDynamicEntryPortIdentifier",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryPeerPortIdentifier": {
+    "name": "ieee8021SpbAdjDynamicEntryPeerPortIdentifier",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicEntryIsisCircIndex": {
+    "name": "ieee8021SpbAdjDynamicEntryIsisCircIndex",
+    "oid": "1.3.111.2.802.1.1.26.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeTable": {
+    "name": "ieee8021SpbTopNodeTable",
+    "oid": "1.3.111.2.802.1.1.26.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeTableEntry": {
+    "name": "ieee8021SpbTopNodeTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntrySysId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeEntryTopIx": {
+    "name": "ieee8021SpbTopNodeEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeEntrySysId": {
+    "name": "ieee8021SpbTopNodeEntrySysId",
+    "oid": "1.3.111.2.802.1.1.26.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeEntryBridgePriority": {
+    "name": "ieee8021SpbTopNodeEntryBridgePriority",
+    "oid": "1.3.111.2.802.1.1.26.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbBridgePriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbmTopNodeEntrySPsourceID": {
+    "name": "ieee8021SpbmTopNodeEntrySPsourceID",
+    "oid": "1.3.111.2.802.1.1.26.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbmSPsourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeEntrySysName": {
+    "name": "ieee8021SpbTopNodeEntrySysName",
+    "oid": "1.3.111.2.802.1.1.26.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopEctTable": {
+    "name": "ieee8021SpbTopEctTable",
+    "oid": "1.3.111.2.802.1.1.26.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEctTableEntry": {
+    "name": "ieee8021SpbTopEctTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntrySysId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryBaseVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopEctEntryTopIx": {
+    "name": "ieee8021SpbTopEctEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEctEntrySysId": {
+    "name": "ieee8021SpbTopEctEntrySysId",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEctEntryBaseVid": {
+    "name": "ieee8021SpbTopEctEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAny",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEctEntryEctAlgorithm": {
+    "name": "ieee8021SpbTopEctEntryEctAlgorithm",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbEctAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopEctEntryMode": {
+    "name": "ieee8021SpbTopEctEntryMode",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbEctMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbvTopEctSysMode": {
+    "name": "ieee8021SpbvTopEctSysMode",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbvTopEctEntrySpvid": {
+    "name": "ieee8021SpbvTopEctEntrySpvid",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopEctEntryLocalUse": {
+    "name": "ieee8021SpbTopEctEntryLocalUse",
+    "oid": "1.3.111.2.802.1.1.26.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeTable": {
+    "name": "ieee8021SpbTopEdgeTable",
+    "oid": "1.3.111.2.802.1.1.26.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeTableEntry": {
+    "name": "ieee8021SpbTopEdgeTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntrySysIdNear",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntrySysIdFar",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeEntryTopIx": {
+    "name": "ieee8021SpbTopEdgeEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeEntrySysIdNear": {
+    "name": "ieee8021SpbTopEdgeEntrySysIdNear",
+    "oid": "1.3.111.2.802.1.1.26.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeEntrySysIdFar": {
+    "name": "ieee8021SpbTopEdgeEntrySysIdFar",
+    "oid": "1.3.111.2.802.1.1.26.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeEntryMetricNear2Far": {
+    "name": "ieee8021SpbTopEdgeEntryMetricNear2Far",
+    "oid": "1.3.111.2.802.1.1.26.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbLinkMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeEntryMetricFar2Near": {
+    "name": "ieee8021SpbTopEdgeEntryMetricFar2Near",
+    "oid": "1.3.111.2.802.1.1.26.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbLinkMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvTable": {
+    "name": "ieee8021SpbmTopSrvTable",
+    "oid": "1.3.111.2.802.1.1.26.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvTableEntry": {
+    "name": "ieee8021SpbmTopSrvTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopSrvEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopSrvEntrySysId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopSrvEntryIsid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopSrvEntryBaseVid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopSrvEntryMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvEntryTopIx": {
+    "name": "ieee8021SpbmTopSrvEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvEntrySysId": {
+    "name": "ieee8021SpbmTopSrvEntrySysId",
+    "oid": "1.3.111.2.802.1.1.26.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvEntryIsid": {
+    "name": "ieee8021SpbmTopSrvEntryIsid",
+    "oid": "1.3.111.2.802.1.1.26.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbServiceIdentifierOrAny",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvEntryBaseVid": {
+    "name": "ieee8021SpbmTopSrvEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAny",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvEntryMac": {
+    "name": "ieee8021SpbmTopSrvEntryMac",
+    "oid": "1.3.111.2.802.1.1.26.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvEntryIsidFlags": {
+    "name": "ieee8021SpbmTopSrvEntryIsidFlags",
+    "oid": "1.3.111.2.802.1.1.26.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbIngressEgress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvTable": {
+    "name": "ieee8021SpbvTopSrvTable",
+    "oid": "1.3.111.2.802.1.1.26.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvTableEntry": {
+    "name": "ieee8021SpbvTopSrvTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopSrvEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopSrvEntrySysId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopSrvEntryMMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvEntryTopIx": {
+    "name": "ieee8021SpbvTopSrvEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvEntrySysId": {
+    "name": "ieee8021SpbvTopSrvEntrySysId",
+    "oid": "1.3.111.2.802.1.1.26.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvEntryMMac": {
+    "name": "ieee8021SpbvTopSrvEntryMMac",
+    "oid": "1.3.111.2.802.1.1.26.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvEntryBaseVid": {
+    "name": "ieee8021SpbvTopSrvEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvEntryMMacFlags": {
+    "name": "ieee8021SpbvTopSrvEntryMMacFlags",
+    "oid": "1.3.111.2.802.1.1.26.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbIngressEgress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticTable": {
+    "name": "ieee8021SpbmBsiStaticTable",
+    "oid": "1.3.111.2.802.1.1.26.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntry": {
+    "name": "ieee8021SpbmBsiStaticEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmBsiStaticEntryIsid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmBsiStaticEntryBaseVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntryIsid": {
+    "name": "ieee8021SpbmBsiStaticEntryIsid",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbServiceIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntryBaseVid": {
+    "name": "ieee8021SpbmBsiStaticEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntryTBit": {
+    "name": "ieee8021SpbmBsiStaticEntryTBit",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntryRBit": {
+    "name": "ieee8021SpbmBsiStaticEntryRBit",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntryTsBit": {
+    "name": "ieee8021SpbmBsiStaticEntryTsBit",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntryTieBreakMask": {
+    "name": "ieee8021SpbmBsiStaticEntryTieBreakMask",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticEntryRowStatus": {
+    "name": "ieee8021SpbmBsiStaticEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.26.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmTable": {
+    "name": "dot1agCfmMepSpbmTable",
+    "oid": "1.3.111.2.802.1.1.26.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmEntry": {
+    "name": "dot1agCfmMepSpbmEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dot1agCfmMepSpbmEntry",
+      "module": "IEEE8021-SPB-MIB",
+      "object": "dot1agCfmMepEntry"
+    },
+    "status": "current"
+  },
+  "dot1agCfmMepTransmitLbmSpbmDA": {
+    "name": "dot1agCfmMepTransmitLbmSpbmDA",
+    "oid": "1.3.111.2.802.1.1.26.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepTransmitLtmSpbmDA": {
+    "name": "dot1agCfmMepTransmitLtmSpbmDA",
+    "oid": "1.3.111.2.802.1.1.26.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmEspTable": {
+    "name": "dot1agCfmMepSpbmEspTable",
+    "oid": "1.3.111.2.802.1.1.26.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmEspEntry": {
+    "name": "dot1agCfmMepSpbmEspEntry",
+    "oid": "1.3.111.2.802.1.1.26.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "dot1agCfmMepSpbmEspIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmEspIndex": {
+    "name": "dot1agCfmMepSpbmEspIndex",
+    "oid": "1.3.111.2.802.1.1.26.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmEspEsp": {
+    "name": "dot1agCfmMepSpbmEspEsp",
+    "oid": "1.3.111.2.802.1.1.26.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeEsp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmEspRowStatus": {
+    "name": "dot1agCfmMepSpbmEspRowStatus",
+    "oid": "1.3.111.2.802.1.1.26.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticTable": {
+    "name": "ieee8021PcrEctStaticTable",
+    "oid": "1.3.111.2.802.1.1.26.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticTableEntry": {
+    "name": "ieee8021PcrEctStaticTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrEctStaticEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrEctStaticEntryBaseVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticEntryTopIx": {
+    "name": "ieee8021PcrEctStaticEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticEntryBaseVid": {
+    "name": "ieee8021PcrEctStaticEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAny",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticEntryMrtBlueVid": {
+    "name": "ieee8021PcrEctStaticEntryMrtBlueVid",
+    "oid": "1.3.111.2.802.1.1.26.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticEntryMrtRedVid": {
+    "name": "ieee8021PcrEctStaticEntryMrtRedVid",
+    "oid": "1.3.111.2.802.1.1.26.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticEntryRowStatus": {
+    "name": "ieee8021PcrEctStaticEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.26.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PcrTopEctTable": {
+    "name": "ieee8021PcrTopEctTable",
+    "oid": "1.3.111.2.802.1.1.26.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PcrTopEctTableEntry": {
+    "name": "ieee8021PcrTopEctTableEntry",
+    "oid": "1.3.111.2.802.1.1.26.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrTopEctEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrTopEctEntrySysId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrTopEctEntryBaseVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrTopEctEntryTopIx": {
+    "name": "ieee8021PcrTopEctEntryTopIx",
+    "oid": "1.3.111.2.802.1.1.26.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PcrTopEctEntrySysId": {
+    "name": "ieee8021PcrTopEctEntrySysId",
+    "oid": "1.3.111.2.802.1.1.26.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PcrTopEctEntryBaseVid": {
+    "name": "ieee8021PcrTopEctEntryBaseVid",
+    "oid": "1.3.111.2.802.1.1.26.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAny",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PcrTopEctEntryMode": {
+    "name": "ieee8021PcrTopEctEntryMode",
+    "oid": "1.3.111.2.802.1.1.26.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SpbEctMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PcrTopEctEntryMrtBlueVid": {
+    "name": "ieee8021PcrTopEctEntryMrtBlueVid",
+    "oid": "1.3.111.2.802.1.1.26.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PcrTopEctEntryMrtRedVid": {
+    "name": "ieee8021PcrTopEctEntryMrtRedVid",
+    "oid": "1.3.111.2.802.1.1.26.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SpbConformance": {
+    "name": "ieee8021SpbConformance",
+    "oid": "1.3.111.2.802.1.1.26.2",
+    "class": "objectidentity"
+  },
+  "ieee8021SpbGroups": {
+    "name": "ieee8021SpbGroups",
+    "oid": "1.3.111.2.802.1.1.26.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021SpbCompliances": {
+    "name": "ieee8021SpbCompliances",
+    "oid": "1.3.111.2.802.1.1.26.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PcrConformance": {
+    "name": "ieee8021PcrConformance",
+    "oid": "1.3.111.2.802.1.1.26.4",
+    "class": "objectidentity"
+  },
+  "ieee8021PcrGroups": {
+    "name": "ieee8021PcrGroups",
+    "oid": "1.3.111.2.802.1.1.26.4.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PcrCompliances": {
+    "name": "ieee8021PcrCompliances",
+    "oid": "1.3.111.2.802.1.1.26.4.2",
+    "class": "objectidentity"
+  },
+  "ieee8021SpbSysGroupSPBM": {
+    "name": "ieee8021SpbSysGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysAreaAddress"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysId"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysControlAddr"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysName"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysBridgePriority"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmSysSPSourceId"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmSysMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysDigestConvention"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbMtidStaticTableGroupSPBM": {
+    "name": "ieee8021SpbMtidStaticTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbMTidStaticEntryMtidOverload"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbMtidStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicTableGroupSPBM": {
+    "name": "ieee8021SpbTopIxDynamicTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryAgreeDigest"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryAuxMCID"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticTableGroupSPBM": {
+    "name": "ieee8021SpbEctStaticTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryEctAlgorithm"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicTableGroupSPBM": {
+    "name": "ieee8021SpbEctDynamicTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryLocalUse"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryRemoteUse"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryIngressCheckDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticTableGroupSPBM": {
+    "name": "ieee8021SpbAdjStaticTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryMetric"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryIfAdminState"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicTableGroupSPBM": {
+    "name": "ieee8021SpbAdjDynamicTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPort"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryIfOperState"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerSysName"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerAgreeDigest"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerAuxMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryLocalCircuitID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPortIdentifier"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerPortIdentifier"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryIsisCircIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeTableGroupSPBM": {
+    "name": "ieee8021SpbTopNodeTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntryBridgePriority"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopNodeEntrySPsourceID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntrySysName"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopEctTableGroupSPBM": {
+    "name": "ieee8021SpbTopEctTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryEctAlgorithm"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryLocalUse"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeTableGroupSPBM": {
+    "name": "ieee8021SpbTopEdgeTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntryMetricNear2Far"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntryMetricFar2Near"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbmTopSrvTableGroupSPBM": {
+    "name": "ieee8021SpbmTopSrvTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopSrvEntryIsidFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbSysGroupSPBV": {
+    "name": "ieee8021SpbSysGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysAreaAddress"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysId"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysControlAddr"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysName"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysBridgePriority"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvSysMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysDigestConvention"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbMtidStaticTableGroupSPBV": {
+    "name": "ieee8021SpbMtidStaticTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbMTidStaticEntryMtidOverload"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbMtidStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopIxDynamicTableGroupSPBV": {
+    "name": "ieee8021SpbTopIxDynamicTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryAgreeDigest"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryAuxMCID"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbEctStaticTableGroupSPBV": {
+    "name": "ieee8021SpbEctStaticTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryEctAlgorithm"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvEctStaticEntrySpvid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbEctDynamicTableGroupSPBV": {
+    "name": "ieee8021SpbEctDynamicTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryLocalUse"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryRemoteUse"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryIngressCheckDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbAdjStaticTableGroupSPBV": {
+    "name": "ieee8021SpbAdjStaticTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryMetric"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryIfAdminState"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbAdjDynamicTableGroupSPBV": {
+    "name": "ieee8021SpbAdjDynamicTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPort"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryIfOperState"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerSysName"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerAgreeDigest"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerAuxMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryLocalCircuitID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPortIdentifier"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerPortIdentifier"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryIsisCircIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopNodeTableGroupSPBV": {
+    "name": "ieee8021SpbTopNodeTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntryBridgePriority"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntrySysName"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopEctTableGroupSPBV": {
+    "name": "ieee8021SpbTopEctTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryEctAlgorithm"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopEctSysMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopEctEntrySpvid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEctEntryLocalUse"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbTopEdgeTableGroupSPBV": {
+    "name": "ieee8021SpbTopEdgeTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntryMetricNear2Far"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntryMetricFar2Near"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbvTopSrvTableGroupSPBV": {
+    "name": "ieee8021SpbvTopSrvTableGroupSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopSrvEntryBaseVid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopSrvEntryMMacFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbmBsiStaticTableGroupSPBM": {
+    "name": "ieee8021SpbmBsiStaticTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmBsiStaticEntryTBit"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmBsiStaticEntryRBit"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmBsiStaticEntryTsBit"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmBsiStaticEntryTieBreakMask"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmBsiStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmTableGroupSPBM": {
+    "name": "dot1agCfmMepSpbmTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "dot1agCfmMepTransmitLbmSpbmDA"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "dot1agCfmMepTransmitLtmSpbmDA"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1agCfmMepSpbmEspTableGroupSPBM": {
+    "name": "dot1agCfmMepSpbmEspTableGroupSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "dot1agCfmMepSpbmEspEsp"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "dot1agCfmMepSpbmEspRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrSysGroup": {
+    "name": "ieee8021PcrSysGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysAreaAddress"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysId"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysControlAddr"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysName"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysBridgePriority"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmSysSPSourceId"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmSysMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvSysMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbSysDigestConvention"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrMtidStaticTableGroup": {
+    "name": "ieee8021PcrMtidStaticTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbMTidStaticEntryMtidOverload"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbMtidStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrTopIxDynamicTableGroup": {
+    "name": "ieee8021PcrTopIxDynamicTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryAgreeDigest"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopIxDynamicEntryAuxMCID"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticTableGroupMAC": {
+    "name": "ieee8021PcrEctStaticTableGroupMAC",
+    "oid": "1.3.111.2.802.1.1.26.4.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryEctAlgorithm"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticTableGroupVID": {
+    "name": "ieee8021PcrEctStaticTableGroupVID",
+    "oid": "1.3.111.2.802.1.1.26.4.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryEctAlgorithm"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvEctStaticEntrySpvid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrEctStaticTableGroupMrt": {
+    "name": "ieee8021PcrEctStaticTableGroupMrt",
+    "oid": "1.3.111.2.802.1.1.26.4.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrEctStaticEntryMrtBlueVid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrEctStaticEntryMrtRedVid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrEctStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrEctDynamicTableGroup": {
+    "name": "ieee8021PcrEctDynamicTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryLocalUse"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryRemoteUse"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbEctDynamicEntryIngressCheckDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrAdjStaticTableGroup": {
+    "name": "ieee8021PcrAdjStaticTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryMetric"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryIfAdminState"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjStaticEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrAdjDynamicTableGroup": {
+    "name": "ieee8021PcrAdjDynamicTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPort"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryIfOperState"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerSysName"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerAgreeDigest"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerAuxMCID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryLocalCircuitID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerLocalCircuitID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPortIdentifier"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryPeerPortIdentifier"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbAdjDynamicEntryIsisCircIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrTopNodeTableGroup": {
+    "name": "ieee8021PcrTopNodeTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntryBridgePriority"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbmTopNodeEntrySPsourceID"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopNodeEntrySysName"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrTopEctTableGroup": {
+    "name": "ieee8021PcrTopEctTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrTopEctEntryMode"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrTopEctEntryMrtBlueVid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021PcrTopEctEntryMrtRedVid"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrTopEdgeTableGroup": {
+    "name": "ieee8021PcrTopEdgeTableGroup",
+    "oid": "1.3.111.2.802.1.1.26.4.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntryMetricNear2Far"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbTopEdgeEntryMetricFar2Near"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrTopSrvTableGroupVid": {
+    "name": "ieee8021PcrTopSrvTableGroupVid",
+    "oid": "1.3.111.2.802.1.1.26.4.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopSrvEntryBaseVid"
+      },
+      {
+        "module": "IEEE8021-SPB-MIB",
+        "object": "ieee8021SpbvTopSrvEntryMMacFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbComplianceSPBM": {
+    "name": "ieee8021SpbComplianceSPBM",
+    "oid": "1.3.111.2.802.1.1.26.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021SpbSysGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbMtidStaticTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopIxDynamicTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbEctStaticTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbEctDynamicTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbAdjStaticTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbAdjDynamicTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopNodeTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopEctTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopEdgeTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbmTopSrvTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbmBsiStaticTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "dot1agCfmMepSpbmTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "dot1agCfmMepSpbmEspTableGroupSPBM",
+        "module": "IEEE8021-SPB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SpbComplianceSPBV": {
+    "name": "ieee8021SpbComplianceSPBV",
+    "oid": "1.3.111.2.802.1.1.26.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021SpbSysGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbMtidStaticTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopIxDynamicTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbEctStaticTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbEctDynamicTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbAdjStaticTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbAdjDynamicTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopNodeTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopEctTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbTopEdgeTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021SpbvTopSrvTableGroupSPBV",
+        "module": "IEEE8021-SPB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PcrCompliance": {
+    "name": "ieee8021PcrCompliance",
+    "oid": "1.3.111.2.802.1.1.26.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021PcrSysGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrMtidStaticTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrTopIxDynamicTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrEctStaticTableGroupMAC",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrEctStaticTableGroupVID",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrEctStaticTableGroupMrt",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrEctDynamicTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrAdjStaticTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrAdjDynamicTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrTopNodeTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrTopEctTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrTopEdgeTableGroup",
+        "module": "IEEE8021-SPB-MIB"
+      },
+      {
+        "object": "ieee8021PcrTopSrvTableGroupVid",
+        "module": "IEEE8021-SPB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-SPB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-SPB-MIB"
+  }
+}

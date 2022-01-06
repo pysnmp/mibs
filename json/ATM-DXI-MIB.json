@@ -1,0 +1,208 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atmForum": {
+    "name": "atmForum",
+    "oid": "1.3.6.1.4.1.353",
+    "class": "objectidentity"
+  },
+  "atmUniDxi": {
+    "name": "atmUniDxi",
+    "oid": "1.3.6.1.4.1.353.3",
+    "class": "objectidentity"
+  },
+  "Dfa": {
+    "name": "Dfa",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    }
+  },
+  "atmDxi": {
+    "name": "atmDxi",
+    "oid": "1.3.6.1.4.1.353.3.2",
+    "class": "objectidentity"
+  },
+  "atmDxiConfTable": {
+    "name": "atmDxiConfTable",
+    "oid": "1.3.6.1.4.1.353.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atmDxiConfEntry": {
+    "name": "atmDxiConfEntry",
+    "oid": "1.3.6.1.4.1.353.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM-DXI-MIB",
+        "object": "atmDxiConfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atmDxiConfIfIndex": {
+    "name": "atmDxiConfIfIndex",
+    "oid": "1.3.6.1.4.1.353.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmDxiConfMode": {
+    "name": "atmDxiConfMode",
+    "oid": "1.3.6.1.4.1.353.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1a": 1,
+          "mode1b": 2,
+          "mode2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atmDxiDFAConfTable": {
+    "name": "atmDxiDFAConfTable",
+    "oid": "1.3.6.1.4.1.353.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atmDxiDFAConfEntry": {
+    "name": "atmDxiDFAConfEntry",
+    "oid": "1.3.6.1.4.1.353.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM-DXI-MIB",
+        "object": "atmDxiDFAConfIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-DXI-MIB",
+        "object": "atmDxiDFAConfDfaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atmDxiDFAConfIfIndex": {
+    "name": "atmDxiDFAConfIfIndex",
+    "oid": "1.3.6.1.4.1.353.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmDxiDFAConfDfaIndex": {
+    "name": "atmDxiDFAConfDfaIndex",
+    "oid": "1.3.6.1.4.1.353.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dfa",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmDxiDFAConfAALType": {
+    "name": "atmDxiDFAConfAALType",
+    "oid": "1.3.6.1.4.1.353.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "aal34": 3,
+          "aal5": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atmDxiEnterprise": {
+    "name": "atmDxiEnterprise",
+    "oid": "1.3.6.1.4.1.353.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ATM-DXI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ATM-DXI-MIB"
+  }
+}

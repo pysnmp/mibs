@@ -1,0 +1,780 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "CISCOSB-SMARTPORTS-MIB": [
+      "RlSmartPortsMacroNameOrZero"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlEventsMib": {
+    "name": "rlEventsMib",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-09-11 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "SmartPortType": {
+    "name": "SmartPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "default": 2,
+          "printer": 3,
+          "desktop": 4,
+          "guest": 5,
+          "server": 6,
+          "host": 7,
+          "ip-camera": 8,
+          "ip-phone": 9,
+          "ip-phone-desktop": 10,
+          "switch": 11,
+          "router": 12,
+          "ap": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SmartPortMacroParameterName": {
+    "name": "SmartPortMacroParameterName",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SmartPortMacroParameterValue": {
+    "name": "SmartPortMacroParameterValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SmartPortMacroType": {
+    "name": "SmartPortMacroType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "built-in": 1,
+          "user-defined": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SmartPortMacroParameterOrder": {
+    "name": "SmartPortMacroParameterOrder",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "first": 2,
+          "middle": 3,
+          "last": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPortEvents": {
+    "name": "rlPortEvents",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1",
+    "class": "objectidentity"
+  },
+  "rlAutoSmartPortAdminStatus": {
+    "name": "rlAutoSmartPortAdminStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "controlled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "controlled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortOperStatus": {
+    "name": "rlAutoSmartPortOperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlAutoSmartPortLastVoiceVlanStatus": {
+    "name": "rlAutoSmartPortLastVoiceVlanStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlAutoSmartPortLastVoiceVlanId": {
+    "name": "rlAutoSmartPortLastVoiceVlanId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlAutoSmartPortLearningProtocols": {
+    "name": "rlAutoSmartPortLearningProtocols",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cdp": 0,
+        "lldp": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortTypesTable": {
+    "name": "rlAutoSmartPortTypesTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortTypesEntry": {
+    "name": "rlAutoSmartPortTypesEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartPortTypesType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlAutoSmartPortTypesType": {
+    "name": "rlAutoSmartPortTypesType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortTypeStatus": {
+    "name": "rlAutoSmartPortTypeStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortMacro": {
+    "name": "rlAutoSmartPortMacro",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSmartPortsMacroNameOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortTypesRevertToDefaultMacro": {
+    "name": "rlAutoSmartPortTypesRevertToDefaultMacro",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortTypesRevertToDefaultParams": {
+    "name": "rlAutoSmartPortTypesRevertToDefaultParams",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortTypesBuiltinMacro": {
+    "name": "rlAutoSmartPortTypesBuiltinMacro",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlAutoSmartPortMacrosParamTable": {
+    "name": "rlAutoSmartPortMacrosParamTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortMacrosParamEntry": {
+    "name": "rlAutoSmartPortMacrosParamEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartPortTypesType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartPortMacroType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartPortMacrosParamName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlAutoSmartPortMacroType": {
+    "name": "rlAutoSmartPortMacroType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortMacrosParamName": {
+    "name": "rlAutoSmartPortMacrosParamName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroParameterName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortMacrosParamOrder": {
+    "name": "rlAutoSmartPortMacrosParamOrder",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroParameterOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortMacrosParamValue": {
+    "name": "rlAutoSmartPortMacrosParamValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortPortsTable": {
+    "name": "rlAutoSmartPortPortsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortPortsEntry": {
+    "name": "rlAutoSmartPortPortsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartPortPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlAutoSmartPortPort": {
+    "name": "rlAutoSmartPortPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortPortStatus": {
+    "name": "rlAutoSmartPortPortStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortPortType": {
+    "name": "rlAutoSmartPortPortType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortPersistency": {
+    "name": "rlAutoSmartPortPersistency",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "persistent": 1,
+          "not-persistent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "not-persistent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortLearntPortType": {
+    "name": "rlAutoSmartPortLearntPortType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlAutoSmartPortPortAcquiringType": {
+    "name": "rlAutoSmartPortPortAcquiringType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "configuration": 2,
+          "persistency": 3,
+          "learning": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortLastActivatedMacro": {
+    "name": "rlAutoSmartPortLastActivatedMacro",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSmartPortsMacroNameOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlAutoSmartPortFailedCommandNumber": {
+    "name": "rlAutoSmartPortFailedCommandNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlAutoSmartPortSetLearntPortType": {
+    "name": "rlAutoSmartPortSetLearntPortType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortParamsTable": {
+    "name": "rlAutoSmartPortParamsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortParamsEntry": {
+    "name": "rlAutoSmartPortParamsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartPortParamName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlAutoSmartPortIfIndex": {
+    "name": "rlAutoSmartPortIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortParamName": {
+    "name": "rlAutoSmartPortParamName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroParameterName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartPortParamOrder": {
+    "name": "rlAutoSmartPortParamOrder",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroParameterOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutoSmartPortParamValue": {
+    "name": "rlAutoSmartPortParamValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SmartPortMacroParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartTrunkRefreshTable": {
+    "name": "rlAutoSmartTrunkRefreshTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartTrunkRefreshEntry": {
+    "name": "rlAutoSmartTrunkRefreshEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartTrunkRefreshSmartPortType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-EVENTS-MIB",
+        "object": "rlAutoSmartTrunkRefreshIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlAutoSmartTrunkRefreshSmartPortType": {
+    "name": "rlAutoSmartTrunkRefreshSmartPortType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "switch": 11,
+          "router": 12,
+          "ap": 13
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartTrunkRefreshIfIndex": {
+    "name": "rlAutoSmartTrunkRefreshIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlAutoSmartTrunkRefreshRowStatus": {
+    "name": "rlAutoSmartTrunkRefreshRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlAutoSmartBusy": {
+    "name": "rlAutoSmartBusy",
+    "oid": "1.3.6.1.4.1.9.6.1.101.150.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-EVENTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-EVENTS-MIB"
+  }
+}

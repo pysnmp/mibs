@@ -1,0 +1,1006 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityPfeMib": {
+    "name": "ciscoEntityPfeMib",
+    "oid": "1.3.6.1.4.1.9.9.265",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-11-27 16:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CurrentUtilization": {
+    "name": "CurrentUtilization",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CurrentEfficiency": {
+    "name": "CurrentEfficiency",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IntervalUtilization": {
+    "name": "IntervalUtilization",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IntervalEfficiency": {
+    "name": "IntervalEfficiency",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TotalUtilization": {
+    "name": "TotalUtilization",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TotalEfficiency": {
+    "name": "TotalEfficiency",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Percentage": {
+    "name": "Percentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EventType": {
+    "name": "EventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "log": 2,
+          "notify": 3,
+          "logAndNotify": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HistEventType": {
+    "name": "HistEventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "thldUtilizationEvent": 1,
+          "thldEfficiencyEvent": 2,
+          "thld1MinUtilizationEvent": 3,
+          "thld1MinEfficiencyEvent": 4,
+          "thld5MinUtilizationEvent": 5,
+          "thld5MinEfficiencyEvent": 6,
+          "restartEvent": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cePfeMIBNotifications": {
+    "name": "cePfeMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.265.0",
+    "class": "objectidentity"
+  },
+  "cePfeMIBObjects": {
+    "name": "cePfeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.265.1",
+    "class": "objectidentity"
+  },
+  "cePfeMIBConformance": {
+    "name": "cePfeMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.265.2",
+    "class": "objectidentity"
+  },
+  "cePfePerformance": {
+    "name": "cePfePerformance",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1",
+    "class": "objectidentity"
+  },
+  "cePfeHistory": {
+    "name": "cePfeHistory",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2",
+    "class": "objectidentity"
+  },
+  "cePfePerfConfigTable": {
+    "name": "cePfePerfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cePfePerfConfigEntry": {
+    "name": "cePfePerfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cePfePerfConfigTimeElapsed": {
+    "name": "cePfePerfConfigTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfConfigValidIntervals": {
+    "name": "cePfePerfConfigValidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfConfigThldUtilization": {
+    "name": "cePfePerfConfigThldUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfePerfConfigThldEfficiency": {
+    "name": "cePfePerfConfigThldEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfePerfConfigThld1MinUtilization": {
+    "name": "cePfePerfConfigThld1MinUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfePerfConfigThld1MinEfficiency": {
+    "name": "cePfePerfConfigThld1MinEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfePerfConfigThld5MinUtilization": {
+    "name": "cePfePerfConfigThld5MinUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfePerfConfigThld5MinEfficiency": {
+    "name": "cePfePerfConfigThld5MinEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfePerfCurrentTable": {
+    "name": "cePfePerfCurrentTable",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cePfePerfCurrentEntry": {
+    "name": "cePfePerfCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cePfePerfCurrentEntry",
+      "module": "CISCO-ENTITY-PFE-MIB",
+      "object": "cePfePerfConfigEntry"
+    },
+    "status": "current"
+  },
+  "cePfePerfCurrentUtilization": {
+    "name": "cePfePerfCurrentUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfCurrentEfficiency": {
+    "name": "cePfePerfCurrentEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentEfficiency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfCurrent1MinUtilization": {
+    "name": "cePfePerfCurrent1MinUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfCurrent1MinEfficiency": {
+    "name": "cePfePerfCurrent1MinEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentEfficiency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfCurrent5MinUtilization": {
+    "name": "cePfePerfCurrent5MinUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfCurrent5MinEfficiency": {
+    "name": "cePfePerfCurrent5MinEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CurrentEfficiency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfIntervalTable": {
+    "name": "cePfePerfIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cePfePerfIntervalEntry": {
+    "name": "cePfePerfIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cePfePerfIntervalNumber": {
+    "name": "cePfePerfIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cePfePerfIntervalUtilization": {
+    "name": "cePfePerfIntervalUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntervalUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfIntervalEfficiency": {
+    "name": "cePfePerfIntervalEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IntervalEfficiency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfTotalTable": {
+    "name": "cePfePerfTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cePfePerfTotalEntry": {
+    "name": "cePfePerfTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cePfePerfTotalUtilization": {
+    "name": "cePfePerfTotalUtilization",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TotalUtilization",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfePerfTotalEfficiency": {
+    "name": "cePfePerfTotalEfficiency",
+    "oid": "1.3.6.1.4.1.9.9.265.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TotalEfficiency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistNotifiesEnable": {
+    "name": "cePfeHistNotifiesEnable",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EventType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfeHistTableSize": {
+    "name": "cePfeHistTableSize",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cePfeHistTableLastIndex": {
+    "name": "cePfeHistTableLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistTable": {
+    "name": "cePfeHistTable",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cePfeHistEntry": {
+    "name": "cePfeHistEntry",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeHistIndex": {
+    "name": "cePfeHistIndex",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cePfeHistEntPhysIndex": {
+    "name": "cePfeHistEntPhysIndex",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistType": {
+    "name": "cePfeHistType",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HistEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistThld": {
+    "name": "cePfeHistThld",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistValue": {
+    "name": "cePfeHistValue",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistRestartReason": {
+    "name": "cePfeHistRestartReason",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistTimeStamp": {
+    "name": "cePfeHistTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.265.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cePfeHistThldEvent": {
+    "name": "cePfeHistThldEvent",
+    "oid": "1.3.6.1.4.1.9.9.265.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistEntPhysIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistType"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistThld"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeHistRestartEvent": {
+    "name": "cePfeHistRestartEvent",
+    "oid": "1.3.6.1.4.1.9.9.265.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistEntPhysIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistRestartReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeMIBCompliances": {
+    "name": "cePfeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.265.2.1",
+    "class": "objectidentity"
+  },
+  "cePfeMIBGroups": {
+    "name": "cePfeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.265.2.2",
+    "class": "objectidentity"
+  },
+  "cePfeMIBPerformanceCompliance": {
+    "name": "cePfeMIBPerformanceCompliance",
+    "oid": "1.3.6.1.4.1.9.9.265.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cePfeMIBPerformanceGroup",
+        "module": "CISCO-ENTITY-PFE-MIB"
+      },
+      {
+        "object": "cePfeMIBCurrentGroup",
+        "module": "CISCO-ENTITY-PFE-MIB"
+      },
+      {
+        "object": "cePfeMIBHistGroup",
+        "module": "CISCO-ENTITY-PFE-MIB"
+      },
+      {
+        "object": "cePfeMIBHistEventGroup",
+        "module": "CISCO-ENTITY-PFE-MIB"
+      },
+      {
+        "object": "cePfeMIBIntervalGroup",
+        "module": "CISCO-ENTITY-PFE-MIB"
+      },
+      {
+        "object": "cePfeMIBTotalGroup",
+        "module": "CISCO-ENTITY-PFE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeMIBPerformanceGroup": {
+    "name": "cePfeMIBPerformanceGroup",
+    "oid": "1.3.6.1.4.1.9.9.265.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistTableSize"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistTableLastIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistNotifiesEnable"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigTimeElapsed"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigValidIntervals"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigThldUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigThldEfficiency"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigThld1MinUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigThld1MinEfficiency"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigThld5MinUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfConfigThld5MinEfficiency"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeMIBCurrentGroup": {
+    "name": "cePfeMIBCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.9.265.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfCurrentUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfCurrentEfficiency"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfCurrent1MinUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfCurrent1MinEfficiency"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfCurrent5MinUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfCurrent5MinEfficiency"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeMIBIntervalGroup": {
+    "name": "cePfeMIBIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.265.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfIntervalUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfIntervalEfficiency"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeMIBTotalGroup": {
+    "name": "cePfeMIBTotalGroup",
+    "oid": "1.3.6.1.4.1.9.9.265.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfTotalUtilization"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfePerfTotalEfficiency"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeMIBHistGroup": {
+    "name": "cePfeMIBHistGroup",
+    "oid": "1.3.6.1.4.1.9.9.265.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistEntPhysIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistType"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistThld"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistValue"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistRestartReason"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "cePfeMIBHistEventGroup": {
+    "name": "cePfeMIBHistEventGroup",
+    "oid": "1.3.6.1.4.1.9.9.265.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistThldEvent"
+      },
+      {
+        "module": "CISCO-ENTITY-PFE-MIB",
+        "object": "cePfeHistRestartEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-PFE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-PFE-MIB"
+  }
+}

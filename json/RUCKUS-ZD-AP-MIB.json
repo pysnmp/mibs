@@ -1,0 +1,894 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "RUCKUS-ROOT-MIB": [
+      "ruckusZDWLANModule"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruckusZDAPMIB": {
+    "name": "ruckusZDAPMIB",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4",
+    "class": "moduleidentity"
+  },
+  "ruckusZDAPObjects": {
+    "name": "ruckusZDAPObjects",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1",
+    "class": "objectidentity"
+  },
+  "ruckusZDAPConfig": {
+    "name": "ruckusZDAPConfig",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusZDAPConfigTable": {
+    "name": "ruckusZDAPConfigTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDAPConfigEntry": {
+    "name": "ruckusZDAPConfigEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-AP-MIB",
+        "object": "ruckusZDAPConfigID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDAPConfigID": {
+    "name": "ruckusZDAPConfigID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDAPConfigMacAddress": {
+    "name": "ruckusZDAPConfigMacAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDAPConfigAPModel": {
+    "name": "ruckusZDAPConfigAPModel",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDAPConfigDeviceName": {
+    "name": "ruckusZDAPConfigDeviceName",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigDescription": {
+    "name": "ruckusZDAPConfigDescription",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigLocation": {
+    "name": "ruckusZDAPConfigLocation",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigGpsLatitude": {
+    "name": "ruckusZDAPConfigGpsLatitude",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigGpsLongitude": {
+    "name": "ruckusZDAPConfigGpsLongitude",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigIPVersion": {
+    "name": "ruckusZDAPConfigIPVersion",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "dualstack": 3,
+          "useparentsetting": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigIpAddressSettingMode": {
+    "name": "ruckusZDAPConfigIpAddressSettingMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admin-by-zd": 1,
+          "admin-by-dhcp": 2,
+          "admin-by-ap": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigIpAddress": {
+    "name": "ruckusZDAPConfigIpAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigIpAddressMask": {
+    "name": "ruckusZDAPConfigIpAddressMask",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigGatewayIpAddress": {
+    "name": "ruckusZDAPConfigGatewayIpAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigIpV6AddressSettingMode": {
+    "name": "ruckusZDAPConfigIpV6AddressSettingMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admin-by-zd": 1,
+          "admin-by-autoconfig": 2,
+          "admin-by-ap": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigIpV6Address": {
+    "name": "ruckusZDAPConfigIpV6Address",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigIpV6PrefixLen": {
+    "name": "ruckusZDAPConfigIpV6PrefixLen",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigGatewayIpV6Address": {
+    "name": "ruckusZDAPConfigGatewayIpV6Address",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigPrimaryDnsIpAddress": {
+    "name": "ruckusZDAPConfigPrimaryDnsIpAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigSecondaryDnsIpAddress": {
+    "name": "ruckusZDAPConfigSecondaryDnsIpAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigPrimaryDnsIpV6Address": {
+    "name": "ruckusZDAPConfigPrimaryDnsIpV6Address",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigSecondaryDnsV6IpAddress": {
+    "name": "ruckusZDAPConfigSecondaryDnsV6IpAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioType": {
+    "name": "ruckusZDAPConfigRadioType",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee80211bg": 1,
+          "ieee80211na": 2,
+          "ieee80211a": 3,
+          "ieee80211n": 4,
+          "ieee80211ng": 5,
+          "ieee80211ac": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioChannel24": {
+    "name": "ruckusZDAPConfigRadioChannel24",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioTxPowerLevel24": {
+    "name": "ruckusZDAPConfigRadioTxPowerLevel24",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioWlanGroup24": {
+    "name": "ruckusZDAPConfigRadioWlanGroup24",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioEnableWlanService24": {
+    "name": "ruckusZDAPConfigRadioEnableWlanService24",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioChannel5": {
+    "name": "ruckusZDAPConfigRadioChannel5",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 36,
+            "max": 165
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioTxPowerLevel5": {
+    "name": "ruckusZDAPConfigRadioTxPowerLevel5",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioWlanGroup5": {
+    "name": "ruckusZDAPConfigRadioWlanGroup5",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRadioEnableWlanService5": {
+    "name": "ruckusZDAPConfigRadioEnableWlanService5",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigMeshConfigurationMode": {
+    "name": "ruckusZDAPConfigMeshConfigurationMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "root-ap": 2,
+          "mesh-ap": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigUplinkSelectionMode": {
+    "name": "ruckusZDAPConfigUplinkSelectionMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "smart": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigApproveMode": {
+    "name": "ruckusZDAPConfigApproveMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "approved": 1,
+          "not-approved": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigManagementAdmin": {
+    "name": "ruckusZDAPConfigManagementAdmin",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 1,
+          "associated": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPConfigRebootNow": {
+    "name": "ruckusZDAPConfigRebootNow",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reboot": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusZDAPLBSInfo": {
+    "name": "ruckusZDAPLBSInfo",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2",
+    "class": "objectidentity"
+  },
+  "ruckusZDAPLBSVenueTable": {
+    "name": "ruckusZDAPLBSVenueTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDAPLBSVenueEntry": {
+    "name": "ruckusZDAPLBSVenueEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-AP-MIB",
+        "object": "ruckusZDAPLBSAPGroupID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDAPLBSAPGroupID": {
+    "name": "ruckusZDAPLBSAPGroupID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDAPLBSVenueName": {
+    "name": "ruckusZDAPLBSVenueName",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDAPLBSVenueAPGrpName": {
+    "name": "ruckusZDAPLBSVenueAPGrpName",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDAPLBSVenueLSConnection": {
+    "name": "ruckusZDAPLBSVenueLSConnection",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDAPLBSVenue24GMode": {
+    "name": "ruckusZDAPLBSVenue24GMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "footfall": 1,
+          "calibration": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDAPLBSVenue5GMode": {
+    "name": "ruckusZDAPLBSVenue5GMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.4.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "footfall": 1,
+          "calibration": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-AP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-ZD-AP-MIB"
+  }
+}

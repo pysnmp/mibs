@@ -1,0 +1,4505 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "serviceAccessSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "prvtHqosMIB": {
+    "name": "prvtHqosMIB",
+    "oid": "1.3.6.1.4.1.738.10.7.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-26 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "PrvtHqosNamedItem": {
+    "name": "PrvtHqosNamedItem",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PrvtHqosNamedItemOrNone": {
+    "name": "PrvtHqosNamedItemOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PrvtHqosLspExpValueType": {
+    "name": "PrvtHqosLspExpValueType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosDot1pPriority": {
+    "name": "PrvtHqosDot1pPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosFcType": {
+    "name": "PrvtHqosFcType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 1,
+          "l2": 2,
+          "af": 3,
+          "l1": 4,
+          "h2": 5,
+          "ef": 6,
+          "h1": 7,
+          "nc": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtHqosDscpValue": {
+    "name": "PrvtHqosDscpValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosDescrType": {
+    "name": "PrvtHqosDescrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PrvtHqosServiceQueueId": {
+    "name": "PrvtHqosServiceQueueId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosNetQueueIdType": {
+    "name": "PrvtHqosNetQueueIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosServicePolicyId": {
+    "name": "PrvtHqosServicePolicyId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosNetPolNameType": {
+    "name": "PrvtHqosNetPolNameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PrvtHqosNetPolNameOrNoneType": {
+    "name": "PrvtHqosNetPolNameOrNoneType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PrvtHqosRateValueL1": {
+    "name": "PrvtHqosRateValueL1",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 80,
+            "max": 5242875
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosRateValueL2": {
+    "name": "PrvtHqosRateValueL2",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosRateValueNet": {
+    "name": "PrvtHqosRateValueNet",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 160,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosBurstValueL1": {
+    "name": "PrvtHqosBurstValueL1",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosBurstValueL2": {
+    "name": "PrvtHqosBurstValueL2",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosBurstValueNet": {
+    "name": "PrvtHqosBurstValueNet",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosBurstValueIntf": {
+    "name": "PrvtHqosBurstValueIntf",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosWredMinValue": {
+    "name": "PrvtHqosWredMinValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosWredMaxValue": {
+    "name": "PrvtHqosWredMaxValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosWredProbValue": {
+    "name": "PrvtHqosWredProbValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosLevel": {
+    "name": "PrvtHqosLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtHqosWeight": {
+    "name": "PrvtHqosWeight",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosColorType": {
+    "name": "PrvtHqosColorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtHqosIfShaperId": {
+    "name": "PrvtHqosIfShaperId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosIfShaperIdOrNone": {
+    "name": "PrvtHqosIfShaperIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosL1ShaperId": {
+    "name": "PrvtHqosL1ShaperId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosNetShaperId": {
+    "name": "PrvtHqosNetShaperId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 17,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosL2ShaperId": {
+    "name": "PrvtHqosL2ShaperId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosPolicerIdType": {
+    "name": "PrvtHqosPolicerIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosQueueType": {
+    "name": "PrvtHqosQueueType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "broadcast": 2,
+          "multicast": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtHqosServWfqIdType": {
+    "name": "PrvtHqosServWfqIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosServSchedWfqIdType": {
+    "name": "PrvtHqosServSchedWfqIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosNetWfqIdType": {
+    "name": "PrvtHqosNetWfqIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosWredIdType": {
+    "name": "PrvtHqosWredIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtHqosMapType": {
+    "name": "PrvtHqosMapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpt": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtHqosStatsCountType": {
+    "name": "PrvtHqosStatsCountType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "hqosMIBObjects": {
+    "name": "hqosMIBObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1",
+    "class": "objectidentity"
+  },
+  "svcIngObjects": {
+    "name": "svcIngObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1",
+    "class": "objectidentity"
+  },
+  "prvtHqosSvcIngTable": {
+    "name": "prvtHqosSvcIngTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngEntry": {
+    "name": "prvtHqosSvcIngEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngId": {
+    "name": "prvtHqosSvcIngId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServicePolicyId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngRowStatus": {
+    "name": "prvtHqosSvcIngRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngDescr": {
+    "name": "prvtHqosSvcIngDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQueueTable": {
+    "name": "prvtHqosSvcIngQueueTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQueueEntry": {
+    "name": "prvtHqosSvcIngQueueEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngQueueId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngVirtName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngQueueId": {
+    "name": "prvtHqosSvcIngQueueId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServiceQueueId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQueueRowStatus": {
+    "name": "prvtHqosSvcIngQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQueueServWfq": {
+    "name": "prvtHqosSvcIngQueueServWfq",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQueueWred": {
+    "name": "prvtHqosSvcIngQueueWred",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQueuePolicer": {
+    "name": "prvtHqosSvcIngQueuePolicer",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosPolicerIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcTable": {
+    "name": "prvtHqosSvcIngFcTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcEntry": {
+    "name": "prvtHqosSvcIngFcEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcType": {
+    "name": "prvtHqosSvcIngFcType",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosFcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcRowStatus": {
+    "name": "prvtHqosSvcIngFcRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDscpTable": {
+    "name": "prvtHqosSvcIngFcDscpTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDscpEntry": {
+    "name": "prvtHqosSvcIngFcDscpEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcDscpValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDscpValue": {
+    "name": "prvtHqosSvcIngFcDscpValue",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDscpValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDscpRowStatus": {
+    "name": "prvtHqosSvcIngFcDscpRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDscpColor": {
+    "name": "prvtHqosSvcIngFcDscpColor",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosColorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDot1pTable": {
+    "name": "prvtHqosSvcIngFcDot1pTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDot1pEntry": {
+    "name": "prvtHqosSvcIngFcDot1pEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcDot1pValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDot1pValue": {
+    "name": "prvtHqosSvcIngFcDot1pValue",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDot1pPriority",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDot1pRowStatus": {
+    "name": "prvtHqosSvcIngFcDot1pRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDot1pColor": {
+    "name": "prvtHqosSvcIngFcDot1pColor",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosColorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDefaultTable": {
+    "name": "prvtHqosSvcIngFcDefaultTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDefaultEntry": {
+    "name": "prvtHqosSvcIngFcDefaultEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcDefaultMapType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDefaultMapType": {
+    "name": "prvtHqosSvcIngFcDefaultMapType",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosMapType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDefaultRowStatus": {
+    "name": "prvtHqosSvcIngFcDefaultRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcDefaultColor": {
+    "name": "prvtHqosSvcIngFcDefaultColor",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosColorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcQueueTable": {
+    "name": "prvtHqosSvcIngFcQueueTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcQueueEntry": {
+    "name": "prvtHqosSvcIngFcQueueEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngFcQueueType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngQueueId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngVirtName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcQueueType": {
+    "name": "prvtHqosSvcIngFcQueueType",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosQueueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngFcQueueRowStatus": {
+    "name": "prvtHqosSvcIngFcQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsTable": {
+    "name": "prvtHqosSvcIngQStatsTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsEntry": {
+    "name": "prvtHqosSvcIngQStatsEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcIngQueueId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngVirtName",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsGrnBytes": {
+    "name": "prvtHqosSvcIngQStatsGrnBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsGrnPckts": {
+    "name": "prvtHqosSvcIngQStatsGrnPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsYlwBytes": {
+    "name": "prvtHqosSvcIngQStatsYlwBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsYlwPckts": {
+    "name": "prvtHqosSvcIngQStatsYlwPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsTxBytes": {
+    "name": "prvtHqosSvcIngQStatsTxBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsTxPckts": {
+    "name": "prvtHqosSvcIngQStatsTxPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsWredGrnBytes": {
+    "name": "prvtHqosSvcIngQStatsWredGrnBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsWredGrnPckts": {
+    "name": "prvtHqosSvcIngQStatsWredGrnPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsWredYlwBytes": {
+    "name": "prvtHqosSvcIngQStatsWredYlwBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsWredYlwPckts": {
+    "name": "prvtHqosSvcIngQStatsWredYlwPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsPolDropBytes": {
+    "name": "prvtHqosSvcIngQStatsPolDropBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcIngQStatsPolDropPckts": {
+    "name": "prvtHqosSvcIngQStatsPolDropPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "svcEgrObjects": {
+    "name": "svcEgrObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2",
+    "class": "objectidentity"
+  },
+  "prvtHqosSvcEgrTable": {
+    "name": "prvtHqosSvcEgrTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrEntry": {
+    "name": "prvtHqosSvcEgrEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcEgrId": {
+    "name": "prvtHqosSvcEgrId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServicePolicyId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrRowStatus": {
+    "name": "prvtHqosSvcEgrRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrDescr": {
+    "name": "prvtHqosSvcEgrDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQueueTable": {
+    "name": "prvtHqosSvcEgrQueueTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQueueEntry": {
+    "name": "prvtHqosSvcEgrQueueEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrQueueId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrVirtName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQueueId": {
+    "name": "prvtHqosSvcEgrQueueId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServiceQueueId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQueueRowStatus": {
+    "name": "prvtHqosSvcEgrQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQueueServWfq": {
+    "name": "prvtHqosSvcEgrQueueServWfq",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQueueWred": {
+    "name": "prvtHqosSvcEgrQueueWred",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcTable": {
+    "name": "prvtHqosSvcEgrFcTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcEntry": {
+    "name": "prvtHqosSvcEgrFcEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrFcNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcNumber": {
+    "name": "prvtHqosSvcEgrFcNumber",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosFcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcRowStatus": {
+    "name": "prvtHqosSvcEgrFcRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcQueueTable": {
+    "name": "prvtHqosSvcEgrFcQueueTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcQueueEntry": {
+    "name": "prvtHqosSvcEgrFcQueueEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrFcNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrFcQueueType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrQueueId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrVirtName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcQueueType": {
+    "name": "prvtHqosSvcEgrFcQueueType",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosQueueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcQueueRowStatus": {
+    "name": "prvtHqosSvcEgrFcQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcColorTable": {
+    "name": "prvtHqosSvcEgrFcColorTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcColorEntry": {
+    "name": "prvtHqosSvcEgrFcColorEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrFcNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrFcColorValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcColorValue": {
+    "name": "prvtHqosSvcEgrFcColorValue",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosColorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcColorRowStatus": {
+    "name": "prvtHqosSvcEgrFcColorRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrFcColorDot1PValue": {
+    "name": "prvtHqosSvcEgrFcColorDot1PValue",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDot1pPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsTable": {
+    "name": "prvtHqosSvcEgrQStatsTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsEntry": {
+    "name": "prvtHqosSvcEgrQStatsEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSvcEgrQueueId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrVirtName",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsGrnBytes": {
+    "name": "prvtHqosSvcEgrQStatsGrnBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsGrnPckts": {
+    "name": "prvtHqosSvcEgrQStatsGrnPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsYlwBytes": {
+    "name": "prvtHqosSvcEgrQStatsYlwBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsYlwPckts": {
+    "name": "prvtHqosSvcEgrQStatsYlwPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsTxBytes": {
+    "name": "prvtHqosSvcEgrQStatsTxBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsTxPckts": {
+    "name": "prvtHqosSvcEgrQStatsTxPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsWredGrnBytes": {
+    "name": "prvtHqosSvcEgrQStatsWredGrnBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsWredGrnPckts": {
+    "name": "prvtHqosSvcEgrQStatsWredGrnPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsWredYlwBytes": {
+    "name": "prvtHqosSvcEgrQStatsWredYlwBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsWredYlwPckts": {
+    "name": "prvtHqosSvcEgrQStatsWredYlwPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsPolDropBytes": {
+    "name": "prvtHqosSvcEgrQStatsPolDropBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosSvcEgrQStatsPolDropPckts": {
+    "name": "prvtHqosSvcEgrQStatsPolDropPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netObjects": {
+    "name": "netObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3",
+    "class": "objectidentity"
+  },
+  "prvtHqosNetPolicyTable": {
+    "name": "prvtHqosNetPolicyTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetPolicyEntry": {
+    "name": "prvtHqosNetPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetPolicyName": {
+    "name": "prvtHqosNetPolicyName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNetPolNameType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetPolicyRowStatus": {
+    "name": "prvtHqosNetPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetPolicyDescr": {
+    "name": "prvtHqosNetPolicyDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetIngLspExpTable": {
+    "name": "prvtHqosNetIngLspExpTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetIngLspExpEntry": {
+    "name": "prvtHqosNetIngLspExpEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetIngLspExpValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetIngLspExpValue": {
+    "name": "prvtHqosNetIngLspExpValue",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosLspExpValueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetIngLspExpRowStatus": {
+    "name": "prvtHqosNetIngLspExpRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetIngLspExpFC": {
+    "name": "prvtHqosNetIngLspExpFC",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosFcType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetIngLspExpColor": {
+    "name": "prvtHqosNetIngLspExpColor",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosColorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetEgrFcTable": {
+    "name": "prvtHqosNetEgrFcTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetEgrFcEntry": {
+    "name": "prvtHqosNetEgrFcEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetEgrFcNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetEgrFcColor",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetEgrFcNumber": {
+    "name": "prvtHqosNetEgrFcNumber",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosFcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetEgrFcColor": {
+    "name": "prvtHqosNetEgrFcColor",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosColorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetEgrFcRowStatus": {
+    "name": "prvtHqosNetEgrFcRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetEgrFcLspExpValue": {
+    "name": "prvtHqosNetEgrFcLspExpValue",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosLspExpValueType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "netQueueObjects": {
+    "name": "netQueueObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4",
+    "class": "objectidentity"
+  },
+  "prvtHqosNetQPolicyTable": {
+    "name": "prvtHqosNetQPolicyTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyEntry": {
+    "name": "prvtHqosNetQPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyName": {
+    "name": "prvtHqosNetQPolicyName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyRowStatus": {
+    "name": "prvtHqosNetQPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyDescr": {
+    "name": "prvtHqosNetQPolicyDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueTable": {
+    "name": "prvtHqosNetQPolicyQueueTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueEntry": {
+    "name": "prvtHqosNetQPolicyQueueEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueId": {
+    "name": "prvtHqosNetQPolicyQueueId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNetQueueIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueRowStatus": {
+    "name": "prvtHqosNetQPolicyQueueRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueLevel": {
+    "name": "prvtHqosNetQPolicyQueueLevel",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueWfq": {
+    "name": "prvtHqosNetQPolicyQueueWfq",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNetWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueWred": {
+    "name": "prvtHqosNetQPolicyQueueWred",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyQueueShaper": {
+    "name": "prvtHqosNetQPolicyQueueShaper",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNetShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcTable": {
+    "name": "prvtHqosNetQPolicyFcTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcEntry": {
+    "name": "prvtHqosNetQPolicyFcEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyFcNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcNumber": {
+    "name": "prvtHqosNetQPolicyFcNumber",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosFcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcRowStatus": {
+    "name": "prvtHqosNetQPolicyFcRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcQueueTable": {
+    "name": "prvtHqosNetQPolicyFcQueueTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcQueueEntry": {
+    "name": "prvtHqosNetQPolicyFcQueueEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyFcNumber",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyFcQueueType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcQueueType": {
+    "name": "prvtHqosNetQPolicyFcQueueType",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosQueueType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetQPolicyFcQueueRStatus": {
+    "name": "prvtHqosNetQPolicyFcQueueRStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsTable": {
+    "name": "prvtHqosNetEgrQStatsTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsEntry": {
+    "name": "prvtHqosNetEgrQStatsEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosNetQPolicyQueueId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsGrnBytes": {
+    "name": "prvtHqosNetEgrQStatsGrnBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsGrnPckts": {
+    "name": "prvtHqosNetEgrQStatsGrnPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsYlwBytes": {
+    "name": "prvtHqosNetEgrQStatsYlwBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsYlwPckts": {
+    "name": "prvtHqosNetEgrQStatsYlwPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsTxBytes": {
+    "name": "prvtHqosNetEgrQStatsTxBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsTxPckts": {
+    "name": "prvtHqosNetEgrQStatsTxPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsWredGrnBytes": {
+    "name": "prvtHqosNetEgrQStatsWredGrnBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsWredGrnPckts": {
+    "name": "prvtHqosNetEgrQStatsWredGrnPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsWredYlwBytes": {
+    "name": "prvtHqosNetEgrQStatsWredYlwBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsWredYlwPckts": {
+    "name": "prvtHqosNetEgrQStatsWredYlwPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsPolDropBytes": {
+    "name": "prvtHqosNetEgrQStatsPolDropBytes",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtHqosNetEgrQStatsPolDropPckts": {
+    "name": "prvtHqosNetEgrQStatsPolDropPckts",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.4.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosStatsCountType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "schedObjects": {
+    "name": "schedObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5",
+    "class": "objectidentity"
+  },
+  "prvtHqosSchedIngPolicyTable": {
+    "name": "prvtHqosSchedIngPolicyTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedIngPolicyEntry": {
+    "name": "prvtHqosSchedIngPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSchedIngPolicyName": {
+    "name": "prvtHqosSchedIngPolicyName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedIngPolicyRowStatus": {
+    "name": "prvtHqosSchedIngPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngPolicyDescr": {
+    "name": "prvtHqosSchedIngPolicyDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtTable": {
+    "name": "prvtHqosSchedIngVirtTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtEntry": {
+    "name": "prvtHqosSchedIngVirtEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngVirtName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtName": {
+    "name": "prvtHqosSchedIngVirtName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtRowStatus": {
+    "name": "prvtHqosSchedIngVirtRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtDescr": {
+    "name": "prvtHqosSchedIngVirtDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtParent": {
+    "name": "prvtHqosSchedIngVirtParent",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtLevel": {
+    "name": "prvtHqosSchedIngVirtLevel",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtWfqProfile": {
+    "name": "prvtHqosSchedIngVirtWfqProfile",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServSchedWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngVirtShaper": {
+    "name": "prvtHqosSchedIngVirtShaper",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL2ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngRootTable": {
+    "name": "prvtHqosSchedIngRootTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedIngRootEntry": {
+    "name": "prvtHqosSchedIngRootEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedIngRootName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSchedIngRootName": {
+    "name": "prvtHqosSchedIngRootName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedIngRootRowStatus": {
+    "name": "prvtHqosSchedIngRootRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngRootDescr": {
+    "name": "prvtHqosSchedIngRootDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngRootLevel": {
+    "name": "prvtHqosSchedIngRootLevel",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedIngRootShaper": {
+    "name": "prvtHqosSchedIngRootShaper",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL1ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrPolicyTable": {
+    "name": "prvtHqosSchedEgrPolicyTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrPolicyEntry": {
+    "name": "prvtHqosSchedEgrPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSchedEgrPolicyName": {
+    "name": "prvtHqosSchedEgrPolicyName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrPolicyRowStatus": {
+    "name": "prvtHqosSchedEgrPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrPolicyDescr": {
+    "name": "prvtHqosSchedEgrPolicyDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtTable": {
+    "name": "prvtHqosSchedEgrVirtTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtEntry": {
+    "name": "prvtHqosSchedEgrVirtEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrVirtName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtName": {
+    "name": "prvtHqosSchedEgrVirtName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtRowStatus": {
+    "name": "prvtHqosSchedEgrVirtRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtDescr": {
+    "name": "prvtHqosSchedEgrVirtDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtParent": {
+    "name": "prvtHqosSchedEgrVirtParent",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtLevel": {
+    "name": "prvtHqosSchedEgrVirtLevel",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtWfqProfile": {
+    "name": "prvtHqosSchedEgrVirtWfqProfile",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServSchedWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrVirtShaper": {
+    "name": "prvtHqosSchedEgrVirtShaper",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL2ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrRootTable": {
+    "name": "prvtHqosSchedEgrRootTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrRootEntry": {
+    "name": "prvtHqosSchedEgrRootEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosSchedEgrRootName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosSchedEgrRootName": {
+    "name": "prvtHqosSchedEgrRootName",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItem",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrRootRowStatus": {
+    "name": "prvtHqosSchedEgrRootRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrRootDescr": {
+    "name": "prvtHqosSchedEgrRootDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrRootLevel": {
+    "name": "prvtHqosSchedEgrRootLevel",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosSchedEgrRootShaper": {
+    "name": "prvtHqosSchedEgrRootShaper",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL1ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wredObjects": {
+    "name": "wredObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6",
+    "class": "objectidentity"
+  },
+  "prvtHqosWredPrfTable": {
+    "name": "prvtHqosWredPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWredPrfEntry": {
+    "name": "prvtHqosWredPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosWredPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosWredPrfId": {
+    "name": "prvtHqosWredPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWredPrfRowStatus": {
+    "name": "prvtHqosWredPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWredPrfDescr": {
+    "name": "prvtHqosWredPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWredPrfGreenMinAverage": {
+    "name": "prvtHqosWredPrfGreenMinAverage",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredMinValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWredPrfGreenMaxAverage": {
+    "name": "prvtHqosWredPrfGreenMaxAverage",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredMaxValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWredPrfGreenProbability": {
+    "name": "prvtHqosWredPrfGreenProbability",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredProbValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWredPrfYellowMinAverage": {
+    "name": "prvtHqosWredPrfYellowMinAverage",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredMinValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWredPrfYellowMaxAverage": {
+    "name": "prvtHqosWredPrfYellowMaxAverage",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredMaxValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWredPrfYellowProbability": {
+    "name": "prvtHqosWredPrfYellowProbability",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWredProbValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "shaperObjects": {
+    "name": "shaperObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7",
+    "class": "objectidentity"
+  },
+  "prvtHqosShaperL1IngPrfTable": {
+    "name": "prvtHqosShaperL1IngPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfEntry": {
+    "name": "prvtHqosShaperL1IngPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosShaperL1IngPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfId": {
+    "name": "prvtHqosShaperL1IngPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL1ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfRowStatus": {
+    "name": "prvtHqosShaperL1IngPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfCIR": {
+    "name": "prvtHqosShaperL1IngPrfCIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfPIR": {
+    "name": "prvtHqosShaperL1IngPrfPIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfCBS": {
+    "name": "prvtHqosShaperL1IngPrfCBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfPBS": {
+    "name": "prvtHqosShaperL1IngPrfPBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1IngPrfDescr": {
+    "name": "prvtHqosShaperL1IngPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfTable": {
+    "name": "prvtHqosShaperL1EgrPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfEntry": {
+    "name": "prvtHqosShaperL1EgrPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosShaperL1EgrPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfId": {
+    "name": "prvtHqosShaperL1EgrPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL1ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfRowStatus": {
+    "name": "prvtHqosShaperL1EgrPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfCIR": {
+    "name": "prvtHqosShaperL1EgrPrfCIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfPIR": {
+    "name": "prvtHqosShaperL1EgrPrfPIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfCBS": {
+    "name": "prvtHqosShaperL1EgrPrfCBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfPBS": {
+    "name": "prvtHqosShaperL1EgrPrfPBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL1",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL1EgrPrfDescr": {
+    "name": "prvtHqosShaperL1EgrPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfTable": {
+    "name": "prvtHqosShaperL2IngPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfEntry": {
+    "name": "prvtHqosShaperL2IngPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosShaperL2IngPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfId": {
+    "name": "prvtHqosShaperL2IngPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL2ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfRowStatus": {
+    "name": "prvtHqosShaperL2IngPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfCIR": {
+    "name": "prvtHqosShaperL2IngPrfCIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfPIR": {
+    "name": "prvtHqosShaperL2IngPrfPIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfCBS": {
+    "name": "prvtHqosShaperL2IngPrfCBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfPBS": {
+    "name": "prvtHqosShaperL2IngPrfPBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2IngPrfDescr": {
+    "name": "prvtHqosShaperL2IngPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfTable": {
+    "name": "prvtHqosShaperL2EgrPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfEntry": {
+    "name": "prvtHqosShaperL2EgrPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosShaperL2EgrPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfId": {
+    "name": "prvtHqosShaperL2EgrPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosL2ShaperId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfRowStatus": {
+    "name": "prvtHqosShaperL2EgrPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfCIR": {
+    "name": "prvtHqosShaperL2EgrPrfCIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfPIR": {
+    "name": "prvtHqosShaperL2EgrPrfPIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfCBS": {
+    "name": "prvtHqosShaperL2EgrPrfCBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfPBS": {
+    "name": "prvtHqosShaperL2EgrPrfPBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueL2",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperL2EgrPrfDescr": {
+    "name": "prvtHqosShaperL2EgrPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfTable": {
+    "name": "prvtHqosShaperNetPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfEntry": {
+    "name": "prvtHqosShaperNetPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosShaperNetPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfId": {
+    "name": "prvtHqosShaperNetPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNetShaperId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfRowStatus": {
+    "name": "prvtHqosShaperNetPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfCIR": {
+    "name": "prvtHqosShaperNetPrfCIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfPIR": {
+    "name": "prvtHqosShaperNetPrfPIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfCBS": {
+    "name": "prvtHqosShaperNetPrfCBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfPBS": {
+    "name": "prvtHqosShaperNetPrfPBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperNetPrfDescr": {
+    "name": "prvtHqosShaperNetPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfTable": {
+    "name": "prvtHqosShaperIfPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfEntry": {
+    "name": "prvtHqosShaperIfPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosShaperIfPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfId": {
+    "name": "prvtHqosShaperIfPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosIfShaperId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfRowStatus": {
+    "name": "prvtHqosShaperIfPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfCIR": {
+    "name": "prvtHqosShaperIfPrfCIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfPIR": {
+    "name": "prvtHqosShaperIfPrfPIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfCBS": {
+    "name": "prvtHqosShaperIfPrfCBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueIntf",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfPBS": {
+    "name": "prvtHqosShaperIfPrfPBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueIntf",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosShaperIfPrfDescr": {
+    "name": "prvtHqosShaperIfPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.7.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wfqObjects": {
+    "name": "wfqObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8",
+    "class": "objectidentity"
+  },
+  "prvtHqosWfqSvcIngPrfTable": {
+    "name": "prvtHqosWfqSvcIngPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcIngPrfEntry": {
+    "name": "prvtHqosWfqSvcIngPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosWfqSvcIngPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosWfqSvcIngPrfId": {
+    "name": "prvtHqosWfqSvcIngPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcIngPrfRowStatus": {
+    "name": "prvtHqosWfqSvcIngPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcIngPrfCirWeight": {
+    "name": "prvtHqosWfqSvcIngPrfCirWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcIngPrfDescr": {
+    "name": "prvtHqosWfqSvcIngPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcEgrPrfTable": {
+    "name": "prvtHqosWfqSvcEgrPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcEgrPrfEntry": {
+    "name": "prvtHqosWfqSvcEgrPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosWfqSvcEgrPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosWfqSvcEgrPrfId": {
+    "name": "prvtHqosWfqSvcEgrPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcEgrPrfRowStatus": {
+    "name": "prvtHqosWfqSvcEgrPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcEgrPrfCirWeight": {
+    "name": "prvtHqosWfqSvcEgrPrfCirWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSvcEgrPrfDescr": {
+    "name": "prvtHqosWfqSvcEgrPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedIngPrfTable": {
+    "name": "prvtHqosWfqSchedIngPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedIngPrfEntry": {
+    "name": "prvtHqosWfqSchedIngPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosWfqSchedIngPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosWfqSchedIngPrfId": {
+    "name": "prvtHqosWfqSchedIngPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServSchedWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedIngPrfRowStatus": {
+    "name": "prvtHqosWfqSchedIngPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedIngPrfWeight": {
+    "name": "prvtHqosWfqSchedIngPrfWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedIngPrfCirWeight": {
+    "name": "prvtHqosWfqSchedIngPrfCirWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedIngPrfDescr": {
+    "name": "prvtHqosWfqSchedIngPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedEgrPrfTable": {
+    "name": "prvtHqosWfqSchedEgrPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedEgrPrfEntry": {
+    "name": "prvtHqosWfqSchedEgrPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosWfqSchedEgrPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosWfqSchedEgrPrfId": {
+    "name": "prvtHqosWfqSchedEgrPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosServSchedWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedEgrPrfRowStatus": {
+    "name": "prvtHqosWfqSchedEgrPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedEgrPrfWeight": {
+    "name": "prvtHqosWfqSchedEgrPrfWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedEgrPrfCirWeight": {
+    "name": "prvtHqosWfqSchedEgrPrfCirWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqSchedEgrPrfDescr": {
+    "name": "prvtHqosWfqSchedEgrPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqNetworkPrfTable": {
+    "name": "prvtHqosWfqNetworkPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqNetworkPrfEntry": {
+    "name": "prvtHqosWfqNetworkPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosWfqNetworkPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosWfqNetworkPrfId": {
+    "name": "prvtHqosWfqNetworkPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNetWfqIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosWfqNetworkPrfRowStatus": {
+    "name": "prvtHqosWfqNetworkPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqNetworkPrfWeight": {
+    "name": "prvtHqosWfqNetworkPrfWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqNetworkPrfCirWeight": {
+    "name": "prvtHqosWfqNetworkPrfCirWeight",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosWeight",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosWfqNetworkPrfDescr": {
+    "name": "prvtHqosWfqNetworkPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ifObjects": {
+    "name": "ifObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.9",
+    "class": "objectidentity"
+  },
+  "prvtHqosIfTable": {
+    "name": "prvtHqosIfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosIfEntry": {
+    "name": "prvtHqosIfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosIfRowStatus": {
+    "name": "prvtHqosIfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosIfNetworkPolicy": {
+    "name": "prvtHqosIfNetworkPolicy",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNetPolNameOrNoneType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosIfNetQueueEgrPolicy": {
+    "name": "prvtHqosIfNetQueueEgrPolicy",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosNamedItemOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosIfShaperProfile": {
+    "name": "prvtHqosIfShaperProfile",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosIfShaperIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "policerObjects": {
+    "name": "policerObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10",
+    "class": "objectidentity"
+  },
+  "prvtHqosPolicerSvcPrfTable": {
+    "name": "prvtHqosPolicerSvcPrfTable",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfEntry": {
+    "name": "prvtHqosPolicerSvcPrfEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-HQOS-MIB",
+        "object": "prvtHqosPolicerSvcPrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfId": {
+    "name": "prvtHqosPolicerSvcPrfId",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosPolicerIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfRowStatus": {
+    "name": "prvtHqosPolicerSvcPrfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfCIR": {
+    "name": "prvtHqosPolicerSvcPrfCIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfPIR": {
+    "name": "prvtHqosPolicerSvcPrfPIR",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosRateValueNet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfCBS": {
+    "name": "prvtHqosPolicerSvcPrfCBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueIntf",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfPBS": {
+    "name": "prvtHqosPolicerSvcPrfPBS",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosBurstValueIntf",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtHqosPolicerSvcPrfDescr": {
+    "name": "prvtHqosPolicerSvcPrfDescr",
+    "oid": "1.3.6.1.4.1.738.10.7.5.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtHqosDescrType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-HQOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:50:55 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-HQOS-MIB"
+  }
+}

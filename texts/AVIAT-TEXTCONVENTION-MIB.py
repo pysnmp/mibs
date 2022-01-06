@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module AVIAT-TEXTCONVENTION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-TEXTCONVENTION-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:13:08 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:18:55 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, Counter32, Unsigned32, IpAddress, MibIdentifier, ModuleIdentity, NotificationType, ObjectIdentity, TimeTicks, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "Counter32", "Unsigned32", "IpAddress", "MibIdentifier", "ModuleIdentity", "NotificationType", "ObjectIdentity", "TimeTicks", "Integer32")
+Unsigned32, Counter32, Counter64, Gauge32, ObjectIdentity, ModuleIdentity, iso, IpAddress, NotificationType, Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "Counter64", "Gauge32", "ObjectIdentity", "ModuleIdentity", "iso", "IpAddress", "NotificationType", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 aviatModules, = mibBuilder.importSymbols("STXN-GLOBALREGISTER-MIB", "aviatModules")
 aviatTextConventionModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 2509, 9, 1))
@@ -98,4 +98,4 @@ class AviatYangIdentityRef(TextualConvention, OctetString):
     displayHint = '255t'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
 
-mibBuilder.exportSymbols("AVIAT-TEXTCONVENTION-MIB", AviatPluginModuleType=AviatPluginModuleType, AviatPowerLevel=AviatPowerLevel, AviatFunctionTimer=AviatFunctionTimer, AviatEnabledStatus=AviatEnabledStatus, AviatTableIndexInteger=AviatTableIndexInteger, AviatLoggingProtocolType=AviatLoggingProtocolType, AviatYangIdentityRef=AviatYangIdentityRef, AviatTimeOfDay=AviatTimeOfDay, aviatTextConventionModule=aviatTextConventionModule, AviatProtectionType=AviatProtectionType, PYSNMP_MODULE_ID=aviatTextConventionModule, AviatDecibel=AviatDecibel, AviatModulationType=AviatModulationType, AviatL1LinkAggregationType=AviatL1LinkAggregationType, AviatRfuSideBandType=AviatRfuSideBandType)
+mibBuilder.exportSymbols("AVIAT-TEXTCONVENTION-MIB", AviatFunctionTimer=AviatFunctionTimer, AviatTableIndexInteger=AviatTableIndexInteger, AviatPowerLevel=AviatPowerLevel, AviatModulationType=AviatModulationType, AviatRfuSideBandType=AviatRfuSideBandType, AviatDecibel=AviatDecibel, AviatYangIdentityRef=AviatYangIdentityRef, AviatPluginModuleType=AviatPluginModuleType, AviatL1LinkAggregationType=AviatL1LinkAggregationType, AviatEnabledStatus=AviatEnabledStatus, AviatTimeOfDay=AviatTimeOfDay, PYSNMP_MODULE_ID=aviatTextConventionModule, aviatTextConventionModule=aviatTextConventionModule, AviatLoggingProtocolType=AviatLoggingProtocolType, AviatProtectionType=AviatProtectionType)

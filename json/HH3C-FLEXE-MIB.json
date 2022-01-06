@@ -1,0 +1,986 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cFlexE": {
+    "name": "hh3cFlexE",
+    "oid": "1.3.6.1.4.1.25506.2.177",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-04-03 19:36",
+        "description": "Modify trapnode name"
+      },
+      {
+        "revision": "2018-08-03 14:36",
+        "description": "Initial version of this MIB module, including hh3cFlexEGroupTable,hh3cFlexESubTimeSlotGranularTable, hh3cFlexEPhyIfTable,hh3cFlexEIfTable,hh3cFlexETrap"
+      }
+    ]
+  },
+  "hh3cFlexESubSlotInfo": {
+    "name": "hh3cFlexESubSlotInfo",
+    "oid": "1.3.6.1.4.1.25506.2.177.1",
+    "class": "objectidentity"
+  },
+  "hh3cFlexESubSlotTable": {
+    "name": "hh3cFlexESubSlotTable",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlexESubSlotEntry": {
+    "name": "hh3cFlexESubSlotEntry",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubslotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEFrameIndex": {
+    "name": "hh3cFlexEFrameIndex",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlexESlotIndex": {
+    "name": "hh3cFlexESlotIndex",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlexESubslotIndex": {
+    "name": "hh3cFlexESubslotIndex",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlexESubTimeSlotGranular": {
+    "name": "hh3cFlexESubTimeSlotGranular",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexEGroupTable": {
+    "name": "hh3cFlexEGroupTable",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlexEGroupEntry": {
+    "name": "hh3cFlexEGroupEntry",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubslotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEGroupID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEGroupID": {
+    "name": "hh3cFlexEGroupID",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1048574
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFlexEGroupRowStatus": {
+    "name": "hh3cFlexEGroupRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.177.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFlexEPhyIfTable": {
+    "name": "hh3cFlexEPhyIfTable",
+    "oid": "1.3.6.1.4.1.25506.2.177.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlexEPhyIfEntry": {
+    "name": "hh3cFlexEPhyIfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.177.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyGroupID": {
+    "name": "hh3cFlexEPhyGroupID",
+    "oid": "1.3.6.1.4.1.25506.2.177.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1048574
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexEPhyNumber": {
+    "name": "hh3cFlexEPhyNumber",
+    "oid": "1.3.6.1.4.1.25506.2.177.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexEClockPort": {
+    "name": "hh3cFlexEClockPort",
+    "oid": "1.3.6.1.4.1.25506.2.177.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexEIfTable": {
+    "name": "hh3cFlexEIfTable",
+    "oid": "1.3.6.1.4.1.25506.2.177.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFlexEIfEntry": {
+    "name": "hh3cFlexEIfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.177.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEIfGroupID": {
+    "name": "hh3cFlexEIfGroupID",
+    "oid": "1.3.6.1.4.1.25506.2.177.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1048574
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexEBandwidth": {
+    "name": "hh3cFlexEBandwidth",
+    "oid": "1.3.6.1.4.1.25506.2.177.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexEClientID": {
+    "name": "hh3cFlexEClientID",
+    "oid": "1.3.6.1.4.1.25506.2.177.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexEMinAvailableBandwidth": {
+    "name": "hh3cFlexEMinAvailableBandwidth",
+    "oid": "1.3.6.1.4.1.25506.2.177.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFlexETrapObjects": {
+    "name": "hh3cFlexETrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.177.4",
+    "class": "objectidentity"
+  },
+  "hh3cFlexERemotePhyNumber": {
+    "name": "hh3cFlexERemotePhyNumber",
+    "oid": "1.3.6.1.4.1.25506.2.177.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cFlexERemotePhyGroupID": {
+    "name": "hh3cFlexERemotePhyGroupID",
+    "oid": "1.3.6.1.4.1.25506.2.177.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cFlexEGroupMemberCount": {
+    "name": "hh3cFlexEGroupMemberCount",
+    "oid": "1.3.6.1.4.1.25506.2.177.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cFlexEPortList": {
+    "name": "hh3cFlexEPortList",
+    "oid": "1.3.6.1.4.1.25506.2.177.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cFlexETrap": {
+    "name": "hh3cFlexETrap",
+    "oid": "1.3.6.1.4.1.25506.2.177.5",
+    "class": "objectidentity"
+  },
+  "hh3cFlexETrapPrex": {
+    "name": "hh3cFlexETrapPrex",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0",
+    "class": "objectidentity"
+  },
+  "hh3cFlexEPhyNumberMismatch": {
+    "name": "hh3cFlexEPhyNumberMismatch",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEPhyNumber"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexERemotePhyNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyNumberMismatchRecover": {
+    "name": "hh3cFlexEPhyNumberMismatchRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEPhyNumber"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexERemotePhyNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyGroupMismatch": {
+    "name": "hh3cFlexEPhyGroupMismatch",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEPhyGroupID"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexERemotePhyGroupID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyGroupMismatchRecover": {
+    "name": "hh3cFlexEPhyGroupMismatchRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEPhyGroupID"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexERemotePhyGroupID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEClientIDMismatch": {
+    "name": "hh3cFlexEClientIDMismatch",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEClientIDMismatchRecover": {
+    "name": "hh3cFlexEClientIDMismatchRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEBandwidthReduce": {
+    "name": "hh3cFlexEBandwidthReduce",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEBandwidthReduceRecover": {
+    "name": "hh3cFlexEBandwidthReduceRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyFcsSdAlarm": {
+    "name": "hh3cFlexEPhyFcsSdAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyFcsSdAlarmRecover": {
+    "name": "hh3cFlexEPhyFcsSdAlarmRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyLocalFault": {
+    "name": "hh3cFlexEPhyLocalFault",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyLocalFaultRecover": {
+    "name": "hh3cFlexEPhyLocalFaultRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyRemoteFault": {
+    "name": "hh3cFlexEPhyRemoteFault",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyRemoteFaultRecover": {
+    "name": "hh3cFlexEPhyRemoteFaultRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEBandwidthMismatch": {
+    "name": "hh3cFlexEBandwidthMismatch",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEBandwidthMismatchRecover": {
+    "name": "hh3cFlexEBandwidthMismatchRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyDelayOverAlarm": {
+    "name": "hh3cFlexEPhyDelayOverAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEPortList"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEPhyDelayOverAlarmRecover": {
+    "name": "hh3cFlexEPhyDelayOverAlarmRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEPortList"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexESTSGMismatch": {
+    "name": "hh3cFlexESTSGMismatch",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubTimeSlotGranular"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexESTSGMismatchRecover": {
+    "name": "hh3cFlexESTSGMismatchRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubTimeSlotGranular"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEGroupMemberFault": {
+    "name": "hh3cFlexEGroupMemberFault",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEFrameIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESlotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubslotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEGroupID"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEGroupMemberCount"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEGroupMemberFaultRecover": {
+    "name": "hh3cFlexEGroupMemberFaultRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEFrameIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESlotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubslotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEGroupID"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEGroupMemberCount"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEGroupFaultAlarm": {
+    "name": "hh3cFlexEGroupFaultAlarm",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEFrameIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESlotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubslotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEGroupID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFlexEGroupFaultAlarmRecover": {
+    "name": "hh3cFlexEGroupFaultAlarmRecover",
+    "oid": "1.3.6.1.4.1.25506.2.177.5.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEFrameIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESlotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexESubslotIndex"
+      },
+      {
+        "module": "HH3C-FLEXE-MIB",
+        "object": "hh3cFlexEGroupID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FLEXE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-FLEXE-MIB"
+  }
+}

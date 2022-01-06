@@ -1,0 +1,2069 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDhcpSnoopingMIB": {
+    "name": "ciscoDhcpSnoopingMIB",
+    "oid": "1.3.6.1.4.1.9.9.380",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-08-26 00:00",
+        "description": "Add cdsVlanOperStatusGroup."
+      },
+      {
+        "revision": "2009-08-10 00:00",
+        "description": "Add new enum 'strictIpMac' to cdsIfSrcGuardFilterType object."
+      },
+      {
+        "revision": "2009-04-12 00:00",
+        "description": "Add cdsIfVlanRelayInfoOptCircuitIdDirect."
+      },
+      {
+        "revision": "2007-11-13 00:00",
+        "description": "Add cdsNotifControlGroup and cdsBindingsNotificationGroup."
+      },
+      {
+        "revision": "2007-07-12 00:00",
+        "description": "Add cdsIfVlanRelayInfoOptCircuitIdGroup, cdsStatisticsExtGroup and deprecate cdsRelayAgentRemoteIdGroup with cdsRelayAgentInfoOptRemoteIdSubGroup."
+      },
+      {
+        "revision": "2007-05-30 00:00",
+        "description": "Add cdsBindingsHostnameGroup"
+      },
+      {
+        "revision": "2006-03-16 16:00",
+        "description": "Add cdsBindingsLimitGroup, cdsStaticBindingsGroup, cdsIfSrcGuardIpFilterGroup, cdsIfSrcGuardTrafficFilterGroup, cdsIfSrcGuardExtGroup and deprecate cdsIfSrcGuardGroup with cdsIfSrcGuardGroupRev1."
+      },
+      {
+        "revision": "2005-10-26 00:00",
+        "description": "Add cdsIfFeatureConfigGroup."
+      },
+      {
+        "revision": "2004-03-04 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "ciscoDhcpSnoopingMIBNotifs": {
+    "name": "ciscoDhcpSnoopingMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.380.0",
+    "class": "objectidentity"
+  },
+  "ciscoDhcpSnoopingMIBObjects": {
+    "name": "ciscoDhcpSnoopingMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.380.1",
+    "class": "objectidentity"
+  },
+  "ciscoDhcpSnoopingMIBConformance": {
+    "name": "ciscoDhcpSnoopingMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.380.2",
+    "class": "objectidentity"
+  },
+  "cdsGlobal": {
+    "name": "cdsGlobal",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1",
+    "class": "objectidentity"
+  },
+  "cdsVlan": {
+    "name": "cdsVlan",
+    "oid": "1.3.6.1.4.1.9.9.380.1.2",
+    "class": "objectidentity"
+  },
+  "cdsInterface": {
+    "name": "cdsInterface",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3",
+    "class": "objectidentity"
+  },
+  "cdsBindings": {
+    "name": "cdsBindings",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4",
+    "class": "objectidentity"
+  },
+  "cdsStatistics": {
+    "name": "cdsStatistics",
+    "oid": "1.3.6.1.4.1.9.9.380.1.5",
+    "class": "objectidentity"
+  },
+  "cdsSrcGuard": {
+    "name": "cdsSrcGuard",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6",
+    "class": "objectidentity"
+  },
+  "cdsFeatureEnable": {
+    "name": "cdsFeatureEnable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsDatabaseFile": {
+    "name": "cdsDatabaseFile",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsDatabaseUpdateInterval": {
+    "name": "cdsDatabaseUpdateInterval",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsRelayAgentInfoOptEnable": {
+    "name": "cdsRelayAgentInfoOptEnable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsRelayAgentInfoOptRemoteId": {
+    "name": "cdsRelayAgentInfoOptRemoteId",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cdsMatchMacAddressEnable": {
+    "name": "cdsMatchMacAddressEnable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsGlobalMaxBindingsLimit": {
+    "name": "cdsGlobalMaxBindingsLimit",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsRelayAgentInfoOptRemoteIdSub": {
+    "name": "cdsRelayAgentInfoOptRemoteIdSub",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsBindingsNotifEnabled": {
+    "name": "cdsBindingsNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.380.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsVlanConfigTable": {
+    "name": "cdsVlanConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsVlanConfigEntry": {
+    "name": "cdsVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsVlanIndex": {
+    "name": "cdsVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.380.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsVlanDhcpSnoopingEnable": {
+    "name": "cdsVlanDhcpSnoopingEnable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsVlanDhcpSnoopingOperStatus": {
+    "name": "cdsVlanDhcpSnoopingOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.380.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "notOperational": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfConfigTable": {
+    "name": "cdsIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfConfigEntry": {
+    "name": "cdsIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfTrustEnable": {
+    "name": "cdsIfTrustEnable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsIfRateLimitTable": {
+    "name": "cdsIfRateLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfRateLimitEntry": {
+    "name": "cdsIfRateLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfRateLimit": {
+    "name": "cdsIfRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsIfFeatureConfigTable": {
+    "name": "cdsIfFeatureConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfFeatureConfigEntry": {
+    "name": "cdsIfFeatureConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfFeatureEnable": {
+    "name": "cdsIfFeatureEnable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsIfBindingsLimitTable": {
+    "name": "cdsIfBindingsLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfBindingsLimitEntry": {
+    "name": "cdsIfBindingsLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfBindingsLimit": {
+    "name": "cdsIfBindingsLimit",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsIfVlanRelayInfoOptCircuitIdTable": {
+    "name": "cdsIfVlanRelayInfoOptCircuitIdTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfVlanRelayInfoOptCircuitIdEntry": {
+    "name": "cdsIfVlanRelayInfoOptCircuitIdEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfVlan": {
+    "name": "cdsIfVlan",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfVlanRelayInfoOptCircuitId": {
+    "name": "cdsIfVlanRelayInfoOptCircuitId",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsIfVlanRelayInfoOptCircuitIdStatus": {
+    "name": "cdsIfVlanRelayInfoOptCircuitIdStatus",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsIfVlanRelayInfoOptCircuitIdDirect": {
+    "name": "cdsIfVlanRelayInfoOptCircuitIdDirect",
+    "oid": "1.3.6.1.4.1.9.9.380.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsBindingsTable": {
+    "name": "cdsBindingsTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsBindingsEntry": {
+    "name": "cdsBindingsEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsVlan",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsBindingsVlan": {
+    "name": "cdsBindingsVlan",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsBindingsMacAddress": {
+    "name": "cdsBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsBindingsAddrType": {
+    "name": "cdsBindingsAddrType",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsBindingsIpAddress": {
+    "name": "cdsBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsBindingsInterface": {
+    "name": "cdsBindingsInterface",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsBindingsLeasedTime": {
+    "name": "cdsBindingsLeasedTime",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsBindingsStatus": {
+    "name": "cdsBindingsStatus",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsBindingsHostname": {
+    "name": "cdsBindingsHostname",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsStaticBindingsTable": {
+    "name": "cdsStaticBindingsTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsStaticBindingsEntry": {
+    "name": "cdsStaticBindingsEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsStaticBindingsVlan",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsStaticBindingsMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsStaticBindingsVlan": {
+    "name": "cdsStaticBindingsVlan",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsStaticBindingsMacAddress": {
+    "name": "cdsStaticBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsStaticBindingsAddrType": {
+    "name": "cdsStaticBindingsAddrType",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsStaticBindingsIpAddress": {
+    "name": "cdsStaticBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsStaticBindingsInterface": {
+    "name": "cdsStaticBindingsInterface",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsStaticBindingsStatus": {
+    "name": "cdsStaticBindingsStatus",
+    "oid": "1.3.6.1.4.1.9.9.380.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdsTotalForwardedPkts": {
+    "name": "cdsTotalForwardedPkts",
+    "oid": "1.3.6.1.4.1.9.9.380.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsTotalDroppedPkts": {
+    "name": "cdsTotalDroppedPkts",
+    "oid": "1.3.6.1.4.1.9.9.380.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsUntrustedPortDroppedPkts": {
+    "name": "cdsUntrustedPortDroppedPkts",
+    "oid": "1.3.6.1.4.1.9.9.380.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsForwardedWithoutOption82Pkts": {
+    "name": "cdsForwardedWithoutOption82Pkts",
+    "oid": "1.3.6.1.4.1.9.9.380.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardConfigTable": {
+    "name": "cdsIfSrcGuardConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfSrcGuardConfigEntry": {
+    "name": "cdsIfSrcGuardConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfSrcGuardEnable": {
+    "name": "cdsIfSrcGuardEnable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cdsIfSrcGuardFilterType": {
+    "name": "cdsIfSrcGuardFilterType",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "ip": 2,
+          "ipMac": 3,
+          "strictIpMac": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdsIfSrcGuardAddrTable": {
+    "name": "cdsIfSrcGuardAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfSrcGuardAddrEntry": {
+    "name": "cdsIfSrcGuardAddrEntry",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfSrcGuardIndex": {
+    "name": "cdsIfSrcGuardIndex",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdsIfSrcGuardAddrType": {
+    "name": "cdsIfSrcGuardAddrType",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardAddress": {
+    "name": "cdsIfSrcGuardAddress",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardIpFilterAction": {
+    "name": "cdsIfSrcGuardIpFilterAction",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permitIpAddress": 1,
+          "denyAllIpAddress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardFilterMode": {
+    "name": "cdsIfSrcGuardFilterMode",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactiveTrustPort": 2,
+          "inactiveNoSnoopingVlan": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardMacAddress": {
+    "name": "cdsIfSrcGuardMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardMacFilterAction": {
+    "name": "cdsIfSrcGuardMacFilterAction",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowMacAddress": 1,
+          "denyAllMacAddresses": 2,
+          "permitAllMacAddresses": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardVlansLow": {
+    "name": "cdsIfSrcGuardVlansLow",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsIfSrcGuardVlansHigh": {
+    "name": "cdsIfSrcGuardVlansHigh",
+    "oid": "1.3.6.1.4.1.9.9.380.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdsBindingsNotification": {
+    "name": "cdsBindingsNotification",
+    "oid": "1.3.6.1.4.1.9.9.380.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsAddrType"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsIpAddress"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsMIBCompliances": {
+    "name": "cdsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1",
+    "class": "objectidentity"
+  },
+  "cdsMIBGroups": {
+    "name": "cdsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2",
+    "class": "objectidentity"
+  },
+  "cdsMIBCompliance": {
+    "name": "cdsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsIfConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsGlobalEnableGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsDatabaseGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfRateLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsMatchMacAddressGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsMIBCompliance2": {
+    "name": "cdsMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsIfConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsGlobalEnableGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsDatabaseGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfRateLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardGroupRev1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsMatchMacAddressGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentRemoteIdGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfFeatureConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStaticBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardIpFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardTrafficFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsMIBCompliance3": {
+    "name": "cdsMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsIfConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsGlobalEnableGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsDatabaseGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfRateLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardGroupRev1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsMatchMacAddressGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentRemoteIdGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfFeatureConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStaticBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardIpFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardTrafficFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsHostnameGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsMIBCompliance4": {
+    "name": "cdsMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsIfConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsGlobalEnableGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsDatabaseGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfRateLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardGroupRev1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsMatchMacAddressGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfFeatureConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStaticBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardIpFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardTrafficFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsHostnameGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptRemoteIdSubGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfVlanRelayInfoOptCircuitIdGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsMIBCompliance5": {
+    "name": "cdsMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsIfConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsGlobalEnableGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsDatabaseGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfRateLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardGroupRev1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsMatchMacAddressGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfFeatureConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStaticBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardIpFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardTrafficFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsHostnameGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptRemoteIdSubGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfVlanRelayInfoOptCircuitIdGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsNotifControlGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsNotificationGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsMIBCompliance6": {
+    "name": "cdsMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsIfConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsGlobalEnableGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsDatabaseGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfRateLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardGroupRev1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsMatchMacAddressGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfFeatureConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStaticBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardIpFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardTrafficFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsHostnameGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptRemoteIdSubGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfVlanRelayInfoOptCircuitIdGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsNotifControlGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsNotificationGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfVlanRelayInfoOptCircuitIdGroupSup1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsMIBCompliance7": {
+    "name": "cdsMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.380.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdsIfConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsGlobalEnableGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsDatabaseGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfRateLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardGroupRev1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsMatchMacAddressGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfFeatureConfigGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsLimitGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStaticBindingsGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardIpFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfSrcGuardTrafficFilterGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsHostnameGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsRelayAgentInfoOptRemoteIdSubGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfVlanRelayInfoOptCircuitIdGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsStatisticsExtGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsNotifControlGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsBindingsNotificationGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsIfVlanRelayInfoOptCircuitIdGroupSup1",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "cdsVlanOperStatusGroup",
+        "module": "CISCO-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsGlobalEnableGroup": {
+    "name": "cdsGlobalEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsFeatureEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsDatabaseGroup": {
+    "name": "cdsDatabaseGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsDatabaseFile"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsDatabaseUpdateInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsVlanConfigGroup": {
+    "name": "cdsVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsVlanDhcpSnoopingEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfConfigGroup": {
+    "name": "cdsIfConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfTrustEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfRateLimitGroup": {
+    "name": "cdsIfRateLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsBindingsGroup": {
+    "name": "cdsBindingsGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsAddrType"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsIpAddress"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsInterface"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsLeasedTime"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsStatisticsGroup": {
+    "name": "cdsStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsTotalForwardedPkts"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsTotalDroppedPkts"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsUntrustedPortDroppedPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsRelayAgentInfoOptGroup": {
+    "name": "cdsRelayAgentInfoOptGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsRelayAgentInfoOptEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfSrcGuardGroup": {
+    "name": "cdsIfSrcGuardGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardEnable"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardAddrType"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsRelayAgentRemoteIdGroup": {
+    "name": "cdsRelayAgentRemoteIdGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsRelayAgentInfoOptRemoteId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdsMatchMacAddressGroup": {
+    "name": "cdsMatchMacAddressGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsMatchMacAddressEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfFeatureConfigGroup": {
+    "name": "cdsIfFeatureConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfFeatureEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsBindingsLimitGroup": {
+    "name": "cdsBindingsLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsGlobalMaxBindingsLimit"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfBindingsLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsStaticBindingsGroup": {
+    "name": "cdsStaticBindingsGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsStaticBindingsAddrType"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsStaticBindingsIpAddress"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsStaticBindingsInterface"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsStaticBindingsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfSrcGuardIpFilterGroup": {
+    "name": "cdsIfSrcGuardIpFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardIpFilterAction"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardFilterMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfSrcGuardExtGroup": {
+    "name": "cdsIfSrcGuardExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardMacAddress"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardMacFilterAction"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardVlansLow"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardVlansHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfSrcGuardTrafficFilterGroup": {
+    "name": "cdsIfSrcGuardTrafficFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardFilterType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfSrcGuardGroupRev1": {
+    "name": "cdsIfSrcGuardGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardAddrType"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfSrcGuardAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsBindingsHostnameGroup": {
+    "name": "cdsBindingsHostnameGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsHostname"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsRelayAgentInfoOptRemoteIdSubGroup": {
+    "name": "cdsRelayAgentInfoOptRemoteIdSubGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsRelayAgentInfoOptRemoteIdSub"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfVlanRelayInfoOptCircuitIdGroup": {
+    "name": "cdsIfVlanRelayInfoOptCircuitIdGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfVlanRelayInfoOptCircuitId"
+      },
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfVlanRelayInfoOptCircuitIdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsStatisticsExtGroup": {
+    "name": "cdsStatisticsExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsForwardedWithoutOption82Pkts"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsNotifControlGroup": {
+    "name": "cdsNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsBindingsNotificationGroup": {
+    "name": "cdsBindingsNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.24",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsBindingsNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsIfVlanRelayInfoOptCircuitIdGroupSup1": {
+    "name": "cdsIfVlanRelayInfoOptCircuitIdGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsIfVlanRelayInfoOptCircuitIdDirect"
+      }
+    ],
+    "status": "current"
+  },
+  "cdsVlanOperStatusGroup": {
+    "name": "cdsVlanOperStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.380.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-SNOOPING-MIB",
+        "object": "cdsVlanDhcpSnoopingOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DHCP-SNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DHCP-SNOOPING-MIB"
+  }
+}

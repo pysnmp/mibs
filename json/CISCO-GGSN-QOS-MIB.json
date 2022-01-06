@@ -1,0 +1,1618 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "cggsnQosMIB": {
+    "name": "cggsnQosMIB",
+    "oid": "1.3.6.1.4.1.9.9.241",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-17 00:00",
+        "description": "Deprecated cggsnUmtsQosCacTcBitRate. Added cggsnUmtsQosCacTcRevBitRate to cggsnUmtsQosCacTcTable."
+      },
+      {
+        "revision": "2006-09-11 00:00",
+        "description": " Deprecated following objects from cggsnQosUmtsCac: cggsnUmtsQosMapImsSigTrafClass, cggsnUmtsQosMapImsSigTrafHandPri. Deprecated following Group, Compliance: cggsnQosUmtsCacGroup, cggsnQosMIBComplianceRev2. Added following Group, Compliance: cggsnQosUmtsCacGroupRev1, cggsnQosMIBComplianceRev3."
+      },
+      {
+        "revision": "2005-03-21 17:00",
+        "description": "Modified the range for the object cggsnUmtsQosCacTcBitRate."
+      },
+      {
+        "revision": "2003-11-27 13:00",
+        "description": "Added cggsnUmtsQosMapImsSigTrafClass, cggsnUmtsQosMapImsSigTrafHandPri, cggsnUmtsQosCacPolicyTable, cggsnUmtsQosCacTcTable, cggsnUmtsQosCacBWPoolTable, cggsnQosBWPoolTrafClassTable to cggsnQosUmtsCac."
+      },
+      {
+        "revision": "2002-04-18 14:00",
+        "description": " Added the enumeration 'umts' to cggsnQosMappingMethod. Added the following objects: cggsnQosUmtsTrafficClass, cggsnQosUmtsDiffServPhbgroup, cggsnQosUmtsPdps, cggsnQosDiffServPhb, cggsnQosDscp and cggsnQosUmtsDscpUnmodified. "
+      },
+      {
+        "revision": "2001-12-06 13:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "UmtsQosTrafficClass": {
+    "name": "UmtsQosTrafficClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conversational": 1,
+          "streaming": 2,
+          "interactive": 3,
+          "background": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cggsnQosMIBObjects": {
+    "name": "cggsnQosMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.241.1",
+    "class": "objectidentity"
+  },
+  "cggsnQosGeneralConfig": {
+    "name": "cggsnQosGeneralConfig",
+    "oid": "1.3.6.1.4.1.9.9.241.1.1",
+    "class": "objectidentity"
+  },
+  "cggsnQosCanonicalQos": {
+    "name": "cggsnQosCanonicalQos",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2",
+    "class": "objectidentity"
+  },
+  "cggsnQosUmtsQos": {
+    "name": "cggsnQosUmtsQos",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3",
+    "class": "objectidentity"
+  },
+  "cggsnQosMappingMethod": {
+    "name": "cggsnQosMappingMethod",
+    "oid": "1.3.6.1.4.1.9.9.241.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "canonical": 2,
+          "delay": 3,
+          "umts": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosClassIpTosMapTable": {
+    "name": "cggsnQosClassIpTosMapTable",
+    "oid": "1.3.6.1.4.1.9.9.241.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosClassIpTosMapEntry": {
+    "name": "cggsnQosClassIpTosMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.241.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosClass": {
+    "name": "cggsnQosClass",
+    "oid": "1.3.6.1.4.1.9.9.241.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosMappedIpTos": {
+    "name": "cggsnQosMappedIpTos",
+    "oid": "1.3.6.1.4.1.9.9.241.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosCurrentPdps": {
+    "name": "cggsnQosCurrentPdps",
+    "oid": "1.3.6.1.4.1.9.9.241.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cggsnQosTotalBandwidthResrc": {
+    "name": "cggsnQosTotalBandwidthResrc",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosCurrentUsedBandwidth": {
+    "name": "cggsnQosCurrentUsedBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cggsnQosPremiumMtDeviationFactor": {
+    "name": "cggsnQosPremiumMtDeviationFactor",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosBestEffrtBandWidthFactor": {
+    "name": "cggsnQosBestEffrtBandWidthFactor",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosPremiumMeanThroughput": {
+    "name": "cggsnQosPremiumMeanThroughput",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cggsnQosNormalMeanThroughput": {
+    "name": "cggsnQosNormalMeanThroughput",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cggsnQosBestEffortMeanThroughput": {
+    "name": "cggsnQosBestEffortMeanThroughput",
+    "oid": "1.3.6.1.4.1.9.9.241.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cggsnQosTrafficClassPhbTable": {
+    "name": "cggsnQosTrafficClassPhbTable",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosTrafficClassPhbEntry": {
+    "name": "cggsnQosTrafficClassPhbEntry",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosUmtsTrafficClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosUmtsTrafficClass": {
+    "name": "cggsnQosUmtsTrafficClass",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalling": 1,
+          "conversational": 2,
+          "streaming": 3,
+          "interactive": 4,
+          "background": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosUmtsDiffServPhbgroup": {
+    "name": "cggsnQosUmtsDiffServPhbgroup",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signallingClass": 1,
+          "efClass": 2,
+          "afClass1": 3,
+          "afClass2": 4,
+          "afClass3": 5,
+          "afClass4": 6,
+          "bestEffort": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bestEffort",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosUmtsPdps": {
+    "name": "cggsnQosUmtsPdps",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cggsnQosPhbToDscpMapTable": {
+    "name": "cggsnQosPhbToDscpMapTable",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosPhbToDscpMapEntry": {
+    "name": "cggsnQosPhbToDscpMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosDiffServPhb",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosDiffServPhb": {
+    "name": "cggsnQosDiffServPhb",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signallingClass": 1,
+          "efClass": 2,
+          "afClass1Low": 3,
+          "afClass1Medium": 4,
+          "afClass1High": 5,
+          "afClass2Low": 6,
+          "afClass2Medium": 7,
+          "afClass2High": 8,
+          "afClass3Low": 9,
+          "afClass3Medium": 10,
+          "afClass3High": 11,
+          "afClass4Low": 12,
+          "afClass4Medium": 13,
+          "afClass4High": 14,
+          "bestEffort": 15
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosDscp": {
+    "name": "cggsnQosDscp",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosUmtsDscpUnmodified": {
+    "name": "cggsnQosUmtsDscpUnmodified",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "all": 3,
+          "none": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cggsnQosUmtsCac": {
+    "name": "cggsnQosUmtsCac",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4",
+    "class": "objectidentity"
+  },
+  "cggsnUmtsQosMapImsSigTrafClass": {
+    "name": "cggsnUmtsQosMapImsSigTrafClass",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UmtsQosTrafficClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "interactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cggsnUmtsQosMapImsSigTrafHandPri": {
+    "name": "cggsnUmtsQosMapImsSigTrafHandPri",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "priority1": 1,
+          "priority2": 2,
+          "priority3": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "priority1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cggsnUmtsQosCacPolicyTable": {
+    "name": "cggsnUmtsQosCacPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacPolicyEntry": {
+    "name": "cggsnUmtsQosCacPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnUmtsQosCacPolicyName": {
+    "name": "cggsnUmtsQosCacPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacRowStatus": {
+    "name": "cggsnUmtsQosCacRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacMaxPdp": {
+    "name": "cggsnUmtsQosCacMaxPdp",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacPdpThreshold": {
+    "name": "cggsnUmtsQosCacPdpThreshold",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacMaxTrafficClass": {
+    "name": "cggsnUmtsQosCacMaxTrafficClass",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UmtsQosTrafficClass",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacMaxTrafHandPrio": {
+    "name": "cggsnUmtsQosCacMaxTrafHandPrio",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "priority1": 1,
+          "priority2": 2,
+          "priority3": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacMaxThruPut": {
+    "name": "cggsnUmtsQosCacMaxThruPut",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacMaxThruPutReject": {
+    "name": "cggsnUmtsQosCacMaxThruPutReject",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacMaxDelayClass": {
+    "name": "cggsnUmtsQosCacMaxDelayClass",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "delayClass1": 1,
+          "delayClass2": 2,
+          "delayClass3": 3,
+          "delayClass4": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacMaxDelayClassRej": {
+    "name": "cggsnUmtsQosCacMaxDelayClassRej",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcTable": {
+    "name": "cggsnUmtsQosCacTcTable",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcEntry": {
+    "name": "cggsnUmtsQosCacTcEntry",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcTrafClass",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcBitRateType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcTrafClass": {
+    "name": "cggsnUmtsQosCacTcTrafClass",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UmtsQosTrafficClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcBitRateType": {
+    "name": "cggsnUmtsQosCacTcBitRateType",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "maximum": 1,
+          "guaranteed": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcDirection": {
+    "name": "cggsnUmtsQosCacTcDirection",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uplink": 1,
+          "downlink": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcRowStatus": {
+    "name": "cggsnUmtsQosCacTcRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcBitRate": {
+    "name": "cggsnUmtsQosCacTcBitRate",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cggsnUmtsQosCacTcReject": {
+    "name": "cggsnUmtsQosCacTcReject",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacTcRevBitRate": {
+    "name": "cggsnUmtsQosCacTcRevBitRate",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacBWPoolTable": {
+    "name": "cggsnUmtsQosCacBWPoolTable",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacBWPoolEntry": {
+    "name": "cggsnUmtsQosCacBWPoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnUmtsQosCacBWPoolName": {
+    "name": "cggsnUmtsQosCacBWPoolName",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacBWPoolRowStatus": {
+    "name": "cggsnUmtsQosCacBWPoolRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnUmtsQosCacBWPoolBWVal": {
+    "name": "cggsnUmtsQosCacBWPoolBWVal",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClassTable": {
+    "name": "cggsnQosBWPoolTrafClassTable",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClassEntry": {
+    "name": "cggsnQosBWPoolTrafClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClass": {
+    "name": "cggsnQosBWPoolTrafClass",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UmtsQosTrafficClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClassRowStatus": {
+    "name": "cggsnQosBWPoolTrafClassRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClassPercent": {
+    "name": "cggsnQosBWPoolTrafClassPercent",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClassPerVal": {
+    "name": "cggsnQosBWPoolTrafClassPerVal",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClassAbsVal": {
+    "name": "cggsnQosBWPoolTrafClassAbsVal",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cggsnQosBWPoolTrafClassAvailBw": {
+    "name": "cggsnQosBWPoolTrafClassAvailBw",
+    "oid": "1.3.6.1.4.1.9.9.241.1.3.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cggsnQosMIBConformances": {
+    "name": "cggsnQosMIBConformances",
+    "oid": "1.3.6.1.4.1.9.9.241.2",
+    "class": "objectidentity"
+  },
+  "cggsnQosMIBCompliances": {
+    "name": "cggsnQosMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.241.2.1",
+    "class": "objectidentity"
+  },
+  "cggsnQosMIBGroups": {
+    "name": "cggsnQosMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.241.2.2",
+    "class": "objectidentity"
+  },
+  "cggsnQosMIBCompliance": {
+    "name": "cggsnQosMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.241.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cggsnQosGeneralConfigGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosCanonicalQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cggsnQosMIBComplianceRev1": {
+    "name": "cggsnQosMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.241.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cggsnQosGeneralConfigGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosCanonicalQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosUmtsQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cggsnQosMIBComplianceRev2": {
+    "name": "cggsnQosMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.241.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cggsnQosGeneralConfigGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosCanonicalQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosUmtsQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosUmtsCacGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cggsnQosMIBComplianceRev3": {
+    "name": "cggsnQosMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.241.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cggsnQosGeneralConfigGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosCanonicalQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosUmtsQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosUmtsCacGroupRev1",
+        "module": "CISCO-GGSN-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cggsnQosMIBComplianceRev4": {
+    "name": "cggsnQosMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.241.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cggsnQosGeneralConfigGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosCanonicalQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosUmtsQosGroup",
+        "module": "CISCO-GGSN-QOS-MIB"
+      },
+      {
+        "object": "cggsnQosUmtsCacGroupRev2",
+        "module": "CISCO-GGSN-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosGeneralConfigGroup": {
+    "name": "cggsnQosGeneralConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.241.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosMappingMethod"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosMappedIpTos"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosCurrentPdps"
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosCanonicalQosGroup": {
+    "name": "cggsnQosCanonicalQosGroup",
+    "oid": "1.3.6.1.4.1.9.9.241.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosTotalBandwidthResrc"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosCurrentUsedBandwidth"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosPremiumMtDeviationFactor"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBestEffrtBandWidthFactor"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosPremiumMeanThroughput"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosNormalMeanThroughput"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBestEffortMeanThroughput"
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosUmtsQosGroup": {
+    "name": "cggsnQosUmtsQosGroup",
+    "oid": "1.3.6.1.4.1.9.9.241.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosUmtsDiffServPhbgroup"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosUmtsPdps"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosDscp"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosUmtsDscpUnmodified"
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnQosUmtsCacGroup": {
+    "name": "cggsnQosUmtsCacGroup",
+    "oid": "1.3.6.1.4.1.9.9.241.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosMapImsSigTrafClass"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosMapImsSigTrafHandPri"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxPdp"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacPdpThreshold"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxTrafficClass"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxTrafHandPrio"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxThruPut"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxThruPutReject"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxDelayClass"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxDelayClassRej"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcBitRate"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcReject"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolBWVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassPercent"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassPerVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassAbsVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassAvailBw"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cggsnQosUmtsCacGroupRev1": {
+    "name": "cggsnQosUmtsCacGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.241.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxPdp"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacPdpThreshold"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxTrafficClass"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxTrafHandPrio"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxThruPut"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxThruPutReject"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxDelayClass"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxDelayClassRej"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcBitRate"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcReject"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolBWVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassPercent"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassPerVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassAbsVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassAvailBw"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cggsnQosUmtsCacGroupRev2": {
+    "name": "cggsnQosUmtsCacGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.241.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxPdp"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacPdpThreshold"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxTrafficClass"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxTrafHandPrio"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxThruPut"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxThruPutReject"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxDelayClass"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacMaxDelayClassRej"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcReject"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacTcRevBitRate"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnUmtsQosCacBWPoolBWVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassPercent"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassPerVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassAbsVal"
+      },
+      {
+        "module": "CISCO-GGSN-QOS-MIB",
+        "object": "cggsnQosBWPoolTrafClassAvailBw"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GGSN-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-GGSN-QOS-MIB"
+  }
+}

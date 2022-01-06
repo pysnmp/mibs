@@ -1,0 +1,591 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "MPLS-L3VPN-STD-MIB": [
+      "MplsL3VpnName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSelectiveVrfDownloadMIB": {
+    "name": "ciscoSelectiveVrfDownloadMIB",
+    "oid": "1.3.6.1.4.1.9.9.775",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-06-22 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSelectiveVrfDownloadMIBNotifs": {
+    "name": "ciscoSelectiveVrfDownloadMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.775.0",
+    "class": "objectidentity"
+  },
+  "ciscoSelectiveVrfDownloadMIBObjects": {
+    "name": "ciscoSelectiveVrfDownloadMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.775.1",
+    "class": "objectidentity"
+  },
+  "ciscoSelectiveVrfDownloadMIBConform": {
+    "name": "ciscoSelectiveVrfDownloadMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.775.2",
+    "class": "objectidentity"
+  },
+  "SVDEntityRole": {
+    "name": "SVDEntityRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "standard": 2,
+          "core": 3,
+          "customer": 4,
+          "noInterest": 5,
+          "vpnOnlyCustomer": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "csvdAdminEnable": {
+    "name": "csvdAdminEnable",
+    "oid": "1.3.6.1.4.1.9.9.775.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csvdOperEnable": {
+    "name": "csvdOperEnable",
+    "oid": "1.3.6.1.4.1.9.9.775.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdEntityRoleChangeNotificationEnable": {
+    "name": "csvdEntityRoleChangeNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.775.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csvdCounterDiscontinuityTime": {
+    "name": "csvdCounterDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.775.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdStateTable": {
+    "name": "csvdStateTable",
+    "oid": "1.3.6.1.4.1.9.9.775.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csvdStateEntry": {
+    "name": "csvdStateEntry",
+    "oid": "1.3.6.1.4.1.9.9.775.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdStateAFI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csvdStateAFI": {
+    "name": "csvdStateAFI",
+    "oid": "1.3.6.1.4.1.9.9.775.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csvdStateEntityRole": {
+    "name": "csvdStateEntityRole",
+    "oid": "1.3.6.1.4.1.9.9.775.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SVDEntityRole",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csvdStateEntityRoleLastChange": {
+    "name": "csvdStateEntityRoleLastChange",
+    "oid": "1.3.6.1.4.1.9.9.775.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdStateEntityRoleTransitions": {
+    "name": "csvdStateEntityRoleTransitions",
+    "oid": "1.3.6.1.4.1.9.9.775.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdRoleHistory": {
+    "name": "csvdRoleHistory",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6",
+    "class": "objectidentity"
+  },
+  "csvdRoleHistorySize": {
+    "name": "csvdRoleHistorySize",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csvdRoleHistoryLastIndex": {
+    "name": "csvdRoleHistoryLastIndex",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdRoleHistoryTable": {
+    "name": "csvdRoleHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csvdRoleHistoryEntry": {
+    "name": "csvdRoleHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdStateAFI",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdRoleHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csvdRoleHistoryIndex": {
+    "name": "csvdRoleHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csvdRoleHistoryRole": {
+    "name": "csvdRoleHistoryRole",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SVDEntityRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdRoleHistoryRoleChangeTime": {
+    "name": "csvdRoleHistoryRoleChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.775.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdVrfTable": {
+    "name": "csvdVrfTable",
+    "oid": "1.3.6.1.4.1.9.9.775.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csvdVrfEntry": {
+    "name": "csvdVrfEntry",
+    "oid": "1.3.6.1.4.1.9.9.775.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdStateAFI",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csvdVrfName": {
+    "name": "csvdVrfName",
+    "oid": "1.3.6.1.4.1.9.9.775.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsL3VpnName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csvdPrefixCount": {
+    "name": "csvdPrefixCount",
+    "oid": "1.3.6.1.4.1.9.9.775.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdLocalPrefixCount": {
+    "name": "csvdLocalPrefixCount",
+    "oid": "1.3.6.1.4.1.9.9.775.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdRemotePrefixCount": {
+    "name": "csvdRemotePrefixCount",
+    "oid": "1.3.6.1.4.1.9.9.775.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdTableConvergedFlag": {
+    "name": "csvdTableConvergedFlag",
+    "oid": "1.3.6.1.4.1.9.9.775.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csvdEntityRoleChangeNotification": {
+    "name": "csvdEntityRoleChangeNotification",
+    "oid": "1.3.6.1.4.1.9.9.775.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdStateEntityRole"
+      }
+    ],
+    "status": "current"
+  },
+  "csvdMIBCompliances": {
+    "name": "csvdMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.775.2.1",
+    "class": "objectidentity"
+  },
+  "csvdMIBGroups": {
+    "name": "csvdMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.775.2.2",
+    "class": "objectidentity"
+  },
+  "csvdMIBCompliance": {
+    "name": "csvdMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.775.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csvdMIBGroup",
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB"
+      },
+      {
+        "object": "csvdMIBNotificationEnableGroup",
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB"
+      },
+      {
+        "object": "csvdMIBNotificationGroup",
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csvdMIBGroup": {
+    "name": "csvdMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.775.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdAdminEnable"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdOperEnable"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdCounterDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdStateEntityRole"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdStateEntityRoleLastChange"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdStateEntityRoleTransitions"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdRoleHistorySize"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdRoleHistoryLastIndex"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdRoleHistoryRole"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdRoleHistoryRoleChangeTime"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdPrefixCount"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdLocalPrefixCount"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdRemotePrefixCount"
+      },
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdTableConvergedFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "csvdMIBNotificationEnableGroup": {
+    "name": "csvdMIBNotificationEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.775.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdEntityRoleChangeNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "csvdMIBNotificationGroup": {
+    "name": "csvdMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.775.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+        "object": "csvdEntityRoleChangeNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SELECTIVE-VRF-DOWNLOAD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SELECTIVE-VRF-DOWNLOAD-MIB"
+  }
+}

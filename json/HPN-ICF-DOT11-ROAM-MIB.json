@@ -1,0 +1,702 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-DOT11-REF-MIB": [
+      "hpnicfDot11"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDot11ROAM": {
+    "name": "hpnicfDot11ROAM",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-04 18:00",
+        "description": "Modified to add new hpnicfDot11RoamStatis2Group."
+      },
+      {
+        "revision": "2009-05-07 20:00",
+        "description": "Modified to add new hpnicfDot11RoamStatisGroup."
+      },
+      {
+        "revision": "2008-07-23 12:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "HpnicfDot11RoamMobileTunnelType": {
+    "name": "HpnicfDot11RoamMobileTunnelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11RoamAuthMode": {
+    "name": "HpnicfDot11RoamAuthMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "md5": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11RoamIACTPStatus": {
+    "name": "HpnicfDot11RoamIACTPStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "idle": 2,
+          "joinRequestWait": 3,
+          "joinResponseWait": 4,
+          "joinConfirmWait": 5,
+          "joinError": 6,
+          "run": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfDot11RoamCfgGroup": {
+    "name": "hpnicfDot11RoamCfgGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11RoamStatusGroup": {
+    "name": "hpnicfDot11RoamStatusGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11RoamStatisGroup": {
+    "name": "hpnicfDot11RoamStatisGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.3",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11RoamStatis2Group": {
+    "name": "hpnicfDot11RoamStatis2Group",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.4",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11MobGrpTable": {
+    "name": "hpnicfDot11MobGrpTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpEntry": {
+    "name": "hpnicfDot11MobGrpEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-ROAM-MIB",
+        "object": "hpnicfDot11MobGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpName": {
+    "name": "hpnicfDot11MobGrpName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfdot11MobGrpTunnelType": {
+    "name": "hpnicfdot11MobGrpTunnelType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RoamMobileTunnelType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpSrcIPAddr": {
+    "name": "hpnicfDot11MobGrpSrcIPAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpAuthMode": {
+    "name": "hpnicfDot11MobGrpAuthMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RoamAuthMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpAuthKey": {
+    "name": "hpnicfDot11MobGrpAuthKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpEnable": {
+    "name": "hpnicfDot11MobGrpEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpRowStatus": {
+    "name": "hpnicfDot11MobGrpRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpMemberTable": {
+    "name": "hpnicfDot11MobGrpMemberTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpMemberEntry": {
+    "name": "hpnicfDot11MobGrpMemberEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-ROAM-MIB",
+        "object": "hpnicfDot11MobGrpName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-ROAM-MIB",
+        "object": "hpnicfDot11MobGrpMemberIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpMemberIpAddr": {
+    "name": "hpnicfDot11MobGrpMemberIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpMemberStatus": {
+    "name": "hpnicfDot11MobGrpMemberStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RoamIACTPStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpMemberIf": {
+    "name": "hpnicfDot11MobGrpMemberIf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpMemberUpTime": {
+    "name": "hpnicfDot11MobGrpMemberUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11MobGrpMemberRowStatus": {
+    "name": "hpnicfDot11MobGrpMemberRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11RoamInInfoTable": {
+    "name": "hpnicfDot11RoamInInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RoamInInfoEntry": {
+    "name": "hpnicfDot11RoamInInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-ROAM-MIB",
+        "object": "hpnicfDot11RoamClientMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11RoamClientMAC": {
+    "name": "hpnicfDot11RoamClientMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RoamInClientBSSID": {
+    "name": "hpnicfDot11RoamInClientBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamInClientVlanID": {
+    "name": "hpnicfDot11RoamInClientVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamInHomeACIPType": {
+    "name": "hpnicfDot11RoamInHomeACIPType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamInHomeACIPAddr": {
+    "name": "hpnicfDot11RoamInHomeACIPAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamOutInfoTable": {
+    "name": "hpnicfDot11RoamOutInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RoamOutInfoEntry": {
+    "name": "hpnicfDot11RoamOutInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-ROAM-MIB",
+        "object": "hpnicfDot11RoamClientMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11RoamOutClientBSSID": {
+    "name": "hpnicfDot11RoamOutClientBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamOutClientVlanID": {
+    "name": "hpnicfDot11RoamOutClientVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamOutForeignACIPType": {
+    "name": "hpnicfDot11RoamOutForeignACIPType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamOutForeignACIPAddr": {
+    "name": "hpnicfDot11RoamOutForeignACIPAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamOutClientUpTime": {
+    "name": "hpnicfDot11RoamOutClientUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackTable": {
+    "name": "hpnicfDot11RoamTrackTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackEntry": {
+    "name": "hpnicfDot11RoamTrackEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-ROAM-MIB",
+        "object": "hpnicfDot11RoamTrackIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackIndex": {
+    "name": "hpnicfDot11RoamTrackIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackClientMAC": {
+    "name": "hpnicfDot11RoamTrackClientMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackBSSID": {
+    "name": "hpnicfDot11RoamTrackBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackUpTime": {
+    "name": "hpnicfDot11RoamTrackUpTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackACIPType": {
+    "name": "hpnicfDot11RoamTrackACIPType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RoamTrackACIPAddr": {
+    "name": "hpnicfDot11RoamTrackACIPAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11IntraACRoamingSuccCnt": {
+    "name": "hpnicfDot11IntraACRoamingSuccCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11InterACRoamingSuccCnt": {
+    "name": "hpnicfDot11InterACRoamingSuccCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11InterACRoamOutSuccCnt": {
+    "name": "hpnicfDot11InterACRoamOutSuccCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11IntraACRoamingSuccCnt2": {
+    "name": "hpnicfDot11IntraACRoamingSuccCnt2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11InterACRoamingSuccCnt2": {
+    "name": "hpnicfDot11InterACRoamingSuccCnt2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11InterACRoamOutSuccCnt2": {
+    "name": "hpnicfDot11InterACRoamOutSuccCnt2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.10.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-ROAM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DOT11-ROAM-MIB"
+  }
+}

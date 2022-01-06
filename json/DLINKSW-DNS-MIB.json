@@ -1,0 +1,845 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwDnsMIB": {
+    "name": "dlinkSwDnsMIB",
+    "oid": "1.3.6.1.4.1.171.14.77",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-09 00:00",
+        "description": "First release of this MIB."
+      },
+      {
+        "revision": "2013-08-29 00:00",
+        "description": "1. Update dDnsStaticNameSrvIpAddr SYNTAX."
+      }
+    ]
+  },
+  "DnsTime": {
+    "name": "DnsTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "4d",
+    "status": "current"
+  },
+  "dDnsMIBNotifications": {
+    "name": "dDnsMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.77.0",
+    "class": "objectidentity"
+  },
+  "dDnsMIBObjects": {
+    "name": "dDnsMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.77.1",
+    "class": "objectidentity"
+  },
+  "dDnsGlobal": {
+    "name": "dDnsGlobal",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1",
+    "class": "objectidentity"
+  },
+  "dDnsResolverEnabled": {
+    "name": "dDnsResolverEnabled",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsResolverSourceInterface": {
+    "name": "dDnsResolverSourceInterface",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsResolverDomainName": {
+    "name": "dDnsResolverDomainName",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsResolverTimeOut": {
+    "name": "dDnsResolverTimeOut",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsCacheSrvEnabled": {
+    "name": "dDnsCacheSrvEnabled",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsCacheSrvMaxForwarderQueue": {
+    "name": "dDnsCacheSrvMaxForwarderQueue",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsStaticHostLookupEnabled": {
+    "name": "dDnsStaticHostLookupEnabled",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsDynamicHostLookupEnabled": {
+    "name": "dDnsDynamicHostLookupEnabled",
+    "oid": "1.3.6.1.4.1.171.14.77.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsNameSrv": {
+    "name": "dDnsNameSrv",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9",
+    "class": "objectidentity"
+  },
+  "dDnsStaticNameSrvTable": {
+    "name": "dDnsStaticNameSrvTable",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsStaticNameSrvEntry": {
+    "name": "dDnsStaticNameSrvEntry",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticNameSrvIpVrfName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticNameSrvIpType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticNameSrvIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsStaticNameSrvIpVrfName": {
+    "name": "dDnsStaticNameSrvIpVrfName",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsStaticNameSrvIpType": {
+    "name": "dDnsStaticNameSrvIpType",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsStaticNameSrvIpAddr": {
+    "name": "dDnsStaticNameSrvIpAddr",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsStaticNameSrvIpPriority": {
+    "name": "dDnsStaticNameSrvIpPriority",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDnsStaticNameSrvIpRowStatus": {
+    "name": "dDnsStaticNameSrvIpRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDnsDynamicNameSrvTable": {
+    "name": "dDnsDynamicNameSrvTable",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsDynamicNameSrvEntry": {
+    "name": "dDnsDynamicNameSrvEntry",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicNameSrvIpVrfName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicNameSrvIpType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicNameSrvIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsDynamicNameSrvIpVrfName": {
+    "name": "dDnsDynamicNameSrvIpVrfName",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsDynamicNameSrvIpType": {
+    "name": "dDnsDynamicNameSrvIpType",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsDynamicNameSrvIpAddr": {
+    "name": "dDnsDynamicNameSrvIpAddr",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsDynamicNameSrvIpPriority": {
+    "name": "dDnsDynamicNameSrvIpPriority",
+    "oid": "1.3.6.1.4.1.171.14.77.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDnsHost": {
+    "name": "dDnsHost",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10",
+    "class": "objectidentity"
+  },
+  "dDnsStaticHostTable": {
+    "name": "dDnsStaticHostTable",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsStaticHostEntry": {
+    "name": "dDnsStaticHostEntry",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticHostIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsStaticHostIndex": {
+    "name": "dDnsStaticHostIndex",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsStaticHostVrfName": {
+    "name": "dDnsStaticHostVrfName",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDnsStaticHostName": {
+    "name": "dDnsStaticHostName",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDnsStaticHostIPType": {
+    "name": "dDnsStaticHostIPType",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDnsStaticHostIPAddr": {
+    "name": "dDnsStaticHostIPAddr",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDnsStaticHostRowStatus": {
+    "name": "dDnsStaticHostRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDnsDynamicHostTable": {
+    "name": "dDnsDynamicHostTable",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsDynamicHostEntry": {
+    "name": "dDnsDynamicHostEntry",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsDynamicHostIndex": {
+    "name": "dDnsDynamicHostIndex",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDnsDynamicHostVrfName": {
+    "name": "dDnsDynamicHostVrfName",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDnsDynamicHostName": {
+    "name": "dDnsDynamicHostName",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDnsDynamicHostTTL": {
+    "name": "dDnsDynamicHostTTL",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDnsDynamicHostIPType": {
+    "name": "dDnsDynamicHostIPType",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDnsDynamicHostIPAddr": {
+    "name": "dDnsDynamicHostIPAddr",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDnsDynamicHostClearCtrl": {
+    "name": "dDnsDynamicHostClearCtrl",
+    "oid": "1.3.6.1.4.1.171.14.77.1.10.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDnsMIBConformance": {
+    "name": "dDnsMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.77.2",
+    "class": "objectidentity"
+  },
+  "dDnsMIBCompliances": {
+    "name": "dDnsMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.77.2.1",
+    "class": "objectidentity"
+  },
+  "dDnsMIBCompliance": {
+    "name": "dDnsMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.77.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDnsResolverGroup",
+        "module": "DLINKSW-DNS-MIB"
+      },
+      {
+        "object": "dDnsStaticHostGroup",
+        "module": "DLINKSW-DNS-MIB"
+      },
+      {
+        "object": "dDnsDynamicHostGroup",
+        "module": "DLINKSW-DNS-MIB"
+      },
+      {
+        "object": "dDnsStaticNameSrvGroup",
+        "module": "DLINKSW-DNS-MIB"
+      },
+      {
+        "object": "dDnsDynamicNameSrvGroup",
+        "module": "DLINKSW-DNS-MIB"
+      },
+      {
+        "object": "dDnsCacheSrvGroup",
+        "module": "DLINKSW-DNS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsMIBGroups": {
+    "name": "dDnsMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.77.2.2",
+    "class": "objectidentity"
+  },
+  "dDnsResolverGroup": {
+    "name": "dDnsResolverGroup",
+    "oid": "1.3.6.1.4.1.171.14.77.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsResolverSourceInterface"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsResolverDomainName"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsResolverTimeOut"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsResolverEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsCacheSrvGroup": {
+    "name": "dDnsCacheSrvGroup",
+    "oid": "1.3.6.1.4.1.171.14.77.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsCacheSrvMaxForwarderQueue"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsCacheSrvEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsStaticHostGroup": {
+    "name": "dDnsStaticHostGroup",
+    "oid": "1.3.6.1.4.1.171.14.77.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticHostVrfName"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticHostName"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticHostRowStatus"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticHostLookupEnabled"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticHostIPType"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticHostIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsDynamicHostGroup": {
+    "name": "dDnsDynamicHostGroup",
+    "oid": "1.3.6.1.4.1.171.14.77.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostVrfName"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostName"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostTTL"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostClearCtrl"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostLookupEnabled"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostIPType"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicHostIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsStaticNameSrvGroup": {
+    "name": "dDnsStaticNameSrvGroup",
+    "oid": "1.3.6.1.4.1.171.14.77.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticNameSrvIpPriority"
+      },
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsStaticNameSrvIpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDnsDynamicNameSrvGroup": {
+    "name": "dDnsDynamicNameSrvGroup",
+    "oid": "1.3.6.1.4.1.171.14.77.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DNS-MIB",
+        "object": "dDnsDynamicNameSrvIpPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DNS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-DNS-MIB"
+  }
+}

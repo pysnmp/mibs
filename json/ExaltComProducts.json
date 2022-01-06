@@ -1,0 +1,2960 @@
+{
+  "imports": {
+    "class": "imports",
+    "ExaltComm": [
+      "EnableStatusT",
+      "NtpClientEnableT",
+      "FileTransferTypeT",
+      "TimeZoneT",
+      "Led4ColorT",
+      "Te1LineCodeT",
+      "ExaltEnableT",
+      "VlanGroupT",
+      "FileTransferStartT",
+      "Te1StatusT",
+      "EthMainStatusT",
+      "Te1LoopBackModeT",
+      "AcmModulationT",
+      "AuxNmsMode",
+      "AlarmLevelT",
+      "Te1LboT",
+      "EthPortMode",
+      "VlanStatusT",
+      "exaltcommunications",
+      "EthAuxStatusT"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "productsMIB": {
+    "name": "productsMIB",
+    "oid": "1.3.6.1.4.1.25651.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-29 10:21",
+        "description": "This is the Exalt Products mib. rev:1.01"
+      }
+    ]
+  },
+  "PwType": {
+    "name": "PwType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "productsMIBNotifications": {
+    "name": "productsMIBNotifications",
+    "oid": "1.3.6.1.4.1.25651.1.1",
+    "class": "objectidentity"
+  },
+  "productsMIBObjects": {
+    "name": "productsMIBObjects",
+    "oid": "1.3.6.1.4.1.25651.1.2",
+    "class": "objectidentity"
+  },
+  "radioInfo": {
+    "name": "radioInfo",
+    "oid": "1.3.6.1.4.1.25651.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "modelName": {
+    "name": "modelName",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "partNumber": {
+    "name": "partNumber",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceType": {
+    "name": "interfaceType",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "firmwareVersion": {
+    "name": "firmwareVersion",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bootVersion": {
+    "name": "bootVersion",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdkDbVer": {
+    "name": "rdkDbVer",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txFreqRange": {
+    "name": "txFreqRange",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxFreqRange": {
+    "name": "rxFreqRange",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rfFreqBand": {
+    "name": "rfFreqBand",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwId": {
+    "name": "hwId",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "modelNumber": {
+    "name": "modelNumber",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseFeatures": {
+    "name": "licenseFeatures",
+    "oid": "1.3.6.1.4.1.25651.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioAdmin": {
+    "name": "radioAdmin",
+    "oid": "1.3.6.1.4.1.25651.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sysDate": {
+    "name": "sysDate",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "MM/DD/YYYY",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysTime": {
+    "name": "sysTime",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioName": {
+    "name": "radioName",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.3",
+    "class": "objectidentity"
+  },
+  "rnLocal": {
+    "name": "rnLocal",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rnRemote": {
+    "name": "rnRemote",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkName": {
+    "name": "linkName",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkSecKey": {
+    "name": "linkSecKey",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminPassword": {
+    "name": "adminPassword",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userPassword": {
+    "name": "userPassword",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipAddress": {
+    "name": "ipAddress",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.8",
+    "class": "objectidentity"
+  },
+  "ipLocal": {
+    "name": "ipLocal",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipRemote": {
+    "name": "ipRemote",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subnetMask": {
+    "name": "subnetMask",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipAddressNetmask": {
+    "name": "ipAddressNetmask",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 9,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "units": "IP/NN Where NN=00 To 32",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "defaultGateway": {
+    "name": "defaultGateway",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aesEnable": {
+    "name": "aesEnable",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aesDisable": 0,
+          "aesEnable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aesKey": {
+    "name": "aesKey",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "licKey": {
+    "name": "licKey",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpConfig": {
+    "name": "snmpConfig",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17",
+    "class": "objectidentity"
+  },
+  "trapIpaddr1": {
+    "name": "trapIpaddr1",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapIpaddrEnable1": {
+    "name": "trapIpaddrEnable1",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapIpaddr2": {
+    "name": "trapIpaddr2",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapIpaddrEnable2": {
+    "name": "trapIpaddrEnable2",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapIpaddr3": {
+    "name": "trapIpaddr3",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapIpaddrEnable3": {
+    "name": "trapIpaddrEnable3",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapIpaddr4": {
+    "name": "trapIpaddr4",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapIpaddrEnable4": {
+    "name": "trapIpaddrEnable4",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapAuth": {
+    "name": "trapAuth",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapReboot": {
+    "name": "trapReboot",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapLocLinkStat": {
+    "name": "trapLocLinkStat",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapLocAlarmStat": {
+    "name": "trapLocAlarmStat",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapRemAlarmStat": {
+    "name": "trapRemAlarmStat",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapLocTempStat": {
+    "name": "trapLocTempStat",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapv1Enable": {
+    "name": "trapv1Enable",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapv2cEnable": {
+    "name": "trapv2cEnable",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapv3Enable": {
+    "name": "trapv3Enable",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapLocRslStat": {
+    "name": "trapLocRslStat",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableStatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapLocRslThreshold": {
+    "name": "trapLocRslThreshold",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commitSnmpSettings": {
+    "name": "commitSnmpSettings",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.17.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntp": {
+    "name": "ntp",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ntpClientEnable": {
+    "name": "ntpClientEnable",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NtpClientEnableT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpServer1IpAddr": {
+    "name": "ntpServer1IpAddr",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpServer2IpAddr": {
+    "name": "ntpServer2IpAddr",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpServer3IpAddr": {
+    "name": "ntpServer3IpAddr",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpServer4IpAddr": {
+    "name": "ntpServer4IpAddr",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpTimeZoneSelect": {
+    "name": "ntpTimeZoneSelect",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeZoneT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commitNtpSettings": {
+    "name": "commitNtpSettings",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.18.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commitAdminSettings": {
+    "name": "commitAdminSettings",
+    "oid": "1.3.6.1.4.1.25651.1.2.2.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioConfig": {
+    "name": "radioConfig",
+    "oid": "1.3.6.1.4.1.25651.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "systemConfig": {
+    "name": "systemConfig",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "commitSystemSettings": {
+    "name": "commitSystemSettings",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.1.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interface": {
+    "name": "interface",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "te1": {
+    "name": "te1",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "te1NumChannels": {
+    "name": "te1NumChannels",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "te1NumActiveChannels": {
+    "name": "te1NumActiveChannels",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "channels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "selectT1orE1": {
+    "name": "selectT1orE1",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t1": 0,
+          "e1": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "te1Interfaces": {
+    "name": "te1Interfaces",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "te1Interface": {
+    "name": "te1Interface",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ExaltComProducts",
+        "object": "te1Status",
+        "implied": 0
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "t1LBO",
+        "implied": 0
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "te1AIS",
+        "implied": 0
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "t1LineCode",
+        "implied": 0
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "te1LoopBackMode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "te1Status": {
+    "name": "te1Status",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Te1StatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t1LBO": {
+    "name": "t1LBO",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Te1LboT",
+      "class": "type"
+    },
+    "units": "feet",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "te1AIS": {
+    "name": "te1AIS",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Te1StatusT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t1LineCode": {
+    "name": "t1LineCode",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Te1LineCodeT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "te1LoopBackMode": {
+    "name": "te1LoopBackMode",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Te1LoopBackModeT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commitTe1Settings": {
+    "name": "commitTe1Settings",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.2.2.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileManagement": {
+    "name": "fileManagement",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "currentFwFilename": {
+    "name": "currentFwFilename",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alternateFwFilename": {
+    "name": "alternateFwFilename",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swapFWimage": {
+    "name": "swapFWimage",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileTransfer": {
+    "name": "fileTransfer",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "factoryFwFilename": {
+    "name": "factoryFwFilename",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tftpServerIp": {
+    "name": "tftpServerIp",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "uploadFilename": {
+    "name": "uploadFilename",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "transferType": {
+    "name": "transferType",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileTransferTypeT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "transferStart": {
+    "name": "transferStart",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileTransferStartT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "transferStatus": {
+    "name": "transferStatus",
+    "oid": "1.3.6.1.4.1.25651.1.2.3.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioMonitor": {
+    "name": "radioMonitor",
+    "oid": "1.3.6.1.4.1.25651.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alarms": {
+    "name": "alarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2",
+    "class": "objectidentity"
+  },
+  "almLocal": {
+    "name": "almLocal",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3",
+    "class": "objectidentity"
+  },
+  "locSysAlarms": {
+    "name": "locSysAlarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1",
+    "class": "objectidentity"
+  },
+  "locEthAlarms": {
+    "name": "locEthAlarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.2",
+    "class": "objectidentity"
+  },
+  "locTe1Alarms": {
+    "name": "locTe1Alarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.3",
+    "class": "objectidentity"
+  },
+  "locLinkState": {
+    "name": "locLinkState",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locTempAlarm": {
+    "name": "locTempAlarm",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locCurrentTemp": {
+    "name": "locCurrentTemp",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locCurrentTempS": {
+    "name": "locCurrentTempS",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locLinkSecMismatch": {
+    "name": "locLinkSecMismatch",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locLinkStateV": {
+    "name": "locLinkStateV",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locLinkStateH": {
+    "name": "locLinkStateH",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locTe1LinkSummary": {
+    "name": "locTe1LinkSummary",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Led4ColorT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locTE1Alarms": {
+    "name": "locTE1Alarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "locTe1AlarmsEntry": {
+    "name": "locTe1AlarmsEntry",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ExaltComProducts",
+        "object": "locTe1Alarm",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "locTe1Alarm": {
+    "name": "locTe1Alarm",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "almRemote": {
+    "name": "almRemote",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4",
+    "class": "objectidentity"
+  },
+  "remSysAlarms": {
+    "name": "remSysAlarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1",
+    "class": "objectidentity"
+  },
+  "remEthAlarms": {
+    "name": "remEthAlarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.2",
+    "class": "objectidentity"
+  },
+  "remTe1Alarms": {
+    "name": "remTe1Alarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.3",
+    "class": "objectidentity"
+  },
+  "remLinkState": {
+    "name": "remLinkState",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remTempAlarm": {
+    "name": "remTempAlarm",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remCurrentTemp": {
+    "name": "remCurrentTemp",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remCurrentTempS": {
+    "name": "remCurrentTempS",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remLinkSecMismatch": {
+    "name": "remLinkSecMismatch",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remLinkStateV": {
+    "name": "remLinkStateV",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remLinkStateH": {
+    "name": "remLinkStateH",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remTe1LinkSummary": {
+    "name": "remTe1LinkSummary",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Led4ColorT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remTE1Alarms": {
+    "name": "remTE1Alarms",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "remTe1AlarmsEntry": {
+    "name": "remTe1AlarmsEntry",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ExaltComProducts",
+        "object": "remTe1Alarm",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "remTe1Alarm": {
+    "name": "remTe1Alarm",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.2.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmLevelT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "performance": {
+    "name": "performance",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3",
+    "class": "objectidentity"
+  },
+  "perfLocal": {
+    "name": "perfLocal",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1",
+    "class": "objectidentity"
+  },
+  "perfRemote": {
+    "name": "perfRemote",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2",
+    "class": "objectidentity"
+  },
+  "locCurrentBER": {
+    "name": "locCurrentBER",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "BER * 1000000.0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locCurrentBERstr": {
+    "name": "locCurrentBERstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locCurrentRSL": {
+    "name": "locCurrentRSL",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locCurrentRSLstr": {
+    "name": "locCurrentRSLstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locErrorDuration": {
+    "name": "locErrorDuration",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locErrorDurationStr": {
+    "name": "locErrorDurationStr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locUnavailDuration": {
+    "name": "locUnavailDuration",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locUnavailDurationStr": {
+    "name": "locUnavailDurationStr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMinRSL": {
+    "name": "locMinRSL",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMinRSLstr": {
+    "name": "locMinRSLstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMinRSLtimestamp": {
+    "name": "locMinRSLtimestamp",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMaxRSL": {
+    "name": "locMaxRSL",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMaxRSLstr": {
+    "name": "locMaxRSLstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locSampleDuration": {
+    "name": "locSampleDuration",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locSampleDurationStr": {
+    "name": "locSampleDurationStr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locEthPerfInterfaces": {
+    "name": "locEthPerfInterfaces",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "locEthPerfInterfacesEntry": {
+    "name": "locEthPerfInterfacesEntry",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationIn",
+        "implied": 0
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationOut",
+        "implied": 0
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthSpeed",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "locEthUtilizationIn": {
+    "name": "locEthUtilizationIn",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locEthUtilizationOut": {
+    "name": "locEthUtilizationOut",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locEthSpeed": {
+    "name": "locEthSpeed",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locEthUtilizationWatermarkEnabled": {
+    "name": "locEthUtilizationWatermarkEnabled",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExaltEnableT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "locEthUtilizationWatermark": {
+    "name": "locEthUtilizationWatermark",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "locEthUtilizationWatermarkTrapEnabled": {
+    "name": "locEthUtilizationWatermarkTrapEnabled",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExaltEnableT",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "locEthUtilizationWatermarkTrapDuration": {
+    "name": "locEthUtilizationWatermarkTrapDuration",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "locMaximumTxModulation": {
+    "name": "locMaximumTxModulation",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcmModulationT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locActiveTxModulation": {
+    "name": "locActiveTxModulation",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcmModulationT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMinimumTxModulation": {
+    "name": "locMinimumTxModulation",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcmModulationT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMaximumRxModulation": {
+    "name": "locMaximumRxModulation",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcmModulationT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locActiveRxModulation": {
+    "name": "locActiveRxModulation",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcmModulationT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMinimumRxModulation": {
+    "name": "locMinimumRxModulation",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AcmModulationT",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMaximumTxEthernetThroughput": {
+    "name": "locMaximumTxEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locActiveTxEthernetThroughput": {
+    "name": "locActiveTxEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMinimumTxEthernetThroughput": {
+    "name": "locMinimumTxEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMaximumRxEthernetThroughput": {
+    "name": "locMaximumRxEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locActiveRxEthernetThroughput": {
+    "name": "locActiveRxEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locMinimumRxEthernetThroughput": {
+    "name": "locMinimumRxEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.111",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "locResetStats": {
+    "name": "locResetStats",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.1.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "remCurrentBER": {
+    "name": "remCurrentBER",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "BER * 1000000.0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remCurrentBERstr": {
+    "name": "remCurrentBERstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remCurrentRSL": {
+    "name": "remCurrentRSL",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remCurrentRSLstr": {
+    "name": "remCurrentRSLstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remErrorDuration": {
+    "name": "remErrorDuration",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remErrorDurationStr": {
+    "name": "remErrorDurationStr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remUnavailDuration": {
+    "name": "remUnavailDuration",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remUnavailDurationStr": {
+    "name": "remUnavailDurationStr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remMinRSL": {
+    "name": "remMinRSL",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remMinRSLstr": {
+    "name": "remMinRSLstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remMinRSLtimestamp": {
+    "name": "remMinRSLtimestamp",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remMaxRSL": {
+    "name": "remMaxRSL",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remMaxRSLstr": {
+    "name": "remMaxRSLstr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remSampleDuration": {
+    "name": "remSampleDuration",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remSampleDurationStr": {
+    "name": "remSampleDurationStr",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remResetStats": {
+    "name": "remResetStats",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.3.2.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userThroughput": {
+    "name": "userThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.5",
+    "class": "objectidentity"
+  },
+  "aggregateUserThroughput": {
+    "name": "aggregateUserThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "MBit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inboundEthernetThroughput": {
+    "name": "inboundEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "MBit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outboundEthernetThroughput": {
+    "name": "outboundEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "MBit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullDuplexEthernetThroughput": {
+    "name": "fullDuplexEthernetThroughput",
+    "oid": "1.3.6.1.4.1.25651.1.2.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "MBit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioReboot": {
+    "name": "radioReboot",
+    "oid": "1.3.6.1.4.1.25651.1.2.1000",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "productsMIBConformance": {
+    "name": "productsMIBConformance",
+    "oid": "1.3.6.1.4.1.25651.1.3",
+    "class": "objectidentity"
+  },
+  "productsMIBCompliances": {
+    "name": "productsMIBCompliances",
+    "oid": "1.3.6.1.4.1.25651.1.3.1",
+    "class": "objectidentity"
+  },
+  "productsMIBGroups": {
+    "name": "productsMIBGroups",
+    "oid": "1.3.6.1.4.1.25651.1.3.2",
+    "class": "objectidentity"
+  },
+  "productsAllObjects": {
+    "name": "productsAllObjects",
+    "oid": "1.3.6.1.4.1.25651.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ExaltComProducts",
+        "object": "modelName"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "partNumber"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "serialNumber"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "interfaceType"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "firmwareVersion"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "bootVersion"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "rfFreqBand"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "sysDate"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "sysTime"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "rnLocal"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "rnRemote"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "linkName"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "linkSecKey"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "adminPassword"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "userPassword"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "ipLocal"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "ipRemote"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "subnetMask"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "ipAddressNetmask"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "defaultGateway"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "commitAdminSettings"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "te1NumChannels"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "te1NumActiveChannels"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "selectT1orE1"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "commitTe1Settings"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "currentFwFilename"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "alternateFwFilename"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "swapFWimage"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locLinkState"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locLinkStateV"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locLinkStateH"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locTe1LinkSummary"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locTempAlarm"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locCurrentTemp"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locCurrentTempS"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locLinkSecMismatch"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remLinkState"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remLinkStateV"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remLinkStateH"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remTe1LinkSummary"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remTempAlarm"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remCurrentTemp"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remCurrentTempS"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remLinkSecMismatch"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locCurrentBER"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locCurrentBERstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locCurrentRSL"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locCurrentRSLstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locErrorDuration"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locErrorDurationStr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locUnavailDuration"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locUnavailDurationStr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locMinRSL"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locMinRSLstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locMinRSLtimestamp"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locMaxRSL"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locMaxRSLstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locSampleDuration"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locSampleDurationStr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locResetStats"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remCurrentBER"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remCurrentBERstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remCurrentRSL"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remCurrentRSLstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remErrorDuration"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remErrorDurationStr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remUnavailDuration"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remUnavailDurationStr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remMinRSL"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remMinRSLstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remMinRSLtimestamp"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remMaxRSL"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remMaxRSLstr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remSampleDuration"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remSampleDurationStr"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remResetStats"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "radioReboot"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "te1Status"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "t1LBO"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "te1AIS"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "t1LineCode"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "te1LoopBackMode"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locTe1Alarm"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "remTe1Alarm"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "aesEnable"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "licKey"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "aggregateUserThroughput"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "inboundEthernetThroughput"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "outboundEthernetThroughput"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "fullDuplexEthernetThroughput"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationIn"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationOut"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationWatermarkEnabled"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationWatermark"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationWatermarkTrapEnabled"
+      },
+      {
+        "module": "ExaltComProducts",
+        "object": "locEthUtilizationWatermarkTrapDuration"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ExaltComProducts"
+  }
+}

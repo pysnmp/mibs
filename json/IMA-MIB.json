@@ -1,0 +1,3088 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atmfImaMib": {
+    "name": "atmfImaMib",
+    "oid": "1.3.6.1.4.1.353.5.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-02-11 18:30",
+        "description": "Updated and repaired version of the IMA-MIB released with the IMA v1.1 specification (af-phy-0086.001)."
+      },
+      {
+        "revision": "1997-01-09 22:45",
+        "description": "Initial incomplete version of the IMA-MIB as published in the IMA v1.0 specification (af-phy-0086.000)."
+      }
+    ]
+  },
+  "atmForum": {
+    "name": "atmForum",
+    "oid": "1.3.6.1.4.1.353",
+    "class": "objectidentity"
+  },
+  "atmForumNetworkManagement": {
+    "name": "atmForumNetworkManagement",
+    "oid": "1.3.6.1.4.1.353.5",
+    "class": "objectidentity"
+  },
+  "atmfIma": {
+    "name": "atmfIma",
+    "oid": "1.3.6.1.4.1.353.5.7",
+    "class": "objectidentity"
+  },
+  "atmfImaMibObjects": {
+    "name": "atmfImaMibObjects",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1",
+    "class": "objectidentity"
+  },
+  "atmfImaMibTraps": {
+    "name": "atmfImaMibTraps",
+    "oid": "1.3.6.1.4.1.353.5.7.1.2",
+    "class": "objectidentity"
+  },
+  "atmfImaMibTrapPrefix": {
+    "name": "atmfImaMibTrapPrefix",
+    "oid": "1.3.6.1.4.1.353.5.7.1.2.0",
+    "class": "objectidentity"
+  },
+  "atmfImaMibConformance": {
+    "name": "atmfImaMibConformance",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3",
+    "class": "objectidentity"
+  },
+  "MilliSeconds": {
+    "name": "MilliSeconds",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ImaGroupState": {
+    "name": "ImaGroupState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "startUp": 2,
+          "startUpAck": 3,
+          "configAbortUnsupportedM": 4,
+          "configAbortIncompatibleSymmetry": 5,
+          "configAbortOther": 6,
+          "insufficientLinks": 7,
+          "blocked": 8,
+          "operational": 9,
+          "configAbortUnsupportedImaVersion": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaGroupFailureStatus": {
+    "name": "ImaGroupFailureStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFailure": 1,
+          "startUpNe": 2,
+          "startUpFe": 3,
+          "invalidMValueNe": 4,
+          "invalidMValueFe": 5,
+          "failedAssymetricNe": 6,
+          "failedAssymetricFe": 7,
+          "insufficientLinksNe": 8,
+          "insufficientLinksFe": 9,
+          "blockedNe": 10,
+          "blockedFe": 11,
+          "otherFailure": 12,
+          "invalidImaVersionNe": 13,
+          "invalidImaVersionFe": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaAlarmStatus": {
+    "name": "ImaAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "declared": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaAlarmType": {
+    "name": "ImaAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imaAlarmLinkLif": 1,
+          "imaAlarmLinkLods": 2,
+          "imaAlarmLinkRfi": 3,
+          "imaAlarmLinkTxMisConnect": 4,
+          "imaAlarmLinkRxMisConnect": 5,
+          "imaAlarmLinkTxFault": 6,
+          "imaAlarmLinkRxFault": 7,
+          "imaAlarmLinkTxUnusableFe": 8,
+          "imaAlarmLinkRxUnusableFe": 9,
+          "imaAlarmGroupStartupFe": 10,
+          "imaAlarmGroupCfgAbort": 11,
+          "imaAlarmGroupCfgAbortFe": 12,
+          "imaAlarmGroupInsuffLinks": 13,
+          "imaAlarmGroupInsuffLinksFe": 14,
+          "imaAlarmGroupBlockedFe": 15,
+          "imaAlarmGroupTimingSynch": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaGroupTxClkMode": {
+    "name": "ImaGroupTxClkMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ctc": 1,
+          "itc": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaGroupSymmetry": {
+    "name": "ImaGroupSymmetry",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symmetricOperation": 1,
+          "asymmetricOperation": 2,
+          "asymmetricConfiguration": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaFrameLength": {
+    "name": "ImaFrameLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "m32": 32,
+          "m64": 64,
+          "m128": 128,
+          "m256": 256
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaLinkState": {
+    "name": "ImaLinkState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInGroup": 1,
+          "unusableNoGivenReason": 2,
+          "unusableFault": 3,
+          "unusableMisconnected": 4,
+          "unusableInhibited": 5,
+          "unusableFailed": 6,
+          "usable": 7,
+          "active": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaLinkFailureStatus": {
+    "name": "ImaLinkFailureStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFailure": 1,
+          "imaLinkFailure": 2,
+          "lifFailure": 3,
+          "lodsFailure": 4,
+          "misConnected": 5,
+          "blocked": 6,
+          "fault": 7,
+          "farEndTxLinkUnusable": 8,
+          "farEndRxLinkUnusable": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ImaTestProcStatus": {
+    "name": "ImaTestProcStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "operating": 2,
+          "linkFail": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "imaGroupNumber": {
+    "name": "imaGroupNumber",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTable": {
+    "name": "imaGroupTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaGroupEntry": {
+    "name": "imaGroupEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupIndex": {
+    "name": "imaGroupIndex",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaGroupRowStatus": {
+    "name": "imaGroupRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupIfIndex": {
+    "name": "imaGroupIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupNeState": {
+    "name": "imaGroupNeState",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupFeState": {
+    "name": "imaGroupFeState",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupFailureStatus": {
+    "name": "imaGroupFailureStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupFailureStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupSymmetry": {
+    "name": "imaGroupSymmetry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupSymmetry",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "symmetricOperation",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupMinNumTxLinks": {
+    "name": "imaGroupMinNumTxLinks",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupMinNumRxLinks": {
+    "name": "imaGroupMinNumRxLinks",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupNeTxClkMode": {
+    "name": "imaGroupNeTxClkMode",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupTxClkMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ctc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupFeTxClkMode": {
+    "name": "imaGroupFeTxClkMode",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaGroupTxClkMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTxTimingRefLink": {
+    "name": "imaGroupTxTimingRefLink",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupRxTimingRefLink": {
+    "name": "imaGroupRxTimingRefLink",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupLastChange": {
+    "name": "imaGroupLastChange",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTxImaId": {
+    "name": "imaGroupTxImaId",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupRxImaId": {
+    "name": "imaGroupRxImaId",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTxFrameLength": {
+    "name": "imaGroupTxFrameLength",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaFrameLength",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "m128",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupRxFrameLength": {
+    "name": "imaGroupRxFrameLength",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaFrameLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupDiffDelayMax": {
+    "name": "imaGroupDiffDelayMax",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupLeastDelayLink": {
+    "name": "imaGroupLeastDelayLink",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupDiffDelayMaxObs": {
+    "name": "imaGroupDiffDelayMaxObs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupAlphaValue": {
+    "name": "imaGroupAlphaValue",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupBetaValue": {
+    "name": "imaGroupBetaValue",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupGammaValue": {
+    "name": "imaGroupGammaValue",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupRunningSecs": {
+    "name": "imaGroupRunningSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupUnavailSecs": {
+    "name": "imaGroupUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupNeNumFailures": {
+    "name": "imaGroupNeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupFeNumFailures": {
+    "name": "imaGroupFeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTxAvailCellRate": {
+    "name": "imaGroupTxAvailCellRate",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupRxAvailCellRate": {
+    "name": "imaGroupRxAvailCellRate",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupNumTxCfgLinks": {
+    "name": "imaGroupNumTxCfgLinks",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupNumRxCfgLinks": {
+    "name": "imaGroupNumRxCfgLinks",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupNumTxActLinks": {
+    "name": "imaGroupNumTxActLinks",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupNumRxActLinks": {
+    "name": "imaGroupNumRxActLinks",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTestLinkIfIndex": {
+    "name": "imaGroupTestLinkIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupTestPattern": {
+    "name": "imaGroupTestPattern",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupTestProcStatus": {
+    "name": "imaGroupTestProcStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaTestProcStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaGroupValidIntervals": {
+    "name": "imaGroupValidIntervals",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupInvalidIntervals": {
+    "name": "imaGroupInvalidIntervals",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTimeElapsed": {
+    "name": "imaGroupTimeElapsed",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTxOamLabelValue": {
+    "name": "imaGroupTxOamLabelValue",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupRxOamLabelValue": {
+    "name": "imaGroupRxOamLabelValue",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupMappingTable": {
+    "name": "imaGroupMappingTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaGroupMappingEntry": {
+    "name": "imaGroupMappingEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupMappingIndex": {
+    "name": "imaGroupMappingIndex",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTable": {
+    "name": "imaLinkTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaLinkEntry": {
+    "name": "imaLinkEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaLinkIfIndex": {
+    "name": "imaLinkIfIndex",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaLinkRowStatus": {
+    "name": "imaLinkRowStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaLinkGroupIndex": {
+    "name": "imaLinkGroupIndex",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imaLinkNeTxState": {
+    "name": "imaLinkNeTxState",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeRxState": {
+    "name": "imaLinkNeRxState",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeTxState": {
+    "name": "imaLinkFeTxState",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeRxState": {
+    "name": "imaLinkFeRxState",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeRxFailureStatus": {
+    "name": "imaLinkNeRxFailureStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkFailureStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeRxFailureStatus": {
+    "name": "imaLinkFeRxFailureStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaLinkFailureStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTxLid": {
+    "name": "imaLinkTxLid",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkRxLid": {
+    "name": "imaLinkRxLid",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkRelDelay": {
+    "name": "imaLinkRelDelay",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkImaViolations": {
+    "name": "imaLinkImaViolations",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkOifAnomalies": {
+    "name": "imaLinkOifAnomalies",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeSevErroredSecs": {
+    "name": "imaLinkNeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeSevErroredSecs": {
+    "name": "imaLinkFeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeUnavailSecs": {
+    "name": "imaLinkNeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeUnavailSecs": {
+    "name": "imaLinkFeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeTxUnusableSecs": {
+    "name": "imaLinkNeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeRxUnusableSecs": {
+    "name": "imaLinkNeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeTxUnusableSecs": {
+    "name": "imaLinkFeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeRxUnusableSecs": {
+    "name": "imaLinkFeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeTxNumFailures": {
+    "name": "imaLinkNeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkNeRxNumFailures": {
+    "name": "imaLinkNeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeTxNumFailures": {
+    "name": "imaLinkFeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkFeRxNumFailures": {
+    "name": "imaLinkFeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTxStuffs": {
+    "name": "imaLinkTxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkRxStuffs": {
+    "name": "imaLinkRxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkRxTestPattern": {
+    "name": "imaLinkRxTestPattern",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTestProcStatus": {
+    "name": "imaLinkTestProcStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaTestProcStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkValidIntervals": {
+    "name": "imaLinkValidIntervals",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkInvalidIntervals": {
+    "name": "imaLinkInvalidIntervals",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTimeElapsed": {
+    "name": "imaLinkTimeElapsed",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaAlarmStatus": {
+    "name": "imaAlarmStatus",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaAlarmType": {
+    "name": "imaAlarmType",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ImaAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaFailureAlarm": {
+    "name": "imaFailureAlarm",
+    "oid": "1.3.6.1.4.1.353.5.7.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaAlarmStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaAlarmType"
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupCurrentTable": {
+    "name": "imaGroupCurrentTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaGroupCurrentEntry": {
+    "name": "imaGroupCurrentEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupCurrentUnavailSecs": {
+    "name": "imaGroupCurrentUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupCurrentNeNumFailures": {
+    "name": "imaGroupCurrentNeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupCurrentFeNumFailures": {
+    "name": "imaGroupCurrentFeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupIntervalTable": {
+    "name": "imaGroupIntervalTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaGroupIntervalEntry": {
+    "name": "imaGroupIntervalEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupIntervalNumber": {
+    "name": "imaGroupIntervalNumber",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaGroupIntervalUnavailSecs": {
+    "name": "imaGroupIntervalUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupIntervalNeNumFailures": {
+    "name": "imaGroupIntervalNeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupIntervalFeNumFailures": {
+    "name": "imaGroupIntervalFeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTotalTable": {
+    "name": "imaGroupTotalTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaGroupTotalEntry": {
+    "name": "imaGroupTotalEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupTotalUnavailSecs": {
+    "name": "imaGroupTotalUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTotalNeNumFailures": {
+    "name": "imaGroupTotalNeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaGroupTotalFeNumFailures": {
+    "name": "imaGroupTotalFeNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentTable": {
+    "name": "imaLinkCurrentTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaLinkCurrentEntry": {
+    "name": "imaLinkCurrentEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaLinkCurrentImaViolations": {
+    "name": "imaLinkCurrentImaViolations",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentOifAnomalies": {
+    "name": "imaLinkCurrentOifAnomalies",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentNeSevErroredSecs": {
+    "name": "imaLinkCurrentNeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentFeSevErroredSecs": {
+    "name": "imaLinkCurrentFeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentNeUnavailSecs": {
+    "name": "imaLinkCurrentNeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentFeUnavailSecs": {
+    "name": "imaLinkCurrentFeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentNeTxUnusableSecs": {
+    "name": "imaLinkCurrentNeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentNeRxUnusableSecs": {
+    "name": "imaLinkCurrentNeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentFeTxUnusableSecs": {
+    "name": "imaLinkCurrentFeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentFeRxUnusableSecs": {
+    "name": "imaLinkCurrentFeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentNeTxNumFailures": {
+    "name": "imaLinkCurrentNeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentNeRxNumFailures": {
+    "name": "imaLinkCurrentNeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentFeTxNumFailures": {
+    "name": "imaLinkCurrentFeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentFeRxNumFailures": {
+    "name": "imaLinkCurrentFeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentTxStuffs": {
+    "name": "imaLinkCurrentTxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkCurrentRxStuffs": {
+    "name": "imaLinkCurrentRxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalTable": {
+    "name": "imaLinkIntervalTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaLinkIntervalEntry": {
+    "name": "imaLinkIntervalEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaLinkIntervalNumber": {
+    "name": "imaLinkIntervalNumber",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaLinkIntervalImaViolations": {
+    "name": "imaLinkIntervalImaViolations",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalOifAnomalies": {
+    "name": "imaLinkIntervalOifAnomalies",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalNeSevErroredSecs": {
+    "name": "imaLinkIntervalNeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalFeSevErroredSecs": {
+    "name": "imaLinkIntervalFeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalNeUnavailSecs": {
+    "name": "imaLinkIntervalNeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalFeUnavailSecs": {
+    "name": "imaLinkIntervalFeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalNeTxUnusableSecs": {
+    "name": "imaLinkIntervalNeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalNeRxUnusableSecs": {
+    "name": "imaLinkIntervalNeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalFeTxUnusableSecs": {
+    "name": "imaLinkIntervalFeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalFeRxUnusableSecs": {
+    "name": "imaLinkIntervalFeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalNeTxNumFailures": {
+    "name": "imaLinkIntervalNeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalNeRxNumFailures": {
+    "name": "imaLinkIntervalNeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalFeTxNumFailures": {
+    "name": "imaLinkIntervalFeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalFeRxNumFailures": {
+    "name": "imaLinkIntervalFeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalTxStuffs": {
+    "name": "imaLinkIntervalTxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkIntervalRxStuffs": {
+    "name": "imaLinkIntervalRxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalTable": {
+    "name": "imaLinkTotalTable",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "imaLinkTotalEntry": {
+    "name": "imaLinkTotalEntry",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "imaLinkTotalImaViolations": {
+    "name": "imaLinkTotalImaViolations",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalOifAnomalies": {
+    "name": "imaLinkTotalOifAnomalies",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalNeSevErroredSecs": {
+    "name": "imaLinkTotalNeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalFeSevErroredSecs": {
+    "name": "imaLinkTotalFeSevErroredSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalNeUnavailSecs": {
+    "name": "imaLinkTotalNeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalFeUnavailSecs": {
+    "name": "imaLinkTotalFeUnavailSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalNeTxUnusableSecs": {
+    "name": "imaLinkTotalNeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalNeRxUnusableSecs": {
+    "name": "imaLinkTotalNeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalFeTxUnusableSecs": {
+    "name": "imaLinkTotalFeTxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalFeRxUnusableSecs": {
+    "name": "imaLinkTotalFeRxUnusableSecs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalNeTxNumFailures": {
+    "name": "imaLinkTotalNeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalNeRxNumFailures": {
+    "name": "imaLinkTotalNeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalFeTxNumFailures": {
+    "name": "imaLinkTotalFeTxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalFeRxNumFailures": {
+    "name": "imaLinkTotalFeRxNumFailures",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalTxStuffs": {
+    "name": "imaLinkTotalTxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "imaLinkTotalRxStuffs": {
+    "name": "imaLinkTotalRxStuffs",
+    "oid": "1.3.6.1.4.1.353.5.7.1.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmfImaMibGroups": {
+    "name": "atmfImaMibGroups",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1",
+    "class": "objectidentity"
+  },
+  "atmfImaMibCompliances": {
+    "name": "atmfImaMibCompliances",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.2",
+    "class": "objectidentity"
+  },
+  "atmfImaMibCompliance": {
+    "name": "atmfImaMibCompliance",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "imaGroupGroup",
+        "module": "IMA-MIB"
+      },
+      {
+        "object": "imaLinkGroup",
+        "module": "IMA-MIB"
+      },
+      {
+        "object": "imaGroupMappingTableGroup",
+        "module": "IMA-MIB"
+      },
+      {
+        "object": "imaAlarmGroup",
+        "module": "IMA-MIB"
+      },
+      {
+        "object": "imaTestPatternGroup",
+        "module": "IMA-MIB"
+      },
+      {
+        "object": "imaGroupIntervalGroup",
+        "module": "IMA-MIB"
+      },
+      {
+        "object": "imaLinkIntervalGroup",
+        "module": "IMA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupGroup": {
+    "name": "imaGroupGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNumber"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupRowStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIfIndex"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNeState"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupFeState"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupFailureStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupSymmetry"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupMinNumTxLinks"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupMinNumRxLinks"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNeTxClkMode"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupFeTxClkMode"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTxTimingRefLink"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupRxTimingRefLink"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupLastChange"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTxImaId"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupRxImaId"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTxFrameLength"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupRxFrameLength"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupDiffDelayMax"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupLeastDelayLink"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupDiffDelayMaxObs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupAlphaValue"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupBetaValue"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupGammaValue"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupRunningSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNeNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupFeNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTxAvailCellRate"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupRxAvailCellRate"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNumTxCfgLinks"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNumRxCfgLinks"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNumTxActLinks"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupNumRxActLinks"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTxOamLabelValue"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupRxOamLabelValue"
+      }
+    ],
+    "status": "current"
+  },
+  "imaLinkGroup": {
+    "name": "imaLinkGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkRowStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkGroupIndex"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeTxState"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeRxState"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeTxState"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeRxState"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeRxFailureStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeRxFailureStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTxLid"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkRxLid"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkRelDelay"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkImaViolations"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkOifAnomalies"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkNeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkFeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTxStuffs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkRxStuffs"
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupMappingTableGroup": {
+    "name": "imaGroupMappingTableGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupMappingIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "imaTestPatternGroup": {
+    "name": "imaTestPatternGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTestLinkIfIndex"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTestPattern"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTestProcStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkRxTestPattern"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTestProcStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "imaAlarmGroup": {
+    "name": "imaAlarmGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaAlarmStatus"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaAlarmType"
+      }
+    ],
+    "status": "current"
+  },
+  "imaGroupIntervalGroup": {
+    "name": "imaGroupIntervalGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupValidIntervals"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupInvalidIntervals"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTimeElapsed"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupCurrentUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupCurrentNeNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupCurrentFeNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIntervalUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIntervalNeNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupIntervalFeNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTotalUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTotalNeNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaGroupTotalFeNumFailures"
+      }
+    ],
+    "status": "current"
+  },
+  "imaLinkIntervalGroup": {
+    "name": "imaLinkIntervalGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkValidIntervals"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkInvalidIntervals"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTimeElapsed"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentImaViolations"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentOifAnomalies"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentNeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentFeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentNeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentFeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentNeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentNeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentFeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentFeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentNeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentNeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentFeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentFeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentTxStuffs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkCurrentRxStuffs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalImaViolations"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalOifAnomalies"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalNeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalFeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalNeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalFeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalNeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalNeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalFeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalFeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalNeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalNeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalFeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalFeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalTxStuffs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkIntervalRxStuffs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalImaViolations"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalOifAnomalies"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalNeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalFeSevErroredSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalNeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalFeUnavailSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalNeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalNeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalFeTxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalFeRxUnusableSecs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalNeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalNeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalFeTxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalFeRxNumFailures"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalTxStuffs"
+      },
+      {
+        "module": "IMA-MIB",
+        "object": "imaLinkTotalRxStuffs"
+      }
+    ],
+    "status": "current"
+  },
+  "imaNotificationsGroup": {
+    "name": "imaNotificationsGroup",
+    "oid": "1.3.6.1.4.1.353.5.7.1.3.1.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IMA-MIB",
+        "object": "imaFailureAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IMA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IMA-MIB"
+  }
+}

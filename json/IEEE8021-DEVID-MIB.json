@@ -1,0 +1,991 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "PhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8021DevIDMIB": {
+    "name": "ieee8021DevIDMIB",
+    "oid": "1.3.111.2.802.1.1.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-07-15 19:04",
+        "description": "Published as part of IEEE Std 802.1AR-2018"
+      },
+      {
+        "revision": "2009-06-25 00:00",
+        "description": "Published as part of IEEE Std 802.1AR-2009"
+      }
+    ]
+  },
+  "devIDMIBNotifications": {
+    "name": "devIDMIBNotifications",
+    "oid": "1.3.111.2.802.1.1.17.0",
+    "class": "objectidentity"
+  },
+  "devIDMIBObjects": {
+    "name": "devIDMIBObjects",
+    "oid": "1.3.111.2.802.1.1.17.1",
+    "class": "objectidentity"
+  },
+  "devIDMIBConformance": {
+    "name": "devIDMIBConformance",
+    "oid": "1.3.111.2.802.1.1.17.2",
+    "class": "objectidentity"
+  },
+  "DevIDFingerprint": {
+    "name": "DevIDFingerprint",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 49
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:1x",
+    "status": "current"
+  },
+  "devIDGlobalMIBObjects": {
+    "name": "devIDGlobalMIBObjects",
+    "oid": "1.3.111.2.802.1.1.17.1.1",
+    "class": "objectidentity"
+  },
+  "devIDMgmtMIBObjects": {
+    "name": "devIDMgmtMIBObjects",
+    "oid": "1.3.111.2.802.1.1.17.1.2",
+    "class": "objectidentity"
+  },
+  "devIDStatsMIBObjects": {
+    "name": "devIDStatsMIBObjects",
+    "oid": "1.3.111.2.802.1.1.17.1.3",
+    "class": "objectidentity"
+  },
+  "devIDModuleTable": {
+    "name": "devIDModuleTable",
+    "oid": "1.3.111.2.802.1.1.17.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devIDModuleEntry": {
+    "name": "devIDModuleEntry",
+    "oid": "1.3.111.2.802.1.1.17.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devIDModuleSupportsLDevIDs": {
+    "name": "devIDModuleSupportsLDevIDs",
+    "oid": "1.3.111.2.802.1.1.17.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDModuleGeneratesLDevIDKeys": {
+    "name": "devIDModuleGeneratesLDevIDKeys",
+    "oid": "1.3.111.2.802.1.1.17.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDModuleInsertsLDevIDKeys": {
+    "name": "devIDModuleInsertsLDevIDKeys",
+    "oid": "1.3.111.2.802.1.1.17.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDCertTable": {
+    "name": "devIDCertTable",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devIDCertEntry": {
+    "name": "devIDCertEntry",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCertFingerprint",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devIDCertFingerprint": {
+    "name": "devIDCertFingerprint",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DevIDFingerprint",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devIDCertPublicKeyInfoFprint": {
+    "name": "devIDCertPublicKeyInfoFprint",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DevIDFingerprint",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDCertIDevID": {
+    "name": "devIDCertIDevID",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDCertKeyEnabled": {
+    "name": "devIDCertKeyEnabled",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDCertEnabled": {
+    "name": "devIDCertEnabled",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDCert": {
+    "name": "devIDCert",
+    "oid": "1.3.111.2.802.1.1.17.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDChainTable": {
+    "name": "devIDChainTable",
+    "oid": "1.3.111.2.802.1.1.17.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devIDChainEntry": {
+    "name": "devIDChainEntry",
+    "oid": "1.3.111.2.802.1.1.17.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCertFingerprint",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDChainCertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devIDChainCertIndex": {
+    "name": "devIDChainCertIndex",
+    "oid": "1.3.111.2.802.1.1.17.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devIDChainCertFingerprint": {
+    "name": "devIDChainCertFingerprint",
+    "oid": "1.3.111.2.802.1.1.17.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DevIDFingerprint",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDChainCert": {
+    "name": "devIDChainCert",
+    "oid": "1.3.111.2.802.1.1.17.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDStatisticsTable": {
+    "name": "devIDStatisticsTable",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devIDStatisticsEntry": {
+    "name": "devIDStatisticsEntry",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devIDStatisticKeyGenerationCount": {
+    "name": "devIDStatisticKeyGenerationCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDStatisticKeyInsertionCount": {
+    "name": "devIDStatisticKeyInsertionCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDStatisticKeyDeletionCount": {
+    "name": "devIDStatisticKeyDeletionCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDStatisticCSRGenerationCount": {
+    "name": "devIDStatisticCSRGenerationCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "devIDStatisticCredentialInsertionCount": {
+    "name": "devIDStatisticCredentialInsertionCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDStatisticCredentialDeletionCount": {
+    "name": "devIDStatisticCredentialDeletionCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDStatisticCertInsertionCount": {
+    "name": "devIDStatisticCertInsertionCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDStatisticCertDeletionCount": {
+    "name": "devIDStatisticCertDeletionCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devIDMIBCompliances": {
+    "name": "devIDMIBCompliances",
+    "oid": "1.3.111.2.802.1.1.17.2.1",
+    "class": "objectidentity"
+  },
+  "devIDMIBGroups": {
+    "name": "devIDMIBGroups",
+    "oid": "1.3.111.2.802.1.1.17.2.2",
+    "class": "objectidentity"
+  },
+  "devIDMIBModuleCompliance2": {
+    "name": "devIDMIBModuleCompliance2",
+    "oid": "1.3.111.2.802.1.1.17.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "devIDMIBModuleGroup",
+        "module": "IEEE8021-DEVID-MIB"
+      },
+      {
+        "object": "devIDMIBCertificateGroup",
+        "module": "IEEE8021-DEVID-MIB"
+      },
+      {
+        "object": "devIDMIBAuditGroup",
+        "module": "IEEE8021-DEVID-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "devIDMIBModuleGroup": {
+    "name": "devIDMIBModuleGroup",
+    "oid": "1.3.111.2.802.1.1.17.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDModuleSupportsLDevIDs"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDModuleGeneratesLDevIDKeys"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDModuleInsertsLDevIDKeys"
+      }
+    ],
+    "status": "current"
+  },
+  "devIDMIBCertificateGroup": {
+    "name": "devIDMIBCertificateGroup",
+    "oid": "1.3.111.2.802.1.1.17.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCertPublicKeyInfoFprint"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCertIDevID"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCertKeyEnabled"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCertEnabled"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCert"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDChainCertFingerprint"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDChainCert"
+      }
+    ],
+    "status": "current"
+  },
+  "devIDMIBAuditGroup": {
+    "name": "devIDMIBAuditGroup",
+    "oid": "1.3.111.2.802.1.1.17.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticKeyGenerationCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticKeyInsertionCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticKeyDeletionCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticCertInsertionCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticCertDeletionCount"
+      }
+    ],
+    "status": "current"
+  },
+  "DevIDErrorStatus": {
+    "name": "DevIDErrorStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "internalError": 2
+        }
+      }
+    },
+    "status": "obsolete"
+  },
+  "DevIDAlgorithmIdentifier": {
+    "name": "DevIDAlgorithmIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsaEncryption": 1,
+          "idecPublicKey": 2
+        }
+      }
+    },
+    "status": "obsolete"
+  },
+  "devIDPublicKeyCount": {
+    "name": "devIDPublicKeyCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDPublicKeyTable": {
+    "name": "devIDPublicKeyTable",
+    "oid": "1.3.111.2.802.1.1.17.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "devIDPublicKeyEntry": {
+    "name": "devIDPublicKeyEntry",
+    "oid": "1.3.111.2.802.1.1.17.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "devIDPublicKeyIndex": {
+    "name": "devIDPublicKeyIndex",
+    "oid": "1.3.111.2.802.1.1.17.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "devIDPublicKeyEnabled": {
+    "name": "devIDPublicKeyEnabled",
+    "oid": "1.3.111.2.802.1.1.17.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "devIDPublicKeyAlgorithm": {
+    "name": "devIDPublicKeyAlgorithm",
+    "oid": "1.3.111.2.802.1.1.17.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DevIDAlgorithmIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDPublicKeyPubkeySHA1Hash": {
+    "name": "devIDPublicKeyPubkeySHA1Hash",
+    "oid": "1.3.111.2.802.1.1.17.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDPublicKeyErrStatus": {
+    "name": "devIDPublicKeyErrStatus",
+    "oid": "1.3.111.2.802.1.1.17.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DevIDErrorStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialCount": {
+    "name": "devIDCredentialCount",
+    "oid": "1.3.111.2.802.1.1.17.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialTable": {
+    "name": "devIDCredentialTable",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "devIDCredentialEntry": {
+    "name": "devIDCredentialEntry",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "devIDCredentialIndex": {
+    "name": "devIDCredentialIndex",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "devIDCredentialEnabled": {
+    "name": "devIDCredentialEnabled",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "devIDCredentialSHA1Hash": {
+    "name": "devIDCredentialSHA1Hash",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialSerialNumber": {
+    "name": "devIDCredentialSerialNumber",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialIssuer": {
+    "name": "devIDCredentialIssuer",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialSubject": {
+    "name": "devIDCredentialSubject",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialSubjectAltName": {
+    "name": "devIDCredentialSubjectAltName",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialEntityIndex": {
+    "name": "devIDCredentialEntityIndex",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialPubkeyIndex": {
+    "name": "devIDCredentialPubkeyIndex",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDCredentialErrStatus": {
+    "name": "devIDCredentialErrStatus",
+    "oid": "1.3.111.2.802.1.1.17.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DevIDErrorStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "devIDMIBModuleCompliance": {
+    "name": "devIDMIBModuleCompliance",
+    "oid": "1.3.111.2.802.1.1.17.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "devIDMIBObjectGroup",
+        "module": "IEEE8021-DEVID-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "devIDMIBObjectGroup": {
+    "name": "devIDMIBObjectGroup",
+    "oid": "1.3.111.2.802.1.1.17.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDPublicKeyCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDPublicKeyEnabled"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDPublicKeyAlgorithm"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDPublicKeyPubkeySHA1Hash"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDPublicKeyErrStatus"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialEnabled"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialSHA1Hash"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialSerialNumber"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialIssuer"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialSubject"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialSubjectAltName"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialEntityIndex"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialPubkeyIndex"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDCredentialErrStatus"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticKeyGenerationCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticKeyInsertionCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticKeyDeletionCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticCSRGenerationCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticCredentialInsertionCount"
+      },
+      {
+        "module": "IEEE8021-DEVID-MIB",
+        "object": "devIDStatisticCredentialDeletionCount"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-DEVID-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-DEVID-MIB"
+  }
+}

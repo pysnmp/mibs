@@ -1,0 +1,5637 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwBRASQoS": {
+    "name": "hwBRASQoS",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18",
+    "class": "moduleidentity"
+  },
+  "SchedulerStyle": {
+    "name": "SchedulerStyle",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sp": 1,
+          "wrr": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "QueueClass": {
+    "name": "QueueClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 1,
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "ef": 6,
+          "cs6": 7,
+          "cs7": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SchedulerService": {
+    "name": "SchedulerService",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pq": 1,
+          "wfq": 2,
+          "lpq": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceScheduler": {
+    "name": "InterfaceScheduler",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "location": 1,
+          "none": 2,
+          "servicegroup": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LinkMode": {
+    "name": "LinkMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "frame": 2,
+          "cell": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "StatMode": {
+    "name": "StatMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "before": 2,
+          "after": 3,
+          "both": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwBRASQoSObjects": {
+    "name": "hwBRASQoSObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1",
+    "class": "objectidentity"
+  },
+  "hwBRASQoSQoSProfileTable": {
+    "name": "hwBRASQoSQoSProfileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileEntry": {
+    "name": "hwBRASQoSQoSProfileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileIndex": {
+    "name": "hwBRASQoSQoSProfileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileName": {
+    "name": "hwBRASQoSQoSProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileQueueName": {
+    "name": "hwBRASQoSQoSProfileQueueName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileDropName": {
+    "name": "hwBRASQoSQoSProfileDropName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileSchedulerName": {
+    "name": "hwBRASQoSQoSProfileSchedulerName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQoSFlowMappingName": {
+    "name": "hwBRASQoSQoSFlowMappingName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQoSLinkAjustLength": {
+    "name": "hwBRASQoSQoSLinkAjustLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileRowStatus": {
+    "name": "hwBRASQoSQoSProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileTable": {
+    "name": "hwBRASQoSSchedulerProfileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileEntry": {
+    "name": "hwBRASQoSSchedulerProfileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileIndex": {
+    "name": "hwBRASQoSSchedulerProfileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileName": {
+    "name": "hwBRASQoSSchedulerProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileGtsUpCir": {
+    "name": "hwBRASQoSSchedulerProfileGtsUpCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 70,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileGtsUpPir": {
+    "name": "hwBRASQoSSchedulerProfileGtsUpPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileGtsUpLength": {
+    "name": "hwBRASQoSSchedulerProfileGtsUpLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 2000,
+            "max": 128000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileGtsDownCir": {
+    "name": "hwBRASQoSSchedulerProfileGtsDownCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 70,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileGtsDownPir": {
+    "name": "hwBRASQoSSchedulerProfileGtsDownPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileGtsDownLength": {
+    "name": "hwBRASQoSSchedulerProfileGtsDownLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 2000,
+            "max": 128000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileUpCir": {
+    "name": "hwBRASQoSSchedulerProfileUpCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 70,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileUpCbs": {
+    "name": "hwBRASQoSSchedulerProfileUpCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 10000,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileUpPir": {
+    "name": "hwBRASQoSSchedulerProfileUpPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 70,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileUpPbs": {
+    "name": "hwBRASQoSSchedulerProfileUpPbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 10000,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileDownCir": {
+    "name": "hwBRASQoSSchedulerProfileDownCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 70,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileDownCbs": {
+    "name": "hwBRASQoSSchedulerProfileDownCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 10000,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileDownPir": {
+    "name": "hwBRASQoSSchedulerProfileDownPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 70,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileDownPbs": {
+    "name": "hwBRASQoSSchedulerProfileDownPbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 10000,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileWfqWeight": {
+    "name": "hwBRASQoSSchedulerProfileWfqWeight",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerRowStatus": {
+    "name": "hwBRASQoSSchedulerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTable": {
+    "name": "hwBRASQoSDropProfileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileEntry": {
+    "name": "hwBRASQoSDropProfileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileIndex": {
+    "name": "hwBRASQoSDropProfileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileName": {
+    "name": "hwBRASQoSDropProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailBeThreshold": {
+    "name": "hwBRASQoSDropProfileTailBeThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 55,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailAf1Threshold": {
+    "name": "hwBRASQoSDropProfileTailAf1Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 55,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailAf2Threshold": {
+    "name": "hwBRASQoSDropProfileTailAf2Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailAf3Threshold": {
+    "name": "hwBRASQoSDropProfileTailAf3Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailAf4Threshold": {
+    "name": "hwBRASQoSDropProfileTailAf4Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailEfThreshold": {
+    "name": "hwBRASQoSDropProfileTailEfThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailCs6Threshold": {
+    "name": "hwBRASQoSDropProfileTailCs6Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailCs7Threshold": {
+    "name": "hwBRASQoSDropProfileTailCs7Threshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredMaxThreshold": {
+    "name": "hwBRASQoSDropProfileWredMaxThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredMinThreshold": {
+    "name": "hwBRASQoSDropProfileWredMinThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredGreenHighValue": {
+    "name": "hwBRASQoSDropProfileWredGreenHighValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredGreenLowValue": {
+    "name": "hwBRASQoSDropProfileWredGreenLowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredGreenMaxDrop": {
+    "name": "hwBRASQoSDropProfileWredGreenMaxDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "4",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredYellowHighValue": {
+    "name": "hwBRASQoSDropProfileWredYellowHighValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredYellowLowValue": {
+    "name": "hwBRASQoSDropProfileWredYellowLowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredYellowMaxDrop": {
+    "name": "hwBRASQoSDropProfileWredYellowMaxDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredRedHighValue": {
+    "name": "hwBRASQoSDropProfileWredRedHighValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredRedLowValue": {
+    "name": "hwBRASQoSDropProfileWredRedLowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredRedMaxDrop": {
+    "name": "hwBRASQoSDropProfileWredRedMaxDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredUserDefHighValue": {
+    "name": "hwBRASQoSDropProfileWredUserDefHighValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredUserDefLowValue": {
+    "name": "hwBRASQoSDropProfileWredUserDefLowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileWredUserDefMaxDrop": {
+    "name": "hwBRASQoSDropProfileWredUserDefMaxDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileRowStatus": {
+    "name": "hwBRASQoSDropProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileTable": {
+    "name": "hwBRASQoSQueueProfileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileEntry": {
+    "name": "hwBRASQoSQueueProfileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileIndex": {
+    "name": "hwBRASQoSQueueProfileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileName": {
+    "name": "hwBRASQoSQueueProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileBeStyle": {
+    "name": "hwBRASQoSQueueProfileBeStyle",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileAf1Style": {
+    "name": "hwBRASQoSQueueProfileAf1Style",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileAf2Style": {
+    "name": "hwBRASQoSQueueProfileAf2Style",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileAf3Style": {
+    "name": "hwBRASQoSQueueProfileAf3Style",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileAf4Style": {
+    "name": "hwBRASQoSQueueProfileAf4Style",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileEfStyle": {
+    "name": "hwBRASQoSQueueProfileEfStyle",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileCs6Style": {
+    "name": "hwBRASQoSQueueProfileCs6Style",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileCs7Style": {
+    "name": "hwBRASQoSQueueProfileCs7Style",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerStyle",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileRowStatus": {
+    "name": "hwBRASQoSQueueProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassTable": {
+    "name": "hwBRASQoSQueueClassTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassEntry": {
+    "name": "hwBRASQoSQueueClassEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassProfileName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassProfileName": {
+    "name": "hwBRASQoSQueueClassProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassServiceId": {
+    "name": "hwBRASQoSQueueClassServiceId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassWredEnableStatus": {
+    "name": "hwBRASQoSQueueClassWredEnableStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassWredWeight": {
+    "name": "hwBRASQoSQueueClassWredWeight",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassWrrWeight": {
+    "name": "hwBRASQoSQueueClassWrrWeight",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassLength": {
+    "name": "hwBRASQoSQueueClassLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassCir": {
+    "name": "hwBRASQoSQueueClassCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 100,
+            "max": 3000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassCbs": {
+    "name": "hwBRASQoSQueueClassCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 64,
+            "max": 131071
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassPir": {
+    "name": "hwBRASQoSQueueClassPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 100,
+            "max": 3000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassPbs": {
+    "name": "hwBRASQoSQueueClassPbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 64,
+            "max": 4000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassWfqWeight": {
+    "name": "hwBRASQoSQueueClassWfqWeight",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassShaping": {
+    "name": "hwBRASQoSQueueClassShaping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassScheduler": {
+    "name": "hwBRASQoSQueueClassScheduler",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerService",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassDropName": {
+    "name": "hwBRASQoSQueueClassDropName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSFlowMappingTable": {
+    "name": "hwBRASQoSFlowMappingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSFlowMappingEntry": {
+    "name": "hwBRASQoSFlowMappingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFlowMappingName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSFlowMappingName": {
+    "name": "hwBRASQoSFlowMappingName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSBeMapping": {
+    "name": "hwBRASQoSBeMapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "be",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSAf1Mapping": {
+    "name": "hwBRASQoSAf1Mapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "af1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSAf2Mapping": {
+    "name": "hwBRASQoSAf2Mapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "af2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSAf3Mapping": {
+    "name": "hwBRASQoSAf3Mapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "af3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSAf4Mapping": {
+    "name": "hwBRASQoSAf4Mapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "af4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSEfMapping": {
+    "name": "hwBRASQoSEfMapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ef",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCs6Mapping": {
+    "name": "hwBRASQoSCs6Mapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "cs6",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCs7Mapping": {
+    "name": "hwBRASQoSCs7Mapping",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "cs7",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSFlowMappingRowStatus": {
+    "name": "hwBRASQoSFlowMappingRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSIfTable": {
+    "name": "hwBRASQoSIfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSIfEntry": {
+    "name": "hwBRASQoSIfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSIfIndex": {
+    "name": "hwBRASQoSIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSIfName": {
+    "name": "hwBRASQoSIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSIfQoSProfileName": {
+    "name": "hwBRASQoSIfQoSProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfScheduleId": {
+    "name": "hwBRASQoSIfScheduleId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceScheduler",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfServiceGroupName": {
+    "name": "hwBRASQoSIfServiceGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfShapingValue": {
+    "name": "hwBRASQoSIfShapingValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVpGroupName": {
+    "name": "hwBRASQoSIfVpGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfInboundVcGroupName": {
+    "name": "hwBRASQoSIfInboundVcGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfOutboundAVcGroupName": {
+    "name": "hwBRASQoSIfOutboundAVcGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfOutboundBVcGroupName": {
+    "name": "hwBRASQoSIfOutboundBVcGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfInboundGVpGroupName": {
+    "name": "hwBRASQoSIfInboundGVpGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfOutboundAGVpGroupName": {
+    "name": "hwBRASQoSIfOutboundAGVpGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfPacketAjustOverhead": {
+    "name": "hwBRASQoSIfPacketAjustOverhead",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -34,
+            "max": 34
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfRemoteLinkMode": {
+    "name": "hwBRASQoSIfRemoteLinkMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LinkMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfInCarProfileName": {
+    "name": "hwBRASQoSIfInCarProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfInStatistics": {
+    "name": "hwBRASQoSIfInStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfOutCarProfileName": {
+    "name": "hwBRASQoSIfOutCarProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfOutStatistics": {
+    "name": "hwBRASQoSIfOutStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVplsCarStatus": {
+    "name": "hwBRASQoSIfVplsCarStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfMultiShapingStatus": {
+    "name": "hwBRASQoSIfMultiShapingStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfActiveStatus": {
+    "name": "hwBRASQoSIfActiveStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcTable": {
+    "name": "hwBRASQoSIfVcTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcEntry": {
+    "name": "hwBRASQoSIfVcEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcQinqVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSIfVcIfIndex": {
+    "name": "hwBRASQoSIfVcIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcVlanId": {
+    "name": "hwBRASQoSIfVcVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcQinqVlanId": {
+    "name": "hwBRASQoSIfVcQinqVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcVlanEndId": {
+    "name": "hwBRASQoSIfVcVlanEndId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcQinqVlanEndId": {
+    "name": "hwBRASQoSIfVcQinqVlanEndId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcVcGroupName": {
+    "name": "hwBRASQoSIfVcVcGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcServiceGroupName": {
+    "name": "hwBRASQoSIfVcServiceGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcInCarProfileName": {
+    "name": "hwBRASQoSIfVcInCarProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcInStatistics": {
+    "name": "hwBRASQoSIfVcInStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcInCarEachVlanStatus": {
+    "name": "hwBRASQoSIfVcInCarEachVlanStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcOutCarProfileName": {
+    "name": "hwBRASQoSIfVcOutCarProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcOutStatistics": {
+    "name": "hwBRASQoSIfVcOutStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcOutCarEachVlanStatus": {
+    "name": "hwBRASQoSIfVcOutCarEachVlanStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupTable": {
+    "name": "hwBRASQoSVpGroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupEntry": {
+    "name": "hwBRASQoSVpGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupIfIndex": {
+    "name": "hwBRASQoSVpGroupIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupName": {
+    "name": "hwBRASQoSVpGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupQosProfileName": {
+    "name": "hwBRASQoSVpGroupQosProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupRowStatus": {
+    "name": "hwBRASQoSVpGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupTable": {
+    "name": "hwBRASQoSVcGroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupEntry": {
+    "name": "hwBRASQoSVcGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupIfIndex": {
+    "name": "hwBRASQoSVcGroupIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupName": {
+    "name": "hwBRASQoSVcGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupQosProfileName": {
+    "name": "hwBRASQoSVcGroupQosProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupRowStatus": {
+    "name": "hwBRASQoSVcGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupTable": {
+    "name": "hwBRASQoSGVpGroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupEntry": {
+    "name": "hwBRASQoSGVpGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupSlotId": {
+    "name": "hwBRASQoSGVpGroupSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupName": {
+    "name": "hwBRASQoSGVpGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupQosProfileName": {
+    "name": "hwBRASQoSGVpGroupQosProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupRowStatus": {
+    "name": "hwBRASQoSGVpGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSServiceGroupTable": {
+    "name": "hwBRASQoSServiceGroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSServiceGroupEntry": {
+    "name": "hwBRASQoSServiceGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSServiceGroupIndex": {
+    "name": "hwBRASQoSServiceGroupIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSServiceGroupName": {
+    "name": "hwBRASQoSServiceGroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSServiceGroupRowStatus": {
+    "name": "hwBRASQoSServiceGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueTable": {
+    "name": "hwBRASQoSPortQueueTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueEntry": {
+    "name": "hwBRASQoSPortQueueEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueIfIndex": {
+    "name": "hwBRASQoSPortQueueIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueServiceId": {
+    "name": "hwBRASQoSPortQueueServiceId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueClass",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueScheduleStyle": {
+    "name": "hwBRASQoSPortQueueScheduleStyle",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulerService",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueWfqWeight": {
+    "name": "hwBRASQoSPortQueueWfqWeight",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueShapingValue": {
+    "name": "hwBRASQoSPortQueueShapingValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueShaingPercentage": {
+    "name": "hwBRASQoSPortQueueShaingPercentage",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueuePortWredName": {
+    "name": "hwBRASQoSPortQueuePortWredName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueRowStatus": {
+    "name": "hwBRASQoSPortQueueRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredTable": {
+    "name": "hwBRASQoSPortWredTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredEntry": {
+    "name": "hwBRASQoSPortWredEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSPortWredName": {
+    "name": "hwBRASQoSPortWredName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredGreenLowLimitValue": {
+    "name": "hwBRASQoSPortWredGreenLowLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2047,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredGreenHighLimitValue": {
+    "name": "hwBRASQoSPortWredGreenHighLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2047,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredGreenDiscardValue": {
+    "name": "hwBRASQoSPortWredGreenDiscardValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredYellowLowLimitValue": {
+    "name": "hwBRASQoSPortWredYellowLowLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2047,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredYellowHighLimitValue": {
+    "name": "hwBRASQoSPortWredYellowHighLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2047,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredYellowDiscardValue": {
+    "name": "hwBRASQoSPortWredYellowDiscardValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredRedLowLimitValue": {
+    "name": "hwBRASQoSPortWredRedLowLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2047,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredRedHighLimitValue": {
+    "name": "hwBRASQoSPortWredRedHighLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2047,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredRedDiscardValue": {
+    "name": "hwBRASQoSPortWredRedDiscardValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredRowStatus": {
+    "name": "hwBRASQoSPortWredRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileTable": {
+    "name": "hwBRASQoSCarProfileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileEntry": {
+    "name": "hwBRASQoSCarProfileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileIndex": {
+    "name": "hwBRASQoSCarProfileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileName": {
+    "name": "hwBRASQoSCarProfileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileCir": {
+    "name": "hwBRASQoSCarProfileCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 100,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfilePir": {
+    "name": "hwBRASQoSCarProfilePir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 100,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileCbs": {
+    "name": "hwBRASQoSCarProfileCbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 2000,
+            "max": 33554432
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfilePbs": {
+    "name": "hwBRASQoSCarProfilePbs",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 33554432
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileRowStatus": {
+    "name": "hwBRASQoSCarProfileRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSSlotTable": {
+    "name": "hwBRASQoSSlotTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSSlotEntry": {
+    "name": "hwBRASQoSSlotEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSSlotId": {
+    "name": "hwBRASQoSSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotLinkLayerExclude": {
+    "name": "hwBRASQoSSlotLinkLayerExclude",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSSlotEtherAjustOverhead": {
+    "name": "hwBRASQoSSlotEtherAjustOverhead",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -35,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSSlotRemoteAdjustEnableStatus": {
+    "name": "hwBRASQoSSlotRemoteAdjustEnableStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSSlotInboundGqUsedNum": {
+    "name": "hwBRASQoSSlotInboundGqUsedNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotInboundSqUsedNum": {
+    "name": "hwBRASQoSSlotInboundSqUsedNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotInboundGqFreeNum": {
+    "name": "hwBRASQoSSlotInboundGqFreeNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotInboundSqFreeNum": {
+    "name": "hwBRASQoSSlotInboundSqFreeNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotOutboundGqUsedNum": {
+    "name": "hwBRASQoSSlotOutboundGqUsedNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotOutboundSqUsedNum": {
+    "name": "hwBRASQoSSlotOutboundSqUsedNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotOutboundGqFreeNum": {
+    "name": "hwBRASQoSSlotOutboundGqFreeNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotOutboundSqFreeNum": {
+    "name": "hwBRASQoSSlotOutboundSqFreeNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSSlotActiveStatus": {
+    "name": "hwBRASQoSSlotActiveStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingTable": {
+    "name": "hwBRASQoSMultiShapingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingEntry": {
+    "name": "hwBRASQoSMultiShapingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingIndex": {
+    "name": "hwBRASQoSMultiShapingIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingName": {
+    "name": "hwBRASQoSMultiShapingName",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingEndIndex": {
+    "name": "hwBRASQoSMultiShapingEndIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingCir": {
+    "name": "hwBRASQoSMultiShapingCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 70,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingPir": {
+    "name": "hwBRASQoSMultiShapingPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 70,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingQueueLength": {
+    "name": "hwBRASQoSMultiShapingQueueLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 2000,
+            "max": 128000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingRowStatus": {
+    "name": "hwBRASQoSMultiShapingRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBRASQoSMibTrap": {
+    "name": "hwBRASQoSMibTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2",
+    "class": "objectidentity"
+  },
+  "hwBRASQoSTrapOid": {
+    "name": "hwBRASQoSTrapOid",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1",
+    "class": "objectidentity"
+  },
+  "hwBRASQoSTrapSlotID": {
+    "name": "hwBRASQoSTrapSlotID",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSFailBandwidth": {
+    "name": "hwBRASQoSFailBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSTrapUserBehavior": {
+    "name": "hwBRASQoSTrapUserBehavior",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alloc": 1,
+          "update": 2,
+          "free": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSTrapUserID": {
+    "name": "hwBRASQoSTrapUserID",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSTrapTunnelID": {
+    "name": "hwBRASQoSTrapTunnelID",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSTrapQinqVlan": {
+    "name": "hwBRASQoSTrapQinqVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSTrapVlan": {
+    "name": "hwBRASQoSTrapVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSTrapIfindex": {
+    "name": "hwBRASQoSTrapIfindex",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBRASQoSTrapDefine": {
+    "name": "hwBRASQoSTrapDefine",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2",
+    "class": "objectidentity"
+  },
+  "hwBRASQoSTraps": {
+    "name": "hwBRASQoSTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1",
+    "class": "objectidentity"
+  },
+  "hwBRASQoSIfResFail": {
+    "name": "hwBRASQoSIfResFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSIfVlanResFail": {
+    "name": "hwBRASQoSIfVlanResFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapQinqVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSTunnelResFail": {
+    "name": "hwBRASQoSTunnelResFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapTunnelID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSUserResFail": {
+    "name": "hwBRASQoSUserResFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserBehavior"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSTrunkFail": {
+    "name": "hwBRASQoSTrunkFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSUserBandwidthOverflow": {
+    "name": "hwBRASQoSUserBandwidthOverflow",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFailBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBRASQoSTMExcepion": {
+    "name": "hwBRASQoSTMExcepion",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapSlotID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosConformance": {
+    "name": "hwBrasQosConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3",
+    "class": "objectidentity"
+  },
+  "hwBrasQosCompliances": {
+    "name": "hwBrasQosCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.1",
+    "class": "objectidentity"
+  },
+  "hwBrasQosCompliance": {
+    "name": "hwBrasQosCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwBrasQosQosProfileGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosSchedulerProfileGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosDropProfileGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosQueueProfileGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosQueueClassGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosFlowMappingGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosIfGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosIfVcGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosVpGroupGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosVcGroupGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosGVpGroupGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosServiceGroupGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosPortQueueGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosPortWredGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosCarProfileGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosSlotGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosMultiShapingGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosTrapOidGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      },
+      {
+        "object": "hwBrasQosTrapDefineGroup",
+        "module": "HUAWEI-BRAS-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosGroups": {
+    "name": "hwBrasQosGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2",
+    "class": "objectidentity"
+  },
+  "hwBrasQosQosProfileGroup": {
+    "name": "hwBrasQosQosProfileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileQueueName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileDropName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileSchedulerName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSFlowMappingName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSLinkAjustLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosSchedulerProfileGroup": {
+    "name": "hwBrasQosSchedulerProfileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsUpCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsUpPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsUpLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsDownCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsDownPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsDownLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpPbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownPbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileWfqWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosDropProfileGroup": {
+    "name": "hwBrasQosDropProfileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailBeThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf1Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf2Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf3Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf4Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailEfThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailCs6Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailCs7Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredMaxThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredMinThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredGreenHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredGreenLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredGreenMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredYellowHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredYellowLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredYellowMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredRedHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredRedLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredRedMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredUserDefHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredUserDefLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredUserDefMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosQueueProfileGroup": {
+    "name": "hwBrasQosQueueProfileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileBeStyle"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf1Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf2Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf3Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf4Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileEfStyle"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileCs6Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileCs7Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosQueueClassGroup": {
+    "name": "hwBrasQosQueueClassGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassServiceId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWredEnableStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWredWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWrrWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassPbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWfqWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassShaping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassScheduler"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassDropName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosFlowMappingGroup": {
+    "name": "hwBrasQosFlowMappingGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFlowMappingName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSBeMapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf1Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf2Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf3Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf4Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSEfMapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCs6Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCs7Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFlowMappingRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosIfGroup": {
+    "name": "hwBrasQosIfGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfQoSProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfScheduleId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfServiceGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfShapingValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInboundVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutboundAVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutboundBVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInboundGVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutboundAGVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfPacketAjustOverhead"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfRemoteLinkMode"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVplsCarStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfMultiShapingStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfActiveStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosIfVcGroup": {
+    "name": "hwBrasQosIfVcGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVlanId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcQinqVlanId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVlanEndId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcQinqVlanEndId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcServiceGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcInCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcInStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcInCarEachVlanStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcOutCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcOutStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcOutCarEachVlanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosVpGroupGroup": {
+    "name": "hwBrasQosVpGroupGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupQosProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosVcGroupGroup": {
+    "name": "hwBrasQosVcGroupGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupQosProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosGVpGroupGroup": {
+    "name": "hwBrasQosGVpGroupGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupSlotId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupQosProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosServiceGroupGroup": {
+    "name": "hwBrasQosServiceGroupGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosPortQueueGroup": {
+    "name": "hwBrasQosPortQueueGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueServiceId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueScheduleStyle"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueWfqWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueShapingValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueShaingPercentage"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueuePortWredName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosPortWredGroup": {
+    "name": "hwBrasQosPortWredGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredGreenLowLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredGreenHighLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredGreenDiscardValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredYellowLowLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredYellowHighLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredYellowDiscardValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRedLowLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRedHighLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRedDiscardValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosCarProfileGroup": {
+    "name": "hwBrasQosCarProfileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfilePir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfilePbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosSlotGroup": {
+    "name": "hwBrasQosSlotGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotLinkLayerExclude"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotEtherAjustOverhead"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotRemoteAdjustEnableStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundGqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundSqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundGqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundSqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundGqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundSqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundGqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundSqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotActiveStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosMultiShapingGroup": {
+    "name": "hwBrasQosMultiShapingGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingEndIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingQueueLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosTrapOidGroup": {
+    "name": "hwBrasQosTrapOidGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapSlotID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFailBandwidth"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserBehavior"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapTunnelID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapQinqVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrasQosTrapDefineGroup": {
+    "name": "hwBrasQosTrapDefineGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVlanResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTunnelResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSUserResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrunkFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSUserBandwidthOverflow"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTMExcepion"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BRAS-QOS-MIB"
+  }
+}

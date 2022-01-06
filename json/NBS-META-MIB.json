@@ -1,0 +1,370 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsMetaMib": {
+    "name": "nbsMetaMib",
+    "oid": "1.3.6.1.4.1.629.205",
+    "class": "moduleidentity"
+  },
+  "nbsMetaMibGrp": {
+    "name": "nbsMetaMibGrp",
+    "oid": "1.3.6.1.4.1.629.205.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureTableSize": {
+    "name": "nbsMetaMibFeatureTableSize",
+    "oid": "1.3.6.1.4.1.629.205.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureTable": {
+    "name": "nbsMetaMibFeatureTable",
+    "oid": "1.3.6.1.4.1.629.205.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureEntry": {
+    "name": "nbsMetaMibFeatureEntry",
+    "oid": "1.3.6.1.4.1.629.205.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-META-MIB",
+        "object": "nbsMetaMibFeatureID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsMetaMibFeatureID": {
+    "name": "nbsMetaMibFeatureID",
+    "oid": "1.3.6.1.4.1.629.205.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureFamily": {
+    "name": "nbsMetaMibFeatureFamily",
+    "oid": "1.3.6.1.4.1.629.205.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureName": {
+    "name": "nbsMetaMibFeatureName",
+    "oid": "1.3.6.1.4.1.629.205.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureDesc": {
+    "name": "nbsMetaMibFeatureDesc",
+    "oid": "1.3.6.1.4.1.629.205.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureUnits": {
+    "name": "nbsMetaMibFeatureUnits",
+    "oid": "1.3.6.1.4.1.629.205.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibFeatureType": {
+    "name": "nbsMetaMibFeatureType",
+    "oid": "1.3.6.1.4.1.629.205.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enum": 1,
+          "string": 2,
+          "integer": 3,
+          "float": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibVariableTableSize": {
+    "name": "nbsMetaMibVariableTableSize",
+    "oid": "1.3.6.1.4.1.629.205.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibVariableTable": {
+    "name": "nbsMetaMibVariableTable",
+    "oid": "1.3.6.1.4.1.629.205.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsMetaMibVariableEntry": {
+    "name": "nbsMetaMibVariableEntry",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-META-MIB",
+        "object": "nbsMetaMibVariableIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-META-MIB",
+        "object": "nbsMetaMibVariableID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsMetaMibVariableIfIndex": {
+    "name": "nbsMetaMibVariableIfIndex",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsMetaMibVariableID": {
+    "name": "nbsMetaMibVariableID",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsMetaMibVariableCaps": {
+    "name": "nbsMetaMibVariableCaps",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibVariableDefault": {
+    "name": "nbsMetaMibVariableDefault",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibVariableJumper": {
+    "name": "nbsMetaMibVariableJumper",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibVariableOper": {
+    "name": "nbsMetaMibVariableOper",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsMetaMibVariableAdmin": {
+    "name": "nbsMetaMibVariableAdmin",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsMetaMibVariableStatus": {
+    "name": "nbsMetaMibVariableStatus",
+    "oid": "1.3.6.1.4.1.629.205.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-META-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-META-MIB"
+  }
+}

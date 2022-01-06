@@ -1,0 +1,2559 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SERV-MIB": [
+      "sapEntry",
+      "sdpEntry"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "prvtStatisticsMIB": {
+    "name": "prvtStatisticsMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.181",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-08 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "StatType": {
+    "name": "StatType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "packet": 1,
+          "bytes": 2,
+          "all": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtStatObjects": {
+    "name": "prvtStatObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1",
+    "class": "objectidentity"
+  },
+  "prvtStatIngressPolicyTable": {
+    "name": "prvtStatIngressPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyEntry": {
+    "name": "prvtStatIngressPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-STATISTICS-MIB",
+        "object": "prvtStatIngressPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatIngressPolicyName": {
+    "name": "prvtStatIngressPolicyName",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyRowStatus": {
+    "name": "prvtStatIngressPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyDetailed": {
+    "name": "prvtStatIngressPolicyDetailed",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyDescription": {
+    "name": "prvtStatIngressPolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyFc": {
+    "name": "prvtStatIngressPolicyFc",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyFcBwMeasurement": {
+    "name": "prvtStatIngressPolicyFcBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyColor": {
+    "name": "prvtStatIngressPolicyColor",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyColorBwMeasurement": {
+    "name": "prvtStatIngressPolicyColorBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyUnicast": {
+    "name": "prvtStatIngressPolicyUnicast",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyUnicastBwMeasurement": {
+    "name": "prvtStatIngressPolicyUnicastBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyBroadcast": {
+    "name": "prvtStatIngressPolicyBroadcast",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyBroadcastBwMeasurement": {
+    "name": "prvtStatIngressPolicyBroadcastBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyMulticast": {
+    "name": "prvtStatIngressPolicyMulticast",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatIngressPolicyMulticastBwMeasurement": {
+    "name": "prvtStatIngressPolicyMulticastBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyTable": {
+    "name": "prvtStatEgressPolicyTable",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyEntry": {
+    "name": "prvtStatEgressPolicyEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-STATISTICS-MIB",
+        "object": "prvtStatEgressPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtStatEgressPolicyName": {
+    "name": "prvtStatEgressPolicyName",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyRowStatus": {
+    "name": "prvtStatEgressPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyDetailed": {
+    "name": "prvtStatEgressPolicyDetailed",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyDescription": {
+    "name": "prvtStatEgressPolicyDescription",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyFc": {
+    "name": "prvtStatEgressPolicyFc",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyFcBwMeasurement": {
+    "name": "prvtStatEgressPolicyFcBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyColor": {
+    "name": "prvtStatEgressPolicyColor",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyColorBwMeasurement": {
+    "name": "prvtStatEgressPolicyColorBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyDaType": {
+    "name": "prvtStatEgressPolicyDaType",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatEgressPolicyDaTypeBwMeasurement": {
+    "name": "prvtStatEgressPolicyDaTypeBwMeasurement",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StatType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtStatSapTable": {
+    "name": "prvtStatSapTable",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatSapEntry": {
+    "name": "prvtStatSapEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtStatSapEntry",
+      "module": "PRVT-STATISTICS-MIB",
+      "object": "sapEntry"
+    },
+    "status": "current"
+  },
+  "prvtStatSapIngressPolicy": {
+    "name": "prvtStatSapIngressPolicy",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatSapEgressPolicy": {
+    "name": "prvtStatSapEgressPolicy",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatSapClear": {
+    "name": "prvtStatSapClear",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatSapInPackets": {
+    "name": "prvtStatSapInPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapInBytes": {
+    "name": "prvtStatSapInBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapDropPackets": {
+    "name": "prvtStatSapDropPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapDropBytes": {
+    "name": "prvtStatSapDropBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapUnicastPackets": {
+    "name": "prvtStatSapUnicastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapUnicastBytes": {
+    "name": "prvtStatSapUnicastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapMulticastPackets": {
+    "name": "prvtStatSapMulticastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapMulticastBytes": {
+    "name": "prvtStatSapMulticastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapBroadcastPackets": {
+    "name": "prvtStatSapBroadcastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapBroadcastBytes": {
+    "name": "prvtStatSapBroadcastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri0Packets": {
+    "name": "prvtStatSapPri0Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri0Bytes": {
+    "name": "prvtStatSapPri0Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri1Packets": {
+    "name": "prvtStatSapPri1Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri1Bytes": {
+    "name": "prvtStatSapPri1Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri2Packets": {
+    "name": "prvtStatSapPri2Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri2Bytes": {
+    "name": "prvtStatSapPri2Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri3Packets": {
+    "name": "prvtStatSapPri3Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri3Bytes": {
+    "name": "prvtStatSapPri3Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri4Packets": {
+    "name": "prvtStatSapPri4Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri4Bytes": {
+    "name": "prvtStatSapPri4Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri5Packets": {
+    "name": "prvtStatSapPri5Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri5Bytes": {
+    "name": "prvtStatSapPri5Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri6Packets": {
+    "name": "prvtStatSapPri6Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri6Bytes": {
+    "name": "prvtStatSapPri6Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri7Packets": {
+    "name": "prvtStatSapPri7Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri7Bytes": {
+    "name": "prvtStatSapPri7Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri0yPackets": {
+    "name": "prvtStatSapPri0yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri0yBytes": {
+    "name": "prvtStatSapPri0yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri1yPackets": {
+    "name": "prvtStatSapPri1yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri1yBytes": {
+    "name": "prvtStatSapPri1yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri2yPackets": {
+    "name": "prvtStatSapPri2yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri2yBytes": {
+    "name": "prvtStatSapPri2yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri3yPackets": {
+    "name": "prvtStatSapPri3yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri3yBytes": {
+    "name": "prvtStatSapPri3yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri4yPackets": {
+    "name": "prvtStatSapPri4yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri4yBytes": {
+    "name": "prvtStatSapPri4yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri5yPackets": {
+    "name": "prvtStatSapPri5yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri5yBytes": {
+    "name": "prvtStatSapPri5yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri6yPackets": {
+    "name": "prvtStatSapPri6yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri6yBytes": {
+    "name": "prvtStatSapPri6yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri7yPackets": {
+    "name": "prvtStatSapPri7yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapPri7yBytes": {
+    "name": "prvtStatSapPri7yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPackets": {
+    "name": "prvtStatSapEgPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgBytes": {
+    "name": "prvtStatSapEgBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgUnicastPackets": {
+    "name": "prvtStatSapEgUnicastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgUnicastBytes": {
+    "name": "prvtStatSapEgUnicastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgMulticastPackets": {
+    "name": "prvtStatSapEgMulticastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgMulticastBytes": {
+    "name": "prvtStatSapEgMulticastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgBroadcastPackets": {
+    "name": "prvtStatSapEgBroadcastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgBroadcastBytes": {
+    "name": "prvtStatSapEgBroadcastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri0Packets": {
+    "name": "prvtStatSapEgPri0Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri0Bytes": {
+    "name": "prvtStatSapEgPri0Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri1Packets": {
+    "name": "prvtStatSapEgPri1Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri1Bytes": {
+    "name": "prvtStatSapEgPri1Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri2Packets": {
+    "name": "prvtStatSapEgPri2Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri2Bytes": {
+    "name": "prvtStatSapEgPri2Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri3Packets": {
+    "name": "prvtStatSapEgPri3Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri3Bytes": {
+    "name": "prvtStatSapEgPri3Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri4Packets": {
+    "name": "prvtStatSapEgPri4Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri4Bytes": {
+    "name": "prvtStatSapEgPri4Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri5Packets": {
+    "name": "prvtStatSapEgPri5Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri5Bytes": {
+    "name": "prvtStatSapEgPri5Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri6Packets": {
+    "name": "prvtStatSapEgPri6Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri6Bytes": {
+    "name": "prvtStatSapEgPri6Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri7Packets": {
+    "name": "prvtStatSapEgPri7Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri7Bytes": {
+    "name": "prvtStatSapEgPri7Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri0yPackets": {
+    "name": "prvtStatSapEgPri0yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri0yBytes": {
+    "name": "prvtStatSapEgPri0yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri1yPackets": {
+    "name": "prvtStatSapEgPri1yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri1yBytes": {
+    "name": "prvtStatSapEgPri1yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri2yPackets": {
+    "name": "prvtStatSapEgPri2yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri2yBytes": {
+    "name": "prvtStatSapEgPri2yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri3yPackets": {
+    "name": "prvtStatSapEgPri3yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri3yBytes": {
+    "name": "prvtStatSapEgPri3yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri4yPackets": {
+    "name": "prvtStatSapEgPri4yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri4yBytes": {
+    "name": "prvtStatSapEgPri4yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri5yPackets": {
+    "name": "prvtStatSapEgPri5yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri5yBytes": {
+    "name": "prvtStatSapEgPri5yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri6yPackets": {
+    "name": "prvtStatSapEgPri6yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri6yBytes": {
+    "name": "prvtStatSapEgPri6yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri7yPackets": {
+    "name": "prvtStatSapEgPri7yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSapEgPri7yBytes": {
+    "name": "prvtStatSapEgPri7yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.3.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpTable": {
+    "name": "prvtStatSdpTable",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtStatSdpEntry": {
+    "name": "prvtStatSdpEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "prvtStatSdpEntry",
+      "module": "PRVT-STATISTICS-MIB",
+      "object": "sdpEntry"
+    },
+    "status": "current"
+  },
+  "prvtStatSdpIngressPolicy": {
+    "name": "prvtStatSdpIngressPolicy",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatSdpEgressPolicy": {
+    "name": "prvtStatSdpEgressPolicy",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatSdpClear": {
+    "name": "prvtStatSdpClear",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtStatSdpInPackets": {
+    "name": "prvtStatSdpInPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpInBytes": {
+    "name": "prvtStatSdpInBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpDropPackets": {
+    "name": "prvtStatSdpDropPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpDropBytes": {
+    "name": "prvtStatSdpDropBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpUnicastPackets": {
+    "name": "prvtStatSdpUnicastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpUnicastBytes": {
+    "name": "prvtStatSdpUnicastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpMulticastPackets": {
+    "name": "prvtStatSdpMulticastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpMulticastBytes": {
+    "name": "prvtStatSdpMulticastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpBroadcastPackets": {
+    "name": "prvtStatSdpBroadcastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpBroadcastBytes": {
+    "name": "prvtStatSdpBroadcastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri0Packets": {
+    "name": "prvtStatSdpPri0Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri0Bytes": {
+    "name": "prvtStatSdpPri0Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri1Packets": {
+    "name": "prvtStatSdpPri1Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri1Bytes": {
+    "name": "prvtStatSdpPri1Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri2Packets": {
+    "name": "prvtStatSdpPri2Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri2Bytes": {
+    "name": "prvtStatSdpPri2Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri3Packets": {
+    "name": "prvtStatSdpPri3Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri3Bytes": {
+    "name": "prvtStatSdpPri3Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri4Packets": {
+    "name": "prvtStatSdpPri4Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri4Bytes": {
+    "name": "prvtStatSdpPri4Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri5Packets": {
+    "name": "prvtStatSdpPri5Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri5Bytes": {
+    "name": "prvtStatSdpPri5Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri6Packets": {
+    "name": "prvtStatSdpPri6Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri6Bytes": {
+    "name": "prvtStatSdpPri6Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri7Packets": {
+    "name": "prvtStatSdpPri7Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri7Bytes": {
+    "name": "prvtStatSdpPri7Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri0yPackets": {
+    "name": "prvtStatSdpPri0yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri0yBytes": {
+    "name": "prvtStatSdpPri0yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri1yPackets": {
+    "name": "prvtStatSdpPri1yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri1yBytes": {
+    "name": "prvtStatSdpPri1yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri2yPackets": {
+    "name": "prvtStatSdpPri2yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri2yBytes": {
+    "name": "prvtStatSdpPri2yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri3yPackets": {
+    "name": "prvtStatSdpPri3yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri3yBytes": {
+    "name": "prvtStatSdpPri3yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri4yPackets": {
+    "name": "prvtStatSdpPri4yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri4yBytes": {
+    "name": "prvtStatSdpPri4yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri5yPackets": {
+    "name": "prvtStatSdpPri5yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri5yBytes": {
+    "name": "prvtStatSdpPri5yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri6yPackets": {
+    "name": "prvtStatSdpPri6yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri6yBytes": {
+    "name": "prvtStatSdpPri6yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri7yPackets": {
+    "name": "prvtStatSdpPri7yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpPri7yBytes": {
+    "name": "prvtStatSdpPri7yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPackets": {
+    "name": "prvtStatSdpEgPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgBytes": {
+    "name": "prvtStatSdpEgBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgUnicastPackets": {
+    "name": "prvtStatSdpEgUnicastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgUnicastBytes": {
+    "name": "prvtStatSdpEgUnicastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgMulticastPackets": {
+    "name": "prvtStatSdpEgMulticastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgMulticastBytes": {
+    "name": "prvtStatSdpEgMulticastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgBroadcastPackets": {
+    "name": "prvtStatSdpEgBroadcastPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgBroadcastBytes": {
+    "name": "prvtStatSdpEgBroadcastBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri0Packets": {
+    "name": "prvtStatSdpEgPri0Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri0Bytes": {
+    "name": "prvtStatSdpEgPri0Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri1Packets": {
+    "name": "prvtStatSdpEgPri1Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri1Bytes": {
+    "name": "prvtStatSdpEgPri1Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri2Packets": {
+    "name": "prvtStatSdpEgPri2Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri2Bytes": {
+    "name": "prvtStatSdpEgPri2Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri3Packets": {
+    "name": "prvtStatSdpEgPri3Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri3Bytes": {
+    "name": "prvtStatSdpEgPri3Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri4Packets": {
+    "name": "prvtStatSdpEgPri4Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri4Bytes": {
+    "name": "prvtStatSdpEgPri4Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri5Packets": {
+    "name": "prvtStatSdpEgPri5Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri5Bytes": {
+    "name": "prvtStatSdpEgPri5Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri6Packets": {
+    "name": "prvtStatSdpEgPri6Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri6Bytes": {
+    "name": "prvtStatSdpEgPri6Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri7Packets": {
+    "name": "prvtStatSdpEgPri7Packets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri7Bytes": {
+    "name": "prvtStatSdpEgPri7Bytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri0yPackets": {
+    "name": "prvtStatSdpEgPri0yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri0yBytes": {
+    "name": "prvtStatSdpEgPri0yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri1yPackets": {
+    "name": "prvtStatSdpEgPri1yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri1yBytes": {
+    "name": "prvtStatSdpEgPri1yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri2yPackets": {
+    "name": "prvtStatSdpEgPri2yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri2yBytes": {
+    "name": "prvtStatSdpEgPri2yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri3yPackets": {
+    "name": "prvtStatSdpEgPri3yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri3yBytes": {
+    "name": "prvtStatSdpEgPri3yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri4yPackets": {
+    "name": "prvtStatSdpEgPri4yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri4yBytes": {
+    "name": "prvtStatSdpEgPri4yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri5yPackets": {
+    "name": "prvtStatSdpEgPri5yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri5yBytes": {
+    "name": "prvtStatSdpEgPri5yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri6yPackets": {
+    "name": "prvtStatSdpEgPri6yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri6yBytes": {
+    "name": "prvtStatSdpEgPri6yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri7yPackets": {
+    "name": "prvtStatSdpEgPri7yPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtStatSdpEgPri7yBytes": {
+    "name": "prvtStatSdpEgPri7yBytes",
+    "oid": "1.3.6.1.4.1.738.1.5.181.1.4.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-STATISTICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-STATISTICS-MIB"
+  }
+}

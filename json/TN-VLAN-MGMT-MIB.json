@@ -1,0 +1,2131 @@
+{
+  "imports": {
+    "class": "imports",
+    "DOT3-OAM-MIB": [
+      "EightOTwoOui"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex",
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnVlanQoSMgmtMIB": {
+    "name": "tnVlanQoSMgmtMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-01-08 00:00",
+        "description": "Initial Revision of this module"
+      },
+      {
+        "revision": "2011-02-25 00:00",
+        "description": "Add tnVLANDbFlush and tnFIDDbFlush"
+      },
+      {
+        "revision": "2012-05-18 00:00",
+        "description": "Add tnSysVlanExtMgmtPortType, tnSysVLANExtCustomSTag, tnIfVLANTagMgmt2PortType, tnIfVLANTagMgmt2TxTagType and tnIfVLANTagMgmt2ConfigConflicts"
+      },
+      {
+        "revision": "2012-12-21 00:00",
+        "description": "Add Vlan Control List tnVclMgmt subtree"
+      },
+      {
+        "revision": "2014-05-01 00:00",
+        "description": "Added Port VLAN Configuration Mode, Allowed VLANs, Forbidden VLANs"
+      },
+      {
+        "revision": "2015-06-17 00:00",
+        "description": "Added Allowed Access VLANs tnVlanConfigGlobalsMainAccessVlans0To1K tnVlanConfigGlobalsMainAccessVlans1KTo2K tnVlanConfigGlobalsMainAccessVlans2KTo3K tnVlanConfigGlobalsMainAccessVlans3KTo4K"
+      }
+    ]
+  },
+  "TnVlanServiceTranslationType": {
+    "name": "TnVlanServiceTranslationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTranslation": 1,
+          "untaggedUntagged": 2,
+          "untaggedSingleTagged": 3,
+          "singleTaggedSingleTagged": 4,
+          "singleTaggedTranslation": 5,
+          "singleTaggedDoubleTagged": 6,
+          "doubleTaggedDoubleTagged": 7,
+          "doubleTaggedTranslation": 8,
+          "addProviderTag": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNVlanListQuarter": {
+    "name": "TNVlanListQuarter",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128x",
+    "status": "current"
+  },
+  "tnVlanQoSMgmtNotifications": {
+    "name": "tnVlanQoSMgmtNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.4.0",
+    "class": "objectidentity"
+  },
+  "tnVlanQoSMgmtObjects": {
+    "name": "tnVlanQoSMgmtObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1",
+    "class": "objectidentity"
+  },
+  "tnVlanMQoSgmtConformance": {
+    "name": "tnVlanMQoSgmtConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.4.2",
+    "class": "objectidentity"
+  },
+  "tnSysVlanMgmt": {
+    "name": "tnSysVlanMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1",
+    "class": "objectidentity"
+  },
+  "tnDevSysPriorityMgmt": {
+    "name": "tnDevSysPriorityMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2",
+    "class": "objectidentity"
+  },
+  "tnInterfaceQoSMgmt": {
+    "name": "tnInterfaceQoSMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3",
+    "class": "objectidentity"
+  },
+  "tnInterfaceVlanMgmt": {
+    "name": "tnInterfaceVlanMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4",
+    "class": "objectidentity"
+  },
+  "tnVlanServiceMgmt": {
+    "name": "tnVlanServiceMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.5",
+    "class": "objectidentity"
+  },
+  "tnVlanDbMgmt": {
+    "name": "tnVlanDbMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6",
+    "class": "objectidentity"
+  },
+  "tnFIDDbMgmt": {
+    "name": "tnFIDDbMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7",
+    "class": "objectidentity"
+  },
+  "tnVclMgmt": {
+    "name": "tnVclMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8",
+    "class": "objectidentity"
+  },
+  "tnSysManagmentVLANTable": {
+    "name": "tnSysManagmentVLANTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSysManagmentVLANEntry": {
+    "name": "tnSysManagmentVLANEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSysMgmtVLANStatus": {
+    "name": "tnSysMgmtVLANStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSysMgmtVLANId": {
+    "name": "tnSysMgmtVLANId",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSysMgmtMemberPorts": {
+    "name": "tnSysMgmtMemberPorts",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSysVLANExtTable": {
+    "name": "tnSysVLANExtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSysVLANExtEntry": {
+    "name": "tnSysVLANExtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSysVlanExtMgmtPortType": {
+    "name": "tnSysVlanExtMgmtPortType",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unaware": 1,
+          "cPort": 2,
+          "sPort": 3,
+          "sCustomPort": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSysVLANExtCustomSTag": {
+    "name": "tnSysVLANExtCustomSTag",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigGlobalsMainAccessVlans0To1K": {
+    "name": "tnVlanConfigGlobalsMainAccessVlans0To1K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigGlobalsMainAccessVlans1KTo2K": {
+    "name": "tnVlanConfigGlobalsMainAccessVlans1KTo2K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigGlobalsMainAccessVlans2KTo3K": {
+    "name": "tnVlanConfigGlobalsMainAccessVlans2KTo3K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigGlobalsMainAccessVlans3KTo4K": {
+    "name": "tnVlanConfigGlobalsMainAccessVlans3KTo4K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSwIPPrioTable": {
+    "name": "tnSwIPPrioTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSwIPPrioEntry": {
+    "name": "tnSwIPPrioEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnSwIPPrioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSwIPPrioIndex": {
+    "name": "tnSwIPPrioIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 11111
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSwIPPrioTC": {
+    "name": "tnSwIPPrioTC",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSwIPPrioRemap": {
+    "name": "tnSwIPPrioRemap",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pri0": 1,
+          "pri1": 2,
+          "pri2": 3,
+          "pri3": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnSwIEEEPrioTable": {
+    "name": "tnSwIEEEPrioTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnSwIEEEPrioEntry": {
+    "name": "tnSwIEEEPrioEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnSwIEEEPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnSwIEEEPriority": {
+    "name": "tnSwIEEEPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnSwIEEEPriorityRemap": {
+    "name": "tnSwIEEEPriorityRemap",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pri0": 1,
+          "pri1": 2,
+          "pri2": 3,
+          "pri3": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfPriorityTable": {
+    "name": "tnIfPriorityTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfPriorityEntry": {
+    "name": "tnIfPriorityEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfDefaultPriority": {
+    "name": "tnIfDefaultPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfUseIEEEPriority": {
+    "name": "tnIfUseIEEEPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfUseIPPriority": {
+    "name": "tnIfUseIPPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfUseIPOrIEEEPriority": {
+    "name": "tnIfUseIPOrIEEEPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "useIEEE": 1,
+          "useIP": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfSrcMACPriorityRemap": {
+    "name": "tnIfSrcMACPriorityRemap",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfDstMACPriorityRemap": {
+    "name": "tnIfDstMACPriorityRemap",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfVIDPriorityRemap": {
+    "name": "tnIfVIDPriorityRemap",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfPriorityRemapTable": {
+    "name": "tnIfPriorityRemapTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfPriorityRemapEntry": {
+    "name": "tnIfPriorityRemapEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnIfUserPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfUserPriority": {
+    "name": "tnIfUserPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfRemappedPriority": {
+    "name": "tnIfRemappedPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfVLANTable": {
+    "name": "tnIfVLANTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfVLANEntry": {
+    "name": "tnIfVLANEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfDot1qState": {
+    "name": "tnIfDot1qState",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlanEnabled": 1,
+          "vlanDisabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfDiscardTagged": {
+    "name": "tnIfDiscardTagged",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfDiscardUntagged": {
+    "name": "tnIfDiscardUntagged",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfDefaultVlanId": {
+    "name": "tnIfDefaultVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfForceDefaultVlanId": {
+    "name": "tnIfForceDefaultVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfVLANTagMgmtTable": {
+    "name": "tnIfVLANTagMgmtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfVLANTagMgmtEntry": {
+    "name": "tnIfVLANTagMgmtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfFrameTagMode": {
+    "name": "tnIfFrameTagMode",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "network": 1,
+          "provider": 2,
+          "customer": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfProviderEtherType": {
+    "name": "tnIfProviderEtherType",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "x8100": 1,
+          "x9100": 2,
+          "x88a8": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfNetworkModeTagging": {
+    "name": "tnIfNetworkModeTagging",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unmodified": 1,
+          "removeTag": 2,
+          "addTag": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfVLANTagMgmt2Table": {
+    "name": "tnIfVLANTagMgmt2Table",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfVLANTagMgmt2Entry": {
+    "name": "tnIfVLANTagMgmt2Entry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfVLANTagMgmt2PortType": {
+    "name": "tnIfVLANTagMgmt2PortType",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unaware": 1,
+          "cPort": 2,
+          "sPort": 3,
+          "sCustomPort": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfVLANTagMgmt2TxTagType": {
+    "name": "tnIfVLANTagMgmt2TxTagType",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untagPvid": 1,
+          "tagAll": 2,
+          "untagAll": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfVLANTagMgmt2ConfigConflicts": {
+    "name": "tnIfVLANTagMgmt2ConfigConflicts",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceMode": {
+    "name": "tnVlanConfigInterfaceMode",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "access": 1,
+          "trunk": 2,
+          "hybrid": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceAllowVlans0KTo1K": {
+    "name": "tnVlanConfigInterfaceAllowVlans0KTo1K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceAllowVlans1KTo2K": {
+    "name": "tnVlanConfigInterfaceAllowVlans1KTo2K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceAllowVlans2KTo3K": {
+    "name": "tnVlanConfigInterfaceAllowVlans2KTo3K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceAllowVlans3KTo4K": {
+    "name": "tnVlanConfigInterfaceAllowVlans3KTo4K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceForbiddenVlans0KTo1K": {
+    "name": "tnVlanConfigInterfaceForbiddenVlans0KTo1K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceForbiddenVlans1KTo2K": {
+    "name": "tnVlanConfigInterfaceForbiddenVlans1KTo2K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceForbiddenVlans2KTo3K": {
+    "name": "tnVlanConfigInterfaceForbiddenVlans2KTo3K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanConfigInterfaceForbiddenVlans3KTo4K": {
+    "name": "tnVlanConfigInterfaceForbiddenVlans3KTo4K",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNVlanListQuarter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanServiceConnType": {
+    "name": "tnVlanServiceConnType",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "customerProvider": 1,
+          "providerCustomer": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanServiceVIDForTag": {
+    "name": "tnVlanServiceVIDForTag",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanServiceEtherTypeForTag": {
+    "name": "tnVlanServiceEtherTypeForTag",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanServiceTranslation": {
+    "name": "tnVlanServiceTranslation",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnVlanServiceTranslationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVLANDbTable": {
+    "name": "tnVLANDbTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVLANDbEntry": {
+    "name": "tnVLANDbEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnVlanDbVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnVlanDbVID": {
+    "name": "tnVlanDbVID",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnVlanDbFID": {
+    "name": "tnVlanDbFID",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnVlanDbVIDPriOverride": {
+    "name": "tnVlanDbVIDPriOverride",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbVIDPriority": {
+    "name": "tnVlanDbVIDPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort1": {
+    "name": "tnVlanDbMemTagPort1",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort2": {
+    "name": "tnVlanDbMemTagPort2",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort3": {
+    "name": "tnVlanDbMemTagPort3",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort4": {
+    "name": "tnVlanDbMemTagPort4",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort5": {
+    "name": "tnVlanDbMemTagPort5",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort6": {
+    "name": "tnVlanDbMemTagPort6",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort7": {
+    "name": "tnVlanDbMemTagPort7",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort8": {
+    "name": "tnVlanDbMemTagPort8",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort9": {
+    "name": "tnVlanDbMemTagPort9",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbMemTagPort10": {
+    "name": "tnVlanDbMemTagPort10",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memEgressNoMod": 1,
+          "memEgressNoTag": 2,
+          "memEgressTag": 3,
+          "notMember": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanDbRowStatus": {
+    "name": "tnVlanDbRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVLANDbFlush": {
+    "name": "tnVLANDbFlush",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.2",
+    "class": "objectidentity"
+  },
+  "tnVLANDbFlushOperation": {
+    "name": "tnVLANDbFlushOperation",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNothing": 1,
+          "flushAll": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVLANDbFlushOperationStatus": {
+    "name": "tnVLANDbFlushOperationStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "success": 2,
+          "failure": 3,
+          "inProgress": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnVLANDbFlushOperationFailureReason": {
+    "name": "tnVLANDbFlushOperationFailureReason",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnFIDDbTable": {
+    "name": "tnFIDDbTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnFIDDbEntry": {
+    "name": "tnFIDDbEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnFIDDbID",
+        "implied": 0
+      },
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnFIDDbMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnFIDDbID": {
+    "name": "tnFIDDbID",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnFIDDbMacAddress": {
+    "name": "tnFIDDbMacAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnFIDDbConnPort": {
+    "name": "tnFIDDbConnPort",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnFIDDbPriority": {
+    "name": "tnFIDDbPriority",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnFIDDbEntryType": {
+    "name": "tnFIDDbEntryType",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "staticNRL": 2,
+          "staticPA": 3,
+          "dynamic": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnFIDDbEntryStatus": {
+    "name": "tnFIDDbEntryStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnFIDDbFlush": {
+    "name": "tnFIDDbFlush",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.2",
+    "class": "objectidentity"
+  },
+  "tnFIDDbFlushFID": {
+    "name": "tnFIDDbFlushFID",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnFIDDbFlushOperation": {
+    "name": "tnFIDDbFlushOperation",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNothing": 1,
+          "flushAll": 2,
+          "flushAllDynamic": 3,
+          "flushAllFID": 4,
+          "flushAllDynamicFID": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnFIDDbFlushOperationStatus": {
+    "name": "tnFIDDbFlushOperationStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "success": 2,
+          "failure": 3,
+          "inProgress": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnFIDDbFlushOperationFailureReason": {
+    "name": "tnFIDDbFlushOperationFailureReason",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnVclMacBasedMgmt": {
+    "name": "tnVclMacBasedMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1",
+    "class": "objectidentity"
+  },
+  "tnVclProtoBasedMgmt": {
+    "name": "tnVclProtoBasedMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2",
+    "class": "objectidentity"
+  },
+  "tnVclIpSubnetBasedMgmt": {
+    "name": "tnVclIpSubnetBasedMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3",
+    "class": "objectidentity"
+  },
+  "tnVclMacBasedTable": {
+    "name": "tnVclMacBasedTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVclMacBasedEntry": {
+    "name": "tnVclMacBasedEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnVclMacBasedMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnVclMacBasedMacAddr": {
+    "name": "tnVclMacBasedMacAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVclMacBasedVlanId": {
+    "name": "tnVclMacBasedVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclMacBasedPortMember": {
+    "name": "tnVclMacBasedPortMember",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclMacBasedUser": {
+    "name": "tnVclMacBasedUser",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "nas": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnVclMacBasedRowStatus": {
+    "name": "tnVclMacBasedRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapTable": {
+    "name": "tnVclProtoBasedGroupMapTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapEntry": {
+    "name": "tnVclProtoBasedGroupMapEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnVclProtoBasedGroupMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapName": {
+    "name": "tnVclProtoBasedGroupMapName",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapProtocol": {
+    "name": "tnVclProtoBasedGroupMapProtocol",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "snap": 2,
+          "llc": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapEtherTypeVal": {
+    "name": "tnVclProtoBasedGroupMapEtherTypeVal",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1536,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapSnapOui": {
+    "name": "tnVclProtoBasedGroupMapSnapOui",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EightOTwoOui",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapSnapPid": {
+    "name": "tnVclProtoBasedGroupMapSnapPid",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapLlcDsap": {
+    "name": "tnVclProtoBasedGroupMapLlcDsap",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapLlcSsap": {
+    "name": "tnVclProtoBasedGroupMapLlcSsap",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedGroupMapRowStatus": {
+    "name": "tnVclProtoBasedGroupMapRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedVlanMapTable": {
+    "name": "tnVclProtoBasedVlanMapTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVclProtoBasedVlanMapEntry": {
+    "name": "tnVclProtoBasedVlanMapEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnVclProtoBasedGroupMapName",
+        "implied": 1
+      },
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnVclProtoBasedVlanMapVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnVclProtoBasedVlanMapVlanId": {
+    "name": "tnVclProtoBasedVlanMapVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedVlanMapPortMember": {
+    "name": "tnVclProtoBasedVlanMapPortMember",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclProtoBasedVlanMapRowStatus": {
+    "name": "tnVclProtoBasedVlanMapRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedTable": {
+    "name": "tnVclIpSubnetBasedTable",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedEntry": {
+    "name": "tnVclIpSubnetBasedEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnVclIpSubnetBasedVceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedVceId": {
+    "name": "tnVclIpSubnetBasedVceId",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 11111
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedIpAddr": {
+    "name": "tnVclIpSubnetBasedIpAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedMaskLen": {
+    "name": "tnVclIpSubnetBasedMaskLen",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedVlanId": {
+    "name": "tnVclIpSubnetBasedVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedPortMember": {
+    "name": "tnVclIpSubnetBasedPortMember",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVclIpSubnetBasedRowStatus": {
+    "name": "tnVclIpSubnetBasedRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.4.1.8.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnIfSourceAddrChangeEvt": {
+    "name": "tnIfSourceAddrChangeEvt",
+    "oid": "1.3.6.1.4.1.868.2.5.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnFIDDbMacAddress"
+      },
+      {
+        "module": "TN-VLAN-MGMT-MIB",
+        "object": "tnFIDDbConnPort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-VLAN-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-VLAN-MGMT-MIB"
+  }
+}

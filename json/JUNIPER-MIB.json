@@ -1,0 +1,2936 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxChassisTraps",
+      "jnxChassisOKTraps",
+      "jnxMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TimeInterval",
+      "TimeStamp",
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxBoxAnatomy": {
+    "name": "jnxBoxAnatomy",
+    "oid": "1.3.6.1.4.1.2636.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-22 00:00",
+        "description": "Added load average variables"
+      },
+      {
+        "revision": "2004-03-23 00:00",
+        "description": "Added chassis identification objects."
+      },
+      {
+        "revision": "2004-06-30 00:00",
+        "description": "Added following new traps for chassis alarm conditions: jnxFruFailed, jnxFruOffline and jnxFruOnline."
+      },
+      {
+        "revision": "2004-09-17 00:00",
+        "description": "Added new traps for chassis alarm condition jnxFruCheck."
+      },
+      {
+        "revision": "2005-07-18 00:00",
+        "description": "Added new fru type FEB in jnxFruType enumeration."
+      },
+      {
+        "revision": "2005-07-19 00:00",
+        "description": "Added new offline reason pfeVersionMismatch to jnxFruOfflineReason enumeration."
+      },
+      {
+        "revision": "2006-11-20 00:00",
+        "description": "Added new offline reason fruFebOffline to jnxFruOfflineReason enumeration."
+      },
+      {
+        "revision": "2008-07-31 00:00",
+        "description": "Added jnxBoxSystemDomainType object."
+      },
+      {
+        "revision": "2008-08-01 00:00",
+        "description": "Added new fru type PSD to jnxFruType enumeration and added jcsX chassis IDs to JnxChassisId enumeration."
+      },
+      {
+        "revision": "2008-12-31 00:00",
+        "description": "Added nodeX chassis IDs to JnxChassisId enumeration."
+      },
+      {
+        "revision": "2009-01-09 00:00",
+        "description": "Added sfcX and lcc4-lcc15 chassis IDs to JnxChassisId enumeration."
+      }
+    ]
+  },
+  "JnxChassisId": {
+    "name": "JnxChassisId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "singleChassis": 2,
+          "scc": 3,
+          "lcc0": 4,
+          "lcc1": 5,
+          "lcc2": 6,
+          "lcc3": 7,
+          "jcs1": 8,
+          "jcs2": 9,
+          "jcs3": 10,
+          "jcs4": 11,
+          "node0": 12,
+          "node1": 13,
+          "sfc0": 14,
+          "sfc1": 15,
+          "sfc2": 16,
+          "sfc3": 17,
+          "sfc4": 18,
+          "lcc4": 19,
+          "lcc5": 20,
+          "lcc6": 21,
+          "lcc7": 22,
+          "lcc8": 23,
+          "lcc9": 24,
+          "lcc10": 25,
+          "lcc11": 26,
+          "lcc12": 27,
+          "lcc13": 28,
+          "lcc14": 29,
+          "lcc15": 30,
+          "member0": 31,
+          "member1": 32,
+          "member2": 33,
+          "member3": 34,
+          "member4": 35,
+          "member5": 36,
+          "member6": 37,
+          "member7": 38
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxBoxClass": {
+    "name": "jnxBoxClass",
+    "oid": "1.3.6.1.4.1.2636.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBoxDescr": {
+    "name": "jnxBoxDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBoxSerialNo": {
+    "name": "jnxBoxSerialNo",
+    "oid": "1.3.6.1.4.1.2636.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBoxRevision": {
+    "name": "jnxBoxRevision",
+    "oid": "1.3.6.1.4.1.2636.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBoxInstalled": {
+    "name": "jnxBoxInstalled",
+    "oid": "1.3.6.1.4.1.2636.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContainersTable": {
+    "name": "jnxContainersTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxContainersEntry": {
+    "name": "jnxContainersEntry",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContainersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxContainersIndex": {
+    "name": "jnxContainersIndex",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContainersView": {
+    "name": "jnxContainersView",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContainersLevel": {
+    "name": "jnxContainersLevel",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContainersWithin": {
+    "name": "jnxContainersWithin",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContainersType": {
+    "name": "jnxContainersType",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContainersDescr": {
+    "name": "jnxContainersDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContainersCount": {
+    "name": "jnxContainersCount",
+    "oid": "1.3.6.1.4.1.2636.3.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsLastChange": {
+    "name": "jnxContentsLastChange",
+    "oid": "1.3.6.1.4.1.2636.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsTable": {
+    "name": "jnxContentsTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxContentsEntry": {
+    "name": "jnxContentsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsContainerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL1Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL2Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxContentsContainerIndex": {
+    "name": "jnxContentsContainerIndex",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsL1Index": {
+    "name": "jnxContentsL1Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsL2Index": {
+    "name": "jnxContentsL2Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsL3Index": {
+    "name": "jnxContentsL3Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsType": {
+    "name": "jnxContentsType",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsDescr": {
+    "name": "jnxContentsDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsSerialNo": {
+    "name": "jnxContentsSerialNo",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsRevision": {
+    "name": "jnxContentsRevision",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsInstalled": {
+    "name": "jnxContentsInstalled",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsPartNo": {
+    "name": "jnxContentsPartNo",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsChassisId": {
+    "name": "jnxContentsChassisId",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsChassisDescr": {
+    "name": "jnxContentsChassisDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxContentsChassisCleiCode": {
+    "name": "jnxContentsChassisCleiCode",
+    "oid": "1.3.6.1.4.1.2636.3.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLEDLastChange": {
+    "name": "jnxLEDLastChange",
+    "oid": "1.3.6.1.4.1.2636.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDTable": {
+    "name": "jnxLEDTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxLEDEntry": {
+    "name": "jnxLEDEntry",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxLEDAssociateTable",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxLEDAssociateIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxLEDL1Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxLEDL2Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxLEDL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxLEDAssociateTable": {
+    "name": "jnxLEDAssociateTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "jnxContainersTable": 2,
+          "jnxContentsTable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDAssociateIndex": {
+    "name": "jnxLEDAssociateIndex",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDL1Index": {
+    "name": "jnxLEDL1Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDL2Index": {
+    "name": "jnxLEDL2Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDL3Index": {
+    "name": "jnxLEDL3Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDOriginator": {
+    "name": "jnxLEDOriginator",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDDescr": {
+    "name": "jnxLEDDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDState": {
+    "name": "jnxLEDState",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "green": 2,
+          "yellow": 3,
+          "red": 4,
+          "blue": 5,
+          "amber": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxLEDStateOrdered": {
+    "name": "jnxLEDStateOrdered",
+    "oid": "1.3.6.1.4.1.2636.3.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blue": 1,
+          "green": 2,
+          "amber": 3,
+          "yellow": 4,
+          "red": 5,
+          "other": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxFilledLastChange": {
+    "name": "jnxFilledLastChange",
+    "oid": "1.3.6.1.4.1.2636.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledTable": {
+    "name": "jnxFilledTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFilledEntry": {
+    "name": "jnxFilledEntry",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFilledContainerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFilledL1Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFilledL2Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFilledL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFilledContainerIndex": {
+    "name": "jnxFilledContainerIndex",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledL1Index": {
+    "name": "jnxFilledL1Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledL2Index": {
+    "name": "jnxFilledL2Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledL3Index": {
+    "name": "jnxFilledL3Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledDescr": {
+    "name": "jnxFilledDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledState": {
+    "name": "jnxFilledState",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "empty": 2,
+          "filled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledChassisId": {
+    "name": "jnxFilledChassisId",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFilledChassisDescr": {
+    "name": "jnxFilledChassisDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingTable": {
+    "name": "jnxOperatingTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxOperatingEntry": {
+    "name": "jnxOperatingEntry",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingContentsIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingL1Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingL2Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxOperatingContentsIndex": {
+    "name": "jnxOperatingContentsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingL1Index": {
+    "name": "jnxOperatingL1Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingL2Index": {
+    "name": "jnxOperatingL2Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingL3Index": {
+    "name": "jnxOperatingL3Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingDescr": {
+    "name": "jnxOperatingDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingState": {
+    "name": "jnxOperatingState",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "running": 2,
+          "ready": 3,
+          "reset": 4,
+          "runningAtFullSpeed": 5,
+          "down": 6,
+          "standby": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingTemp": {
+    "name": "jnxOperatingTemp",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingCPU": {
+    "name": "jnxOperatingCPU",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingISR": {
+    "name": "jnxOperatingISR",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingDRAMSize": {
+    "name": "jnxOperatingDRAMSize",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOperatingBuffer": {
+    "name": "jnxOperatingBuffer",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingHeap": {
+    "name": "jnxOperatingHeap",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingUpTime": {
+    "name": "jnxOperatingUpTime",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxOperatingLastRestart": {
+    "name": "jnxOperatingLastRestart",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingMemory": {
+    "name": "jnxOperatingMemory",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingStateOrdered": {
+    "name": "jnxOperatingStateOrdered",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "standby": 2,
+          "ready": 3,
+          "runningAtFullSpeed": 4,
+          "reset": 5,
+          "down": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingChassisId": {
+    "name": "jnxOperatingChassisId",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingChassisDescr": {
+    "name": "jnxOperatingChassisDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperatingRestartTime": {
+    "name": "jnxOperatingRestartTime",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperating1MinLoadAvg": {
+    "name": "jnxOperating1MinLoadAvg",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperating5MinLoadAvg": {
+    "name": "jnxOperating5MinLoadAvg",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxOperating15MinLoadAvg": {
+    "name": "jnxOperating15MinLoadAvg",
+    "oid": "1.3.6.1.4.1.2636.3.1.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyTable": {
+    "name": "jnxRedundancyTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxRedundancyEntry": {
+    "name": "jnxRedundancyEntry",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyContentsIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyL1Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyL2Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxRedundancyContentsIndex": {
+    "name": "jnxRedundancyContentsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyL1Index": {
+    "name": "jnxRedundancyL1Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyL2Index": {
+    "name": "jnxRedundancyL2Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyL3Index": {
+    "name": "jnxRedundancyL3Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyDescr": {
+    "name": "jnxRedundancyDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyConfig": {
+    "name": "jnxRedundancyConfig",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "master": 2,
+          "backup": 3,
+          "disabled": 4,
+          "notApplicable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyState": {
+    "name": "jnxRedundancyState",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "master": 2,
+          "backup": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancySwitchoverCount": {
+    "name": "jnxRedundancySwitchoverCount",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancySwitchoverTime": {
+    "name": "jnxRedundancySwitchoverTime",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancySwitchoverReason": {
+    "name": "jnxRedundancySwitchoverReason",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "neverSwitched": 2,
+          "userSwitched": 3,
+          "autoSwitched": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyKeepaliveHeartbeat": {
+    "name": "jnxRedundancyKeepaliveHeartbeat",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyKeepaliveTimeout": {
+    "name": "jnxRedundancyKeepaliveTimeout",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyKeepaliveElapsed": {
+    "name": "jnxRedundancyKeepaliveElapsed",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyKeepaliveLoss": {
+    "name": "jnxRedundancyKeepaliveLoss",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyChassisId": {
+    "name": "jnxRedundancyChassisId",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxRedundancyChassisDescr": {
+    "name": "jnxRedundancyChassisDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruTable": {
+    "name": "jnxFruTable",
+    "oid": "1.3.6.1.4.1.2636.3.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFruEntry": {
+    "name": "jnxFruEntry",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruContentsIndex": {
+    "name": "jnxFruContentsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruL1Index": {
+    "name": "jnxFruL1Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruL2Index": {
+    "name": "jnxFruL2Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruL3Index": {
+    "name": "jnxFruL3Index",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruName": {
+    "name": "jnxFruName",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruType": {
+    "name": "jnxFruType",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "clockGenerator": 2,
+          "flexiblePicConcentrator": 3,
+          "switchingAndForwardingModule": 4,
+          "controlBoard": 5,
+          "routingEngine": 6,
+          "powerEntryModule": 7,
+          "frontPanelModule": 8,
+          "switchInterfaceBoard": 9,
+          "processorMezzanineBoardForSIB": 10,
+          "portInterfaceCard": 11,
+          "craftInterfacePanel": 12,
+          "fan": 13,
+          "lineCardChassis": 14,
+          "forwardingEngineBoard": 15,
+          "protectedSystemDomain": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruSlot": {
+    "name": "jnxFruSlot",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruState": {
+    "name": "jnxFruState",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "empty": 2,
+          "present": 3,
+          "ready": 4,
+          "announceOnline": 5,
+          "online": 6,
+          "anounceOffline": 7,
+          "offline": 8,
+          "diagnostic": 9,
+          "standby": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruTemp": {
+    "name": "jnxFruTemp",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruOfflineReason": {
+    "name": "jnxFruOfflineReason",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "error": 3,
+          "noPower": 4,
+          "configPowerOff": 5,
+          "configHoldInReset": 6,
+          "cliCommand": 7,
+          "buttonPress": 8,
+          "cliRestart": 9,
+          "overtempShutdown": 10,
+          "masterClockDown": 11,
+          "singleSfmModeChange": 12,
+          "packetSchedulingModeChange": 13,
+          "physicalRemoval": 14,
+          "unresponsiveRestart": 15,
+          "sonetClockAbsent": 16,
+          "rddPowerOff": 17,
+          "majorErrors": 18,
+          "minorErrors": 19,
+          "lccHardRestart": 20,
+          "lccVersionMismatch": 21,
+          "powerCycle": 22,
+          "reconnect": 23,
+          "overvoltage": 24,
+          "pfeVersionMismatch": 25,
+          "febRddCfgChange": 26,
+          "fpcMisconfig": 27,
+          "fruReconnectFail": 28,
+          "fruFwddReset": 29,
+          "fruFebSwitch": 30,
+          "fruFebOffline": 31,
+          "fruInServSoftUpgradeError": 32,
+          "fruChasdPowerRatingExceed": 33,
+          "fruConfigOffline": 34,
+          "fruServiceRestartRequest": 35,
+          "spuResetRequest": 36,
+          "spuFlowdDown": 37,
+          "spuSpi4Down": 38,
+          "spuWatchdogTimeout": 39,
+          "spuCoreDump": 40,
+          "fpgaSpi4LinkDown": 41,
+          "i3Spi4LinkDown": 42,
+          "cppDisconnect": 43,
+          "cpuNotBoot": 44,
+          "spuCoreDumpComplete": 45,
+          "rstOnSpcSpuFailure": 46,
+          "softRstOnSpcSpuFailure": 47,
+          "hwAuthenticationFailure": 48,
+          "reconnectFpcFail": 49,
+          "fpcAppFailed": 50,
+          "fpcKernelCrash": 51,
+          "spuFlowdDownNoCore": 52,
+          "spuFlowdCoreDumpIncomplete": 53,
+          "spuFlowdCoreDumpComplete": 54,
+          "spuIdpdDownNoCore": 55,
+          "spuIdpdCoreDumpIncomplete": 56,
+          "spuIdpdCoreDumpComplete": 57,
+          "spuCoreDumpIncomplete": 58,
+          "spuIdpdDown": 59,
+          "fruPfeReset": 60,
+          "fruReconnectNotReady": 61,
+          "fruSfLinkDown": 62,
+          "fruFabricDown": 63,
+          "fruAntiCounterfeitRetry": 64,
+          "fruFPCChassisClusterDisable": 65,
+          "spuFipsError": 66,
+          "fruFPCFabricDownOffline": 67,
+          "febCfgChange": 68,
+          "routeLocalizationRoleChange": 69,
+          "fruFpcUnsupported": 70,
+          "psdVersionMismatch": 71,
+          "fruResetThresholdExceeded": 72,
+          "picBounce": 73,
+          "badVoltage": 74
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruLastPowerOff": {
+    "name": "jnxFruLastPowerOff",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruLastPowerOn": {
+    "name": "jnxFruLastPowerOn",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruPowerUpTime": {
+    "name": "jnxFruPowerUpTime",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruChassisId": {
+    "name": "jnxFruChassisId",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruChassisDescr": {
+    "name": "jnxFruChassisDescr",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruPsdAssignment": {
+    "name": "jnxFruPsdAssignment",
+    "oid": "1.3.6.1.4.1.2636.3.1.15.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBoxKernelMemoryUsedPercent": {
+    "name": "jnxBoxKernelMemoryUsedPercent",
+    "oid": "1.3.6.1.4.1.2636.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxBoxSystemDomainType": {
+    "name": "jnxBoxSystemDomainType",
+    "oid": "1.3.6.1.4.1.2636.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "rootSystemDomain": 2,
+          "protectedSystemDomain": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxPowerSupplyFailure": {
+    "name": "jnxPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.2636.4.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsContainerIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsDescr"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFanFailure": {
+    "name": "jnxFanFailure",
+    "oid": "1.3.6.1.4.1.2636.4.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsContainerIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsDescr"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxOverTemperature": {
+    "name": "jnxOverTemperature",
+    "oid": "1.3.6.1.4.1.2636.4.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsContainerIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsDescr"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingTemp"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxRedundancySwitchover": {
+    "name": "jnxRedundancySwitchover",
+    "oid": "1.3.6.1.4.1.2636.4.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyDescr"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyConfig"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancyState"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancySwitchoverCount"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancySwitchoverTime"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxRedundancySwitchoverReason"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruRemoval": {
+    "name": "jnxFruRemoval",
+    "oid": "1.3.6.1.4.1.2636.4.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruInsertion": {
+    "name": "jnxFruInsertion",
+    "oid": "1.3.6.1.4.1.2636.4.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruPowerOff": {
+    "name": "jnxFruPowerOff",
+    "oid": "1.3.6.1.4.1.2636.4.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruOfflineReason"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruLastPowerOff"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruLastPowerOn"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruPowerOn": {
+    "name": "jnxFruPowerOn",
+    "oid": "1.3.6.1.4.1.2636.4.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruOfflineReason"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruLastPowerOff"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruLastPowerOn"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruFailed": {
+    "name": "jnxFruFailed",
+    "oid": "1.3.6.1.4.1.2636.4.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruOffline": {
+    "name": "jnxFruOffline",
+    "oid": "1.3.6.1.4.1.2636.4.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruOfflineReason"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruLastPowerOff"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruLastPowerOn"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruOnline": {
+    "name": "jnxFruOnline",
+    "oid": "1.3.6.1.4.1.2636.4.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruCheck": {
+    "name": "jnxFruCheck",
+    "oid": "1.3.6.1.4.1.2636.4.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFEBSwitchover": {
+    "name": "jnxFEBSwitchover",
+    "oid": "1.3.6.1.4.1.2636.4.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxHardDiskFailed": {
+    "name": "jnxHardDiskFailed",
+    "oid": "1.3.6.1.4.1.2636.4.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxHardDiskMissing": {
+    "name": "jnxHardDiskMissing",
+    "oid": "1.3.6.1.4.1.2636.4.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxBootFromBackup": {
+    "name": "jnxBootFromBackup",
+    "oid": "1.3.6.1.4.1.2636.4.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxPowerSupplyOK": {
+    "name": "jnxPowerSupplyOK",
+    "oid": "1.3.6.1.4.1.2636.4.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsContainerIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsDescr"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFanOK": {
+    "name": "jnxFanOK",
+    "oid": "1.3.6.1.4.1.2636.4.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsContainerIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsDescr"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTemperatureOK": {
+    "name": "jnxTemperatureOK",
+    "oid": "1.3.6.1.4.1.2636.4.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsContainerIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxContentsDescr"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxOperatingTemp"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruOK": {
+    "name": "jnxFruOK",
+    "oid": "1.3.6.1.4.1.2636.4.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruContentsIndex"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL1Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL2Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruL3Index"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruName"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruType"
+      },
+      {
+        "module": "JUNIPER-MIB",
+        "object": "jnxFruSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:43 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-MIB"
+  }
+}

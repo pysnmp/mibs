@@ -1,0 +1,584 @@
+{
+  "imports": {
+    "class": "imports",
+    "Brocade-REG-MIB": [
+      "fibrechannel"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "entPhysicalName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SYSTEM-MIB": [
+      "swID",
+      "swSsn"
+    ]
+  },
+  "haMIB": {
+    "name": "haMIB",
+    "oid": "1.3.6.1.4.1.1588.2.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-29 12:00",
+        "description": "Updated ORGANIZATION and CONTACT-INFO with Extreme Networks"
+      },
+      {
+        "revision": "2002-08-16 00:00",
+        "description": "The initial revision for the High Availability MIB."
+      },
+      {
+        "revision": "2004-02-25 15:30",
+        "description": "Added mib objects fruSupplierId, fruSupplierPartNum, fruSupplierSerialNum and fruSupplierRevCode to fruTable."
+      },
+      {
+        "revision": "2009-02-09 00:00",
+        "description": "Added new value coreblade and ap blade for fru table."
+      },
+      {
+        "revision": "2009-04-06 00:00",
+        "description": "Added textual convention for FruClass."
+      },
+      {
+        "revision": "2009-06-25 12:00",
+        "description": "Removed the version information from Brocade's proprietary MIB file name."
+      },
+      {
+        "revision": "2010-07-22 10:00",
+        "description": "Added frutype and frunum to the existing frustatuschange trap."
+      },
+      {
+        "revision": "2012-02-06 11:30",
+        "description": "Changed all CP terms in the description as control card."
+      }
+    ]
+  },
+  "highAvailability": {
+    "name": "highAvailability",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1",
+    "class": "objectidentity"
+  },
+  "haStatus": {
+    "name": "haStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundant": 0,
+          "nonredundant": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "FruClass": {
+    "name": "FruClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "chassis": 3,
+          "cp": 4,
+          "other-CP": 5,
+          "switchblade": 6,
+          "wwn": 7,
+          "powerSupply": 8,
+          "fan": 9,
+          "coreblade": 10,
+          "applicationblade": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fruTable": {
+    "name": "fruTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fRUEntry": {
+    "name": "fRUEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fruClass": {
+    "name": "fruClass",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FruClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruStatus": {
+    "name": "fruStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "on": 3,
+          "off": 4,
+          "faulty": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruObjectNum": {
+    "name": "fruObjectNum",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruSupplierId": {
+    "name": "fruSupplierId",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruSupplierPartNum": {
+    "name": "fruSupplierPartNum",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruSupplierSerialNum": {
+    "name": "fruSupplierSerialNum",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruSupplierRevCode": {
+    "name": "fruSupplierRevCode",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruPowerConsumption": {
+    "name": "fruPowerConsumption",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "units": "watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruHistoryTable": {
+    "name": "fruHistoryTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fruHistoryEntry": {
+    "name": "fruHistoryEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HA-MIB",
+        "object": "fruHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fruHistoryIndex": {
+    "name": "fruHistoryIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruHistoryClass": {
+    "name": "fruHistoryClass",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FruClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruHistoryObjectNum": {
+    "name": "fruHistoryObjectNum",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruHistoryEvent": {
+    "name": "fruHistoryEvent",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "added": 1,
+          "removed": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruHistoryTime": {
+    "name": "fruHistoryTime",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruHistoryFactoryPartNum": {
+    "name": "fruHistoryFactoryPartNum",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fruHistoryFactorySerialNum": {
+    "name": "fruHistoryFactorySerialNum",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpTable": {
+    "name": "cpTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpEntry": {
+    "name": "cpEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpStatus": {
+    "name": "cpStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "active": 3,
+          "standby": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpIpAddress": {
+    "name": "cpIpAddress",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpIpMask": {
+    "name": "cpIpMask",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpIpGateway": {
+    "name": "cpIpGateway",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpLastEvent": {
+    "name": "cpLastEvent",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "haSync": 3,
+          "haOutSync": 4,
+          "cpFaulty": 5,
+          "cpHealthy": 6,
+          "cpActive": 7,
+          "configChange": 8,
+          "failOverStart": 9,
+          "failOverDone": 10,
+          "firmwareCommit": 11,
+          "firmwareUpgrade": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haMIBTraps": {
+    "name": "haMIBTraps",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.2",
+    "class": "objectidentity"
+  },
+  "haMIBTrapPrefix": {
+    "name": "haMIBTrapPrefix",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.2.0",
+    "class": "objectidentity"
+  },
+  "fruStatusChanged": {
+    "name": "fruStatusChanged",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruStatus"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruClass"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruObjectNum"
+      }
+    ],
+    "status": "current"
+  },
+  "cpStatusChanged": {
+    "name": "cpStatusChanged",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HA-MIB",
+        "object": "cpStatus"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "cpLastEvent"
+      },
+      {
+        "module": "SYSTEM-MIB",
+        "object": "swID"
+      },
+      {
+        "module": "SYSTEM-MIB",
+        "object": "swSsn"
+      }
+    ],
+    "status": "current"
+  },
+  "fruHistoryTrap": {
+    "name": "fruHistoryTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HA-MIB",
+        "object": "fruHistoryClass"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruHistoryObjectNum"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruHistoryEvent"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruHistoryTime"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruHistoryFactoryPartNum"
+      },
+      {
+        "module": "HA-MIB",
+        "object": "fruHistoryFactorySerialNum"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/HA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HA-MIB"
+  }
+}

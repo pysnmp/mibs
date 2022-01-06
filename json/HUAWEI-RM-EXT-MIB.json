@@ -1,0 +1,3641 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwRmExt": {
+    "name": "hwRmExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 20:55",
+        "description": "modify hwRouteStatTable,hwIpv6PrefixLimitValue,hwRouteStatVpnName,hwTunnelGroupUp,hwTunnelGroupDown,hwIpv4PrefixExceed,hwIpv4PrefixExceedClear,hwIpv6PrefixExceed,hwIpv6PrefixExceedClear discription"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Version V2.17, add hwIpv6StaticRoutePermanent node"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Version V2.16, modify table's description"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Version V2.15, modify table's description"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Version V2.14, modify hwL3vpnVrfV6Up's description"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Version V2.13, Add hwL3vpnVrfV6Up,hwL3vpnVrfV6Down"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Version V2.12, Modify the description of hwIpv4PrefixExceed,hwIpv4PrefixExceedClear,hwIpv6PrefixExceed,hwIpv6PrefixExceedClear"
+      },
+      {
+        "revision": "2017-03-29 00:00",
+        "description": "Version V2.11, add hwFibStatisticObject"
+      },
+      {
+        "revision": "2016-12-29 00:00",
+        "description": "Version: V2.10, Add hwVlinkTraps,hwVlinkImportExceed."
+      },
+      {
+        "revision": "2016-02-29 00:00",
+        "description": "Version: V2.09, Chang hwNhmRestrain,hwNhmRestrainClear."
+      },
+      {
+        "revision": "2016-02-18 00:00",
+        "description": "Version: V2.08, Add hwNhmRestrain,hwNhmRestrainClear."
+      },
+      {
+        "revision": "2015-11-18 00:00",
+        "description": "Version: V2.07, Change the description of hwTunnelGroupUp and hwTunnelGroupDown."
+      },
+      {
+        "revision": "2014-12-11 00:00",
+        "description": "Version: V2.06, modify hwEvpnMacLimitTrapObjects to hwEvpnMacObjects, modify hwEvpnMacLimitTraps, add hwEvpnMacUpperLimitValue, hwEvpnMacLowerLimitValue, hwEvpnMacLimitValue."
+      },
+      {
+        "revision": "2014-12-10 00:00",
+        "description": "Version: V2.05, Add hwEvpnMacLimitTrapObjects, hwEvpnMacLimitTraps, hwEvpnMacLimitConformance."
+      },
+      {
+        "revision": "2014-12-09 00:00",
+        "description": "updated the static-route description text , it's length change from 35 to 80."
+      },
+      {
+        "revision": "2014-06-30 00:00",
+        "description": "golbal->global."
+      },
+      {
+        "revision": "2014-06-20 00:00",
+        "description": "add hwRmInfo, hwIpv6PrefixLimitVpnName, hwL3vpnIpv6PrefixLimitTraps."
+      },
+      {
+        "revision": "2013-06-09 00:00",
+        "description": "V1.4, destionation->destination."
+      },
+      {
+        "revision": "2013-04-22 15:26",
+        "description": "V1.3, add IPv6 static route table mib."
+      },
+      {
+        "revision": "2010-11-25 00:00",
+        "description": "V1.2, updated the description."
+      },
+      {
+        "revision": "2010-08-20 00:00",
+        "description": "V1.1, modify format of enumerations and description."
+      },
+      {
+        "revision": "2008-11-10 00:00",
+        "description": "V1.0, the first draft"
+      }
+    ]
+  },
+  "hwRmExtObjects": {
+    "name": "hwRmExtObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1",
+    "class": "objectidentity"
+  },
+  "hwStaticRouteTable": {
+    "name": "hwStaticRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteEntry": {
+    "name": "hwStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteSourceVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestMaskAddr",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteOutIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticRouteSourceVpnName": {
+    "name": "hwStaticRouteSourceVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteDestIpAddr": {
+    "name": "hwStaticRouteDestIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteDestMaskAddr": {
+    "name": "hwStaticRouteDestMaskAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteDestVpnName": {
+    "name": "hwStaticRouteDestVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteNextHop": {
+    "name": "hwStaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteOutIfIndex": {
+    "name": "hwStaticRouteOutIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteBfdName": {
+    "name": "hwStaticRouteBfdName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRoutePrefer": {
+    "name": "hwStaticRoutePrefer",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRouteDescrip": {
+    "name": "hwStaticRouteDescrip",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRouteRowStatus": {
+    "name": "hwStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRouteStatTable": {
+    "name": "hwRouteStatTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRouteStatEntry": {
+    "name": "hwRouteStatEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatProtocolId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRouteStatVpnName": {
+    "name": "hwRouteStatVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRouteStatProtocolId": {
+    "name": "hwRouteStatProtocolId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "direct": 1,
+          "static": 2,
+          "ospf": 3,
+          "isis": 6,
+          "rip": 7,
+          "bgp": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRouteStatTotal": {
+    "name": "hwRouteStatTotal",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRouteStatActive": {
+    "name": "hwRouteStatActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRouteStatAdded": {
+    "name": "hwRouteStatAdded",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRouteStatDeleted": {
+    "name": "hwRouteStatDeleted",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRouteStatFreed": {
+    "name": "hwRouteStatFreed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpv6RouteStatTable": {
+    "name": "hwIpv6RouteStatTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6RouteStatEntry": {
+    "name": "hwIpv6RouteStatEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatProtocolId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6RouteStatVpnName": {
+    "name": "hwIpv6RouteStatVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6RouteStatProtocolId": {
+    "name": "hwIpv6RouteStatProtocolId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "direct": 1,
+          "static": 2,
+          "ospf": 3,
+          "isis": 6,
+          "rip": 7,
+          "bgp": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6RouteStatTotal": {
+    "name": "hwIpv6RouteStatTotal",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpv6RouteStatActive": {
+    "name": "hwIpv6RouteStatActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpv6RouteStatAdded": {
+    "name": "hwIpv6RouteStatAdded",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpv6RouteStatDeleted": {
+    "name": "hwIpv6RouteStatDeleted",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpv6RouteStatFreed": {
+    "name": "hwIpv6RouteStatFreed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticRouteExtTable": {
+    "name": "hwStaticRouteExtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteExtEntry": {
+    "name": "hwStaticRouteExtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteSourceVpnNameExt",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestIpAddrExt",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestMaskAddrExt",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteNextHopExt",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteOutIfIndexExt",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticRouteSourceVpnNameExt": {
+    "name": "hwStaticRouteSourceVpnNameExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteDestIpAddrExt": {
+    "name": "hwStaticRouteDestIpAddrExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteDestMaskAddrExt": {
+    "name": "hwStaticRouteDestMaskAddrExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteNextHopExt": {
+    "name": "hwStaticRouteNextHopExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteOutIfIndexExt": {
+    "name": "hwStaticRouteOutIfIndexExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticRouteDestVpnNameExt": {
+    "name": "hwStaticRouteDestVpnNameExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRouteBfdNameExt": {
+    "name": "hwStaticRouteBfdNameExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRoutePreferExt": {
+    "name": "hwStaticRoutePreferExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRouteDescripExt": {
+    "name": "hwStaticRouteDescripExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRouteRowStatusExt": {
+    "name": "hwStaticRouteRowStatusExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRoutePermanentExt": {
+    "name": "hwStaticRoutePermanentExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "permanent": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwStaticRouteLdpSyncExt": {
+    "name": "hwStaticRouteLdpSyncExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ldpsync": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteTable": {
+    "name": "hwIpv6StaticRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteEntry": {
+    "name": "hwIpv6StaticRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteSourceVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteDestIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRoutePrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteOutIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6StaticRouteSourceVpnName": {
+    "name": "hwIpv6StaticRouteSourceVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteDestIpAddr": {
+    "name": "hwIpv6StaticRouteDestIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6StaticRoutePrefixLen": {
+    "name": "hwIpv6StaticRoutePrefixLen",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteNextHop": {
+    "name": "hwIpv6StaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteOutIfIndex": {
+    "name": "hwIpv6StaticRouteOutIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteDestVpnName": {
+    "name": "hwIpv6StaticRouteDestVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteBfdName": {
+    "name": "hwIpv6StaticRouteBfdName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteNqaAdminName": {
+    "name": "hwIpv6StaticRouteNqaAdminName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteNqaTestName": {
+    "name": "hwIpv6StaticRouteNqaTestName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRoutePrefer": {
+    "name": "hwIpv6StaticRoutePrefer",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteTag": {
+    "name": "hwIpv6StaticRouteTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteDescr": {
+    "name": "hwIpv6StaticRouteDescr",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteRowStatus": {
+    "name": "hwIpv6StaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpv6StaticRoutePermanent": {
+    "name": "hwIpv6StaticRoutePermanent",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "permanent": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRmInfo": {
+    "name": "hwRmInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.6",
+    "class": "objectidentity"
+  },
+  "hwIpv4PrefixNum": {
+    "name": "hwIpv4PrefixNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpv6PrefixNum": {
+    "name": "hwIpv6PrefixNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRmExtConformance": {
+    "name": "hwRmExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2",
+    "class": "objectidentity"
+  },
+  "hwRmExtCompliances": {
+    "name": "hwRmExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.1",
+    "class": "objectidentity"
+  },
+  "hwRmExtCompliance": {
+    "name": "hwRmExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwStaticRouteGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwRouteStatGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwStaticRouteExtGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwIpv6RouteStatGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRmExtGroups": {
+    "name": "hwRmExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2",
+    "class": "objectidentity"
+  },
+  "hwStaticRouteGroup": {
+    "name": "hwStaticRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteBfdName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRoutePrefer"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDescrip"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRouteStatGroup": {
+    "name": "hwRouteStatGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatTotal"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatActive"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatAdded"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatDeleted"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatFreed"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6RouteStatGroup": {
+    "name": "hwIpv6RouteStatGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatTotal"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatActive"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatAdded"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatDeleted"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatFreed"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticRouteExtGroup": {
+    "name": "hwStaticRouteExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestVpnNameExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteBfdNameExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRoutePreferExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteRowStatusExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDescripExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRoutePermanentExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteLdpSyncExt"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6StaticRouteGroup": {
+    "name": "hwIpv6StaticRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteDestVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteBfdName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRoutePrefer"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteTag"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteRowStatus"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRoutePermanent"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteNqaAdminName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteNqaTestName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRmInfoGroup": {
+    "name": "hwRmInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTunnelExtObjects": {
+    "name": "hwTunnelExtObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3",
+    "class": "objectidentity"
+  },
+  "hwTnl2L3vpnTable": {
+    "name": "hwTnl2L3vpnTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTnl2L3vpnEntry": {
+    "name": "hwTnl2L3vpnEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnTnlId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVpnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnTnlId": {
+    "name": "hwL3vpnTnlId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVpnIndex": {
+    "name": "hwVpnIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVpnName": {
+    "name": "hwVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTnl2VplsTable": {
+    "name": "hwTnl2VplsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTnl2VplsEntry": {
+    "name": "hwTnl2VplsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsTnlId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsVcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVplsTnlId": {
+    "name": "hwVplsTnlId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVplsVcId": {
+    "name": "hwVplsVcId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVsiIndex": {
+    "name": "hwVsiIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVsiId": {
+    "name": "hwVsiId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVsiName": {
+    "name": "hwVsiName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVplsVcType": {
+    "name": "hwVplsVcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVplsPeerIp": {
+    "name": "hwVplsPeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTnl2Pwe3VllTable": {
+    "name": "hwTnl2Pwe3VllTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTnl2Pwe3VllEntry": {
+    "name": "hwTnl2Pwe3VllEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllTnlId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwAcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwVllTnlId": {
+    "name": "hwPwVllTnlId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAcIndex": {
+    "name": "hwAcIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPwVllIfName": {
+    "name": "hwPwVllIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMasterSlaveFlag": {
+    "name": "hwMasterSlaveFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVllPeerIp": {
+    "name": "hwPwVllPeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVllVcId": {
+    "name": "hwPwVllVcId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVllSvcFlag": {
+    "name": "hwPwVllSvcFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcType": {
+    "name": "hwPwVcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameRelayDlciMartini": 1,
+          "atmAal5SduVccTransport": 2,
+          "atmTransparentCellTransport": 3,
+          "vlan": 4,
+          "ethernet": 5,
+          "hdlc": 6,
+          "ppp": 7,
+          "cem": 8,
+          "atmN2OneVccCellTransport": 9,
+          "atmN2OneVpcCellTransport": 10,
+          "ipLayer2Transport": 11,
+          "atmOne2OneVccCellMode": 12,
+          "atmOne2OneVpcCellMode": 13,
+          "atmAal5PduVccTransport": 14,
+          "frameRelayPortMode": 15,
+          "cep": 16,
+          "saE1oP": 17,
+          "saT1oP": 18,
+          "saE3oP": 19,
+          "saT3oP": 20,
+          "cESoPsnBasicMode": 21,
+          "tDMoIPbasicMode": 22,
+          "l2VpnCESoPSNTDMwithCAS": 23,
+          "l2VpnTDMoIPTDMwithCAS": 24,
+          "frameRelayDlci": 25,
+          "ipInterworking": 64,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcReceiveLabel": {
+    "name": "hwSvcReceiveLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcTransmitLabel": {
+    "name": "hwSvcTransmitLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTnlIf2TnlIdTable": {
+    "name": "hwTnlIf2TnlIdTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTnlIf2TnlIdEntry": {
+    "name": "hwTnlIf2TnlIdEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelIf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTunnelIf": {
+    "name": "hwTunnelIf",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelId": {
+    "name": "hwTunnelId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTnl2MultiHopPwe3Table": {
+    "name": "hwTnl2MultiHopPwe3Table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTnl2MultiHopPwe3Entry": {
+    "name": "hwTnl2MultiHopPwe3Entry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3TnlId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3VcType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3VcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMultiHopPwe3TnlId": {
+    "name": "hwMultiHopPwe3TnlId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMultiHopPwe3VcType": {
+    "name": "hwMultiHopPwe3VcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMultiHopPwe3VcId": {
+    "name": "hwMultiHopPwe3VcId",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMultiHopPwe3PeerIp": {
+    "name": "hwMultiHopPwe3PeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTunnelExtConformance": {
+    "name": "hwTunnelExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4",
+    "class": "objectidentity"
+  },
+  "hwTunnelExtCompliances": {
+    "name": "hwTunnelExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.1",
+    "class": "objectidentity"
+  },
+  "hwTunnelExtCompliance": {
+    "name": "hwTunnelExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwTnl2L3vpnGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwTnl2VplsGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwTnl2Pwe3VllGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwTnlIf2TnlIdGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwTnl2MultiHopPwe3Group",
+        "module": "HUAWEI-RM-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTunnelExtGroups": {
+    "name": "hwTunnelExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2",
+    "class": "objectidentity"
+  },
+  "hwTnl2L3vpnGroup": {
+    "name": "hwTnl2L3vpnGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnl2VplsGroup": {
+    "name": "hwTnl2VplsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVsiIndex"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVsiId"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVsiName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsVcType"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsPeerIp"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnl2Pwe3VllGroup": {
+    "name": "hwTnl2Pwe3VllGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMasterSlaveFlag"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllIfName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllVcId"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllSvcFlag"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVcType"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwSvcReceiveLabel"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwSvcTransmitLabel"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllPeerIp"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnlIf2TnlIdGroup": {
+    "name": "hwTnlIf2TnlIdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnl2MultiHopPwe3Group": {
+    "name": "hwTnl2MultiHopPwe3Group",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3PeerIp"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnlGroupTrapObjects": {
+    "name": "hwTnlGroupTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.5",
+    "class": "objectidentity"
+  },
+  "hwTnlDestination": {
+    "name": "hwTnlDestination",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTnlPolicy": {
+    "name": "hwTnlPolicy",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTnlGroupTraps": {
+    "name": "hwTnlGroupTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.6",
+    "class": "objectidentity"
+  },
+  "hwTunnelGroupUp": {
+    "name": "hwTunnelGroupUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlDestination"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTunnelGroupDown": {
+    "name": "hwTunnelGroupDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.6.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlDestination"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnlGroupTrapConformance": {
+    "name": "hwTnlGroupTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.7",
+    "class": "objectidentity"
+  },
+  "hwTnlGroupNotificationGroup": {
+    "name": "hwTnlGroupNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.7.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelGroupUp"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelGroupDown"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnlGroupObjectGroup": {
+    "name": "hwTnlGroupObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.7.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlDestination"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitTrapObjects": {
+    "name": "hwIpv4PrefixLimitTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.8",
+    "class": "objectidentity"
+  },
+  "hwCurIpv4PrefixNum": {
+    "name": "hwCurIpv4PrefixNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitValue": {
+    "name": "hwIpv4PrefixLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitTrapObjects": {
+    "name": "hwIpv6PrefixLimitTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9",
+    "class": "objectidentity"
+  },
+  "hwCurIpv6PrefixNum": {
+    "name": "hwCurIpv6PrefixNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitValue": {
+    "name": "hwIpv6PrefixLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitVpnName": {
+    "name": "hwIpv6PrefixLimitVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitTraps": {
+    "name": "hwIpv4PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10",
+    "class": "objectidentity"
+  },
+  "hwIpv4PrefixExceed": {
+    "name": "hwIpv4PrefixExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv4PrefixExceedClear": {
+    "name": "hwIpv4PrefixExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv4PrefixThresholdExceed": {
+    "name": "hwIpv4PrefixThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv4PrefixThresholdExceedClear": {
+    "name": "hwIpv4PrefixThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitTraps": {
+    "name": "hwIpv6PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11",
+    "class": "objectidentity"
+  },
+  "hwIpv6PrefixExceed": {
+    "name": "hwIpv6PrefixExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6PrefixExceedClear": {
+    "name": "hwIpv6PrefixExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6PrefixThresholdExceed": {
+    "name": "hwIpv6PrefixThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6PrefixThresholdExceedClear": {
+    "name": "hwIpv6PrefixThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitConformance": {
+    "name": "hwIpv4PrefixLimitConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.12",
+    "class": "objectidentity"
+  },
+  "hwIpv4PrefixLimitNotificationGroup": {
+    "name": "hwIpv4PrefixLimitNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.12.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixThresholdExceedClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitObjectGroup": {
+    "name": "hwIpv4PrefixLimitObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.12.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitConformance": {
+    "name": "hwIpv6PrefixLimitConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.13",
+    "class": "objectidentity"
+  },
+  "hwIpv6PrefixLimitNotificationGroup": {
+    "name": "hwIpv6PrefixLimitNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.13.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixThresholdExceedClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitObjectGroup": {
+    "name": "hwIpv6PrefixLimitObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.13.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRmGresmTokenObjects": {
+    "name": "hwRmGresmTokenObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14",
+    "class": "objectidentity"
+  },
+  "hwGresmTokenTable": {
+    "name": "hwGresmTokenTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGresmTokenEntry": {
+    "name": "hwGresmTokenEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMode",
+        "implied": 0
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGresmTokenMode": {
+    "name": "hwGresmTokenMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global1": 1,
+          "global2": 2,
+          "global3": 3,
+          "global4": 4,
+          "perborad": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGresmTokenUsedNum": {
+    "name": "hwGresmTokenUsedNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGresmTokenMaxValue": {
+    "name": "hwGresmTokenMaxValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwGresmTokenTraps": {
+    "name": "hwGresmTokenTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15",
+    "class": "objectidentity"
+  },
+  "hwGresmTokenExceed": {
+    "name": "hwGresmTokenExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGresmTokenExceedClear": {
+    "name": "hwGresmTokenExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGresmTokenThresholdExceed": {
+    "name": "hwGresmTokenThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGresmTokenThresholdExceedClear": {
+    "name": "hwGresmTokenThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGresmTokenTrapConformance": {
+    "name": "hwGresmTokenTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.16",
+    "class": "objectidentity"
+  },
+  "hwGresmTokenNotificationGroup": {
+    "name": "hwGresmTokenNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.16.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenThresholdExceedClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGresmTokenGroup": {
+    "name": "hwGresmTokenGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.16.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMode"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRmExtRouteObjects": {
+    "name": "hwRmExtRouteObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.17",
+    "class": "objectidentity"
+  },
+  "hwRmExtRouteTrapObjects": {
+    "name": "hwRmExtRouteTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.18",
+    "class": "objectidentity"
+  },
+  "hwRmExtRouteTraps": {
+    "name": "hwRmExtRouteTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19",
+    "class": "objectidentity"
+  },
+  "hwPublicIpv4PrefixLimitTraps": {
+    "name": "hwPublicIpv4PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1",
+    "class": "objectidentity"
+  },
+  "hwPublicIpv4PrefixExceed": {
+    "name": "hwPublicIpv4PrefixExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixExceedClear": {
+    "name": "hwPublicIpv4PrefixExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixThresholdExceed": {
+    "name": "hwPublicIpv4PrefixThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixThresholdExceedClear": {
+    "name": "hwPublicIpv4PrefixThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixLimitTraps": {
+    "name": "hwPublicIpv6PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2",
+    "class": "objectidentity"
+  },
+  "hwPublicIpv6PrefixExceed": {
+    "name": "hwPublicIpv6PrefixExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixExceedClear": {
+    "name": "hwPublicIpv6PrefixExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixThresholdExceed": {
+    "name": "hwPublicIpv6PrefixThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixThresholdExceedClear": {
+    "name": "hwPublicIpv6PrefixThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixLimitTraps": {
+    "name": "hwL3vpnIpv6PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3",
+    "class": "objectidentity"
+  },
+  "hwL3vpnIpv6PrefixExceed": {
+    "name": "hwL3vpnIpv6PrefixExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixExceedClear": {
+    "name": "hwL3vpnIpv6PrefixExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixThresholdExceed": {
+    "name": "hwL3vpnIpv6PrefixThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRmExtRouteConformance": {
+    "name": "hwRmExtRouteConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20",
+    "class": "objectidentity"
+  },
+  "hwRmExtRouteCompliances": {
+    "name": "hwRmExtRouteCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwPublicIpv4PrefixLimitNotificationGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwPublicIpv4PrefixLimitObjectGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwPublicIpv6PrefixLimitNotificationGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      },
+      {
+        "object": "hwPublicIpv6PrefixLimitObjectGroup",
+        "module": "HUAWEI-RM-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRmExtRouteGroup": {
+    "name": "hwRmExtRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2",
+    "class": "objectidentity"
+  },
+  "hwPublicIpv4PrefixLimitGroup": {
+    "name": "hwPublicIpv4PrefixLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.1",
+    "class": "objectidentity"
+  },
+  "hwPublicIpv4PrefixLimitNotificationGroup": {
+    "name": "hwPublicIpv4PrefixLimitNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixThresholdExceedClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixLimitObjectGroup": {
+    "name": "hwPublicIpv4PrefixLimitObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixLimitGroup": {
+    "name": "hwPublicIpv6PrefixLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.2",
+    "class": "objectidentity"
+  },
+  "hwPublicIpv6PrefixLimitNotificationGroup": {
+    "name": "hwPublicIpv6PrefixLimitNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixThresholdExceedClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixLimitObjectGroup": {
+    "name": "hwPublicIpv6PrefixLimitObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixLimitGroup": {
+    "name": "hwL3vpnIpv6PrefixLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.3",
+    "class": "objectidentity"
+  },
+  "hwL3vpnIpv6PrefixLimitNotificationGroup": {
+    "name": "hwL3vpnIpv6PrefixLimitNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnIpv6PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnIpv6PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnIpv6PrefixThresholdExceed"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixLimitObjectGroup": {
+    "name": "hwL3vpnIpv6PrefixLimitObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnMacObjects": {
+    "name": "hwEvpnMacObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21",
+    "class": "objectidentity"
+  },
+  "hwMacLimitEvpnName": {
+    "name": "hwMacLimitEvpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCurMacNum": {
+    "name": "hwCurMacNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnMacUpperLimitValue": {
+    "name": "hwEvpnMacUpperLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnMacLowerLimitValue": {
+    "name": "hwEvpnMacLowerLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnMacLimitValue": {
+    "name": "hwEvpnMacLimitValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnMacLimitTraps": {
+    "name": "hwEvpnMacLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22",
+    "class": "objectidentity"
+  },
+  "hwEvpnMacExceed": {
+    "name": "hwEvpnMacExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnMacExceedClear": {
+    "name": "hwEvpnMacExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnMacThresholdExceed": {
+    "name": "hwEvpnMacThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnMacThresholdExceedClear": {
+    "name": "hwEvpnMacThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnMacLimitConformance": {
+    "name": "hwEvpnMacLimitConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.23",
+    "class": "objectidentity"
+  },
+  "hwEvpnMacLimitNotificationGroup": {
+    "name": "hwEvpnMacLimitNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.23.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacThresholdExceedClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnMacLimitObjectGroup": {
+    "name": "hwEvpnMacLimitObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.23.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacUpperLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLowerLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNhmRestrainObjects": {
+    "name": "hwNhmRestrainObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.24",
+    "class": "objectidentity"
+  },
+  "hwNhmRestrainType": {
+    "name": "hwNhmRestrainType",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerelay": 1,
+          "tunnelrelay": 2,
+          "ipv6routerelay": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNhmRestrainKey": {
+    "name": "hwNhmRestrainKey",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNhmRestrainVpnName": {
+    "name": "hwNhmRestrainVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNhmRestrainNextHop": {
+    "name": "hwNhmRestrainNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwNhmRestrainTraps": {
+    "name": "hwNhmRestrainTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.25",
+    "class": "objectidentity"
+  },
+  "hwNhmRestrain": {
+    "name": "hwNhmRestrain",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.25.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainType"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainKey"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainNextHop"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNhmRestrainClear": {
+    "name": "hwNhmRestrainClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.25.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainType"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainKey"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNhmRestrainTrapConformance": {
+    "name": "hwNhmRestrainTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.26",
+    "class": "objectidentity"
+  },
+  "hwNhmRestrainNotificationGroup": {
+    "name": "hwNhmRestrainNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.26.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrain"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNhmRestrainObjectGroup": {
+    "name": "hwNhmRestrainObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.26.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainType"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainKey"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwNhmRestrainNextHop"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVlinkImportObjects": {
+    "name": "hwVlinkImportObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.27",
+    "class": "objectidentity"
+  },
+  "hwVlinkImportCurNumber": {
+    "name": "hwVlinkImportCurNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.27.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVlinkImportMaxNumber": {
+    "name": "hwVlinkImportMaxNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.27.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVlinkTraps": {
+    "name": "hwVlinkTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.28",
+    "class": "objectidentity"
+  },
+  "hwVlinkImportExceed": {
+    "name": "hwVlinkImportExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.28.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVlinkImportCurNumber"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVlinkImportMaxNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVlinkImportConformance": {
+    "name": "hwVlinkImportConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.29",
+    "class": "objectidentity"
+  },
+  "hwVlinkImportNotificationGroup": {
+    "name": "hwVlinkImportNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.29.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVlinkImportExceed"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVlinkImportObjectGroup": {
+    "name": "hwVlinkImportObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.29.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVlinkImportCurNumber"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVlinkImportMaxNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFibStatisticObject": {
+    "name": "hwFibStatisticObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30",
+    "class": "objectidentity"
+  },
+  "hwFibStatisticsTable": {
+    "name": "hwFibStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFibStatisticsEntry": {
+    "name": "hwFibStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwFibSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFibSlot": {
+    "name": "hwFibSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPv4FibNum": {
+    "name": "hwIPv4FibNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPv4FibUsage": {
+    "name": "hwIPv4FibUsage",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPv6FibNum": {
+    "name": "hwIPv6FibNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPv6FibUsage": {
+    "name": "hwIPv6FibUsage",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.30.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-RM-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-RM-EXT-MIB"
+  }
+}

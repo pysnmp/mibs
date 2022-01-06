@@ -1,0 +1,2765 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfIPsecMonitorV2": {
+    "name": "hpnicfIPsecMonitorV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-06-27 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "HpnicfIPsecDiffHellmanGrpV2": {
+    "name": "HpnicfIPsecDiffHellmanGrpV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "dhGroup1": 1,
+          "dhGroup2": 2,
+          "dhGroup5": 5,
+          "dhGroup14": 14,
+          "dhGroup24": 24,
+          "invalidGroup": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecEncapModeV2": {
+    "name": "HpnicfIPsecEncapModeV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunnel": 1,
+          "transport": 2,
+          "invalidMode": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecEncryptAlgoV2": {
+    "name": "HpnicfIPsecEncryptAlgoV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "desCbc": 1,
+          "ideaCbc": 2,
+          "blowfishCbc": 3,
+          "rc5R16B64Cbc": 4,
+          "tripleDesCbc": 5,
+          "castCbc": 6,
+          "aesCbc": 7,
+          "nsaCbc": 8,
+          "aesCbc128": 9,
+          "aesCbc192": 10,
+          "aesCbc256": 11,
+          "aesCtr": 12,
+          "aesCamelliaCbc": 13,
+          "rc4": 14,
+          "invalidAlg": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecAuthAlgoV2": {
+    "name": "HpnicfIPsecAuthAlgoV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "md5": 1,
+          "sha1": 2,
+          "sha256": 3,
+          "sha384": 4,
+          "sha512": 5,
+          "invalidAlg": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecSaProtocolV2": {
+    "name": "HpnicfIPsecSaProtocolV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 0,
+          "ah": 2,
+          "esp": 3,
+          "ipcomp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecIDTypeV2": {
+    "name": "HpnicfIPsecIDTypeV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 0,
+          "ipv4Addr": 1,
+          "fqdn": 2,
+          "userFqdn": 3,
+          "ipv4AddrSubnet": 4,
+          "ipv6Addr": 5,
+          "ipv6AddrSubnet": 6,
+          "ipv4AddrRange": 7,
+          "ipv6AddrRange": 8,
+          "derAsn1Dn": 9,
+          "derAsn1Gn": 10,
+          "keyId": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecTrafficTypeV2": {
+    "name": "HpnicfIPsecTrafficTypeV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4Addr": 1,
+          "ipv4AddrSubnet": 4,
+          "ipv6Addr": 5,
+          "ipv6AddrSubnet": 6,
+          "ipv4AddrRange": 7,
+          "ipv6AddrRange": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecNegoTypeV2": {
+    "name": "HpnicfIPsecNegoTypeV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ike": 1,
+          "manual": 2,
+          "invalidType": 2147483647
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfIPsecTunnelStateV2": {
+    "name": "HpnicfIPsecTunnelStateV2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "timeout": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfIPsecObjectsV2": {
+    "name": "hpnicfIPsecObjectsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecScalarObjectsV2": {
+    "name": "hpnicfIPsecScalarObjectsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecMIBVersion": {
+    "name": "hpnicfIPsecMIBVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelV2Table": {
+    "name": "hpnicfIPsecTunnelV2Table",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelV2Entry": {
+    "name": "hpnicfIPsecTunnelV2Entry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTunIndexV2": {
+    "name": "hpnicfIPsecTunIndexV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIfIndexV2": {
+    "name": "hpnicfIPsecTunIfIndexV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIKETunnelIndexV2": {
+    "name": "hpnicfIPsecTunIKETunnelIndexV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIKETunLocalIDTypeV2": {
+    "name": "hpnicfIPsecTunIKETunLocalIDTypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecIDTypeV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIKETunLocalIDVal1V2": {
+    "name": "hpnicfIPsecTunIKETunLocalIDVal1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIKETunLocalIDVal2V2": {
+    "name": "hpnicfIPsecTunIKETunLocalIDVal2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIKETunRemoteIDTypeV2": {
+    "name": "hpnicfIPsecTunIKETunRemoteIDTypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecIDTypeV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIKETunRemoteIDVal1V2": {
+    "name": "hpnicfIPsecTunIKETunRemoteIDVal1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunIKETunRemoteIDVal2V2": {
+    "name": "hpnicfIPsecTunIKETunRemoteIDVal2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunLocalAddrTypeV2": {
+    "name": "hpnicfIPsecTunLocalAddrTypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunLocalAddrV2": {
+    "name": "hpnicfIPsecTunLocalAddrV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunRemoteAddrTypeV2": {
+    "name": "hpnicfIPsecTunRemoteAddrTypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunRemoteAddrV2": {
+    "name": "hpnicfIPsecTunRemoteAddrV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunKeyTypeV2": {
+    "name": "hpnicfIPsecTunKeyTypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecNegoTypeV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunEncapModeV2": {
+    "name": "hpnicfIPsecTunEncapModeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecEncapModeV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInitiatorV2": {
+    "name": "hpnicfIPsecTunInitiatorV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2,
+          "none": 2147483647
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunLifeSizeV2": {
+    "name": "hpnicfIPsecTunLifeSizeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunLifeTimeV2": {
+    "name": "hpnicfIPsecTunLifeTimeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunRemainTimeV2": {
+    "name": "hpnicfIPsecTunRemainTimeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunActiveTimeV2": {
+    "name": "hpnicfIPsecTunActiveTimeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunRemainSizeV2": {
+    "name": "hpnicfIPsecTunRemainSizeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunTotalRefreshesV2": {
+    "name": "hpnicfIPsecTunTotalRefreshesV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunCurrentSaInstancesV2": {
+    "name": "hpnicfIPsecTunCurrentSaInstancesV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInSaEncryptAlgoV2": {
+    "name": "hpnicfIPsecTunInSaEncryptAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecEncryptAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInSaAhAuthAlgoV2": {
+    "name": "hpnicfIPsecTunInSaAhAuthAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecAuthAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInSaEspAuthAlgoV2": {
+    "name": "hpnicfIPsecTunInSaEspAuthAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecAuthAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunDiffHellmanGrpV2": {
+    "name": "hpnicfIPsecTunDiffHellmanGrpV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecDiffHellmanGrpV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutSaEncryptAlgoV2": {
+    "name": "hpnicfIPsecTunOutSaEncryptAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecEncryptAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutSaAhAuthAlgoV2": {
+    "name": "hpnicfIPsecTunOutSaAhAuthAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecAuthAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutSaEspAuthAlgoV2": {
+    "name": "hpnicfIPsecTunOutSaEspAuthAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecAuthAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunPolicyNameV2": {
+    "name": "hpnicfIPsecTunPolicyNameV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunPolicyNumV2": {
+    "name": "hpnicfIPsecTunPolicyNumV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunStatusV2": {
+    "name": "hpnicfIPsecTunStatusV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 1,
+          "ready": 2,
+          "rekeyed": 3,
+          "closed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelStatV2Table": {
+    "name": "hpnicfIPsecTunnelStatV2Table",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelStatV2Entry": {
+    "name": "hpnicfIPsecTunnelStatV2Entry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTunInOctetsV2": {
+    "name": "hpnicfIPsecTunInOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInDecompOctetsV2": {
+    "name": "hpnicfIPsecTunInDecompOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInPktsV2": {
+    "name": "hpnicfIPsecTunInPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInDropPktsV2": {
+    "name": "hpnicfIPsecTunInDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInReplayDropPktsV2": {
+    "name": "hpnicfIPsecTunInReplayDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInAuthFailsV2": {
+    "name": "hpnicfIPsecTunInAuthFailsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInDecryptFailsV2": {
+    "name": "hpnicfIPsecTunInDecryptFailsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutOctetsV2": {
+    "name": "hpnicfIPsecTunOutOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutUncompOctetsV2": {
+    "name": "hpnicfIPsecTunOutUncompOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutPktsV2": {
+    "name": "hpnicfIPsecTunOutPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutDropPktsV2": {
+    "name": "hpnicfIPsecTunOutDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunOutEncryptFailsV2": {
+    "name": "hpnicfIPsecTunOutEncryptFailsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunNoMemoryDropPktsV2": {
+    "name": "hpnicfIPsecTunNoMemoryDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunQueueFullDropPktsV2": {
+    "name": "hpnicfIPsecTunQueueFullDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInvalidLenDropPktsV2": {
+    "name": "hpnicfIPsecTunInvalidLenDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunTooLongDropPktsV2": {
+    "name": "hpnicfIPsecTunTooLongDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTunInvalidSaDropPktsV2": {
+    "name": "hpnicfIPsecTunInvalidSaDropPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecSaV2Table": {
+    "name": "hpnicfIPsecSaV2Table",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIPsecSaV2Entry": {
+    "name": "hpnicfIPsecSaV2Entry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaIndexV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecSaIndexV2": {
+    "name": "hpnicfIPsecSaIndexV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIPsecSaDirectionV2": {
+    "name": "hpnicfIPsecSaDirectionV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecSaSpiValueV2": {
+    "name": "hpnicfIPsecSaSpiValueV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecSaSecProtocolV2": {
+    "name": "hpnicfIPsecSaSecProtocolV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecSaProtocolV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecSaEncryptAlgoV2": {
+    "name": "hpnicfIPsecSaEncryptAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecEncryptAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecSaAuthAlgoV2": {
+    "name": "hpnicfIPsecSaAuthAlgoV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecAuthAlgoV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecSaStatusV2": {
+    "name": "hpnicfIPsecSaStatusV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "expiring": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficV2Table": {
+    "name": "hpnicfIPsecTrafficV2Table",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficV2Entry": {
+    "name": "hpnicfIPsecTrafficV2Entry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalTypeV2": {
+    "name": "hpnicfIPsecTrafficLocalTypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecTrafficTypeV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalAddr1TypeV2": {
+    "name": "hpnicfIPsecTrafficLocalAddr1TypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalAddr1V2": {
+    "name": "hpnicfIPsecTrafficLocalAddr1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalAddr2TypeV2": {
+    "name": "hpnicfIPsecTrafficLocalAddr2TypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalAddr2V2": {
+    "name": "hpnicfIPsecTrafficLocalAddr2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalProtocol1V2": {
+    "name": "hpnicfIPsecTrafficLocalProtocol1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalProtocol2V2": {
+    "name": "hpnicfIPsecTrafficLocalProtocol2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalPort1V2": {
+    "name": "hpnicfIPsecTrafficLocalPort1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficLocalPort2V2": {
+    "name": "hpnicfIPsecTrafficLocalPort2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemoteTypeV2": {
+    "name": "hpnicfIPsecTrafficRemoteTypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfIPsecTrafficTypeV2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemAddr1TypeV2": {
+    "name": "hpnicfIPsecTrafficRemAddr1TypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemAddr1V2": {
+    "name": "hpnicfIPsecTrafficRemAddr1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemAddr2TypeV2": {
+    "name": "hpnicfIPsecTrafficRemAddr2TypeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemAddr2V2": {
+    "name": "hpnicfIPsecTrafficRemAddr2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemoPro1V2": {
+    "name": "hpnicfIPsecTrafficRemoPro1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemoPro2V2": {
+    "name": "hpnicfIPsecTrafficRemoPro2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemPort1V2": {
+    "name": "hpnicfIPsecTrafficRemPort1V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficRemPort2V2": {
+    "name": "hpnicfIPsecTrafficRemPort2V2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalStatsV2": {
+    "name": "hpnicfIPsecGlobalStatsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecGlobalActiveTunnelsV2": {
+    "name": "hpnicfIPsecGlobalActiveTunnelsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalActiveSasV2": {
+    "name": "hpnicfIPsecGlobalActiveSasV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInOctetsV2": {
+    "name": "hpnicfIPsecGlobalInOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInDecompOctetsV2": {
+    "name": "hpnicfIPsecGlobalInDecompOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInPktsV2": {
+    "name": "hpnicfIPsecGlobalInPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInDropsV2": {
+    "name": "hpnicfIPsecGlobalInDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInReplayDropsV2": {
+    "name": "hpnicfIPsecGlobalInReplayDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInAuthFailsV2": {
+    "name": "hpnicfIPsecGlobalInAuthFailsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInDecryptFailsV2": {
+    "name": "hpnicfIPsecGlobalInDecryptFailsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalOutOctetsV2": {
+    "name": "hpnicfIPsecGlobalOutOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalOutUncompOctetsV2": {
+    "name": "hpnicfIPsecGlobalOutUncompOctetsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalOutPktsV2": {
+    "name": "hpnicfIPsecGlobalOutPktsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalOutDropsV2": {
+    "name": "hpnicfIPsecGlobalOutDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalOutEncryptFailsV2": {
+    "name": "hpnicfIPsecGlobalOutEncryptFailsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalNoMemoryDropsV2": {
+    "name": "hpnicfIPsecGlobalNoMemoryDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalNoFindSaDropsV2": {
+    "name": "hpnicfIPsecGlobalNoFindSaDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalQueueFullDropsV2": {
+    "name": "hpnicfIPsecGlobalQueueFullDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInvalidLenDropsV2": {
+    "name": "hpnicfIPsecGlobalInvalidLenDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalTooLongDropsV2": {
+    "name": "hpnicfIPsecGlobalTooLongDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalInvalidSaDropsV2": {
+    "name": "hpnicfIPsecGlobalInvalidSaDropsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIPsecTrapObjectV2": {
+    "name": "hpnicfIPsecTrapObjectV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.7",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecPolicyNameV2": {
+    "name": "hpnicfIPsecPolicyNameV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIPsecPolicySeqNumV2": {
+    "name": "hpnicfIPsecPolicySeqNumV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIPsecPolicySizeV2": {
+    "name": "hpnicfIPsecPolicySizeV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIPsecTrapCntlV2": {
+    "name": "hpnicfIPsecTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecTrapGlobalCntlV2": {
+    "name": "hpnicfIPsecTrapGlobalCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelStartTrapCntlV2": {
+    "name": "hpnicfIPsecTunnelStartTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelStopTrapCntlV2": {
+    "name": "hpnicfIPsecTunnelStopTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecNoSaTrapCntlV2": {
+    "name": "hpnicfIPsecNoSaTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecAuthFailureTrapCntlV2": {
+    "name": "hpnicfIPsecAuthFailureTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecEncryFailureTrapCntlV2": {
+    "name": "hpnicfIPsecEncryFailureTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecDecryFailureTrapCntlV2": {
+    "name": "hpnicfIPsecDecryFailureTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecInvalidSaTrapCntlV2": {
+    "name": "hpnicfIPsecInvalidSaTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyAddTrapCntlV2": {
+    "name": "hpnicfIPsecPolicyAddTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyDelTrapCntlV2": {
+    "name": "hpnicfIPsecPolicyDelTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyAttachTrapCntlV2": {
+    "name": "hpnicfIPsecPolicyAttachTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyDetachTrapCntlV2": {
+    "name": "hpnicfIPsecPolicyDetachTrapCntlV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIPsecTrapV2": {
+    "name": "hpnicfIPsecTrapV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecNotificationsV2": {
+    "name": "hpnicfIPsecNotificationsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecTunnelStartV2": {
+    "name": "hpnicfIPsecTunnelStartV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLifeTimeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLifeSizeV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelStopV2": {
+    "name": "hpnicfIPsecTunnelStopV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunActiveTimeV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecNoSaFailureV2": {
+    "name": "hpnicfIPsecNoSaFailureV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecAuthFailFailureV2": {
+    "name": "hpnicfIPsecAuthFailFailureV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecEncryFailFailureV2": {
+    "name": "hpnicfIPsecEncryFailFailureV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecDecryFailFailureV2": {
+    "name": "hpnicfIPsecDecryFailFailureV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecInvalidSaFailureV2": {
+    "name": "hpnicfIPsecInvalidSaFailureV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaSpiValueV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyAddV2": {
+    "name": "hpnicfIPsecPolicyAddV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyNameV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySeqNumV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySizeV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyDelV2": {
+    "name": "hpnicfIPsecPolicyDelV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyNameV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySeqNumV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySizeV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyAttachV2": {
+    "name": "hpnicfIPsecPolicyAttachV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyNameV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySizeV2"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecPolicyDetachV2": {
+    "name": "hpnicfIPsecPolicyDetachV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.1.9.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyNameV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySizeV2"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecConformanceV2": {
+    "name": "hpnicfIPsecConformanceV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecCompliancesV2": {
+    "name": "hpnicfIPsecCompliancesV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecGroupsV2": {
+    "name": "hpnicfIPsecGroupsV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIPsecComplianceV2": {
+    "name": "hpnicfIPsecComplianceV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfIPsecScalarObjectsGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecTunnelTableGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecTunnelStatGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecSaGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecTrafficTableGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecGlobalStatsGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecTrapObjectGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecTrapCntlGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      },
+      {
+        "object": "hpnicfIPsecTrapGroupV2",
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecScalarObjectsGroupV2": {
+    "name": "hpnicfIPsecScalarObjectsGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecMIBVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelTableGroupV2": {
+    "name": "hpnicfIPsecTunnelTableGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIfIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIKETunnelIndexV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIKETunLocalIDTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIKETunLocalIDVal1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIKETunLocalIDVal2V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIKETunRemoteIDTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIKETunRemoteIDVal1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunIKETunRemoteIDVal2V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLocalAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemoteAddrV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunKeyTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunEncapModeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInitiatorV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLifeSizeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunLifeTimeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemainTimeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunActiveTimeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunRemainSizeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunTotalRefreshesV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunCurrentSaInstancesV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInSaEncryptAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInSaAhAuthAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInSaEspAuthAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunDiffHellmanGrpV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutSaEncryptAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutSaAhAuthAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutSaEspAuthAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunPolicyNameV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunPolicyNumV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunStatusV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTunnelStatGroupV2": {
+    "name": "hpnicfIPsecTunnelStatGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInDecompOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInDropPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInReplayDropPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInAuthFailsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInDecryptFailsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutUncompOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutDropPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunOutEncryptFailsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunNoMemoryDropPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunQueueFullDropPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInvalidLenDropPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunTooLongDropPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunInvalidSaDropPktsV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecSaGroupV2": {
+    "name": "hpnicfIPsecSaGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaDirectionV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaSpiValueV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaSecProtocolV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaEncryptAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaAuthAlgoV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecSaStatusV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTrafficTableGroupV2": {
+    "name": "hpnicfIPsecTrafficTableGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalAddr1TypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalAddr1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalAddr2TypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalAddr2V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalProtocol1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalProtocol2V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalPort1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficLocalPort2V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemoteTypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemAddr1TypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemAddr1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemAddr2TypeV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemAddr2V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemoPro1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemoPro2V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemPort1V2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrafficRemPort2V2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecGlobalStatsGroupV2": {
+    "name": "hpnicfIPsecGlobalStatsGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalActiveTunnelsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalActiveSasV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInDecompOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInReplayDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInAuthFailsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInDecryptFailsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalOutOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalOutUncompOctetsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalOutPktsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalOutDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalOutEncryptFailsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalNoMemoryDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalNoFindSaDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalQueueFullDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInvalidLenDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalTooLongDropsV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecGlobalInvalidSaDropsV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTrapObjectGroupV2": {
+    "name": "hpnicfIPsecTrapObjectGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyNameV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySeqNumV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicySizeV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTrapCntlGroupV2": {
+    "name": "hpnicfIPsecTrapCntlGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTrapGlobalCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunnelStartTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunnelStopTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecNoSaTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecAuthFailureTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecEncryFailureTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecDecryFailureTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecInvalidSaTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyAddTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyDelTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyAttachTrapCntlV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyDetachTrapCntlV2"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIPsecTrapGroupV2": {
+    "name": "hpnicfIPsecTrapGroupV2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.126.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunnelStartV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecTunnelStopV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecNoSaFailureV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecAuthFailFailureV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecEncryFailFailureV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecDecryFailFailureV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecInvalidSaFailureV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyAddV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyDelV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyAttachV2"
+      },
+      {
+        "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB",
+        "object": "hpnicfIPsecPolicyDetachV2"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-IPSEC-MONITOR-V2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-IPSEC-MONITOR-V2-MIB"
+  }
+}

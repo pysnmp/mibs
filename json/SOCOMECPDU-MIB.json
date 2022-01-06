@@ -1,0 +1,1133 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "socomec": {
+    "name": "socomec",
+    "oid": "1.3.6.1.4.1.4555",
+    "class": "objectidentity"
+  },
+  "ups": {
+    "name": "ups",
+    "oid": "1.3.6.1.4.1.4555.2",
+    "class": "objectidentity"
+  },
+  "pdu": {
+    "name": "pdu",
+    "oid": "1.3.6.1.4.1.4555.2.30",
+    "class": "objectidentity"
+  },
+  "dpduIdent": {
+    "name": "dpduIdent",
+    "oid": "1.3.6.1.4.1.4555.2.30.1",
+    "class": "objectidentity"
+  },
+  "dpduOutput": {
+    "name": "dpduOutput",
+    "oid": "1.3.6.1.4.1.4555.2.30.2",
+    "class": "objectidentity"
+  },
+  "dpduAlarm": {
+    "name": "dpduAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.3",
+    "class": "objectidentity"
+  },
+  "dpduEnvironment": {
+    "name": "dpduEnvironment",
+    "oid": "1.3.6.1.4.1.4555.2.30.4",
+    "class": "objectidentity"
+  },
+  "dpduTraps": {
+    "name": "dpduTraps",
+    "oid": "1.3.6.1.4.1.4555.2.30.20",
+    "class": "objectidentity"
+  },
+  "dpduIdentManufacturer": {
+    "name": "dpduIdentManufacturer",
+    "oid": "1.3.6.1.4.1.4555.2.30.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduIdentModel": {
+    "name": "dpduIdentModel",
+    "oid": "1.3.6.1.4.1.4555.2.30.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduIdentSerialNumber": {
+    "name": "dpduIdentSerialNumber",
+    "oid": "1.3.6.1.4.1.4555.2.30.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduIdentPDUFirmwareVersion": {
+    "name": "dpduIdentPDUFirmwareVersion",
+    "oid": "1.3.6.1.4.1.4555.2.30.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduIdentAgentSoftwareVersion": {
+    "name": "dpduIdentAgentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.4555.2.30.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduIdentName": {
+    "name": "dpduIdentName",
+    "oid": "1.3.6.1.4.1.4555.2.30.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduAttachedDevices": {
+    "name": "dpduAttachedDevices",
+    "oid": "1.3.6.1.4.1.4555.2.30.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduOutputFrequency": {
+    "name": "dpduOutputFrequency",
+    "oid": "1.3.6.1.4.1.4555.2.30.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduOutputVoltage1": {
+    "name": "dpduOutputVoltage1",
+    "oid": "1.3.6.1.4.1.4555.2.30.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduOutputCurrent1": {
+    "name": "dpduOutputCurrent1",
+    "oid": "1.3.6.1.4.1.4555.2.30.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduOutputVoltage2": {
+    "name": "dpduOutputVoltage2",
+    "oid": "1.3.6.1.4.1.4555.2.30.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduOutputCurrent2": {
+    "name": "dpduOutputCurrent2",
+    "oid": "1.3.6.1.4.1.4555.2.30.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduOutputVoltage3": {
+    "name": "dpduOutputVoltage3",
+    "oid": "1.3.6.1.4.1.4555.2.30.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 V",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduOutputCurrent3": {
+    "name": "dpduOutputCurrent3",
+    "oid": "1.3.6.1.4.1.4555.2.30.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 A",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmDisconnect": {
+    "name": "dpduAlarmDisconnect",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL1LoadMajor": {
+    "name": "dpduAlarmL1LoadMajor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL1LoadMinor": {
+    "name": "dpduAlarmL1LoadMinor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL1OutVoltMajor": {
+    "name": "dpduAlarmL1OutVoltMajor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL1OutVoltMinor": {
+    "name": "dpduAlarmL1OutVoltMinor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL2LoadMajor": {
+    "name": "dpduAlarmL2LoadMajor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL2LoadMinor": {
+    "name": "dpduAlarmL2LoadMinor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL2OutVoltMajor": {
+    "name": "dpduAlarmL2OutVoltMajor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL2OutVoltMinor": {
+    "name": "dpduAlarmL2OutVoltMinor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL3LoadMajor": {
+    "name": "dpduAlarmL3LoadMajor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL3LoadMinor": {
+    "name": "dpduAlarmL3LoadMinor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL3OutVoltMajor": {
+    "name": "dpduAlarmL3OutVoltMajor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL3OutVoltMinor": {
+    "name": "dpduAlarmL3OutVoltMinor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL12LoadMajor": {
+    "name": "dpduAlarmL12LoadMajor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmL12LoadMinor": {
+    "name": "dpduAlarmL12LoadMinor",
+    "oid": "1.3.6.1.4.1.4555.2.30.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduEnvTemperature": {
+    "name": "dpduEnvTemperature",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "0.1 Degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduEnvHumidity": {
+    "name": "dpduEnvHumidity",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduEnvSetTemperatureWarnLimit": {
+    "name": "dpduEnvSetTemperatureWarnLimit",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduEnvSetTemperatureAlarmLimit": {
+    "name": "dpduEnvSetTemperatureAlarmLimit",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduEnvSetHumidityWarnLimit": {
+    "name": "dpduEnvSetHumidityWarnLimit",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduEnvSetHumidityAlarmLimit": {
+    "name": "dpduEnvSetHumidityAlarmLimit",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduEnvSetEnvRelay1": {
+    "name": "dpduEnvSetEnvRelay1",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduEnvSetEnvRelay2": {
+    "name": "dpduEnvSetEnvRelay2",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduEnvSetEnvRelay3": {
+    "name": "dpduEnvSetEnvRelay3",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduEnvSetEnvRelay4": {
+    "name": "dpduEnvSetEnvRelay4",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOpen": 0,
+          "normalClose": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dpduWarnOverEnvTemperature": {
+    "name": "dpduWarnOverEnvTemperature",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmOverEnvTemperature": {
+    "name": "dpduAlarmOverEnvTemperature",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduWarnmOverEnvHumidity": {
+    "name": "dpduWarnmOverEnvHumidity",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmOverEnvHumidity": {
+    "name": "dpduAlarmOverEnvHumidity",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmEnvRelay1": {
+    "name": "dpduAlarmEnvRelay1",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmEnvRelay2": {
+    "name": "dpduAlarmEnvRelay2",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmEnvRelay3": {
+    "name": "dpduAlarmEnvRelay3",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmEnvRelay4": {
+    "name": "dpduAlarmEnvRelay4",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduAlarmEnvDisconnect": {
+    "name": "dpduAlarmEnvDisconnect",
+    "oid": "1.3.6.1.4.1.4555.2.30.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dpduCommunicationLost": {
+    "name": "dpduCommunicationLost",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.1",
+    "class": "notificationtype"
+  },
+  "dpduCommunicationEstablished": {
+    "name": "dpduCommunicationEstablished",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.2",
+    "class": "notificationtype"
+  },
+  "dpduL1LoadMajorAlarm": {
+    "name": "dpduL1LoadMajorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.3",
+    "class": "notificationtype"
+  },
+  "dpduL1LoadMajorAlarmRecover": {
+    "name": "dpduL1LoadMajorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.4",
+    "class": "notificationtype"
+  },
+  "dpduL1LoadMinorAlarm": {
+    "name": "dpduL1LoadMinorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.5",
+    "class": "notificationtype"
+  },
+  "dpduL1LoadMinorAlarmRecover": {
+    "name": "dpduL1LoadMinorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.6",
+    "class": "notificationtype"
+  },
+  "dpduL1OutVoltMajorAlarm": {
+    "name": "dpduL1OutVoltMajorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.7",
+    "class": "notificationtype"
+  },
+  "dpduL1OutVoltMajorAlarmRecover": {
+    "name": "dpduL1OutVoltMajorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.8",
+    "class": "notificationtype"
+  },
+  "dpduL1OutVoltMinorAlarm": {
+    "name": "dpduL1OutVoltMinorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.9",
+    "class": "notificationtype"
+  },
+  "dpduL1OutVoltMinorAlarmRecover": {
+    "name": "dpduL1OutVoltMinorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.10",
+    "class": "notificationtype"
+  },
+  "dpduL2LoadMajorAlarm": {
+    "name": "dpduL2LoadMajorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.11",
+    "class": "notificationtype"
+  },
+  "dpduL2LoadMajorAlarmRecover": {
+    "name": "dpduL2LoadMajorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.12",
+    "class": "notificationtype"
+  },
+  "dpduL2LoadMinorAlarm": {
+    "name": "dpduL2LoadMinorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.13",
+    "class": "notificationtype"
+  },
+  "dpduL2LoadMinorAlarmRecover": {
+    "name": "dpduL2LoadMinorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.14",
+    "class": "notificationtype"
+  },
+  "dpduL2OutVoltMajorAlarm": {
+    "name": "dpduL2OutVoltMajorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.15",
+    "class": "notificationtype"
+  },
+  "dpduL2OutVoltMajorAlarmRecover": {
+    "name": "dpduL2OutVoltMajorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.16",
+    "class": "notificationtype"
+  },
+  "dpduL2OutVoltMinorAlarm": {
+    "name": "dpduL2OutVoltMinorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.17",
+    "class": "notificationtype"
+  },
+  "dpduL2OutVoltMinorAlarmRecover": {
+    "name": "dpduL2OutVoltMinorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.18",
+    "class": "notificationtype"
+  },
+  "dpduL3LoadMajorAlarm": {
+    "name": "dpduL3LoadMajorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.19",
+    "class": "notificationtype"
+  },
+  "dpduL3LoadMajorAlarmRecover": {
+    "name": "dpduL3LoadMajorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.20",
+    "class": "notificationtype"
+  },
+  "dpduL3LoadMinorAlarm": {
+    "name": "dpduL3LoadMinorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.21",
+    "class": "notificationtype"
+  },
+  "dpduL3LoadMinorAlarmRecover": {
+    "name": "dpduL3LoadMinorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.22",
+    "class": "notificationtype"
+  },
+  "dpduL3OutVoltMajorAlarm": {
+    "name": "dpduL3OutVoltMajorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.23",
+    "class": "notificationtype"
+  },
+  "dpduL3OutVoltMajorAlarmRecover": {
+    "name": "dpduL3OutVoltMajorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.24",
+    "class": "notificationtype"
+  },
+  "dpduL3OutVoltMinorAlarm": {
+    "name": "dpduL3OutVoltMinorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.25",
+    "class": "notificationtype"
+  },
+  "dpduL3OutVoltMinorAlarmRecover": {
+    "name": "dpduL3OutVoltMinorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.26",
+    "class": "notificationtype"
+  },
+  "dpduL12LoadMajorAlarm": {
+    "name": "dpduL12LoadMajorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.27",
+    "class": "notificationtype"
+  },
+  "dpduL12LoadMajorAlarmRecover": {
+    "name": "dpduL12LoadMajorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.28",
+    "class": "notificationtype"
+  },
+  "dpduL12LoadMinorAlarm": {
+    "name": "dpduL12LoadMinorAlarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.29",
+    "class": "notificationtype"
+  },
+  "dpduL12LoadMinorAlarmRecover": {
+    "name": "dpduL12LoadMinorAlarmRecover",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.30",
+    "class": "notificationtype"
+  },
+  "dpduEnvCommunicationLost": {
+    "name": "dpduEnvCommunicationLost",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.31",
+    "class": "notificationtype"
+  },
+  "dpduEnvCommunicationEstablished": {
+    "name": "dpduEnvCommunicationEstablished",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.32",
+    "class": "notificationtype"
+  },
+  "dpduEnvOverWarnTemperature": {
+    "name": "dpduEnvOverWarnTemperature",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.33",
+    "class": "notificationtype"
+  },
+  "dpduNoLongerEnvOverWarnTemperature": {
+    "name": "dpduNoLongerEnvOverWarnTemperature",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.34",
+    "class": "notificationtype"
+  },
+  "dpduEnvOverWarnHumidity": {
+    "name": "dpduEnvOverWarnHumidity",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.35",
+    "class": "notificationtype"
+  },
+  "dpduNoLongerEnvOverWarnHumidity": {
+    "name": "dpduNoLongerEnvOverWarnHumidity",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.36",
+    "class": "notificationtype"
+  },
+  "dpduEnvOverAlarmTemperature": {
+    "name": "dpduEnvOverAlarmTemperature",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.37",
+    "class": "notificationtype"
+  },
+  "dpduNoLongerEnvOverAlarmTemperature": {
+    "name": "dpduNoLongerEnvOverAlarmTemperature",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.38",
+    "class": "notificationtype"
+  },
+  "dpduEnvOverAlarmHumidity": {
+    "name": "dpduEnvOverAlarmHumidity",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.39",
+    "class": "notificationtype"
+  },
+  "dpduNoLongerEnvOverAlarmHumidity": {
+    "name": "dpduNoLongerEnvOverAlarmHumidity",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.40",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay1Alarm": {
+    "name": "dpduEnvRelay1Alarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.41",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay1Normal": {
+    "name": "dpduEnvRelay1Normal",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.42",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay2Alarm": {
+    "name": "dpduEnvRelay2Alarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.43",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay2Normal": {
+    "name": "dpduEnvRelay2Normal",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.44",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay3Alarm": {
+    "name": "dpduEnvRelay3Alarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.45",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay3Normal": {
+    "name": "dpduEnvRelay3Normal",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.46",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay4Alarm": {
+    "name": "dpduEnvRelay4Alarm",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.47",
+    "class": "notificationtype"
+  },
+  "dpduEnvRelay4Normal": {
+    "name": "dpduEnvRelay4Normal",
+    "oid": "1.3.6.1.4.1.4555.2.30.200.48",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/socomec/SOCOMECPDU-MIB.mib",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SOCOMECPDU-MIB"
+  }
+}

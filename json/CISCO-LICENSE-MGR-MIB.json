@@ -1,0 +1,1135 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLicenseMgrMIB": {
+    "name": "ciscoLicenseMgrMIB",
+    "oid": "1.3.6.1.4.1.9.9.369",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-07-20 00:00",
+        "description": "Added a new object for detecting the license violation in the system."
+      },
+      {
+        "revision": "2003-11-27 00:00",
+        "description": "Updated the description of 'clmLicenseFileURI', 'clmLicenseFileTargetName' and 'clmLicenseConfigCommand' to include the 'update' license operation. Added one more new error code 'invalidPlatform' into the 'clmLicenseConfigCommandStatus' object."
+      },
+      {
+        "revision": "2003-10-30 00:00",
+        "description": "New objects for checkin/checkout a licensed feature have been added. New table 'clmFeatureUsageDetailsTable' has been added to show the list of applications, which are checked out the licensed features."
+      },
+      {
+        "revision": "2003-09-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLicenseMgrMIBObjects": {
+    "name": "ciscoLicenseMgrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.369.1",
+    "class": "objectidentity"
+  },
+  "ciscoLicenseMgrMIBConform": {
+    "name": "ciscoLicenseMgrMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.369.2",
+    "class": "objectidentity"
+  },
+  "ciscoLicenseMgrMIBNotifs": {
+    "name": "ciscoLicenseMgrMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.369.3",
+    "class": "objectidentity"
+  },
+  "ciscoLicenseMgrConfig": {
+    "name": "ciscoLicenseMgrConfig",
+    "oid": "1.3.6.1.4.1.9.9.369.1.1",
+    "class": "objectidentity"
+  },
+  "clmLicenseConfiguration": {
+    "name": "clmLicenseConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2",
+    "class": "objectidentity"
+  },
+  "clmLicenseInformation": {
+    "name": "clmLicenseInformation",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoLicenseMgrNotifications": {
+    "name": "ciscoLicenseMgrNotifications",
+    "oid": "1.3.6.1.4.1.9.9.369.3.0",
+    "class": "objectidentity"
+  },
+  "clmHostId": {
+    "name": "clmHostId",
+    "oid": "1.3.6.1.4.1.9.9.369.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseConfigSpinLock": {
+    "name": "clmLicenseConfigSpinLock",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseFileURI": {
+    "name": "clmLicenseFileURI",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseFileTargetName": {
+    "name": "clmLicenseFileTargetName",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseConfigCommand": {
+    "name": "clmLicenseConfigCommand",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "install": 1,
+          "uninstall": 2,
+          "noOp": 3,
+          "update": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseConfigCommandStatus": {
+    "name": "clmLicenseConfigCommandStatus",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "inProgress": 2,
+          "corruptedLicenseFile": 3,
+          "targetLicenseFileAlreadyExist": 4,
+          "invalidLicenseFileName": 5,
+          "duplicateLicense": 6,
+          "licenseInUse": 7,
+          "generalLicensingFailure": 8,
+          "none": 9,
+          "licenseExpiryConflict": 10,
+          "invalidLicenseCount": 11,
+          "notThisHost": 12,
+          "licenseInGraceMore": 13,
+          "licenseFileNotFound": 14,
+          "licenseFileMissing": 15,
+          "invalidLicenseFileExtension": 16,
+          "invalidURI": 17,
+          "noDemoLicenseSupport": 18,
+          "invalidPlatform": 19
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseRequestSpinLock": {
+    "name": "clmLicenseRequestSpinLock",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseRequestFeatureName": {
+    "name": "clmLicenseRequestFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseRequestAppName": {
+    "name": "clmLicenseRequestAppName",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseRequestCommand": {
+    "name": "clmLicenseRequestCommand",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "checkIn": 1,
+          "checkOut": 2,
+          "noOp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseRequestCommandStatus": {
+    "name": "clmLicenseRequestCommandStatus",
+    "oid": "1.3.6.1.4.1.9.9.369.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "none": 2,
+          "licenseDenied": 3,
+          "licenseTooMany": 4,
+          "generalLicensingFailure": 5,
+          "invalidFeature": 6,
+          "licenseExpired": 7,
+          "licenseServerDown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmNoOfLicenseFilesInstalled": {
+    "name": "clmNoOfLicenseFilesInstalled",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseFileContentsTable": {
+    "name": "clmLicenseFileContentsTable",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clmLicenseFileContentsEntry": {
+    "name": "clmLicenseFileContentsEntry",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileRowNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseFileName": {
+    "name": "clmLicenseFileName",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clmLicenseFileRowNumber": {
+    "name": "clmLicenseFileRowNumber",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clmLicenseFileTimeStamp": {
+    "name": "clmLicenseFileTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseFileNoOfRows": {
+    "name": "clmLicenseFileNoOfRows",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseFileRowContents": {
+    "name": "clmLicenseFileRowContents",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmNoOfLicensedFeatures": {
+    "name": "clmNoOfLicensedFeatures",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseFeatureUsageTable": {
+    "name": "clmLicenseFeatureUsageTable",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clmLicenseFeatureUsageEntry": {
+    "name": "clmLicenseFeatureUsageEntry",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFeatureName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseFeatureName": {
+    "name": "clmLicenseFeatureName",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clmLicenseFlag": {
+    "name": "clmLicenseFlag",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "demo": 0,
+        "permanent": 1,
+        "counted": 2,
+        "unlicensed": 3,
+        "inGracePeriod": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmNoOfLicenseMaxUsages": {
+    "name": "clmNoOfLicenseMaxUsages",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmNoOfMissingUsageLicenses": {
+    "name": "clmNoOfMissingUsageLicenses",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmNoOfLicenseCurrentUsages": {
+    "name": "clmNoOfLicenseCurrentUsages",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseExpiryDate": {
+    "name": "clmLicenseExpiryDate",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseGracePeriod": {
+    "name": "clmLicenseGracePeriod",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5184000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmFeatureUsageDetailsTable": {
+    "name": "clmFeatureUsageDetailsTable",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clmFeatureUsageDetailsEntry": {
+    "name": "clmFeatureUsageDetailsEntry",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFeatureName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicensedAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicensedAppIndex": {
+    "name": "clmLicensedAppIndex",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clmLicensedAppName": {
+    "name": "clmLicensedAppName",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmLicenseViolationWarnFlag": {
+    "name": "clmLicenseViolationWarnFlag",
+    "oid": "1.3.6.1.4.1.9.9.369.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clmNotificationsEnable": {
+    "name": "clmNotificationsEnable",
+    "oid": "1.3.6.1.4.1.9.9.369.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clmLicenseExpiryNotify": {
+    "name": "clmLicenseExpiryNotify",
+    "oid": "1.3.6.1.4.1.9.9.369.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseExpiryDate"
+      }
+    ],
+    "status": "current"
+  },
+  "clmNoLicenseForFeatureNotify": {
+    "name": "clmNoLicenseForFeatureNotify",
+    "oid": "1.3.6.1.4.1.9.9.369.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseGracePeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseFileMissingNotify": {
+    "name": "clmLicenseFileMissingNotify",
+    "oid": "1.3.6.1.4.1.9.9.369.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfMissingUsageLicenses"
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseExpiryWarningNotify": {
+    "name": "clmLicenseExpiryWarningNotify",
+    "oid": "1.3.6.1.4.1.9.9.369.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseExpiryDate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLicenseMgrCompliances": {
+    "name": "ciscoLicenseMgrCompliances",
+    "oid": "1.3.6.1.4.1.9.9.369.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLicenseMgrGroups": {
+    "name": "ciscoLicenseMgrGroups",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLicenseMgrCompliance": {
+    "name": "ciscoLicenseMgrCompliance",
+    "oid": "1.3.6.1.4.1.9.9.369.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clmLicenseInstallGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNoOfInstalledLicensesGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmLicenseInformationGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNotificationsEnableGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNotificationGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLicenseMgrCompliance1": {
+    "name": "ciscoLicenseMgrCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.369.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clmLicenseInstallGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmLicenseRequestGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNoOfInstalledLicensesGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmLicenseInformationGroup1",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNotificationsEnableGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNotificationGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLicenseMgrCompliance2": {
+    "name": "ciscoLicenseMgrCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.369.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clmLicenseInstallGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmLicenseRequestGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNoOfInstalledLicensesGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmLicenseInformationGroup2",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNotificationsEnableGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      },
+      {
+        "object": "clmNotificationGroup",
+        "module": "CISCO-LICENSE-MGR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseInstallGroup": {
+    "name": "clmLicenseInstallGroup",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmHostId"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseConfigSpinLock"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileURI"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileTargetName"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseConfigCommand"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseConfigCommandStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "clmNoOfInstalledLicensesGroup": {
+    "name": "clmNoOfInstalledLicensesGroup",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicenseFilesInstalled"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicensedFeatures"
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseInformationGroup": {
+    "name": "clmLicenseInformationGroup",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileTimeStamp"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileNoOfRows"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileRowContents"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFlag"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicenseMaxUsages"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfMissingUsageLicenses"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicenseCurrentUsages"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseExpiryDate"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseGracePeriod"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clmNotificationsEnableGroup": {
+    "name": "clmNotificationsEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNotificationsEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clmNotificationGroup": {
+    "name": "clmNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseExpiryNotify"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoLicenseForFeatureNotify"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileMissingNotify"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseExpiryWarningNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseRequestGroup": {
+    "name": "clmLicenseRequestGroup",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseRequestSpinLock"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseRequestFeatureName"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseRequestAppName"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseRequestCommand"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseRequestCommandStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "clmLicenseInformationGroup1": {
+    "name": "clmLicenseInformationGroup1",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileTimeStamp"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileNoOfRows"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileRowContents"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFlag"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicenseMaxUsages"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfMissingUsageLicenses"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicenseCurrentUsages"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseExpiryDate"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseGracePeriod"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicensedAppName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clmLicenseInformationGroup2": {
+    "name": "clmLicenseInformationGroup2",
+    "oid": "1.3.6.1.4.1.9.9.369.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileTimeStamp"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileNoOfRows"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFileRowContents"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseFlag"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicenseMaxUsages"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfMissingUsageLicenses"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmNoOfLicenseCurrentUsages"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseExpiryDate"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseGracePeriod"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicensedAppName"
+      },
+      {
+        "module": "CISCO-LICENSE-MGR-MIB",
+        "object": "clmLicenseViolationWarnFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LICENSE-MGR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LICENSE-MGR-MIB"
+  }
+}

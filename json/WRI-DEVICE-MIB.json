@@ -1,0 +1,1158 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
+    ],
+    "WRI-SMI": [
+      "wriProtocol",
+      "wriProducts"
+    ]
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    }
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RerRingDir": {
+    "name": "RerRingDir",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "west": 0,
+          "east": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EntryStatus": {
+    "name": "EntryStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "createRequest": 2,
+          "underCreation": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VlanIndex": {
+    "name": "VlanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VlanId": {
+    "name": "VlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "mspp": {
+    "name": "mspp",
+    "oid": "1.3.6.1.4.1.3807.1.8012",
+    "class": "objectidentity"
+  },
+  "msppChassis": {
+    "name": "msppChassis",
+    "oid": "1.3.6.1.4.1.3807.1.8012.1",
+    "class": "objectidentity"
+  },
+  "msppDev": {
+    "name": "msppDev",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2",
+    "class": "objectidentity"
+  },
+  "msppDevGeneral": {
+    "name": "msppDevGeneral",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1",
+    "class": "objectidentity"
+  },
+  "msppDevMac": {
+    "name": "msppDevMac",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevDescr": {
+    "name": "msppDevDescr",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevHwVersion": {
+    "name": "msppDevHwVersion",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevSwVersion": {
+    "name": "msppDevSwVersion",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevCardBits": {
+    "name": "msppDevCardBits",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevCardNum": {
+    "name": "msppDevCardNum",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevLastChange": {
+    "name": "msppDevLastChange",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevUpTime": {
+    "name": "msppDevUpTime",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevTime": {
+    "name": "msppDevTime",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevFlushMac": {
+    "name": "msppDevFlushMac",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevReboot": {
+    "name": "msppDevReboot",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reboot": 1,
+          "writeconfigandreboot": 2,
+          "writeconfigandrebootsys": 3,
+          "eraseconfigandreboot": 4,
+          "eraseconfigandrebootsys": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevCfgFile": {
+    "name": "msppDevCfgFile",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevCfgAction": {
+    "name": "msppDevCfgAction",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "write": 1,
+          "erase": 2,
+          "exec": 3,
+          "upgrade": 4,
+          "writestartup": 5,
+          "erasestartup": 6,
+          "execstartup": 7,
+          "upgradestartup": 8,
+          "writebackup": 9,
+          "erasebackup": 10,
+          "execbackup": 11,
+          "upgradebackup": 12,
+          "writeboth": 13,
+          "eraseboth": 14,
+          "upgradeboth": 15,
+          "recoverconfig": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevOsFile": {
+    "name": "msppDevOsFile",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevOsAction": {
+    "name": "msppDevOsAction",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upgradebootos": 1,
+          "upgradebootosandreboot": 2,
+          "upgrademainos": 3,
+          "upgradebakos": 4,
+          "upgradebothos": 5,
+          "recoverbootos": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevVer": {
+    "name": "msppDevVer",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mspp1": 1,
+          "mspp2EO": 2,
+          "mspp2O": 3,
+          "mspp3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevErrorBits": {
+    "name": "msppDevErrorBits",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevTemperatureLThreshold": {
+    "name": "msppDevTemperatureLThreshold",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevTemperatureHThreshold": {
+    "name": "msppDevTemperatureHThreshold",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevTemperature": {
+    "name": "msppDevTemperature",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevTemperatureTrapEnable": {
+    "name": "msppDevTemperatureTrapEnable",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevWRED": {
+    "name": "msppDevWRED",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevMirrorToPort": {
+    "name": "msppDevMirrorToPort",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevMirrorMode": {
+    "name": "msppDevMirrorMode",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevLcd": {
+    "name": "msppDevLcd",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevTDMVlan": {
+    "name": "msppDevTDMVlan",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevFtpd": {
+    "name": "msppDevFtpd",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevTelnetd": {
+    "name": "msppDevTelnetd",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevMirrorToRspanVid": {
+    "name": "msppDevMirrorToRspanVid",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevMirrorToTpid": {
+    "name": "msppDevMirrorToTpid",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppRebootFileMode": {
+    "name": "msppRebootFileMode",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 0,
+          "backup": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppFileExecMode": {
+    "name": "msppFileExecMode",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 0,
+          "backup": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppUpgradeBkOs": {
+    "name": "msppUpgradeBkOs",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 0,
+          "backup": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppInbandIp": {
+    "name": "msppInbandIp",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppOutbandIp": {
+    "name": "msppOutbandIp",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "resetEraseCfg": {
+    "name": "resetEraseCfg",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevLicenseEnable": {
+    "name": "msppDevLicenseEnable",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevLicenseKey": {
+    "name": "msppDevLicenseKey",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevSerialNum": {
+    "name": "msppDevSerialNum",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevMtu": {
+    "name": "msppDevMtu",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevFlushDynamicArp": {
+    "name": "msppDevFlushDynamicArp",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevFlushStaticArp": {
+    "name": "msppDevFlushStaticArp",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevFlushAllArp": {
+    "name": "msppDevFlushAllArp",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevBootOs": {
+    "name": "msppDevBootOs",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 0,
+          "backup": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevBootCfg": {
+    "name": "msppDevBootCfg",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 0,
+          "backup": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppl2HashMode": {
+    "name": "msppl2HashMode",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc32-upper": 1,
+          "crc32-lower": 2,
+          "lsb": 3,
+          "crc16-lower": 4,
+          "crc16-upper": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppl3HashMode": {
+    "name": "msppl3HashMode",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc32-upper": 1,
+          "crc32-lower": 2,
+          "lsb": 3,
+          "crc16-lower": 4,
+          "crc16-upper": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppl2AuxHashMode": {
+    "name": "msppl2AuxHashMode",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zero": 0,
+          "crc32-upper": 1,
+          "crc32-lower": 2,
+          "lsb": 3,
+          "crc16-lower": 4,
+          "crc16-upper": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppIpv4AddrNum": {
+    "name": "msppIpv4AddrNum",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevCode": {
+    "name": "msppDevCode",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppCmuState": {
+    "name": "msppCmuState",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppDevTpid": {
+    "name": "msppDevTpid",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevLoggingInfo": {
+    "name": "msppDevLoggingInfo",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loggingTrapObjects": {
+    "name": "loggingTrapObjects",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.54",
+    "class": "objectidentity"
+  },
+  "loggingTrap": {
+    "name": "loggingTrap",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.54.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WRI-DEVICE-MIB",
+        "object": "msppDevMac"
+      },
+      {
+        "module": "WRI-DEVICE-MIB",
+        "object": "msppDevDescr"
+      },
+      {
+        "module": "WRI-DEVICE-MIB",
+        "object": "msppDevLoggingInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "msppDevFileName": {
+    "name": "msppDevFileName",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppDevFileAction": {
+    "name": "msppDevFileAction",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delet": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppShareVlanEn": {
+    "name": "msppShareVlanEn",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "msppUpgradeStatus": {
+    "name": "msppUpgradeStatus",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppCliVersion": {
+    "name": "msppCliVersion",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppSnmpVersion": {
+    "name": "msppSnmpVersion",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msppHttpVersion": {
+    "name": "msppHttpVersion",
+    "oid": "1.3.6.1.4.1.3807.1.8012.2.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fiberhome/WRI-DEVICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WRI-DEVICE-MIB"
+  }
+}

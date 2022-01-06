@@ -1,0 +1,3024 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "PhysAddress"
+    ],
+    "WISI-GTMODULES-MIB": [
+      "gtModule"
+    ],
+    "WISI-TANGRAM-MIB": [
+      "gtUnit"
+    ]
+  },
+  "gtSettingsMIB": {
+    "name": "gtSettingsMIB",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-08 00:00",
+        "description": "Fixed parse errors and warnings and incorrect string sizes. Added object to control if an interface should use its VLAN settings. Added the ability to modify several objects regarding interfaces, HMS, time, NTP, SNMP and module redundancy settings. Added object to enable/disable user authentication for modules and to create and upload/download individual settings backups for modules. Added value to update a module's entitlements. Updated contact information."
+      },
+      {
+        "revision": "2015-07-02 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "gtSettingsNotifications": {
+    "name": "gtSettingsNotifications",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.0",
+    "class": "objectidentity"
+  },
+  "gtSettingsObjects": {
+    "name": "gtSettingsObjects",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1",
+    "class": "objectidentity"
+  },
+  "gtSettingsConformance": {
+    "name": "gtSettingsConformance",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.2",
+    "class": "objectidentity"
+  },
+  "gtGeneral": {
+    "name": "gtGeneral",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "gtSwitch": {
+    "name": "gtSwitch",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2",
+    "class": "objectidentity"
+  },
+  "gtNetworking": {
+    "name": "gtNetworking",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3",
+    "class": "objectidentity"
+  },
+  "gtHeadendSystemManagement": {
+    "name": "gtHeadendSystemManagement",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.4",
+    "class": "objectidentity"
+  },
+  "gtDateAndTime": {
+    "name": "gtDateAndTime",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5",
+    "class": "objectidentity"
+  },
+  "gtSNMP": {
+    "name": "gtSNMP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6",
+    "class": "objectidentity"
+  },
+  "gtUser": {
+    "name": "gtUser",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7",
+    "class": "objectidentity"
+  },
+  "gtServices": {
+    "name": "gtServices",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.8",
+    "class": "objectidentity"
+  },
+  "gtModuleBackup": {
+    "name": "gtModuleBackup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9",
+    "class": "objectidentity"
+  },
+  "gtModuleUpdate": {
+    "name": "gtModuleUpdate",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10",
+    "class": "objectidentity"
+  },
+  "gtSettingsCompliances": {
+    "name": "gtSettingsCompliances",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "gtSettingsGroups": {
+    "name": "gtSettingsGroups",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.2.2",
+    "class": "objectidentity"
+  },
+  "gtSettingsNotifyWebChanged": {
+    "name": "gtSettingsNotifyWebChanged",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtWebEnable"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtWebAuth"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtWebProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSettingsNotifyInterfaceChanged": {
+    "name": "gtSettingsNotifyInterfaceChanged",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceName"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceVLAN"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceIPv4"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceIPv4Mask"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceIPv4Gateway"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceVLAN"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceIGMP"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceDHCPState"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceWebMgt"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceSNMP"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceSimulcrypt"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceStreaming"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceCLI"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceUseVLAN"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceIfIndex"
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSWOptionsTable": {
+    "name": "gtSWOptionsTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtSWOptionsEntry": {
+    "name": "gtSWOptionsEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtSWOptionsIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtSWOptionsIdx": {
+    "name": "gtSWOptionsIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtSWOption": {
+    "name": "gtSWOption",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSLATable": {
+    "name": "gtSLATable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtSLAEntry": {
+    "name": "gtSLAEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtSLARegistered": {
+    "name": "gtSLARegistered",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSLAExpires": {
+    "name": "gtSLAExpires",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSyslogTable": {
+    "name": "gtSyslogTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtSyslogEntry": {
+    "name": "gtSyslogEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtSyslogState": {
+    "name": "gtSyslogState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtSyslogIP": {
+    "name": "gtSyslogIP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtNetworkTable": {
+    "name": "gtNetworkTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtNetworkEntry": {
+    "name": "gtNetworkEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtNetworkVLAN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtNetworkVLAN": {
+    "name": "gtNetworkVLAN",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtNetworkName": {
+    "name": "gtNetworkName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtNetworkIGMPQuerierState": {
+    "name": "gtNetworkIGMPQuerierState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "forced": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtNetworkIGMPQuerierIP": {
+    "name": "gtNetworkIGMPQuerierIP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtNetworkIGMPSnoopingState": {
+    "name": "gtNetworkIGMPSnoopingState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "blockMulticast": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtNetworkPortsTable": {
+    "name": "gtNetworkPortsTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtNetworkPortsEntry": {
+    "name": "gtNetworkPortsEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtNetworkPortVLAN",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtNetworkPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtNetworkPortVLAN": {
+    "name": "gtNetworkPortVLAN",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtNetworkPortNumber": {
+    "name": "gtNetworkPortNumber",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtNetworkPortName": {
+    "name": "gtNetworkPortName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtNetworkPortState": {
+    "name": "gtNetworkPortState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notMember": 0,
+          "untagged": 1,
+          "tagged": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPortsTable": {
+    "name": "gtPortsTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtPortsEntry": {
+    "name": "gtPortsEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtPortsNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtPortsNumber": {
+    "name": "gtPortsNumber",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtPortsName": {
+    "name": "gtPortsName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPortsFloodMulticast": {
+    "name": "gtPortsFloodMulticast",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPortsBitrateReceive": {
+    "name": "gtPortsBitrateReceive",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPortsBitrateTransmit": {
+    "name": "gtPortsBitrateTransmit",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPortsLinkup": {
+    "name": "gtPortsLinkup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtIGMPQuerierVersion": {
+    "name": "gtIGMPQuerierVersion",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igmpv1": 1,
+          "igmpv2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtIGMPQuerierRobustness": {
+    "name": "gtIGMPQuerierRobustness",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtIGMPQueryInterval": {
+    "name": "gtIGMPQueryInterval",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtIGMPQueryStartupInterval": {
+    "name": "gtIGMPQueryStartupInterval",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtIGMPQueryStartupCount": {
+    "name": "gtIGMPQueryStartupCount",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtIGMPLastMemberQueryInterval": {
+    "name": "gtIGMPLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtIGMPLastMemberQueryCount": {
+    "name": "gtIGMPLastMemberQueryCount",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtIGMPQuerierResponseTime": {
+    "name": "gtIGMPQuerierResponseTime",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtNumSFP": {
+    "name": "gtNumSFP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSFPTable": {
+    "name": "gtSFPTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtSFPEntry": {
+    "name": "gtSFPEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtSFPNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtSFPNumber": {
+    "name": "gtSFPNumber",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtSFPPlugged": {
+    "name": "gtSFPPlugged",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAttached": 0,
+          "attached": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSFPLink": {
+    "name": "gtSFPLink",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSFPType": {
+    "name": "gtSFPType",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 0,
+          "fiber": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSFPSpeed": {
+    "name": "gtSFPSpeed",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "Mbit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtDNSTable": {
+    "name": "gtDNSTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtDNSEntry": {
+    "name": "gtDNSEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtDNSNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtDNSNumber": {
+    "name": "gtDNSNumber",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "slot",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtDNSServerIP": {
+    "name": "gtDNSServerIP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtInterfaceTable": {
+    "name": "gtInterfaceTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtInterfaceEntry": {
+    "name": "gtInterfaceEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtInterfaceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtInterfaceNumber": {
+    "name": "gtInterfaceNumber",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtInterfaceName": {
+    "name": "gtInterfaceName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceMAC": {
+    "name": "gtInterfaceMAC",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtInterfaceState": {
+    "name": "gtInterfaceState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtInterfaceIPv4": {
+    "name": "gtInterfaceIPv4",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceIPv4Mask": {
+    "name": "gtInterfaceIPv4Mask",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceIPv4Gateway": {
+    "name": "gtInterfaceIPv4Gateway",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceVLAN": {
+    "name": "gtInterfaceVLAN",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceIGMP": {
+    "name": "gtInterfaceIGMP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igmpv2": 2,
+          "igmpv3": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceDHCPState": {
+    "name": "gtInterfaceDHCPState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceWebMgt": {
+    "name": "gtInterfaceWebMgt",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceSNMP": {
+    "name": "gtInterfaceSNMP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceSimulcrypt": {
+    "name": "gtInterfaceSimulcrypt",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceStreaming": {
+    "name": "gtInterfaceStreaming",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceCLI": {
+    "name": "gtInterfaceCLI",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceUseVLAN": {
+    "name": "gtInterfaceUseVLAN",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceIfIndex": {
+    "name": "gtInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtInterfaceRowStatus": {
+    "name": "gtInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtHMSTable": {
+    "name": "gtHMSTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtHMSEntry": {
+    "name": "gtHMSEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtHMSGroupName": {
+    "name": "gtHMSGroupName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtHMSComMethod": {
+    "name": "gtHMSComMethod",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtHMSNumMembers": {
+    "name": "gtHMSNumMembers",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtHMSNumAvailModules": {
+    "name": "gtHMSNumAvailModules",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtDateAndTimeTable": {
+    "name": "gtDateAndTimeTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtDateAndTimeEntry": {
+    "name": "gtDateAndTimeEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtCurrentTimeSource": {
+    "name": "gtCurrentTimeSource",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTimeUTC": {
+    "name": "gtTimeUTC",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTimeLocal": {
+    "name": "gtTimeLocal",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTimeZone": {
+    "name": "gtTimeZone",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtDaylightAdjustment": {
+    "name": "gtDaylightAdjustment",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtNTPServerTable": {
+    "name": "gtNTPServerTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtNTPServerEntry": {
+    "name": "gtNTPServerEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtNTPServerNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtNTPServerNumber": {
+    "name": "gtNTPServerNumber",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtNTPServerAddress": {
+    "name": "gtNTPServerAddress",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtNTPServerRowStatus": {
+    "name": "gtNTPServerRowStatus",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtSNMPTable": {
+    "name": "gtSNMPTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtSNMPEntry": {
+    "name": "gtSNMPEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtAgentState": {
+    "name": "gtAgentState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtAgentPort": {
+    "name": "gtAgentPort",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtAgentSecurityLevel": {
+    "name": "gtAgentSecurityLevel",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthenticationOrEncryption": 1,
+          "authenticationNoEncryption": 2,
+          "authenticationAndEncryption": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtAgentComReadString": {
+    "name": "gtAgentComReadString",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtAgentComWriteString": {
+    "name": "gtAgentComWriteString",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtTrapState": {
+    "name": "gtTrapState",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtTrapSNMPVersion": {
+    "name": "gtTrapSNMPVersion",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 0,
+          "version2c": 1,
+          "version3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtTrapUser": {
+    "name": "gtTrapUser",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTrapSecurityLevel": {
+    "name": "gtTrapSecurityLevel",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthenticationOrEncryption": 1,
+          "authenticationNoEncryption": 2,
+          "authenticationAndEncryption": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTrapComString": {
+    "name": "gtTrapComString",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtTrapPDU": {
+    "name": "gtTrapPDU",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1Trap": 164,
+          "inform": 166,
+          "v2Trap": 167
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTrapDestTable": {
+    "name": "gtTrapDestTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtTrapDestEntry": {
+    "name": "gtTrapDestEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtTrapDestNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtTrapDestNumber": {
+    "name": "gtTrapDestNumber",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtTrapDestIP": {
+    "name": "gtTrapDestIP",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtTrapDestPort": {
+    "name": "gtTrapDestPort",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtTrapDestRowStatus": {
+    "name": "gtTrapDestRowStatus",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtUserTable": {
+    "name": "gtUserTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtUserEntry": {
+    "name": "gtUserEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtUserIdx",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtUserParamIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtUserIdx": {
+    "name": "gtUserIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtUserParamIdx": {
+    "name": "gtUserParamIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtUserName": {
+    "name": "gtUserName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtUserPassword": {
+    "name": "gtUserPassword",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtUserGroup": {
+    "name": "gtUserGroup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtUserAccesslist": {
+    "name": "gtUserAccesslist",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtUserRowStatus": {
+    "name": "gtUserRowStatus",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gtGroupTable": {
+    "name": "gtGroupTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtGroupEntry": {
+    "name": "gtGroupEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtGroupIdx",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtGroupParamIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtGroupIdx": {
+    "name": "gtGroupIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtGroupParamIdx": {
+    "name": "gtGroupParamIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtGroupName": {
+    "name": "gtGroupName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtGroupRights": {
+    "name": "gtGroupRights",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtGroupAccesslist": {
+    "name": "gtGroupAccesslist",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtAccesslistTable": {
+    "name": "gtAccesslistTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtAccesslistEntry": {
+    "name": "gtAccesslistEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtAccesslistIdx",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtAccesslistParamIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtAccesslistIdx": {
+    "name": "gtAccesslistIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtAccesslistParamIdx": {
+    "name": "gtAccesslistParamIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtAccesslistName": {
+    "name": "gtAccesslistName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtAccesslistIPRange": {
+    "name": "gtAccesslistIPRange",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtCurrentUserName": {
+    "name": "gtCurrentUserName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtCurrentUserPassword": {
+    "name": "gtCurrentUserPassword",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtUserAuthTable": {
+    "name": "gtUserAuthTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtUserAuthEntry": {
+    "name": "gtUserAuthEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtUserAuthEnabled": {
+    "name": "gtUserAuthEnabled",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.7.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtServicesTable": {
+    "name": "gtServicesTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtServicesEntry": {
+    "name": "gtServicesEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtWebEnable": {
+    "name": "gtWebEnable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtWebAuth": {
+    "name": "gtWebAuth",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtWebProtocol": {
+    "name": "gtWebProtocol",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "http": 0,
+          "https": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtChassisRedundancy": {
+    "name": "gtChassisRedundancy",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtModuleBackupTable": {
+    "name": "gtModuleBackupTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtModuleBackupEntry": {
+    "name": "gtModuleBackupEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtModuleBackupDate": {
+    "name": "gtModuleBackupDate",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 30,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtModuleRedundancyGroup": {
+    "name": "gtModuleRedundancyGroup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtModuleRedundancyMode": {
+    "name": "gtModuleRedundancyMode",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "operational": 1,
+          "backup": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtModuleBackupControl": {
+    "name": "gtModuleBackupControl",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "backup": 1,
+          "restore": 2,
+          "factoryReset": 3,
+          "downloadBackup": 4,
+          "uploadBackup": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtModuleBackupStatus": {
+    "name": "gtModuleBackupStatus",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "commandRunning": 1,
+          "commandSucceeded": 2,
+          "commandFailed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtBackupControl": {
+    "name": "gtBackupControl",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadPrivateKey": 1,
+          "createBackup": 2,
+          "deletePrivateKey": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtBackupStatus": {
+    "name": "gtBackupStatus",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloading": 1,
+          "downloadSuccessful": 2,
+          "downloadFailed": 3,
+          "createBackups": 4,
+          "uploading": 5,
+          "uploadSuccessful": 6,
+          "uploadFailed": 7,
+          "deletePrivateKeySuccessful": 8,
+          "deletePrivateKeyFailed": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtBackupPrivateKeyFilename": {
+    "name": "gtBackupPrivateKeyFilename",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtBackupSFTPServer": {
+    "name": "gtBackupSFTPServer",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtBackupSFTPPort": {
+    "name": "gtBackupSFTPPort",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtBackupSFTPUsername": {
+    "name": "gtBackupSFTPUsername",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtBackupSFTPPassword": {
+    "name": "gtBackupSFTPPassword",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtBackupSFTPHostPublicKeyMD5": {
+    "name": "gtBackupSFTPHostPublicKeyMD5",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtBackupSFTPFilename": {
+    "name": "gtBackupSFTPFilename",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtUpdateControl": {
+    "name": "gtUpdateControl",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadFirmware": 1,
+          "updateModules": 2,
+          "updateSwitch": 3,
+          "deleteAllFirmwareFiles": 4,
+          "deletePrivateKey": 5,
+          "updateEntitlements": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtUpdateStatus": {
+    "name": "gtUpdateStatus",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloading": 1,
+          "downloadSuccessful": 2,
+          "downloadFailed": 3,
+          "updating": 4,
+          "updateSuccessful": 5,
+          "updateFailed": 6,
+          "deleteAllFirmwareFilesSuccessful": 7,
+          "deleteAllFirmwareFilesFailed": 8,
+          "deletePrivateKeySuccessful": 9,
+          "deletePrivateKeyFailed": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtFilename": {
+    "name": "gtFilename",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtSFTPServer": {
+    "name": "gtSFTPServer",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtSFTPPort": {
+    "name": "gtSFTPPort",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtSFTPUsername": {
+    "name": "gtSFTPUsername",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtSFTPPassword": {
+    "name": "gtSFTPPassword",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtSFTPHostPublicKeyMD5": {
+    "name": "gtSFTPHostPublicKeyMD5",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gtUpdateFilesTable": {
+    "name": "gtUpdateFilesTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtUpdateFilesEntry": {
+    "name": "gtUpdateFilesEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTSETTINGS-MIB",
+        "object": "gtUpdateFilesTableIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtUpdateFilesTableIdx": {
+    "name": "gtUpdateFilesTableIdx",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtUpdateFile": {
+    "name": "gtUpdateFile",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.5.1.10.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-GTSETTINGS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WISI-GTSETTINGS-MIB"
+  }
+}

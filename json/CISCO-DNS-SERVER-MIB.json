@@ -1,0 +1,3296 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoDnsServerMIB": {
+    "name": "ciscoDnsServerMIB",
+    "oid": "1.3.6.1.4.1.9.9.405",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-01 00:00",
+        "description": "Updated to add new DNS counters."
+      },
+      {
+        "revision": "2004-02-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CDnsTime": {
+    "name": "CDnsTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "cDnsServMIBNotifs": {
+    "name": "cDnsServMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.405.0",
+    "class": "objectidentity"
+  },
+  "cDnsServMIBObjects": {
+    "name": "cDnsServMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.405.1",
+    "class": "objectidentity"
+  },
+  "cDnsServMIBConform": {
+    "name": "cDnsServMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.405.2",
+    "class": "objectidentity"
+  },
+  "cDnsServConfig": {
+    "name": "cDnsServConfig",
+    "oid": "1.3.6.1.4.1.9.9.405.1.1",
+    "class": "objectidentity"
+  },
+  "cDnsQueryStats": {
+    "name": "cDnsQueryStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2",
+    "class": "objectidentity"
+  },
+  "cDnsQueryIntervalStats": {
+    "name": "cDnsQueryIntervalStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3",
+    "class": "objectidentity"
+  },
+  "cDnsPerfStats": {
+    "name": "cDnsPerfStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4",
+    "class": "objectidentity"
+  },
+  "cDnsPerfIntervalStats": {
+    "name": "cDnsPerfIntervalStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5",
+    "class": "objectidentity"
+  },
+  "cDnsSecurityStats": {
+    "name": "cDnsSecurityStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6",
+    "class": "objectidentity"
+  },
+  "cDnsSecurityIntervalStats": {
+    "name": "cDnsSecurityIntervalStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7",
+    "class": "objectidentity"
+  },
+  "cDnsErrorStats": {
+    "name": "cDnsErrorStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8",
+    "class": "objectidentity"
+  },
+  "cDnsErrorIntervalStats": {
+    "name": "cDnsErrorIntervalStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9",
+    "class": "objectidentity"
+  },
+  "cDnsMaxCounterStats": {
+    "name": "cDnsMaxCounterStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10",
+    "class": "objectidentity"
+  },
+  "cDnsMaxCounterIntervalStats": {
+    "name": "cDnsMaxCounterIntervalStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11",
+    "class": "objectidentity"
+  },
+  "cDnsHaStats": {
+    "name": "cDnsHaStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12",
+    "class": "objectidentity"
+  },
+  "cDnsHaIntervalStats": {
+    "name": "cDnsHaIntervalStats",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13",
+    "class": "objectidentity"
+  },
+  "cDnsServConfigImplementIdent": {
+    "name": "cDnsServConfigImplementIdent",
+    "oid": "1.3.6.1.4.1.9.9.405.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsServConfigRecurs": {
+    "name": "cDnsServConfigRecurs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "restricted": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDnsServConfigUpTime": {
+    "name": "cDnsServConfigUpTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsServConfigResetTime": {
+    "name": "cDnsServConfigResetTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsServConfigReset": {
+    "name": "cDnsServConfigReset",
+    "oid": "1.3.6.1.4.1.9.9.405.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2,
+          "initializing": 3,
+          "running": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDnsServConfigIntervalSample": {
+    "name": "cDnsServConfigIntervalSample",
+    "oid": "1.3.6.1.4.1.9.9.405.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDnsQueryAuthAnswers": {
+    "name": "cDnsQueryAuthAnswers",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryAuthNoNames": {
+    "name": "cDnsQueryAuthNoNames",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryAuthNoDataResps": {
+    "name": "cDnsQueryAuthNoDataResps",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryReferrals": {
+    "name": "cDnsQueryReferrals",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryNonAuthAnswers": {
+    "name": "cDnsQueryNonAuthAnswers",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryNonAuthNoDataResps": {
+    "name": "cDnsQueryNonAuthNoDataResps",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryRelNameRequests": {
+    "name": "cDnsQueryRelNameRequests",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryLameDelegations": {
+    "name": "cDnsQueryLameDelegations",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryMemCacheHits": {
+    "name": "cDnsQueryMemCacheHits",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryMemCacheMisses": {
+    "name": "cDnsQueryMemCacheMisses",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryMemCacheWrites": {
+    "name": "cDnsQueryMemCacheWrites",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryRefusals": {
+    "name": "cDnsQueryRefusals",
+    "oid": "1.3.6.1.4.1.9.9.405.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntAuthAnswers": {
+    "name": "cDnsQueryIntAuthAnswers",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntAuthNoNames": {
+    "name": "cDnsQueryIntAuthNoNames",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntAuthNoDataResps": {
+    "name": "cDnsQueryIntAuthNoDataResps",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntReferrals": {
+    "name": "cDnsQueryIntReferrals",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntNonAuthAnswers": {
+    "name": "cDnsQueryIntNonAuthAnswers",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntNonAuthNoDataResps": {
+    "name": "cDnsQueryIntNonAuthNoDataResps",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntRelNameRequests": {
+    "name": "cDnsQueryIntRelNameRequests",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntLameDelegations": {
+    "name": "cDnsQueryIntLameDelegations",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntMemCacheHits": {
+    "name": "cDnsQueryIntMemCacheHits",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntMemCacheMisses": {
+    "name": "cDnsQueryIntMemCacheMisses",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntMemCacheWrites": {
+    "name": "cDnsQueryIntMemCacheWrites",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntRefusals": {
+    "name": "cDnsQueryIntRefusals",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntSampleTime": {
+    "name": "cDnsQueryIntSampleTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsQueryIntSampleInterval": {
+    "name": "cDnsQueryIntSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.405.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfUpdateRRs": {
+    "name": "cDnsPerfUpdateRRs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfUpdatePkts": {
+    "name": "cDnsPerfUpdatePkts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfOutboundIxfrs": {
+    "name": "cDnsPerfOutboundIxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfInboundIxfrs": {
+    "name": "cDnsPerfInboundIxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfFullRespIxfrs": {
+    "name": "cDnsPerfFullRespIxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfOutboundAxfrs": {
+    "name": "cDnsPerfOutboundAxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfInboundAxfrs": {
+    "name": "cDnsPerfInboundAxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfQueries": {
+    "name": "cDnsPerfQueries",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfOutboundAtLimitXfrs": {
+    "name": "cDnsPerfOutboundAtLimitXfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfInboundAtLimitXfrs": {
+    "name": "cDnsPerfInboundAtLimitXfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfOutboundNotifies": {
+    "name": "cDnsPerfOutboundNotifies",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfInboundNotifies": {
+    "name": "cDnsPerfInboundNotifies",
+    "oid": "1.3.6.1.4.1.9.9.405.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntUpdateRRs": {
+    "name": "cDnsPerfIntUpdateRRs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntUpdatePkts": {
+    "name": "cDnsPerfIntUpdatePkts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntOutboundIxfrs": {
+    "name": "cDnsPerfIntOutboundIxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntInboundIxfrs": {
+    "name": "cDnsPerfIntInboundIxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntFullRespIxfrs": {
+    "name": "cDnsPerfIntFullRespIxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntOutboundAxfrs": {
+    "name": "cDnsPerfIntOutboundAxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntInboundAxfrs": {
+    "name": "cDnsPerfIntInboundAxfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntQueries": {
+    "name": "cDnsPerfIntQueries",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntOutboundAtLimitXfrs": {
+    "name": "cDnsPerfIntOutboundAtLimitXfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntInboundAtLimitXfrs": {
+    "name": "cDnsPerfIntInboundAtLimitXfrs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntOutboundNotifies": {
+    "name": "cDnsPerfIntOutboundNotifies",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntInboundNotifies": {
+    "name": "cDnsPerfIntInboundNotifies",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntSampleTime": {
+    "name": "cDnsPerfIntSampleTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsPerfIntSampleInterval": {
+    "name": "cDnsPerfIntSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.405.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityRcvdTsigPackets": {
+    "name": "cDnsSecurityRcvdTsigPackets",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityDetecTsigBadTimes": {
+    "name": "cDnsSecurityDetecTsigBadTimes",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityDetectTsigBadKeys": {
+    "name": "cDnsSecurityDetectTsigBadKeys",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityDetectTsigBadSigs": {
+    "name": "cDnsSecurityDetectTsigBadSigs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityRcvdTsigBadTimes": {
+    "name": "cDnsSecurityRcvdTsigBadTimes",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityRcvdTsigBadKeys": {
+    "name": "cDnsSecurityRcvdTsigBadKeys",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityRcvdTsigBadSigs": {
+    "name": "cDnsSecurityRcvdTsigBadSigs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityUnauthXferReqs": {
+    "name": "cDnsSecurityUnauthXferReqs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityUnauthUpdateReqs": {
+    "name": "cDnsSecurityUnauthUpdateReqs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityRestrictQueryAcls": {
+    "name": "cDnsSecurityRestrictQueryAcls",
+    "oid": "1.3.6.1.4.1.9.9.405.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntRcvdTsigPackets": {
+    "name": "cDnsSecurityIntRcvdTsigPackets",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntDetecTsigBadTimes": {
+    "name": "cDnsSecurityIntDetecTsigBadTimes",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntDetectTsigBadKeys": {
+    "name": "cDnsSecurityIntDetectTsigBadKeys",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntDetectTsigBadSigs": {
+    "name": "cDnsSecurityIntDetectTsigBadSigs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntRcvdTsigBadTimes": {
+    "name": "cDnsSecurityIntRcvdTsigBadTimes",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntRcvdTsigBadKeys": {
+    "name": "cDnsSecurityIntRcvdTsigBadKeys",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntRcvdTsigBadSigs": {
+    "name": "cDnsSecurityIntRcvdTsigBadSigs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntUnauthXferReqs": {
+    "name": "cDnsSecurityIntUnauthXferReqs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntUnauthUpdateReqs": {
+    "name": "cDnsSecurityIntUnauthUpdateReqs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntRestrictQueryAcls": {
+    "name": "cDnsSecurityIntRestrictQueryAcls",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntSampleTime": {
+    "name": "cDnsSecurityIntSampleTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsSecurityIntSampleInterval": {
+    "name": "cDnsSecurityIntSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.405.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorUpdateErrors": {
+    "name": "cDnsErrorUpdateErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIxfrInErrors": {
+    "name": "cDnsErrorIxfrInErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIxfrOutErrors": {
+    "name": "cDnsErrorIxfrOutErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorAxfrInErrors": {
+    "name": "cDnsErrorAxfrInErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorAxfrOutErrors": {
+    "name": "cDnsErrorAxfrOutErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorSentTotalErrors": {
+    "name": "cDnsErrorSentTotalErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorSentFormatErrors": {
+    "name": "cDnsErrorSentFormatErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorSentOtherErrors": {
+    "name": "cDnsErrorSentOtherErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorSentRefusalErrors": {
+    "name": "cDnsErrorSentRefusalErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorRcvdFormatErrors": {
+    "name": "cDnsErrorRcvdFormatErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntUpdateErrors": {
+    "name": "cDnsErrorIntUpdateErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntIxfrInErrors": {
+    "name": "cDnsErrorIntIxfrInErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntIxfrOutErrors": {
+    "name": "cDnsErrorIntIxfrOutErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntAxfrInErrors": {
+    "name": "cDnsErrorIntAxfrInErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntAxfrOutErrors": {
+    "name": "cDnsErrorIntAxfrOutErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntSentTotalErrors": {
+    "name": "cDnsErrorIntSentTotalErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntSentFormatErrors": {
+    "name": "cDnsErrorIntSentFormatErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntSentOtherErrors": {
+    "name": "cDnsErrorIntSentOtherErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntSentRefusalErrors": {
+    "name": "cDnsErrorIntSentRefusalErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntRcvdFormatErrors": {
+    "name": "cDnsErrorIntRcvdFormatErrors",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntSampleTime": {
+    "name": "cDnsErrorIntSampleTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsErrorIntSampleInterval": {
+    "name": "cDnsErrorIntSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.405.1.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrConcurXfrsInCnts": {
+    "name": "cDnsMaxCntrConcurXfrsInCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrConcurXfrsOutCnts": {
+    "name": "cDnsMaxCntrConcurXfrsOutCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrHaSvrNoRespTime": {
+    "name": "cDnsMaxCntrHaSvrNoRespTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrHaSvrMaxNoRespTime": {
+    "name": "cDnsMaxCntrHaSvrMaxNoRespTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrHaBatchLimitCnts": {
+    "name": "cDnsMaxCntrHaBatchLimitCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrHaRRPendListCnts": {
+    "name": "cDnsMaxCntrHaRRPendListCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrHaRRActiveListCnts": {
+    "name": "cDnsMaxCntrHaRRActiveListCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrHaPersEditListCnts": {
+    "name": "cDnsMaxCntrHaPersEditListCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrHaUpdLatencyMax": {
+    "name": "cDnsMaxCntrHaUpdLatencyMax",
+    "oid": "1.3.6.1.4.1.9.9.405.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntConcurXfrsInCnts": {
+    "name": "cDnsMaxCntrIntConcurXfrsInCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntConcurXfrsOutCnts": {
+    "name": "cDnsMaxCntrIntConcurXfrsOutCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntHaSvrNoRespTime": {
+    "name": "cDnsMaxCntrIntHaSvrNoRespTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntHaSvrMaxNoRespTime": {
+    "name": "cDnsMaxCntrIntHaSvrMaxNoRespTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntHaBatchLimitCnts": {
+    "name": "cDnsMaxCntrIntHaBatchLimitCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntHaRRPendListCnts": {
+    "name": "cDnsMaxCntrIntHaRRPendListCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntHaRRActiveListCnts": {
+    "name": "cDnsMaxCntrIntHaRRActiveListCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntHaPersEditListCnts": {
+    "name": "cDnsMaxCntrIntHaPersEditListCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntHaUpdLatencyMax": {
+    "name": "cDnsMaxCntrIntHaUpdLatencyMax",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntSampleTime": {
+    "name": "cDnsMaxCntrIntSampleTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsMaxCntrIntSampleInterval": {
+    "name": "cDnsMaxCntrIntSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.405.1.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaCommInterruptedStates": {
+    "name": "cDnsHaCommInterruptedStates",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaPartnerDownStates": {
+    "name": "cDnsHaPartnerDownStates",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaSyncs": {
+    "name": "cDnsHaSyncs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgConnectSentCnts": {
+    "name": "cDnsHaMsgConnectSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgReconcileSentCnts": {
+    "name": "cDnsHaMsgReconcileSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgHeartBeatSentCnts": {
+    "name": "cDnsHaMsgHeartBeatSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgZoneSyncSentCnts": {
+    "name": "cDnsHaMsgZoneSyncSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgRRSyncSentCnts": {
+    "name": "cDnsHaMsgRRSyncSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgRRUpdateSentCnts": {
+    "name": "cDnsHaMsgRRUpdateSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgResponseSentCnts": {
+    "name": "cDnsHaMsgResponseSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgConnectRcvdCnts": {
+    "name": "cDnsHaMsgConnectRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgReconcileRcvdCnts": {
+    "name": "cDnsHaMsgReconcileRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgHeartbeatRcvdCnts": {
+    "name": "cDnsHaMsgHeartbeatRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgZoneSyncRcvdCnts": {
+    "name": "cDnsHaMsgZoneSyncRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgRRSyncRcvdCnts": {
+    "name": "cDnsHaMsgRRSyncRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgRRUpdateRcvdCnts": {
+    "name": "cDnsHaMsgRRUpdateRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaMsgResponseRcvdCnts": {
+    "name": "cDnsHaMsgResponseRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaHeartbeatTimeoutCnts": {
+    "name": "cDnsHaHeartbeatTimeoutCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaUpdateRejectCnts": {
+    "name": "cDnsHaUpdateRejectCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaResponseMismatchCnts": {
+    "name": "cDnsHaResponseMismatchCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaResponseServFailCnts": {
+    "name": "cDnsHaResponseServFailCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaRespInconsistentCnts": {
+    "name": "cDnsHaRespInconsistentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaRespUnknownCnts": {
+    "name": "cDnsHaRespUnknownCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaFullZoneResyncCnts": {
+    "name": "cDnsHaFullZoneResyncCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaUpdatePrivateReqCnts": {
+    "name": "cDnsHaUpdatePrivateReqCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaUpdatePrivateRespCnts": {
+    "name": "cDnsHaUpdatePrivateRespCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaSyncConflictCnts": {
+    "name": "cDnsHaSyncConflictCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaSyncDiscardNameCnts": {
+    "name": "cDnsHaSyncDiscardNameCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaSyncMergeNameCnts": {
+    "name": "cDnsHaSyncMergeNameCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaUpdateLatencyAverage": {
+    "name": "cDnsHaUpdateLatencyAverage",
+    "oid": "1.3.6.1.4.1.9.9.405.1.12.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntCommInterruptedStates": {
+    "name": "cDnsHaIntCommInterruptedStates",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntPartnerDownStates": {
+    "name": "cDnsHaIntPartnerDownStates",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntSyncs": {
+    "name": "cDnsHaIntSyncs",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgConnectSentCnts": {
+    "name": "cDnsHaIntMsgConnectSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgReconcileSentCnts": {
+    "name": "cDnsHaIntMsgReconcileSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgHeartBeatSentCnts": {
+    "name": "cDnsHaIntMsgHeartBeatSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgZoneSyncSentCnts": {
+    "name": "cDnsHaIntMsgZoneSyncSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgRRSyncSentCnts": {
+    "name": "cDnsHaIntMsgRRSyncSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgRRUpdateSentCnts": {
+    "name": "cDnsHaIntMsgRRUpdateSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgResponseSentCnts": {
+    "name": "cDnsHaIntMsgResponseSentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgConnectRcvdCnts": {
+    "name": "cDnsHaIntMsgConnectRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgReconcileRcvdCnts": {
+    "name": "cDnsHaIntMsgReconcileRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgHeartbeatRcvdCnts": {
+    "name": "cDnsHaIntMsgHeartbeatRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgZoneSyncRcvdCnts": {
+    "name": "cDnsHaIntMsgZoneSyncRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgRRSyncRcvdCnts": {
+    "name": "cDnsHaIntMsgRRSyncRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgRRUpdateRcvdCnts": {
+    "name": "cDnsHaIntMsgRRUpdateRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntMsgResponseRcvdCnts": {
+    "name": "cDnsHaIntMsgResponseRcvdCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntHeartbeatTimeoutCnts": {
+    "name": "cDnsHaIntHeartbeatTimeoutCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntUpdateRejectCnts": {
+    "name": "cDnsHaIntUpdateRejectCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntResponseMismatchCnts": {
+    "name": "cDnsHaIntResponseMismatchCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntResponseServFailCnts": {
+    "name": "cDnsHaIntResponseServFailCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntRespInconsistentCnts": {
+    "name": "cDnsHaIntRespInconsistentCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntRespUnknownCnts": {
+    "name": "cDnsHaIntRespUnknownCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntFullZoneResyncCnts": {
+    "name": "cDnsHaIntFullZoneResyncCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntUpdatePrivateReqCnts": {
+    "name": "cDnsHaIntUpdatePrivateReqCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntUpdatePrivateRespCnts": {
+    "name": "cDnsHaIntUpdatePrivateRespCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntSyncConflictCnts": {
+    "name": "cDnsHaIntSyncConflictCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntSyncDiscardNameCnts": {
+    "name": "cDnsHaIntSyncDiscardNameCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntSyncMergeNameCnts": {
+    "name": "cDnsHaIntSyncMergeNameCnts",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntUpdateLatencyAverage": {
+    "name": "cDnsHaIntUpdateLatencyAverage",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntSampleTime": {
+    "name": "cDnsHaIntSampleTime",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsHaIntSampleInterval": {
+    "name": "cDnsHaIntSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.405.1.13.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnsServMIBCompliances": {
+    "name": "cDnsServMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.405.2.1",
+    "class": "objectidentity"
+  },
+  "cDnsServMIBGroups": {
+    "name": "cDnsServMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2",
+    "class": "objectidentity"
+  },
+  "cDnsServMIBCompliance": {
+    "name": "cDnsServMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.405.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cDnsQueryStatsGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsQueryStatsIntervalGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsPerfStatsGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsPerfStatsIntervalGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsSecurityStatsGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsSecurityStatsIntervalGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsErrorStatsGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsErrorStatsIntervalGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsMaxCounterStatsGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsMaxCounterStatsIntervalGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsHaStatsGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      },
+      {
+        "object": "cDnsHaStatsIntervalGroup",
+        "module": "CISCO-DNS-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsServConfigGroup": {
+    "name": "cDnsServConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsServConfigImplementIdent"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsServConfigRecurs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsServConfigUpTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsServConfigResetTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsServConfigReset"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsServConfigIntervalSample"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsQueryStatsGroup": {
+    "name": "cDnsQueryStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryAuthAnswers"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryAuthNoNames"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryAuthNoDataResps"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryReferrals"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryNonAuthAnswers"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryNonAuthNoDataResps"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryRelNameRequests"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryLameDelegations"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryMemCacheHits"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryMemCacheMisses"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryMemCacheWrites"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryRefusals"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsQueryStatsIntervalGroup": {
+    "name": "cDnsQueryStatsIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntAuthAnswers"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntAuthNoNames"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntAuthNoDataResps"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntReferrals"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntNonAuthAnswers"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntNonAuthNoDataResps"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntRelNameRequests"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntLameDelegations"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntMemCacheHits"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntMemCacheMisses"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntMemCacheWrites"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntRefusals"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntSampleTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsQueryIntSampleInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsPerfStatsGroup": {
+    "name": "cDnsPerfStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfUpdateRRs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfUpdatePkts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfOutboundIxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfInboundIxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfFullRespIxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfOutboundAxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfInboundAxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfQueries"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfOutboundAtLimitXfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfInboundAtLimitXfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfOutboundNotifies"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfInboundNotifies"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsPerfStatsIntervalGroup": {
+    "name": "cDnsPerfStatsIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntUpdateRRs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntUpdatePkts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntOutboundIxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntInboundIxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntFullRespIxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntOutboundAxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntInboundAxfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntQueries"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntOutboundAtLimitXfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntInboundAtLimitXfrs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntOutboundNotifies"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntInboundNotifies"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntSampleTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsPerfIntSampleInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsSecurityStatsGroup": {
+    "name": "cDnsSecurityStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityRcvdTsigPackets"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityDetecTsigBadTimes"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityDetectTsigBadKeys"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityDetectTsigBadSigs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityRcvdTsigBadTimes"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityRcvdTsigBadKeys"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityRcvdTsigBadSigs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityUnauthXferReqs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityUnauthUpdateReqs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityRestrictQueryAcls"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsSecurityStatsIntervalGroup": {
+    "name": "cDnsSecurityStatsIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntRcvdTsigPackets"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntDetecTsigBadTimes"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntDetectTsigBadKeys"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntDetectTsigBadSigs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntRcvdTsigBadTimes"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntRcvdTsigBadKeys"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntRcvdTsigBadSigs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntUnauthXferReqs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntUnauthUpdateReqs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntRestrictQueryAcls"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntSampleTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsSecurityIntSampleInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsErrorStatsGroup": {
+    "name": "cDnsErrorStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorUpdateErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIxfrInErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIxfrOutErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorAxfrInErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorAxfrOutErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorSentTotalErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorSentFormatErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorSentOtherErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorSentRefusalErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorRcvdFormatErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsErrorStatsIntervalGroup": {
+    "name": "cDnsErrorStatsIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntUpdateErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntIxfrInErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntIxfrOutErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntAxfrInErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntAxfrOutErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntSentTotalErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntSentFormatErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntSentOtherErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntSentRefusalErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntRcvdFormatErrors"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntSampleTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsErrorIntSampleInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsMaxCounterStatsGroup": {
+    "name": "cDnsMaxCounterStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrConcurXfrsInCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrConcurXfrsOutCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrHaSvrNoRespTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrHaSvrMaxNoRespTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrHaBatchLimitCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrHaRRPendListCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrHaRRActiveListCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrHaPersEditListCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrHaUpdLatencyMax"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsMaxCounterStatsIntervalGroup": {
+    "name": "cDnsMaxCounterStatsIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntConcurXfrsInCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntConcurXfrsOutCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntHaSvrNoRespTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntHaSvrMaxNoRespTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntHaBatchLimitCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntHaRRPendListCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntHaRRActiveListCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntHaPersEditListCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntHaUpdLatencyMax"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntSampleTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsMaxCntrIntSampleInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsHaStatsGroup": {
+    "name": "cDnsHaStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaCommInterruptedStates"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaPartnerDownStates"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaSyncs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgConnectSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgReconcileSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgHeartBeatSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgZoneSyncSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgRRSyncSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgRRUpdateSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgResponseSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgConnectRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgReconcileRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgHeartbeatRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgZoneSyncRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgRRSyncRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgRRUpdateRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaMsgResponseRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaHeartbeatTimeoutCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaUpdateRejectCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaResponseMismatchCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaResponseServFailCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaRespInconsistentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaRespUnknownCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaFullZoneResyncCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaUpdatePrivateReqCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaUpdatePrivateRespCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaSyncConflictCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaSyncDiscardNameCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaSyncMergeNameCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaUpdateLatencyAverage"
+      }
+    ],
+    "status": "current"
+  },
+  "cDnsHaStatsIntervalGroup": {
+    "name": "cDnsHaStatsIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.405.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntCommInterruptedStates"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntPartnerDownStates"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntSyncs"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgConnectSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgReconcileSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgHeartBeatSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgZoneSyncSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgRRSyncSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgRRUpdateSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgResponseSentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgConnectRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgReconcileRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgHeartbeatRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgZoneSyncRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgRRSyncRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgRRUpdateRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntMsgResponseRcvdCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntHeartbeatTimeoutCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntUpdateRejectCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntResponseMismatchCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntResponseServFailCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntRespInconsistentCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntRespUnknownCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntFullZoneResyncCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntUpdatePrivateReqCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntUpdatePrivateRespCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntSyncConflictCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntSyncDiscardNameCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntSyncMergeNameCnts"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntUpdateLatencyAverage"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntSampleTime"
+      },
+      {
+        "module": "CISCO-DNS-SERVER-MIB",
+        "object": "cDnsHaIntSampleInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DNS-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DNS-SERVER-MIB"
+  }
+}

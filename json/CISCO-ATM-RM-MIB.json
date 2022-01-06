@@ -1,0 +1,4917 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtmRmMIB": {
+    "name": "ciscoAtmRmMIB",
+    "oid": "1.3.6.1.4.1.9.10.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-03 00:00",
+        "description": "Added objects to support Per Class Overbooking for ATM interfaces."
+      },
+      {
+        "revision": "2001-01-29 00:00",
+        "description": "Added a table that contains objects to manage ATM Traffic Shaper configuration and state information for ATM interfaces."
+      },
+      {
+        "revision": "1999-12-22 00:00",
+        "description": "Fix the errors in the definition of cgrPerVcqAtmRmGroup."
+      },
+      {
+        "revision": "1999-07-27 00:00",
+        "description": "Added object to support overbooking of equivalent bandwidth of an ATM interface."
+      },
+      {
+        "revision": "1999-04-30 00:00",
+        "description": " Added objects for the IMA interface support."
+      },
+      {
+        "revision": "1999-04-14 00:00",
+        "description": "Added objects to instruct Connection Admission Control to include framing overhead in the calculation of maximum cell rate of an ATM interface."
+      },
+      {
+        "revision": "1999-03-11 00:00",
+        "description": "Clarified the description for some of the objects that they are applicable to logical port ATM interfaces too and made appropriate changes to the Compliance section."
+      },
+      {
+        "revision": "1998-11-24 00:00",
+        "description": "Added a table to manage global resources on the Catalyst8540MSR platform. This was necessary because the Catalyst8540MSR, has 8 switching modules internally, with each switching module having its own independent cell memory. Each switching module performs per-VC queueing for a specific (fixed in hardware) group of ports, independent of any other switching module. The Lightstream 1010 had only one global cell memory for the entire device. "
+      },
+      {
+        "revision": "1998-11-03 00:00",
+        "description": "Specify a range limiting Link Distance object."
+      },
+      {
+        "revision": "1998-07-26 00:00",
+        "description": "Added an object to enable Hierarchical Scheduling."
+      },
+      {
+        "revision": "1997-12-03 00:00",
+        "description": "Added object to configure Service Category support on an interface."
+      },
+      {
+        "revision": "1997-05-26 00:00",
+        "description": "Added objects for management of new features made possible on the LS1010 by the Feature Card Plus. This includes support for per-VC queueing hardware structures, enhanced UPC, non-zero MCR for ABR, and UBR+."
+      },
+      {
+        "revision": "1996-11-11 00:00",
+        "description": "Added objects for management of Cell Loss Ratio for CLP0+1 cell-streams. Added table for default tolerance."
+      }
+    ]
+  },
+  "ciscoAtmRmMIBObjects": {
+    "name": "ciscoAtmRmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.10.1",
+    "class": "objectidentity"
+  },
+  "ForceValue": {
+    "name": "ForceValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceChange": 1,
+          "noForceChange": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FineQueueThreshold": {
+    "name": "FineQueueThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "percent12": 1,
+          "percent25": 2,
+          "percent37": 3,
+          "percent50": 4,
+          "percent62": 5,
+          "percent75": 6,
+          "percent87": 7,
+          "percent100": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LsPerVcqServiceClass": {
+    "name": "LsPerVcqServiceClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "c1": 1,
+          "c2": 2,
+          "c3": 3,
+          "c4": 4,
+          "c5": 5,
+          "c6": 6,
+          "c7": 7,
+          "c8": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LsPerVcqServiceClassNoC1": {
+    "name": "LsPerVcqServiceClassNoC1",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "c2": 2,
+          "c3": 3,
+          "c4": 4,
+          "c5": 5,
+          "c6": 6,
+          "c7": 7,
+          "c8": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LsPerVcqThresholdGroup": {
+    "name": "LsPerVcqThresholdGroup",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tg1": 1,
+          "tg2": 2,
+          "tg3": 3,
+          "tg4": 4,
+          "tg5": 5,
+          "tg6": 6,
+          "tg7": 7,
+          "tg8": 8,
+          "tg9": 9,
+          "tg10": 10,
+          "tg11": 11,
+          "tg12": 12,
+          "tg13": 13,
+          "tg14": 14,
+          "tg15": 15,
+          "tg16": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LsPerVcqThresholdGroupService": {
+    "name": "LsPerVcqThresholdGroupService",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbrRt": 2,
+          "vbrNrt": 3,
+          "abr": 4,
+          "ubr": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CgrPerVcqModuleId": {
+    "name": "CgrPerVcqModuleId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "module1": 1,
+          "module2": 2,
+          "module3": 3,
+          "module4": 4,
+          "module5": 5,
+          "module6": 6,
+          "module7": 7,
+          "module8": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoAtmRmSwitchCfg": {
+    "name": "ciscoAtmRmSwitchCfg",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmSwitchSharedMem": {
+    "name": "ciscoAtmRmSwitchSharedMem",
+    "oid": "1.3.6.1.4.1.9.10.10.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmIfCfg": {
+    "name": "ciscoAtmRmIfCfg",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmIfState": {
+    "name": "ciscoAtmRmIfState",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmIfStatistics": {
+    "name": "ciscoAtmRmIfStatistics",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmIfSharedMem": {
+    "name": "ciscoAtmRmIfSharedMem",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoLsPerVcqAtmRmSwitch": {
+    "name": "ciscoLsPerVcqAtmRmSwitch",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7",
+    "class": "objectidentity"
+  },
+  "ciscoLsPerVcqAtmRmIf": {
+    "name": "ciscoLsPerVcqAtmRmIf",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8",
+    "class": "objectidentity"
+  },
+  "ciscoCgrPerVcqAtmRmSwitch": {
+    "name": "ciscoCgrPerVcqAtmRmSwitch",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmTrafShaperIf": {
+    "name": "ciscoAtmRmTrafShaperIf",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10",
+    "class": "objectidentity"
+  },
+  "rmSwitchOverSubFactor": {
+    "name": "rmSwitchOverSubFactor",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmSwitchScrMarginFactor": {
+    "name": "rmSwitchScrMarginFactor",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmSwitchAbrCongNotify": {
+    "name": "rmSwitchAbrCongNotify",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "relativeRate": 1,
+          "efci": 2,
+          "efciAndRelativeRate": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "relativeRate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmDefaultQosObjectiveTable": {
+    "name": "rmDefaultQosObjectiveTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmDefaultQosObjectiveEntry": {
+    "name": "rmDefaultQosObjectiveEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmDefaultQosServiceCategory",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rmDefaultQosServiceCategory": {
+    "name": "rmDefaultQosServiceCategory",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbrRt": 2,
+          "vbrNrt": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmScDefaultQosMaxCtd": {
+    "name": "rmScDefaultQosMaxCtd",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16777215,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmScDefaultQosPeakToPeakCdv": {
+    "name": "rmScDefaultQosPeakToPeakCdv",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16777215,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmScDefaultQosClr": {
+    "name": "rmScDefaultQosClr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmScDefaultQosClrClp01": {
+    "name": "rmScDefaultQosClrClp01",
+    "oid": "1.3.6.1.4.1.9.10.10.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sharedMemRmSwitchQueuedCellTable": {
+    "name": "sharedMemRmSwitchQueuedCellTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sharedMemRmSwitchQueuedCellEntry": {
+    "name": "sharedMemRmSwitchQueuedCellEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmCellPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sharedMemRmCellPriority": {
+    "name": "sharedMemRmCellPriority",
+    "oid": "1.3.6.1.4.1.9.10.10.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p1": 1,
+          "p2": 2,
+          "p3": 3,
+          "p4": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sharedMemRmSwitchQueuedCellLimit": {
+    "name": "sharedMemRmSwitchQueuedCellLimit",
+    "oid": "1.3.6.1.4.1.9.10.10.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sharedMemRmSwitchQueuedCellCount": {
+    "name": "sharedMemRmSwitchQueuedCellCount",
+    "oid": "1.3.6.1.4.1.9.10.10.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfCfgTable": {
+    "name": "rmIfCfgTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmIfCfgEntry": {
+    "name": "rmIfCfgEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rmIfOutPacingRateRequested": {
+    "name": "rmIfOutPacingRateRequested",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfOutPacingRateInstalled": {
+    "name": "rmIfOutPacingRateInstalled",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfOutPacingForce": {
+    "name": "rmIfOutPacingForce",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ForceValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noForceChange",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfLinkDistance": {
+    "name": "rmIfLinkDistance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "kilometers",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfBestEffortLimit": {
+    "name": "rmIfBestEffortLimit",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfCbrDefaultRxUpcTolerance": {
+    "name": "rmIfCbrDefaultRxUpcTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfVbrRtDefaultRxUpcTolerance": {
+    "name": "rmIfVbrRtDefaultRxUpcTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfVbrNrtDefaultRxUpcTolerance": {
+    "name": "rmIfVbrNrtDefaultRxUpcTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfAbrDefaultRxUpcTolerance": {
+    "name": "rmIfAbrDefaultRxUpcTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfUbrDefaultRxUpcTolerance": {
+    "name": "rmIfUbrDefaultRxUpcTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfVbrRtDefaultRxUpcCdvt": {
+    "name": "rmIfVbrRtDefaultRxUpcCdvt",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfVbrNrtDefaultRxUpcCdvt": {
+    "name": "rmIfVbrNrtDefaultRxUpcCdvt",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfServCategorySupport": {
+    "name": "rmIfServCategorySupport",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfFramingOverhead": {
+    "name": "rmIfFramingOverhead",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfFramingOverheadForce": {
+    "name": "rmIfFramingOverheadForce",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ForceValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noForceChange",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfOverBooking": {
+    "name": "rmIfOverBooking",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfVbrRtPerClassOverbooking": {
+    "name": "rmIfVbrRtPerClassOverbooking",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 3200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfVbrNrtPerClassOverbooking": {
+    "name": "rmIfVbrNrtPerClassOverbooking",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 3200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfAbrPerClassOverbooking": {
+    "name": "rmIfAbrPerClassOverbooking",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 3200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfUbrPerClassOverbooking": {
+    "name": "rmIfUbrPerClassOverbooking",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 3200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirectionCfgTable": {
+    "name": "rmIfDirectionCfgTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmIfDirectionCfgEntry": {
+    "name": "rmIfDirectionCfgEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rmIfDirection": {
+    "name": "rmIfDirection",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "receive": 1,
+          "transmit": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMaxAgg": {
+    "name": "rmIfDirControlLinkShareMaxAgg",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMinCbr": {
+    "name": "rmIfDirControlLinkShareMinCbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMaxCbr": {
+    "name": "rmIfDirControlLinkShareMaxCbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMinVbr": {
+    "name": "rmIfDirControlLinkShareMinVbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMaxVbr": {
+    "name": "rmIfDirControlLinkShareMaxVbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxCbrPcr": {
+    "name": "rmIfDirMaxCbrPcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxCbrTolerance": {
+    "name": "rmIfDirMaxCbrTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxVbrPcr": {
+    "name": "rmIfDirMaxVbrPcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxVbrScr": {
+    "name": "rmIfDirMaxVbrScr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxVbrTolerance": {
+    "name": "rmIfDirMaxVbrTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxAbrPcr": {
+    "name": "rmIfDirMaxAbrPcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxAbrTolerance": {
+    "name": "rmIfDirMaxAbrTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxUbrPcr": {
+    "name": "rmIfDirMaxUbrPcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxUbrTolerance": {
+    "name": "rmIfDirMaxUbrTolerance",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxAbrMcr": {
+    "name": "rmIfDirMaxAbrMcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxUbrMcr": {
+    "name": "rmIfDirMaxUbrMcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirMaxVbrCdvt": {
+    "name": "rmIfDirMaxVbrCdvt",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "cell-times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMinAbr": {
+    "name": "rmIfDirControlLinkShareMinAbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMaxAbr": {
+    "name": "rmIfDirControlLinkShareMaxAbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMinUbr": {
+    "name": "rmIfDirControlLinkShareMinUbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfDirControlLinkShareMaxUbr": {
+    "name": "rmIfDirControlLinkShareMaxUbr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.3.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmIfServiceCategoryStateTable": {
+    "name": "rmIfServiceCategoryStateTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmIfServiceCategoryStateEntry": {
+    "name": "rmIfServiceCategoryStateEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfSc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rmIfSc": {
+    "name": "rmIfSc",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "vbrRt": 2,
+          "vbrNrt": 3,
+          "abr": 4,
+          "ubr": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmIfScRxAcr": {
+    "name": "rmIfScRxAcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScTxAcr": {
+    "name": "rmIfScTxAcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRxAlcr": {
+    "name": "rmIfScRxAlcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScTxAlcr": {
+    "name": "rmIfScTxAlcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScNumSvxConns": {
+    "name": "rmIfScNumSvxConns",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScNumPvxConns": {
+    "name": "rmIfScNumPvxConns",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "number of connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScTxMaxCtd": {
+    "name": "rmIfScTxMaxCtd",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScTxP2PeakCdv": {
+    "name": "rmIfScTxP2PeakCdv",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScTxClr": {
+    "name": "rmIfScTxClr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScTxClrClp01": {
+    "name": "rmIfScTxClrClp01",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRxDynBwSvcAcr": {
+    "name": "rmIfScRxDynBwSvcAcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScTxDynBwSvcAcr": {
+    "name": "rmIfScTxDynBwSvcAcr",
+    "oid": "1.3.6.1.4.1.9.10.10.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfServiceCategoryStatisticsTable": {
+    "name": "rmIfServiceCategoryStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmIfServiceCategoryStatisticsEntry": {
+    "name": "rmIfServiceCategoryStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfSc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rmIfScRcacResultNumAdmit": {
+    "name": "rmIfScRcacResultNumAdmit",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumTotalRequests": {
+    "name": "rmIfScRcacResultNumTotalRequests",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailTraffComb": {
+    "name": "rmIfScRcacResultNumFailTraffComb",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailBw": {
+    "name": "rmIfScRcacResultNumFailBw",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailLoss": {
+    "name": "rmIfScRcacResultNumFailLoss",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailDelay": {
+    "name": "rmIfScRcacResultNumFailDelay",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailCdv": {
+    "name": "rmIfScRcacResultNumFailCdv",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailBeLimit": {
+    "name": "rmIfScRcacResultNumFailBeLimit",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailParmLimit": {
+    "name": "rmIfScRcacResultNumFailParmLimit",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmIfScRcacResultNumFailOther": {
+    "name": "rmIfScRcacResultNumFailOther",
+    "oid": "1.3.6.1.4.1.9.10.10.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQCfgTable": {
+    "name": "sharedMemRmIfOutputQCfgTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQCfgEntry": {
+    "name": "sharedMemRmIfOutputQCfgEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfOutputQ",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQ": {
+    "name": "sharedMemRmIfOutputQ",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "q1": 1,
+          "q2": 2,
+          "q3": 3,
+          "q4": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQServCategory": {
+    "name": "sharedMemRmIfOutputQServCategory",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQRequestedMaxSize": {
+    "name": "sharedMemRmIfOutputQRequestedMaxSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65504
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQInstalledMaxSize": {
+    "name": "sharedMemRmIfOutputQInstalledMaxSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 65504
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQMaxSizeForce": {
+    "name": "sharedMemRmIfOutputQMaxSizeForce",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ForceValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noForceChange",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sharedMemRmIfOutputQCellCount": {
+    "name": "sharedMemRmIfOutputQCellCount",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sharedMemRmIfThresholdCfgTable": {
+    "name": "sharedMemRmIfThresholdCfgTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sharedMemRmIfThresholdCfgEntry": {
+    "name": "sharedMemRmIfThresholdCfgEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfSc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sharedMemRmIfDiscardThreshold": {
+    "name": "sharedMemRmIfDiscardThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FineQueueThreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "percent50",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sharedMemRmIfEfciThreshold": {
+    "name": "sharedMemRmIfEfciThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "percent12": 1,
+          "percent25": 2,
+          "percent50": 3,
+          "percent100": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "percent25",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sharedMemRmIfAbrRelativeRateThreshold": {
+    "name": "sharedMemRmIfAbrRelativeRateThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FineQueueThreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "percent25",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpTable": {
+    "name": "lsPerVcqRmThreshGrpTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpEntry": {
+    "name": "lsPerVcqRmThreshGrpEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrp": {
+    "name": "lsPerVcqRmThreshGrp",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroup",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpMaxSize": {
+    "name": "lsPerVcqRmThreshGrpMaxSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpQMaxSize": {
+    "name": "lsPerVcqRmThreshGrpQMaxSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 31,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpQMinSize": {
+    "name": "lsPerVcqRmThreshGrpQMinSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpDiscThreshold": {
+    "name": "lsPerVcqRmThreshGrpDiscThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpMarkThreshold": {
+    "name": "lsPerVcqRmThreshGrpMarkThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpName": {
+    "name": "lsPerVcqRmThreshGrpName",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpCellCount": {
+    "name": "lsPerVcqRmThreshGrpCellCount",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpServiceTable": {
+    "name": "lsPerVcqRmThreshGrpServiceTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpServiceEntry": {
+    "name": "lsPerVcqRmThreshGrpServiceEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpService": {
+    "name": "lsPerVcqRmThreshGrpService",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroupService",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsPerVcqRmThreshGrpServGroup": {
+    "name": "lsPerVcqRmThreshGrpServGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmHierarchicalSchedulingMode": {
+    "name": "lsPerVcqRmHierarchicalSchedulingMode",
+    "oid": "1.3.6.1.4.1.9.10.10.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpTable": {
+    "name": "cgrPerVcqRmThreshGrpTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpEntry": {
+    "name": "cgrPerVcqRmThreshGrpEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqModuleId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrPerVcqModuleId": {
+    "name": "cgrPerVcqModuleId",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CgrPerVcqModuleId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrp": {
+    "name": "cgrPerVcqRmThreshGrp",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroup",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpMaxSize": {
+    "name": "cgrPerVcqRmThreshGrpMaxSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 131071
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 131071,
+        "format": "decimal"
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpQMaxSize": {
+    "name": "cgrPerVcqRmThreshGrpQMaxSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 31,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpQMinSize": {
+    "name": "cgrPerVcqRmThreshGrpQMinSize",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpDiscThreshold": {
+    "name": "cgrPerVcqRmThreshGrpDiscThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpMarkThreshold": {
+    "name": "cgrPerVcqRmThreshGrpMarkThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpName": {
+    "name": "cgrPerVcqRmThreshGrpName",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpCellCount": {
+    "name": "cgrPerVcqRmThreshGrpCellCount",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpServiceTable": {
+    "name": "cgrPerVcqRmThreshGrpServiceTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpServiceEntry": {
+    "name": "cgrPerVcqRmThreshGrpServiceEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpService": {
+    "name": "cgrPerVcqRmThreshGrpService",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroupService",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cgrPerVcqRmThreshGrpServGroup": {
+    "name": "cgrPerVcqRmThreshGrpServGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqThresholdGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cgrPerVcqRmHierarchicalSchedulingMode": {
+    "name": "cgrPerVcqRmHierarchicalSchedulingMode",
+    "oid": "1.3.6.1.4.1.9.10.10.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmIfTable": {
+    "name": "lsPerVcqRmIfTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsPerVcqRmIfEntry": {
+    "name": "lsPerVcqRmIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lsPerVcqRmIfMinWrrServiceClass": {
+    "name": "lsPerVcqRmIfMinWrrServiceClass",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqServiceClass",
+      "class": "type"
+    },
+    "units": "service class",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lsPerVcqRmIfServiceClassTable": {
+    "name": "lsPerVcqRmIfServiceClassTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsPerVcqRmIfServiceClassEntry": {
+    "name": "lsPerVcqRmIfServiceClassEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmIfServiceClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lsPerVcqRmIfServiceClass": {
+    "name": "lsPerVcqRmIfServiceClass",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LsPerVcqServiceClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lsPerVcqRmIfServClassConnType": {
+    "name": "lsPerVcqRmIfServClassConnType",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lsPerVcqRmIfServClassWrrWeight": {
+    "name": "lsPerVcqRmIfServClassWrrWeight",
+    "oid": "1.3.6.1.4.1.9.10.10.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "units": "weight",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmTrafficShaperIfTable": {
+    "name": "rmTrafficShaperIfTable",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmTrafficShaperIfEntry": {
+    "name": "rmTrafficShaperIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rtsIfMaxThreshold": {
+    "name": "rtsIfMaxThreshold",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtsIfCellCount": {
+    "name": "rtsIfCellCount",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtsIfVbrCfgRequested": {
+    "name": "rtsIfVbrCfgRequested",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shapingDisable": 1,
+          "shapeToPcr": 2,
+          "shapeToScrAndPcr": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "shapingDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rtsIfVbrCfgInstalled": {
+    "name": "rtsIfVbrCfgInstalled",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shapingDisable": 1,
+          "shapeToPcr": 2,
+          "shapeToScrAndPcr": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtsIfBeCfgRequested": {
+    "name": "rtsIfBeCfgRequested",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shapingDisable": 1,
+          "shapeToPcr": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "shapingDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rtsIfBeCfgInstalled": {
+    "name": "rtsIfBeCfgInstalled",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shapingDisable": 1,
+          "shapeToPcr": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtsIfVbrClassMaxThrshRequested": {
+    "name": "rtsIfVbrClassMaxThrshRequested",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rtsIfVbrClassMaxThrshInstalled": {
+    "name": "rtsIfVbrClassMaxThrshInstalled",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtsIfBeClassMaxThrshRequested": {
+    "name": "rtsIfBeClassMaxThrshRequested",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rtsIfBeClassMaxThrshInstalled": {
+    "name": "rtsIfBeClassMaxThrshInstalled",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtsIfVbrVcMaxThrshRequested": {
+    "name": "rtsIfVbrVcMaxThrshRequested",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 512,
+        "format": "decimal"
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rtsIfVbrVcMaxThrshInstalled": {
+    "name": "rtsIfVbrVcMaxThrshInstalled",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtsIfBeVcMaxThrshRequested": {
+    "name": "rtsIfBeVcMaxThrshRequested",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rtsIfBeVcMaxThrshInstalled": {
+    "name": "rtsIfBeVcMaxThrshInstalled",
+    "oid": "1.3.6.1.4.1.9.10.10.1.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmRmMIBConformance": {
+    "name": "ciscoAtmRmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.10.3",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmMIBCompliances": {
+    "name": "ciscoAtmRmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmMIBGroups": {
+    "name": "ciscoAtmRmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmRmMIBCompliance": {
+    "name": "ciscoAtmRmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance2": {
+    "name": "ciscoAtmRmMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance3": {
+    "name": "ciscoAtmRmMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance4": {
+    "name": "ciscoAtmRmMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance5": {
+    "name": "ciscoAtmRmMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance6": {
+    "name": "ciscoAtmRmMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance7": {
+    "name": "ciscoAtmRmMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup4",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup4",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance8": {
+    "name": "ciscoAtmRmMIBCompliance8",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup4",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance9": {
+    "name": "ciscoAtmRmMIBCompliance9",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup4",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance10": {
+    "name": "ciscoAtmRmMIBCompliance10",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance11": {
+    "name": "ciscoAtmRmMIBCompliance11",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoAtmRmMIBCompliance12": {
+    "name": "ciscoAtmRmMIBCompliance12",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmTrafficShaperIfGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmRmMIBCompliance13": {
+    "name": "ciscoAtmRmMIBCompliance13",
+    "oid": "1.3.6.1.4.1.9.10.10.3.1.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmRmSwitchCfgMIBGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmPhyIfCfgMIBGroup5",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmAllIfCfgMIBGroup6",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfAllStateMIBGroup3",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmIfStatsMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "lsPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "cgrPerVcqAtmRmGroup2",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "atmRmTrafficShaperIfGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "sharedMemAtmRmSwitchMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      },
+      {
+        "object": "sharedMemAtmRmPhyIfMIBGroup",
+        "module": "CISCO-ATM-RM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmSwitchCfgMIBGroup": {
+    "name": "atmRmSwitchCfgMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmSwitchOverSubFactor"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmSwitchScrMarginFactor"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmSwitchAbrCongNotify"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmScDefaultQosMaxCtd"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmScDefaultQosPeakToPeakCdv"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmScDefaultQosClr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "sharedMemAtmRmSwitchMIBGroup": {
+    "name": "sharedMemAtmRmSwitchMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmSwitchQueuedCellLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmSwitchQueuedCellCount"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmPhyIfCfgMIBGroup": {
+    "name": "atmRmPhyIfCfgMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingForce"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAgg"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxVbr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmAllIfCfgMIBGroup": {
+    "name": "atmRmAllIfCfgMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfLinkDistance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfBestEffortLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrScr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrTolerance"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmIfAllStateMIBGroup": {
+    "name": "atmRmIfAllStateMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRxAcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxAcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRxAlcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxAlcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScNumSvxConns"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScNumPvxConns"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxMaxCtd"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxP2PeakCdv"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxClr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmIfStatsMIBGroup": {
+    "name": "atmRmIfStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumAdmit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumTotalRequests"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailTraffComb"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailBw"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailLoss"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailDelay"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailCdv"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailBeLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailParmLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRcacResultNumFailOther"
+      }
+    ],
+    "status": "current"
+  },
+  "sharedMemAtmRmPhyIfMIBGroup": {
+    "name": "sharedMemAtmRmPhyIfMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfOutputQServCategory"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfOutputQRequestedMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfOutputQInstalledMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfOutputQMaxSizeForce"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfOutputQCellCount"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfDiscardThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfEfciThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "sharedMemRmIfAbrRelativeRateThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmSwitchCfgMIBGroup2": {
+    "name": "atmRmSwitchCfgMIBGroup2",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmSwitchOverSubFactor"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmSwitchScrMarginFactor"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmSwitchAbrCongNotify"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmScDefaultQosMaxCtd"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmScDefaultQosPeakToPeakCdv"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmScDefaultQosClr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmScDefaultQosClrClp01"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmPhyIfCfgMIBGroup2": {
+    "name": "atmRmPhyIfCfgMIBGroup2",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingForce"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAgg"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfCbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfAbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfUbrDefaultRxUpcTolerance"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmIfAllStateMIBGroup2": {
+    "name": "atmRmIfAllStateMIBGroup2",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRxAcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxAcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRxAlcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxAlcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScNumSvxConns"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScNumPvxConns"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxMaxCtd"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxP2PeakCdv"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxClr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxClrClp01"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "lsPerVcqAtmRmGroup": {
+    "name": "lsPerVcqAtmRmGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmIfMinWrrServiceClass"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmIfServClassConnType"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmIfServClassWrrWeight"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpQMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpQMinSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpDiscThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpMarkThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpName"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpCellCount"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpServGroup"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmPhyIfCfgMIBGroup3": {
+    "name": "atmRmPhyIfCfgMIBGroup3",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingForce"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAgg"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfCbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfAbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfUbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinAbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinUbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxUbr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmAllIfCfgMIBGroup2": {
+    "name": "atmRmAllIfCfgMIBGroup2",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfLinkDistance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfBestEffortLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrScr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrCdvt"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmAllIfCfgMIBGroup3": {
+    "name": "atmRmAllIfCfgMIBGroup3",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfLinkDistance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfBestEffortLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrScr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfServCategorySupport"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "lsPerVcqAtmRmGroup2": {
+    "name": "lsPerVcqAtmRmGroup2",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmIfMinWrrServiceClass"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmIfServClassConnType"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmIfServClassWrrWeight"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpQMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpQMinSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpDiscThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpMarkThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpName"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpCellCount"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmThreshGrpServGroup"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "lsPerVcqRmHierarchicalSchedulingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cgrPerVcqAtmRmGroup": {
+    "name": "cgrPerVcqAtmRmGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpQMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpQMinSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpDiscThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpMarkThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpName"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpCellCount"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpServGroup"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmHierarchicalSchedulingMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmAllIfCfgMIBGroup4": {
+    "name": "atmRmAllIfCfgMIBGroup4",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfLinkDistance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfBestEffortLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrScr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfServCategorySupport"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfCbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfAbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfUbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcCdvt"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmPhyIfCfgMIBGroup4": {
+    "name": "atmRmPhyIfCfgMIBGroup4",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingForce"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAgg"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinAbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinUbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxUbr"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "atmRmPhyIfCfgMIBGroup5": {
+    "name": "atmRmPhyIfCfgMIBGroup5",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingRateInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOutPacingForce"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAgg"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxCbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxVbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinAbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxAbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMinUbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirControlLinkShareMaxUbr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfFramingOverhead"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfFramingOverheadForce"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmIfAllStateMIBGroup3": {
+    "name": "atmRmIfAllStateMIBGroup3",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRxAcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxAcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRxAlcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxAlcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScNumSvxConns"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScNumPvxConns"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxMaxCtd"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxP2PeakCdv"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxClr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxClrClp01"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScRxDynBwSvcAcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfScTxDynBwSvcAcr"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmAllIfCfgMIBGroup5": {
+    "name": "atmRmAllIfCfgMIBGroup5",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfLinkDistance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfBestEffortLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrScr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfServCategorySupport"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfCbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfAbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfUbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOverBooking"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cgrPerVcqAtmRmGroup2": {
+    "name": "cgrPerVcqAtmRmGroup2",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpQMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpQMinSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpDiscThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpMaxSize"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpMarkThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpName"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpCellCount"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmThreshGrpServGroup"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "cgrPerVcqRmHierarchicalSchedulingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmTrafficShaperIfGroup": {
+    "name": "atmRmTrafficShaperIfGroup",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfMaxThreshold"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfCellCount"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfVbrCfgRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfVbrCfgInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfBeCfgRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfBeCfgInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfVbrClassMaxThrshRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfVbrClassMaxThrshInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfBeClassMaxThrshRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfBeClassMaxThrshInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfVbrVcMaxThrshRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfVbrVcMaxThrshInstalled"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfBeVcMaxThrshRequested"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rtsIfBeVcMaxThrshInstalled"
+      }
+    ],
+    "status": "current"
+  },
+  "atmRmAllIfCfgMIBGroup6": {
+    "name": "atmRmAllIfCfgMIBGroup6",
+    "oid": "1.3.6.1.4.1.9.10.10.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfLinkDistance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfBestEffortLimit"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxCbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrScr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrPcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxAbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxUbrMcr"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfDirMaxVbrCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfServCategorySupport"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfCbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfAbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfUbrDefaultRxUpcTolerance"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtDefaultRxUpcCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtDefaultRxUpcCdvt"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfOverBooking"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrRtPerClassOverbooking"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfVbrNrtPerClassOverbooking"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfAbrPerClassOverbooking"
+      },
+      {
+        "module": "CISCO-ATM-RM-MIB",
+        "object": "rmIfUbrPerClassOverbooking"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-RM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-RM-MIB"
+  }
+}

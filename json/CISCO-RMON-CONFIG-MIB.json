@@ -1,0 +1,2428 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "Dscp"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SMON-MIB": [
+      "portCopyEntry"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoRmonConfigMIB": {
+    "name": "ciscoRmonConfigMIB",
+    "oid": "1.3.6.1.4.1.9.9.103",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-03 00:00",
+        "description": "Add enumerator 'reflector' in crcSpanCapacityType."
+      },
+      {
+        "revision": "2008-05-02 00:00",
+        "description": "Added rmonConfiguredAlarms,rmonConfiguredHcAlarms. deprecated ciscoRmonConfigComplianceRev9 and added rmonAlarmCapacityGroup, ciscoRmonConfigComplianceRev10"
+      },
+      {
+        "revision": "2008-04-04 00:00",
+        "description": "Add crcSpanCapacityGroup."
+      },
+      {
+        "revision": "2006-02-21 00:00",
+        "description": "Add TC SpanTxReplicationMode and object group crcSpanEgressReplicationGroup."
+      },
+      {
+        "revision": "2005-09-28 12:10",
+        "description": "Add crcERSpanIFOptionGroup and deprecate crcDstERSpanOption."
+      },
+      {
+        "revision": "2005-05-02 00:00",
+        "description": "Add crcSpanSessionDescr and value 'localTx' to portCopySessionType."
+      },
+      {
+        "revision": "2005-01-24 00:00",
+        "description": "Add MIB group crcSpanDstPermitListGroup."
+      },
+      {
+        "revision": "2004-02-04 00:00",
+        "description": "Updated crcERSpanSessionType."
+      },
+      {
+        "revision": "2004-02-03 00:00",
+        "description": "Add the following MIB objects: crcSpanSessionNo, crcSpanSessionType, crcSpanSessionEnabled, crcERSpanSessionNo, crcERSpanSessionType, crcERSpanSessionDescr, crcERSpanEncapID, crcERSpanIpType, crcERSpanIp, crcSrcERSpanIpTTL, crcSrcERSpanDscpOrPrec, crcSrcERSpanIpPrec, crcSrcERSpanIpDscp, crcERSpanIpVRF, crcSrcERSpanLoVlanMask, crcSrcERSpanHiVlanMask, crcSrcERSpanOrigIpType, crcSrcERSpanOrigIp, crcDstERSpanOption, crcERSpanSessionRowStatus, crcERSpanIFIndex, crcERSpanIFDirection, crcERSpanIFRowStatus."
+      },
+      {
+        "revision": "2003-04-29 00:00",
+        "description": "Added the portCopyInpktVlan MIB object. Add the following bit definitions to the existing MIB object portCopyOption: unicastDisable, broadcastDisable, goodDisable, badDisable."
+      },
+      {
+        "revision": "2002-10-08 00:00",
+        "description": "Added rmonMaxAlarms and rmonAlarmEnable."
+      },
+      {
+        "revision": "2001-04-01 00:00",
+        "description": "Add the portCopyReflectorPort MIB object"
+      },
+      {
+        "revision": "2001-02-22 00:00",
+        "description": "Add the following MIB objects: portCopyDestLoVlanMask, portCopyDestHiVlanMask, portCopyOption, portCopySessionNo, portCopySessionType, portCopyRemoveSrc, portCopyMaxIngressSessions, portCopyMinEgressSessions."
+      },
+      {
+        "revision": "1998-12-01 00:00",
+        "description": "Updated the portCopyXTable; portCopyDirection moved to SMON standard, and multiple VLANs per source port now supported."
+      }
+    ]
+  },
+  "ciscoRmonConfigObjects": {
+    "name": "ciscoRmonConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.103.1",
+    "class": "objectidentity"
+  },
+  "ciscoRmonConfigNotifications": {
+    "name": "ciscoRmonConfigNotifications",
+    "oid": "1.3.6.1.4.1.9.9.103.2",
+    "class": "objectidentity"
+  },
+  "ciscoRmonConfigConformance": {
+    "name": "ciscoRmonConfigConformance",
+    "oid": "1.3.6.1.4.1.9.9.103.3",
+    "class": "objectidentity"
+  },
+  "ciscoRmon2ConfigObjects": {
+    "name": "ciscoRmon2ConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.103.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoSmonConfigObjects": {
+    "name": "ciscoSmonConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoSampleConfigObjects": {
+    "name": "ciscoSampleConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.103.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoAlarmConfigObjects": {
+    "name": "ciscoAlarmConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.103.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoSpanTxReplicationObjects": {
+    "name": "ciscoSpanTxReplicationObjects",
+    "oid": "1.3.6.1.4.1.9.9.103.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoSpanCapacityObjects": {
+    "name": "ciscoSpanCapacityObjects",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6",
+    "class": "objectidentity"
+  },
+  "SpanTxReplicationMode": {
+    "name": "SpanTxReplicationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "centralized": 1,
+          "distributed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rmonTimeFilterMode": {
+    "name": "rmonTimeFilterMode",
+    "oid": "1.3.6.1.4.1.9.9.103.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stopAfterOne": 1,
+          "stopAfterAll": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "stopAfterAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portCopyXTable": {
+    "name": "portCopyXTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portCopyXEntry": {
+    "name": "portCopyXEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "portCopyXEntry",
+      "module": "CISCO-RMON-CONFIG-MIB",
+      "object": "portCopyEntry"
+    },
+    "status": "current"
+  },
+  "portCopyLoVlanMask": {
+    "name": "portCopyLoVlanMask",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyHiVlanMask": {
+    "name": "portCopyHiVlanMask",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyDestLoVlanMask": {
+    "name": "portCopyDestLoVlanMask",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyDestHiVlanMask": {
+    "name": "portCopyDestHiVlanMask",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyOption": {
+    "name": "portCopyOption",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "inpkts": 0,
+        "learningDisable": 1,
+        "dot1q": 2,
+        "isl": 3,
+        "multicast": 4,
+        "unicastDisable": 5,
+        "broadcastDisable": 6,
+        "goodDisable": 7,
+        "badDisable": 8
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopySessionNo": {
+    "name": "portCopySessionNo",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopySessionType": {
+    "name": "portCopySessionType",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSpecified": 1,
+          "local": 2,
+          "remoteSource": 3,
+          "remoteDestination": 4,
+          "localTx": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notSpecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyRemoveSrc": {
+    "name": "portCopyRemoveSrc",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyReflectorPort": {
+    "name": "portCopyReflectorPort",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyInpktVlan": {
+    "name": "portCopyInpktVlan",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portCopyMaxIngressSessions": {
+    "name": "portCopyMaxIngressSessions",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portCopyMaxEgressSessions": {
+    "name": "portCopyMaxEgressSessions",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crcSpanSessionTable": {
+    "name": "crcSpanSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcSpanSessionEntry": {
+    "name": "crcSpanSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanSessionNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanSessionNo": {
+    "name": "crcSpanSessionNo",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcSpanSessionType": {
+    "name": "crcSpanSessionType",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2,
+          "erspan": 3,
+          "service": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crcSpanSessionEnabled": {
+    "name": "crcSpanSessionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crcSpanSessionDescr": {
+    "name": "crcSpanSessionDescr",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crcERSpanSessionTable": {
+    "name": "crcERSpanSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcERSpanSessionEntry": {
+    "name": "crcERSpanSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crcERSpanSessionNo": {
+    "name": "crcERSpanSessionNo",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcERSpanSessionType": {
+    "name": "crcERSpanSessionType",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eRSpanSource": 1,
+          "eRSpanDestination": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "eRSpanSource",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanSessionDescr": {
+    "name": "crcERSpanSessionDescr",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanEncapID": {
+    "name": "crcERSpanEncapID",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanIpType": {
+    "name": "crcERSpanIpType",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanIp": {
+    "name": "crcERSpanIp",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanIpTTL": {
+    "name": "crcSrcERSpanIpTTL",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanDscpOrPrec": {
+    "name": "crcSrcERSpanDscpOrPrec",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dscp": 1,
+          "precedence": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dscp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanIpPrec": {
+    "name": "crcSrcERSpanIpPrec",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanIpDscp": {
+    "name": "crcSrcERSpanIpDscp",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanIpVRF": {
+    "name": "crcERSpanIpVRF",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanLoVlanMask": {
+    "name": "crcSrcERSpanLoVlanMask",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanHiVlanMask": {
+    "name": "crcSrcERSpanHiVlanMask",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanOrigIpType": {
+    "name": "crcSrcERSpanOrigIpType",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSrcERSpanOrigIp": {
+    "name": "crcSrcERSpanOrigIp",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcDstERSpanOption": {
+    "name": "crcDstERSpanOption",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "inpkts": 0,
+        "learningDisable": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "crcERSpanSessionRowStatus": {
+    "name": "crcERSpanSessionRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanIFTable": {
+    "name": "crcERSpanIFTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcERSpanIFEntry": {
+    "name": "crcERSpanIFEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionNo",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIFIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crcERSpanIFIndex": {
+    "name": "crcERSpanIFIndex",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcERSpanIFDirection": {
+    "name": "crcERSpanIFDirection",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyRxOnly": 1,
+          "copyTxOnly": 2,
+          "copyBoth": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "copyBoth",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanIFRowStatus": {
+    "name": "crcERSpanIFRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcERSpanIFOption": {
+    "name": "crcERSpanIFOption",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "inpkts": 0,
+        "learningDisable": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSpanDstPermitListEnabled": {
+    "name": "crcSpanDstPermitListEnabled",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crcSpanDstPermitListTable": {
+    "name": "crcSpanDstPermitListTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcSpanDstPermitListEntry": {
+    "name": "crcSpanDstPermitListEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanDstPermitListRowStatus": {
+    "name": "crcSpanDstPermitListRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.103.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crcSpanEgressReplicationMode": {
+    "name": "crcSpanEgressReplicationMode",
+    "oid": "1.3.6.1.4.1.9.9.103.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanTxReplicationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crcSpanSessionEgressModeTable": {
+    "name": "crcSpanSessionEgressModeTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcSpanSessionEgressModeEntry": {
+    "name": "crcSpanSessionEgressModeEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanSessionNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanEgressReplicationOperMode": {
+    "name": "crcSpanEgressReplicationOperMode",
+    "oid": "1.3.6.1.4.1.9.9.103.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SpanTxReplicationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crcSpanCapacityTable": {
+    "name": "crcSpanCapacityTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcSpanCapacityEntry": {
+    "name": "crcSpanCapacityEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanCapacityType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanCapacityType": {
+    "name": "crcSpanCapacityType",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allSrc": 1,
+          "allDst": 2,
+          "localSrc": 3,
+          "localTx": 4,
+          "rspanSrc": 5,
+          "rspanDst": 6,
+          "erspanSrc": 7,
+          "erspanDst": 8,
+          "serviceModule": 9,
+          "oamLoopback": 10,
+          "capture": 11,
+          "reflector": 12
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crcSpanCapacityShared": {
+    "name": "crcSpanCapacityShared",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "source": 2,
+          "destination": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crcSpanMaxSession": {
+    "name": "crcSpanMaxSession",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crcSpanUsedSession": {
+    "name": "crcSpanUsedSession",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crcSpanSharedSource": {
+    "name": "crcSpanSharedSource",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crcSpanSharedDestination": {
+    "name": "crcSpanSharedDestination",
+    "oid": "1.3.6.1.4.1.9.9.103.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonSampleConfigTable": {
+    "name": "rmonSampleConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rmonSampleConfigEntry": {
+    "name": "rmonSampleConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.103.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rmonSamplingEnabled": {
+    "name": "rmonSamplingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.103.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmonMaxAlarms": {
+    "name": "rmonMaxAlarms",
+    "oid": "1.3.6.1.4.1.9.9.103.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmonAlarmEnable": {
+    "name": "rmonAlarmEnable",
+    "oid": "1.3.6.1.4.1.9.9.103.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmonConfiguredAlarms": {
+    "name": "rmonConfiguredAlarms",
+    "oid": "1.3.6.1.4.1.9.9.103.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonConfiguredHcAlarms": {
+    "name": "rmonConfiguredHcAlarms",
+    "oid": "1.3.6.1.4.1.9.9.103.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoRmonConfigCompliances": {
+    "name": "ciscoRmonConfigCompliances",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoRmonConfigGroups": {
+    "name": "ciscoRmonConfigGroups",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoRmonConfigCompliance": {
+    "name": "ciscoRmonConfigCompliance",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev1": {
+    "name": "ciscoRmonConfigComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions3Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev2": {
+    "name": "ciscoRmonConfigComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions3Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev3": {
+    "name": "ciscoRmonConfigComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev4": {
+    "name": "ciscoRmonConfigComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev5": {
+    "name": "ciscoRmonConfigComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanDstPermitListGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev6": {
+    "name": "ciscoRmonConfigComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanDstPermitListGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions9Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev7": {
+    "name": "ciscoRmonConfigComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanSessionGroupRev1",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanDstPermitListGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions9Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFOptionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev8": {
+    "name": "ciscoRmonConfigComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanSessionGroupRev1",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanDstPermitListGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions9Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFOptionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanEgressReplicationGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev9": {
+    "name": "ciscoRmonConfigComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanSessionGroupRev1",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanDstPermitListGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions9Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFOptionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanEgressReplicationGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanCapacityGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRmonConfigComplianceRev10": {
+    "name": "ciscoRmonConfigComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.103.3.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rmon2ExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensionsGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions2Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions4Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions5Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions6Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions7Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonSampleConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmConfigGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "rmonAlarmCapacityGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions8Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanSessionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanSessionGroupRev1",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanDstPermitListGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "smonExtensions9Group",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcERSpanIFOptionGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanEgressReplicationGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      },
+      {
+        "object": "crcSpanCapacityGroup",
+        "module": "CISCO-RMON-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rmon2ExtensionsGroup": {
+    "name": "rmon2ExtensionsGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "rmonTimeFilterMode"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensionsGroup": {
+    "name": "smonExtensionsGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyLoVlanMask"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyHiVlanMask"
+      }
+    ],
+    "status": "current"
+  },
+  "rmonSampleConfigGroup": {
+    "name": "rmonSampleConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "rmonSamplingEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensions2Group": {
+    "name": "smonExtensions2Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyDestLoVlanMask"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyDestHiVlanMask"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensions3Group": {
+    "name": "smonExtensions3Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyOption"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "smonExtensions4Group": {
+    "name": "smonExtensions4Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopySessionNo"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyRemoveSrc"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensions5Group": {
+    "name": "smonExtensions5Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopySessionType"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensions6Group": {
+    "name": "smonExtensions6Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyMaxIngressSessions"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyMaxEgressSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensions7Group": {
+    "name": "smonExtensions7Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopySessionType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyReflectorPort"
+      }
+    ],
+    "status": "current"
+  },
+  "rmonAlarmConfigGroup": {
+    "name": "rmonAlarmConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "rmonMaxAlarms"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "rmonAlarmEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensions8Group": {
+    "name": "smonExtensions8Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyOption"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "portCopyInpktVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanSessionGroup": {
+    "name": "crcSpanSessionGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanSessionType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanSessionEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "crcERSpanSessionGroup": {
+    "name": "crcERSpanSessionGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionDescr"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanEncapID"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIpType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIp"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanIpTTL"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanDscpOrPrec"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanIpPrec"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanIpDscp"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIpVRF"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanLoVlanMask"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanHiVlanMask"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanOrigIpType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanOrigIp"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcDstERSpanOption"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "crcERSpanIFGroup": {
+    "name": "crcERSpanIFGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIFDirection"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIFRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanDstPermitListGroup": {
+    "name": "crcSpanDstPermitListGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanDstPermitListEnabled"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanDstPermitListRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "smonExtensions9Group": {
+    "name": "smonExtensions9Group",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanSessionDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "crcERSpanIFOptionGroup": {
+    "name": "crcERSpanIFOptionGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIFOption"
+      }
+    ],
+    "status": "current"
+  },
+  "crcERSpanSessionGroupRev1": {
+    "name": "crcERSpanSessionGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionDescr"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanEncapID"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIpType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIp"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanIpTTL"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanDscpOrPrec"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanIpPrec"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanIpDscp"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanIpVRF"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanLoVlanMask"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanHiVlanMask"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanOrigIpType"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSrcERSpanOrigIp"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcERSpanSessionRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanEgressReplicationGroup": {
+    "name": "crcSpanEgressReplicationGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanEgressReplicationMode"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanEgressReplicationOperMode"
+      }
+    ],
+    "status": "current"
+  },
+  "crcSpanCapacityGroup": {
+    "name": "crcSpanCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanCapacityShared"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanMaxSession"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanUsedSession"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanSharedSource"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "crcSpanSharedDestination"
+      }
+    ],
+    "status": "current"
+  },
+  "rmonAlarmCapacityGroup": {
+    "name": "rmonAlarmCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.9.103.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "rmonConfiguredAlarms"
+      },
+      {
+        "module": "CISCO-RMON-CONFIG-MIB",
+        "object": "rmonConfiguredHcAlarms"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RMON-CONFIG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-RMON-CONFIG-MIB"
+  }
+}

@@ -1,0 +1,3090 @@
+{
+  "imports": {
+    "class": "imports",
+    "DISMAN-PING-MIB": [
+      "pingCtlEntry",
+      "pingCtlTargetAddress",
+      "pingCtlTestName",
+      "pingCtlDescr",
+      "pingCtlType",
+      "pingCtlTargetAddressType",
+      "pingCtlOwnerIndex"
+    ],
+    "HPN-ICF-OID-MIB": [
+      "hpnicfRhw"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfNqa": {
+    "name": "hpnicfNqa",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3",
+    "class": "moduleidentity"
+  },
+  "hpnicfNqaObjects": {
+    "name": "hpnicfNqaObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfNqaImplementationTypeDomains": {
+    "name": "hpnicfNqaImplementationTypeDomains",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2",
+    "class": "objectidentity"
+  },
+  "hpnicfNqaUdpEcho": {
+    "name": "hpnicfNqaUdpEcho",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfNqaTcpconnect": {
+    "name": "hpnicfNqaTcpconnect",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfNqajitter": {
+    "name": "hpnicfNqajitter",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfNqaHttp": {
+    "name": "hpnicfNqaHttp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfNqadlsw": {
+    "name": "hpnicfNqadlsw",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfNqadhcp": {
+    "name": "hpnicfNqadhcp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfNqaftp": {
+    "name": "hpnicfNqaftp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hpnicfNqaMIBVersion": {
+    "name": "hpnicfNqaMIBVersion",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaCtlTable": {
+    "name": "hpnicfNqaCtlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaCtlEntry": {
+    "name": "hpnicfNqaCtlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hpnicfNqaCtlEntry",
+      "module": "HPN-ICF-NQA-MIB",
+      "object": "pingCtlEntry"
+    },
+    "status": "current"
+  },
+  "hpnicfNqaCtlTargetPort": {
+    "name": "hpnicfNqaCtlTargetPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlSourcePort": {
+    "name": "hpnicfNqaCtlSourcePort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlTTL": {
+    "name": "hpnicfNqaCtlTTL",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlJitterAdminInterval": {
+    "name": "hpnicfNqaCtlJitterAdminInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlJitterAdminNumPackets": {
+    "name": "hpnicfNqaCtlJitterAdminNumPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlHttpOperationType": {
+    "name": "hpnicfNqaCtlHttpOperationType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "post": 2,
+          "raw": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlHttpOperationString": {
+    "name": "hpnicfNqaCtlHttpOperationString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlFtpOperationType": {
+    "name": "hpnicfNqaCtlFtpOperationType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "put": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlFtpUsername": {
+    "name": "hpnicfNqaCtlFtpUsername",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlFtpPassword": {
+    "name": "hpnicfNqaCtlFtpPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlFtpOperationString": {
+    "name": "hpnicfNqaCtlFtpOperationString",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlVPNInstance": {
+    "name": "hpnicfNqaCtlVPNInstance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlHistoryKeptTime": {
+    "name": "hpnicfNqaCtlHistoryKeptTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlHistoryEnable": {
+    "name": "hpnicfNqaCtlHistoryEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlICPIFAdvFactor": {
+    "name": "hpnicfNqaCtlICPIFAdvFactor",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlCodecType": {
+    "name": "hpnicfNqaCtlCodecType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDefined": 1,
+          "g711Alaw": 2,
+          "g711Ulaw": 3,
+          "g729A": 4,
+          "icmpTimestamp": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notDefined",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaResultsTable": {
+    "name": "hpnicfNqaResultsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaResultsEntry": {
+    "name": "hpnicfNqaResultsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttNumDisconnects": {
+    "name": "hpnicfNqaResultsRttNumDisconnects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttTimeouts": {
+    "name": "hpnicfNqaResultsRttTimeouts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttBusies": {
+    "name": "hpnicfNqaResultsRttBusies",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttNoConnections": {
+    "name": "hpnicfNqaResultsRttNoConnections",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttDrops": {
+    "name": "hpnicfNqaResultsRttDrops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttSequenceErrors": {
+    "name": "hpnicfNqaResultsRttSequenceErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttStatsErrors": {
+    "name": "hpnicfNqaResultsRttStatsErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsMaxDelaySD": {
+    "name": "hpnicfNqaResultsMaxDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsMaxDelayDS": {
+    "name": "hpnicfNqaResultsMaxDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsLostPacketRatio": {
+    "name": "hpnicfNqaResultsLostPacketRatio",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsPacketLateArrival": {
+    "name": "hpnicfNqaResultsPacketLateArrival",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsRttSum": {
+    "name": "hpnicfNqaResultsRttSum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsNumOfDelaySD": {
+    "name": "hpnicfNqaResultsNumOfDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsMinDelaySD": {
+    "name": "hpnicfNqaResultsMinDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsSumDelaySD": {
+    "name": "hpnicfNqaResultsSumDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsSum2DelaySD": {
+    "name": "hpnicfNqaResultsSum2DelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsNumOfDelayDS": {
+    "name": "hpnicfNqaResultsNumOfDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsMinDelayDS": {
+    "name": "hpnicfNqaResultsMinDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsSumDelayDS": {
+    "name": "hpnicfNqaResultsSumDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaResultsSum2DelayDS": {
+    "name": "hpnicfNqaResultsSum2DelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsTable": {
+    "name": "hpnicfNqaJitterStatsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsEntry": {
+    "name": "hpnicfNqaJitterStatsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsNumOfRTT": {
+    "name": "hpnicfNqaJitterStatsNumOfRTT",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMinOfPositivesSD": {
+    "name": "hpnicfNqaJitterStatsMinOfPositivesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMaxOfPositivesSD": {
+    "name": "hpnicfNqaJitterStatsMaxOfPositivesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsNumOfPositivesSD": {
+    "name": "hpnicfNqaJitterStatsNumOfPositivesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSumOfPositivesSD": {
+    "name": "hpnicfNqaJitterStatsSumOfPositivesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSum2PositivesSD": {
+    "name": "hpnicfNqaJitterStatsSum2PositivesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMinOfNegativesSD": {
+    "name": "hpnicfNqaJitterStatsMinOfNegativesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMaxOfNegativesSD": {
+    "name": "hpnicfNqaJitterStatsMaxOfNegativesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsNumOfNegativesSD": {
+    "name": "hpnicfNqaJitterStatsNumOfNegativesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSumOfNegativesSD": {
+    "name": "hpnicfNqaJitterStatsSumOfNegativesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSum2NegativesSD": {
+    "name": "hpnicfNqaJitterStatsSum2NegativesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMinOfPositivesDS": {
+    "name": "hpnicfNqaJitterStatsMinOfPositivesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMaxOfPositivesDS": {
+    "name": "hpnicfNqaJitterStatsMaxOfPositivesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsNumOfPositivesDS": {
+    "name": "hpnicfNqaJitterStatsNumOfPositivesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSumOfPositivesDS": {
+    "name": "hpnicfNqaJitterStatsSumOfPositivesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSum2PositivesDS": {
+    "name": "hpnicfNqaJitterStatsSum2PositivesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMinOfNegativesDS": {
+    "name": "hpnicfNqaJitterStatsMinOfNegativesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsMaxOfNegativesDS": {
+    "name": "hpnicfNqaJitterStatsMaxOfNegativesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsNumOfNegativesDS": {
+    "name": "hpnicfNqaJitterStatsNumOfNegativesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSumOfNegativesDS": {
+    "name": "hpnicfNqaJitterStatsSumOfNegativesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsSum2NegativesDS": {
+    "name": "hpnicfNqaJitterStatsSum2NegativesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsPacketLossSD": {
+    "name": "hpnicfNqaJitterStatsPacketLossSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsPacketLossDS": {
+    "name": "hpnicfNqaJitterStatsPacketLossDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsAvePositivesSD": {
+    "name": "hpnicfNqaJitterStatsAvePositivesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsAveNegativesSD": {
+    "name": "hpnicfNqaJitterStatsAveNegativesSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsAvePositivesDS": {
+    "name": "hpnicfNqaJitterStatsAvePositivesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsAveNegativesDS": {
+    "name": "hpnicfNqaJitterStatsAveNegativesDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsPktLossUnknown": {
+    "name": "hpnicfNqaJitterStatsPktLossUnknown",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsOperOfICPIF": {
+    "name": "hpnicfNqaJitterStatsOperOfICPIF",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaJitterStatsOperOfMOS": {
+    "name": "hpnicfNqaJitterStatsOperOfMOS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaAgentEnable": {
+    "name": "hpnicfNqaAgentEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNqaTcpServerTable": {
+    "name": "hpnicfNqaTcpServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaTcpServerEntry": {
+    "name": "hpnicfNqaTcpServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaTcpServerIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaTcpServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaTcpServerIpAddress": {
+    "name": "hpnicfNqaTcpServerIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaTcpServerPort": {
+    "name": "hpnicfNqaTcpServerPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaTcpServerRowStatus": {
+    "name": "hpnicfNqaTcpServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaUdpServerTable": {
+    "name": "hpnicfNqaUdpServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaUdpServerEntry": {
+    "name": "hpnicfNqaUdpServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaUdpServerIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaUdpServerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaUdpServerIpAddress": {
+    "name": "hpnicfNqaUdpServerIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaUdpServerPort": {
+    "name": "hpnicfNqaUdpServerPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaUdpServerRowStatus": {
+    "name": "hpnicfNqaUdpServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaServerEnable": {
+    "name": "hpnicfNqaServerEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNqaStatsMaxGroupNumber": {
+    "name": "hpnicfNqaStatsMaxGroupNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatisticsCtlTable": {
+    "name": "hpnicfNqaStatisticsCtlTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatisticsCtlEntry": {
+    "name": "hpnicfNqaStatisticsCtlEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hpnicfNqaStatisticsCtlEntry",
+      "module": "HPN-ICF-NQA-MIB",
+      "object": "pingCtlEntry"
+    },
+    "status": "current"
+  },
+  "hpnicfNqaCtlStatisticsInterval": {
+    "name": "hpnicfNqaCtlStatisticsInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlStatisticsGroupNumber": {
+    "name": "hpnicfNqaCtlStatisticsGroupNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlStatisticsKeptTime": {
+    "name": "hpnicfNqaCtlStatisticsKeptTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlBeginTime": {
+    "name": "hpnicfNqaCtlBeginTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaCtlLifeTime": {
+    "name": "hpnicfNqaCtlLifeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaStatisticsResultsTable": {
+    "name": "hpnicfNqaStatisticsResultsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatisticsResultsEntry": {
+    "name": "hpnicfNqaStatisticsResultsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaStatResIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaStatResIndex": {
+    "name": "hpnicfNqaStatResIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatResIpTargetAddressType": {
+    "name": "hpnicfNqaStatResIpTargetAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResIpTargetAddress": {
+    "name": "hpnicfNqaStatResIpTargetAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResMinRtt": {
+    "name": "hpnicfNqaStatResMinRtt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResMaxRtt": {
+    "name": "hpnicfNqaStatResMaxRtt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResAverageRtt": {
+    "name": "hpnicfNqaStatResAverageRtt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResProbeResponses": {
+    "name": "hpnicfNqaStatResProbeResponses",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResSentProbes": {
+    "name": "hpnicfNqaStatResSentProbes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "probes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttSumOfSquares": {
+    "name": "hpnicfNqaStatResRttSumOfSquares",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResStartTime": {
+    "name": "hpnicfNqaStatResStartTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResInterval": {
+    "name": "hpnicfNqaStatResInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttNumDisconnects": {
+    "name": "hpnicfNqaStatResRttNumDisconnects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttTimeouts": {
+    "name": "hpnicfNqaStatResRttTimeouts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttBusies": {
+    "name": "hpnicfNqaStatResRttBusies",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttNoConnections": {
+    "name": "hpnicfNqaStatResRttNoConnections",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttDrops": {
+    "name": "hpnicfNqaStatResRttDrops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttSequenceErrors": {
+    "name": "hpnicfNqaStatResRttSequenceErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttErrors": {
+    "name": "hpnicfNqaStatResRttErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResLostPacketRatio": {
+    "name": "hpnicfNqaStatResLostPacketRatio",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResPacketLateArrival": {
+    "name": "hpnicfNqaStatResPacketLateArrival",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResRttSum": {
+    "name": "hpnicfNqaStatResRttSum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResNumOfDelaySD": {
+    "name": "hpnicfNqaStatResNumOfDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResMinDelaySD": {
+    "name": "hpnicfNqaStatResMinDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResMaxDelaySD": {
+    "name": "hpnicfNqaStatResMaxDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResSumDelaySD": {
+    "name": "hpnicfNqaStatResSumDelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResSum2DelaySD": {
+    "name": "hpnicfNqaStatResSum2DelaySD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResNumOfDelayDS": {
+    "name": "hpnicfNqaStatResNumOfDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResMinDelayDS": {
+    "name": "hpnicfNqaStatResMinDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResMaxDelayDS": {
+    "name": "hpnicfNqaStatResMaxDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResSumDelayDS": {
+    "name": "hpnicfNqaStatResSumDelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatResSum2DelayDS": {
+    "name": "hpnicfNqaStatResSum2DelayDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.11.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaGroupStatsJitterTable": {
+    "name": "hpnicfNqaGroupStatsJitterTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaGroupStatsJitterEntry": {
+    "name": "hpnicfNqaGroupStatsJitterEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaStatJitterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterIndex": {
+    "name": "hpnicfNqaStatJitterIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMinOfPosSD": {
+    "name": "hpnicfNqaStatJitterMinOfPosSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMaxOfPosSD": {
+    "name": "hpnicfNqaStatJitterMaxOfPosSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterNumOfPosSD": {
+    "name": "hpnicfNqaStatJitterNumOfPosSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfPosSD": {
+    "name": "hpnicfNqaStatJitterSumOfPosSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfSquarePosSD": {
+    "name": "hpnicfNqaStatJitterSumOfSquarePosSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMinOfNegSD": {
+    "name": "hpnicfNqaStatJitterMinOfNegSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMaxOfNegSD": {
+    "name": "hpnicfNqaStatJitterMaxOfNegSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterNumOfNegSD": {
+    "name": "hpnicfNqaStatJitterNumOfNegSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfNegSD": {
+    "name": "hpnicfNqaStatJitterSumOfNegSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfSquareNegSD": {
+    "name": "hpnicfNqaStatJitterSumOfSquareNegSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMinOfPosDS": {
+    "name": "hpnicfNqaStatJitterMinOfPosDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMaxOfPosDS": {
+    "name": "hpnicfNqaStatJitterMaxOfPosDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterNumOfPosDS": {
+    "name": "hpnicfNqaStatJitterNumOfPosDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfPosDS": {
+    "name": "hpnicfNqaStatJitterSumOfPosDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfSquarePosDS": {
+    "name": "hpnicfNqaStatJitterSumOfSquarePosDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMinOfNegDS": {
+    "name": "hpnicfNqaStatJitterMinOfNegDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMaxOfNegDS": {
+    "name": "hpnicfNqaStatJitterMaxOfNegDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterNumOfNegDS": {
+    "name": "hpnicfNqaStatJitterNumOfNegDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfNegDS": {
+    "name": "hpnicfNqaStatJitterSumOfNegDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterSumOfSquareNegDS": {
+    "name": "hpnicfNqaStatJitterSumOfSquareNegDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterPacketLossSD": {
+    "name": "hpnicfNqaStatJitterPacketLossSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterPacketLossDS": {
+    "name": "hpnicfNqaStatJitterPacketLossDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterAvePosSD": {
+    "name": "hpnicfNqaStatJitterAvePosSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterAveNegSD": {
+    "name": "hpnicfNqaStatJitterAveNegSD",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterAvePosDS": {
+    "name": "hpnicfNqaStatJitterAvePosDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterAveNegDS": {
+    "name": "hpnicfNqaStatJitterAveNegDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterPktLossUnknown": {
+    "name": "hpnicfNqaStatJitterPktLossUnknown",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMaxOfICPIF": {
+    "name": "hpnicfNqaStatJitterMaxOfICPIF",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMinOfICPIF": {
+    "name": "hpnicfNqaStatJitterMinOfICPIF",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMaxOfMOS": {
+    "name": "hpnicfNqaStatJitterMaxOfMOS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatJitterMinOfMOS": {
+    "name": "hpnicfNqaStatJitterMinOfMOS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.12.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaReactionTable": {
+    "name": "hpnicfNqaReactionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaReactionEntry": {
+    "name": "hpnicfNqaReactionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaReactOwnerIndex": {
+    "name": "hpnicfNqaReactOwnerIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfNqaReactTestName": {
+    "name": "hpnicfNqaReactTestName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfNqaReactItemIndex": {
+    "name": "hpnicfNqaReactItemIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfNqaReactCheckedElement": {
+    "name": "hpnicfNqaReactCheckedElement",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "probetime": 1,
+          "probefailure": 2,
+          "jitterrtt": 3,
+          "jitterpacketloss": 4,
+          "jittersd": 5,
+          "jitterds": 6,
+          "icpif": 7,
+          "mos": 8,
+          "jitterOwdSD": 9,
+          "jitterOwdDS": 10
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactThresholdUpperLimit": {
+    "name": "hpnicfNqaReactThresholdUpperLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactThresholdLowerLimit": {
+    "name": "hpnicfNqaReactThresholdLowerLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactThresholdType": {
+    "name": "hpnicfNqaReactThresholdType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "average": 1,
+          "consecutive": 2,
+          "accumulative": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactThresholdConsecNum": {
+    "name": "hpnicfNqaReactThresholdConsecNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactThresholdAccumNum": {
+    "name": "hpnicfNqaReactThresholdAccumNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactActionType": {
+    "name": "hpnicfNqaReactActionType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "trapOnly": 1,
+          "triggerOnly": 2,
+          "trapAndTrigger": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactCurrentStatus": {
+    "name": "hpnicfNqaReactCurrentStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "overThreshold": 2,
+          "belowThreshold": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaReactRowStatus": {
+    "name": "hpnicfNqaReactRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNqaReactCheckedNum": {
+    "name": "hpnicfNqaReactCheckedNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaReactThresholdNum": {
+    "name": "hpnicfNqaReactThresholdNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatisticsReactionTable": {
+    "name": "hpnicfNqaStatisticsReactionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatisticsReactionEntry": {
+    "name": "hpnicfNqaStatisticsReactionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaStatReactOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaStatReactTestName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaStatReactIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaStatReactItemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaStatReactOwnerIndex": {
+    "name": "hpnicfNqaStatReactOwnerIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatReactTestName": {
+    "name": "hpnicfNqaStatReactTestName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatReactIndex": {
+    "name": "hpnicfNqaStatReactIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatReactItemIndex": {
+    "name": "hpnicfNqaStatReactItemIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNqaStatReactCheckedNum": {
+    "name": "hpnicfNqaStatReactCheckedNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaStatReactThresholdNum": {
+    "name": "hpnicfNqaStatReactThresholdNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNqaNotifications": {
+    "name": "hpnicfNqaNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3",
+    "class": "objectidentity"
+  },
+  "hpnicfNqaProbeTimeOverThreshold": {
+    "name": "hpnicfNqaProbeTimeOverThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactThresholdType"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaJitterRTTOverThreshold": {
+    "name": "hpnicfNqaJitterRTTOverThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactThresholdType"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaProbeFailure": {
+    "name": "hpnicfNqaProbeFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactThresholdType"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaJitterPacketLoss": {
+    "name": "hpnicfNqaJitterPacketLoss",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactThresholdType"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaJitterSDOverThreshold": {
+    "name": "hpnicfNqaJitterSDOverThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactThresholdType"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaJitterDSOverThreshold": {
+    "name": "hpnicfNqaJitterDSOverThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactThresholdType"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaICPIFOverThreshold": {
+    "name": "hpnicfNqaICPIFOverThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNqaMOSOverThreshold": {
+    "name": "hpnicfNqaMOSOverThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.3.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactOwnerIndex"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactTestName"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactItemIndex"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddressType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTargetAddress"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlType"
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlDescr"
+      },
+      {
+        "module": "HPN-ICF-NQA-MIB",
+        "object": "hpnicfNqaReactCurrentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NQA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-NQA-MIB"
+  }
+}

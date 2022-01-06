@@ -1,0 +1,558 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoServiceControllerMIB": {
+    "name": "ciscoServiceControllerMIB",
+    "oid": "1.3.6.1.4.1.9.9.667",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-03 00:00",
+        "description": "Added the following MIB tables: cscAggregativeGlobalControllersTable cscAggregativeGlobalControllersLinkTable Deprecated following MIB compliance: ciscoServiceControlMIBCompliance Added the following new MIB compliance: ciscoServiceControlMIBComplianceRev1."
+      },
+      {
+        "revision": "2008-08-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoServiceControlMIBObjects": {
+    "name": "ciscoServiceControlMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.667.0",
+    "class": "objectidentity"
+  },
+  "ciscoServiceControlMIBConform": {
+    "name": "ciscoServiceControlMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.667.1",
+    "class": "objectidentity"
+  },
+  "cscGlobalControllersTable": {
+    "name": "cscGlobalControllersTable",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscGlobalControllersEntry": {
+    "name": "cscGlobalControllersEntry",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscGlobalControllersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscGlobalControllersIndex": {
+    "name": "cscGlobalControllersIndex",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscGlobalControllersId": {
+    "name": "cscGlobalControllersId",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cscGlobalControllersDescription": {
+    "name": "cscGlobalControllersDescription",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cscGlobalControllersBandwidthUnits": {
+    "name": "cscGlobalControllersBandwidthUnits",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kbps": 1,
+          "mbps": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "kbps",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cscGlobalControllersBandwidth": {
+    "name": "cscGlobalControllersBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cscGlobalControllersUtilization": {
+    "name": "cscGlobalControllersUtilization",
+    "oid": "1.3.6.1.4.1.9.9.667.0.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersTable": {
+    "name": "cscAggregativeGlobalControllersTable",
+    "oid": "1.3.6.1.4.1.9.9.667.0.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersEntry": {
+    "name": "cscAggregativeGlobalControllersEntry",
+    "oid": "1.3.6.1.4.1.9.9.667.0.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersAgcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersSide": {
+    "name": "cscAggregativeGlobalControllersSide",
+    "oid": "1.3.6.1.4.1.9.9.667.0.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscriber": 1,
+          "network": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersAgcId": {
+    "name": "cscAggregativeGlobalControllersAgcId",
+    "oid": "1.3.6.1.4.1.9.9.667.0.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersLimit": {
+    "name": "cscAggregativeGlobalControllersLimit",
+    "oid": "1.3.6.1.4.1.9.9.667.0.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersRate": {
+    "name": "cscAggregativeGlobalControllersRate",
+    "oid": "1.3.6.1.4.1.9.9.667.0.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersLinkTable": {
+    "name": "cscAggregativeGlobalControllersLinkTable",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersLinkEntry": {
+    "name": "cscAggregativeGlobalControllersLinkEntry",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersLinkIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersLinkSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersLinkAgcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersLinkIndex": {
+    "name": "cscAggregativeGlobalControllersLinkIndex",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersLinkSide": {
+    "name": "cscAggregativeGlobalControllersLinkSide",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscriber": 1,
+          "network": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersLinkAgcId": {
+    "name": "cscAggregativeGlobalControllersLinkAgcId",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersLinkEnforcedRate": {
+    "name": "cscAggregativeGlobalControllersLinkEnforcedRate",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersCommittedInformationRate": {
+    "name": "cscAggregativeGlobalControllersCommittedInformationRate",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersPeakInformationRate": {
+    "name": "cscAggregativeGlobalControllersPeakInformationRate",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscAggregativeGlobalControllersAssuranceLevel": {
+    "name": "cscAggregativeGlobalControllersAssuranceLevel",
+    "oid": "1.3.6.1.4.1.9.9.667.0.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoServiceControlMIBCompliances": {
+    "name": "ciscoServiceControlMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.667.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoServiceControlMIBObjectGroups": {
+    "name": "ciscoServiceControlMIBObjectGroups",
+    "oid": "1.3.6.1.4.1.9.9.667.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoServiceControlMIBCompliance": {
+    "name": "ciscoServiceControlMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.667.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoServiceControlMIBGlobalControllersObjectGroup",
+        "module": "CISCO-SERVICE-CONTROLLER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoServiceControlMIBComplianceRev1": {
+    "name": "ciscoServiceControlMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.667.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoServiceControlMIBGlobalControllersObjectGroup",
+        "module": "CISCO-SERVICE-CONTROLLER-MIB"
+      },
+      {
+        "object": "ciscoServiceControlAGCMIBObjectGroups",
+        "module": "CISCO-SERVICE-CONTROLLER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoServiceControlMIBGlobalControllersObjectGroup": {
+    "name": "ciscoServiceControlMIBGlobalControllersObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.667.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscGlobalControllersDescription"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscGlobalControllersBandwidth"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscGlobalControllersUtilization"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscGlobalControllersBandwidthUnits"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscGlobalControllersId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoServiceControlAGCMIBObjectGroups": {
+    "name": "ciscoServiceControlAGCMIBObjectGroups",
+    "oid": "1.3.6.1.4.1.9.9.667.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersLimit"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersRate"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersLinkEnforcedRate"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersPeakInformationRate"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersCommittedInformationRate"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROLLER-MIB",
+        "object": "cscAggregativeGlobalControllersAssuranceLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SERVICE-CONTROLLER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SERVICE-CONTROLLER-MIB"
+  }
+}

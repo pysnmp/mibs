@@ -1,0 +1,1532 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsNfsMountDefFsmTaskItem",
+      "CucsNfsPurpose",
+      "CucsFsmFlags",
+      "CucsNfsClientConfigState",
+      "CucsNfsDefAdminState",
+      "CucsNfsMountDefFsmCurrentFsm",
+      "CucsFsmCompletion",
+      "CucsFsmFsmStageStatus",
+      "CucsNfsMountInstFsmStageName",
+      "CucsConditionRemoteInvRslt",
+      "CucsNfsMountInstFsmCurrentFsm",
+      "CucsPolicyPolicyOwner",
+      "CucsNfsMntOperState",
+      "CucsNfsMountDefFsmStageName",
+      "CucsNfsMountInstFsmTaskItem",
+      "CucsNfsMntAdminState"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsNfsObjects": {
+    "name": "cucsNfsObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67",
+    "class": "moduleidentity"
+  },
+  "cucsNfsEpTable": {
+    "name": "cucsNfsEpTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsEpEntry": {
+    "name": "cucsNfsEpEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsEpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsEpInstanceId": {
+    "name": "cucsNfsEpInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsEpDn": {
+    "name": "cucsNfsEpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsEpRn": {
+    "name": "cucsNfsEpRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefTable": {
+    "name": "cucsNfsMountDefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefEntry": {
+    "name": "cucsNfsMountDefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountDefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountDefInstanceId": {
+    "name": "cucsNfsMountDefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefDn": {
+    "name": "cucsNfsMountDefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefRn": {
+    "name": "cucsNfsMountDefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefAdminState": {
+    "name": "cucsNfsMountDefAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsDefAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefDescr": {
+    "name": "cucsNfsMountDefDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFltAggr": {
+    "name": "cucsNfsMountDefFltAggr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmDescr": {
+    "name": "cucsNfsMountDefFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmPrev": {
+    "name": "cucsNfsMountDefFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmProgr": {
+    "name": "cucsNfsMountDefFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmRmtInvErrCode": {
+    "name": "cucsNfsMountDefFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmRmtInvErrDescr": {
+    "name": "cucsNfsMountDefFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmRmtInvRslt": {
+    "name": "cucsNfsMountDefFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageDescr": {
+    "name": "cucsNfsMountDefFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStamp": {
+    "name": "cucsNfsMountDefFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStatus": {
+    "name": "cucsNfsMountDefFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTry": {
+    "name": "cucsNfsMountDefFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefIntId": {
+    "name": "cucsNfsMountDefIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefLocalDir": {
+    "name": "cucsNfsMountDefLocalDir",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefName": {
+    "name": "cucsNfsMountDefName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefPolicyLevel": {
+    "name": "cucsNfsMountDefPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefPolicyOwner": {
+    "name": "cucsNfsMountDefPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefPurpose": {
+    "name": "cucsNfsMountDefPurpose",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsPurpose",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefRemoteDir": {
+    "name": "cucsNfsMountDefRemoteDir",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefServer": {
+    "name": "cucsNfsMountDefServer",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTable": {
+    "name": "cucsNfsMountDefFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmEntry": {
+    "name": "cucsNfsMountDefFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountDefFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmInstanceId": {
+    "name": "cucsNfsMountDefFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmDn": {
+    "name": "cucsNfsMountDefFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmRn": {
+    "name": "cucsNfsMountDefFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmCompletionTime": {
+    "name": "cucsNfsMountDefFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmCurrentFsm": {
+    "name": "cucsNfsMountDefFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMountDefFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmDescrData": {
+    "name": "cucsNfsMountDefFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmFsmStatus": {
+    "name": "cucsNfsMountDefFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmProgress": {
+    "name": "cucsNfsMountDefFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmRmtErrCode": {
+    "name": "cucsNfsMountDefFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmRmtErrDescr": {
+    "name": "cucsNfsMountDefFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmRmtRslt": {
+    "name": "cucsNfsMountDefFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageTable": {
+    "name": "cucsNfsMountDefFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageEntry": {
+    "name": "cucsNfsMountDefFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountDefFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageInstanceId": {
+    "name": "cucsNfsMountDefFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageDn": {
+    "name": "cucsNfsMountDefFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageRn": {
+    "name": "cucsNfsMountDefFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageDescrData": {
+    "name": "cucsNfsMountDefFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageLastUpdateTime": {
+    "name": "cucsNfsMountDefFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageName": {
+    "name": "cucsNfsMountDefFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMountDefFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageOrder": {
+    "name": "cucsNfsMountDefFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageRetry": {
+    "name": "cucsNfsMountDefFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmStageStageStatus": {
+    "name": "cucsNfsMountDefFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskTable": {
+    "name": "cucsNfsMountDefFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskEntry": {
+    "name": "cucsNfsMountDefFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountDefFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskInstanceId": {
+    "name": "cucsNfsMountDefFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskDn": {
+    "name": "cucsNfsMountDefFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskRn": {
+    "name": "cucsNfsMountDefFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskCompletion": {
+    "name": "cucsNfsMountDefFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskFlags": {
+    "name": "cucsNfsMountDefFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskItem": {
+    "name": "cucsNfsMountDefFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMountDefFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountDefFsmTaskSeqId": {
+    "name": "cucsNfsMountDefFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstTable": {
+    "name": "cucsNfsMountInstTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstEntry": {
+    "name": "cucsNfsMountInstEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountInstInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountInstInstanceId": {
+    "name": "cucsNfsMountInstInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstDn": {
+    "name": "cucsNfsMountInstDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstRn": {
+    "name": "cucsNfsMountInstRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstAdminState": {
+    "name": "cucsNfsMountInstAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMntAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstClientConfigState": {
+    "name": "cucsNfsMountInstClientConfigState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsClientConfigState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstDefDn": {
+    "name": "cucsNfsMountInstDefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmDescr": {
+    "name": "cucsNfsMountInstFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmPrev": {
+    "name": "cucsNfsMountInstFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmProgr": {
+    "name": "cucsNfsMountInstFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmRmtInvErrCode": {
+    "name": "cucsNfsMountInstFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmRmtInvErrDescr": {
+    "name": "cucsNfsMountInstFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmRmtInvRslt": {
+    "name": "cucsNfsMountInstFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageDescr": {
+    "name": "cucsNfsMountInstFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStamp": {
+    "name": "cucsNfsMountInstFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStatus": {
+    "name": "cucsNfsMountInstFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTry": {
+    "name": "cucsNfsMountInstFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstLocalDir": {
+    "name": "cucsNfsMountInstLocalDir",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstName": {
+    "name": "cucsNfsMountInstName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstOperState": {
+    "name": "cucsNfsMountInstOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMntOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstPurpose": {
+    "name": "cucsNfsMountInstPurpose",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsPurpose",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstRemoteDir": {
+    "name": "cucsNfsMountInstRemoteDir",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstServer": {
+    "name": "cucsNfsMountInstServer",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTable": {
+    "name": "cucsNfsMountInstFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmEntry": {
+    "name": "cucsNfsMountInstFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountInstFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmInstanceId": {
+    "name": "cucsNfsMountInstFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmDn": {
+    "name": "cucsNfsMountInstFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmRn": {
+    "name": "cucsNfsMountInstFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmCompletionTime": {
+    "name": "cucsNfsMountInstFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmCurrentFsm": {
+    "name": "cucsNfsMountInstFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMountInstFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmDescrData": {
+    "name": "cucsNfsMountInstFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmFsmStatus": {
+    "name": "cucsNfsMountInstFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmProgress": {
+    "name": "cucsNfsMountInstFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmRmtErrCode": {
+    "name": "cucsNfsMountInstFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmRmtErrDescr": {
+    "name": "cucsNfsMountInstFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmRmtRslt": {
+    "name": "cucsNfsMountInstFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageTable": {
+    "name": "cucsNfsMountInstFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageEntry": {
+    "name": "cucsNfsMountInstFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountInstFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageInstanceId": {
+    "name": "cucsNfsMountInstFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageDn": {
+    "name": "cucsNfsMountInstFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageRn": {
+    "name": "cucsNfsMountInstFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageDescrData": {
+    "name": "cucsNfsMountInstFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageLastUpdateTime": {
+    "name": "cucsNfsMountInstFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageName": {
+    "name": "cucsNfsMountInstFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMountInstFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageOrder": {
+    "name": "cucsNfsMountInstFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageRetry": {
+    "name": "cucsNfsMountInstFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmStageStageStatus": {
+    "name": "cucsNfsMountInstFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskTable": {
+    "name": "cucsNfsMountInstFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskEntry": {
+    "name": "cucsNfsMountInstFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB",
+        "object": "cucsNfsMountInstFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskInstanceId": {
+    "name": "cucsNfsMountInstFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskDn": {
+    "name": "cucsNfsMountInstFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskRn": {
+    "name": "cucsNfsMountInstFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskCompletion": {
+    "name": "cucsNfsMountInstFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskFlags": {
+    "name": "cucsNfsMountInstFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskItem": {
+    "name": "cucsNfsMountInstFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNfsMountInstFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsNfsMountInstFsmTaskSeqId": {
+    "name": "cucsNfsMountInstFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.67.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NFS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB"
+  }
+}

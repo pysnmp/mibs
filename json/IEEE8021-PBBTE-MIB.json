@@ -1,0 +1,1088 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBaseComponentId"
+    ],
+    "IEEE8021-Q-BRIDGE-MIB": [
+      "ieee8021QBridgeVlanCurrentComponentId"
+    ],
+    "IEEE8021-TC-MIB": [
+      "ieee802dot1mibs",
+      "IEEE8021PbbTeProtectionGroupActiveRequests",
+      "IEEE8021PbbTeProtectionGroupId",
+      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021VlanIndexOrWildcard",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "IEEE8021PbbTeEsp",
+      "IEEE8021PbbTeTSidId",
+      "IEEE8021PbbComponentIdentifier"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
+    ]
+  },
+  "ieee8021PbbTeMib": {
+    "name": "ieee8021PbbTeMib",
+    "oid": "1.3.111.2.802.1.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-12-15 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2014 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2011-02-27 00:00",
+        "description": "Minor edits to contact information etc. as part of 2011 revision of IEEE Std 802.1Q."
+      },
+      {
+        "revision": "2008-11-18 00:00",
+        "description": "Initial version of the PBB-TE MIB module based upon draft 3.2 of the MIB modules defined in 802.1ap and 802.1Qay"
+      }
+    ]
+  },
+  "ieee8021PbbTeNotifications": {
+    "name": "ieee8021PbbTeNotifications",
+    "oid": "1.3.111.2.802.1.1.10.0",
+    "class": "objectidentity"
+  },
+  "ieee8021PbbTeObjects": {
+    "name": "ieee8021PbbTeObjects",
+    "oid": "1.3.111.2.802.1.1.10.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PbbTeConformance": {
+    "name": "ieee8021PbbTeConformance",
+    "oid": "1.3.111.2.802.1.1.10.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PbbTeProtectionGroupListTable": {
+    "name": "ieee8021PbbTeProtectionGroupListTable",
+    "oid": "1.3.111.2.802.1.1.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupListEntry": {
+    "name": "ieee8021PbbTeProtectionGroupListEntry",
+    "oid": "1.3.111.2.802.1.1.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupListGroupId": {
+    "name": "ieee8021PbbTeProtectionGroupListGroupId",
+    "oid": "1.3.111.2.802.1.1.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeProtectionGroupId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupListMD": {
+    "name": "ieee8021PbbTeProtectionGroupListMD",
+    "oid": "1.3.111.2.802.1.1.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupListWorkingMA": {
+    "name": "ieee8021PbbTeProtectionGroupListWorkingMA",
+    "oid": "1.3.111.2.802.1.1.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupListProtectionMA": {
+    "name": "ieee8021PbbTeProtectionGroupListProtectionMA",
+    "oid": "1.3.111.2.802.1.1.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupListStorageType": {
+    "name": "ieee8021PbbTeProtectionGroupListStorageType",
+    "oid": "1.3.111.2.802.1.1.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupListRowStatus": {
+    "name": "ieee8021PbbTeProtectionGroupListRowStatus",
+    "oid": "1.3.111.2.802.1.1.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeMASharedGroupTable": {
+    "name": "ieee8021PbbTeMASharedGroupTable",
+    "oid": "1.3.111.2.802.1.1.10.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeMASharedGroupEntry": {
+    "name": "ieee8021PbbTeMASharedGroupEntry",
+    "oid": "1.3.111.2.802.1.1.10.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListGroupId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeMASharedGroupSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeMASharedGroupSubIndex": {
+    "name": "ieee8021PbbTeMASharedGroupSubIndex",
+    "oid": "1.3.111.2.802.1.1.10.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeMASharedGroupId": {
+    "name": "ieee8021PbbTeMASharedGroupId",
+    "oid": "1.3.111.2.802.1.1.10.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeProtectionGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiTable": {
+    "name": "ieee8021PbbTeTesiTable",
+    "oid": "1.3.111.2.802.1.1.10.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiEntry": {
+    "name": "ieee8021PbbTeTesiEntry",
+    "oid": "1.3.111.2.802.1.1.10.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTesiId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiId": {
+    "name": "ieee8021PbbTeTesiId",
+    "oid": "1.3.111.2.802.1.1.10.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeTSidId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiComponent": {
+    "name": "ieee8021PbbTeTesiComponent",
+    "oid": "1.3.111.2.802.1.1.10.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiBridgePort": {
+    "name": "ieee8021PbbTeTesiBridgePort",
+    "oid": "1.3.111.2.802.1.1.10.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiStorageType": {
+    "name": "ieee8021PbbTeTesiStorageType",
+    "oid": "1.3.111.2.802.1.1.10.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiRowStatus": {
+    "name": "ieee8021PbbTeTesiRowStatus",
+    "oid": "1.3.111.2.802.1.1.10.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeTeSiEspTable": {
+    "name": "ieee8021PbbTeTeSiEspTable",
+    "oid": "1.3.111.2.802.1.1.10.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeTeSiEspEntry": {
+    "name": "ieee8021PbbTeTeSiEspEntry",
+    "oid": "1.3.111.2.802.1.1.10.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTesiId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTeSiEspEspIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeTeSiEspEspIndex": {
+    "name": "ieee8021PbbTeTeSiEspEspIndex",
+    "oid": "1.3.111.2.802.1.1.10.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeTeSiEspEsp": {
+    "name": "ieee8021PbbTeTeSiEspEsp",
+    "oid": "1.3.111.2.802.1.1.10.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeEsp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeTeSiEspStorageType": {
+    "name": "ieee8021PbbTeTeSiEspStorageType",
+    "oid": "1.3.111.2.802.1.1.10.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeTeSiEspRowStatus": {
+    "name": "ieee8021PbbTeTeSiEspRowStatus",
+    "oid": "1.3.111.2.802.1.1.10.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigTable": {
+    "name": "ieee8021PbbTeProtectionGroupConfigTable",
+    "oid": "1.3.111.2.802.1.1.10.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigEntry": {
+    "name": "ieee8021PbbTeProtectionGroupConfigEntry",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigState": {
+    "name": "ieee8021PbbTeProtectionGroupConfigState",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "workingPath": 1,
+          "protectionPat": 2,
+          "waitToRestore": 3,
+          "protAdmin": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigCommandStatus": {
+    "name": "ieee8021PbbTeProtectionGroupConfigCommandStatus",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigCommandLast": {
+    "name": "ieee8021PbbTeProtectionGroupConfigCommandLast",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigCommandAdmin": {
+    "name": "ieee8021PbbTeProtectionGroupConfigCommandAdmin",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "clear",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigActiveRequests": {
+    "name": "ieee8021PbbTeProtectionGroupConfigActiveRequests",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeProtectionGroupActiveRequests",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigWTR": {
+    "name": "ieee8021PbbTeProtectionGroupConfigWTR",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigHoldOff": {
+    "name": "ieee8021PbbTeProtectionGroupConfigHoldOff",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigNotifyEnable": {
+    "name": "ieee8021PbbTeProtectionGroupConfigNotifyEnable",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupConfigStorageType": {
+    "name": "ieee8021PbbTeProtectionGroupConfigStorageType",
+    "oid": "1.3.111.2.802.1.1.10.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidTable": {
+    "name": "ieee8021PbbTeProtectionGroupISidTable",
+    "oid": "1.3.111.2.802.1.1.10.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidEntry": {
+    "name": "ieee8021PbbTeProtectionGroupISidEntry",
+    "oid": "1.3.111.2.802.1.1.10.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupISidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidIndex": {
+    "name": "ieee8021PbbTeProtectionGroupISidIndex",
+    "oid": "1.3.111.2.802.1.1.10.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbServiceIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidComponentId": {
+    "name": "ieee8021PbbTeProtectionGroupISidComponentId",
+    "oid": "1.3.111.2.802.1.1.10.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidGroupId": {
+    "name": "ieee8021PbbTeProtectionGroupISidGroupId",
+    "oid": "1.3.111.2.802.1.1.10.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbTeProtectionGroupId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidStorageType": {
+    "name": "ieee8021PbbTeProtectionGroupISidStorageType",
+    "oid": "1.3.111.2.802.1.1.10.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidRowStatus": {
+    "name": "ieee8021PbbTeProtectionGroupISidRowStatus",
+    "oid": "1.3.111.2.802.1.1.10.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeBridgeStaticForwardAnyUnicastTable": {
+    "name": "ieee8021PbbTeBridgeStaticForwardAnyUnicastTable",
+    "oid": "1.3.111.2.802.1.1.10.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeBridgeStaticForwardAnyUnicastEntry": {
+    "name": "ieee8021PbbTeBridgeStaticForwardAnyUnicastEntry",
+    "oid": "1.3.111.2.802.1.1.10.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-Q-BRIDGE-MIB",
+        "object": "ieee8021QBridgeVlanCurrentComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeBridgeStaticForwardAnyUnicastVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeBridgeStaticForwardAnyUnicastVlanIndex": {
+    "name": "ieee8021PbbTeBridgeStaticForwardAnyUnicastVlanIndex",
+    "oid": "1.3.111.2.802.1.1.10.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndexOrWildcard",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PbbTeBridgeStaticForwardAnyUnicastEgressPorts": {
+    "name": "ieee8021PbbTeBridgeStaticForwardAnyUnicastEgressPorts",
+    "oid": "1.3.111.2.802.1.1.10.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeBridgeStaticForwardAnyUnicastForbiddenPorts": {
+    "name": "ieee8021PbbTeBridgeStaticForwardAnyUnicastForbiddenPorts",
+    "oid": "1.3.111.2.802.1.1.10.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeBridgeStaticForwardAnyUnicastStorageType": {
+    "name": "ieee8021PbbTeBridgeStaticForwardAnyUnicastStorageType",
+    "oid": "1.3.111.2.802.1.1.10.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeBridgeStaticForwardAnyUnicastRowStatus": {
+    "name": "ieee8021PbbTeBridgeStaticForwardAnyUnicastRowStatus",
+    "oid": "1.3.111.2.802.1.1.10.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupAdminFailure": {
+    "name": "ieee8021PbbTeProtectionGroupAdminFailure",
+    "oid": "1.3.111.2.802.1.1.10.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigState"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigCommandStatus"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigCommandLast"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeCompliances": {
+    "name": "ieee8021PbbTeCompliances",
+    "oid": "1.3.111.2.802.1.1.10.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PbbTeGroups": {
+    "name": "ieee8021PbbTeGroups",
+    "oid": "1.3.111.2.802.1.1.10.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PbbTeGroupListGroup": {
+    "name": "ieee8021PbbTeGroupListGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListMD"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListWorkingMA"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListProtectionMA"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListStorageType"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupListRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeMASharedGroup": {
+    "name": "ieee8021PbbTeMASharedGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeMASharedGroupId"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeTesiGroup": {
+    "name": "ieee8021PbbTeTesiGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTesiComponent"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTesiBridgePort"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTesiStorageType"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTesiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeSiEspGroup": {
+    "name": "ieee8021PbbTeSiEspGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTeSiEspEsp"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTeSiEspStorageType"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeTeSiEspRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionConfigManGroup": {
+    "name": "ieee8021PbbTeProtectionConfigManGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigState"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigCommandStatus"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigCommandLast"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigCommandAdmin"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigActiveRequests"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigNotifyEnable"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionConfigOptGroup": {
+    "name": "ieee8021PbbTeProtectionConfigOptGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigWTR"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupConfigHoldOff"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeProtectionGroupISidGroup": {
+    "name": "ieee8021PbbTeProtectionGroupISidGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupISidComponentId"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupISidGroupId"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupISidStorageType"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupISidRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeFdbGroup": {
+    "name": "ieee8021PbbTeFdbGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeBridgeStaticForwardAnyUnicastEgressPorts"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeBridgeStaticForwardAnyUnicastForbiddenPorts"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeBridgeStaticForwardAnyUnicastStorageType"
+      },
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeBridgeStaticForwardAnyUnicastRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeNotificationsGroup": {
+    "name": "ieee8021PbbTeNotificationsGroup",
+    "oid": "1.3.111.2.802.1.1.10.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PBBTE-MIB",
+        "object": "ieee8021PbbTeProtectionGroupAdminFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PbbTeCompliance": {
+    "name": "ieee8021PbbTeCompliance",
+    "oid": "1.3.111.2.802.1.1.10.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021PbbTeGroupListGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeMASharedGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeTesiGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeSiEspGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeProtectionConfigManGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeProtectionGroupISidGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeFdbGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeNotificationsGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      },
+      {
+        "object": "ieee8021PbbTeProtectionConfigOptGroup",
+        "module": "IEEE8021-PBBTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-PBBTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-PBBTE-MIB"
+  }
+}

@@ -1,0 +1,2638 @@
+{
+  "imports": {
+    "class": "imports",
+    "NEXANS-MIB": [
+      "nexansANS"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "bmSwitchMIB": {
+    "name": "bmSwitchMIB",
+    "oid": "1.3.6.1.4.1.266.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-29 00:00",
+        "description": "Revision 4.01"
+      }
+    ]
+  },
+  "bmTraps": {
+    "name": "bmTraps",
+    "oid": "1.3.6.1.4.1.266.20.0",
+    "class": "objectidentity"
+  },
+  "bmSwitchInfo": {
+    "name": "bmSwitchInfo",
+    "oid": "1.3.6.1.4.1.266.20.1",
+    "class": "objectidentity"
+  },
+  "bmSwitchAdmin": {
+    "name": "bmSwitchAdmin",
+    "oid": "1.3.6.1.4.1.266.20.2",
+    "class": "objectidentity"
+  },
+  "bmSwitchPort": {
+    "name": "bmSwitchPort",
+    "oid": "1.3.6.1.4.1.266.20.3",
+    "class": "objectidentity"
+  },
+  "bmSwitchVlan": {
+    "name": "bmSwitchVlan",
+    "oid": "1.3.6.1.4.1.266.20.4",
+    "class": "objectidentity"
+  },
+  "bmSwitchSfp": {
+    "name": "bmSwitchSfp",
+    "oid": "1.3.6.1.4.1.266.20.5",
+    "class": "objectidentity"
+  },
+  "infoDescr": {
+    "name": "infoDescr",
+    "oid": "1.3.6.1.4.1.266.20.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoType": {
+    "name": "infoType",
+    "oid": "1.3.6.1.4.1.266.20.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoProductNo": {
+    "name": "infoProductNo",
+    "oid": "1.3.6.1.4.1.266.20.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoSerie": {
+    "name": "infoSerie",
+    "oid": "1.3.6.1.4.1.266.20.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoSeriesNo": {
+    "name": "infoSeriesNo",
+    "oid": "1.3.6.1.4.1.266.20.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoManufactureDate": {
+    "name": "infoManufactureDate",
+    "oid": "1.3.6.1.4.1.266.20.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoSwitchHardwareVersion": {
+    "name": "infoSwitchHardwareVersion",
+    "oid": "1.3.6.1.4.1.266.20.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoMgmtHardwareVersion": {
+    "name": "infoMgmtHardwareVersion",
+    "oid": "1.3.6.1.4.1.266.20.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoMgmtFirmwareVersion": {
+    "name": "infoMgmtFirmwareVersion",
+    "oid": "1.3.6.1.4.1.266.20.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoNoOfPorts": {
+    "name": "infoNoOfPorts",
+    "oid": "1.3.6.1.4.1.266.20.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoNoOfReboots": {
+    "name": "infoNoOfReboots",
+    "oid": "1.3.6.1.4.1.266.20.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoTemperature": {
+    "name": "infoTemperature",
+    "oid": "1.3.6.1.4.1.266.20.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoTemperatureMaxAllowed": {
+    "name": "infoTemperatureMaxAllowed",
+    "oid": "1.3.6.1.4.1.266.20.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoPowerVoltage2500": {
+    "name": "infoPowerVoltage2500",
+    "oid": "1.3.6.1.4.1.266.20.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoPowerVoltage3300": {
+    "name": "infoPowerVoltage3300",
+    "oid": "1.3.6.1.4.1.266.20.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoUnauthIpAddr": {
+    "name": "infoUnauthIpAddr",
+    "oid": "1.3.6.1.4.1.266.20.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoSecurityFailMacAddr": {
+    "name": "infoSecurityFailMacAddr",
+    "oid": "1.3.6.1.4.1.266.20.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoNewMacAddr": {
+    "name": "infoNewMacAddr",
+    "oid": "1.3.6.1.4.1.266.20.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoPoeInputVoltage": {
+    "name": "infoPoeInputVoltage",
+    "oid": "1.3.6.1.4.1.266.20.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoPoeInputPower": {
+    "name": "infoPoeInputPower",
+    "oid": "1.3.6.1.4.1.266.20.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoAlarmStateM1": {
+    "name": "infoAlarmStateM1",
+    "oid": "1.3.6.1.4.1.266.20.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "alarmOff": 2,
+          "alarmOn": 3,
+          "alarmOnLinkDown": 4,
+          "alarmOnForced": 5,
+          "alarmOffForced": 6,
+          "alarmOnPowerSupplyS1": 7,
+          "alarmOnPowerSupplyS2": 8,
+          "alarmOnPowerSupplyS1orS2": 9,
+          "alarmOnFunctionInputShorted": 10,
+          "alarmOnFunctionInputOpen": 11,
+          "alarmOnRemoteFunctionInput": 12,
+          "alarmOnRemoteAlarmDestTable": 13,
+          "alarmOnLocalAlarmDestTable": 14,
+          "alarmContactForcedShorted": 15,
+          "alarmContactForcedOpen": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoAlarmStateM2": {
+    "name": "infoAlarmStateM2",
+    "oid": "1.3.6.1.4.1.266.20.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "alarmOff": 2,
+          "alarmOn": 3,
+          "alarmOnLinkDown": 4,
+          "alarmOnForced": 5,
+          "alarmOffForced": 6,
+          "alarmOnPowerSupplyS1": 7,
+          "alarmOnPowerSupplyS2": 8,
+          "alarmOnPowerSupplyS1orS2": 9,
+          "alarmOnFunctionInputShorted": 10,
+          "alarmOnFunctionInputOpen": 11,
+          "alarmOnRemoteFunctionInput": 12,
+          "alarmOnRemoteAlarmDestTable": 13,
+          "alarmOnLocalAlarmDestTable": 14,
+          "alarmContactForcedShorted": 15,
+          "alarmContactForcedOpen": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoLastTftpMessage": {
+    "name": "infoLastTftpMessage",
+    "oid": "1.3.6.1.4.1.266.20.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "infoLastSfpEventMessage": {
+    "name": "infoLastSfpEventMessage",
+    "oid": "1.3.6.1.4.1.266.20.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "infoLastInternalMgmtWarning": {
+    "name": "infoLastInternalMgmtWarning",
+    "oid": "1.3.6.1.4.1.266.20.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "infoFunctionInputStateF1": {
+    "name": "infoFunctionInputStateF1",
+    "oid": "1.3.6.1.4.1.266.20.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "functionInputShorted": 2,
+          "functionInputOpen": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoTotalConfigChanges": {
+    "name": "infoTotalConfigChanges",
+    "oid": "1.3.6.1.4.1.266.20.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adminReset": {
+    "name": "adminReset",
+    "oid": "1.3.6.1.4.1.266.20.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetIdle": 1,
+          "resetCounters": 2,
+          "rebootSwitch": 3,
+          "rebootToFactoryDefaults": 4,
+          "renewIpAndVlanParameter": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAgentDhcp": {
+    "name": "adminAgentDhcp",
+    "oid": "1.3.6.1.4.1.266.20.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAgentIpAddress": {
+    "name": "adminAgentIpAddress",
+    "oid": "1.3.6.1.4.1.266.20.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAgentPhysAddress": {
+    "name": "adminAgentPhysAddress",
+    "oid": "1.3.6.1.4.1.266.20.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adminAgentDefRouterIpAddress": {
+    "name": "adminAgentDefRouterIpAddress",
+    "oid": "1.3.6.1.4.1.266.20.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAgentNetmask": {
+    "name": "adminAgentNetmask",
+    "oid": "1.3.6.1.4.1.266.20.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAgentDhcpServerIpAddress": {
+    "name": "adminAgentDhcpServerIpAddress",
+    "oid": "1.3.6.1.4.1.266.20.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adminAgentVlanId": {
+    "name": "adminAgentVlanId",
+    "oid": "1.3.6.1.4.1.266.20.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAgentPrioValue": {
+    "name": "adminAgentPrioValue",
+    "oid": "1.3.6.1.4.1.266.20.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAddrAgingTimeMinutes": {
+    "name": "adminAddrAgingTimeMinutes",
+    "oid": "1.3.6.1.4.1.266.20.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 68
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminSwitchPortMirror": {
+    "name": "adminSwitchPortMirror",
+    "oid": "1.3.6.1.4.1.266.20.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminMgmtAccessList": {
+    "name": "adminMgmtAccessList",
+    "oid": "1.3.6.1.4.1.266.20.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enableForNexManAccess": 2,
+          "enableForAllAccess": 3,
+          "enableForSnmpAccess": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminSwitchPoEPowerLimit": {
+    "name": "adminSwitchPoEPowerLimit",
+    "oid": "1.3.6.1.4.1.266.20.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminSwitchVlanTableMode": {
+    "name": "adminSwitchVlanTableMode",
+    "oid": "1.3.6.1.4.1.266.20.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staticMode": 1,
+          "dynamicMode": 2,
+          "staticModeVlans64": 3,
+          "staticModePortBased": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "staticMode",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminUnsecureVlanId": {
+    "name": "adminUnsecureVlanId",
+    "oid": "1.3.6.1.4.1.266.20.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminDot1xAuthFailureVlanId": {
+    "name": "adminDot1xAuthFailureVlanId",
+    "oid": "1.3.6.1.4.1.266.20.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminTftpAccess": {
+    "name": "adminTftpAccess",
+    "oid": "1.3.6.1.4.1.266.20.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftpAccessDisable": 1,
+          "tftpAccessReadOnly": 2,
+          "tftpAccessReadWrite": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminSnmpMacTableMode": {
+    "name": "adminSnmpMacTableMode",
+    "oid": "1.3.6.1.4.1.266.20.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "listAllPorts": 1,
+          "listUserPortsOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAlarmM1": {
+    "name": "adminAlarmM1",
+    "oid": "1.3.6.1.4.1.266.20.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "alarmLinkDown": 2,
+          "alarmOnForced": 3,
+          "alarmOffForced": 4,
+          "alarmPowerSupply1Failure": 5,
+          "alarmPowerSupply2Failure": 6,
+          "alarmPowerSupply1or2Failure": 7,
+          "alarmLocalFunctionInputShorted": 8,
+          "alarmLocalFunctionInputOpen": 9,
+          "alarmRemoteFunctionInput": 10,
+          "alarmRemoteAlarmDestination": 11,
+          "alarmLocalAlarmDestination": 12,
+          "alarmForceContactShorted": 13,
+          "alarmForceContactOpen": 14,
+          "alarmForceContactOpenShorted": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAlarmM2": {
+    "name": "adminAlarmM2",
+    "oid": "1.3.6.1.4.1.266.20.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "alarmLinkDown": 2,
+          "alarmOnForced": 3,
+          "alarmOffForced": 4,
+          "alarmPowerSupply1Failure": 5,
+          "alarmPowerSupply2Failure": 6,
+          "alarmPowerSupply1or2Failure": 7,
+          "alarmLocalFunctionInputShorted": 8,
+          "alarmLocalFunctionInputOpen": 9,
+          "alarmRemoteFunctionInput": 10,
+          "alarmRemoteAlarmDestination": 11,
+          "alarmLocalAlarmDestination": 12,
+          "alarmForceContactShorted": 13,
+          "alarmForceContactOpen": 14,
+          "alarmForceContactOpenShorted": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminMemoryCardMode": {
+    "name": "adminMemoryCardMode",
+    "oid": "1.3.6.1.4.1.266.20.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "mcEnabled": 2,
+          "mcDisabled": 3,
+          "mcPermanentDisabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAlarmNameM1": {
+    "name": "adminAlarmNameM1",
+    "oid": "1.3.6.1.4.1.266.20.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "not defined",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminAlarmNameM2": {
+    "name": "adminAlarmNameM2",
+    "oid": "1.3.6.1.4.1.266.20.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "not defined",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminFunctionInputNameF1": {
+    "name": "adminFunctionInputNameF1",
+    "oid": "1.3.6.1.4.1.266.20.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "not defined",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adminLedGlobalMode": {
+    "name": "adminLedGlobalMode",
+    "oid": "1.3.6.1.4.1.266.20.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ledGlobalModeNotSupported": 1,
+          "ledGlobalModeStandard": 2,
+          "ledGlobalModeAllOff": 3,
+          "ledGlobalModeAllOn": 4,
+          "ledGlobalModeMgmtOnly": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bmSwitchPortTable": {
+    "name": "bmSwitchPortTable",
+    "oid": "1.3.6.1.4.1.266.20.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bmSwitchPortEntry": {
+    "name": "bmSwitchPortEntry",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDescr": {
+    "name": "portDescr",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portName": {
+    "name": "portName",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portAdminState": {
+    "name": "portAdminState",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allwaysEnable": 1,
+          "enable": 2,
+          "adminDisable": 3,
+          "securityDisable": 4,
+          "loopDisable": 5,
+          "bpduDisable": 6,
+          "udldDisable": 7,
+          "linkFlapDisable": 8,
+          "errorCountDisable": 9,
+          "sfpErrorDisable": 10,
+          "redundanyLoopDisable": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSpeedDuplexSetup": {
+    "name": "portSpeedDuplexSetup",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoneg": 1,
+          "fix10Hdx": 2,
+          "fix10Fdx": 3,
+          "fix100Hdx": 4,
+          "fix100Fdx": 5,
+          "fix1000Hdx": 7,
+          "fix1000Fdx": 8,
+          "eco": 9,
+          "ecoOverTemp": 10,
+          "ecoPowerSave": 11,
+          "fix1000fdxNoAutoneg": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portLinkState": {
+    "name": "portLinkState",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up10Hdx": 2,
+          "up10Fdx": 3,
+          "up100Hdx": 4,
+          "up100Fdx": 5,
+          "up1000Hdx": 6,
+          "up1000Fdx": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portErrorCounter": {
+    "name": "portErrorCounter",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portRemoteFault": {
+    "name": "portRemoteFault",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "enable": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portDefaultVlanId": {
+    "name": "portDefaultVlanId",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portTrunkingMode": {
+    "name": "portTrunkingMode",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1qTagging": 1,
+          "disable": 2,
+          "enableWithoutTagging": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portDot1qDefaultPrioValue": {
+    "name": "portDot1qDefaultPrioValue",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portDefaultPrioQueue": {
+    "name": "portDefaultPrioQueue",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portLEDGreen": {
+    "name": "portLEDGreen",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "showLinkState": 2,
+          "blink": 3,
+          "allwaysOff": 4,
+          "allwaysOn": 5,
+          "showLinkSpeedDuplex": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portLEDYellow": {
+    "name": "portLEDYellow",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "showDuplexState": 2,
+          "blink": 3,
+          "allwaysOff": 4,
+          "allwaysOn": 5,
+          "showPoeEnabled": 6,
+          "showSpeed": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portBandwidthLimitRxd": {
+    "name": "portBandwidthLimitRxd",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disable": 2,
+          "limit128k": 3,
+          "limit256k": 4,
+          "limit512k": 5,
+          "limit1M": 6,
+          "limit2M": 7,
+          "limit4M": 8,
+          "limit8M": 9,
+          "limit16M": 10,
+          "limit32M": 11,
+          "limit64M": 12,
+          "limit128M": 13,
+          "limit256M": 14
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portBandwidthLimitTxd": {
+    "name": "portBandwidthLimitTxd",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disable": 2,
+          "limit128k": 3,
+          "limit256k": 4,
+          "limit512k": 5,
+          "limit1M": 6,
+          "limit2M": 7,
+          "limit4M": 8,
+          "limit8M": 9,
+          "limit16M": 10,
+          "limit32M": 11,
+          "limit64M": 12,
+          "limit128M": 13,
+          "limit256M": 14
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityAdminState": {
+    "name": "portSecurityAdminState",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disable": 2,
+          "manualSettingMacAddr": 3,
+          "autoAllowOneMacAddr": 4,
+          "autoAllowTwoMacAddr": 5,
+          "autoAllowThreeMacAddr": 6,
+          "radiusAllowOneMacAddr": 7,
+          "radiusAllowTwoMacAddr": 8,
+          "radiusAllowThreeMacAddr": 9,
+          "renew": 10,
+          "ieee802AllowOneMacAddr": 11,
+          "vendorSettingMacAddr": 12,
+          "ieee802AllowMultiMacAddr": 13,
+          "ieee802OrRadiusOneMac": 14,
+          "ieee802AndRadiusTwoMac": 15,
+          "learnOneMacAddr": 16,
+          "learnTwoMacAddr": 17
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMacAddr1": {
+    "name": "portSecurityMacAddr1",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMacAddr2": {
+    "name": "portSecurityMacAddr2",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portSecurityMacAddr3": {
+    "name": "portSecurityMacAddr3",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portPoeAdminState": {
+    "name": "portPoeAdminState",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "off": 2,
+          "forcedOn": 3,
+          "autoOn": 4,
+          "overloadFail": 5,
+          "reset": 6,
+          "afHighPower": 7,
+          "atHighPower": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portPoeVoltage": {
+    "name": "portPoeVoltage",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portPoeCurrent": {
+    "name": "portPoeCurrent",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portPoePower": {
+    "name": "portPoePower",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portSecurityForwardingState": {
+    "name": "portSecurityForwardingState",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "portAdminDisabled": 2,
+          "waitingForLink": 3,
+          "unsecureVLAN": 4,
+          "portAuthenticated": 5,
+          "portSecurityDisabled": 6,
+          "portLoopDisabled": 7,
+          "authFailureVLAN": 8,
+          "securityWarning": 9,
+          "authenticatingClients": 10,
+          "waitingForMacAddress": 11,
+          "allRadiusServersDown": 12,
+          "portBpduDisabled": 13,
+          "portUdldDisabled": 14,
+          "portLinkFlapDisabled": 15,
+          "portErrorCountDisabled": 16,
+          "portSfpErrorDisabled": 17,
+          "portRedundanyLoopDisable": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portPoePowerLimit": {
+    "name": "portPoePowerLimit",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portLimiterPacketType": {
+    "name": "portLimiterPacketType",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "limitAllPackets": 2,
+          "limitLoopBcastPackets": 3,
+          "limitAllPacketsBurstsAllowed": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portAcApSetup": {
+    "name": "portAcApSetup",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "allwaysEnable": 2,
+          "enable": 3,
+          "disable": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portLinkType": {
+    "name": "portLinkType",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user": 1,
+          "userWithLoopProtection": 2,
+          "upDownlink": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portVoiceVlanId": {
+    "name": "portVoiceVlanId",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portPrioDot1p": {
+    "name": "portPrioDot1p",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prioDot1pDisabled": 1,
+          "prioDot1pEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portPrioIp": {
+    "name": "portPrioIp",
+    "oid": "1.3.6.1.4.1.266.20.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prioIpDisabled": 1,
+          "prioIpEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bmSwitchVlanTable": {
+    "name": "bmSwitchVlanTable",
+    "oid": "1.3.6.1.4.1.266.20.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bmSwitchVlanEntry": {
+    "name": "bmSwitchVlanEntry",
+    "oid": "1.3.6.1.4.1.266.20.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "vlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanIndex": {
+    "name": "vlanIndex",
+    "oid": "1.3.6.1.4.1.266.20.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanId": {
+    "name": "vlanId",
+    "oid": "1.3.6.1.4.1.266.20.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDescr": {
+    "name": "vlanDescr",
+    "oid": "1.3.6.1.4.1.266.20.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bmSwitchSfpTable": {
+    "name": "bmSwitchSfpTable",
+    "oid": "1.3.6.1.4.1.266.20.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bmSwitchSfpEntry": {
+    "name": "bmSwitchSfpEntry",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "sfpPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sfpPortIndex": {
+    "name": "sfpPortIndex",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpState": {
+    "name": "sfpState",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "noSfpInserted": 2,
+          "validSfpNoDiagnostic": 3,
+          "validSfpWithDiagnostic": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoVendorName": {
+    "name": "sfpInfoVendorName",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoPartNumber": {
+    "name": "sfpInfoPartNumber",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoRevisionNumber": {
+    "name": "sfpInfoRevisionNumber",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoSerialNumber": {
+    "name": "sfpInfoSerialNumber",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoDateCode": {
+    "name": "sfpInfoDateCode",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoBitRate": {
+    "name": "sfpInfoBitRate",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoWavelength": {
+    "name": "sfpInfoWavelength",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoLength9um": {
+    "name": "sfpInfoLength9um",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoLength50um": {
+    "name": "sfpInfoLength50um",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoLength62um": {
+    "name": "sfpInfoLength62um",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpInfoConnectorDescr": {
+    "name": "sfpInfoConnectorDescr",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagTemperature": {
+    "name": "sfpDiagTemperature",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagSupplyVoltage": {
+    "name": "sfpDiagSupplyVoltage",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagTxBiasCurrent": {
+    "name": "sfpDiagTxBiasCurrent",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagTxOutputPower": {
+    "name": "sfpDiagTxOutputPower",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagTxOutputPowerDbm": {
+    "name": "sfpDiagTxOutputPowerDbm",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagRxIntputPower": {
+    "name": "sfpDiagRxIntputPower",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpDiagRxInputPowerDbm": {
+    "name": "sfpDiagRxInputPowerDbm",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfpAlarmTxBiasCurrentUpperLimit": {
+    "name": "sfpAlarmTxBiasCurrentUpperLimit",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfpAlarmTxOutputPowerLowerLimit": {
+    "name": "sfpAlarmTxOutputPowerLowerLimit",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfpAlarmRxInputPowerLowerLimit": {
+    "name": "sfpAlarmRxInputPowerLowerLimit",
+    "oid": "1.3.6.1.4.1.266.20.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchTemperatureFailure": {
+    "name": "switchTemperatureFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "portLinkChange": {
+    "name": "portLinkChange",
+    "oid": "1.3.6.1.4.1.266.20.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portLinkState"
+      }
+    ],
+    "status": "current"
+  },
+  "portNewMacAddress": {
+    "name": "portNewMacAddress",
+    "oid": "1.3.6.1.4.1.266.20.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoNewMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityFailure": {
+    "name": "portSecurityFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoSecurityFailMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "portErrorCountFailure": {
+    "name": "portErrorCountFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portErrorCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "switchMgmtAuthFailure": {
+    "name": "switchMgmtAuthFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoUnauthIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "radiusMgmtAuthReject": {
+    "name": "radiusMgmtAuthReject",
+    "oid": "1.3.6.1.4.1.266.20.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoUnauthIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "radiusPortSecurityReject": {
+    "name": "radiusPortSecurityReject",
+    "oid": "1.3.6.1.4.1.266.20.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoSecurityFailMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "portLoopBcastFailure": {
+    "name": "portLoopBcastFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      }
+    ],
+    "status": "current"
+  },
+  "switchPoeVoltageFailure": {
+    "name": "switchPoeVoltageFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoPoeInputVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "switchPoeOverloadFailure": {
+    "name": "switchPoeOverloadFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoPoeInputPower"
+      }
+    ],
+    "status": "current"
+  },
+  "portPoeOverloadFailure": {
+    "name": "portPoeOverloadFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portPoePower"
+      }
+    ],
+    "status": "current"
+  },
+  "portActiveLoopDetectionFailure": {
+    "name": "portActiveLoopDetectionFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      }
+    ],
+    "status": "current"
+  },
+  "switchIndustrialAlarmM1": {
+    "name": "switchIndustrialAlarmM1",
+    "oid": "1.3.6.1.4.1.266.20.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoAlarmStateM1"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "adminAlarmNameM1"
+      }
+    ],
+    "status": "current"
+  },
+  "switchIndustrialAlarmM2": {
+    "name": "switchIndustrialAlarmM2",
+    "oid": "1.3.6.1.4.1.266.20.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoAlarmStateM2"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "adminAlarmNameM2"
+      }
+    ],
+    "status": "current"
+  },
+  "switchInternalVoltageFailure": {
+    "name": "switchInternalVoltageFailure",
+    "oid": "1.3.6.1.4.1.266.20.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoPowerVoltage2500"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoPowerVoltage3300"
+      }
+    ],
+    "status": "current"
+  },
+  "tftpMessage": {
+    "name": "tftpMessage",
+    "oid": "1.3.6.1.4.1.266.20.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoLastTftpMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "sfpEvent": {
+    "name": "sfpEvent",
+    "oid": "1.3.6.1.4.1.266.20.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoLastSfpEventMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "clientRemoved": {
+    "name": "clientRemoved",
+    "oid": "1.3.6.1.4.1.266.20.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      }
+    ],
+    "status": "current"
+  },
+  "internalMgmtWarning": {
+    "name": "internalMgmtWarning",
+    "oid": "1.3.6.1.4.1.266.20.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoLastInternalMgmtWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "switchFunctionInputAlarm": {
+    "name": "switchFunctionInputAlarm",
+    "oid": "1.3.6.1.4.1.266.20.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoFunctionInputStateF1"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "adminFunctionInputNameF1"
+      }
+    ],
+    "status": "current"
+  },
+  "switchConfigurationChanged": {
+    "name": "switchConfigurationChanged",
+    "oid": "1.3.6.1.4.1.266.20.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "infoTotalConfigChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "portErrorDisabled": {
+    "name": "portErrorDisabled",
+    "oid": "1.3.6.1.4.1.266.20.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portIndex"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portDescr"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "NEXANS-BM-MIB",
+        "object": "portAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nexans/NEXANS-BM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NEXANS-BM-MIB"
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnMacMib": {
+    "name": "tnMacMib",
+    "oid": "1.3.6.1.4.1.868.2.5.142",
+    "class": "moduleidentity"
+  },
+  "tnMacMibNotifications": {
+    "name": "tnMacMibNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.142.0",
+    "class": "objectidentity"
+  },
+  "tnMacMibObjects": {
+    "name": "tnMacMibObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1",
+    "class": "objectidentity"
+  },
+  "tnMacMibConformance": {
+    "name": "tnMacMibConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.142.2",
+    "class": "objectidentity"
+  },
+  "tnMacAgeAutomaticConfig": {
+    "name": "tnMacAgeAutomaticConfig",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.1",
+    "class": "objectidentity"
+  },
+  "tnMacAgeAutomaticAgingDisable": {
+    "name": "tnMacAgeAutomaticAgingDisable",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMacAgeAutomaticAgingTime": {
+    "name": "tnMacAgeAutomaticAgingTime",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMacLearningTable": {
+    "name": "tnMacLearningTable",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMacLearningEntry": {
+    "name": "tnMacLearningEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMacTablePortLearning": {
+    "name": "tnMacTablePortLearning",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "disable": 2,
+          "secure": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMacStaticConfigTable": {
+    "name": "tnMacStaticConfigTable",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMacStaticConfigEntry": {
+    "name": "tnMacStaticConfigEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MAC-MIB",
+        "object": "tnStaticMacVlanId",
+        "implied": 0
+      },
+      {
+        "module": "TN-MAC-MIB",
+        "object": "tnStaticMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnStaticMacVlanId": {
+    "name": "tnStaticMacVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnStaticMacAddress": {
+    "name": "tnStaticMacAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnStaticMacPortMembers": {
+    "name": "tnStaticMacPortMembers",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnStaticMacStatus": {
+    "name": "tnStaticMacStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMacAddressTable": {
+    "name": "tnMacAddressTable",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMacAddressEntry": {
+    "name": "tnMacAddressEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MAC-MIB",
+        "object": "tnMacType",
+        "implied": 0
+      },
+      {
+        "module": "TN-MAC-MIB",
+        "object": "tnMacVlan",
+        "implied": 0
+      },
+      {
+        "module": "TN-MAC-MIB",
+        "object": "tnMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMacType": {
+    "name": "tnMacType",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMacVlan": {
+    "name": "tnMacVlan",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMacAddress": {
+    "name": "tnMacAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMacPortMembers": {
+    "name": "tnMacPortMembers",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMacDynamicClear": {
+    "name": "tnMacDynamicClear",
+    "oid": "1.3.6.1.4.1.868.2.5.142.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-MAC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-MAC-MIB"
+  }
+}

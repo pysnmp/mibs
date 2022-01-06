@@ -1,0 +1,682 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-NE-MIB": [
+      "sitelight"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "slXpdr": {
+    "name": "slXpdr",
+    "oid": "1.3.6.1.4.1.4515.1.8",
+    "class": "moduleidentity"
+  },
+  "slXpdrConn": {
+    "name": "slXpdrConn",
+    "oid": "1.3.6.1.4.1.4515.1.8.1",
+    "class": "objectidentity"
+  },
+  "slXpdrLastChange": {
+    "name": "slXpdrLastChange",
+    "oid": "1.3.6.1.4.1.4515.1.8.6",
+    "class": "objectidentity"
+  },
+  "slXpdrTraps": {
+    "name": "slXpdrTraps",
+    "oid": "1.3.6.1.4.1.4515.1.8.7",
+    "class": "objectidentity"
+  },
+  "slXpdrTraps0": {
+    "name": "slXpdrTraps0",
+    "oid": "1.3.6.1.4.1.4515.1.8.7.0",
+    "class": "objectidentity"
+  },
+  "TsMaskBits": {
+    "name": "TsMaskBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "XpdrServiceType": {
+    "name": "XpdrServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ds3Sts1": 1,
+          "fe": 2,
+          "escon": 3,
+          "dvbVideo": 4,
+          "fc1gFicon": 5,
+          "gbE": 6,
+          "fc2g": 7,
+          "oc3Stm1": 8,
+          "oc12Stm4": 9,
+          "oc48Stm16": 10,
+          "other": 11,
+          "fc4g": 12,
+          "infiniband25G": 13,
+          "otn27g": 14,
+          "oc24gpon": 15,
+          "smpteSdi": 16,
+          "copperFe": 17,
+          "copperGbe": 18,
+          "mux2GbE": 19,
+          "mux4GbE": 20,
+          "xpdr5G": 21,
+          "ficon1g": 22,
+          "ficon2g": 23,
+          "stm1": 24,
+          "stm4": 25,
+          "stm16": 26,
+          "gpon248": 27,
+          "ficon4g": 28,
+          "eth10m": 29,
+          "xfp10oc192": 30,
+          "xfp10stm64": 31,
+          "xfp10GbEWan": 32,
+          "xfp10GbELan": 33,
+          "xfp10otu2": 34,
+          "xfp10GFC": 35,
+          "xfp10GbEWanStm64": 36,
+          "mux1GbE": 37,
+          "mux1GbERegen": 38,
+          "mux2GbERegen": 39,
+          "mux4GbERegen": 40,
+          "fc8g": 41,
+          "ficon8g": 42,
+          "mux10GbE": 43,
+          "syncEgbE": 44,
+          "noPm10GbE": 45,
+          "totu2": 46,
+          "otu1e": 50,
+          "otu2e": 51,
+          "otu1f": 52,
+          "otu2f": 53,
+          "oc192ToOtu2": 54,
+          "stm64ToOtu2": 55,
+          "gbe10WanToOtu2": 56,
+          "gbe10LanToOtu2A": 57,
+          "gbe10LanToOtu1e": 58,
+          "gbe10LanToOtu2e": 59,
+          "gbe10LanToOtu2B": 60,
+          "fc10LanToOtu1f": 61,
+          "fc10LanToOtu2f": 62,
+          "fc8LanToOtu2": 63,
+          "otu3": 64,
+          "oc768": 65,
+          "stm256": 66,
+          "otu4": 67,
+          "gbe40lan": 68,
+          "gbe100lan": 69,
+          "fc16g": 70,
+          "smpteHdSdi": 71,
+          "smpteSdSdi": 72,
+          "smpte3gSdi": 73,
+          "smpte3dSdi": 74,
+          "smpteHdSdiNtsc": 75,
+          "smpte3gSdiNtsc": 76,
+          "fc16gNoIsl": 77,
+          "fc32g": 78,
+          "cpri1": 81,
+          "cpri2": 82,
+          "cpri3": 83,
+          "cpri4": 84,
+          "cpri5": 85,
+          "cpri6": 86,
+          "cpri7": 87,
+          "enc10GbELan": 91,
+          "enc1GbELan": 92,
+          "encfc1g": 93,
+          "encfc2g": 94,
+          "encfc4g": 95,
+          "encfc8g": 96,
+          "encfc16g": 97,
+          "encfc10g": 98,
+          "enc1GbE10g": 99,
+          "encGbe40lan": 100,
+          "encGbe100lan": 101,
+          "encOtu2": 102,
+          "encOtu2e": 103,
+          "encOtu3": 104,
+          "encOtu4": 105,
+          "encOc192": 106,
+          "encStm64": 107,
+          "encfc32g": 108,
+          "encfc16gNoIsl": 110,
+          "encCpri1": 111,
+          "encCpri2": 112,
+          "encCpri3": 113,
+          "encCpri4": 114,
+          "encCpri5": 115,
+          "encCpri6": 116,
+          "encCpri7": 117,
+          "enc10GbENoPm": 118,
+          "otuc2": 120,
+          "encOtuc2": 121,
+          "copper10m": 170,
+          "copper10mAn": 171,
+          "copperFeAn": 1701
+        }
+      }
+    },
+    "status": "current"
+  },
+  "xpdrConnConfigTable": {
+    "name": "xpdrConnConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xpdrConnConfigEntry": {
+    "name": "xpdrConnConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-XPDR-MIB",
+        "object": "xpdrConnConfigIf1",
+        "implied": 0
+      },
+      {
+        "module": "SL-XPDR-MIB",
+        "object": "xpdrConnConfigIf2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xpdrConnConfigIf1": {
+    "name": "xpdrConnConfigIf1",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xpdrConnConfigIf2": {
+    "name": "xpdrConnConfigIf2",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xpdrConnConfigRateControlAdmin": {
+    "name": "xpdrConnConfigRateControlAdmin",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrConnConfigRateControlOper": {
+    "name": "xpdrConnConfigRateControlOper",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xpdrConnConfigLosPropagation": {
+    "name": "xpdrConnConfigLosPropagation",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrServiceType": {
+    "name": "xpdrServiceType",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XpdrServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrConnAddMask": {
+    "name": "xpdrConnAddMask",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrMuxInbandAdmin": {
+    "name": "xpdrMuxInbandAdmin",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrMuxInbandOper": {
+    "name": "xpdrMuxInbandOper",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xpdrDirection": {
+    "name": "xpdrDirection",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bidirectional": 1,
+          "unidirectionalTx": 2,
+          "unidirectionalRx": 3,
+          "loopback": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrConnConfigCpriRateControl": {
+    "name": "xpdrConnConfigCpriRateControl",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrFaultPropagationDelay": {
+    "name": "xpdrFaultPropagationDelay",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrFecMode": {
+    "name": "xpdrFecMode",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrConnAddMask1": {
+    "name": "xpdrConnAddMask1",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TsMaskBits",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrConnAddMask2": {
+    "name": "xpdrConnAddMask2",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TsMaskBits",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrCryptoUser": {
+    "name": "xpdrCryptoUser",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "oduXcConnConfigTable": {
+    "name": "oduXcConnConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oduXcConnConfigEntry": {
+    "name": "oduXcConnConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-XPDR-MIB",
+        "object": "oduXcConnConfigP1",
+        "implied": 0
+      },
+      {
+        "module": "SL-XPDR-MIB",
+        "object": "oduXcConnConfigP2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oduXcConnConfigP1": {
+    "name": "oduXcConnConfigP1",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "oduXcConnConfigP2": {
+    "name": "oduXcConnConfigP2",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "oduXcConnConfigProtected": {
+    "name": "oduXcConnConfigProtected",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "oduXcConnConfigRowStatus": {
+    "name": "oduXcConnConfigRowStatus",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tribXcConnConfigTable": {
+    "name": "tribXcConnConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tribXcConnConfigEntry": {
+    "name": "tribXcConnConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-XPDR-MIB",
+        "object": "tribXcConnConfigP1",
+        "implied": 0
+      },
+      {
+        "module": "SL-XPDR-MIB",
+        "object": "tribXcConnConfigP2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tribXcConnConfigP1": {
+    "name": "tribXcConnConfigP1",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tribXcConnConfigP2": {
+    "name": "tribXcConnConfigP2",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tribXcConnServiceType": {
+    "name": "tribXcConnServiceType",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XpdrServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tribXcConnMask1": {
+    "name": "tribXcConnMask1",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TsMaskBits",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tribXcConnMask2": {
+    "name": "tribXcConnMask2",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TsMaskBits",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tribXcConnConfigProtected": {
+    "name": "tribXcConnConfigProtected",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tribXcConnConfigRowStatus": {
+    "name": "tribXcConnConfigRowStatus",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "smmOwnerMode": {
+    "name": "smmOwnerMode",
+    "oid": "1.3.6.1.4.1.4515.1.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gui": 1,
+          "ems": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xpdrConnConfigTableChange": {
+    "name": "xpdrConnConfigTableChange",
+    "oid": "1.3.6.1.4.1.4515.1.8.7.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "xpdrConnConfigTableChange0": {
+    "name": "xpdrConnConfigTableChange0",
+    "oid": "1.3.6.1.4.1.4515.1.8.7.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-XPDR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-XPDR-MIB"
+  }
+}

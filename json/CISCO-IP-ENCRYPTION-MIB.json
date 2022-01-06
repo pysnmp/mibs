@@ -1,0 +1,636 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "OwnerString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SNMPv2-TC-v1": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpEncryptionMIB": {
+    "name": "ciscoIpEncryptionMIB",
+    "oid": "1.3.6.1.4.1.9.9.52",
+    "class": "objectidentity"
+  },
+  "ciscoIpEncryptionMIBObjects": {
+    "name": "ciscoIpEncryptionMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.52.1",
+    "class": "objectidentity"
+  },
+  "cieConfig": {
+    "name": "cieConfig",
+    "oid": "1.3.6.1.4.1.9.9.52.1.1",
+    "class": "objectidentity"
+  },
+  "cieEngineStatus": {
+    "name": "cieEngineStatus",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2",
+    "class": "objectidentity"
+  },
+  "cieConnections": {
+    "name": "cieConnections",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3",
+    "class": "objectidentity"
+  },
+  "cieTestConnection": {
+    "name": "cieTestConnection",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4",
+    "class": "objectidentity"
+  },
+  "cieMIBTrapPrefix": {
+    "name": "cieMIBTrapPrefix",
+    "oid": "1.3.6.1.4.1.9.9.52.2",
+    "class": "objectidentity"
+  },
+  "cieMIBTraps": {
+    "name": "cieMIBTraps",
+    "oid": "1.3.6.1.4.1.9.9.52.2.0",
+    "class": "objectidentity"
+  },
+  "cieMIBConformance": {
+    "name": "cieMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.52.3",
+    "class": "objectidentity"
+  },
+  "cieMIBCompliances": {
+    "name": "cieMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.52.3.1",
+    "class": "objectidentity"
+  },
+  "cieMIBGroups": {
+    "name": "cieMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.52.3.2",
+    "class": "objectidentity"
+  },
+  "cieConfiguredAlgorithms": {
+    "name": "cieConfiguredAlgorithms",
+    "oid": "1.3.6.1.4.1.9.9.52.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieEncryptionKeyTimeout": {
+    "name": "cieEncryptionKeyTimeout",
+    "oid": "1.3.6.1.4.1.9.9.52.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieNumberOfCryptoEngines": {
+    "name": "cieNumberOfCryptoEngines",
+    "oid": "1.3.6.1.4.1.9.9.52.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieEngineStatusTable": {
+    "name": "cieEngineStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cieEngineStatusEntry": {
+    "name": "cieEngineStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ENCRYPTION-MIB",
+        "object": "cieEngineID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cieEngineID": {
+    "name": "cieEngineID",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieEngineCardIndex": {
+    "name": "cieEngineCardIndex",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieEnginePublicKey": {
+    "name": "cieEnginePublicKey",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieEsaTampered": {
+    "name": "cieEsaTampered",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieEsaAuthenticated": {
+    "name": "cieEsaAuthenticated",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieEsaMode": {
+    "name": "cieEsaMode",
+    "oid": "1.3.6.1.4.1.9.9.52.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableActive": 1,
+          "boot": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieNumberOfConnections": {
+    "name": "cieNumberOfConnections",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieConnTable": {
+    "name": "cieConnTable",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cieConnEntry": {
+    "name": "cieConnEntry",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ENCRYPTION-MIB",
+        "object": "cieEngineID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ENCRYPTION-MIB",
+        "object": "cieConnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cieConnIndex": {
+    "name": "cieConnIndex",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cieProtectedAddr": {
+    "name": "cieProtectedAddr",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieUnprotectedAddr": {
+    "name": "cieUnprotectedAddr",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieConnStatus": {
+    "name": "cieConnStatus",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pendingConnection": 1,
+          "openConnection": 2,
+          "exchangeKeys": 3,
+          "badConnection": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciePktsEncrypted": {
+    "name": "ciePktsEncrypted",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciePktsDecrypted": {
+    "name": "ciePktsDecrypted",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciePktsDropped": {
+    "name": "ciePktsDropped",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieLocalTimeEstablished": {
+    "name": "cieLocalTimeEstablished",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieAlgorithmType": {
+    "name": "cieAlgorithmType",
+    "oid": "1.3.6.1.4.1.9.9.52.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "des56bitCfb64": 1,
+          "des56bitCfb8": 2,
+          "des40bitCfb64": 3,
+          "des40bitdesCfb8": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieTestConnTable": {
+    "name": "cieTestConnTable",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cieTestConnEntry": {
+    "name": "cieTestConnEntry",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ENCRYPTION-MIB",
+        "object": "cieTestConnSerialNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cieTestConnSerialNumber": {
+    "name": "cieTestConnSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cieTestConnProtectedAddr": {
+    "name": "cieTestConnProtectedAddr",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cieTestConnUnprotectedAddr": {
+    "name": "cieTestConnUnprotectedAddr",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cieTestConnTrapOnCompletion": {
+    "name": "cieTestConnTrapOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cieTestConnCryptoMapName": {
+    "name": "cieTestConnCryptoMapName",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cieTestConnCryptoMapTagNumber": {
+    "name": "cieTestConnCryptoMapTagNumber",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cieTestConnSessionStatus": {
+    "name": "cieTestConnSessionStatus",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "fail": 2,
+          "success": 3,
+          "badCryptoMapName": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cieTestConnEntryOwner": {
+    "name": "cieTestConnEntryOwner",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cieTestConnEntryStatus": {
+    "name": "cieTestConnEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.52.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "createAndGo",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cieTestCompletion": {
+    "name": "cieTestCompletion",
+    "oid": "1.3.6.1.4.1.9.9.52.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IP-ENCRYPTION-MIB",
+        "object": "cieTestConnSessionStatus"
+      },
+      {
+        "module": "CISCO-IP-ENCRYPTION-MIB",
+        "object": "cieTestConnProtectedAddr"
+      },
+      {
+        "module": "CISCO-IP-ENCRYPTION-MIB",
+        "object": "cieTestConnUnprotectedAddr"
+      }
+    ]
+  },
+  "cieMIBGroup": {
+    "name": "cieMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.52.3.2.1",
+    "class": "objectidentity"
+  },
+  "cieMIBCompliance": {
+    "name": "cieMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.52.3.1.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-ENCRYPTION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IP-ENCRYPTION-MIB"
+  }
+}

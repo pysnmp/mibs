@@ -1,0 +1,1034 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "AeEquipmentType": {
+    "name": "AeEquipmentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ont": 1,
+          "ethernet": 2,
+          "pots": 3,
+          "video": 4,
+          "t1e1": 5,
+          "rfReturn": 6,
+          "wan": 7,
+          "iphost": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeEquipmentInstance": {
+    "name": "AeEquipmentInstance",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AeAlarmType": {
+    "name": "AeAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eventOnly": 1,
+          "onBattery": 2,
+          "badBattery": 3,
+          "missingBattery": 4,
+          "laserEOL": 5,
+          "lowSigLevel": 6,
+          "linkDownPort1": 7,
+          "mgmtDhcpRenewal": 8,
+          "firmwareUpgradeFail": 9,
+          "timeUpdateFail": 10,
+          "voipDhcpRenewal": 11,
+          "voipRegistration": 12,
+          "voipRegAuth": 13,
+          "linkDownPort2": 14,
+          "linkDownPort3": 15,
+          "linkDownPort4": 16,
+          "linkDownPort5": 17,
+          "linkDownPort6": 18,
+          "linkDownPort7": 19,
+          "linkDownPort8": 20,
+          "voipConfigTftpFail": 21,
+          "upsMissing": 22,
+          "lowBattery": 23,
+          "ontT1E1HardwareFail": 24,
+          "tdmPort1LOS": 25,
+          "tdmPort1AIS": 26,
+          "tdmPort1Loopback": 27,
+          "tdmPort1Powerdown": 28,
+          "tdmPort1PWE3LOS": 29,
+          "tdmPort1PWE3FELOS": 30,
+          "tdmPort1FELOS": 31,
+          "tdmPort1PWE3Malformed": 32,
+          "tdmPort1PWE3Mismatch": 33,
+          "tdmPort2LOS": 34,
+          "tdmPort2AIS": 35,
+          "tdmPort2Loopback": 36,
+          "tdmPort2Powerdown": 37,
+          "tdmPort2PWE3LOS": 38,
+          "tdmPort2PWE3FELOS": 39,
+          "tdmPort2FELOS": 40,
+          "tdmPort2PWE3Malformed": 41,
+          "tdmPort2PWE3Mismatch": 42,
+          "tdmPort3LOS": 43,
+          "tdmPort3AIS": 44,
+          "tdmPort3Loopback": 45,
+          "tdmPort3Powerdown": 46,
+          "tdmPort3PWE3LOS": 47,
+          "tdmPort3PWE3FELOS": 48,
+          "tdmPort3FELOS": 49,
+          "tdmPort3PWE3Malformed": 50,
+          "tdmPort3PWE3Mismatch": 51,
+          "tdmPort4LOS": 52,
+          "tdmPort4AIS": 53,
+          "tdmPort4Loopback": 54,
+          "tdmPort4Powerdown": 55,
+          "tdmPort4PWE3LOS": 56,
+          "tdmPort4PWE3FELOS": 57,
+          "tdmPort4FELOS": 58,
+          "tdmPort4PWE3Malformed": 59,
+          "tdmPort4PWE3Mismatch": 60,
+          "tdmPort5LOS": 61,
+          "tdmPort5AIS": 62,
+          "tdmPort5Loopback": 63,
+          "tdmPort5Powerdown": 64,
+          "tdmPort5PWE3LOS": 65,
+          "tdmPort5PWE3FELOS": 66,
+          "tdmPort5FELOS": 67,
+          "tdmPort5PWE3Malformed": 68,
+          "tdmPort5PWE3Mismatch": 69,
+          "tdmPort6LOS": 70,
+          "tdmPort6AIS": 71,
+          "tdmPort6Loopback": 72,
+          "tdmPort6Powerdown": 73,
+          "tdmPort6PWE3LOS": 74,
+          "tdmPort6PWE3FELOS": 75,
+          "tdmPort6FELOS": 76,
+          "tdmPort6PWE3Malformed": 77,
+          "tdmPort6PWE3Mismatch": 78,
+          "tdmPort7LOS": 79,
+          "tdmPort7AIS": 80,
+          "tdmPort7Loopback": 81,
+          "tdmPort7Powerdown": 82,
+          "tdmPort7PWE3LOS": 83,
+          "tdmPort7PWE3FELOS": 84,
+          "tdmPort7FELOS": 85,
+          "tdmPort7PWE3Malformed": 86,
+          "tdmPort7PWE3Mismatch": 87,
+          "tdmPort8LOS": 88,
+          "tdmPort8AIS": 89,
+          "tdmPort8Loopback": 90,
+          "tdmPort8Powerdown": 91,
+          "tdmPort8PWE3LOS": 92,
+          "tdmPort8PWE3FELOS": 93,
+          "tdmPort8FELOS": 94,
+          "tdmPort8PWE3Malformed": 95,
+          "tdmPort8PWE3Mismatch": 96,
+          "configFileCommandError": 97,
+          "configFileMicError": 98,
+          "cachedConfigFileInUse": 99,
+          "cachedVoipConfigInUse": 100,
+          "mep1NeMaxLoss": 101,
+          "mep1NeAvgLoss": 102,
+          "mep1FeMaxLoss": 103,
+          "mep1FeAvgLoss": 104,
+          "mep1MaxDM": 105,
+          "mep1AvgDM": 106,
+          "mep1MaxDMVar": 107,
+          "mep1AvgDMVar": 108,
+          "mep1CcmLoc": 109,
+          "mep1CcmMac": 110,
+          "mep1CcmMeg": 111,
+          "mep1CcmMep": 112,
+          "mep1CcmPeriod": 113,
+          "mep1CcmRdi": 114,
+          "mep2NeMaxLoss": 115,
+          "mep2NeAvgLoss": 116,
+          "mep2FeMaxLoss": 117,
+          "mep2FeAvgLoss": 118,
+          "mep2MaxDM": 119,
+          "mep2AvgDM": 120,
+          "mep2MaxDMVar": 121,
+          "mep2AvgDMVar": 122,
+          "mep2CcmLoc": 123,
+          "mep2CcmMac": 124,
+          "mep2CcmMeg": 125,
+          "mep2CcmMep": 126,
+          "mep2CcmPeriod": 127,
+          "mep2CcmRdi": 128,
+          "mep3NeMaxLoss": 129,
+          "mep3NeAvgLoss": 130,
+          "mep3FeMaxLoss": 131,
+          "mep3FeAvgLoss": 132,
+          "mep3MaxDM": 133,
+          "mep3AvgDM": 134,
+          "mep3MaxDMVar": 135,
+          "mep3AvgDMVar": 136,
+          "mep3CcmLoc": 137,
+          "mep3CcmMac": 138,
+          "mep3CcmMeg": 139,
+          "mep3CcmMep": 140,
+          "mep3CcmPeriod": 141,
+          "mep3CcmRdi": 142,
+          "mep4NeMaxLoss": 143,
+          "mep4NeAvgLoss": 144,
+          "mep4FeMaxLoss": 145,
+          "mep4FeAvgLoss": 146,
+          "mep4MaxDM": 147,
+          "mep4AvgDM": 148,
+          "mep4MaxDMVar": 149,
+          "mep4AvgDMVar": 150,
+          "mep4CcmLoc": 151,
+          "mep4CcmMac": 152,
+          "mep4CcmMeg": 153,
+          "mep4CcmMep": 154,
+          "mep4CcmPeriod": 155,
+          "mep4CcmRdi": 156,
+          "mep5NeMaxLoss": 157,
+          "mep5NeAvgLoss": 158,
+          "mep5FeMaxLoss": 159,
+          "mep5FeAvgLoss": 160,
+          "mep5MaxDM": 161,
+          "mep5AvgDM": 162,
+          "mep5MaxDMVar": 163,
+          "mep5AvgDMVar": 164,
+          "mep5CcmLoc": 165,
+          "mep5CcmMac": 166,
+          "mep5CcmMeg": 167,
+          "mep5CcmMep": 168,
+          "mep5CcmPeriod": 169,
+          "mep5CcmRdi": 170,
+          "mep6NeMaxLoss": 171,
+          "mep6NeAvgLoss": 172,
+          "mep6FeMaxLoss": 173,
+          "mep6FeAvgLoss": 174,
+          "mep6MaxDM": 175,
+          "mep6AvgDM": 176,
+          "mep6MaxDMVar": 177,
+          "mep6AvgDMVar": 178,
+          "mep6CcmLoc": 179,
+          "mep6CcmMac": 180,
+          "mep6CcmMeg": 181,
+          "mep6CcmMep": 182,
+          "mep6CcmPeriod": 183,
+          "mep6CcmRdi": 184,
+          "mep7NeMaxLoss": 185,
+          "mep7NeAvgLoss": 186,
+          "mep7FeMaxLoss": 187,
+          "mep7FeAvgLoss": 188,
+          "mep7MaxDM": 189,
+          "mep7AvgDM": 190,
+          "mep7MaxDMVar": 191,
+          "mep7AvgDMVar": 192,
+          "mep7CcmLoc": 193,
+          "mep7CcmMac": 194,
+          "mep7CcmMeg": 195,
+          "mep7CcmMep": 196,
+          "mep7CcmPeriod": 197,
+          "mep7CcmRdi": 198,
+          "mep8NeMaxLoss": 199,
+          "mep8NeAvgLoss": 200,
+          "mep8FeMaxLoss": 201,
+          "mep8FeAvgLoss": 202,
+          "mep8MaxDM": 203,
+          "mep8AvgDM": 204,
+          "mep8MaxDMVar": 205,
+          "mep8AvgDMVar": 206,
+          "mep8CcmLoc": 207,
+          "mep8CcmMac": 208,
+          "mep8CcmMeg": 209,
+          "mep8CcmMep": 210,
+          "mep8CcmPeriod": 211,
+          "mep8CcmRdi": 212,
+          "mep9NeMaxLoss": 213,
+          "mep9NeAvgLoss": 214,
+          "mep9FeMaxLoss": 215,
+          "mep9FeAvgLoss": 216,
+          "mep9MaxDM": 217,
+          "mep9AvgDM": 218,
+          "mep9MaxDMVar": 219,
+          "mep9AvgDMVar": 220,
+          "mep9CcmLoc": 221,
+          "mep9CcmMac": 222,
+          "mep9CcmMeg": 223,
+          "mep9CcmMep": 224,
+          "mep9CcmPeriod": 225,
+          "mep9CcmRdi": 226,
+          "mep10NeMaxLoss": 227,
+          "mep10NeAvgLoss": 228,
+          "mep10FeMaxLoss": 229,
+          "mep10FeAvgLoss": 230,
+          "mep10MaxDM": 231,
+          "mep10AvgDM": 232,
+          "mep10MaxDMVar": 233,
+          "mep10AvgDMVar": 234,
+          "mep10CcmLoc": 235,
+          "mep10CcmMac": 236,
+          "mep10CcmMeg": 237,
+          "mep10CcmMep": 238,
+          "mep10CcmPeriod": 239,
+          "mep10CcmRdi": 240,
+          "rfc2544SvcAff": 241,
+          "rxLinkFltEth1": 242,
+          "rxLinkFltEth2": 243,
+          "rxLinkFltEth3": 244,
+          "rxLinkFltEth4": 245,
+          "rxLinkFltEth5": 246,
+          "rxLinkFltEth6": 247,
+          "rxLinkFltEth7": 248,
+          "rxLinkFltEth8": 249,
+          "rxLinkFltWan1": 250,
+          "rxLinkFltWan2": 251,
+          "rxDyingGaspEth1": 252,
+          "rxDyingGaspEth2": 253,
+          "rxDyingGaspEth3": 254,
+          "rxDyingGaspEth4": 255,
+          "rxDyingGaspEth5": 256,
+          "rxDyingGaspEth6": 257,
+          "rxDyingGaspEth7": 258,
+          "rxDyingGaspEth8": 259,
+          "rxDyingGaspWan1": 260,
+          "rxDyingGaspWan2": 261,
+          "rxCritEventEth1": 262,
+          "rxCritEventEth2": 263,
+          "rxCritEventEth3": 264,
+          "rxCritEventEth4": 265,
+          "rxCritEventEth5": 266,
+          "rxCritEventEth6": 267,
+          "rxCritEventEth7": 268,
+          "rxCritEventEth8": 269,
+          "rxCritEventWan1": 270,
+          "rxCritEventWan2": 271,
+          "loamOperDownEth1": 272,
+          "loamOperDownEth2": 273,
+          "loamOperDownEth3": 274,
+          "loamOperDownEth4": 275,
+          "loamOperDownEth5": 276,
+          "loamOperDownEth6": 277,
+          "loamOperDownEth7": 278,
+          "loamOperDownEth8": 279,
+          "loamOperDownWan1": 280,
+          "loamOperDownWan2": 281,
+          "sipCfgFileRetrieve": 282,
+          "sipCfgFileInvalid": 283
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeCondStatus": {
+    "name": "AeCondStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeCondSeverityLevel": {
+    "name": "AeCondSeverityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "info": 5,
+          "unknown": 6,
+          "clear": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeCondServiceAffecting": {
+    "name": "AeCondServiceAffecting",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeBriefText": {
+    "name": "AeBriefText",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "displayhint": "40a",
+    "status": "current"
+  },
+  "AeText": {
+    "name": "AeText",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128a",
+    "status": "current"
+  },
+  "AeTime": {
+    "name": "AeTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AeFsanSerialNumber": {
+    "name": "AeFsanSerialNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AeMfgSerialNumber": {
+    "name": "AeMfgSerialNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "16a",
+    "status": "current"
+  },
+  "AeRegistrationID": {
+    "name": "AeRegistrationID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "displayhint": "10a",
+    "status": "current"
+  },
+  "AeOntState": {
+    "name": "AeOntState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "booting": 1,
+          "unregistered": 2,
+          "registered": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeSnmpVersion": {
+    "name": "AeSnmpVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeOntModelNum": {
+    "name": "AeOntModelNum",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "8a",
+    "status": "current"
+  },
+  "AeOntFirmwareVersion": {
+    "name": "AeOntFirmwareVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "20a",
+    "status": "current"
+  },
+  "AeOntRegistrationPeriod": {
+    "name": "AeOntRegistrationPeriod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AeDeviceClass": {
+    "name": "AeDeviceClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "8a",
+    "status": "current"
+  },
+  "AeConfigMethod": {
+    "name": "AeConfigMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "file": 1,
+          "snmp": 2,
+          "tr69": 3,
+          "dynfile": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeConfigFilename": {
+    "name": "AeConfigFilename",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "displayhint": "80a",
+    "status": "current"
+  },
+  "AeConfigFileMarker": {
+    "name": "AeConfigFileMarker",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "displayhint": "80a",
+    "status": "current"
+  },
+  "AeConfigMIC": {
+    "name": "AeConfigMIC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AeDeviceStatus": {
+    "name": "AeDeviceStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acquiredIp": 1,
+          "specificFile": 2,
+          "genericFile": 3,
+          "cachedFile": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeConfigStatus": {
+    "name": "AeConfigStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "manufacturing": 2,
+          "noErrors": 3,
+          "withErrors": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AePwe3AggInstance": {
+    "name": "AePwe3AggInstance",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AePwe3T1Instance": {
+    "name": "AePwe3T1Instance",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AePwe3BundleInstance": {
+    "name": "AePwe3BundleInstance",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PerfCurrentCount": {
+    "name": "PerfCurrentCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PerfInvalidFlag": {
+    "name": "PerfInvalidFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "ok": 1,
+          "pending": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeThresholdCrossingIndex": {
+    "name": "AeThresholdCrossingIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AeThresholdCrossingPointer": {
+    "name": "AeThresholdCrossingPointer",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AeVoiceSvcIndex": {
+    "name": "AeVoiceSvcIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AeVoipCfgState": {
+    "name": "AeVoipCfgState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1,
+          "initializing": 2,
+          "fault": 3,
+          "reserved1": 4,
+          "reserved2": 5,
+          "reserved3": 6,
+          "reserved4": 7,
+          "reserved5": 8,
+          "reserved6": 9,
+          "reserved7": 10,
+          "reserved8": 11,
+          "reserved9": 12,
+          "reserved10": 13,
+          "reserved11": 14,
+          "reserved12": 15,
+          "mac": 16,
+          "presence": 17,
+          "nohost": 18,
+          "static": 19,
+          "dhcpconfig": 20,
+          "dhcpacquire": 21,
+          "configpend": 22,
+          "tftpfail": 23,
+          "tftpfilenotfound": 24,
+          "proxyfail": 25,
+          "running": 26,
+          "enabled": 27,
+          "assnconnected": 28,
+          "disabled": 29,
+          "assndisconnected": 30
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeVoipServerStatus": {
+    "name": "AeVoipServerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "registered": 1,
+          "insession": 2,
+          "failregicmp": 3,
+          "failregtcp": 4,
+          "failregauth": 5,
+          "failregtimeout": 6,
+          "failregserver": 7,
+          "failinviteicmp": 8,
+          "failinvitetcp": 9,
+          "failinviteauth": 10,
+          "failinvitetimeout": 11,
+          "failinviteserver": 12,
+          "notconfigured": 13,
+          "configdone": 14,
+          "oos": 15,
+          "rsip": 16,
+          "quarantine": 17,
+          "active": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeSipCallStatus": {
+    "name": "AeSipCallStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "idle": 1,
+          "dialing": 2,
+          "invite": 3,
+          "ringback": 4,
+          "busy": 5,
+          "ringing": 6,
+          "active": 7,
+          "hold": 8,
+          "disconnecting": 9,
+          "disconnected": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeHookState": {
+    "name": "AeHookState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onHook": 0,
+          "offHook": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeVoipIpLineStatus": {
+    "name": "AeVoipIpLineStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1,
+          "snd": 2,
+          "rec": 4,
+          "sndRec": 6,
+          "hold": 8,
+          "threeway": 16,
+          "callwait": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeRtpEncodeType": {
+    "name": "AeRtpEncodeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ulaw": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeRtpPacketSize": {
+    "name": "AeRtpPacketSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMS": 80,
+          "twentyMS": 160
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AeClearAction": {
+    "name": "AeClearAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "clear": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/AE-TC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AE-TC"
+  }
+}

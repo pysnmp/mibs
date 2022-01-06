@@ -1,0 +1,249 @@
+{
+  "imports": {
+    "class": "imports",
+    "BENU-PLATFORM-MIB": [
+      "benuPlatform"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "benuSyslog": {
+    "name": "benuSyslog",
+    "oid": "1.3.6.1.4.1.39406.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-09 00:00",
+        "description": "Added a branch for notifications"
+      },
+      {
+        "revision": "2014-11-06 00:00",
+        "description": "Removed bSyslogTrapSeverity and bSyslogSeverityTrap"
+      },
+      {
+        "revision": "2013-11-22 00:00",
+        "description": "Data types are corrected and removed an unwanted IMPORT"
+      }
+    ]
+  },
+  "bSyslogNotifications": {
+    "name": "bSyslogNotifications",
+    "oid": "1.3.6.1.4.1.39406.1.3.0",
+    "class": "objectidentity"
+  },
+  "bSyslogSize": {
+    "name": "bSyslogSize",
+    "oid": "1.3.6.1.4.1.39406.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSyslogMaxSize": {
+    "name": "bSyslogMaxSize",
+    "oid": "1.3.6.1.4.1.39406.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4096,
+            "max": 5242880
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4096,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bSyslogServerEnable": {
+    "name": "bSyslogServerEnable",
+    "oid": "1.3.6.1.4.1.39406.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bSyslogServerTable": {
+    "name": "bSyslogServerTable",
+    "oid": "1.3.6.1.4.1.39406.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bSyslogServerEntry": {
+    "name": "bSyslogServerEntry",
+    "oid": "1.3.6.1.4.1.39406.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-SYSLOG-MIB",
+        "object": "bSyslogServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bSyslogServerIndex": {
+    "name": "bSyslogServerIndex",
+    "oid": "1.3.6.1.4.1.39406.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bSyslogServerAddress": {
+    "name": "bSyslogServerAddress",
+    "oid": "1.3.6.1.4.1.39406.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSyslogServerPort": {
+    "name": "bSyslogServerPort",
+    "oid": "1.3.6.1.4.1.39406.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bSyslogSeverity": {
+    "name": "bSyslogSeverity",
+    "oid": "1.3.6.1.4.1.39406.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergencies": 0,
+          "alerts": 1,
+          "critical": 2,
+          "errors": 3,
+          "warnings": 4,
+          "notifications": 5,
+          "informational": 6,
+          "debugging": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bSyslogConsoleSeverity": {
+    "name": "bSyslogConsoleSeverity",
+    "oid": "1.3.6.1.4.1.39406.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergencies": 0,
+          "alerts": 1,
+          "critical": 2,
+          "errors": 3,
+          "warnings": 4,
+          "notifications": 5,
+          "informational": 6,
+          "debugging": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bSyslogClear": {
+    "name": "bSyslogClear",
+    "oid": "1.3.6.1.4.1.39406.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-SYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BENU-SYSLOG-MIB"
+  }
+}

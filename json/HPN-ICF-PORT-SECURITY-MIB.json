@@ -1,0 +1,959 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfPortSecurity"
+    ],
+    "IEEE8021-PAE-MIB": [
+      "dot1xAuthSessionAuthenticMethod",
+      "dot1xAuthSessionTerminateCause",
+      "dot1xPaePortNumber",
+      "dot1xAuthSessionUserName"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifAdminStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfPortSecurityMIB": {
+    "name": "hpnicfPortSecurityMIB",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-24 00:00",
+        "description": "The Initial Version of hpnicfPortSecurityMIB"
+      }
+    ]
+  },
+  "hpnicfPortSecurityLeaf": {
+    "name": "hpnicfPortSecurityLeaf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSecurePortSecurityControl": {
+    "name": "hpnicfSecurePortSecurityControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecurePortVlanMembershipList": {
+    "name": "hpnicfSecurePortVlanMembershipList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfSecureRalmObjects": {
+    "name": "hpnicfSecureRalmObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfSecureRalmDefaultSessionTime": {
+    "name": "hpnicfSecureRalmDefaultSessionTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmHoldoffTime": {
+    "name": "hpnicfSecureRalmHoldoffTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmReauthenticate": {
+    "name": "hpnicfSecureRalmReauthenticate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmAuthMode": {
+    "name": "hpnicfSecureRalmAuthMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "papUsernameAsMacAddress": 1,
+          "papUsernameFixed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmAuthUsername": {
+    "name": "hpnicfSecureRalmAuthUsername",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmAuthPassword": {
+    "name": "hpnicfSecureRalmAuthPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmAuthDomain": {
+    "name": "hpnicfSecureRalmAuthDomain",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmAuthOfflineTime": {
+    "name": "hpnicfSecureRalmAuthOfflineTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureRalmAuthServerTimeoutTime": {
+    "name": "hpnicfSecureRalmAuthServerTimeoutTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureMacControl": {
+    "name": "hpnicfSecureMacControl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPortSecurityTables": {
+    "name": "hpnicfPortSecurityTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfSecurePortTable": {
+    "name": "hpnicfSecurePortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSecurePortEntry": {
+    "name": "hpnicfSecurePortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecurePortMode": {
+    "name": "hpnicfSecurePortMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRestrictions": 1,
+          "continuousLearning": 2,
+          "autoLearn": 3,
+          "secure": 4,
+          "userLogin": 5,
+          "userLoginSecure": 6,
+          "userLoginWithOUI": 7,
+          "macAddressWithRadius": 8,
+          "macAddressOrUserLoginSecure": 9,
+          "macAddressElseUserLoginSecure": 10,
+          "userLoginSecureExt": 11,
+          "macAddressOrUserLoginSecureExt": 12,
+          "macAddressElseUserLoginSecureExt": 13,
+          "macAddressAndUserLoginSecure": 14,
+          "macAddressAndUserLoginSecureExt": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureNeedToKnowMode": {
+    "name": "hpnicfSecureNeedToKnowMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "disabled": 2,
+          "needToKnowOnly": 3,
+          "needToKnowWithBroadcastsAllowed": 4,
+          "needToKnowWithMulticastsAllowed": 5,
+          "permanentNeedToKnowOnly": 6,
+          "permanentNeedToKnowWithBroadcastsAllowed": 7,
+          "permanentNeedToKnowWithMulticastsAllowed": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureIntrusionAction": {
+    "name": "hpnicfSecureIntrusionAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "noAction": 2,
+          "disablePort": 3,
+          "disablePortTemporarily": 4,
+          "allowDefaultAccess": 5,
+          "blockMacAddress": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureNumberAddresses": {
+    "name": "hpnicfSecureNumberAddresses",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureNumberAddressesStored": {
+    "name": "hpnicfSecureNumberAddressesStored",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSecureMaximumAddresses": {
+    "name": "hpnicfSecureMaximumAddresses",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSecureAddressTable": {
+    "name": "hpnicfSecureAddressTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSecureAddressEntry": {
+    "name": "hpnicfSecureAddressEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureAddrMAC": {
+    "name": "hpnicfSecureAddrMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfSecureAddrVlanID": {
+    "name": "hpnicfSecureAddrVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureAddrMACStatus": {
+    "name": "hpnicfSecureAddrMACStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "addressBlackhole": 1,
+          "addressUserConfig": 2,
+          "addressDot1xAuth": 3,
+          "addressRALM": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureAddrRowStatus": {
+    "name": "hpnicfSecureAddrRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureOUITable": {
+    "name": "hpnicfSecureOUITable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSecureOUIEntry": {
+    "name": "hpnicfSecureOUIEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureOUIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureOUIIndex": {
+    "name": "hpnicfSecureOUIIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSecureOUI": {
+    "name": "hpnicfSecureOUI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureOUIRowStatus": {
+    "name": "hpnicfSecureOUIRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureBindingTable": {
+    "name": "hpnicfSecureBindingTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSecureBindingEntry": {
+    "name": "hpnicfSecureBindingEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureBindingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureBindingIndex": {
+    "name": "hpnicfSecureBindingIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSecureBindingPort": {
+    "name": "hpnicfSecureBindingPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureBindingAddrMAC": {
+    "name": "hpnicfSecureBindingAddrMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureBindingAddrIp": {
+    "name": "hpnicfSecureBindingAddrIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureBindingRowStatus": {
+    "name": "hpnicfSecureBindingRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSecureAssignTable": {
+    "name": "hpnicfSecureAssignTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSecureAssignEntry": {
+    "name": "hpnicfSecureAssignEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureAssignEnable": {
+    "name": "hpnicfSecureAssignEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSecureVlanAssignment": {
+    "name": "hpnicfSecureVlanAssignment",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortSecurityNotifications": {
+    "name": "hpnicfPortSecurityNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfSecureAddressLearned": {
+    "name": "hpnicfSecureAddressLearned",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureViolation": {
+    "name": "hpnicfSecureViolation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureLoginFailure": {
+    "name": "hpnicfSecureLoginFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureLogon": {
+    "name": "hpnicfSecureLogon",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionUserName"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionAuthenticMethod"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureLogoff": {
+    "name": "hpnicfSecureLogoff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionUserName"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionTerminateCause"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureRalmLoginFailure": {
+    "name": "hpnicfSecureRalmLoginFailure",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureRalmAuthMode"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureRalmAuthUsername"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureRalmLogon": {
+    "name": "hpnicfSecureRalmLogon",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureRalmAuthMode"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureRalmAuthUsername"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSecureRalmLogoff": {
+    "name": "hpnicfSecureRalmLogoff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.26.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureAddrMAC"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureRalmAuthMode"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecureRalmAuthUsername"
+      },
+      {
+        "module": "HPN-ICF-PORT-SECURITY-MIB",
+        "object": "hpnicfSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-PORT-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-PORT-SECURITY-MIB"
+  }
+}

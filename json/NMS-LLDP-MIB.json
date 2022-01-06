@@ -1,0 +1,1896 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "NMS-SMI": [
+      "nms"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
+      "DisplayString"
+    ]
+  },
+  "nmslldpMIB": {
+    "name": "nmslldpMIB",
+    "oid": "1.3.6.1.4.1.3320.127",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-22 00:00",
+        "description": "Published as part of IEEE Std 802.1AB-2004 initial version."
+      }
+    ]
+  },
+  "lldpNotifications": {
+    "name": "lldpNotifications",
+    "oid": "1.3.6.1.4.1.3320.127.0",
+    "class": "objectidentity"
+  },
+  "lldpObjects": {
+    "name": "lldpObjects",
+    "oid": "1.3.6.1.4.1.3320.127.1",
+    "class": "objectidentity"
+  },
+  "lldpConformance": {
+    "name": "lldpConformance",
+    "oid": "1.3.6.1.4.1.3320.127.2",
+    "class": "objectidentity"
+  },
+  "lldpConfiguration": {
+    "name": "lldpConfiguration",
+    "oid": "1.3.6.1.4.1.3320.127.1.1",
+    "class": "objectidentity"
+  },
+  "lldpStatistics": {
+    "name": "lldpStatistics",
+    "oid": "1.3.6.1.4.1.3320.127.1.2",
+    "class": "objectidentity"
+  },
+  "lldpLocalSystemData": {
+    "name": "lldpLocalSystemData",
+    "oid": "1.3.6.1.4.1.3320.127.1.3",
+    "class": "objectidentity"
+  },
+  "lldpRemoteSystemsData": {
+    "name": "lldpRemoteSystemsData",
+    "oid": "1.3.6.1.4.1.3320.127.1.4",
+    "class": "objectidentity"
+  },
+  "lldpExtensions": {
+    "name": "lldpExtensions",
+    "oid": "1.3.6.1.4.1.3320.127.1.5",
+    "class": "objectidentity"
+  },
+  "lldpExtens": {
+    "name": "lldpExtens",
+    "oid": "1.3.6.1.4.1.3320.127.1.4",
+    "class": "objectidentity"
+  },
+  "TimeFilter": {
+    "name": "TimeFilter",
+    "class": "textualconvention",
+    "type": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ZeroBasedCounter32": {
+    "name": "ZeroBasedCounter32",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "LldpChassisIdSubtype": {
+    "name": "LldpChassisIdSubtype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chassisComponent": 1,
+          "interfaceAlias": 2,
+          "portComponent": 3,
+          "macAddress": 4,
+          "networkAddress": 5,
+          "interfaceName": 6,
+          "local": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpChassisId": {
+    "name": "LldpChassisId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "LldpPortIdSubtype": {
+    "name": "LldpPortIdSubtype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceAlias": 1,
+          "portComponent": 2,
+          "macAddress": 3,
+          "networkAddress": 4,
+          "interfaceName": 5,
+          "agentCircuitId": 6,
+          "local": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpPortId": {
+    "name": "LldpPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "LldpManAddrIfSubtype": {
+    "name": "LldpManAddrIfSubtype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ifIndex": 2,
+          "systemPortNumber": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpManAddress": {
+    "name": "LldpManAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "LldpSystemCapabilitiesMap": {
+    "name": "LldpSystemCapabilitiesMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "repeater": 1,
+        "bridge": 2,
+        "wlanAccessPoint": 3,
+        "router": 4,
+        "telephone": 5,
+        "docsisCableDevice": 6,
+        "stationOnly": 7
+      }
+    },
+    "status": "current"
+  },
+  "LldpPortNumber": {
+    "name": "LldpPortNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "LldpPortList": {
+    "name": "LldpPortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "lldpMessageTxInterval": {
+    "name": "lldpMessageTxInterval",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpMessageTxHoldMultiplier": {
+    "name": "lldpMessageTxHoldMultiplier",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpReinitDelay": {
+    "name": "lldpReinitDelay",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpTxDelay": {
+    "name": "lldpTxDelay",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpNotificationInterval": {
+    "name": "lldpNotificationInterval",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpPortConfigTable": {
+    "name": "lldpPortConfigTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpPortConfigEntry": {
+    "name": "lldpPortConfigEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpPortConfigPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpPortConfigPortNum": {
+    "name": "lldpPortConfigPortNum",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpPortConfigAdminStatus": {
+    "name": "lldpPortConfigAdminStatus",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txOnly": 1,
+          "rxOnly": 2,
+          "txAndRx": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "txAndRx",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpPortConfigNotificationEnable": {
+    "name": "lldpPortConfigNotificationEnable",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpPortConfigTLVsTxEnable": {
+    "name": "lldpPortConfigTLVsTxEnable",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "portDesc": 0,
+        "sysName": 1,
+        "sysDesc": 2,
+        "sysCap": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpConfigManAddrTable": {
+    "name": "lldpConfigManAddrTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpConfigManAddrPortsTxEnable": {
+    "name": "lldpConfigManAddrPortsTxEnable",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpStatsRemTablesLastChangeTime": {
+    "name": "lldpStatsRemTablesLastChangeTime",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRemTablesInserts": {
+    "name": "lldpStatsRemTablesInserts",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "table entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRemTablesDeletes": {
+    "name": "lldpStatsRemTablesDeletes",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "table entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRemTablesDrops": {
+    "name": "lldpStatsRemTablesDrops",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "table entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRemTablesAgeouts": {
+    "name": "lldpStatsRemTablesAgeouts",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsTxPortTable": {
+    "name": "lldpStatsTxPortTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpStatsTxPortEntry": {
+    "name": "lldpStatsTxPortEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsTxPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpStatsTxPortNum": {
+    "name": "lldpStatsTxPortNum",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpStatsTxPortFramesTotal": {
+    "name": "lldpStatsTxPortFramesTotal",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRxPortTable": {
+    "name": "lldpStatsRxPortTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpStatsRxPortEntry": {
+    "name": "lldpStatsRxPortEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRxPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpStatsRxPortNum": {
+    "name": "lldpStatsRxPortNum",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpStatsRxPortFramesDiscardedTotal": {
+    "name": "lldpStatsRxPortFramesDiscardedTotal",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRxPortFramesErrors": {
+    "name": "lldpStatsRxPortFramesErrors",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRxPortFramesTotal": {
+    "name": "lldpStatsRxPortFramesTotal",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRxPortTLVsDiscardedTotal": {
+    "name": "lldpStatsRxPortTLVsDiscardedTotal",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRxPortTLVsUnrecognizedTotal": {
+    "name": "lldpStatsRxPortTLVsUnrecognizedTotal",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpStatsRxPortAgeoutsTotal": {
+    "name": "lldpStatsRxPortAgeoutsTotal",
+    "oid": "1.3.6.1.4.1.3320.127.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocChassisIdSubtype": {
+    "name": "lldpLocChassisIdSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocChassisId": {
+    "name": "lldpLocChassisId",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocSysName": {
+    "name": "lldpLocSysName",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocSysDesc": {
+    "name": "lldpLocSysDesc",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocSysCapSupported": {
+    "name": "lldpLocSysCapSupported",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpSystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocSysCapEnabled": {
+    "name": "lldpLocSysCapEnabled",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpSystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocPortTable": {
+    "name": "lldpLocPortTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpLocPortEntry": {
+    "name": "lldpLocPortEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpLocPortNum": {
+    "name": "lldpLocPortNum",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpLocPortIdSubtype": {
+    "name": "lldpLocPortIdSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocPortId": {
+    "name": "lldpLocPortId",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocPortDesc": {
+    "name": "lldpLocPortDesc",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocManAddrTable": {
+    "name": "lldpLocManAddrTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpLocManAddrEntry": {
+    "name": "lldpLocManAddrEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocManAddrSubtype",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocManAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpConfigManAddrEntry": {
+    "name": "lldpConfigManAddrEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpConfigManAddrEntry",
+      "module": "NMS-LLDP-MIB",
+      "object": "lldpLocManAddrEntry"
+    },
+    "status": "current"
+  },
+  "lldpLocManAddrSubtype": {
+    "name": "lldpLocManAddrSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpLocManAddr": {
+    "name": "lldpLocManAddr",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpLocManAddrLen": {
+    "name": "lldpLocManAddrLen",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocManAddrIfSubtype": {
+    "name": "lldpLocManAddrIfSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddrIfSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocManAddrIfId": {
+    "name": "lldpLocManAddrIfId",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpLocManAddrOID": {
+    "name": "lldpLocManAddrOID",
+    "oid": "1.3.6.1.4.1.3320.127.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemTable": {
+    "name": "lldpRemTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemEntry": {
+    "name": "lldpRemEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpRemTimeMark": {
+    "name": "lldpRemTimeMark",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemLocalPortNum": {
+    "name": "lldpRemLocalPortNum",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemIndex": {
+    "name": "lldpRemIndex",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemChassisIdSubtype": {
+    "name": "lldpRemChassisIdSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemChassisId": {
+    "name": "lldpRemChassisId",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemPortIdSubtype": {
+    "name": "lldpRemPortIdSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemPortId": {
+    "name": "lldpRemPortId",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemPortDesc": {
+    "name": "lldpRemPortDesc",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemSysName": {
+    "name": "lldpRemSysName",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemSysDesc": {
+    "name": "lldpRemSysDesc",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemSysCapSupported": {
+    "name": "lldpRemSysCapSupported",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpSystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemSysCapEnabled": {
+    "name": "lldpRemSysCapEnabled",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpSystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemManAddrTable": {
+    "name": "lldpRemManAddrTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemManAddrEntry": {
+    "name": "lldpRemManAddrEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemManAddrSubtype",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemManAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpRemManAddrSubtype": {
+    "name": "lldpRemManAddrSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemManAddr": {
+    "name": "lldpRemManAddr",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemManAddrIfSubtype": {
+    "name": "lldpRemManAddrIfSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddrIfSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemManAddrIfId": {
+    "name": "lldpRemManAddrIfId",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemManAddrOID": {
+    "name": "lldpRemManAddrOID",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemUnknownTLVTable": {
+    "name": "lldpRemUnknownTLVTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemUnknownTLVEntry": {
+    "name": "lldpRemUnknownTLVEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemUnknownTLVType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpRemUnknownTLVType": {
+    "name": "lldpRemUnknownTLVType",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemUnknownTLVInfo": {
+    "name": "lldpRemUnknownTLVInfo",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpRemOrgDefInfoTable": {
+    "name": "lldpRemOrgDefInfoTable",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemOrgDefInfoEntry": {
+    "name": "lldpRemOrgDefInfoEntry",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemOrgDefInfoOUI",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemOrgDefInfoSubtype",
+        "implied": 0
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemOrgDefInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpRemOrgDefInfoOUI": {
+    "name": "lldpRemOrgDefInfoOUI",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemOrgDefInfoSubtype": {
+    "name": "lldpRemOrgDefInfoSubtype",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemOrgDefInfoIndex": {
+    "name": "lldpRemOrgDefInfoIndex",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpRemOrgDefInfo": {
+    "name": "lldpRemOrgDefInfo",
+    "oid": "1.3.6.1.4.1.3320.127.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 507
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpNotificationPrefix": {
+    "name": "lldpNotificationPrefix",
+    "oid": "1.3.6.1.4.1.3320.127.0.0",
+    "class": "objectidentity"
+  },
+  "lldpRemTablesChange": {
+    "name": "lldpRemTablesChange",
+    "oid": "1.3.6.1.4.1.3320.127.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesInserts"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesDeletes"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesDrops"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesAgeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpCompliances": {
+    "name": "lldpCompliances",
+    "oid": "1.3.6.1.4.1.3320.127.2.1",
+    "class": "objectidentity"
+  },
+  "lldpGroups": {
+    "name": "lldpGroups",
+    "oid": "1.3.6.1.4.1.3320.127.2.2",
+    "class": "objectidentity"
+  },
+  "lldpCompliance": {
+    "name": "lldpCompliance",
+    "oid": "1.3.6.1.4.1.3320.127.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpConfigGroup",
+        "module": "NMS-LLDP-MIB"
+      },
+      {
+        "object": "lldpConfigRxGroup",
+        "module": "NMS-LLDP-MIB"
+      },
+      {
+        "object": "lldpConfigTxGroup",
+        "module": "NMS-LLDP-MIB"
+      },
+      {
+        "object": "lldpStatsRxGroup",
+        "module": "NMS-LLDP-MIB"
+      },
+      {
+        "object": "lldpStatsTxGroup",
+        "module": "NMS-LLDP-MIB"
+      },
+      {
+        "object": "lldpLocSysGroup",
+        "module": "NMS-LLDP-MIB"
+      },
+      {
+        "object": "lldpRemSysGroup",
+        "module": "NMS-LLDP-MIB"
+      },
+      {
+        "object": "lldpNotificationsGroup",
+        "module": "NMS-LLDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpConfigGroup": {
+    "name": "lldpConfigGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpPortConfigAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpConfigRxGroup": {
+    "name": "lldpConfigRxGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpNotificationInterval"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpPortConfigNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpConfigTxGroup": {
+    "name": "lldpConfigTxGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpMessageTxInterval"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpMessageTxHoldMultiplier"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpReinitDelay"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpTxDelay"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpPortConfigTLVsTxEnable"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpConfigManAddrPortsTxEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpStatsRxGroup": {
+    "name": "lldpStatsRxGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesLastChangeTime"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesInserts"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesDeletes"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesDrops"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRemTablesAgeouts"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRxPortFramesDiscardedTotal"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRxPortFramesErrors"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRxPortFramesTotal"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRxPortTLVsDiscardedTotal"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRxPortTLVsUnrecognizedTotal"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsRxPortAgeoutsTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpStatsTxGroup": {
+    "name": "lldpStatsTxGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpStatsTxPortFramesTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpLocSysGroup": {
+    "name": "lldpLocSysGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocChassisIdSubtype"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocChassisId"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocPortIdSubtype"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocPortId"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocPortDesc"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocSysDesc"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocSysName"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocSysCapSupported"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocSysCapEnabled"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocManAddrLen"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocManAddrIfSubtype"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocManAddrIfId"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpLocManAddrOID"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpRemSysGroup": {
+    "name": "lldpRemSysGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemChassisIdSubtype"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemChassisId"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemPortIdSubtype"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemPortId"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemPortDesc"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemSysName"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemSysDesc"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemSysCapSupported"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemSysCapEnabled"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemManAddrIfSubtype"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemManAddrIfId"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemManAddrOID"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemUnknownTLVInfo"
+      },
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemOrgDefInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpNotificationsGroup": {
+    "name": "lldpNotificationsGroup",
+    "oid": "1.3.6.1.4.1.3320.127.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "NMS-LLDP-MIB",
+        "object": "lldpRemTablesChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/NMS-LLDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NMS-LLDP-MIB"
+  }
+}

@@ -1,0 +1,6457 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName"
+    ],
+    "ISIS-MIB": [
+      "isisCircIfIndex",
+      "isisSysLevelIndex",
+      "isisSysInstance",
+      "isisAdjState",
+      "isisPduLspId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwISIS": {
+    "name": "hwISIS",
+    "oid": "1.3.6.1.4.1.2011.5.25.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 20:29",
+        "description": "modify hwIsisAdjChangeReason,hwisisSysInstance,hwisisSysLevelIndex,hwIsisOwnSysID,hwIsisAdjSysID,hwIsisPeerFlappingSuppressStatus,hwIsisSystemID,hwIsisSystemID1,hwIsisSystemID2,hwIsisSystemID3,hwIsisSystemIdConflict discription"
+      },
+      {
+        "revision": "2017-05-05 16:32",
+        "description": "revision 2.2.5"
+      },
+      {
+        "revision": "2016-11-07 17:20",
+        "description": "revision 2.2.4"
+      },
+      {
+        "revision": "2016-09-26 15:00",
+        "description": "revision 2.2.3"
+      },
+      {
+        "revision": "2016-07-23 16:00",
+        "description": "revision 2.2.2"
+      },
+      {
+        "revision": "2016-06-13 16:00",
+        "description": "revision 2.2.1"
+      },
+      {
+        "revision": "2016-02-04 11:00",
+        "description": "revision 2.2.0"
+      },
+      {
+        "revision": "2015-11-30 11:00",
+        "description": "revision 2.1.9"
+      },
+      {
+        "revision": "2015-10-15 11:00",
+        "description": "revision 2.1.8"
+      },
+      {
+        "revision": "2015-08-27 19:00",
+        "description": "revision 2.1.7"
+      },
+      {
+        "revision": "2015-04-08 11:47",
+        "description": "revision 2.1.6"
+      },
+      {
+        "revision": "2015-03-13 09:00",
+        "description": "revision 2.1.5"
+      },
+      {
+        "revision": "2014-11-06 15:18",
+        "description": "revision 2.1.4"
+      },
+      {
+        "revision": "2014-01-15 17:10",
+        "description": "revision 2.1.3"
+      },
+      {
+        "revision": "2013-08-08 11:31",
+        "description": "revision 2.1.2"
+      },
+      {
+        "revision": "2013-04-01 11:53",
+        "description": "revision 2.1.1"
+      },
+      {
+        "revision": "2003-08-11 12:00",
+        "description": "init"
+      }
+    ]
+  },
+  "SystemID": {
+    "name": "SystemID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "InetAddress": {
+    "name": "InetAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "InetAddressType": {
+    "name": "InetAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4z": 3,
+          "ipv6z": 4,
+          "dns": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InetAddressPrefixLength": {
+    "name": "InetAddressPrefixLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2040
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "hwIsisConf": {
+    "name": "hwIsisConf",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2",
+    "class": "objectidentity"
+  },
+  "hwIsisMIBObjects": {
+    "name": "hwIsisMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1",
+    "class": "objectidentity"
+  },
+  "hwIsisProcBaseTable": {
+    "name": "hwIsisProcBaseTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisProcBaseEntry": {
+    "name": "hwIsisProcBaseEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisProcIdIndex": {
+    "name": "hwIsisProcIdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisProcVpnName": {
+    "name": "hwIsisProcVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcVpn6Name": {
+    "name": "hwIsisProcVpn6Name",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "hwIsisProcAreaAuthType": {
+    "name": "hwIsisProcAreaAuthType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "md5": 1,
+          "simple": 2,
+          "keychain": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcAreaAuthPasswordName": {
+    "name": "hwIsisProcAreaAuthPasswordName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcAreaAuthPacketAuthMode": {
+    "name": "hwIsisProcAreaAuthPacketAuthMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "authenticateall": 1,
+          "allsendonly": 2,
+          "snppacketauthenticationavoid": 3,
+          "snppacketsendonly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcAreaAuthCode": {
+    "name": "hwIsisProcAreaAuthCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "osi": 10,
+          "ip": 133
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "osi",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDomainAuthType": {
+    "name": "hwIsisProcDomainAuthType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "md5": 1,
+          "simple": 2,
+          "keychain": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDomainAuthPasswordName": {
+    "name": "hwIsisProcDomainAuthPasswordName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDomainAuthPacketAuthMode": {
+    "name": "hwIsisProcDomainAuthPacketAuthMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "authenticateall": 1,
+          "allsendonly": 2,
+          "snppacketauthenticationavoid": 3,
+          "snppacketsendonly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDomainAuthCode": {
+    "name": "hwIsisProcDomainAuthCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "osi": 10,
+          "ip": 133
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "osi",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcLevel": {
+    "name": "hwIsisProcLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "level12",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1FlashFloodCount": {
+    "name": "hwIsisProcL1FlashFloodCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1FlashFloodInterval": {
+    "name": "hwIsisProcL1FlashFloodInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2FlashFloodCount": {
+    "name": "hwIsisProcL2FlashFloodCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2FlashFloodInterval": {
+    "name": "hwIsisProcL2FlashFloodInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcLogPeerChange": {
+    "name": "hwIsisProcLogPeerChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "enabledwithouttopology": 1,
+          "enabledwithtopology": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcTimerRefresh": {
+    "name": "hwIsisProcTimerRefresh",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcTimerMaxAge": {
+    "name": "hwIsisProcTimerMaxAge",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1TimerLspGenMaxInterval": {
+    "name": "hwIsisProcL1TimerLspGenMaxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1TimerLspGenInitInterval": {
+    "name": "hwIsisProcL1TimerLspGenInitInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1TimerLspGenIncrInterval": {
+    "name": "hwIsisProcL1TimerLspGenIncrInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2TimerLspGenMaxInterval": {
+    "name": "hwIsisProcL2TimerLspGenMaxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2TimerLspGenInitInterval": {
+    "name": "hwIsisProcL2TimerLspGenInitInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2TimerLspGenIncrInterval": {
+    "name": "hwIsisProcL2TimerLspGenIncrInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcTimerSPFMaxInterval": {
+    "name": "hwIsisProcTimerSPFMaxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcTimerSPFInitInterval": {
+    "name": "hwIsisProcTimerSPFInitInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcTimerSPFIncrInterval": {
+    "name": "hwIsisProcTimerSPFIncrInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "millionseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcCostStyle": {
+    "name": "hwIsisProcCostStyle",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "narrow": 1,
+          "narrowcompatible": 2,
+          "compatible": 3,
+          "wide": 4,
+          "widecompatible": 5,
+          "narrowcompatiblerelax": 6,
+          "compatiblerelax": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "narrow",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDynamicName": {
+    "name": "hwIsisProcDynamicName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcGREnabled": {
+    "name": "hwIsisProcGREnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcGRInterval": {
+    "name": "hwIsisProcGRInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcGRSuppresSAEnabled": {
+    "name": "hwIsisProcGRSuppresSAEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcTEEnableLevel": {
+    "name": "hwIsisProcTEEnableLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcBFDEnabled": {
+    "name": "hwIsisProcBFDEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcBFDFrrBindEnabled": {
+    "name": "hwIsisProcBFDFrrBindEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcBFDMinTxInterval": {
+    "name": "hwIsisProcBFDMinTxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcBFDMinRecvInteval": {
+    "name": "hwIsisProcBFDMinRecvInteval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcBFDMultiplier": {
+    "name": "hwIsisProcBFDMultiplier",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcIPv6EnableTopologyType": {
+    "name": "hwIsisProcIPv6EnableTopologyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "standard": 1,
+          "ipv6": 2,
+          "compatible": 3,
+          "compatibleenablemtspf": 4
+        }
+      }
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcRowStatus": {
+    "name": "hwIsisProcRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcOptionalChecksumEnabled": {
+    "name": "hwIsisProcOptionalChecksumEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwisisProcLsdbMaxLimit": {
+    "name": "hwisisProcLsdbMaxLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcLsdbUpperThreshold": {
+    "name": "hwIsisProcLsdbUpperThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcLsdbLowerThreshold": {
+    "name": "hwIsisProcLsdbLowerThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcLsdbTotal": {
+    "name": "hwIsisProcLsdbTotal",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIsisProcAreaAuthKeychainName": {
+    "name": "hwIsisProcAreaAuthKeychainName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDomainAuthKeychainName": {
+    "name": "hwIsisProcDomainAuthKeychainName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisNETTable": {
+    "name": "hwIsisNETTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisNETEntry": {
+    "name": "hwIsisNETEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisNETIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisNETIndex": {
+    "name": "hwIsisNETIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisNETStatus": {
+    "name": "hwIsisNETStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcMTExtTable": {
+    "name": "hwIsisProcMTExtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisProcMTExtEntry": {
+    "name": "hwIsisProcMTExtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisIpTypeIndex": {
+    "name": "hwIsisIpTypeIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisMTIdIndex": {
+    "name": "hwIsisMTIdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisMTName": {
+    "name": "hwIsisMTName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDefRoutAdvType": {
+    "name": "hwIsisProcDefRoutAdvType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "always": 1,
+          "matchdefault": 2,
+          "routepolicy": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDefRoutAdvPolicyName": {
+    "name": "hwIsisProcDefRoutAdvPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDefRoutAdvCost": {
+    "name": "hwIsisProcDefRoutAdvCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDefRoutAdvTag": {
+    "name": "hwIsisProcDefRoutAdvTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDefRoutAdvLevel": {
+    "name": "hwIsisProcDefRoutAdvLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "level2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcDefRoutAdvAvoidLearnEnabled": {
+    "name": "hwIsisProcDefRoutAdvAvoidLearnEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1CircuitCost": {
+    "name": "hwIsisProcL1CircuitCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2CircuitCost": {
+    "name": "hwIsisProcL2CircuitCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcPrefValue": {
+    "name": "hwIsisProcPrefValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcPrefPolicyName": {
+    "name": "hwIsisProcPrefPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcMaxLoadBalance": {
+    "name": "hwIsisProcMaxLoadBalance",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1CircuitDefaultTag": {
+    "name": "hwIsisProcL1CircuitDefaultTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2CircuitDefaultTag": {
+    "name": "hwIsisProcL2CircuitDefaultTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcBandWidthReference": {
+    "name": "hwIsisProcBandWidthReference",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483648
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcAutoCostEnabled": {
+    "name": "hwIsisProcAutoCostEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcSetOverLoad": {
+    "name": "hwIsisProcSetOverLoad",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "onstartup": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcSetOverLoadAllowRoute": {
+    "name": "hwIsisProcSetOverLoadAllowRoute",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "external": 1,
+          "interlevel": 2,
+          "externalandinterlevel": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcOnStartInterval": {
+    "name": "hwIsisProcOnStartInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcOnStartStartFromPeer": {
+    "name": "hwIsisProcOnStartStartFromPeer",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 12,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcOnStartFromPeerInterval": {
+    "name": "hwIsisProcOnStartFromPeerInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcOnStartWaitForBgpEnabled": {
+    "name": "hwIsisProcOnStartWaitForBgpEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcMTStatus": {
+    "name": "hwIsisProcMTStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1RedistMaxLimit": {
+    "name": "hwIsisProcL1RedistMaxLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2RedistMaxLimit": {
+    "name": "hwIsisProcL2RedistMaxLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1UpperRedistThreshold": {
+    "name": "hwIsisProcL1UpperRedistThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2UpperRedistThreshold": {
+    "name": "hwIsisProcL2UpperRedistThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1LowerRedistThreshold": {
+    "name": "hwIsisProcL1LowerRedistThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL2LowerRedistThreshold": {
+    "name": "hwIsisProcL2LowerRedistThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisProcL1TotalRedist": {
+    "name": "hwIsisProcL1TotalRedist",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIsisProcL2TotalRedist": {
+    "name": "hwIsisProcL2TotalRedist",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityTable": {
+    "name": "hwIsisPrefixPriorityTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityEntry": {
+    "name": "hwIsisPrefixPriorityEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityTypeIndex": {
+    "name": "hwIsisPrefixPriorityTypeIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "medium": 1,
+          "high": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityL1PolicyType": {
+    "name": "hwIsisPrefixPriorityL1PolicyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prefix": 1,
+          "tag": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityL2PolicyType": {
+    "name": "hwIsisPrefixPriorityL2PolicyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prefix": 1,
+          "tag": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityL1IpPrefixName": {
+    "name": "hwIsisPrefixPriorityL1IpPrefixName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 169
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityL2IpPrefixName": {
+    "name": "hwIsisPrefixPriorityL2IpPrefixName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 169
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityL1TagValue": {
+    "name": "hwIsisPrefixPriorityL1TagValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityL2TagValue": {
+    "name": "hwIsisPrefixPriorityL2TagValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisSummaryTable": {
+    "name": "hwIsisSummaryTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisSummaryEntry": {
+    "name": "hwIsisSummaryEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryIPIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryMaskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisSummaryIPIndex": {
+    "name": "hwIsisSummaryIPIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisSummaryMaskIndex": {
+    "name": "hwIsisSummaryMaskIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisSummaryAvoidFeedBackEnabled": {
+    "name": "hwIsisSummaryAvoidFeedBackEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisSummaryGenNull0RouteEnabled": {
+    "name": "hwIsisSummaryGenNull0RouteEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisSummaryLevel": {
+    "name": "hwIsisSummaryLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisSummaryTag": {
+    "name": "hwIsisSummaryTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisSummaryStatus": {
+    "name": "hwIsisSummaryStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisImportRouteTable": {
+    "name": "hwIsisImportRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisImportRouteEntry": {
+    "name": "hwIsisImportRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportProtocolIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportProcessIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisImportProtocolIndex": {
+    "name": "hwIsisImportProtocolIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "direct": 1,
+          "static": 2,
+          "rip": 3,
+          "ospf": 4,
+          "isis": 5,
+          "bgp": 6,
+          "ospfv3": 7,
+          "ripng": 8,
+          "bgpIbgp": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisImportProcessIdIndex": {
+    "name": "hwIsisImportProcessIdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisImportInheritCostEnabled": {
+    "name": "hwIsisImportInheritCostEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisImportCost": {
+    "name": "hwIsisImportCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4261412864
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisImportCostType": {
+    "name": "hwIsisImportCostType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisImportLevel": {
+    "name": "hwIsisImportLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisImportTag": {
+    "name": "hwIsisImportTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisImportPolicyName": {
+    "name": "hwIsisImportPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisImportRouteStatus": {
+    "name": "hwIsisImportRouteStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisRouteLeakTable": {
+    "name": "hwIsisRouteLeakTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisRouteLeakEntry": {
+    "name": "hwIsisRouteLeakEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteLeakTypeIndex": {
+    "name": "hwIsisRouteLeakTypeIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1intolevel2": 1,
+          "level2intolevel1": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisRouteLeakTag": {
+    "name": "hwIsisRouteLeakTag",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisRouteLeakFilterPolicyType": {
+    "name": "hwIsisRouteLeakFilterPolicyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "basicAcl": 1,
+          "aclName": 2,
+          "ipPrefix": 3,
+          "routePolicy": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisRouteLeakFilterPolicyBasicAcl": {
+    "name": "hwIsisRouteLeakFilterPolicyBasicAcl",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2000,
+            "max": 2999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisRouteLeakFilterPolicyPolicyName": {
+    "name": "hwIsisRouteLeakFilterPolicyPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 169
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisRouteLeakStatus": {
+    "name": "hwIsisRouteLeakStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisFrrTable": {
+    "name": "hwIsisFrrTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisFrrEntry": {
+    "name": "hwIsisFrrEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisFrrPolicyName": {
+    "name": "hwIsisFrrPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisFrrLoopFreeAltLevel": {
+    "name": "hwIsisFrrLoopFreeAltLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisFrrEnabled": {
+    "name": "hwIsisFrrEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisIntfBaseTable": {
+    "name": "hwIsisIntfBaseTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisIntfBaseEntry": {
+    "name": "hwIsisIntfBaseEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisInterfaceIndex": {
+    "name": "hwIsisInterfaceIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisEnableIPProtocol": {
+    "name": "hwIsisEnableIPProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisEnableIPv6Protocol": {
+    "name": "hwIsisEnableIPv6Protocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircLevel": {
+    "name": "hwIsisCircLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircSimulation": {
+    "name": "hwIsisCircSimulation",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1HelloInterval": {
+    "name": "hwIsisCircL1HelloInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2HelloInterval": {
+    "name": "hwIsisCircL2HelloInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1HelloMultiplier": {
+    "name": "hwIsisCircL1HelloMultiplier",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2HelloMultiplier": {
+    "name": "hwIsisCircL2HelloMultiplier",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1AuthMode": {
+    "name": "hwIsisCircL1AuthMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "md5": 1,
+          "simple": 2,
+          "keychain": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1AuthText": {
+    "name": "hwIsisCircL1AuthText",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1AuthSendOnly": {
+    "name": "hwIsisCircL1AuthSendOnly",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1AuthCode": {
+    "name": "hwIsisCircL1AuthCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "osi": 10,
+          "ip": 133
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "osi",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2AuthMode": {
+    "name": "hwIsisCircL2AuthMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "md5": 1,
+          "simple": 2,
+          "keychain": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2AuthText": {
+    "name": "hwIsisCircL2AuthText",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 392
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2AuthSendOnly": {
+    "name": "hwIsisCircL2AuthSendOnly",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2AuthCode": {
+    "name": "hwIsisCircL2AuthCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "osi": 10,
+          "ip": 133
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "osi",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircLdpSync": {
+    "name": "hwIsisCircLdpSync",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircLdpSyncHoldDown": {
+    "name": "hwIsisCircLdpSyncHoldDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircLdpHldMaxCost": {
+    "name": "hwIsisCircLdpHldMaxCost",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircSmallHello": {
+    "name": "hwIsisCircSmallHello",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircIpIgnore": {
+    "name": "hwIsisCircIpIgnore",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircSenseRpr": {
+    "name": "hwIsisCircSenseRpr",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircPadHello": {
+    "name": "hwIsisCircPadHello",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircLspRetransInterval": {
+    "name": "hwIsisCircLspRetransInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisL1CsnpTimerValue": {
+    "name": "hwIsisL1CsnpTimerValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisL2CsnpTimerValue": {
+    "name": "hwIsisL2CsnpTimerValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisLspThrottleInterval": {
+    "name": "hwIsisLspThrottleInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds.",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisLspThrottleCount": {
+    "name": "hwIsisLspThrottleCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1DisPriority": {
+    "name": "hwIsisCircL1DisPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2DisPriority": {
+    "name": "hwIsisCircL2DisPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircSilent": {
+    "name": "hwIsisCircSilent",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircMeshGroup": {
+    "name": "hwIsisCircMeshGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircMeshBlock": {
+    "name": "hwIsisCircMeshBlock",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircDisName": {
+    "name": "hwIsisCircDisName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircPppNego": {
+    "name": "hwIsisCircPppNego",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "twoWay": 1,
+          "threeWay": 2,
+          "threeWayOnly": 3
+        }
+      }
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircPppOsicpCheck": {
+    "name": "hwIsisCircPppOsicpCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisIntfRowStatus": {
+    "name": "hwIsisIntfRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL1AuthKeychainName": {
+    "name": "hwIsisCircL1AuthKeychainName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2AuthKeychainName": {
+    "name": "hwIsisCircL2AuthKeychainName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircStrictSnpaCheckEnable": {
+    "name": "hwIsisCircStrictSnpaCheckEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisIntfExtTable": {
+    "name": "hwIsisIntfExtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisIntfExtEntry": {
+    "name": "hwIsisIntfExtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisCircL1Cost": {
+    "name": "hwIsisCircL1Cost",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircL2Cost": {
+    "name": "hwIsisCircL2Cost",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisL1TagValue": {
+    "name": "hwIsisL1TagValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisL2TagValue": {
+    "name": "hwIsisL2TagValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircSuppReachablity": {
+    "name": "hwIsisCircSuppReachablity",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircFrrBackup": {
+    "name": "hwIsisCircFrrBackup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "level1": 1,
+          "level2": 2,
+          "level12": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircMTRowStatus": {
+    "name": "hwIsisCircMTRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisIntfBfdTable": {
+    "name": "hwIsisIntfBfdTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIsisIntfBfdEntry": {
+    "name": "hwIsisIntfBfdEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisCircBfdState": {
+    "name": "hwIsisCircBfdState",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "static": 3,
+          "block": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircBfdMinTxInterval": {
+    "name": "hwIsisCircBfdMinTxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircBfdMinRxInterval": {
+    "name": "hwIsisCircBfdMinRxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircBfdMultiplier": {
+    "name": "hwIsisCircBfdMultiplier",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisCircBfdFrrBinding": {
+    "name": "hwIsisCircBfdFrrBinding",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIsisTrapsObjects": {
+    "name": "hwIsisTrapsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2",
+    "class": "objectidentity"
+  },
+  "hwIsisAdjChangeReason": {
+    "name": "hwIsisAdjChangeReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isNbrHoldTimerExpired": 1,
+          "isNbrPhysicalInterfaceChange": 2,
+          "isNbrProtocolReason": 3,
+          "isNbrBfdSessionDown": 4,
+          "isNbrConfigurationChange": 5,
+          "isNbrPeerRouterReason": 6,
+          "isNbrClear": 100
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwisisSysInstance": {
+    "name": "hwisisSysInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwisisSysLevelIndex": {
+    "name": "hwisisSysLevelIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisOwnSysID": {
+    "name": "hwIsisOwnSysID",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisAdjSysID": {
+    "name": "hwIsisAdjSysID",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisAdjSysName": {
+    "name": "hwIsisAdjSysName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisConflictSystemID": {
+    "name": "hwIsisConflictSystemID",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisAutoSysId": {
+    "name": "hwIsisAutoSysId",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisLocalIP": {
+    "name": "hwIsisLocalIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisRemoteIP": {
+    "name": "hwIsisRemoteIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisAdjIP": {
+    "name": "hwIsisAdjIP",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisPeerFlappingSuppressStatus": {
+    "name": "hwIsisPeerFlappingSuppressStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "holddown": 2,
+          "holdmaxcost": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisRemainingLifetime": {
+    "name": "hwIsisRemainingLifetime",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsisHostName": {
+    "name": "hwIsisHostName",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisHostIpAddress": {
+    "name": "hwIsisHostIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisPurgeLspNum": {
+    "name": "hwIsisPurgeLspNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsisAffectedNodeNum": {
+    "name": "hwIsisAffectedNodeNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsisTotalNodeNum": {
+    "name": "hwIsisTotalNodeNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsisInterval": {
+    "name": "hwIsisInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsisRuledOutDeviceNum": {
+    "name": "hwIsisRuledOutDeviceNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIsisSystemID": {
+    "name": "hwIsisSystemID",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisHostName1": {
+    "name": "hwIsisHostName1",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisHostIpAddress1": {
+    "name": "hwIsisHostIpAddress1",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisSystemID1": {
+    "name": "hwIsisSystemID1",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisHostName2": {
+    "name": "hwIsisHostName2",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisHostIpAddress2": {
+    "name": "hwIsisHostIpAddress2",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisSystemID2": {
+    "name": "hwIsisSystemID2",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisHostName3": {
+    "name": "hwIsisHostName3",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisHostIpAddress3": {
+    "name": "hwIsisHostIpAddress3",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisSystemID3": {
+    "name": "hwIsisSystemID3",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIsisConfConformance": {
+    "name": "hwIsisConfConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3",
+    "class": "objectidentity"
+  },
+  "hwIsisCompliances": {
+    "name": "hwIsisCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.1",
+    "class": "objectidentity"
+  },
+  "hwIsisModuleFullCompliance": {
+    "name": "hwIsisModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwIsisProcBaseGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisProcMTExtGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisPrefixPriorityGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisSummaryGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisNETGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisImportRouteGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisRouteLeakGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisFrrGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisIntfBaseGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisIntfExtGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisIntfBfdGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisTrapsObjectsGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      },
+      {
+        "object": "hwIsisTrapsGroup",
+        "module": "HUAWEI-ISIS-CONF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisConfGroups": {
+    "name": "hwIsisConfGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2",
+    "class": "objectidentity"
+  },
+  "hwIsisProcBaseGroup": {
+    "name": "hwIsisProcBaseGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcVpnName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcVpn6Name"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthPasswordName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthPacketAuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthPasswordName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthPacketAuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1FlashFloodCount"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1FlashFloodInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2FlashFloodCount"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2FlashFloodInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLogPeerChange"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerRefresh"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerMaxAge"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TimerLspGenMaxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TimerLspGenInitInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TimerLspGenIncrInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TimerLspGenMaxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TimerLspGenInitInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TimerLspGenIncrInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerSPFMaxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerSPFInitInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerSPFIncrInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcCostStyle"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDynamicName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcGREnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcGRInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcGRSuppresSAEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTEEnableLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDMinTxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDMinRecvInteval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDFrrBindEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIPv6EnableTopologyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcRowStatus"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOptionalChecksumEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisProcLsdbMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbLowerThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbTotal"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthKeychainName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthKeychainName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisProcMTExtGroup": {
+    "name": "hwIsisProcMTExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvAvoidLearnEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1CircuitCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2CircuitCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcPrefValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcPrefPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcMaxLoadBalance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1CircuitDefaultTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2CircuitDefaultTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAutoCostEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcSetOverLoad"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcSetOverLoadAllowRoute"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartStartFromPeer"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartFromPeerInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcMTStatus"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartWaitForBgpEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBandWidthReference"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityGroup": {
+    "name": "hwIsisPrefixPriorityGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL1PolicyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL2PolicyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL1IpPrefixName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL2IpPrefixName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL1TagValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL2TagValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisSummaryGroup": {
+    "name": "hwIsisSummaryGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryAvoidFeedBackEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryGenNull0RouteEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisNETGroup": {
+    "name": "hwIsisNETGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisNETStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisImportRouteGroup": {
+    "name": "hwIsisImportRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportInheritCostEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportCostType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportRouteStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteLeakGroup": {
+    "name": "hwIsisRouteLeakGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakFilterPolicyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakFilterPolicyBasicAcl"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakFilterPolicyPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisFrrGroup": {
+    "name": "hwIsisFrrGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisFrrPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisFrrLoopFreeAltLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisFrrEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisIntfBaseGroup": {
+    "name": "hwIsisIntfBaseGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisEnableIPProtocol"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisEnableIPv6Protocol"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSimulation"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1HelloInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2HelloInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1HelloMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2HelloMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthText"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthSendOnly"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthText"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthSendOnly"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLdpSync"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLdpSyncHoldDown"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLdpHldMaxCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSmallHello"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircIpIgnore"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSenseRpr"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircPadHello"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLspRetransInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1CsnpTimerValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2CsnpTimerValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLspThrottleInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLspThrottleCount"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1DisPriority"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2DisPriority"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSilent"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircMeshGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircMeshBlock"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircDisName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircPppNego"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircPppOsicpCheck"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIntfRowStatus"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthKeychainName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthKeychainName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircStrictSnpaCheckEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisIntfExtGroup": {
+    "name": "hwIsisIntfExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1Cost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2Cost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1TagValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2TagValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSuppReachablity"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircFrrBackup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircMTRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisIntfBfdGroup": {
+    "name": "hwIsisIntfBfdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdMinTxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdMinRxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdFrrBinding"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisTrapsObjectsGroup": {
+    "name": "hwIsisTrapsObjectsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjChangeReason"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisOwnSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisConflictSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAutoSysId"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLocalIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRemoteIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisTrapsGroup": {
+    "name": "hwIsisTrapsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.25",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemIdConflict"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteExceedLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteRestoreToLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteExceedLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteRestoreToLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteThresholdReach"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteThresholdReachClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteThresholdReach"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteThresholdReachClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLsdbThresholdReach"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLsdbThresholdReachClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemIdAutoRecover"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSeqNumExceedThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSeqNumExceedThresholdClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAttemptToExceedMaxSequenceClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPeerFlapSuppStatusChange"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisDeleteRouteByPurge"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisDeleteRouteByPurgeClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteBeDeletedByPurgeExact"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteBeDeletedByPurgeExactClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteBeDeletedByPurgeInexact"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteBeDeletedByPurgeInexactClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteBeDeletedByPurge"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteBeDeletedByPurgeClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisThirdPartRouteBeDeletedByPurgeExact"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisThirdPartRouteBeDeletedByPurgeExactClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisThirdPartRouteBeDeletedByPurgeInexact"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisThirdPartRouteBeDeletedByPurgeInexactClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisThirdPartRouteBeDeletedByPurge"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisThirdPartRouteBeDeletedByPurgeClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisTraps": {
+    "name": "hwIsisTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4",
+    "class": "objectidentity"
+  },
+  "hwIsisSystemIdConflict": {
+    "name": "hwIsisSystemIdConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisOwnSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDynamicName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLocalIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRemoteIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL1ImportRouteExceedLimit": {
+    "name": "hwIsisL1ImportRouteExceedLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL1ImportRouteRestoreToLimit": {
+    "name": "hwIsisL1ImportRouteRestoreToLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL2ImportRouteExceedLimit": {
+    "name": "hwIsisL2ImportRouteExceedLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL2ImportRouteRestoreToLimit": {
+    "name": "hwIsisL2ImportRouteRestoreToLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL1ImportRouteThresholdReach": {
+    "name": "hwIsisL1ImportRouteThresholdReach",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL1ImportRouteThresholdReachClear": {
+    "name": "hwIsisL1ImportRouteThresholdReachClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL2ImportRouteThresholdReach": {
+    "name": "hwIsisL2ImportRouteThresholdReach",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisL2ImportRouteThresholdReachClear": {
+    "name": "hwIsisL2ImportRouteThresholdReachClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisLsdbThresholdReach": {
+    "name": "hwIsisLsdbThresholdReach",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisProcLsdbMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbLowerThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisLsdbThresholdReachClear": {
+    "name": "hwIsisLsdbThresholdReachClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisProcLsdbMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbLowerThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisSystemIdAutoRecover": {
+    "name": "hwIsisSystemIdAutoRecover",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisConflictSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAutoSysId"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLocalIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRemoteIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisAdjacencyChangeClear": {
+    "name": "hwIsisAdjacencyChangeClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLevelIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIfIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPduLspId"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisAdjState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisSeqNumExceedThreshold": {
+    "name": "hwIsisSeqNumExceedThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLevelIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisSeqNumExceedThresholdClear": {
+    "name": "hwIsisSeqNumExceedThresholdClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLevelIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisAttemptToExceedMaxSequenceClear": {
+    "name": "hwIsisAttemptToExceedMaxSequenceClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLevelIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPduLspId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisPeerFlapSuppStatusChange": {
+    "name": "hwIsisPeerFlapSuppStatusChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPeerFlappingSuppressStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisLspRemainingLifetimeRefresh": {
+    "name": "hwIsisLspRemainingLifetimeRefresh",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLevelIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysID"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPduLspId"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRemainingLifetime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisDeleteRouteByPurge": {
+    "name": "hwIsisDeleteRouteByPurge",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPurgeLspNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAffectedNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTotalNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisDeleteRouteByPurgeClear": {
+    "name": "hwIsisDeleteRouteByPurgeClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteBeDeletedByPurgeExact": {
+    "name": "hwIsisRouteBeDeletedByPurgeExact",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPurgeLspNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAffectedNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTotalNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteBeDeletedByPurgeExactClear": {
+    "name": "hwIsisRouteBeDeletedByPurgeExactClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteBeDeletedByPurgeInexact": {
+    "name": "hwIsisRouteBeDeletedByPurgeInexact",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPurgeLspNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAffectedNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTotalNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRuledOutDeviceNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteBeDeletedByPurgeInexactClear": {
+    "name": "hwIsisRouteBeDeletedByPurgeInexactClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteBeDeletedByPurge": {
+    "name": "hwIsisRouteBeDeletedByPurge",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTotalNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName1"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress1"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID1"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName2"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress2"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID2"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName3"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress3"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID3"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisRouteBeDeletedByPurgeClear": {
+    "name": "hwIsisRouteBeDeletedByPurgeClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisThirdPartRouteBeDeletedByPurgeExact": {
+    "name": "hwIsisThirdPartRouteBeDeletedByPurgeExact",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPurgeLspNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAffectedNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTotalNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisThirdPartRouteBeDeletedByPurgeExactClear": {
+    "name": "hwIsisThirdPartRouteBeDeletedByPurgeExactClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisThirdPartRouteBeDeletedByPurgeInexact": {
+    "name": "hwIsisThirdPartRouteBeDeletedByPurgeInexact",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPurgeLspNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAffectedNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTotalNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRuledOutDeviceNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisThirdPartRouteBeDeletedByPurgeInexactClear": {
+    "name": "hwIsisThirdPartRouteBeDeletedByPurgeInexactClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisThirdPartRouteBeDeletedByPurge": {
+    "name": "hwIsisThirdPartRouteBeDeletedByPurge",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTotalNodeNum"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName1"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress1"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID1"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName2"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress2"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID2"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName3"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress3"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID3"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIsisThirdPartRouteBeDeletedByPurgeClear": {
+    "name": "hwIsisThirdPartRouteBeDeletedByPurgeClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisHostIpAddress"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ISIS-CONF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-ISIS-CONF-MIB"
+  }
+}

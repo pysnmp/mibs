@@ -1,0 +1,679 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "hh3cUser": {
+    "name": "hh3cUser",
+    "oid": "1.3.6.1.4.1.25506.2.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-11-19 00:00",
+        "description": "Modified description of hh3cUserGroup. Modified SYNTAX of hh3cUserGroupName"
+      }
+    ]
+  },
+  "ServiceType": {
+    "name": "ServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cUserObjects": {
+    "name": "hh3cUserObjects",
+    "oid": "1.3.6.1.4.1.25506.2.12.1",
+    "class": "objectidentity"
+  },
+  "hh3cUserInfoTable": {
+    "name": "hh3cUserInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserInfoEntry": {
+    "name": "hh3cUserInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USER-MIB",
+        "object": "hh3cUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserName": {
+    "name": "hh3cUserName",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cUserPassword": {
+    "name": "hh3cUserPassword",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cAuthMode": {
+    "name": "hh3cAuthMode",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cUserLevel": {
+    "name": "hh3cUserLevel",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cUserState": {
+    "name": "hh3cUserState",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 0,
+          "block": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cUserInfoRowStatus": {
+    "name": "hh3cUserInfoRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cUserIndex": {
+    "name": "hh3cUserIndex",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483646
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserAttributeTable": {
+    "name": "hh3cUserAttributeTable",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserAttributeEntry": {
+    "name": "hh3cUserAttributeEntry",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USER-MIB",
+        "object": "hh3cUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cAccessLimit": {
+    "name": "hh3cAccessLimit",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cIdleCut": {
+    "name": "hh3cIdleCut",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cIPAddress": {
+    "name": "hh3cIPAddress",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cNasIPAddress": {
+    "name": "hh3cNasIPAddress",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSlotNum": {
+    "name": "hh3cSlotNum",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSubSlotNum": {
+    "name": "hh3cSubSlotNum",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPortNum": {
+    "name": "hh3cPortNum",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMacAddress": {
+    "name": "hh3cMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cVlan": {
+    "name": "hh3cVlan",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFtpService": {
+    "name": "hh3cFtpService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFtpDirectory": {
+    "name": "hh3cFtpDirectory",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cLanAccessService": {
+    "name": "hh3cLanAccessService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSshService": {
+    "name": "hh3cSshService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cTelnetService": {
+    "name": "hh3cTelnetService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cTerminalService": {
+    "name": "hh3cTerminalService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cExpirationDate": {
+    "name": "hh3cExpirationDate",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserGroup": {
+    "name": "hh3cUserGroup",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPortalService": {
+    "name": "hh3cPortalService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPPPService": {
+    "name": "hh3cPPPService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cHttpService": {
+    "name": "hh3cHttpService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cHttpsService": {
+    "name": "hh3cHttpsService",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserIfIndex": {
+    "name": "hh3cUserIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cUserMaxNum": {
+    "name": "hh3cUserMaxNum",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserCurrNum": {
+    "name": "hh3cUserCurrNum",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserIndexIndicator": {
+    "name": "hh3cUserIndexIndicator",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cUserRoleTable": {
+    "name": "hh3cUserRoleTable",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserRoleEntry": {
+    "name": "hh3cUserRoleEntry",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USER-MIB",
+        "object": "hh3cUserIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-USER-MIB",
+        "object": "hh3cUserRole",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserRole": {
+    "name": "hh3cUserRole",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserRoleStatus": {
+    "name": "hh3cUserRoleStatus",
+    "oid": "1.3.6.1.4.1.25506.2.12.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cUserGroupObjects": {
+    "name": "hh3cUserGroupObjects",
+    "oid": "1.3.6.1.4.1.25506.2.12.2",
+    "class": "objectidentity"
+  },
+  "hh3cUserGroupInfoTable": {
+    "name": "hh3cUserGroupInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.12.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserGroupInfoEntry": {
+    "name": "hh3cUserGroupInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.12.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-USER-MIB",
+        "object": "hh3cUserGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cUserGroupName": {
+    "name": "hh3cUserGroupName",
+    "oid": "1.3.6.1.4.1.25506.2.12.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cUserGroupInfoRowStatus": {
+    "name": "hh3cUserGroupInfoRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.12.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-USER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-USER-MIB"
+  }
+}

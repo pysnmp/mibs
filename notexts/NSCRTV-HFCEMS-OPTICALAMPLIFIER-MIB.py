@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NSCRTV-HFCEMS-OPTICALAMPLIFIER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/glassway/NSCRTV-HFCEMS-OPTICALAMPLIFIER-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:06:47 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:32:09 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 oaIdent, = mibBuilder.importSymbols("NSCRTV-ROOT", "oaIdent")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Bits, TimeTicks, iso, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Gauge32, ObjectIdentity, Counter32, Counter64, NotificationType, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "TimeTicks", "iso", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Gauge32", "ObjectIdentity", "Counter32", "Counter64", "NotificationType", "MibIdentifier", "Integer32")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, IpAddress, Bits, NotificationType, MibIdentifier, TimeTicks, Counter32, Counter64, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "IpAddress", "Bits", "NotificationType", "MibIdentifier", "TimeTicks", "Counter32", "Counter64", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Integer32", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 oaVendorOID = MibScalar((1, 3, 6, 1, 4, 1, 17409, 1, 11, 1), ObjectIdentifier()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: oaVendorOID.setStatus('optional')
@@ -46,4 +46,4 @@ oaDCPowerCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 11, 7, 1, 3), Int
 if mibBuilder.loadTexts: oaDCPowerCurrent.setStatus('mandatory')
 oaDCPowerName = MibTableColumn((1, 3, 6, 1, 4, 1, 17409, 1, 11, 7, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: oaDCPowerName.setStatus('mandatory')
-mibBuilder.exportSymbols("NSCRTV-HFCEMS-OPTICALAMPLIFIER-MIB", oaDCPowerSupplyMode=oaDCPowerSupplyMode, oaPumpIndex=oaPumpIndex, oaPumpBIAS=oaPumpBIAS, oaInputOpticalPower=oaInputOpticalPower, oaVendorOID=oaVendorOID, oaPumpEntry=oaPumpEntry, oaDCPowerName=oaDCPowerName, oaDCPowerVoltage=oaDCPowerVoltage, oaDCPowerCurrent=oaDCPowerCurrent, oaOutputOpticalPower=oaOutputOpticalPower, oaPumpTable=oaPumpTable, oaPumpTEC=oaPumpTEC, oaPumpTemp=oaPumpTemp, oaDCPowerEntry=oaDCPowerEntry, oaDCPowerIndex=oaDCPowerIndex, oaNumberDCPowerSupply=oaNumberDCPowerSupply, oaDCPowerTable=oaDCPowerTable)
+mibBuilder.exportSymbols("NSCRTV-HFCEMS-OPTICALAMPLIFIER-MIB", oaDCPowerCurrent=oaDCPowerCurrent, oaPumpTable=oaPumpTable, oaOutputOpticalPower=oaOutputOpticalPower, oaPumpTEC=oaPumpTEC, oaNumberDCPowerSupply=oaNumberDCPowerSupply, oaInputOpticalPower=oaInputOpticalPower, oaDCPowerVoltage=oaDCPowerVoltage, oaPumpBIAS=oaPumpBIAS, oaVendorOID=oaVendorOID, oaDCPowerIndex=oaDCPowerIndex, oaDCPowerEntry=oaDCPowerEntry, oaDCPowerName=oaDCPowerName, oaDCPowerSupplyMode=oaDCPowerSupplyMode, oaPumpIndex=oaPumpIndex, oaDCPowerTable=oaDCPowerTable, oaPumpEntry=oaPumpEntry, oaPumpTemp=oaPumpTemp)

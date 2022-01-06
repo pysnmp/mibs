@@ -1,0 +1,370 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atmTCMIB": {
+    "name": "atmTCMIB",
+    "oid": "1.3.6.1.2.1.37.3",
+    "class": "moduleidentity"
+  },
+  "AtmAddr": {
+    "name": "AtmAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "AtmConnCastType": {
+    "name": "AtmConnCastType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p2p": 1,
+          "p2mpRoot": 2,
+          "p2mpLeaf": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtmConnKind": {
+    "name": "AtmConnKind",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svcIncoming": 2,
+          "svcOutgoing": 3,
+          "spvcInitiator": 4,
+          "spvcTarget": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtmIlmiNetworkPrefix": {
+    "name": "AtmIlmiNetworkPrefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 13,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmInterfaceType": {
+    "name": "AtmInterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "autoConfig": 2,
+          "ituDss2": 3,
+          "atmfUni3Dot0": 4,
+          "atmfUni3Dot1": 5,
+          "atmfUni4Dot0": 6,
+          "atmfIispUni3Dot0": 7,
+          "atmfIispUni3Dot1": 8,
+          "atmfIispUni4Dot0": 9,
+          "atmfPnni1Dot0": 10,
+          "atmfBici2Dot0": 11,
+          "atmfUniPvcOnly": 12,
+          "atmfNniPvcOnly": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtmServiceCategory": {
+    "name": "AtmServiceCategory",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "cbr": 2,
+          "rtVbr": 3,
+          "nrtVbr": 4,
+          "abr": 5,
+          "ubr": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtmSigDescrParamIndex": {
+    "name": "AtmSigDescrParamIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmTrafficDescrParamIndex": {
+    "name": "AtmTrafficDescrParamIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmVcIdentifier": {
+    "name": "AtmVcIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmVpIdentifier": {
+    "name": "AtmVpIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmVorXAdminStatus": {
+    "name": "AtmVorXAdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AtmVorXLastChange": {
+    "name": "AtmVorXLastChange",
+    "class": "textualconvention",
+    "type": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AtmVorXOperStatus": {
+    "name": "AtmVorXOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "atmTrafficDescriptorTypes": {
+    "name": "atmTrafficDescriptorTypes",
+    "oid": "1.3.6.1.2.1.37.1.1",
+    "class": "objectidentity"
+  },
+  "atmObjectIdentities": {
+    "name": "atmObjectIdentities",
+    "oid": "1.3.6.1.2.1.37.3.1",
+    "class": "objectidentity"
+  },
+  "atmNoTrafficDescriptor": {
+    "name": "atmNoTrafficDescriptor",
+    "oid": "1.3.6.1.2.1.37.1.1.1",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "atmNoClpNoScr": {
+    "name": "atmNoClpNoScr",
+    "oid": "1.3.6.1.2.1.37.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpNoTaggingNoScr": {
+    "name": "atmClpNoTaggingNoScr",
+    "oid": "1.3.6.1.2.1.37.1.1.3",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "atmClpTaggingNoScr": {
+    "name": "atmClpTaggingNoScr",
+    "oid": "1.3.6.1.2.1.37.1.1.4",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "atmNoClpScr": {
+    "name": "atmNoClpScr",
+    "oid": "1.3.6.1.2.1.37.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpNoTaggingScr": {
+    "name": "atmClpNoTaggingScr",
+    "oid": "1.3.6.1.2.1.37.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpTaggingScr": {
+    "name": "atmClpTaggingScr",
+    "oid": "1.3.6.1.2.1.37.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpNoTaggingMcr": {
+    "name": "atmClpNoTaggingMcr",
+    "oid": "1.3.6.1.2.1.37.1.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpTransparentNoScr": {
+    "name": "atmClpTransparentNoScr",
+    "oid": "1.3.6.1.2.1.37.1.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpTransparentScr": {
+    "name": "atmClpTransparentScr",
+    "oid": "1.3.6.1.2.1.37.1.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmNoClpTaggingNoScr": {
+    "name": "atmNoClpTaggingNoScr",
+    "oid": "1.3.6.1.2.1.37.1.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmNoClpNoScrCdvt": {
+    "name": "atmNoClpNoScrCdvt",
+    "oid": "1.3.6.1.2.1.37.1.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmNoClpScrCdvt": {
+    "name": "atmNoClpScrCdvt",
+    "oid": "1.3.6.1.2.1.37.1.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpNoTaggingScrCdvt": {
+    "name": "atmClpNoTaggingScrCdvt",
+    "oid": "1.3.6.1.2.1.37.1.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmClpTaggingScrCdvt": {
+    "name": "atmClpTaggingScrCdvt",
+    "oid": "1.3.6.1.2.1.37.1.1.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ATM-TC-MIB"
+  }
+}

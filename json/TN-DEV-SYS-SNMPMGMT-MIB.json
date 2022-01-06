@@ -1,0 +1,830 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString",
+      "SnmpEngineID"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TDomain",
+      "RowStatus",
+      "TAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TN-MGMT-MIB": [
+      "tnDevMgmt"
+    ]
+  },
+  "tnDevSysSnmpmgmt": {
+    "name": "tnDevSysSnmpmgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-19 00:00",
+        "description": "Added tnDevSysSnmpTrapCfgVersion, tnDevSysSnmpTrapCfgInformMode, tnDevSysSnmpTrapCfgInformTimeout, tnDevSysSnmpTrapCfgInformRetry to tnDevSysSnmpTrapCfgTable."
+      },
+      {
+        "revision": "2013-05-16 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnDevSysSnmpMgmtTable": {
+    "name": "tnDevSysSnmpMgmtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevSysSnmpMgmtEntry": {
+    "name": "tnDevSysSnmpMgmtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevSysSnmpAccess": {
+    "name": "tnDevSysSnmpAccess",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpVersion": {
+    "name": "tnDevSysSnmpVersion",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpReadCommunity": {
+    "name": "tnDevSysSnmpReadCommunity",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpWriteCommunity": {
+    "name": "tnDevSysSnmpWriteCommunity",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpLocal": {
+    "name": "tnDevSysSnmpLocal",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.3",
+    "class": "objectidentity"
+  },
+  "tnDevSysSnmpLocalEngineID": {
+    "name": "tnDevSysSnmpLocalEngineID",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapManagerTable": {
+    "name": "tnDevSysSnmpTrapManagerTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapManagerEntry": {
+    "name": "tnDevSysSnmpTrapManagerEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-SYS-SNMPMGMT-MIB",
+        "object": "tnDevSysSnmpTrapManagerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapManagerIndex": {
+    "name": "tnDevSysSnmpTrapManagerIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapManagerAddrTDomain": {
+    "name": "tnDevSysSnmpTrapManagerAddrTDomain",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapManagerAddrTAddress": {
+    "name": "tnDevSysSnmpTrapManagerAddrTAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapManagerEngineID": {
+    "name": "tnDevSysSnmpTrapManagerEngineID",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapManagerStatus": {
+    "name": "tnDevSysSnmpTrapManagerStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgTable": {
+    "name": "tnDevSysSnmpTrapCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgEntry": {
+    "name": "tnDevSysSnmpTrapCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgMode": {
+    "name": "tnDevSysSnmpTrapCfgMode",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgCommunity": {
+    "name": "tnDevSysSnmpTrapCfgCommunity",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgAuthFailure": {
+    "name": "tnDevSysSnmpTrapCfgAuthFailure",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgLinkChange": {
+    "name": "tnDevSysSnmpTrapCfgLinkChange",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgEngineIdProbe": {
+    "name": "tnDevSysSnmpTrapCfgEngineIdProbe",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgAdminEngineId": {
+    "name": "tnDevSysSnmpTrapCfgAdminEngineId",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgSecurityName": {
+    "name": "tnDevSysSnmpTrapCfgSecurityName",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgVersion": {
+    "name": "tnDevSysSnmpTrapCfgVersion",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgInformMode": {
+    "name": "tnDevSysSnmpTrapCfgInformMode",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgInformTimeout": {
+    "name": "tnDevSysSnmpTrapCfgInformTimeout",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapCfgInformRetry": {
+    "name": "tnDevSysSnmpTrapCfgInformRetry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgTable": {
+    "name": "tnDevSysSnmpTrapServerCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEntry": {
+    "name": "tnDevSysSnmpTrapServerCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-SYS-SNMPMGMT-MIB",
+        "object": "tnDevSysSnmpTrapServerCfgName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgName": {
+    "name": "tnDevSysSnmpTrapServerCfgName",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgMode": {
+    "name": "tnDevSysSnmpTrapServerCfgMode",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgVersion": {
+    "name": "tnDevSysSnmpTrapServerCfgVersion",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgCommunity": {
+    "name": "tnDevSysSnmpTrapServerCfgCommunity",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgDstAddress": {
+    "name": "tnDevSysSnmpTrapServerCfgDstAddress",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgDstPort": {
+    "name": "tnDevSysSnmpTrapServerCfgDstPort",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgInformMode": {
+    "name": "tnDevSysSnmpTrapServerCfgInformMode",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgInformTimeout": {
+    "name": "tnDevSysSnmpTrapServerCfgInformTimeout",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgInformRetry": {
+    "name": "tnDevSysSnmpTrapServerCfgInformRetry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEngineIdProbe": {
+    "name": "tnDevSysSnmpTrapServerCfgEngineIdProbe",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgAdminEngineId": {
+    "name": "tnDevSysSnmpTrapServerCfgAdminEngineId",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgSecurityName": {
+    "name": "tnDevSysSnmpTrapServerCfgSecurityName",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtWstart": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtWstart",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtCstart": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtCstart",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtLinkUp": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtLinkUp",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtLinkDown": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtLinkDown",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtLldp": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtLldp",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtAuthFail": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtAuthFail",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtStp": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtStp",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgEvtRmon": {
+    "name": "tnDevSysSnmpTrapServerCfgEvtRmon",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapServerCfgRowStatus": {
+    "name": "tnDevSysSnmpTrapServerCfgRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnDevSysSnmpTrapGlobalCfgMode": {
+    "name": "tnDevSysSnmpTrapGlobalCfgMode",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.14.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DEV-SYS-SNMPMGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DEV-SYS-SNMPMGMT-MIB"
+  }
+}

@@ -1,0 +1,1792 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressIPv6",
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressIPv4",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwIpExtMIB": {
+    "name": "dlinkSwIpExtMIB",
+    "oid": "1.3.6.1.4.1.171.14.75",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-06 00:00",
+        "description": "Initial version of this MIB."
+      },
+      {
+        "revision": "2013-08-29 00:00",
+        "description": "1.Add dIpExtGratuitousARPDadReplyEnabled."
+      },
+      {
+        "revision": "2013-09-18 00:00",
+        "description": "1.Remove dIpExtDhcpClientIfRowStatus(Note:follow IP interface). 2.Update dIpExtDhcpClientIfLeaseDay value range(Note:follow UIS)."
+      }
+    ]
+  },
+  "dIpExtMIBNotifications": {
+    "name": "dIpExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.75.0",
+    "class": "objectidentity"
+  },
+  "dIpExtMIBObjects": {
+    "name": "dIpExtMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.75.1",
+    "class": "objectidentity"
+  },
+  "dIpExtMIBConformance": {
+    "name": "dIpExtMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.75.2",
+    "class": "objectidentity"
+  },
+  "dIpExtGratuitousARPTrap": {
+    "name": "dIpExtGratuitousARPTrap",
+    "oid": "1.3.6.1.4.1.171.14.75.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGratuitousARPIpAddr"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGratuitousARPMacAddr"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGratuitousARPPortNumber"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtGenArpMgmt": {
+    "name": "dIpExtGenArpMgmt",
+    "oid": "1.3.6.1.4.1.171.14.75.1.1",
+    "class": "objectidentity"
+  },
+  "dIpExtClearArpCacheAll": {
+    "name": "dIpExtClearArpCacheAll",
+    "oid": "1.3.6.1.4.1.171.14.75.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtClearArpCacheByIf": {
+    "name": "dIpExtClearArpCacheByIf",
+    "oid": "1.3.6.1.4.1.171.14.75.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtTotalArpEntries": {
+    "name": "dIpExtTotalArpEntries",
+    "oid": "1.3.6.1.4.1.171.14.75.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpExtGratuitousArpMgmt": {
+    "name": "dIpExtGratuitousArpMgmt",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2",
+    "class": "objectidentity"
+  },
+  "dIpExtGratuitousARPSendRequestEnabled": {
+    "name": "dIpExtGratuitousARPSendRequestEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtGratuitousARPLearningEnabled": {
+    "name": "dIpExtGratuitousARPLearningEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtGratuitousARPDadReplyEnabled": {
+    "name": "dIpExtGratuitousARPDadReplyEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtGratuitousARPTrapEnabled": {
+    "name": "dIpExtGratuitousARPTrapEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtGratuitousARPNotifyInfo": {
+    "name": "dIpExtGratuitousARPNotifyInfo",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.5",
+    "class": "objectidentity"
+  },
+  "dIpExtGratuitousARPIpAddr": {
+    "name": "dIpExtGratuitousARPIpAddr",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dIpExtGratuitousARPMacAddr": {
+    "name": "dIpExtGratuitousARPMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dIpExtGratuitousARPPortNumber": {
+    "name": "dIpExtGratuitousARPPortNumber",
+    "oid": "1.3.6.1.4.1.171.14.75.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dIpExtIpv6NeighborDiscoverMgmt": {
+    "name": "dIpExtIpv6NeighborDiscoverMgmt",
+    "oid": "1.3.6.1.4.1.171.14.75.1.3",
+    "class": "objectidentity"
+  },
+  "dIpExtClearAllIpv6Neighbors": {
+    "name": "dIpExtClearAllIpv6Neighbors",
+    "oid": "1.3.6.1.4.1.171.14.75.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtClearIpv6NeighborsByIf": {
+    "name": "dIpExtClearIpv6NeighborsByIf",
+    "oid": "1.3.6.1.4.1.171.14.75.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtTotalIpv6Neighbors": {
+    "name": "dIpExtTotalIpv6Neighbors",
+    "oid": "1.3.6.1.4.1.171.14.75.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpExtInterfaceMgmt": {
+    "name": "dIpExtInterfaceMgmt",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4",
+    "class": "objectidentity"
+  },
+  "dIpExtIpIfTable": {
+    "name": "dIpExtIpIfTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpIfEntry": {
+    "name": "dIpExtIpIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpIfType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpIfNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtIpIfType": {
+    "name": "dIpExtIpIfType",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopback": 1,
+          "vlan": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpIfNumber": {
+    "name": "dIpExtIpIfNumber",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpIfIndex": {
+    "name": "dIpExtIpIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpExtIpIfRowStatus": {
+    "name": "dIpExtIpIfRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIfCfgTableNumber": {
+    "name": "dIpExtIfCfgTableNumber",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dIpExtIfCfgTable": {
+    "name": "dIpExtIfCfgTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIfCfgEntry": {
+    "name": "dIpExtIfCfgEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtIfCfgIfIndex": {
+    "name": "dIpExtIfCfgIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIfCfgDhcpEnabled": {
+    "name": "dIpExtIfCfgDhcpEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgArpTimeout": {
+    "name": "dIpExtIfCfgArpTimeout",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 240,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgProxyArpEnabled": {
+    "name": "dIpExtIfCfgProxyArpEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgLocalProxyArpEnabled": {
+    "name": "dIpExtIfCfgLocalProxyArpEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgDirectedBcastEnabled": {
+    "name": "dIpExtIfCfgDirectedBcastEnabled",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgDirectedBcastAcl": {
+    "name": "dIpExtIfCfgDirectedBcastAcl",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgGratuitousARPSendInterval": {
+    "name": "dIpExtIfCfgGratuitousARPSendInterval",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgIpMtu": {
+    "name": "dIpExtIfCfgIpMtu",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIfCfgDADTransmits": {
+    "name": "dIpExtIfCfgDADTransmits",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtIpAddressTable": {
+    "name": "dIpExtIpAddressTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpAddressEntry": {
+    "name": "dIpExtIpAddressEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddressIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtIpAddressType": {
+    "name": "dIpExtIpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpAddress": {
+    "name": "dIpExtIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpAddressIfIndex": {
+    "name": "dIpExtIpAddressIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpAddressPrefixLength": {
+    "name": "dIpExtIpAddressPrefixLength",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpAddressCategory": {
+    "name": "dIpExtIpAddressCategory",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "linkLocal": 3,
+          "eui64": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpAddressRowStatus": {
+    "name": "dIpExtIpAddressRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpAddrBaseGenPrefixTable": {
+    "name": "dIpExtIpAddrBaseGenPrefixTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpAddrBaseGenPrefixEntry": {
+    "name": "dIpExtIpAddrBaseGenPrefixEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddrBasePrefixIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddrBasePrefixName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtIpAddrBasePrefixIfIndex": {
+    "name": "dIpExtIpAddrBasePrefixIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpAddrBasePrefixName": {
+    "name": "dIpExtIpAddrBasePrefixName",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpAddrBasePrefixSubBits": {
+    "name": "dIpExtIpAddrBasePrefixSubBits",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpAddrBasePrefixLength": {
+    "name": "dIpExtIpAddrBasePrefixLength",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpAddrBasePrefixRowStatus": {
+    "name": "dIpExtIpAddrBasePrefixRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.75.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtPrefixMgmt": {
+    "name": "dIpExtPrefixMgmt",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5",
+    "class": "objectidentity"
+  },
+  "dIpExtIpv6GneralPrefixTable": {
+    "name": "dIpExtIpv6GneralPrefixTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpv6GneralPrefixEntry": {
+    "name": "dIpExtIpv6GneralPrefixEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGneralPrefixName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtGneralPrefixName": {
+    "name": "dIpExtGneralPrefixName",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtGneralPrefixType": {
+    "name": "dIpExtGneralPrefixType",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "ipv6ToIpv4": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtGneralPrefix": {
+    "name": "dIpExtGneralPrefix",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtGneralPrefixLength": {
+    "name": "dIpExtGneralPrefixLength",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtGeneralPrefix6to4IfIndex": {
+    "name": "dIpExtGeneralPrefix6to4IfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtGeneralPrefixRowStatus": {
+    "name": "dIpExtGeneralPrefixRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixTable": {
+    "name": "dIpExtIpv6PrefixTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixEntry": {
+    "name": "dIpExtIpv6PrefixEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6Prefix",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixIfIndex": {
+    "name": "dIpExtIpv6PrefixIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtIpv6Prefix": {
+    "name": "dIpExtIpv6Prefix",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixLength": {
+    "name": "dIpExtIpv6PrefixLength",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixValidLifetime": {
+    "name": "dIpExtIpv6PrefixValidLifetime",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2592000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixPreferLifetime": {
+    "name": "dIpExtIpv6PrefixPreferLifetime",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 604800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixOnLinkFlag": {
+    "name": "dIpExtIpv6PrefixOnLinkFlag",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixAutonomousFlag": {
+    "name": "dIpExtIpv6PrefixAutonomousFlag",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtIpv6PrefixRowStatus": {
+    "name": "dIpExtIpv6PrefixRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.75.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientMgmt": {
+    "name": "dIpExtDhcpClientMgmt",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6",
+    "class": "objectidentity"
+  },
+  "dIpExtDhcpClientIfTable": {
+    "name": "dIpExtDhcpClientIfTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfEntry": {
+    "name": "dIpExtDhcpClientIfEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfIndex": {
+    "name": "dIpExtDhcpClientIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfClassIdType": {
+    "name": "dIpExtDhcpClientIfClassIdType",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "hex": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfClassIdValue": {
+    "name": "dIpExtDhcpClientIfClassIdValue",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfClientIdIfIdx": {
+    "name": "dIpExtDhcpClientIfClientIdIfIdx",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfHostName": {
+    "name": "dIpExtDhcpClientIfHostName",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfLeaseDay": {
+    "name": "dIpExtDhcpClientIfLeaseDay",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfLeaseHour": {
+    "name": "dIpExtDhcpClientIfLeaseHour",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientIfLeaseMinute": {
+    "name": "dIpExtDhcpClientIfLeaseMinute",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtDhcpClientAutoconfig": {
+    "name": "dIpExtDhcpClientAutoconfig",
+    "oid": "1.3.6.1.4.1.171.14.75.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dIpExtUdpForwardMgmt": {
+    "name": "dIpExtUdpForwardMgmt",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7",
+    "class": "objectidentity"
+  },
+  "dIpExtUdpFwdPortTable": {
+    "name": "dIpExtUdpFwdPortTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtUdpFwdPortEntry": {
+    "name": "dIpExtUdpFwdPortEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtUdpFwdPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtUdpFwdPortNumber": {
+    "name": "dIpExtUdpFwdPortNumber",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtUdpFwdPortRowStatus": {
+    "name": "dIpExtUdpFwdPortRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtUdpHelperAddrTable": {
+    "name": "dIpExtUdpHelperAddrTable",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtUdpHelperAddrEntry": {
+    "name": "dIpExtUdpHelperAddrEntry",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtUdpHelperIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtUdpHelperAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtUdpHelperAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtUdpHelperIfIndex": {
+    "name": "dIpExtUdpHelperIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtUdpHelperAddrType": {
+    "name": "dIpExtUdpHelperAddrType",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtUdpHelperAddr": {
+    "name": "dIpExtUdpHelperAddr",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dIpExtUdpHelperAddrRowStatus": {
+    "name": "dIpExtUdpHelperAddrRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.75.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dIpExtCompliances": {
+    "name": "dIpExtCompliances",
+    "oid": "1.3.6.1.4.1.171.14.75.2.1",
+    "class": "objectidentity"
+  },
+  "dIpExtCompliance": {
+    "name": "dIpExtCompliance",
+    "oid": "1.3.6.1.4.1.171.14.75.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dIpExtBasicGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      },
+      {
+        "object": "dIpExtBasicIpv6OnlyGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      },
+      {
+        "object": "dIpExtGeneralPrefixGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      },
+      {
+        "object": "dIpExtGratuitousArpGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      },
+      {
+        "object": "dIpExtProxyArpGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      },
+      {
+        "object": "dIpExtDirectedBroadcastGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      },
+      {
+        "object": "dIpExtDhcpClientGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      },
+      {
+        "object": "dIpExtUdpForwardGroup",
+        "module": "DLINKSW-IP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtGroups": {
+    "name": "dIpExtGroups",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2",
+    "class": "objectidentity"
+  },
+  "dIpExtBasicGroup": {
+    "name": "dIpExtBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtClearArpCacheAll"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtClearArpCacheByIf"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtTotalArpEntries"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpIfIndex"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpIfRowStatus"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgTableNumber"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgDhcpEnabled"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgArpTimeout"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgIpMtu"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddressPrefixLength"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddressCategory"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddressRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtBasicIpv6OnlyGroup": {
+    "name": "dIpExtBasicIpv6OnlyGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtClearAllIpv6Neighbors"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtClearIpv6NeighborsByIf"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtTotalIpv6Neighbors"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgDADTransmits"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtGeneralPrefixGroup": {
+    "name": "dIpExtGeneralPrefixGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddrBasePrefixSubBits"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddrBasePrefixLength"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpAddrBasePrefixRowStatus"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGneralPrefixType"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGneralPrefix"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGneralPrefixLength"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGeneralPrefix6to4IfIndex"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGeneralPrefixRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtRaPrefixGroup": {
+    "name": "dIpExtRaPrefixGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6Prefix"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixLength"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixValidLifetime"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixPreferLifetime"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixOnLinkFlag"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixAutonomousFlag"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIpv6PrefixRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtGratuitousArpGroup": {
+    "name": "dIpExtGratuitousArpGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgGratuitousARPSendInterval"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGratuitousARPSendRequestEnabled"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtGratuitousARPLearningEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtProxyArpGroup": {
+    "name": "dIpExtProxyArpGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgProxyArpEnabled"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgLocalProxyArpEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtDirectedBroadcastGroup": {
+    "name": "dIpExtDirectedBroadcastGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgDirectedBcastEnabled"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtIfCfgDirectedBcastAcl"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtDhcpClientGroup": {
+    "name": "dIpExtDhcpClientGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfClassIdType"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfClassIdValue"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfClientIdIfIdx"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfHostName"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfLeaseDay"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfLeaseHour"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtDhcpClientIfLeaseMinute"
+      }
+    ],
+    "status": "current"
+  },
+  "dIpExtUdpForwardGroup": {
+    "name": "dIpExtUdpForwardGroup",
+    "oid": "1.3.6.1.4.1.171.14.75.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtUdpFwdPortRowStatus"
+      },
+      {
+        "module": "DLINKSW-IP-EXT-MIB",
+        "object": "dIpExtUdpHelperAddrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-IP-EXT-MIB"
+  }
+}

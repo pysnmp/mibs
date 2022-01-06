@@ -1,0 +1,2075 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "HH3C-LSW-DEV-ADM-MIB": [
+      "hh3cLswSubslotIndex",
+      "hh3cLswCpuUsageRecoverThreshold",
+      "hh3cLswCpuMemoryFreeRatio",
+      "hh3cLswCpuMemoryLowFree",
+      "hh3cLswCpuRatio",
+      "hh3cLswCpuMemoryNormalThreshold",
+      "hh3cLswCoreThreshold",
+      "hh3cLswCpuMemorySecureThreshold",
+      "hh3cLswFrameIndex",
+      "hh3cLswCoreMinorThreshold",
+      "hh3cLswCpuMemoryMinorThreshold",
+      "hh3cLswCoreIndex",
+      "hh3cLswCpuUsageSevereThreshold",
+      "hh3cLswSlotIndex",
+      "hh3cLswCpuMemoryEarlyWarningThreshold",
+      "hh3cLswCpuMemoryCurrentState",
+      "hh3cLswCpuMemoryHighTotal",
+      "hh3cLswCpuMemoryHighFree",
+      "hh3cLswCpuIndex",
+      "hh3cLswCpuMemorySevereThreshold",
+      "hh3cLswCpuMemoryFree",
+      "hh3cLswCoreRecoveryThreshold",
+      "hh3cLswCpuMemoryCriticalThreshold",
+      "hh3cLswCpuMemory",
+      "hh3cLswCpuMemoryLowTotal",
+      "hh3cLswCpuUsageMinorThreshold"
+    ],
+    "HH3C-LswDEVM-MIB": [
+      "hh3cDevMFanNum",
+      "hh3cDevMPowerNum",
+      "hh3cDevMFirstTrapTime"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3clswCommon"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cLswTrapMib": {
+    "name": "hh3cLswTrapMib",
+    "oid": "1.3.6.1.4.1.25506.8.35.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-10-15 00:00",
+        "description": "Add hh3cRemainingPowerNotEnough hh3cFrameRemainingPower."
+      },
+      {
+        "revision": "2019-11-22 00:00",
+        "description": "Add hh3cDMAMemoryUsageCriticalNotification hh3cDMAMemoryUsageRecoverNotification."
+      },
+      {
+        "revision": "2019-01-11 00:00",
+        "description": "Added hh3cCoreUsageSevereRecoveryNotification hh3cCoreUsageMinorNotification hh3cCoreUsageMinorRecoveryNotificationm."
+      },
+      {
+        "revision": "2018-04-13 00:00",
+        "description": "Added hh3cLswAlarmInPortInNum."
+      },
+      {
+        "revision": "2017-12-05 00:00",
+        "description": "Added hh3cAlarmInPortIn, hh3cAlarmInPortRecover."
+      },
+      {
+        "revision": "2017-07-17 00:00",
+        "description": "Added hh3cBoardPowerNotEnough, hh3cAvailablePower and hh3cRequiredPower."
+      },
+      {
+        "revision": "2017-06-24 00:00",
+        "description": "hh3cCoreUsageNotification. Add hh3csLswTRAPMibObjectV2Prefix for bindings of notification."
+      },
+      {
+        "revision": "2017-01-12 00:00",
+        "description": "Add hh3cCpuUsageSevereNotification hh3cCpuUsageSevereRecoverNotification hh3cCpuUsageMinorNotification hh3cCpuUsageMinorRecoverNotification. hh3cMemoryUsageEarlyWarningNotification hh3cMemoryUsageEarlyWarningRecoverNotification hh3cMemoryUsageMinorNotification hh3cMemoryUsageMinorRecoverNotification hh3cMemoryUsageSevereNotification hh3cMemoryUsageSevereRecoverNotification hh3cMemoryUsageCriticalNotification hh3cMemoryUsageCriticalRecoverNotification. Add hh3csLswTRAPMibInfor for bindings of notification."
+      },
+      {
+        "revision": "2011-11-26 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "hh3csLswTRAPMibObject": {
+    "name": "hh3csLswTRAPMibObject",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1",
+    "class": "objectidentity"
+  },
+  "hh3cpowerfailure": {
+    "name": "hh3cpowerfailure",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMPowerNum"
+      },
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPowerNormal": {
+    "name": "hh3cPowerNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMPowerNum"
+      },
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMasterPowerNormal": {
+    "name": "hh3cMasterPowerNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMPowerNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSlavePowerNormal": {
+    "name": "hh3cSlavePowerNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMPowerNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPowerRemoved": {
+    "name": "hh3cPowerRemoved",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMPowerNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cfanfailure": {
+    "name": "hh3cfanfailure",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMFanNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFanNormal": {
+    "name": "hh3cFanNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMFanNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardRemoved": {
+    "name": "hh3cBoardRemoved",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardInserted": {
+    "name": "hh3cBoardInserted",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardFailure": {
+    "name": "hh3cBoardFailure",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardNormal": {
+    "name": "hh3cBoardNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSubcardRemove": {
+    "name": "hh3cSubcardRemove",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSubslotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSubcardInsert": {
+    "name": "hh3cSubcardInsert",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSubslotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardTemperatureLower": {
+    "name": "hh3cBoardTemperatureLower",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardTemperatureFromLowerToNormal": {
+    "name": "hh3cBoardTemperatureFromLowerToNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardTemperatureHigher": {
+    "name": "hh3cBoardTemperatureHigher",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardTemperatureFormHigherToNormal": {
+    "name": "hh3cBoardTemperatureFormHigherToNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRequestLoading": {
+    "name": "hh3cRequestLoading",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLoadFailure": {
+    "name": "hh3cLoadFailure",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLoadFinished": {
+    "name": "hh3cLoadFinished",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBackBoardModeSetFuilure": {
+    "name": "hh3cBackBoardModeSetFuilure",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBackBoardModeSetOK": {
+    "name": "hh3cBackBoardModeSetOK",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPowerInserted": {
+    "name": "hh3cPowerInserted",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMPowerNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBootImageUpdated": {
+    "name": "hh3cBootImageUpdated",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCpuRemoved": {
+    "name": "hh3cCpuRemoved",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCpuFailure": {
+    "name": "hh3cCpuFailure",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCpuNormal": {
+    "name": "hh3cCpuNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cPowerIncompatible": {
+    "name": "hh3cPowerIncompatible",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LswDEVM-MIB",
+        "object": "hh3cDevMPowerNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCpuUsageSevereNotification": {
+    "name": "hh3cCpuUsageSevereNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageSevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapCpuCoreInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessCpuInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCpuUsageSevereRecoverNotification": {
+    "name": "hh3cCpuUsageSevereRecoverNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageSevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapCpuCoreInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessCpuInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCpuUsageMinorNotification": {
+    "name": "hh3cCpuUsageMinorNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageSevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapCpuCoreInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessCpuInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCpuUsageMinorRecoverNotification": {
+    "name": "hh3cCpuUsageMinorRecoverNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageSevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuUsageRecoverThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapCpuCoreInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessCpuInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageEarlyWarningNotification": {
+    "name": "hh3cMemoryUsageEarlyWarningNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageEarlyWarningRecoverNotification": {
+    "name": "hh3cMemoryUsageEarlyWarningRecoverNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageMinorNotification": {
+    "name": "hh3cMemoryUsageMinorNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageMinorRecoverNotification": {
+    "name": "hh3cMemoryUsageMinorRecoverNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageSevereNotification": {
+    "name": "hh3cMemoryUsageSevereNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageSevereRecoverNotification": {
+    "name": "hh3cMemoryUsageSevereRecoverNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageCriticalNotification": {
+    "name": "hh3cMemoryUsageCriticalNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMemoryUsageCriticalRecoverNotification": {
+    "name": "hh3cMemoryUsageCriticalRecoverNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemory"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryHighFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowTotal"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryLowFree"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySecureThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryEarlyWarningThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryNormalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemorySevereThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCriticalThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapProcessMemoryInfo"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3csLswTrapSlubInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cNetworkHealthMonitorFailure": {
+    "name": "hh3cNetworkHealthMonitorFailure",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.98",
+    "class": "objectidentity"
+  },
+  "hh3cNetworkHealthMonitorNormal": {
+    "name": "hh3cNetworkHealthMonitorNormal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.1.99",
+    "class": "objectidentity"
+  },
+  "hh3csLswTRAPMibInfor": {
+    "name": "hh3csLswTRAPMibInfor",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2",
+    "class": "objectidentity"
+  },
+  "hh3csLswTrapCpuCoreInfo": {
+    "name": "hh3csLswTrapCpuCoreInfo",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3csLswTrapProcessCpuInfo": {
+    "name": "hh3csLswTrapProcessCpuInfo",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3csLswTrapProcessMemoryInfo": {
+    "name": "hh3csLswTrapProcessMemoryInfo",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3csLswTrapSlubInfo": {
+    "name": "hh3csLswTrapSlubInfo",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLswTrapCpuUsage": {
+    "name": "hh3cLswTrapCpuUsage",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLswTrapCoreProcessInfo": {
+    "name": "hh3cLswTrapCoreProcessInfo",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLswCoreTrapUsage": {
+    "name": "hh3cLswCoreTrapUsage",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cBoardAvailablePower": {
+    "name": "hh3cBoardAvailablePower",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cBoardRequiredPower": {
+    "name": "hh3cBoardRequiredPower",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cLswAlarmInPortInNum": {
+    "name": "hh3cLswAlarmInPortInNum",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDMAMemoryTotal": {
+    "name": "hh3cDMAMemoryTotal",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDMAMemoryUsed": {
+    "name": "hh3cDMAMemoryUsed",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDMAMemoryFree": {
+    "name": "hh3cDMAMemoryFree",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDMAMemoryFreeRatio": {
+    "name": "hh3cDMAMemoryFreeRatio",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDMAMemoryCriticalThreshold": {
+    "name": "hh3cDMAMemoryCriticalThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDMAMemoryRecoverThreshold": {
+    "name": "hh3cDMAMemoryRecoverThreshold",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cDMAMemoryCurrentState": {
+    "name": "hh3cDMAMemoryCurrentState",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "critical": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cFrameRemainingPower": {
+    "name": "hh3cFrameRemainingPower",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "W",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3csLswTRAPMibObjectV2": {
+    "name": "hh3csLswTRAPMibObjectV2",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3",
+    "class": "objectidentity"
+  },
+  "hh3csLswTRAPMibObjectV2Prefix": {
+    "name": "hh3csLswTRAPMibObjectV2Prefix",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cCoreUsageNotification": {
+    "name": "hh3cCoreUsageNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswCoreTrapUsage"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCpuUsage"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCoreProcessInfo"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreRecoveryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cBoardPowerNotEnough": {
+    "name": "hh3cBoardPowerNotEnough",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cBoardAvailablePower"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cBoardRequiredPower"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cAlarmInPortIn": {
+    "name": "hh3cAlarmInPortIn",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswAlarmInPortInNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cAlarmInPortRecover": {
+    "name": "hh3cAlarmInPortRecover",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswAlarmInPortInNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCoreUsageSevereRecoveryNotification": {
+    "name": "hh3cCoreUsageSevereRecoveryNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswCoreTrapUsage"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCpuUsage"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCoreProcessInfo"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreRecoveryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCoreUsageMinorNotification": {
+    "name": "hh3cCoreUsageMinorNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswCoreTrapUsage"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCpuUsage"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCoreProcessInfo"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreRecoveryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCoreUsageMinorRecoveryNotification": {
+    "name": "hh3cCoreUsageMinorRecoveryNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswCoreTrapUsage"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreThreshold"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCpuUsage"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cLswTrapCoreProcessInfo"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreMinorThreshold"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCoreRecoveryThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDMAMemoryUsageCriticalNotification": {
+    "name": "hh3cDMAMemoryUsageCriticalNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryTotal"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryUsed"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryFree"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryCriticalThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDMAMemoryUsageRecoverNotification": {
+    "name": "hh3cDMAMemoryUsageRecoverNotification",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswSlotIndex"
+      },
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswCpuIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryTotal"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryUsed"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryFree"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryCurrentState"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryFreeRatio"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cDMAMemoryRecoverThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cRemainingPowerNotEnough": {
+    "name": "hh3cRemainingPowerNotEnough",
+    "oid": "1.3.6.1.4.1.25506.8.35.12.3.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-LSW-DEV-ADM-MIB",
+        "object": "hh3cLswFrameIndex"
+      },
+      {
+        "module": "HH3C-LswTRAP-MIB",
+        "object": "hh3cFrameRemainingPower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-LswTRAP-MIB"
+  }
+}

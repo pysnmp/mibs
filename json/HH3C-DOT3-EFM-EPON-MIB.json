@@ -1,0 +1,1265 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cEpon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "mib-2",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hh3cDot3EfmeponMIB": {
+    "name": "hh3cDot3EfmeponMIB",
+    "oid": "1.3.6.1.4.1.25506.2.42.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-21 00:00",
+        "description": "Initial version, published as RFC XXXX."
+      }
+    ]
+  },
+  "hh3cDot3MpcpMIB": {
+    "name": "hh3cDot3MpcpMIB",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot3MpcpObjects": {
+    "name": "hh3cDot3MpcpObjects",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot3MpcpConformance": {
+    "name": "hh3cDot3MpcpConformance",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot3MpcpTable": {
+    "name": "hh3cDot3MpcpTable",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot3MpcpEntry": {
+    "name": "hh3cDot3MpcpEntry",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3MpcpID": {
+    "name": "hh3cDot3MpcpID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpOperStatus": {
+    "name": "hh3cDot3MpcpOperStatus",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpMode": {
+    "name": "hh3cDot3MpcpMode",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "olt": 1,
+          "onu": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot3MpcpLinkID": {
+    "name": "hh3cDot3MpcpLinkID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRemoteMACAddress": {
+    "name": "hh3cDot3MpcpRemoteMACAddress",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRegistrationState": {
+    "name": "hh3cDot3MpcpRegistrationState",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unregistered": 1,
+          "registering": 2,
+          "registered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpTransmitElapsed": {
+    "name": "hh3cDot3MpcpTransmitElapsed",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TQ (16nsec)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpReceiveElapsed": {
+    "name": "hh3cDot3MpcpReceiveElapsed",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TQ (16nsec)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRoundTripTime": {
+    "name": "hh3cDot3MpcpRoundTripTime",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TQ (16nsec)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpMaximumPendingGrants": {
+    "name": "hh3cDot3MpcpMaximumPendingGrants",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpAdminState": {
+    "name": "hh3cDot3MpcpAdminState",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot3MpcpOnTime": {
+    "name": "hh3cDot3MpcpOnTime",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TQ (16nsec)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpOffTime": {
+    "name": "hh3cDot3MpcpOffTime",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TQ (16nsec)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpSyncTime": {
+    "name": "hh3cDot3MpcpSyncTime",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TQ (16nsec)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpStatTable": {
+    "name": "hh3cDot3MpcpStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot3MpcpStatEntry": {
+    "name": "hh3cDot3MpcpStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3MpcpMACCtrlFramesTransmitted": {
+    "name": "hh3cDot3MpcpMACCtrlFramesTransmitted",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpMACCtrlFramesReceived": {
+    "name": "hh3cDot3MpcpMACCtrlFramesReceived",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpDiscoveryWindowsSent": {
+    "name": "hh3cDot3MpcpDiscoveryWindowsSent",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpDiscoveryTimeout": {
+    "name": "hh3cDot3MpcpDiscoveryTimeout",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpTxRegRequest": {
+    "name": "hh3cDot3MpcpTxRegRequest",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRxRegRequest": {
+    "name": "hh3cDot3MpcpRxRegRequest",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpTxRegAck": {
+    "name": "hh3cDot3MpcpTxRegAck",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRxRegAck": {
+    "name": "hh3cDot3MpcpRxRegAck",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpTxReport": {
+    "name": "hh3cDot3MpcpTxReport",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRxReport": {
+    "name": "hh3cDot3MpcpRxReport",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpTxGate": {
+    "name": "hh3cDot3MpcpTxGate",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRxGate": {
+    "name": "hh3cDot3MpcpRxGate",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpTxRegister": {
+    "name": "hh3cDot3MpcpTxRegister",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRxRegister": {
+    "name": "hh3cDot3MpcpRxRegister",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpRxNotSupportedMPCP": {
+    "name": "hh3cDot3MpcpRxNotSupportedMPCP",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3MpcpGroups": {
+    "name": "hh3cDot3MpcpGroups",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot3MpcpGroupBase": {
+    "name": "hh3cDot3MpcpGroupBase",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpOperStatus"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpMode"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpLinkID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRemoteMACAddress"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRegistrationState"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpMaximumPendingGrants"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3MpcpGroupParam": {
+    "name": "hh3cDot3MpcpGroupParam",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpTransmitElapsed"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpReceiveElapsed"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRoundTripTime"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpOnTime"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpOffTime"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpSyncTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3MpcpGroupStat": {
+    "name": "hh3cDot3MpcpGroupStat",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpMACCtrlFramesTransmitted"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpMACCtrlFramesReceived"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpDiscoveryWindowsSent"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpDiscoveryTimeout"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpTxRegRequest"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRxRegRequest"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpTxRegAck"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRxRegAck"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpTxReport"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRxReport"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpTxGate"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRxGate"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpTxRegister"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRxRegister"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3MpcpRxNotSupportedMPCP"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3MpcpCompliances": {
+    "name": "hh3cDot3MpcpCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot3MpcpCompliance": {
+    "name": "hh3cDot3MpcpCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cDot3MpcpGroupBase",
+        "module": "HH3C-DOT3-EFM-EPON-MIB"
+      },
+      {
+        "object": "hh3cDot3MpcpGroupParam",
+        "module": "HH3C-DOT3-EFM-EPON-MIB"
+      },
+      {
+        "object": "hh3cDot3MpcpGroupStat",
+        "module": "HH3C-DOT3-EFM-EPON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationMIB": {
+    "name": "hh3cDot3OmpEmulationMIB",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot3OmpEmulationObjects": {
+    "name": "hh3cDot3OmpEmulationObjects",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot3OmpeConformance": {
+    "name": "hh3cDot3OmpeConformance",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot3OmpEmulationTable": {
+    "name": "hh3cDot3OmpEmulationTable",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationEntry": {
+    "name": "hh3cDot3OmpEmulationEntry",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationID": {
+    "name": "hh3cDot3OmpEmulationID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationType": {
+    "name": "hh3cDot3OmpEmulationType",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "olt": 2,
+          "onu": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationStatTable": {
+    "name": "hh3cDot3OmpEmulationStatTable",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationStatEntry": {
+    "name": "hh3cDot3OmpEmulationStatEntry",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationSLDErrors": {
+    "name": "hh3cDot3OmpEmulationSLDErrors",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationCRC8Errors": {
+    "name": "hh3cDot3OmpEmulationCRC8Errors",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationBadLLID": {
+    "name": "hh3cDot3OmpEmulationBadLLID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationGoodLLID": {
+    "name": "hh3cDot3OmpEmulationGoodLLID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationOnuPonCastLLID": {
+    "name": "hh3cDot3OmpEmulationOnuPonCastLLID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationOltPonCastLLID": {
+    "name": "hh3cDot3OmpEmulationOltPonCastLLID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationBroadcastLLIDNotOnuID": {
+    "name": "hh3cDot3OmpEmulationBroadcastLLIDNotOnuID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationOnuLLIDNotBroadcast": {
+    "name": "hh3cDot3OmpEmulationOnuLLIDNotBroadcast",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationBroadcastLLIDPlusOnuId": {
+    "name": "hh3cDot3OmpEmulationBroadcastLLIDPlusOnuId",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpEmulationNotBroadcastLLIDNotOnuId": {
+    "name": "hh3cDot3OmpEmulationNotBroadcastLLIDNotOnuId",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3OmpeGroups": {
+    "name": "hh3cDot3OmpeGroups",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot3OmpeGroupID": {
+    "name": "hh3cDot3OmpeGroupID",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationType"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3OmpeGroupStat": {
+    "name": "hh3cDot3OmpeGroupStat",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationSLDErrors"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationCRC8Errors"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationBadLLID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationGoodLLID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationOnuPonCastLLID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationOltPonCastLLID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationBroadcastLLIDNotOnuID"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationOnuLLIDNotBroadcast"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationBroadcastLLIDPlusOnuId"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3OmpEmulationNotBroadcastLLIDNotOnuId"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3OmpeCompliances": {
+    "name": "hh3cDot3OmpeCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot3OmpeCompliance": {
+    "name": "hh3cDot3OmpeCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.2.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cDot3OmpeGroupID",
+        "module": "HH3C-DOT3-EFM-EPON-MIB"
+      },
+      {
+        "object": "hh3cDot3OmpeGroupStat",
+        "module": "HH3C-DOT3-EFM-EPON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3EponMauMIB": {
+    "name": "hh3cDot3EponMauMIB",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3",
+    "class": "objectidentity"
+  },
+  "hh3cDot3EponMauObjects": {
+    "name": "hh3cDot3EponMauObjects",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot3EponMauConformance": {
+    "name": "hh3cDot3EponMauConformance",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot3EponMauTable": {
+    "name": "hh3cDot3EponMauTable",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot3EponMauEntry": {
+    "name": "hh3cDot3EponMauEntry",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3EponMauPCSCodingViolation": {
+    "name": "hh3cDot3EponMauPCSCodingViolation",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3EponMauFecAbility": {
+    "name": "hh3cDot3EponMauFecAbility",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "nonsupported": 2,
+          "supported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3EponMauFecMode": {
+    "name": "hh3cDot3EponMauFecMode",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot3EponMauFECCorrectedBlocks": {
+    "name": "hh3cDot3EponMauFECCorrectedBlocks",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3EponMauFECUncorrectableBlocks": {
+    "name": "hh3cDot3EponMauFECUncorrectableBlocks",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3EponMauBufferHeadCodingViolation": {
+    "name": "hh3cDot3EponMauBufferHeadCodingViolation",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDot3EponMauType": {
+    "name": "hh3cDot3EponMauType",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3",
+    "class": "objectidentity"
+  },
+  "hh3cEponMauType1000BasePXOLT": {
+    "name": "hh3cEponMauType1000BasePXOLT",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePXONU": {
+    "name": "hh3cEponMauType1000BasePXONU",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX10DOLT": {
+    "name": "hh3cEponMauType1000BasePX10DOLT",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX10DONU": {
+    "name": "hh3cEponMauType1000BasePX10DONU",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX10UOLT": {
+    "name": "hh3cEponMauType1000BasePX10UOLT",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX10UONU": {
+    "name": "hh3cEponMauType1000BasePX10UONU",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX20DOLT": {
+    "name": "hh3cEponMauType1000BasePX20DOLT",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX20DONU": {
+    "name": "hh3cEponMauType1000BasePX20DONU",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX20UOLT": {
+    "name": "hh3cEponMauType1000BasePX20UOLT",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cEponMauType1000BasePX20UONU": {
+    "name": "hh3cEponMauType1000BasePX20UONU",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hh3cDot3EponMauGroups": {
+    "name": "hh3cDot3EponMauGroups",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot3EponMauGroupAll": {
+    "name": "hh3cDot3EponMauGroupAll",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3EponMauPCSCodingViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3EponMauGroupFEC": {
+    "name": "hh3cDot3EponMauGroupFEC",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3EponMauFecAbility"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3EponMauFecMode"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3EponMauFECCorrectedBlocks"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3EponMauFECUncorrectableBlocks"
+      },
+      {
+        "module": "HH3C-DOT3-EFM-EPON-MIB",
+        "object": "hh3cDot3EponMauBufferHeadCodingViolation"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot3EponMauCompliances": {
+    "name": "hh3cDot3EponMauCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cDot3EponMauCompliance": {
+    "name": "hh3cDot3EponMauCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.42.2.3.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cDot3EponMauGroupAll",
+        "module": "HH3C-DOT3-EFM-EPON-MIB"
+      },
+      {
+        "object": "hh3cDot3EponMauGroupFEC",
+        "module": "HH3C-DOT3-EFM-EPON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT3-EFM-EPON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DOT3-EFM-EPON-MIB"
+  }
+}

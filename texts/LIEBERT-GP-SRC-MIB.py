@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module LIEBERT-GP-SRC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-SRC-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:07:03 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:41:16 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 lgpSrc, liebertSrcModuleReg = mibBuilder.importSymbols("LIEBERT-GP-REGISTRATION-MIB", "lgpSrc", "liebertSrcModuleReg")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
 sysUpTime, = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime")
-MibIdentifier, ModuleIdentity, Unsigned32, iso, ObjectIdentity, Counter32, Bits, IpAddress, Gauge32, TimeTicks, NotificationType, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "Unsigned32", "iso", "ObjectIdentity", "Counter32", "Bits", "IpAddress", "Gauge32", "TimeTicks", "NotificationType", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter64, Gauge32, ModuleIdentity, Bits, IpAddress, iso, NotificationType, MibIdentifier, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Gauge32", "ModuleIdentity", "Bits", "IpAddress", "iso", "NotificationType", "MibIdentifier", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 liebertGlobalProductsSrcModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 12, 1))
 liebertGlobalProductsSrcModule.setRevisions(('2017-11-10 00:00', '2017-10-16 00:00', '2017-08-18 00:00',))
 
@@ -70,4 +70,4 @@ if mibBuilder.loadTexts: lgpSrcDevTemperatureHighThresholdDegC.setDescription("T
 lgpSrcDevTemperatureLowThresholdDegC = MibTableColumn((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 10, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2147483647))).clone(namedValues=NamedValues(("unknown", 2147483647)))).setUnits('degrees Celsius').setMaxAccess("readwrite")
 if mibBuilder.loadTexts: lgpSrcDevTemperatureLowThresholdDegC.setStatus('current')
 if mibBuilder.loadTexts: lgpSrcDevTemperatureLowThresholdDegC.setDescription("The low temperature notification threshold.  This is the minimum\n            value of 'lgpSrcDevTemperatureDegC' before the agent sends a\n            notification.  The value of this object is only vaild if the\n            lgpSrcDevState object is set to enabled(1).  The value of this\n            object will be set to unknown(2147483647) if the value of\n            lgpSrcDevState object is set to one of the following values:\n            standbyOffline(2), unavailableOffline(3) or absent(4).")
-mibBuilder.exportSymbols("LIEBERT-GP-SRC-MIB", lgpSrcDevPowerStatus=lgpSrcDevPowerStatus, lgpSrcDevId=lgpSrcDevId, lgpSrcDevTemperatureHighThresholdDegC=lgpSrcDevTemperatureHighThresholdDegC, lgpSrcDevAddress=lgpSrcDevAddress, PYSNMP_MODULE_ID=liebertGlobalProductsSrcModule, lgpSrcDevState=lgpSrcDevState, lgpSrcDevTemperatureDegF=lgpSrcDevTemperatureDegF, lgpSrcDevOperatingMode=lgpSrcDevOperatingMode, lgpSrcDevTemperatureLowThresholdDegF=lgpSrcDevTemperatureLowThresholdDegF, lgpSrcDevTemperatureHighThresholdDegF=lgpSrcDevTemperatureHighThresholdDegF, lgpSrcDevTemperatureDegC=lgpSrcDevTemperatureDegC, lgpSrcDevTemperatureSetpointDegF=lgpSrcDevTemperatureSetpointDegF, lgpSrcDevTemperatureSetpointDegC=lgpSrcDevTemperatureSetpointDegC, lgpSrcEntry=lgpSrcEntry, lgpSrcDevTemperatureLowThresholdDegC=lgpSrcDevTemperatureLowThresholdDegC, lgpSrcTable=lgpSrcTable, liebertGlobalProductsSrcModule=liebertGlobalProductsSrcModule, lgpSrcDevFanSpeed=lgpSrcDevFanSpeed)
+mibBuilder.exportSymbols("LIEBERT-GP-SRC-MIB", lgpSrcDevTemperatureDegF=lgpSrcDevTemperatureDegF, lgpSrcDevTemperatureDegC=lgpSrcDevTemperatureDegC, lgpSrcEntry=lgpSrcEntry, liebertGlobalProductsSrcModule=liebertGlobalProductsSrcModule, lgpSrcDevState=lgpSrcDevState, lgpSrcDevTemperatureSetpointDegF=lgpSrcDevTemperatureSetpointDegF, lgpSrcTable=lgpSrcTable, lgpSrcDevTemperatureSetpointDegC=lgpSrcDevTemperatureSetpointDegC, lgpSrcDevFanSpeed=lgpSrcDevFanSpeed, lgpSrcDevTemperatureHighThresholdDegC=lgpSrcDevTemperatureHighThresholdDegC, PYSNMP_MODULE_ID=liebertGlobalProductsSrcModule, lgpSrcDevId=lgpSrcDevId, lgpSrcDevAddress=lgpSrcDevAddress, lgpSrcDevTemperatureLowThresholdDegC=lgpSrcDevTemperatureLowThresholdDegC, lgpSrcDevPowerStatus=lgpSrcDevPowerStatus, lgpSrcDevOperatingMode=lgpSrcDevOperatingMode, lgpSrcDevTemperatureHighThresholdDegF=lgpSrcDevTemperatureHighThresholdDegF, lgpSrcDevTemperatureLowThresholdDegF=lgpSrcDevTemperatureLowThresholdDegF)

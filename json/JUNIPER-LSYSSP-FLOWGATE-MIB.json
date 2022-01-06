@@ -1,0 +1,255 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-LSYS-SECURITYPROFILE-MIB": [
+      "jnxLsysSpFlowgate"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxLsysSpFlowgateMIB": {
+    "name": "jnxLsysSpFlowgateMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1",
+    "class": "moduleidentity"
+  },
+  "jnxLsysSpFlowgateObjects": {
+    "name": "jnxLsysSpFlowgateObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpFlowgateSummary": {
+    "name": "jnxLsysSpFlowgateSummary",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2",
+    "class": "objectidentity"
+  },
+  "jnxLsysSpFlowgateTable": {
+    "name": "jnxLsysSpFlowgateTable",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateEntry": {
+    "name": "jnxLsysSpFlowgateEntry",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-LSYSSP-FLOWGATE-MIB",
+        "object": "jnxLsysSpFlowgateLsysName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateLsysName": {
+    "name": "jnxLsysSpFlowgateLsysName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateProfileName": {
+    "name": "jnxLsysSpFlowgateProfileName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateUsage": {
+    "name": "jnxLsysSpFlowgateUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateReserved": {
+    "name": "jnxLsysSpFlowgateReserved",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateMaximum": {
+    "name": "jnxLsysSpFlowgateMaximum",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateUsedAmount": {
+    "name": "jnxLsysSpFlowgateUsedAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateMaxQuota": {
+    "name": "jnxLsysSpFlowgateMaxQuota",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateAvailableAmount": {
+    "name": "jnxLsysSpFlowgateAvailableAmount",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateHeaviestUsage": {
+    "name": "jnxLsysSpFlowgateHeaviestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateHeaviestUser": {
+    "name": "jnxLsysSpFlowgateHeaviestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateLightestUsage": {
+    "name": "jnxLsysSpFlowgateLightestUsage",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxLsysSpFlowgateLightestUser": {
+    "name": "jnxLsysSpFlowgateLightestUser",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.17.5.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-LSYSSP-FLOWGATE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-LSYSSP-FLOWGATE-MIB"
+  }
+}

@@ -1,0 +1,480 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoRttMonTCMIB": {
+    "name": "ciscoRttMonTCMIB",
+    "oid": "1.3.6.1.4.1.9.9.485",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-19 00:00",
+        "description": "Added new fabricPathEcho type to RttMonRttType and fabricPathEchoAppl type to RttMonProtocol"
+      },
+      {
+        "revision": "2013-11-26 00:00",
+        "description": "Added new RttMonReactVar type named 'protocolSpecificError'"
+      },
+      {
+        "revision": "2012-11-02 00:00",
+        "description": "Added RttMonScheduleStartType TC. Added enumeration y1731dmmv1 to RttMonProtocol. Added the following to RttMonReactVar: lpdGroup, lpdTreeTrace, lpdAll, unavailSD, unavailDS, pktLossPctSD, pktLossPctDS, rttPct, maxOfLatencySDPct, maxOfLatencyDSPct, latencySDAvgPct, latencyDSAvgPct, jitterSDAvgPct, jitterDSAvgPct, jitterAvgPct, overThreshold."
+      },
+      {
+        "revision": "2012-05-25 00:00",
+        "description": "Added enumeration y1731slm to RttMonProtocol Added the following to RttResopnseSense. statsRetrieveOk, statsRetrieveNoConnect, statsRetrieveVersionFail, statsRetrieveInternalError, statsRetrieveAbort, statsRetrieveFail, statsRetrieveAuthFail, statsRetrieveFormatError, statsRetrievePortInUse. For enumeration from controlOk to controlPortInUse, changed the prefix from control to enable."
+      },
+      {
+        "revision": "2011-09-15 00:00",
+        "description": "Updated following textual conventions to include Y1731 and Multicast extensions. -RttMonRttType, RttMonProtocol."
+      },
+      {
+        "revision": "2010-04-26 00:00",
+        "description": "Added enumeration 'video' to RttMonRttType TC."
+      },
+      {
+        "revision": "2006-08-11 00:00",
+        "description": "Added RttMonIdLst and RttMonCtrlIndex textual conventions."
+      },
+      {
+        "revision": "2006-07-17 00:00",
+        "description": "Added enumeration 'lspPingPseudowire' to RttMonRttType TC."
+      },
+      {
+        "revision": "2006-03-02 00:00",
+        "description": "Added ethernetPing and ethernetJitter in RttMonRttType. Added ethernetPingAppl and ethernetJitterAppl in RttMonProtocol"
+      },
+      {
+        "revision": "2005-08-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "RttMonScheduleStartType": {
+    "name": "RttMonScheduleStartType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "now": 2,
+          "random": 3,
+          "after": 4,
+          "specific": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttReset": {
+    "name": "RttReset",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "reset": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMonOperation": {
+    "name": "RttMonOperation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "httpGet": 1,
+          "httpRaw": 2,
+          "ftpGet": 3,
+          "ftpPassive": 4,
+          "ftpActive": 5,
+          "voipDTAlertRinging": 6,
+          "voipDTConnectOK": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttResponseSense": {
+    "name": "RttResponseSense",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "ok": 1,
+          "disconnected": 2,
+          "overThreshold": 3,
+          "timeout": 4,
+          "busy": 5,
+          "notConnected": 6,
+          "dropped": 7,
+          "sequenceError": 8,
+          "verifyError": 9,
+          "applicationSpecific": 10,
+          "dnsServerTimeout": 11,
+          "tcpConnectTimeout": 12,
+          "httpTransactionTimeout": 13,
+          "dnsQueryError": 14,
+          "httpError": 15,
+          "error": 16,
+          "mplsLspEchoTxError": 17,
+          "mplsLspUnreachable": 18,
+          "mplsLspMalformedReq": 19,
+          "mplsLspReachButNotFEC": 20,
+          "enableOk": 21,
+          "enableNoConnect": 22,
+          "enableVersionFail": 23,
+          "enableInternalError": 24,
+          "enableAbort": 25,
+          "enableFail": 26,
+          "enableAuthFail": 27,
+          "enableFormatError": 28,
+          "enablePortInUse": 29,
+          "statsRetrieveOk": 30,
+          "statsRetrieveNoConnect": 31,
+          "statsRetrieveVersionFail": 32,
+          "statsRetrieveInternalError": 33,
+          "statsRetrieveAbort": 34,
+          "statsRetrieveFail": 35,
+          "statsRetrieveAuthFail": 36,
+          "statsRetrieveFormatError": 37,
+          "statsRetrievePortInUse": 38
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMonRttType": {
+    "name": "RttMonRttType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "echo": 1,
+          "pathEcho": 2,
+          "fileIO": 3,
+          "script": 4,
+          "udpEcho": 5,
+          "tcpConnect": 6,
+          "http": 7,
+          "dns": 8,
+          "jitter": 9,
+          "dlsw": 10,
+          "dhcp": 11,
+          "ftp": 12,
+          "voip": 13,
+          "rtp": 14,
+          "lspGroup": 15,
+          "icmpjitter": 16,
+          "lspPing": 17,
+          "lspTrace": 18,
+          "ethernetPing": 19,
+          "ethernetJitter": 20,
+          "lspPingPseudowire": 21,
+          "video": 22,
+          "y1731Delay": 23,
+          "y1731Loss": 24,
+          "mcastJitter": 25,
+          "fabricPathEcho": 26
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMplsVpnMonRttType": {
+    "name": "RttMplsVpnMonRttType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jitter": 1,
+          "echo": 2,
+          "pathEcho": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMplsVpnMonLpdFailureSense": {
+    "name": "RttMplsVpnMonLpdFailureSense",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noPath": 2,
+          "allPathsBroken": 3,
+          "allPathsUnexplorable": 4,
+          "allPathsBrokenOrUnexplorable": 5,
+          "timeout": 6,
+          "error": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMplsVpnMonLpdGrpStatus": {
+    "name": "RttMplsVpnMonLpdGrpStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "up": 2,
+          "partial": 3,
+          "down": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMonProtocol": {
+    "name": "RttMonProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "ipIcmpEcho": 2,
+          "ipUdpEchoAppl": 3,
+          "snaRUEcho": 4,
+          "snaLU0EchoAppl": 5,
+          "snaLU2EchoAppl": 6,
+          "snaLU62Echo": 7,
+          "snaLU62EchoAppl": 8,
+          "appleTalkEcho": 9,
+          "appleTalkEchoAppl": 10,
+          "decNetEcho": 11,
+          "decNetEchoAppl": 12,
+          "ipxEcho": 13,
+          "ipxEchoAppl": 14,
+          "isoClnsEcho": 15,
+          "isoClnsEchoAppl": 16,
+          "vinesEcho": 17,
+          "vinesEchoAppl": 18,
+          "xnsEcho": 19,
+          "xnsEchoAppl": 20,
+          "apolloEcho": 21,
+          "apolloEchoAppl": 22,
+          "netbiosEchoAppl": 23,
+          "ipTcpConn": 24,
+          "httpAppl": 25,
+          "dnsAppl": 26,
+          "jitterAppl": 27,
+          "dlswAppl": 28,
+          "dhcpAppl": 29,
+          "ftpAppl": 30,
+          "mplsLspPingAppl": 31,
+          "voipAppl": 32,
+          "rtpAppl": 33,
+          "icmpJitterAppl": 34,
+          "ethernetPingAppl": 35,
+          "ethernetJitterAppl": 36,
+          "videoAppl": 37,
+          "y1731dmm": 38,
+          "y17311dm": 39,
+          "y1731lmm": 40,
+          "mcastJitterAppl": 41,
+          "y1731slm": 42,
+          "y1731dmmv1": 43,
+          "fabricPathEchoAppl": 44
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMonCodecType": {
+    "name": "RttMonCodecType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "g711ulaw": 1,
+          "g711alaw": 2,
+          "g729a": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMonLSPPingReplyMode": {
+    "name": "RttMonLSPPingReplyMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "replyIpv4Udp": 1,
+          "replyIpv4UdpRA": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMonTargetAddress": {
+    "name": "RttMonTargetAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RttMonReactVar": {
+    "name": "RttMonReactVar",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rtt": 1,
+          "jitterSDAvg": 2,
+          "jitterDSAvg": 3,
+          "packetLossSD": 4,
+          "packetLossDS": 5,
+          "mos": 6,
+          "timeout": 7,
+          "connectionLoss": 8,
+          "verifyError": 9,
+          "jitterAvg": 10,
+          "icpif": 11,
+          "packetMIA": 12,
+          "packetLateArrival": 13,
+          "packetOutOfSequence": 14,
+          "maxOfPositiveSD": 15,
+          "maxOfNegativeSD": 16,
+          "maxOfPositiveDS": 17,
+          "maxOfNegativeDS": 18,
+          "iaJitterDS": 19,
+          "frameLossDS": 20,
+          "mosLQDS": 21,
+          "mosCQDS": 22,
+          "rFactorDS": 23,
+          "successivePacketLoss": 24,
+          "maxOfLatencyDS": 25,
+          "maxOfLatencySD": 26,
+          "latencyDSAvg": 27,
+          "latencySDAvg": 28,
+          "packetLoss": 29,
+          "iaJitterSD": 30,
+          "mosCQSD": 31,
+          "rFactorSD": 32,
+          "lpdGroup": 33,
+          "lpdTreeTrace": 34,
+          "lpdAll": 35,
+          "unavailSD": 36,
+          "unavailDS": 37,
+          "pktLossPctSD": 38,
+          "pktLossPctDS": 39,
+          "rttPct": 40,
+          "maxOfLatencySDPct": 41,
+          "maxOfLatencyDSPct": 42,
+          "latencySDAvgPct": 43,
+          "latencyDSAvgPct": 44,
+          "jitterSDAvgPct": 45,
+          "jitterDSAvgPct": 46,
+          "jitterAvgPct": 47,
+          "overThreshold": 48,
+          "protocolSpecificError": 49
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RttMonIdLst": {
+    "name": "RttMonIdLst",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RttMonCtrlIndex": {
+    "name": "RttMonCtrlIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-RTTMON-TC-MIB"
+  }
+}

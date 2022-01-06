@@ -1,0 +1,1441 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "viprinet": {
+    "name": "viprinet",
+    "oid": "1.3.6.1.4.1.35424",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-09-28 16:20",
+        "description": "Seventh revision."
+      }
+    ]
+  },
+  "vpnRouter": {
+    "name": "vpnRouter",
+    "oid": "1.3.6.1.4.1.35424.1",
+    "class": "objectidentity"
+  },
+  "vpnRouterInfo": {
+    "name": "vpnRouterInfo",
+    "oid": "1.3.6.1.4.1.35424.1.1",
+    "class": "objectidentity"
+  },
+  "vpnRouterHealth": {
+    "name": "vpnRouterHealth",
+    "oid": "1.3.6.1.4.1.35424.1.2",
+    "class": "objectidentity"
+  },
+  "vpnRouterFans": {
+    "name": "vpnRouterFans",
+    "oid": "1.3.6.1.4.1.35424.1.3",
+    "class": "objectidentity"
+  },
+  "vpnRouterInterfaces": {
+    "name": "vpnRouterInterfaces",
+    "oid": "1.3.6.1.4.1.35424.1.4",
+    "class": "objectidentity"
+  },
+  "vpnRouterTunnels": {
+    "name": "vpnRouterTunnels",
+    "oid": "1.3.6.1.4.1.35424.1.5",
+    "class": "objectidentity"
+  },
+  "vpnRouterTunnelChannels": {
+    "name": "vpnRouterTunnelChannels",
+    "oid": "1.3.6.1.4.1.35424.1.6",
+    "class": "objectidentity"
+  },
+  "vpnRouterName": {
+    "name": "vpnRouterName",
+    "oid": "1.3.6.1.4.1.35424.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterSerial": {
+    "name": "vpnRouterSerial",
+    "oid": "1.3.6.1.4.1.35424.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 19,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterModel": {
+    "name": "vpnRouterModel",
+    "oid": "1.3.6.1.4.1.35424.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterFirmware": {
+    "name": "vpnRouterFirmware",
+    "oid": "1.3.6.1.4.1.35424.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 22,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterMode": {
+    "name": "vpnRouterMode",
+    "oid": "1.3.6.1.4.1.35424.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouteruptime": {
+    "name": "vpnRouteruptime",
+    "oid": "1.3.6.1.4.1.35424.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterFirmwareStatus": {
+    "name": "vpnRouterFirmwareStatus",
+    "oid": "1.3.6.1.4.1.35424.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterCPULoad": {
+    "name": "vpnRouterCPULoad",
+    "oid": "1.3.6.1.4.1.35424.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterMemoryUsage": {
+    "name": "vpnRouterMemoryUsage",
+    "oid": "1.3.6.1.4.1.35424.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterSystemTemperature": {
+    "name": "vpnRouterSystemTemperature",
+    "oid": "1.3.6.1.4.1.35424.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterCPUTemperature": {
+    "name": "vpnRouterCPUTemperature",
+    "oid": "1.3.6.1.4.1.35424.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterPowerSupplyFailure": {
+    "name": "vpnRouterPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.35424.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterFanCount": {
+    "name": "vpnRouterFanCount",
+    "oid": "1.3.6.1.4.1.35424.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterFanTable": {
+    "name": "vpnRouterFanTable",
+    "oid": "1.3.6.1.4.1.35424.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterFanEntry": {
+    "name": "vpnRouterFanEntry",
+    "oid": "1.3.6.1.4.1.35424.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpnRouterFanIndex": {
+    "name": "vpnRouterFanIndex",
+    "oid": "1.3.6.1.4.1.35424.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterFanAdminStatus": {
+    "name": "vpnRouterFanAdminStatus",
+    "oid": "1.3.6.1.4.1.35424.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterFanOperativeStatus": {
+    "name": "vpnRouterFanOperativeStatus",
+    "oid": "1.3.6.1.4.1.35424.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterFanRPM": {
+    "name": "vpnRouterFanRPM",
+    "oid": "1.3.6.1.4.1.35424.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceCount": {
+    "name": "vpnRouterInterfaceCount",
+    "oid": "1.3.6.1.4.1.35424.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceTable": {
+    "name": "vpnRouterInterfaceTable",
+    "oid": "1.3.6.1.4.1.35424.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterInterfaceEntry": {
+    "name": "vpnRouterInterfaceEntry",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpnRouterInterfaceIndex": {
+    "name": "vpnRouterInterfaceIndex",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterInterfaceName": {
+    "name": "vpnRouterInterfaceName",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceAdminStatus": {
+    "name": "vpnRouterInterfaceAdminStatus",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceOperativeStatus": {
+    "name": "vpnRouterInterfaceOperativeStatus",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceBandwidthToWan": {
+    "name": "vpnRouterInterfaceBandwidthToWan",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceBandwidthFromWan": {
+    "name": "vpnRouterInterfaceBandwidthFromWan",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceTrafficUp": {
+    "name": "vpnRouterInterfaceTrafficUp",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceTrafficDown": {
+    "name": "vpnRouterInterfaceTrafficDown",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceSignalStrength": {
+    "name": "vpnRouterInterfaceSignalStrength",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceServiceType": {
+    "name": "vpnRouterInterfaceServiceType",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceServiceStatus": {
+    "name": "vpnRouterInterfaceServiceStatus",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceRoaming": {
+    "name": "vpnRouterInterfaceRoaming",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceNetworkName": {
+    "name": "vpnRouterInterfaceNetworkName",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceBandInfo": {
+    "name": "vpnRouterInterfaceBandInfo",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceIMSI": {
+    "name": "vpnRouterInterfaceIMSI",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceIMEI": {
+    "name": "vpnRouterInterfaceIMEI",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfacePINStatus": {
+    "name": "vpnRouterInterfacePINStatus",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceRFBand": {
+    "name": "vpnRouterInterfaceRFBand",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceRFChannel": {
+    "name": "vpnRouterInterfaceRFChannel",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceSyncrateUpstream": {
+    "name": "vpnRouterInterfaceSyncrateUpstream",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterInterfaceSyncrateDownstream": {
+    "name": "vpnRouterInterfaceSyncrateDownstream",
+    "oid": "1.3.6.1.4.1.35424.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelCount": {
+    "name": "vpnRouterTunnelCount",
+    "oid": "1.3.6.1.4.1.35424.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelTable": {
+    "name": "vpnRouterTunnelTable",
+    "oid": "1.3.6.1.4.1.35424.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterTunnelEntry": {
+    "name": "vpnRouterTunnelEntry",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpnRouterTunnelIndex": {
+    "name": "vpnRouterTunnelIndex",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterTunnelName": {
+    "name": "vpnRouterTunnelName",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelAdminStatus": {
+    "name": "vpnRouterTunnelAdminStatus",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelOperativeStatus": {
+    "name": "vpnRouterTunnelOperativeStatus",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelCumulatedBandwidthToWan": {
+    "name": "vpnRouterTunnelCumulatedBandwidthToWan",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelCumulatedBandwidthFromWan": {
+    "name": "vpnRouterTunnelCumulatedBandwidthFromWan",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelCurrentCumulatedBandwidthToWan": {
+    "name": "vpnRouterTunnelCurrentCumulatedBandwidthToWan",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelCurrentCumulatedBandwidthFromWan": {
+    "name": "vpnRouterTunnelCurrentCumulatedBandwidthFromWan",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelTrafficUp": {
+    "name": "vpnRouterTunnelTrafficUp",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelTrafficDown": {
+    "name": "vpnRouterTunnelTrafficDown",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelRemoteRouterSerial": {
+    "name": "vpnRouterTunnelRemoteRouterSerial",
+    "oid": "1.3.6.1.4.1.35424.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelCount": {
+    "name": "vpnRouterTunnelChannelCount",
+    "oid": "1.3.6.1.4.1.35424.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelTable": {
+    "name": "vpnRouterTunnelChannelTable",
+    "oid": "1.3.6.1.4.1.35424.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelEntry": {
+    "name": "vpnRouterTunnelChannelEntry",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelIndex": {
+    "name": "vpnRouterTunnelChannelIndex",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelName": {
+    "name": "vpnRouterTunnelChannelName",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelAdminStatus": {
+    "name": "vpnRouterTunnelChannelAdminStatus",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelOperativeStatus": {
+    "name": "vpnRouterTunnelChannelOperativeStatus",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelMaxBandwidthToWan": {
+    "name": "vpnRouterTunnelChannelMaxBandwidthToWan",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelMaxBandwidthFromWan": {
+    "name": "vpnRouterTunnelChannelMaxBandwidthFromWan",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelCurrentBandwidthToWan": {
+    "name": "vpnRouterTunnelChannelCurrentBandwidthToWan",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelCurrentBandwidthFromWan": {
+    "name": "vpnRouterTunnelChannelCurrentBandwidthFromWan",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelTrafficUp": {
+    "name": "vpnRouterTunnelChannelTrafficUp",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelTrafficDown": {
+    "name": "vpnRouterTunnelChannelTrafficDown",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelReferencedTunnel": {
+    "name": "vpnRouterTunnelChannelReferencedTunnel",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelIsBackup": {
+    "name": "vpnRouterTunnelChannelIsBackup",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelModuleSlot": {
+    "name": "vpnRouterTunnelChannelModuleSlot",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelPacketLoss": {
+    "name": "vpnRouterTunnelChannelPacketLoss",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterTunnelChannelLinkStability": {
+    "name": "vpnRouterTunnelChannelLinkStability",
+    "oid": "1.3.6.1.4.1.35424.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vpnRouterConformance": {
+    "name": "vpnRouterConformance",
+    "oid": "1.3.6.1.4.1.35424.1.7",
+    "class": "objectidentity"
+  },
+  "vpnRouterGroups": {
+    "name": "vpnRouterGroups",
+    "oid": "1.3.6.1.4.1.35424.1.7.1",
+    "class": "objectidentity"
+  },
+  "vpnRouterCompliances": {
+    "name": "vpnRouterCompliances",
+    "oid": "1.3.6.1.4.1.35424.1.7.2",
+    "class": "objectidentity"
+  },
+  "vpnRouterReadOnlyCompliance": {
+    "name": "vpnRouterReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.35424.1.7.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vpnRouterObjects",
+        "module": "VIPRINET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vpnRouterObjects": {
+    "name": "vpnRouterObjects",
+    "oid": "1.3.6.1.4.1.35424.1.7.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelName"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelAdminStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelOperativeStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelMaxBandwidthToWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelMaxBandwidthFromWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelCurrentBandwidthToWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelCurrentBandwidthFromWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelTrafficUp"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelTrafficDown"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelReferencedTunnel"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelIsBackup"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelModuleSlot"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelPacketLoss"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelLinkStability"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelName"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelAdminStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelOperativeStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelCumulatedBandwidthToWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelCumulatedBandwidthFromWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelCurrentCumulatedBandwidthToWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelCurrentCumulatedBandwidthFromWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelTrafficUp"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelTrafficDown"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelRemoteRouterSerial"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceName"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceAdminStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceOperativeStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceBandwidthToWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceBandwidthFromWan"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceTrafficUp"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceTrafficDown"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterFanAdminStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterFanOperativeStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterFanRPM"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterName"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterSerial"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterModel"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterFirmware"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterMode"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouteruptime"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterFirmwareStatus"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterCPULoad"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterMemoryUsage"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterSystemTemperature"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterCPUTemperature"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterPowerSupplyFailure"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterFanCount"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterInterfaceCount"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelCount"
+      },
+      {
+        "module": "VIPRINET-MIB",
+        "object": "vpnRouterTunnelChannelCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/viprinet/VIPRINET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VIPRINET-MIB"
+  }
+}

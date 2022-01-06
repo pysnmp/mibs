@@ -1,0 +1,666 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MPLS-TC-EXT-STD-MIB": [
+      "CMplsGlobalId",
+      "CMplsIccId",
+      "CMplsLocalId",
+      "CMplsNodeId"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsTunnelInstanceIndex",
+      "mplsStdMIB",
+      "MplsTunnelIndex"
+    ],
+    "MPLS-TE-STD-MIB": [
+      "mplsTunnelInstance",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "cmplsTeExtStdMIB": {
+    "name": "cmplsTeExtStdMIB",
+    "oid": "1.3.6.1.4.1.9.10.146",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-08 00:00",
+        "description": "MPLS TE mib objects extension"
+      }
+    ]
+  },
+  "cmplsTeExtNotifications": {
+    "name": "cmplsTeExtNotifications",
+    "oid": "1.3.6.1.4.1.9.10.146.0",
+    "class": "objectidentity"
+  },
+  "cmplsTeExtObjects": {
+    "name": "cmplsTeExtObjects",
+    "oid": "1.3.6.1.4.1.9.10.146.1",
+    "class": "objectidentity"
+  },
+  "cmplsTeExtConformance": {
+    "name": "cmplsTeExtConformance",
+    "oid": "1.3.6.1.4.1.9.10.146.2",
+    "class": "objectidentity"
+  },
+  "cmplsNodeConfigTable": {
+    "name": "cmplsNodeConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsNodeConfigEntry": {
+    "name": "cmplsNodeConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigLocalId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsNodeConfigLocalId": {
+    "name": "cmplsNodeConfigLocalId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsLocalId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsNodeConfigGlobalId": {
+    "name": "cmplsNodeConfigGlobalId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsGlobalId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmplsNodeConfigNodeId": {
+    "name": "cmplsNodeConfigNodeId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsNodeId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmplsNodeConfigIccId": {
+    "name": "cmplsNodeConfigIccId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsIccId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmplsNodeConfigRowStatus": {
+    "name": "cmplsNodeConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmplsNodeConfigStorageType": {
+    "name": "cmplsNodeConfigStorageType",
+    "oid": "1.3.6.1.4.1.9.10.146.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmplsNodeIpMapTable": {
+    "name": "cmplsNodeIpMapTable",
+    "oid": "1.3.6.1.4.1.9.10.146.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsNodeIpMapEntry": {
+    "name": "cmplsNodeIpMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.146.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeIpMapGlobalId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeIpMapNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsNodeIpMapGlobalId": {
+    "name": "cmplsNodeIpMapGlobalId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsGlobalId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsNodeIpMapNodeId": {
+    "name": "cmplsNodeIpMapNodeId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsNodeId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsNodeIpMapLocalId": {
+    "name": "cmplsNodeIpMapLocalId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsLocalId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsNodeIccMapTable": {
+    "name": "cmplsNodeIccMapTable",
+    "oid": "1.3.6.1.4.1.9.10.146.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsNodeIccMapEntry": {
+    "name": "cmplsNodeIccMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.146.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeIccMapIccId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsNodeIccMapIccId": {
+    "name": "cmplsNodeIccMapIccId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsIccId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsNodeIccMapLocalId": {
+    "name": "cmplsNodeIccMapLocalId",
+    "oid": "1.3.6.1.4.1.9.10.146.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CMplsLocalId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTunnelExtTable": {
+    "name": "cmplsTunnelExtTable",
+    "oid": "1.3.6.1.4.1.9.10.146.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTunnelExtEntry": {
+    "name": "cmplsTunnelExtEntry",
+    "oid": "1.3.6.1.4.1.9.10.146.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTunnelOppositeDirPtr": {
+    "name": "cmplsTunnelOppositeDirPtr",
+    "oid": "1.3.6.1.4.1.9.10.146.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTunnelExtOppositeDirTnlValid": {
+    "name": "cmplsTunnelExtOppositeDirTnlValid",
+    "oid": "1.3.6.1.4.1.9.10.146.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTunnelExtDestTnlIndex": {
+    "name": "cmplsTunnelExtDestTnlIndex",
+    "oid": "1.3.6.1.4.1.9.10.146.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTunnelExtDestTnlLspIndex": {
+    "name": "cmplsTunnelExtDestTnlLspIndex",
+    "oid": "1.3.6.1.4.1.9.10.146.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTunnelExtDestTnlValid": {
+    "name": "cmplsTunnelExtDestTnlValid",
+    "oid": "1.3.6.1.4.1.9.10.146.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmplsTunnelReversePerfTable": {
+    "name": "cmplsTunnelReversePerfTable",
+    "oid": "1.3.6.1.4.1.9.10.146.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmplsTunnelReversePerfEntry": {
+    "name": "cmplsTunnelReversePerfEntry",
+    "oid": "1.3.6.1.4.1.9.10.146.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTunnelReversePerfPackets": {
+    "name": "cmplsTunnelReversePerfPackets",
+    "oid": "1.3.6.1.4.1.9.10.146.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTunnelReversePerfHCPackets": {
+    "name": "cmplsTunnelReversePerfHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.146.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTunnelReversePerfErrors": {
+    "name": "cmplsTunnelReversePerfErrors",
+    "oid": "1.3.6.1.4.1.9.10.146.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTunnelReversePerfBytes": {
+    "name": "cmplsTunnelReversePerfBytes",
+    "oid": "1.3.6.1.4.1.9.10.146.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTunnelReversePerfHCBytes": {
+    "name": "cmplsTunnelReversePerfHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.146.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmplsTeExtGroups": {
+    "name": "cmplsTeExtGroups",
+    "oid": "1.3.6.1.4.1.9.10.146.2.1",
+    "class": "objectidentity"
+  },
+  "cmplsTeExtCompliances": {
+    "name": "cmplsTeExtCompliances",
+    "oid": "1.3.6.1.4.1.9.10.146.2.2",
+    "class": "objectidentity"
+  },
+  "cmplsTeExtModuleFullCompliance": {
+    "name": "cmplsTeExtModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.9.10.146.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTunnelExtGroup",
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+      },
+      {
+        "object": "cmplsTunnelExtIpOperatorGroup",
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+      },
+      {
+        "object": "cmplsTunnelExtIccOperatorGroup",
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTeExtModuleReadOnlyCompliance": {
+    "name": "cmplsTeExtModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.9.10.146.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmplsTunnelExtGroup",
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+      },
+      {
+        "object": "cmplsTunnelExtIpOperatorGroup",
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+      },
+      {
+        "object": "cmplsTunnelExtIccOperatorGroup",
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTunnelExtGroup": {
+    "name": "cmplsTunnelExtGroup",
+    "oid": "1.3.6.1.4.1.9.10.146.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelOppositeDirPtr"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelExtOppositeDirTnlValid"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelExtDestTnlIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelExtDestTnlLspIndex"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelExtDestTnlValid"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelReversePerfPackets"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelReversePerfHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelReversePerfErrors"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelReversePerfBytes"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsTunnelReversePerfHCBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTunnelExtIpOperatorGroup": {
+    "name": "cmplsTunnelExtIpOperatorGroup",
+    "oid": "1.3.6.1.4.1.9.10.146.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigGlobalId"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigNodeId"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigStorageType"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeIpMapLocalId"
+      }
+    ],
+    "status": "current"
+  },
+  "cmplsTunnelExtIccOperatorGroup": {
+    "name": "cmplsTunnelExtIccOperatorGroup",
+    "oid": "1.3.6.1.4.1.9.10.146.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigIccId"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeConfigStorageType"
+      },
+      {
+        "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+        "object": "cmplsNodeIccMapLocalId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+  }
+}

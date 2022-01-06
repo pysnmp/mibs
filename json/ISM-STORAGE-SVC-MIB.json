@@ -1,0 +1,1713 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "huaweistorage": {
+    "name": "huaweistorage",
+    "oid": "1.3.6.1.4.1.34774",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-07 19:15",
+        "description": " "
+      }
+    ]
+  },
+  "NodeCodeString": {
+    "name": "NodeCodeString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 15,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "hwStorage": {
+    "name": "hwStorage",
+    "oid": "1.3.6.1.4.1.34774.4",
+    "class": "objectidentity"
+  },
+  "hwISM": {
+    "name": "hwISM",
+    "oid": "1.3.6.1.4.1.34774.4.1",
+    "class": "objectidentity"
+  },
+  "common": {
+    "name": "common",
+    "oid": "1.3.6.1.4.1.34774.4.1.1",
+    "class": "objectidentity"
+  },
+  "deviceId": {
+    "name": "deviceId",
+    "oid": "1.3.6.1.4.1.34774.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceType": {
+    "name": "deviceType",
+    "oid": "1.3.6.1.4.1.34774.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.34774.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usedCapacity": {
+    "name": "usedCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalCapacity": {
+    "name": "totalCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.34774.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageService": {
+    "name": "hwStorageService",
+    "oid": "1.3.6.1.4.1.34774.4.1.19",
+    "class": "objectidentity"
+  },
+  "hwStoragePhysicalModule": {
+    "name": "hwStoragePhysicalModule",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8",
+    "class": "objectidentity"
+  },
+  "hwStorageFCPortTable": {
+    "name": "hwStorageFCPortTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageFCPortEntry": {
+    "name": "hwStorageFCPortEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageFCPortIfIndex": {
+    "name": "hwStorageFCPortIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFCPortBoardIfIndex": {
+    "name": "hwStorageFCPortBoardIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFCPortID": {
+    "name": "hwStorageFCPortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFCPortStatus": {
+    "name": "hwStorageFCPortStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 0,
+          "linkup": 1,
+          "fault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFCPortConfigRate": {
+    "name": "hwStorageFCPortConfigRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "gbps1": 1,
+          "gbps2": 2,
+          "gbps4": 4,
+          "gbps8": 8,
+          "gbps16": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageFCPortMode": {
+    "name": "hwStorageFCPortMode",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fabric": 1,
+          "publicloop": 2,
+          "pointtopoint": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageFCPortWWN": {
+    "name": "hwStorageFCPortWWN",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFCPortLogicType": {
+    "name": "hwStorageFCPortLogicType",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "service": 1,
+          "ibc": 2,
+          "ibs": 3,
+          "expansion": 4,
+          "management": 5,
+          "upsmanagement": 6,
+          "maintenance": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFCPortSpeedRate": {
+    "name": "hwStorageFCPortSpeedRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "gbps1": 1,
+          "gbps2": 2,
+          "gbps4": 4,
+          "gbps8": 8,
+          "gbps16": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortTable": {
+    "name": "hwStorageSASPortTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageSASPortEntry": {
+    "name": "hwStorageSASPortEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageSASPortIfIndex": {
+    "name": "hwStorageSASPortIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortBoardIfIndex": {
+    "name": "hwStorageSASPortBoardIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortID": {
+    "name": "hwStorageSASPortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortStatus": {
+    "name": "hwStorageSASPortStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 0,
+          "linkup": 1,
+          "fault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortConfigRate": {
+    "name": "hwStorageSASPortConfigRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gbps15": 1500,
+          "gbps30": 3000,
+          "gbps60": 6000
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortWWN": {
+    "name": "hwStorageSASPortWWN",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortLogicType": {
+    "name": "hwStorageSASPortLogicType",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "service": 1,
+          "ibc": 2,
+          "ibs": 3,
+          "expansion": 4,
+          "management": 5,
+          "upsmanagement": 6,
+          "maintenance": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSASPortSpeedRate": {
+    "name": "hwStorageSASPortSpeedRate",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gbps15": 1500,
+          "gbps30": 3000,
+          "gbps60": 6000
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageISCSIPortTable": {
+    "name": "hwStorageISCSIPortTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageISCSIPortEntry": {
+    "name": "hwStorageISCSIPortEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageISCSIPortIfIndex": {
+    "name": "hwStorageISCSIPortIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageISCSIPortBoardIfIndex": {
+    "name": "hwStorageISCSIPortBoardIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageISCSIPortID": {
+    "name": "hwStorageISCSIPortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageISCSIPortStatus": {
+    "name": "hwStorageISCSIPortStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 0,
+          "linkup": 1,
+          "fault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageISCSIPortIP": {
+    "name": "hwStorageISCSIPortIP",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageISCSIPortNetMask": {
+    "name": "hwStorageISCSIPortNetMask",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageISCSIPortBindMode": {
+    "name": "hwStorageISCSIPortBindMode",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageISCSIPortLogicType": {
+    "name": "hwStorageISCSIPortLogicType",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "service": 1,
+          "ibc": 2,
+          "ibs": 3,
+          "expansion": 4,
+          "management": 5,
+          "upsmanagement": 6,
+          "maintenance": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFrontEndHostPortTable": {
+    "name": "hwStorageFrontEndHostPortTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageFrontEndHostPortEntry": {
+    "name": "hwStorageFrontEndHostPortEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFrontEndHostPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageFrontEndHostPortIfIndex": {
+    "name": "hwStorageFrontEndHostPortIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFrontEndHostPortType": {
+    "name": "hwStorageFrontEndHostPortType",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sas": 0,
+          "fc": 1,
+          "iscsi": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFrontEndHostPortStatus": {
+    "name": "hwStorageFrontEndHostPortStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 0,
+          "linkup": 1,
+          "fault": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFrontEndHostPortPhysAddress": {
+    "name": "hwStorageFrontEndHostPortPhysAddress",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageFrontEndHostPortDescription": {
+    "name": "hwStorageFrontEndHostPortDescription",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerTable": {
+    "name": "hwStorageControllerTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageControllerEntry": {
+    "name": "hwStorageControllerEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageControllerID": {
+    "name": "hwStorageControllerID",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerName": {
+    "name": "hwStorageControllerName",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerLocation": {
+    "name": "hwStorageControllerLocation",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerHealthStatus": {
+    "name": "hwStorageControllerHealthStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fault": 2,
+          "preFail": 3,
+          "partiallyBroken": 4,
+          "degraded": 5,
+          "badSectorsFound": 6,
+          "bitErrorsFound": 7,
+          "consistent": 8,
+          "inconsistent": 9,
+          "busy": 10,
+          "noInput": 11,
+          "lowBattery": 12,
+          "singleLinkFault": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerRunningStatus": {
+    "name": "hwStorageControllerRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "running": 2,
+          "notRunning": 3,
+          "notExisted": 4,
+          "sleepInHighTemperature": 5,
+          "starting": 6,
+          "powerFailureProtecting": 7,
+          "spinDown": 8,
+          "started": 9,
+          "linkUp": 10,
+          "linkDown": 11,
+          "poweringOn": 12,
+          "poweredOff": 13,
+          "precopy": 14,
+          "copyback": 15,
+          "reconstruction": 16,
+          "expansion": 17,
+          "unformatted": 18,
+          "formatting": 19,
+          "unmapped": 20,
+          "initialSynchronizing": 21,
+          "consistent": 22,
+          "synchronizing": 23,
+          "synchronized": 24,
+          "unsynchronized": 25,
+          "splited": 26,
+          "online": 27,
+          "offline": 28,
+          "locked": 29,
+          "enabled": 30,
+          "disabled": 31,
+          "balancing": 32,
+          "toBeRecoverd": 33,
+          "interrupted": 34,
+          "invalid": 35,
+          "notStart": 36,
+          "queuing": 37,
+          "stopped": 38,
+          "copying": 39,
+          "completed": 40,
+          "paused": 41,
+          "reverseSynchronizing": 42,
+          "activated": 43,
+          "restore": 44,
+          "inactive": 45,
+          "idle": 46,
+          "poweringOff": 47,
+          "charging": 48,
+          "chargingCompleted": 49,
+          "discharging": 50,
+          "upgrading": 51,
+          "runningNormal": 63,
+          "runningFail": 64
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerSoftVer": {
+    "name": "hwStorageControllerSoftVer",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerTemperature": {
+    "name": "hwStorageControllerTemperature",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerIsMaster": {
+    "name": "hwStorageControllerIsMaster",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerELabel": {
+    "name": "hwStorageControllerELabel",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerPCBVer": {
+    "name": "hwStorageControllerPCBVer",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerBMCVer": {
+    "name": "hwStorageControllerBMCVer",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerLogicVer": {
+    "name": "hwStorageControllerLogicVer",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerBIOSVer": {
+    "name": "hwStorageControllerBIOSVer",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerMemorySize": {
+    "name": "hwStorageControllerMemorySize",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerCPUInfo": {
+    "name": "hwStorageControllerCPUInfo",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageControllerVoltage": {
+    "name": "hwStorageControllerVoltage",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.8.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLogicModule": {
+    "name": "hwStorageLogicModule",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9",
+    "class": "objectidentity"
+  },
+  "hwStorageCacheTable": {
+    "name": "hwStorageCacheTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageCacheEntry": {
+    "name": "hwStorageCacheEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageCacheID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageCacheID": {
+    "name": "hwStorageCacheID",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageCacheTotalCapacity": {
+    "name": "hwStorageCacheTotalCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageCacheHighWaterLevel": {
+    "name": "hwStorageCacheHighWaterLevel",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageCacheLowWaterLevel": {
+    "name": "hwStorageCacheLowWaterLevel",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageCacheRowStatus": {
+    "name": "hwStorageCacheRowStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageLunTable": {
+    "name": "hwStorageLunTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageLunEntry": {
+    "name": "hwStorageLunEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageLunID": {
+    "name": "hwStorageLunID",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunName": {
+    "name": "hwStorageLunName",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunWWN": {
+    "name": "hwStorageLunWWN",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunPoolID": {
+    "name": "hwStorageLunPoolID",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunCapacity": {
+    "name": "hwStorageLunCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunOwningController": {
+    "name": "hwStorageLunOwningController",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunStripDepth": {
+    "name": "hwStorageLunStripDepth",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunWriteStrategy": {
+    "name": "hwStorageLunWriteStrategy",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "writethrough": 1,
+          "writebacknomirroring": 2,
+          "writebackmirroring": 3,
+          "writebackmandatorynomirroring": 4,
+          "writebackmandatorymirroring": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunPrefetchStrategy": {
+    "name": "hwStorageLunPrefetchStrategy",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "constant": 1,
+          "variable": 2,
+          "intelligent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunPrefetchValue": {
+    "name": "hwStorageLunPrefetchValue",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunStatus": {
+    "name": "hwStorageLunStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fault": 2,
+          "notformat": 3,
+          "formatting": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageLunRowStatus": {
+    "name": "hwStorageLunRowStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.4.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageNodeTable": {
+    "name": "hwStorageNodeTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageNodeEntry": {
+    "name": "hwStorageNodeEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageNodeIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageNodeIfIndex": {
+    "name": "hwStorageNodeIfIndex",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageNodeIPAddress": {
+    "name": "hwStorageNodeIPAddress",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageNodeStatus": {
+    "name": "hwStorageNodeStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageNodeIsMaster": {
+    "name": "hwStorageNodeIsMaster",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwStorageNodeRowStatus": {
+    "name": "hwStorageNodeRowStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.19.9.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isoConformance": {
+    "name": "isoConformance",
+    "oid": "1.6",
+    "class": "objectidentity"
+  },
+  "isoGroups": {
+    "name": "isoGroups",
+    "oid": "1.6.1",
+    "class": "objectidentity"
+  },
+  "currentObjectGroup": {
+    "name": "currentObjectGroup",
+    "oid": "1.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortBoardIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortID"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortConfigRate"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortMode"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortWWN"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortBoardIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortID"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortIP"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortNetMask"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortBindMode"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunID"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunName"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunWWN"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunPoolID"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunCapacity"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunOwningController"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunStripDepth"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunWriteStrategy"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunPrefetchValue"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunRowStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "version"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "totalCapacity"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "usedCapacity"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "deviceType"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "deviceId"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortBoardIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortID"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortConfigRate"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFrontEndHostPortIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFrontEndHostPortType"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFrontEndHostPortStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFrontEndHostPortPhysAddress"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFrontEndHostPortDescription"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageCacheID"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageCacheTotalCapacity"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageCacheHighWaterLevel"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageCacheLowWaterLevel"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageCacheRowStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageNodeIfIndex"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageNodeIPAddress"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageNodeStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageNodeIsMaster"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageNodeRowStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerID"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerName"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerLocation"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerRunningStatus"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerSoftVer"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerTemperature"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerIsMaster"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerELabel"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerPCBVer"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerBMCVer"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerLogicVer"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerBIOSVer"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerMemorySize"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerCPUInfo"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerVoltage"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortWWN"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortLogicType"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageFCPortSpeedRate"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortLogicType"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageSASPortSpeedRate"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageISCSIPortLogicType"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageLunPrefetchStrategy"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "status"
+      },
+      {
+        "module": "ISM-STORAGE-SVC-MIB",
+        "object": "hwStorageControllerHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "isoCompliances": {
+    "name": "isoCompliances",
+    "oid": "1.6.2",
+    "class": "objectidentity"
+  },
+  "basicCompliance": {
+    "name": "basicCompliance",
+    "oid": "1.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "currentObjectGroup",
+        "module": "ISM-STORAGE-SVC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/ISM-STORAGE-SVC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ISM-STORAGE-SVC-MIB"
+  }
+}

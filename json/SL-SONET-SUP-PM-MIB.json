@@ -1,0 +1,2617 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-SONET-MIB": [
+      "slSonetMib"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "transmission",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SONET-MIB": [
+      "sonetLineIntervalEntry",
+      "sonetFarEndVTCurrentEntry",
+      "sonetMediumEntry",
+      "sonetSectionCurrentEntry",
+      "sonetFarEndVTIntervalEntry",
+      "sonetPathCurrentEntry",
+      "sonetFarEndLineIntervalEntry",
+      "sonetLineCurrentEntry",
+      "sonetPathIntervalEntry",
+      "sonetFarEndPathIntervalEntry",
+      "sonetVTCurrentEntry",
+      "sonetSectionIntervalEntry",
+      "sonetFarEndPathCurrentEntry",
+      "sonetVTIntervalEntry",
+      "sonetFarEndLineCurrentEntry"
+    ]
+  },
+  "sonetSupPmMIB": {
+    "name": "sonetSupPmMIB",
+    "oid": "1.3.6.1.4.1.4515.1.6.3",
+    "class": "moduleidentity"
+  },
+  "sonetSupObjects": {
+    "name": "sonetSupObjects",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1",
+    "class": "objectidentity"
+  },
+  "sonetSupObjectsPath": {
+    "name": "sonetSupObjectsPath",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2",
+    "class": "objectidentity"
+  },
+  "sonetSupObjectsVT": {
+    "name": "sonetSupObjectsVT",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3",
+    "class": "objectidentity"
+  },
+  "sonetSupConfig": {
+    "name": "sonetSupConfig",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.1",
+    "class": "objectidentity"
+  },
+  "sonetSupMedium": {
+    "name": "sonetSupMedium",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.2",
+    "class": "objectidentity"
+  },
+  "sonetSupSection": {
+    "name": "sonetSupSection",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3",
+    "class": "objectidentity"
+  },
+  "sonetSupLine": {
+    "name": "sonetSupLine",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4",
+    "class": "objectidentity"
+  },
+  "sonetSupFarEndLine": {
+    "name": "sonetSupFarEndLine",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5",
+    "class": "objectidentity"
+  },
+  "sonetSupPath": {
+    "name": "sonetSupPath",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1",
+    "class": "objectidentity"
+  },
+  "sonetSupFarEndPath": {
+    "name": "sonetSupFarEndPath",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2",
+    "class": "objectidentity"
+  },
+  "sonetSupVT": {
+    "name": "sonetSupVT",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1",
+    "class": "objectidentity"
+  },
+  "sonetSupFarEndVT": {
+    "name": "sonetSupFarEndVT",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2",
+    "class": "objectidentity"
+  },
+  "sonetSectionDefaultThresholdTable": {
+    "name": "sonetSectionDefaultThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetSectionDefaultThresholdEntry": {
+    "name": "sonetSectionDefaultThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetSectionDefaultThresholdRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetSectionDefaultThresholdRate": {
+    "name": "sonetSectionDefaultThresholdRate",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oc1": 1,
+          "oc3": 2,
+          "oc12": 3,
+          "oc24": 4,
+          "oc48": 5,
+          "oc192": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDefaultCVThreshold": {
+    "name": "sonetSectionDefaultCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDefaultESThreshold": {
+    "name": "sonetSectionDefaultESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDefaultSESThreshold": {
+    "name": "sonetSectionDefaultSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDefaultSEFSThreshold": {
+    "name": "sonetSectionDefaultSEFSThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDefaultDayCVThreshold": {
+    "name": "sonetSectionDefaultDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDefaultDayESThreshold": {
+    "name": "sonetSectionDefaultDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDefaultDaySESThreshold": {
+    "name": "sonetSectionDefaultDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDefaultDaySEFSThreshold": {
+    "name": "sonetSectionDefaultDaySEFSThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionThresholdTable": {
+    "name": "sonetSectionThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetSectionThresholdEntry": {
+    "name": "sonetSectionThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "sonetSectionThresholdEntry",
+      "module": "SL-SONET-SUP-PM-MIB",
+      "object": "sonetSectionCurrentEntry"
+    },
+    "status": "current"
+  },
+  "sonetSectionCurrentCVThreshold": {
+    "name": "sonetSectionCurrentCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionCurrentESThreshold": {
+    "name": "sonetSectionCurrentESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionCurrentSESThreshold": {
+    "name": "sonetSectionCurrentSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionCurrentSEFSThreshold": {
+    "name": "sonetSectionCurrentSEFSThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDayCVThreshold": {
+    "name": "sonetSectionDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDayESThreshold": {
+    "name": "sonetSectionDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDaySESThreshold": {
+    "name": "sonetSectionDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDaySEFSThreshold": {
+    "name": "sonetSectionDaySEFSThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetSectionDayTable": {
+    "name": "sonetSectionDayTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetSectionDayEntry": {
+    "name": "sonetSectionDayEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetSectionDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetSectionDayNumber": {
+    "name": "sonetSectionDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDayStartTime": {
+    "name": "sonetSectionDayStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDayValidData": {
+    "name": "sonetSectionDayValidData",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDayCVs": {
+    "name": "sonetSectionDayCVs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDayESs": {
+    "name": "sonetSectionDayESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDaySESs": {
+    "name": "sonetSectionDaySESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDaySEFSs": {
+    "name": "sonetSectionDaySEFSs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDayTcaFlag": {
+    "name": "sonetSectionDayTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetSectionDayReset": {
+    "name": "sonetSectionDayReset",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.3.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultThresholdTable": {
+    "name": "sonetLineDefaultThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetLineDefaultThresholdEntry": {
+    "name": "sonetLineDefaultThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetLineDefaultThresholdDirection",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetLineDefaultThresholdRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetLineDefaultThresholdDirection": {
+    "name": "sonetLineDefaultThresholdDirection",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nearEnd": 1,
+          "farEnd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDefaultThresholdRate": {
+    "name": "sonetLineDefaultThresholdRate",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vt1dot5": 1,
+          "vtg": 2,
+          "oc1": 3,
+          "oc3": 4,
+          "oc12": 5,
+          "oc24": 6,
+          "oc48": 7,
+          "oc192": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDefaultCVThreshold": {
+    "name": "sonetLineDefaultCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultESThreshold": {
+    "name": "sonetLineDefaultESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultSESThreshold": {
+    "name": "sonetLineDefaultSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultUASThreshold": {
+    "name": "sonetLineDefaultUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultDayCVThreshold": {
+    "name": "sonetLineDefaultDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultDayESThreshold": {
+    "name": "sonetLineDefaultDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultDaySESThreshold": {
+    "name": "sonetLineDefaultDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDefaultDayUASThreshold": {
+    "name": "sonetLineDefaultDayUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineThresholdTable": {
+    "name": "sonetLineThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetLineThresholdEntry": {
+    "name": "sonetLineThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetLineThresholdDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetLineThresholdDirection": {
+    "name": "sonetLineThresholdDirection",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nearEnd": 1,
+          "farEnd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineCurrentCVThreshold": {
+    "name": "sonetLineCurrentCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineCurrentESThreshold": {
+    "name": "sonetLineCurrentESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineCurrentSESThreshold": {
+    "name": "sonetLineCurrentSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineCurrentUASThreshold": {
+    "name": "sonetLineCurrentUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDayCVThreshold": {
+    "name": "sonetLineDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDayESThreshold": {
+    "name": "sonetLineDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDaySESThreshold": {
+    "name": "sonetLineDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDayUASThreshold": {
+    "name": "sonetLineDayUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetLineDayTable": {
+    "name": "sonetLineDayTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetLineDayEntry": {
+    "name": "sonetLineDayEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetLineDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetLineDayNumber": {
+    "name": "sonetLineDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayStartTime": {
+    "name": "sonetLineDayStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayValidData": {
+    "name": "sonetLineDayValidData",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayCVs": {
+    "name": "sonetLineDayCVs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayESs": {
+    "name": "sonetLineDayESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDaySESs": {
+    "name": "sonetLineDaySESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayUASs": {
+    "name": "sonetLineDayUASs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayPSC": {
+    "name": "sonetLineDayPSC",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayPSD": {
+    "name": "sonetLineDayPSD",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayFCs": {
+    "name": "sonetLineDayFCs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayTcaFlag": {
+    "name": "sonetLineDayTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetLineDayReset": {
+    "name": "sonetLineDayReset",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.4.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetFarEndLineDayTable": {
+    "name": "sonetFarEndLineDayTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetFarEndLineDayEntry": {
+    "name": "sonetFarEndLineDayEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetFarEndLineDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetFarEndLineDayNumber": {
+    "name": "sonetFarEndLineDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayStartTime": {
+    "name": "sonetFarEndLineDayStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayValidData": {
+    "name": "sonetFarEndLineDayValidData",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayCVs": {
+    "name": "sonetFarEndLineDayCVs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayESs": {
+    "name": "sonetFarEndLineDayESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDaySESs": {
+    "name": "sonetFarEndLineDaySESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayUASs": {
+    "name": "sonetFarEndLineDayUASs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayFCs": {
+    "name": "sonetFarEndLineDayFCs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayTcaFlag": {
+    "name": "sonetFarEndLineDayTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndLineDayReset": {
+    "name": "sonetFarEndLineDayReset",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultThresholdTable": {
+    "name": "sonetPathDefaultThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetPathDefaultThresholdEntry": {
+    "name": "sonetPathDefaultThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetPathDefaultThresholdDirection",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetPathDefaultThresholdRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetPathDefaultThresholdDirection": {
+    "name": "sonetPathDefaultThresholdDirection",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nearEnd": 1,
+          "farEnd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDefaultThresholdRate": {
+    "name": "sonetPathDefaultThresholdRate",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sts1": 1,
+          "sts3": 2,
+          "sts12": 3,
+          "sts24": 4,
+          "sts48": 5,
+          "sts192": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDefaultCVThreshold": {
+    "name": "sonetPathDefaultCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultESThreshold": {
+    "name": "sonetPathDefaultESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultSESThreshold": {
+    "name": "sonetPathDefaultSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultUASThreshold": {
+    "name": "sonetPathDefaultUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultDayCVThreshold": {
+    "name": "sonetPathDefaultDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultDayESThreshold": {
+    "name": "sonetPathDefaultDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultDaySESThreshold": {
+    "name": "sonetPathDefaultDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDefaultDayUASThreshold": {
+    "name": "sonetPathDefaultDayUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathThresholdTable": {
+    "name": "sonetPathThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetPathThresholdEntry": {
+    "name": "sonetPathThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetPathThresholdDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetPathThresholdDirection": {
+    "name": "sonetPathThresholdDirection",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nearEnd": 1,
+          "farEnd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathCurrentCVThreshold": {
+    "name": "sonetPathCurrentCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathCurrentESThreshold": {
+    "name": "sonetPathCurrentESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathCurrentSESThreshold": {
+    "name": "sonetPathCurrentSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathCurrentUASThreshold": {
+    "name": "sonetPathCurrentUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDayCVThreshold": {
+    "name": "sonetPathDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDayESThreshold": {
+    "name": "sonetPathDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDaySESThreshold": {
+    "name": "sonetPathDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDayUASThreshold": {
+    "name": "sonetPathDayUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetPathDayTable": {
+    "name": "sonetPathDayTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetPathDayEntry": {
+    "name": "sonetPathDayEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetPathDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetPathDayNumber": {
+    "name": "sonetPathDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayStartTime": {
+    "name": "sonetPathDayStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayValidData": {
+    "name": "sonetPathDayValidData",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayCVs": {
+    "name": "sonetPathDayCVs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayESs": {
+    "name": "sonetPathDayESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDaySESs": {
+    "name": "sonetPathDaySESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayUASs": {
+    "name": "sonetPathDayUASs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayFCs": {
+    "name": "sonetPathDayFCs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayTcaFlag": {
+    "name": "sonetPathDayTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayEBs": {
+    "name": "sonetPathDayEBs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetPathDayReset": {
+    "name": "sonetPathDayReset",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.1.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetFarEndPathDayTable": {
+    "name": "sonetFarEndPathDayTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetFarEndPathDayEntry": {
+    "name": "sonetFarEndPathDayEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetFarEndPathDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetFarEndPathDayNumber": {
+    "name": "sonetFarEndPathDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayStartTime": {
+    "name": "sonetFarEndPathDayStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayValidData": {
+    "name": "sonetFarEndPathDayValidData",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayCVs": {
+    "name": "sonetFarEndPathDayCVs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayESs": {
+    "name": "sonetFarEndPathDayESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDaySESs": {
+    "name": "sonetFarEndPathDaySESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayUASs": {
+    "name": "sonetFarEndPathDayUASs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayFCs": {
+    "name": "sonetFarEndPathDayFCs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayTcaFlag": {
+    "name": "sonetFarEndPathDayTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayEBs": {
+    "name": "sonetFarEndPathDayEBs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndPathDayReset": {
+    "name": "sonetFarEndPathDayReset",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.2.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultThresholdTable": {
+    "name": "sonetVTDefaultThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetVTDefaultThresholdEntry": {
+    "name": "sonetVTDefaultThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetVTDefaultThresholdDirection",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetVTDefaultThresholdRate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetVTDefaultThresholdDirection": {
+    "name": "sonetVTDefaultThresholdDirection",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nearEnd": 1,
+          "farEnd": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetVTDefaultThresholdRate": {
+    "name": "sonetVTDefaultThresholdRate",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vt1dot5": 1,
+          "vtg": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetVTDefaultCVThreshold": {
+    "name": "sonetVTDefaultCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultESThreshold": {
+    "name": "sonetVTDefaultESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultSESThreshold": {
+    "name": "sonetVTDefaultSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultUASThreshold": {
+    "name": "sonetVTDefaultUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultDayCVThreshold": {
+    "name": "sonetVTDefaultDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultDayESThreshold": {
+    "name": "sonetVTDefaultDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultDaySESThreshold": {
+    "name": "sonetVTDefaultDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDefaultDayUASThreshold": {
+    "name": "sonetVTDefaultDayUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTThresholdTable": {
+    "name": "sonetVTThresholdTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetVTThresholdEntry": {
+    "name": "sonetVTThresholdEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "sonetVTThresholdEntry",
+      "module": "SL-SONET-SUP-PM-MIB",
+      "object": "sonetVTCurrentEntry"
+    },
+    "status": "current"
+  },
+  "sonetVTCurrentCVThreshold": {
+    "name": "sonetVTCurrentCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTCurrentESThreshold": {
+    "name": "sonetVTCurrentESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTCurrentSESThreshold": {
+    "name": "sonetVTCurrentSESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTCurrentUASThreshold": {
+    "name": "sonetVTCurrentUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDayCVThreshold": {
+    "name": "sonetVTDayCVThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDayESThreshold": {
+    "name": "sonetVTDayESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDaySESThreshold": {
+    "name": "sonetVTDaySESThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDayUASThreshold": {
+    "name": "sonetVTDayUASThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetVTDayTable": {
+    "name": "sonetVTDayTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetVTDayEntry": {
+    "name": "sonetVTDayEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetVTDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetVTDayNumber": {
+    "name": "sonetVTDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayStartTime": {
+    "name": "sonetVTDayStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayValidData": {
+    "name": "sonetVTDayValidData",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayFCs": {
+    "name": "sonetVTDayFCs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayCVs": {
+    "name": "sonetVTDayCVs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayESs": {
+    "name": "sonetVTDayESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDaySESs": {
+    "name": "sonetVTDaySESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayUASs": {
+    "name": "sonetVTDayUASs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayEBs": {
+    "name": "sonetVTDayEBs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayTcaFlag": {
+    "name": "sonetVTDayTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetVTDayReset": {
+    "name": "sonetVTDayReset",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.1.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetFarEndVTDayTable": {
+    "name": "sonetFarEndVTDayTable",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sonetFarEndVTDayEntry": {
+    "name": "sonetFarEndVTDayEntry",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetFarEndVTDayNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sonetFarEndVTDayNumber": {
+    "name": "sonetFarEndVTDayNumber",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayStartTime": {
+    "name": "sonetFarEndVTDayStartTime",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayValidData": {
+    "name": "sonetFarEndVTDayValidData",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayFCs": {
+    "name": "sonetFarEndVTDayFCs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayCVs": {
+    "name": "sonetFarEndVTDayCVs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayESs": {
+    "name": "sonetFarEndVTDayESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDaySESs": {
+    "name": "sonetFarEndVTDaySESs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayUASs": {
+    "name": "sonetFarEndVTDayUASs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayEBs": {
+    "name": "sonetFarEndVTDayEBs",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayTcaFlag": {
+    "name": "sonetFarEndVTDayTcaFlag",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sonetFarEndVTDayReset": {
+    "name": "sonetFarEndVTDayReset",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.3.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sonetTrap": {
+    "name": "sonetTrap",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.6",
+    "class": "objectidentity"
+  },
+  "sonetCounterId": {
+    "name": "sonetCounterId",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sonetCounterValue": {
+    "name": "sonetCounterValue",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sonetThresholdCrossing": {
+    "name": "sonetThresholdCrossing",
+    "oid": "1.3.6.1.4.1.4515.1.6.3.1.6.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetCounterId"
+      },
+      {
+        "module": "SL-SONET-SUP-PM-MIB",
+        "object": "sonetCounterValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SONET-SUP-PM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-SONET-SUP-PM-MIB"
+  }
+}

@@ -1,0 +1,1601 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETWORK-SERVICES-MIB": [
+      "URLString",
+      "applIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "mta": {
+    "name": "mta",
+    "oid": "1.3.6.1.2.1.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-03-03 00:00",
+        "description": "This revision, published in RFC 2789, changes a number of DisplayStrings to SnmpAdminStrings. Note that this change is not strictly supported by SMIv2. However, the alternative of deprecating the old objects and defining new objects would have a more adverse impact on backward compatibility and interoperability, given the particular semantics of these objects. The defining reference for distinguished names has also been updated from RFC 1779 to RFC 2253."
+      },
+      {
+        "revision": "1999-05-12 00:00",
+        "description": "This revision fixes a number of technical problems found in previous versions: The conformance groups for different versions of this MIB have been corrected, the recommendation that an empty string be returned if the last operation was successful has been removed from mtaGroupInboundRejectionReason and mtaGroupOutboundConnectFailureReason as it conflicts with the stated purpose of these variables, and the required mtaStatusCode entry has been added to MtaGroupErrorEntry. It should be noted that this last change in no way affects the bits on the wire."
+      },
+      {
+        "revision": "1997-08-17 00:00",
+        "description": "This revision, published in RFC 2249, adds the mtaGroupDescription and mtaGroupURL fields, conversion operation counters, a group hierarchy description mechanism, counters for specific errors, oldest message IDs, per-MTA and per-group loop counters, and a new table for tracking any errors an MTA encounters."
+      },
+      {
+        "revision": "1993-11-28 00:00",
+        "description": "The original version of this MIB was published in RFC 1566"
+      }
+    ]
+  },
+  "mtaTable": {
+    "name": "mtaTable",
+    "oid": "1.3.6.1.2.1.28.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtaEntry": {
+    "name": "mtaEntry",
+    "oid": "1.3.6.1.2.1.28.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mtaReceivedMessages": {
+    "name": "mtaReceivedMessages",
+    "oid": "1.3.6.1.2.1.28.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaStoredMessages": {
+    "name": "mtaStoredMessages",
+    "oid": "1.3.6.1.2.1.28.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaTransmittedMessages": {
+    "name": "mtaTransmittedMessages",
+    "oid": "1.3.6.1.2.1.28.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaReceivedVolume": {
+    "name": "mtaReceivedVolume",
+    "oid": "1.3.6.1.2.1.28.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "K-octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaStoredVolume": {
+    "name": "mtaStoredVolume",
+    "oid": "1.3.6.1.2.1.28.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "K-octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaTransmittedVolume": {
+    "name": "mtaTransmittedVolume",
+    "oid": "1.3.6.1.2.1.28.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "K-octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaReceivedRecipients": {
+    "name": "mtaReceivedRecipients",
+    "oid": "1.3.6.1.2.1.28.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaStoredRecipients": {
+    "name": "mtaStoredRecipients",
+    "oid": "1.3.6.1.2.1.28.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaTransmittedRecipients": {
+    "name": "mtaTransmittedRecipients",
+    "oid": "1.3.6.1.2.1.28.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaSuccessfulConvertedMessages": {
+    "name": "mtaSuccessfulConvertedMessages",
+    "oid": "1.3.6.1.2.1.28.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaFailedConvertedMessages": {
+    "name": "mtaFailedConvertedMessages",
+    "oid": "1.3.6.1.2.1.28.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaLoopsDetected": {
+    "name": "mtaLoopsDetected",
+    "oid": "1.3.6.1.2.1.28.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupTable": {
+    "name": "mtaGroupTable",
+    "oid": "1.3.6.1.2.1.28.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtaGroupEntry": {
+    "name": "mtaGroupEntry",
+    "oid": "1.3.6.1.2.1.28.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mtaGroupIndex": {
+    "name": "mtaGroupIndex",
+    "oid": "1.3.6.1.2.1.28.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtaGroupReceivedMessages": {
+    "name": "mtaGroupReceivedMessages",
+    "oid": "1.3.6.1.2.1.28.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupRejectedMessages": {
+    "name": "mtaGroupRejectedMessages",
+    "oid": "1.3.6.1.2.1.28.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupStoredMessages": {
+    "name": "mtaGroupStoredMessages",
+    "oid": "1.3.6.1.2.1.28.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupTransmittedMessages": {
+    "name": "mtaGroupTransmittedMessages",
+    "oid": "1.3.6.1.2.1.28.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupReceivedVolume": {
+    "name": "mtaGroupReceivedVolume",
+    "oid": "1.3.6.1.2.1.28.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "K-octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupStoredVolume": {
+    "name": "mtaGroupStoredVolume",
+    "oid": "1.3.6.1.2.1.28.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "K-octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupTransmittedVolume": {
+    "name": "mtaGroupTransmittedVolume",
+    "oid": "1.3.6.1.2.1.28.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "K-octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupReceivedRecipients": {
+    "name": "mtaGroupReceivedRecipients",
+    "oid": "1.3.6.1.2.1.28.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupStoredRecipients": {
+    "name": "mtaGroupStoredRecipients",
+    "oid": "1.3.6.1.2.1.28.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupTransmittedRecipients": {
+    "name": "mtaGroupTransmittedRecipients",
+    "oid": "1.3.6.1.2.1.28.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupOldestMessageStored": {
+    "name": "mtaGroupOldestMessageStored",
+    "oid": "1.3.6.1.2.1.28.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupInboundAssociations": {
+    "name": "mtaGroupInboundAssociations",
+    "oid": "1.3.6.1.2.1.28.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupOutboundAssociations": {
+    "name": "mtaGroupOutboundAssociations",
+    "oid": "1.3.6.1.2.1.28.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupAccumulatedInboundAssociations": {
+    "name": "mtaGroupAccumulatedInboundAssociations",
+    "oid": "1.3.6.1.2.1.28.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupAccumulatedOutboundAssociations": {
+    "name": "mtaGroupAccumulatedOutboundAssociations",
+    "oid": "1.3.6.1.2.1.28.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupLastInboundActivity": {
+    "name": "mtaGroupLastInboundActivity",
+    "oid": "1.3.6.1.2.1.28.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupLastOutboundActivity": {
+    "name": "mtaGroupLastOutboundActivity",
+    "oid": "1.3.6.1.2.1.28.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupLastOutboundAssociationAttempt": {
+    "name": "mtaGroupLastOutboundAssociationAttempt",
+    "oid": "1.3.6.1.2.1.28.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupRejectedInboundAssociations": {
+    "name": "mtaGroupRejectedInboundAssociations",
+    "oid": "1.3.6.1.2.1.28.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupFailedOutboundAssociations": {
+    "name": "mtaGroupFailedOutboundAssociations",
+    "oid": "1.3.6.1.2.1.28.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupInboundRejectionReason": {
+    "name": "mtaGroupInboundRejectionReason",
+    "oid": "1.3.6.1.2.1.28.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupOutboundConnectFailureReason": {
+    "name": "mtaGroupOutboundConnectFailureReason",
+    "oid": "1.3.6.1.2.1.28.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupScheduledRetry": {
+    "name": "mtaGroupScheduledRetry",
+    "oid": "1.3.6.1.2.1.28.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupMailProtocol": {
+    "name": "mtaGroupMailProtocol",
+    "oid": "1.3.6.1.2.1.28.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupName": {
+    "name": "mtaGroupName",
+    "oid": "1.3.6.1.2.1.28.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupSuccessfulConvertedMessages": {
+    "name": "mtaGroupSuccessfulConvertedMessages",
+    "oid": "1.3.6.1.2.1.28.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupFailedConvertedMessages": {
+    "name": "mtaGroupFailedConvertedMessages",
+    "oid": "1.3.6.1.2.1.28.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupDescription": {
+    "name": "mtaGroupDescription",
+    "oid": "1.3.6.1.2.1.28.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupURL": {
+    "name": "mtaGroupURL",
+    "oid": "1.3.6.1.2.1.28.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "URLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupCreationTime": {
+    "name": "mtaGroupCreationTime",
+    "oid": "1.3.6.1.2.1.28.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupHierarchy": {
+    "name": "mtaGroupHierarchy",
+    "oid": "1.3.6.1.2.1.28.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupOldestMessageId": {
+    "name": "mtaGroupOldestMessageId",
+    "oid": "1.3.6.1.2.1.28.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupLoopsDetected": {
+    "name": "mtaGroupLoopsDetected",
+    "oid": "1.3.6.1.2.1.28.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupAssociationTable": {
+    "name": "mtaGroupAssociationTable",
+    "oid": "1.3.6.1.2.1.28.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtaGroupAssociationEntry": {
+    "name": "mtaGroupAssociationEntry",
+    "oid": "1.3.6.1.2.1.28.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAssociationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mtaGroupAssociationIndex": {
+    "name": "mtaGroupAssociationIndex",
+    "oid": "1.3.6.1.2.1.28.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupErrorTable": {
+    "name": "mtaGroupErrorTable",
+    "oid": "1.3.6.1.2.1.28.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtaGroupErrorEntry": {
+    "name": "mtaGroupErrorEntry",
+    "oid": "1.3.6.1.2.1.28.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStatusCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mtaGroupInboundErrorCount": {
+    "name": "mtaGroupInboundErrorCount",
+    "oid": "1.3.6.1.2.1.28.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupInternalErrorCount": {
+    "name": "mtaGroupInternalErrorCount",
+    "oid": "1.3.6.1.2.1.28.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaGroupOutboundErrorCount": {
+    "name": "mtaGroupOutboundErrorCount",
+    "oid": "1.3.6.1.2.1.28.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtaStatusCode": {
+    "name": "mtaStatusCode",
+    "oid": "1.3.6.1.2.1.28.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4000000,
+            "max": 5999999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtaConformance": {
+    "name": "mtaConformance",
+    "oid": "1.3.6.1.2.1.28.4",
+    "class": "objectidentity"
+  },
+  "mtaGroups": {
+    "name": "mtaGroups",
+    "oid": "1.3.6.1.2.1.28.4.1",
+    "class": "objectidentity"
+  },
+  "mtaCompliances": {
+    "name": "mtaCompliances",
+    "oid": "1.3.6.1.2.1.28.4.2",
+    "class": "objectidentity"
+  },
+  "mtaCompliance": {
+    "name": "mtaCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC1566Group",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaAssocCompliance": {
+    "name": "mtaAssocCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC1566Group",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC1566AssocGroup",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2249Compliance": {
+    "name": "mtaRFC2249Compliance",
+    "oid": "1.3.6.1.2.1.28.4.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2249Group",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2249AssocCompliance": {
+    "name": "mtaRFC2249AssocCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2249Group",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2249AssocGroup",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2249ErrorCompliance": {
+    "name": "mtaRFC2249ErrorCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2249Group",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2249ErrorGroup",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2249FullCompliance": {
+    "name": "mtaRFC2249FullCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2249Group",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2249AssocGroup",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2249ErrorGroup",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2789Compliance": {
+    "name": "mtaRFC2789Compliance",
+    "oid": "1.3.6.1.2.1.28.4.2.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2789Group",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2789AssocCompliance": {
+    "name": "mtaRFC2789AssocCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2789Group",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2789AssocGroup",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2789ErrorCompliance": {
+    "name": "mtaRFC2789ErrorCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2789Group",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2789ErrorGroup",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2789FullCompliance": {
+    "name": "mtaRFC2789FullCompliance",
+    "oid": "1.3.6.1.2.1.28.4.2.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtaRFC2789Group",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2789AssocGroup",
+        "module": "MTA-MIB"
+      },
+      {
+        "object": "mtaRFC2789ErrorGroup",
+        "module": "MTA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC1566Group": {
+    "name": "mtaRFC1566Group",
+    "oid": "1.3.6.1.2.1.28.4.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupRejectedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOldestMessageStored"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAccumulatedInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAccumulatedOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastInboundActivity"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastOutboundActivity"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupRejectedInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupFailedOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundRejectionReason"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundConnectFailureReason"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupScheduledRetry"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupMailProtocol"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC1566AssocGroup": {
+    "name": "mtaRFC1566AssocGroup",
+    "oid": "1.3.6.1.2.1.28.4.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAssociationIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2249Group": {
+    "name": "mtaRFC2249Group",
+    "oid": "1.3.6.1.2.1.28.4.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaSuccessfulConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaFailedConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupRejectedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOldestMessageStored"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaLoopsDetected"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAccumulatedInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAccumulatedOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastInboundActivity"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastOutboundActivity"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastOutboundAssociationAttempt"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupRejectedInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupFailedOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundRejectionReason"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundConnectFailureReason"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupScheduledRetry"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupMailProtocol"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupName"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupSuccessfulConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupFailedConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupDescription"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupURL"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupCreationTime"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupHierarchy"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOldestMessageId"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLoopsDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2249AssocGroup": {
+    "name": "mtaRFC2249AssocGroup",
+    "oid": "1.3.6.1.2.1.28.4.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAssociationIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2249ErrorGroup": {
+    "name": "mtaRFC2249ErrorGroup",
+    "oid": "1.3.6.1.2.1.28.4.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundErrorCount"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInternalErrorCount"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundErrorCount"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2789Group": {
+    "name": "mtaRFC2789Group",
+    "oid": "1.3.6.1.2.1.28.4.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaReceivedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaStoredRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaTransmittedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaSuccessfulConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaFailedConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupRejectedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedVolume"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupReceivedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupStoredRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupTransmittedRecipients"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOldestMessageStored"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaLoopsDetected"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAccumulatedInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAccumulatedOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastInboundActivity"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastOutboundActivity"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLastOutboundAssociationAttempt"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupRejectedInboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupFailedOutboundAssociations"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundRejectionReason"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundConnectFailureReason"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupScheduledRetry"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupMailProtocol"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupName"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupSuccessfulConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupFailedConvertedMessages"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupDescription"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupURL"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupCreationTime"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupHierarchy"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOldestMessageId"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupLoopsDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2789AssocGroup": {
+    "name": "mtaRFC2789AssocGroup",
+    "oid": "1.3.6.1.2.1.28.4.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupAssociationIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mtaRFC2789ErrorGroup": {
+    "name": "mtaRFC2789ErrorGroup",
+    "oid": "1.3.6.1.2.1.28.4.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInboundErrorCount"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupInternalErrorCount"
+      },
+      {
+        "module": "MTA-MIB",
+        "object": "mtaGroupOutboundErrorCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MTA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MTA-MIB"
+  }
+}

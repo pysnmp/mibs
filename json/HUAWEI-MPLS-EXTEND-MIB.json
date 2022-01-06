@@ -1,0 +1,5640 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "MPLS-LSR-STD-MIB": [
+      "MplsIndexType"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsTunnelInstanceIndex",
+      "MplsTunnelIndex",
+      "MplsLsrIdentifier",
+      "MplsExtendedTunnelId"
+    ],
+    "MPLS-TE-STD-MIB": [
+      "mplsTunnelOperStatus",
+      "mplsTunnelAdminStatus"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwMplsExtendMib": {
+    "name": "hwMplsExtendMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.121",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 16:40",
+        "description": "V2.46, modify descroption of three item"
+      },
+      {
+        "revision": "2017-04-25 16:00",
+        "description": "V2.45, modify for hwMplsTunnelDelegationReturn/hwMplsTunnelDelegationReturnClear alarm."
+      },
+      {
+        "revision": "2017-03-04 16:00",
+        "description": "V2.44, change alarm name hwMplsLspBfdDown hwMplsLspBfdDownClear to hwMplsTeLspBfdDown hwMplsTeLspBfdDownClear."
+      },
+      {
+        "revision": "2016-12-13 16:00",
+        "description": "V2.43, add a new alarm, hwMplsLspBfdDown hwMplsLspBfdDownClear."
+      },
+      {
+        "revision": "2016-06-13 16:00",
+        "description": "V2.42, modify hwMplsTunnelBfdPathMismatch hwMplsTunnelBfdPathMismatchClear bind VB."
+      },
+      {
+        "revision": "2016-01-11 16:00",
+        "description": "V2.41, delete a type BITS. It is a basic type now."
+      },
+      {
+        "revision": "2016-01-06 12:00",
+        "description": "V2.40, add a new alarm, hwMplsTunnelBfdPathMismatch hwMplsTunnelBfdPathMismatchClear."
+      },
+      {
+        "revision": "2015-08-01 12:00",
+        "description": "V2.39, add a new alarm, hwMplsTunnelHotstandbySwitch hwMplsTunnelHotstandbyResume."
+      },
+      {
+        "revision": "2015-04-11 12:00",
+        "description": "V2.38, modify enum hwMplsResourceType for supporting MPLS CSPF resource total exceed alarm."
+      },
+      {
+        "revision": "2015-03-31 14:19",
+        "description": "V2.37, add for hwMplsTunnelStatisticsTable."
+      },
+      {
+        "revision": "2015-03-19 17:00",
+        "description": "V2.36, add enum hwMplsResourceType for supporting MPLS CSPF resource total exceed alarm."
+      },
+      {
+        "revision": "2015-01-22 19:16",
+        "description": "V2.35, modify hwMplsIngressLsrId hwMplsEgressLsrId."
+      },
+      {
+        "revision": "2015-01-12 20:16",
+        "description": "V2.34, modify hwMplsTeFrrSwitch."
+      },
+      {
+        "revision": "2014-11-21 18:00",
+        "description": "V2.33, add hwMplsTunnelCommitLost hwMplsTunnelCommitLostClear."
+      },
+      {
+        "revision": "2014-11-14 18:00",
+        "description": "V2.32, add hwMplsLspLoopBack hwMplsLspLoopBackClear hwMplsSessionTunnelId hwMplsLocalLspId hwMplsIngressLsrId hwMplsEgressLsrId hwMplsLspName."
+      },
+      {
+        "revision": "2014-11-06 16:30",
+        "description": "V2.31, add enum ldpTotalLocalAdjacency to hwMplsResourceType for supporting MPLS resource total and threshold exceed alarm."
+      },
+      {
+        "revision": "2014-08-12 14:50",
+        "description": "V2.30, add enum outSegment and autoPrimaryTunnelIf to hwMplsResourceType for supporting MPLS resource total exceed alarm."
+      },
+      {
+        "revision": "2014-07-21 14:27",
+        "description": "V2.29, add enum privateNetBgp to hwMplsLspProtocol for supporting private network bgp lsp threshold alarm."
+      },
+      {
+        "revision": "2014-06-16 14:17",
+        "description": "V2.28, add traps: hwMplsResourceThresholdExceed, hwMplsResourceThresholdExceedClear, hwMplsResourceTotalCountExceed, hwMplsResourceTotalCountExceedClear."
+      },
+      {
+        "revision": "2014-02-17 19:05",
+        "description": "V2.27, modify hwStaticLspDownReason for add invalid ring reason ."
+      },
+      {
+        "revision": "2014-02-07 11:00",
+        "description": "V2.26, modify hwStaticLspDownReason for configure update."
+      },
+      {
+        "revision": "2014-01-27 11:00",
+        "description": "V2.25, modify hwStaticLspDownReason for tunnel dowm."
+      },
+      {
+        "revision": "2014-01-13 13:45",
+        "description": "V2.24, add enum ldpfrr, rsvp, totalLsp and totalCrLsp to hwMplsLspProtocol for supporting ldp frr, rsvp lsp, total lsp, total cr lsp threshold alarm."
+      },
+      {
+        "revision": "2013-11-07 17:45",
+        "description": "V2.23, add enum bgp and bgpv6 to hwMplsLspProtocol for supporting bgp and bgp ipv6 lsp threshold alarm."
+      },
+      {
+        "revision": "2013-09-11 17:45",
+        "description": "V2.22, add table: hwMplsTrafficStatisticsStaticLspTable."
+      },
+      {
+        "revision": "2013-04-13 16:52",
+        "description": "V2.21, modify hwMplsRingSwitch, hwMplsRingResume."
+      },
+      {
+        "revision": "2013-01-14 15:25",
+        "description": "V2.20, add the description of hwmplsDynamicLabelThresholdexceed,hwmplsDynamicLabelThresholdexceedClear,hwmplsDynamicLabeltotalcountexceed,hwmplsDynamicLabeltotalcountexceedClear."
+      },
+      {
+        "revision": "2012-07-05 20:25",
+        "description": "V2.07, modify the description of hwMplsLspTotalCountExceed."
+      },
+      {
+        "revision": "2012-06-08 14:05",
+        "description": "V2.06, add traps: hwmplslspThresholdexceed, hwmplslspthresholdexceedclear, hwmplslsptotalcountexceed, hwmplslsptotalcountexceedclear."
+      },
+      {
+        "revision": "2012-06-05 11:00",
+        "description": "V2.05, add traps: hwmplstunneldelete; modify hwmplsoamtunnellock to hwmplsoamlocallock; modify hwmplstunnellockrecovery to hwmplslocallockrecovery."
+      },
+      {
+        "revision": "2012-05-09 11:00",
+        "description": "V2.05, add traps: from hwMplsRingWestOamLoss to hwMplsRingEastOamUnexpectedMepClear."
+      },
+      {
+        "revision": "2012-05-04 11:00",
+        "description": "V2.04, add traps: hwMplsoamTunnellock, hwMplsoamTunnellockRecovery."
+      },
+      {
+        "revision": "2011-11-29 11:00",
+        "description": "V2.03, add traps: hwMplsExtTunnelDown, hwMplsExtTunnelDownClear."
+      },
+      {
+        "revision": "2011-11-18 11:00",
+        "description": "V2.02, add traps: hwMplsTunnelBBSwitch, hwMplsTunnelBBResume."
+      },
+      {
+        "revision": "2011-10-24 11:00",
+        "description": "V2.01, add traps: hwMplsTeAutoTunnelDownClear, hwMplsTeAutoTunnelPrimaryDownClear."
+      },
+      {
+        "revision": "2011-07-30 11:00",
+        "description": "V2.00, delete Defval clause in these nodes: hwMplsTunnelDownReason, hwMplsTunnelLspType."
+      },
+      {
+        "revision": "2010-11-23 11:55",
+        "description": "V1.02, modified the MIB description."
+      },
+      {
+        "revision": "2010-07-13 15:35",
+        "description": "V1.01, modified the MIB description."
+      },
+      {
+        "revision": "2006-06-30 15:54",
+        "description": "V1.00, initial LSPM MIB."
+      }
+    ]
+  },
+  "hwMplsExtendMibTunnel": {
+    "name": "hwMplsExtendMibTunnel",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1",
+    "class": "objectidentity"
+  },
+  "hwMplsTunnelTable": {
+    "name": "hwMplsTunnelTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelEntry": {
+    "name": "hwMplsTunnelEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelIndex": {
+    "name": "hwMplsTunnelIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelInstance": {
+    "name": "hwMplsTunnelInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelIngressLSRId": {
+    "name": "hwMplsTunnelIngressLSRId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelEgressLSRId": {
+    "name": "hwMplsTunnelEgressLSRId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelClassType": {
+    "name": "hwMplsTunnelClassType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bc0": 1,
+          "bc1": 2,
+          "invalidValue": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelBandwidth": {
+    "name": "hwMplsTunnelBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelAdminStatus": {
+    "name": "hwMplsTunnelAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelOperStatus": {
+    "name": "hwMplsTunnelOperStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "dormant": 5,
+          "notPresent": 6,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelSessionAttr": {
+    "name": "hwMplsTunnelSessionAttr",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "localProtectionDesired": 0,
+        "nodeProtectionDesired": 1,
+        "bandwidthProtectionDesired": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrSetupPrio": {
+    "name": "hwMplsTunnelFrrSetupPrio",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrHoldingPrio": {
+    "name": "hwMplsTunnelFrrHoldingPrio",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrBandwidth": {
+    "name": "hwMplsTunnelFrrBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrSwitchover": {
+    "name": "hwMplsTunnelFrrSwitchover",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrBypassTableIndex": {
+    "name": "hwMplsTunnelFrrBypassTableIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrARHopTableIndex": {
+    "name": "hwMplsTunnelFrrARHopTableIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelName": {
+    "name": "hwMplsTunnelName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelIfIndex": {
+    "name": "hwMplsTunnelIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelPreBandwidth": {
+    "name": "hwMplsTunnelPreBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelNextBandwidth": {
+    "name": "hwMplsTunnelNextBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt0Bandwidth": {
+    "name": "hwMplsTunnelCt0Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt1Bandwidth": {
+    "name": "hwMplsTunnelCt1Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt2Bandwidth": {
+    "name": "hwMplsTunnelCt2Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt3Bandwidth": {
+    "name": "hwMplsTunnelCt3Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt4Bandwidth": {
+    "name": "hwMplsTunnelCt4Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt5Bandwidth": {
+    "name": "hwMplsTunnelCt5Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt6Bandwidth": {
+    "name": "hwMplsTunnelCt6Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelCt7Bandwidth": {
+    "name": "hwMplsTunnelCt7Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelLspType": {
+    "name": "hwMplsTunnelLspType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "primary": 1,
+          "primaryModifing": 2,
+          "hotStandby": 3,
+          "hotStandbyModifing": 4,
+          "ordinary": 5,
+          "ordinaryModifing": 6,
+          "bestEffort": 7,
+          "bestEffortModifing": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelInterfaceName": {
+    "name": "hwMplsTunnelInterfaceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelSignalProto": {
+    "name": "hwMplsTunnelSignalProto",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsvpTE": 1,
+          "static": 2,
+          "staticCR": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelType": {
+    "name": "hwMplsTunnelType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "primaryTunnel": 2,
+          "bypassTunnel": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTunnelFrrBypassTable": {
+    "name": "hwTunnelFrrBypassTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrBypassEntry": {
+    "name": "hwTunnelFrrBypassEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrBypassListIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrBypassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTunnelFrrBypassListIndex": {
+    "name": "hwTunnelFrrBypassListIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrBypassIndex": {
+    "name": "hwTunnelFrrBypassIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrBypassProtIfIndex": {
+    "name": "hwTunnelFrrBypassProtIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTunnelFrrARHopTable": {
+    "name": "hwTunnelFrrARHopTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrARHopEntry": {
+    "name": "hwTunnelFrrARHopEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopListIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTunnelFrrARHopListIndex": {
+    "name": "hwTunnelFrrARHopListIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrARHopIndex": {
+    "name": "hwTunnelFrrARHopIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrARHopProtDesired": {
+    "name": "hwTunnelFrrARHopProtDesired",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "localProtection": 0,
+        "nodeProtection": 1,
+        "bandwidthProtection": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTunnelFrrARHopProtActual": {
+    "name": "hwTunnelFrrARHopProtActual",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "localProtection": 0,
+        "nodeProtection": 1,
+        "bandwidthProtection": 2,
+        "protectionInuse": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBTable": {
+    "name": "hwTunnelFrrRouteDBTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBEntry": {
+    "name": "hwTunnelFrrRouteDBEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelEngressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBTunnelIndex": {
+    "name": "hwTunnelFrrRouteDBTunnelIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBTunnelInstance": {
+    "name": "hwTunnelFrrRouteDBTunnelInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBTunnelIngressLSRId": {
+    "name": "hwTunnelFrrRouteDBTunnelIngressLSRId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBTunnelEngressLSRId": {
+    "name": "hwTunnelFrrRouteDBTunnelEngressLSRId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBBypassIfIndex": {
+    "name": "hwTunnelFrrRouteDBBypassIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBInnerLabel": {
+    "name": "hwTunnelFrrRouteDBInnerLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticLspTable": {
+    "name": "hwStaticLspTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticLspEntry": {
+    "name": "hwStaticLspEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInSegmentIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspOutSegmentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticLspIndex": {
+    "name": "hwStaticLspIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticLspInSegmentIndex": {
+    "name": "hwStaticLspInSegmentIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticLspOutSegmentIndex": {
+    "name": "hwStaticLspOutSegmentIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticLspOwner": {
+    "name": "hwStaticLspOwner",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "crstatic": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticLspName": {
+    "name": "hwStaticLspName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticLspStatus": {
+    "name": "hwStaticLspStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticLspClassType": {
+    "name": "hwStaticLspClassType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ct0": 1,
+          "ct1": 2,
+          "ct2": 3,
+          "ct3": 4,
+          "ct4": 5,
+          "ct5": 6,
+          "ct6": 7,
+          "ct7": 8,
+          "none": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticLspBandwidth": {
+    "name": "hwStaticLspBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTeClassTable": {
+    "name": "hwMplsTeClassTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTeClassEntry": {
+    "name": "hwMplsTeClassEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeClassId": {
+    "name": "hwMplsTeClassId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTeClassClassType": {
+    "name": "hwMplsTeClassClassType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ct0": 1,
+          "ct1": 2,
+          "ct2": 3,
+          "ct3": 4,
+          "ct4": 5,
+          "ct5": 6,
+          "ct6": 7,
+          "ct7": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTeClassPriority": {
+    "name": "hwMplsTeClassPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTeClassDescription": {
+    "name": "hwMplsTeClassDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBcTable": {
+    "name": "hwMplsIfBcTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsIfBcEntry": {
+    "name": "hwMplsIfBcEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsIfMaxResvBandwidth": {
+    "name": "hwMplsIfMaxResvBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc0Bandwidth": {
+    "name": "hwMplsIfBc0Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc1Bandwidth": {
+    "name": "hwMplsIfBc1Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc2Bandwidth": {
+    "name": "hwMplsIfBc2Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc3Bandwidth": {
+    "name": "hwMplsIfBc3Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc4Bandwidth": {
+    "name": "hwMplsIfBc4Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc5Bandwidth": {
+    "name": "hwMplsIfBc5Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc6Bandwidth": {
+    "name": "hwMplsIfBc6Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsIfBc7Bandwidth": {
+    "name": "hwMplsIfBc7Bandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticLspTnlTable": {
+    "name": "hwStaticLspTnlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticLspTnlEntry": {
+    "name": "hwStaticLspTnlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspTnlName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticLspTnlName": {
+    "name": "hwStaticLspTnlName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStaticLspTnlToken": {
+    "name": "hwStaticLspTnlToken",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTeVpnQosTable": {
+    "name": "hwMplsTeVpnQosTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTeVpnQosEntry": {
+    "name": "hwMplsTeVpnQosEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTnlID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTnlID": {
+    "name": "hwMplsTnlID",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTeVpnMaxBandwidth": {
+    "name": "hwMplsTeVpnMaxBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTeVpnAllocatedBandwidth": {
+    "name": "hwMplsTeVpnAllocatedBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStaticLspInIfIndex": {
+    "name": "hwStaticLspInIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStaticLspInIfName": {
+    "name": "hwStaticLspInIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwStaticLspDownReason": {
+    "name": "hwStaticLspDownReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsTable": {
+    "name": "hwMplsTunnelStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsEntry": {
+    "name": "hwMplsTunnelStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelStatisticsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelStatisticsIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelStatisticsEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsTunnelIndex": {
+    "name": "hwMplsTunnelStatisticsTunnelIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsIngressLSRId": {
+    "name": "hwMplsTunnelStatisticsIngressLSRId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsEgressLSRId": {
+    "name": "hwMplsTunnelStatisticsEgressLSRId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsHCInOctets": {
+    "name": "hwMplsTunnelStatisticsHCInOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsHCOutOctets": {
+    "name": "hwMplsTunnelStatisticsHCOutOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsExtendTrap": {
+    "name": "hwMplsExtendTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2",
+    "class": "objectidentity"
+  },
+  "hwLspTrap": {
+    "name": "hwLspTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1",
+    "class": "objectidentity"
+  },
+  "hwMplsStaticLspUp": {
+    "name": "hwMplsStaticLspUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsStaticLspDown": {
+    "name": "hwMplsStaticLspDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsStaticCRLspUp": {
+    "name": "hwMplsStaticCRLspUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsStaticCRLspDown": {
+    "name": "hwMplsStaticCRLspDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeFrrProtAval": {
+    "name": "hwMplsTeFrrProtAval",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBBypassIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBInnerLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeFrrProtNotAval": {
+    "name": "hwMplsTeFrrProtNotAval",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBBypassIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeFrrSwitch": {
+    "name": "hwMplsTeFrrSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeFrrResume": {
+    "name": "hwMplsTeFrrResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelHSBSwitch": {
+    "name": "hwMplsTunnelHSBSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelHSBResume": {
+    "name": "hwMplsTunnelHSBResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelOBSwitch": {
+    "name": "hwMplsTunnelOBSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelOBResume": {
+    "name": "hwMplsTunnelOBResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelUp": {
+    "name": "hwMplsTunnelUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMplsTunnelDown": {
+    "name": "hwMplsTunnelDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMplsTunnelChangeBw": {
+    "name": "hwMplsTunnelChangeBw",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPreBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelNextBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelTpOamLossSD": {
+    "name": "hwMplsTunnelTpOamLossSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamSDRecovery": {
+    "name": "hwMplsOamSDRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamLoss": {
+    "name": "hwMplsOamLoss",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamLossRecovery": {
+    "name": "hwMplsOamLossRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamAis": {
+    "name": "hwMplsOamAis",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamAisRecovery": {
+    "name": "hwMplsOamAisRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamRdi": {
+    "name": "hwMplsOamRdi",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamRdiRecovery": {
+    "name": "hwMplsOamRdiRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMeg": {
+    "name": "hwMplsOamMeg",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMegRecovery": {
+    "name": "hwMplsOamMegRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMep": {
+    "name": "hwMplsOamMep",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMepRecovery": {
+    "name": "hwMplsOamMepRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamSF": {
+    "name": "hwMplsOamSF",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamSFRecovery": {
+    "name": "hwMplsOamSFRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamPeriod": {
+    "name": "hwMplsOamPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamPeriodRecovery": {
+    "name": "hwMplsOamPeriodRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamLck": {
+    "name": "hwMplsOamLck",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamLckRecovery": {
+    "name": "hwMplsOamLckRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamExcess": {
+    "name": "hwMplsOamExcess",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamExcessRecovery": {
+    "name": "hwMplsOamExcessRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMisMatch": {
+    "name": "hwMplsOamMisMatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMisMatchRecovery": {
+    "name": "hwMplsOamMisMatchRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMisMerge": {
+    "name": "hwMplsOamMisMerge",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamMisMergeRecovery": {
+    "name": "hwMplsOamMisMergeRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamUnknown": {
+    "name": "hwMplsOamUnknown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamUnknownRecovery": {
+    "name": "hwMplsOamUnknownRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamBDI": {
+    "name": "hwMplsOamBDI",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamBDIRecovery": {
+    "name": "hwMplsOamBDIRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamFail": {
+    "name": "hwMplsOamFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamFailRecovery": {
+    "name": "hwMplsOamFailRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelPrimaryUp": {
+    "name": "hwMplsTunnelPrimaryUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelPrimaryDown": {
+    "name": "hwMplsTunnelPrimaryDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbyUp": {
+    "name": "hwMplsTunnelHotstandbyUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbyDown": {
+    "name": "hwMplsTunnelHotstandbyDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelOrdinaryUp": {
+    "name": "hwMplsTunnelOrdinaryUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelOrdinaryDown": {
+    "name": "hwMplsTunnelOrdinaryDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelBesteffortUp": {
+    "name": "hwMplsTunnelBesteffortUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelBesteffortDown": {
+    "name": "hwMplsTunnelBesteffortDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeAutoTunnelDownClear": {
+    "name": "hwMplsTeAutoTunnelDownClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeAutoTunnelPrimaryDownClear": {
+    "name": "hwMplsTeAutoTunnelPrimaryDownClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelBBSwitch": {
+    "name": "hwMplsTunnelBBSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelBBResume": {
+    "name": "hwMplsTunnelBBResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsExtTunnelDown": {
+    "name": "hwMplsExtTunnelDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsExtTunnelDownClear": {
+    "name": "hwMplsExtTunnelDownClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamLocalLock": {
+    "name": "hwMplsOamLocalLock",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsOamLocalLockRecovery": {
+    "name": "hwMplsOamLocalLockRecovery",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelDelete": {
+    "name": "hwMplsTunnelDelete",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspThresholdExceed": {
+    "name": "hwMplsLspThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThreshold"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspThresholdExceedClear": {
+    "name": "hwMplsLspThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspTotalCountExceed": {
+    "name": "hwMplsLspTotalCountExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspTotalCountExceedClear": {
+    "name": "hwMplsLspTotalCountExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsDynamicLabelThresholdExceed": {
+    "name": "hwMplsDynamicLabelThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdUpperLimit"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdLowerLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsDynamicLabelThresholdExceedClear": {
+    "name": "hwMplsDynamicLabelThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.68",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdUpperLimit"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdLowerLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsDynamicLabelTotalCountExceed": {
+    "name": "hwMplsDynamicLabelTotalCountExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.69",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsDynamicLabelTotalCountExceedClear": {
+    "name": "hwMplsDynamicLabelTotalCountExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsResourceThresholdExceed": {
+    "name": "hwMplsResourceThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThreshold"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsResourceThresholdExceedClear": {
+    "name": "hwMplsResourceThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.72",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsResourceTotalCountExceed": {
+    "name": "hwMplsResourceTotalCountExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.73",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsResourceTotalCountExceedClear": {
+    "name": "hwMplsResourceTotalCountExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.74",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspLoopBack": {
+    "name": "hwMplsLspLoopBack",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.75",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspLoopBackClear": {
+    "name": "hwMplsLspLoopBackClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.76",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelCommitLost": {
+    "name": "hwMplsTunnelCommitLost",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.77",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwMplsTunnelCommitLostClear": {
+    "name": "hwMplsTunnelCommitLostClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.78",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbySwitch": {
+    "name": "hwMplsTunnelHotstandbySwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.79",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbyResume": {
+    "name": "hwMplsTunnelHotstandbyResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.80",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelBfdPathMismatch": {
+    "name": "hwMplsTunnelBfdPathMismatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.81",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelBfdPathMismatchClear": {
+    "name": "hwMplsTunnelBfdPathMismatchClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.82",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeLspBfdDown": {
+    "name": "hwMplsTeLspBfdDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.83",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelLspType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTeLspBfdDownClear": {
+    "name": "hwMplsTeLspBfdDownClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.84",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelLspType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelDelegationReturn": {
+    "name": "hwMplsTunnelDelegationReturn",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.85",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTunnelDelegationReturnClear": {
+    "name": "hwMplsTunnelDelegationReturnClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.86",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTrapObjects": {
+    "name": "hwMplsTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2",
+    "class": "objectidentity"
+  },
+  "hwMplsTunnelIfName": {
+    "name": "hwMplsTunnelIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "hwMplsTunnelFrrConfigOper": {
+    "name": "hwMplsTunnelFrrConfigOper",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconfig": 0,
+          "config": 1,
+          "unknow": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "hwMplsTunnelDownReason": {
+    "name": "hwMplsTunnelDownReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "staticLspDown": 2,
+          "staticCrlspDown": 3,
+          "outIfDown": 4,
+          "resourcePreempted": 5,
+          "rsvpMessageTimeout": 6,
+          "rsvpNeighborLost": 7,
+          "bypassTunnelDownOrUnbinded": 8,
+          "cspfComputeFail": 9,
+          "userShutdown": 10,
+          "tpoamLossOfContinuity": 11,
+          "tpoamAlarmIndicationSignal": 12,
+          "tpoamRemoteDefectIndication": 13,
+          "tpoamUnexpectedMEG": 14,
+          "tpoamUnexpectedMEP": 15,
+          "tpoamLossSF": 16,
+          "tpoamPeriod": 17,
+          "mplsOamLocv": 18,
+          "mplsOamExcess": 19,
+          "mplsOamMisMatch": 20,
+          "mplsOamMisMerge": 21,
+          "mplsOamUnknown": 22,
+          "mplsOamBdi": 23,
+          "mplsOamFdi": 24,
+          "mplsOamSF": 25,
+          "mplsOamSD": 26,
+          "mplsOamDOamFail": 27,
+          "serviceResume": 28,
+          "serviceDelete": 29,
+          "clear": 100
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsLspProtocol": {
+    "name": "hwMplsLspProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ldp": 1,
+          "bgp": 2,
+          "bgpv6": 3,
+          "ldpfrr": 4,
+          "rsvp": 5,
+          "totalLsp": 6,
+          "totalCrLsp": 7,
+          "ldpIngress": 8,
+          "ldpTransit": 9,
+          "ldpEgress": 10,
+          "bgpIngress": 11,
+          "bgpEgress": 12,
+          "bgpv6Ingress": 13,
+          "bgpv6Egress": 14,
+          "rsvpIngress": 15,
+          "rsvpTransit": 16,
+          "rsvpEgress": 17,
+          "totalLspIngress": 18,
+          "totalLspTransit": 19,
+          "totalLspEgress": 20,
+          "totalCrLspIngress": 21,
+          "totalCrLspTransit": 22,
+          "totalCrLspEgress": 23,
+          "totalPublicNetLspIngressTransit": 24,
+          "totalPublicNetLspTransitEgress": 25,
+          "privateNetBgp": 26,
+          "unknown": 100
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsLspThreshold": {
+    "name": "hwMplsLspThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsLspTotalCount": {
+    "name": "hwMplsLspTotalCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsLspCurrentCount": {
+    "name": "hwMplsLspCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsTunnelDownLSRID": {
+    "name": "hwMplsTunnelDownLSRID",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsTunnelDownIfIpAddr": {
+    "name": "hwMplsTunnelDownIfIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsTunnelDownIfIpAddrType": {
+    "name": "hwMplsTunnelDownIfIpAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsResourceType": {
+    "name": "hwMplsResourceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoBypassTunnelIf": 1,
+          "p2mpAutoTunnelIf": 2,
+          "teBfd": 3,
+          "ldpBfd": 4,
+          "mldpTotalTree": 5,
+          "mldpTotalBranch": 6,
+          "ldpTotalRemoteAdjacency": 7,
+          "outSegment": 8,
+          "autoPrimaryTunnelIf": 9,
+          "ldpTotalLocalAdjacency": 10,
+          "cspfNode": 11,
+          "cspfLink": 12,
+          "cspfNlsa": 13,
+          "cspfSrlg": 14,
+          "unknown": 100
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsResourceCurrentCount": {
+    "name": "hwMplsResourceCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsResourceThreshold": {
+    "name": "hwMplsResourceThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsResourceTotalCount": {
+    "name": "hwMplsResourceTotalCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsSessionTunnelId": {
+    "name": "hwMplsSessionTunnelId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsLocalLspId": {
+    "name": "hwMplsLocalLspId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsIngressLsrId": {
+    "name": "hwMplsIngressLsrId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsEgressLsrId": {
+    "name": "hwMplsEgressLsrId",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsLspName": {
+    "name": "hwMplsLspName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrConfigChange": {
+    "name": "hwMplsTunnelFrrConfigChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrConfigOper"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMplsGlobalObject": {
+    "name": "hwMplsGlobalObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3",
+    "class": "objectidentity"
+  },
+  "hwMplsGlobalWorkMode": {
+    "name": "hwMplsGlobalWorkMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "nonstandard": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsGlobalBcModel": {
+    "name": "hwMplsGlobalBcModel",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rdm": 1,
+          "mam": 2,
+          "extendMam": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelTotalCount": {
+    "name": "hwMplsDynamicLabelTotalCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelCurrentCount": {
+    "name": "hwMplsDynamicLabelCurrentCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelThresholdUpperLimit": {
+    "name": "hwMplsDynamicLabelThresholdUpperLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelThresholdLowerLimit": {
+    "name": "hwMplsDynamicLabelThresholdLowerLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsLspStatistics": {
+    "name": "hwMplsLspStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4",
+    "class": "objectidentity"
+  },
+  "hwMplsLspStatisticsTable": {
+    "name": "hwMplsLspStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsEntry": {
+    "name": "hwMplsLspStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsLspType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspStatisticsLspType": {
+    "name": "hwMplsLspStatisticsLspType",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staticLsp": 1,
+          "staticCrLsp": 2,
+          "ldpLsp": 3,
+          "rsvpCrLsp": 4,
+          "bgpLsp": 5,
+          "asbrLsp": 6,
+          "bgpIpv6Lsp": 7,
+          "l3vpnIpv6Lsp": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsIngressLspCount": {
+    "name": "hwMplsLspStatisticsIngressLspCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsTransitLspCount": {
+    "name": "hwMplsLspStatisticsTransitLspCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsEgressLspCount": {
+    "name": "hwMplsLspStatisticsEgressLspCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsTotalLspCount": {
+    "name": "hwMplsLspStatisticsTotalLspCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspTable": {
+    "name": "hwMplsTrafficStatisticsStaticLspTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspEntry": {
+    "name": "hwMplsTrafficStatisticsStaticLspEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspName": {
+    "name": "hwMplsTrafficStatisticsStaticLspName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardInBytes": {
+    "name": "hwMplsTrafficStatisticsStaticLspForwardInBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardInPackets": {
+    "name": "hwMplsTrafficStatisticsStaticLspForwardInPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardOutBytes": {
+    "name": "hwMplsTrafficStatisticsStaticLspForwardOutBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardOutPackets": {
+    "name": "hwMplsTrafficStatisticsStaticLspForwardOutPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardInBytes": {
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardInBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardInPackets": {
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardInPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardOutBytes": {
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardOutBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardOutPackets": {
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardOutPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsExtendConformance": {
+    "name": "hwMplsExtendConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6",
+    "class": "objectidentity"
+  },
+  "hwMplsExtendGroups": {
+    "name": "hwMplsExtendGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1",
+    "class": "objectidentity"
+  },
+  "hwMplsTunnelGroup": {
+    "name": "hwMplsTunnelGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBInnerLabel"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBBypassIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopProtActual"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopProtDesired"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrBypassProtIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspOwner"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelClassType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSessionAttr"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrARHopTableIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPreBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelNextBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrSwitchover"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeVpnMaxBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeVpnAllocatedBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrHoldingPrio"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrSetupPrio"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrBypassTableIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelLspType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStaticLspGroup": {
+    "name": "hwStaticLspGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspTnlToken"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsDsTeGroup": {
+    "name": "hwMplsDsTeGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt0Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt1Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt2Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt3Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt4Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt5Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt6Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt7Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspClassType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassClassType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassPriority"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassDescription"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsGlobalBcModel"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsGlobalWorkMode"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc7Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc6Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc5Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc4Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc3Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc2Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc1Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc0Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfMaxResvBandwidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspStatisticsGroup": {
+    "name": "hwMplsLspStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsIngressLspCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsTransitLspCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsEgressLspCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsTotalLspCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsObsoleteGroup": {
+    "name": "hwMplsObsoleteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrConfigOper"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMplsTrapGroup": {
+    "name": "hwMplsTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingGroup": {
+    "name": "hwMplsRingGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingNodeID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingDirection"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitchReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsGlobalGroup": {
+    "name": "hwMplsGlobalGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdUpperLimit"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdLowerLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspGroup": {
+    "name": "hwMplsLspGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsLspTrafficStatisticGroup": {
+    "name": "hwMplsLspTrafficStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardInBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardInPackets"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardOutBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardOutPackets"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardInBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardInPackets"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardOutBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardOutPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsResourceGroup": {
+    "name": "hwMplsResourceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThreshold"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsExtendCompliances": {
+    "name": "hwMplsExtendCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2",
+    "class": "objectidentity"
+  },
+  "hwExtendTrapGroup": {
+    "name": "hwExtendTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrProtAval"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrProtNotAval"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticLspUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticLspDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticCRLspUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticCRLspDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHSBSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHSBResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOBSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOBResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelChangeBw"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelTpOamLossSD"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamSDRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLoss"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLossRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamAis"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamAisRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamRdi"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamRdiRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMeg"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMegRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMep"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMepRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamSF"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamSFRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamPeriod"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamPeriodRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLck"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLckRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamExcess"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamExcessRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMatch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMatchRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMerge"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMergeRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamUnknown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamUnknownRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamBDI"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamBDIRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamFail"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamFailRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPrimaryUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPrimaryDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbyUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbyDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOrdinaryUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOrdinaryDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBesteffortUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBesteffortDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeAutoTunnelDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeAutoTunnelPrimaryDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBBSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBBResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsExtTunnelDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsExtTunnelDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLocalLock"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLocalLockRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamLoss"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamLossClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamLoss"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamLossClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamRDI"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamRDIClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamRDI"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamRDIClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEG"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEGClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEG"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEGClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedPeriod"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedPeriodClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedPeriod"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedPeriodClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamExcess"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamExcessClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamExcess"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamExcessClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSD"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSDClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSD"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSDClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSF"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSFClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSF"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSFClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSSwitchFail"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSSwitchFailClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSSwitchFail"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSSwitchFailClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSLost"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSLostClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSLost"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSLostClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSMismatch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSMismatchClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSMismatch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSMismatchClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEP"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEPClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEP"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEPClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDelete"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCountExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCountExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCountExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCountExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCountExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCountExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspLoopBack"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspLoopBackClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCommitLost"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCommitLostClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbySwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbyResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBfdPathMismatch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBfdPathMismatchClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeLspBfdDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeLspBfdDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDelegationReturn"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDelegationReturnClear"
+      }
+    ],
+    "status": "current"
+  },
+  "hwObsoleteTrapGroup": {
+    "name": "hwObsoleteTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrConfigChange"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingResume"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMplsModuleCompliance": {
+    "name": "hwMplsModuleCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwStaticLspGroup",
+        "module": "HUAWEI-MPLS-EXTEND-MIB"
+      },
+      {
+        "object": "hwMplsTunnelGroup",
+        "module": "HUAWEI-MPLS-EXTEND-MIB"
+      },
+      {
+        "object": "hwMplsDsTeGroup",
+        "module": "HUAWEI-MPLS-EXTEND-MIB"
+      },
+      {
+        "object": "hwMplsRingGroup",
+        "module": "HUAWEI-MPLS-EXTEND-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingMib": {
+    "name": "hwMplsRingMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7",
+    "class": "objectidentity"
+  },
+  "hwMplsRingTable": {
+    "name": "hwMplsRingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsRingEntry": {
+    "name": "hwMplsRingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingID": {
+    "name": "hwMplsRingID",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwMplsRingNodeID": {
+    "name": "hwMplsRingNodeID",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsRingName": {
+    "name": "hwMplsRingName",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsRingDirection": {
+    "name": "hwMplsRingDirection",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsRingSwitchReason": {
+    "name": "hwMplsRingSwitchReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMplsRingTrap": {
+    "name": "hwMplsRingTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2",
+    "class": "objectidentity"
+  },
+  "hwMplsRingSwitch": {
+    "name": "hwMplsRingSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingNodeID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingDirection"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitchReason"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMplsRingResume": {
+    "name": "hwMplsRingResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingNodeID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingDirection"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwMplsRingWestOamLoss": {
+    "name": "hwMplsRingWestOamLoss",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamLossClear": {
+    "name": "hwMplsRingWestOamLossClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamLoss": {
+    "name": "hwMplsRingEastOamLoss",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamLossClear": {
+    "name": "hwMplsRingEastOamLossClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamRDI": {
+    "name": "hwMplsRingWestOamRDI",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamRDIClear": {
+    "name": "hwMplsRingWestOamRDIClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamRDI": {
+    "name": "hwMplsRingEastOamRDI",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamRDIClear": {
+    "name": "hwMplsRingEastOamRDIClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEG": {
+    "name": "hwMplsRingWestOamUnexpectedMEG",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEGClear": {
+    "name": "hwMplsRingWestOamUnexpectedMEGClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEG": {
+    "name": "hwMplsRingEastOamUnexpectedMEG",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEGClear": {
+    "name": "hwMplsRingEastOamUnexpectedMEGClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedPeriod": {
+    "name": "hwMplsRingWestOamUnexpectedPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedPeriodClear": {
+    "name": "hwMplsRingWestOamUnexpectedPeriodClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedPeriod": {
+    "name": "hwMplsRingEastOamUnexpectedPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedPeriodClear": {
+    "name": "hwMplsRingEastOamUnexpectedPeriodClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamExcess": {
+    "name": "hwMplsRingWestOamExcess",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamExcessClear": {
+    "name": "hwMplsRingWestOamExcessClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamExcess": {
+    "name": "hwMplsRingEastOamExcess",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamExcessClear": {
+    "name": "hwMplsRingEastOamExcessClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamSD": {
+    "name": "hwMplsRingWestOamSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamSDClear": {
+    "name": "hwMplsRingWestOamSDClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamSD": {
+    "name": "hwMplsRingEastOamSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamSDClear": {
+    "name": "hwMplsRingEastOamSDClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamSF": {
+    "name": "hwMplsRingWestOamSF",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamSFClear": {
+    "name": "hwMplsRingWestOamSFClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamSF": {
+    "name": "hwMplsRingEastOamSF",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamSFClear": {
+    "name": "hwMplsRingEastOamSFClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSSwitch": {
+    "name": "hwMplsRingWestAPSSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSResume": {
+    "name": "hwMplsRingWestAPSResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSSwitch": {
+    "name": "hwMplsRingEastAPSSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSResume": {
+    "name": "hwMplsRingEastAPSResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSSwitchFail": {
+    "name": "hwMplsRingWestAPSSwitchFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSSwitchFailClear": {
+    "name": "hwMplsRingWestAPSSwitchFailClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSSwitchFail": {
+    "name": "hwMplsRingEastAPSSwitchFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSSwitchFailClear": {
+    "name": "hwMplsRingEastAPSSwitchFailClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSLost": {
+    "name": "hwMplsRingWestAPSLost",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSLostClear": {
+    "name": "hwMplsRingWestAPSLostClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSLost": {
+    "name": "hwMplsRingEastAPSLost",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSLostClear": {
+    "name": "hwMplsRingEastAPSLostClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSMismatch": {
+    "name": "hwMplsRingWestAPSMismatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestAPSMismatchClear": {
+    "name": "hwMplsRingWestAPSMismatchClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSMismatch": {
+    "name": "hwMplsRingEastAPSMismatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastAPSMismatchClear": {
+    "name": "hwMplsRingEastAPSMismatchClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEP": {
+    "name": "hwMplsRingWestOamUnexpectedMEP",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEPClear": {
+    "name": "hwMplsRingWestOamUnexpectedMEPClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEP": {
+    "name": "hwMplsRingEastOamUnexpectedMEP",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEPClear": {
+    "name": "hwMplsRingEastOamUnexpectedMEPClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MPLS-EXTEND-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-MPLS-EXTEND-MIB"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DMN-DSG-ROOT-MIB": [
+      "ciscoDSGUtilities"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDSGFPUI": {
+    "name": "ciscoDSGFPUI",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-30 11:00",
+        "description": "V01.00.02 2010-08-30 Updated for adherence to SNMPv2 format."
+      },
+      {
+        "revision": "2010-03-22 05:00",
+        "description": "V01.00.01 2010-03-22 The Syntax of Unsigned32 MIB objects whose range is within the range of Integer32, is updated to Integer32."
+      },
+      {
+        "revision": "2009-12-20 12:00",
+        "description": "V01.00.00 2009-12-20 Initial Version."
+      }
+    ]
+  },
+  "fpuiKBLock": {
+    "name": "fpuiKBLock",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fpuiKBLockTimeout": {
+    "name": "fpuiKBLockTimeout",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fpuiLCDContrast": {
+    "name": "fpuiLCDContrast",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fpuiAWReminder": {
+    "name": "fpuiAWReminder",
+    "oid": "1.3.6.1.4.1.1429.2.2.5.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DMN-DSG-FPUI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DMN-DSG-FPUI-MIB"
+  }
+}

@@ -1,0 +1,1680 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-WIRELESS-TC-MIB": [
+      "CwrFixedPointValue",
+      "CwrFixedPointScale",
+      "CwrCollectionStatus",
+      "CwrThreshLimitType",
+      "CwrCollectionAction",
+      "P2mpRadioSignalAttribute",
+      "CwrUpdateTime",
+      "P2mpSnapshotAttribute",
+      "CwrFixedPointPrecision"
+    ],
+    "IF-MIB": [
+      "OwnerString",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWirelessRfMetricsMIB": {
+    "name": "ciscoWirelessRfMetricsMIB",
+    "oid": "1.3.6.1.4.1.9.9.180",
+    "class": "moduleidentity"
+  },
+  "p2mpRadioHistoryGroup": {
+    "name": "p2mpRadioHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.1",
+    "class": "objectidentity"
+  },
+  "p2mpRadioTimelineGroup": {
+    "name": "p2mpRadioTimelineGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.2",
+    "class": "objectidentity"
+  },
+  "p2mpRadioThresholdGroup": {
+    "name": "p2mpRadioThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.3",
+    "class": "objectidentity"
+  },
+  "p2mpRadioSnapshotGroup": {
+    "name": "p2mpRadioSnapshotGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.4",
+    "class": "objectidentity"
+  },
+  "p2mpHistCtrlTable": {
+    "name": "p2mpHistCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHistCtrlEntry": {
+    "name": "p2mpHistCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistSuMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHistSuMacAddress": {
+    "name": "p2mpHistSuMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHistClass": {
+    "name": "p2mpHistClass",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "P2mpRadioSignalAttribute",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHistSize": {
+    "name": "p2mpHistSize",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fine": 1,
+          "coarse": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpHistSumScale": {
+    "name": "p2mpHistSumScale",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHistSumPrecision": {
+    "name": "p2mpHistSumPrecision",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpStartBinValue": {
+    "name": "p2mpStartBinValue",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpEndBinValue": {
+    "name": "p2mpEndBinValue",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpCollDuration": {
+    "name": "p2mpCollDuration",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpUpdateRate": {
+    "name": "p2mpUpdateRate",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpPeriodicSum": {
+    "name": "p2mpPeriodicSum",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpHistOwner": {
+    "name": "p2mpHistOwner",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpHistAction": {
+    "name": "p2mpHistAction",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCollectionAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpHistStatus": {
+    "name": "p2mpHistStatus",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCollectionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHistRowStatus": {
+    "name": "p2mpHistRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.180.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpHistSummaryTable": {
+    "name": "p2mpHistSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.180.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHistSummaryEntry": {
+    "name": "p2mpHistSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistSuMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHistUpdateTime": {
+    "name": "p2mpHistUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.180.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHistMin": {
+    "name": "p2mpHistMin",
+    "oid": "1.3.6.1.4.1.9.9.180.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHistMax": {
+    "name": "p2mpHistMax",
+    "oid": "1.3.6.1.4.1.9.9.180.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHistMean": {
+    "name": "p2mpHistMean",
+    "oid": "1.3.6.1.4.1.9.9.180.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpHistDataTable": {
+    "name": "p2mpHistDataTable",
+    "oid": "1.3.6.1.4.1.9.9.180.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpHistDataEntry": {
+    "name": "p2mpHistDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistSuMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistClass",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistBinIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpHistBinIndex": {
+    "name": "p2mpHistBinIndex",
+    "oid": "1.3.6.1.4.1.9.9.180.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpValue": {
+    "name": "p2mpValue",
+    "oid": "1.3.6.1.4.1.9.9.180.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTlCtrlTable": {
+    "name": "p2mpTlCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpTlCtrlEntry": {
+    "name": "p2mpTlCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlSuMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpTlSuMacAddress": {
+    "name": "p2mpTlSuMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpTlClass": {
+    "name": "p2mpTlClass",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "P2mpRadioSignalAttribute",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpTlThreshAttribute": {
+    "name": "p2mpTlThreshAttribute",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "P2mpRadioSignalAttribute",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlThreshType": {
+    "name": "p2mpTlThreshType",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrThreshLimitType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlNumDataValues": {
+    "name": "p2mpTlNumDataValues",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "number of data values",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlDataScale": {
+    "name": "p2mpTlDataScale",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTlDataPrecision": {
+    "name": "p2mpTlDataPrecision",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTlSamplePeriod": {
+    "name": "p2mpTlSamplePeriod",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlAction": {
+    "name": "p2mpTlAction",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCollectionAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlPostTrigBufMgmt": {
+    "name": "p2mpTlPostTrigBufMgmt",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preTrigger": 1,
+          "postTrigger": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlOwner": {
+    "name": "p2mpTlOwner",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlStatus": {
+    "name": "p2mpTlStatus",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCollectionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTlRowStatus": {
+    "name": "p2mpTlRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.180.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpTlSummaryTable": {
+    "name": "p2mpTlSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.180.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpTlSummaryEntry": {
+    "name": "p2mpTlSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlSuMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpTlUpdateTime": {
+    "name": "p2mpTlUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.180.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrUpdateTime",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTlNumValues": {
+    "name": "p2mpTlNumValues",
+    "oid": "1.3.6.1.4.1.9.9.180.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTlTriggerLoc": {
+    "name": "p2mpTlTriggerLoc",
+    "oid": "1.3.6.1.4.1.9.9.180.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpTlDataTable": {
+    "name": "p2mpTlDataTable",
+    "oid": "1.3.6.1.4.1.9.9.180.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpTlDataEntry": {
+    "name": "p2mpTlDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlSuMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlClass",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpTlValueIndex": {
+    "name": "p2mpTlValueIndex",
+    "oid": "1.3.6.1.4.1.9.9.180.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpTlValue": {
+    "name": "p2mpTlValue",
+    "oid": "1.3.6.1.4.1.9.9.180.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpThresholdTable": {
+    "name": "p2mpThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpThresholdEntry": {
+    "name": "p2mpThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshSuMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshAttribute",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpThreshSuMacAddr": {
+    "name": "p2mpThreshSuMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpThreshAttribute": {
+    "name": "p2mpThreshAttribute",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "P2mpRadioSignalAttribute",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpThreshType": {
+    "name": "p2mpThreshType",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrThreshLimitType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpThreshValue": {
+    "name": "p2mpThreshValue",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpThreshHysteresisTime": {
+    "name": "p2mpThreshHysteresisTime",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpThreshLimitTime": {
+    "name": "p2mpThreshLimitTime",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpThreshRowStatus": {
+    "name": "p2mpThreshRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.180.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpSnapshotCtrlTable": {
+    "name": "p2mpSnapshotCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSnapshotCtrlEntry": {
+    "name": "p2mpSnapshotCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotDspNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSnapshotDspNum": {
+    "name": "p2mpSnapshotDspNum",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSnapshotType": {
+    "name": "p2mpSnapshotType",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "P2mpSnapshotAttribute",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpSnapshotDataScale": {
+    "name": "p2mpSnapshotDataScale",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapshotDataPrecision": {
+    "name": "p2mpSnapshotDataPrecision",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapshotOwner": {
+    "name": "p2mpSnapshotOwner",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpSnapshotAction": {
+    "name": "p2mpSnapshotAction",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCollectionAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpSnapshotStatus": {
+    "name": "p2mpSnapshotStatus",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrCollectionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapshotRowStatus": {
+    "name": "p2mpSnapshotRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.180.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "p2mpSnapSummaryTable": {
+    "name": "p2mpSnapSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSnapSummaryEntry": {
+    "name": "p2mpSnapSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotDspNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSnapAttr1Id": {
+    "name": "p2mpSnapAttr1Id",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapAttr1Size": {
+    "name": "p2mpSnapAttr1Size",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapAttr2Id": {
+    "name": "p2mpSnapAttr2Id",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapAttr2Size": {
+    "name": "p2mpSnapAttr2Size",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapAttr3Id": {
+    "name": "p2mpSnapAttr3Id",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapAttr3Size": {
+    "name": "p2mpSnapAttr3Size",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapAttr4Id": {
+    "name": "p2mpSnapAttr4Id",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapAttr4Size": {
+    "name": "p2mpSnapAttr4Size",
+    "oid": "1.3.6.1.4.1.9.9.180.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpSnapDataTable": {
+    "name": "p2mpSnapDataTable",
+    "oid": "1.3.6.1.4.1.9.9.180.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpSnapDataEntry": {
+    "name": "p2mpSnapDataEntry",
+    "oid": "1.3.6.1.4.1.9.9.180.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotDspNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpSnapValueIndex": {
+    "name": "p2mpSnapValueIndex",
+    "oid": "1.3.6.1.4.1.9.9.180.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "p2mpRealPart": {
+    "name": "p2mpRealPart",
+    "oid": "1.3.6.1.4.1.9.9.180.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpImaginaryPart": {
+    "name": "p2mpImaginaryPart",
+    "oid": "1.3.6.1.4.1.9.9.180.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrFixedPointValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p2mpRfMetricsMIBNotificationPrefix": {
+    "name": "p2mpRfMetricsMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.180.3.2",
+    "class": "objectidentity"
+  },
+  "p2mpRfMetricsMIBNotification": {
+    "name": "p2mpRfMetricsMIBNotification",
+    "oid": "1.3.6.1.4.1.9.9.180.3.2.0",
+    "class": "objectidentity"
+  },
+  "p2mpTrapThresh": {
+    "name": "p2mpTrapThresh",
+    "oid": "1.3.6.1.4.1.9.9.180.3.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshValue"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshHysteresisTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshLimitTime"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpRadioRfConformance": {
+    "name": "p2mpRadioRfConformance",
+    "oid": "1.3.6.1.4.1.9.9.180.5",
+    "class": "objectidentity"
+  },
+  "p2mpRadioRfCompliances": {
+    "name": "p2mpRadioRfCompliances",
+    "oid": "1.3.6.1.4.1.9.9.180.5.1",
+    "class": "objectidentity"
+  },
+  "p2mpRadioRfGroups": {
+    "name": "p2mpRadioRfGroups",
+    "oid": "1.3.6.1.4.1.9.9.180.5.2",
+    "class": "objectidentity"
+  },
+  "p2mpRadioRfCompliance": {
+    "name": "p2mpRadioRfCompliance",
+    "oid": "1.3.6.1.4.1.9.9.180.5.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "p2mpComplianceHistogramGroup",
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"
+      },
+      {
+        "object": "p2mpComplianceThresholdGroup",
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"
+      },
+      {
+        "object": "p2mpComplianceTimelineGroup",
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"
+      },
+      {
+        "object": "p2mpComplianceSnapshotGroup",
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceHistogramGroup": {
+    "name": "p2mpComplianceHistogramGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.5.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistSize"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistSumScale"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistSumPrecision"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpStartBinValue"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpEndBinValue"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpUpdateRate"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpCollDuration"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpPeriodicSum"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistOwner"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistAction"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistMin"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistMax"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpHistMean"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpValue"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceThresholdGroup": {
+    "name": "p2mpComplianceThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.5.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshValue"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshHysteresisTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshLimitTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpThreshRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceTimelineGroup": {
+    "name": "p2mpComplianceTimelineGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.5.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlThreshAttribute"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlThreshType"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlNumDataValues"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlDataScale"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlDataPrecision"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlSamplePeriod"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlAction"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlPostTrigBufMgmt"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlOwner"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlUpdateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlNumValues"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlTriggerLoc"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpTlValue"
+      }
+    ],
+    "status": "current"
+  },
+  "p2mpComplianceSnapshotGroup": {
+    "name": "p2mpComplianceSnapshotGroup",
+    "oid": "1.3.6.1.4.1.9.9.180.5.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotType"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotDataScale"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotDataPrecision"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotOwner"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotAction"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapshotRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr1Id"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr1Size"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr2Id"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr2Size"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr3Id"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr3Size"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr4Id"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpSnapAttr4Size"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpRealPart"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+        "object": "p2mpImaginaryPart"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"
+  }
+}

@@ -1,0 +1,450 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAPID-MIB": [
+      "rapidstream"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "enterprises",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "rsInfoModule": {
+    "name": "rsInfoModule",
+    "oid": "1.3.6.1.4.1.4355.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-04-20 12:00",
+        "description": "Initial revision."
+      },
+      {
+        "revision": "2002-11-01 12:00",
+        "description": "Changed CONTACT-INFO."
+      }
+    ]
+  },
+  "rsClientMIB": {
+    "name": "rsClientMIB",
+    "oid": "1.3.6.1.4.1.4355.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsClientDHCPServer": {
+    "name": "rsClientDHCPServer",
+    "oid": "1.3.6.1.4.1.4355.6.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsClientDHCPClient": {
+    "name": "rsClientDHCPClient",
+    "oid": "1.3.6.1.4.1.4355.6.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsClientPPPoEClient": {
+    "name": "rsClientPPPoEClient",
+    "oid": "1.3.6.1.4.1.4355.6.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsClientDHCPServerEnable": {
+    "name": "rsClientDHCPServerEnable",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "relay": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerStartIpAddress": {
+    "name": "rsClientDHCPServerStartIpAddress",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerEndIpAddress": {
+    "name": "rsClientDHCPServerEndIpAddress",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerLeaseTime": {
+    "name": "rsClientDHCPServerLeaseTime",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerNum": {
+    "name": "rsClientDHCPServerNum",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerConnTable": {
+    "name": "rsClientDHCPServerConnTable",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsClientDHCPServerRelayServer": {
+    "name": "rsClientDHCPServerRelayServer",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerConnEntry": {
+    "name": "rsClientDHCPServerConnEntry",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-CLIENT-MIB",
+        "object": "rsClientDHCPServerConnIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsClientDHCPServerConnClientHostName": {
+    "name": "rsClientDHCPServerConnClientHostName",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerConnIPAddr": {
+    "name": "rsClientDHCPServerConnIPAddr",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerConnMACAddr": {
+    "name": "rsClientDHCPServerConnMACAddr",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerConnLeaseTimeStart": {
+    "name": "rsClientDHCPServerConnLeaseTimeStart",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPServerConnLeaseTimeEnd": {
+    "name": "rsClientDHCPServerConnLeaseTimeEnd",
+    "oid": "1.3.6.1.4.1.4355.6.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPClientEnable": {
+    "name": "rsClientDHCPClientEnable",
+    "oid": "1.3.6.1.4.1.4355.6.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPClientDomainName": {
+    "name": "rsClientDHCPClientDomainName",
+    "oid": "1.3.6.1.4.1.4355.6.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPClientDefaultGateway": {
+    "name": "rsClientDHCPClientDefaultGateway",
+    "oid": "1.3.6.1.4.1.4355.6.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPClientDNSOne": {
+    "name": "rsClientDHCPClientDNSOne",
+    "oid": "1.3.6.1.4.1.4355.6.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientDHCPClientDNSTwo": {
+    "name": "rsClientDHCPClientDNSTwo",
+    "oid": "1.3.6.1.4.1.4355.6.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientEnable": {
+    "name": "rsClientPPPoEClientEnable",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientADSLStatus": {
+    "name": "rsClientPPPoEClientADSLStatus",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnect": 0,
+          "initialize": 1,
+          "establish": 2,
+          "authenticate": 3,
+          "network": 4,
+          "running": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientLocalIPAddr": {
+    "name": "rsClientPPPoEClientLocalIPAddr",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientRemoteIPAddr": {
+    "name": "rsClientPPPoEClientRemoteIPAddr",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientNetMask": {
+    "name": "rsClientPPPoEClientNetMask",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientDNSOne": {
+    "name": "rsClientPPPoEClientDNSOne",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientDNSTwo": {
+    "name": "rsClientPPPoEClientDNSTwo",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEADSLPeerMACAddr": {
+    "name": "rsClientPPPoEADSLPeerMACAddr",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsClientPPPoEClientConnTime": {
+    "name": "rsClientPPPoEClientConnTime",
+    "oid": "1.3.6.1.4.1.4355.6.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CLIENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAPID-CLIENT-MIB"
+  }
+}

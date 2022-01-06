@@ -1,0 +1,579 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCableDiagMIB": {
+    "name": "ciscoCableDiagMIB",
+    "oid": "1.3.6.1.4.1.9.9.390",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-13 00:00",
+        "description": "Added a new enum value indeterminate(9) in ccdTdrIfResultPairStatus."
+      },
+      {
+        "revision": "2004-01-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCableDiagMIBNotifs": {
+    "name": "ciscoCableDiagMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.390.0",
+    "class": "objectidentity"
+  },
+  "ciscoCableDiagMIBObjects": {
+    "name": "ciscoCableDiagMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.390.1",
+    "class": "objectidentity"
+  },
+  "ciscoCableDiagMIBConform": {
+    "name": "ciscoCableDiagMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.390.2",
+    "class": "objectidentity"
+  },
+  "ccdPrbsObjects": {
+    "name": "ccdPrbsObjects",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1",
+    "class": "objectidentity"
+  },
+  "ccdTdrObjects": {
+    "name": "ccdTdrObjects",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2",
+    "class": "objectidentity"
+  },
+  "ccdPrbsIfTable": {
+    "name": "ccdPrbsIfTable",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccdPrbsIfEntry": {
+    "name": "ccdPrbsIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccdPrbsIfAction": {
+    "name": "ccdPrbsIfAction",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "errorReset": 3,
+          "running": 4,
+          "notRunning": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccdPrbsIfActionStatus": {
+    "name": "ccdPrbsIfActionStatus",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 1,
+          "failedDueToUnknownReason": 2,
+          "failedDueToResourceUnavailable": 3,
+          "failedDueToInternalError": 4,
+          "failedDueToTestAlreadyStarted": 5,
+          "failedDueToTestAlreadyStopped": 6,
+          "failedDueToInterfaceDisabled": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdPrbsIfTestErrors": {
+    "name": "ccdPrbsIfTestErrors",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdPrbsIfTestErrorsResetTime": {
+    "name": "ccdPrbsIfTestErrorsResetTime",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdPrbsIfTestErrorsMaxValue": {
+    "name": "ccdPrbsIfTestErrorsMaxValue",
+    "oid": "1.3.6.1.4.1.9.9.390.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfTable": {
+    "name": "ccdTdrIfTable",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccdTdrIfEntry": {
+    "name": "ccdTdrIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccdTdrIfAction": {
+    "name": "ccdTdrIfAction",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "clear": 2,
+          "running": 3,
+          "notRunning": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccdTdrIfActionStatus": {
+    "name": "ccdTdrIfActionStatus",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "succeeded": 1,
+          "failedDueToUnknownReason": 2,
+          "failedDueToResourceUnavailable": 3,
+          "failedDueToInternalError": 4,
+          "failedDueToTestAlreadyRunning": 5,
+          "failedDueToInterfaceDisabled": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfLastTestTime": {
+    "name": "ccdTdrIfLastTestTime",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultValid": {
+    "name": "ccdTdrIfResultValid",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultTable": {
+    "name": "ccdTdrIfResultTable",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccdTdrIfResultEntry": {
+    "name": "ccdTdrIfResultEntry",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccdTdrIfResultPairIndex": {
+    "name": "ccdTdrIfResultPairIndex",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pair1to2": 1,
+          "pair3to6": 2,
+          "pair4to5": 3,
+          "pair7to8": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccdTdrIfResultPairChannel": {
+    "name": "ccdTdrIfResultPairChannel",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "channelA": 2,
+          "channelB": 3,
+          "channelC": 4,
+          "channelD": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultPairLength": {
+    "name": "ccdTdrIfResultPairLength",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultPairLenAccuracy": {
+    "name": "ccdTdrIfResultPairLenAccuracy",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultPairDistToFault": {
+    "name": "ccdTdrIfResultPairDistToFault",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultPairDistAccuracy": {
+    "name": "ccdTdrIfResultPairDistAccuracy",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultPairLengthUnit": {
+    "name": "ccdTdrIfResultPairLengthUnit",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "meter": 2,
+          "centimeter": 3,
+          "kilometer": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccdTdrIfResultPairStatus": {
+    "name": "ccdTdrIfResultPairStatus",
+    "oid": "1.3.6.1.4.1.9.9.390.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "terminated": 2,
+          "notCompleted": 3,
+          "notSupported": 4,
+          "open": 5,
+          "shorted": 6,
+          "impedanceMismatch": 7,
+          "broken": 8,
+          "indeterminate": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCableDiagMIBCompliances": {
+    "name": "ciscoCableDiagMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.390.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCableDiagMIBGroups": {
+    "name": "ciscoCableDiagMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.390.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCableDiagMIBComplianceRev1": {
+    "name": "ciscoCableDiagMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.390.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccdPrbsGroup",
+        "module": "CISCO-CABLE-DIAG-MIB"
+      },
+      {
+        "object": "ccdTdrGroup",
+        "module": "CISCO-CABLE-DIAG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccdPrbsGroup": {
+    "name": "ccdPrbsGroup",
+    "oid": "1.3.6.1.4.1.9.9.390.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdPrbsIfAction"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdPrbsIfActionStatus"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdPrbsIfTestErrors"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdPrbsIfTestErrorsResetTime"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdPrbsIfTestErrorsMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ccdTdrGroup": {
+    "name": "ccdTdrGroup",
+    "oid": "1.3.6.1.4.1.9.9.390.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfAction"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfActionStatus"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfLastTestTime"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultValid"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairChannel"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairLength"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairLenAccuracy"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairDistToFault"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairDistAccuracy"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairLengthUnit"
+      },
+      {
+        "module": "CISCO-CABLE-DIAG-MIB",
+        "object": "ccdTdrIfResultPairStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-DIAG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CABLE-DIAG-MIB"
+  }
+}

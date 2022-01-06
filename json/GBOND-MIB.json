@@ -1,0 +1,1732 @@
+{
+  "imports": {
+    "class": "imports",
+    "HC-PerfHist-TC-MIB": [
+      "HCPerfValidIntervals",
+      "HCPerfCurrentCount",
+      "HCPerfIntervalThreshold",
+      "HCPerfTimeElapsed",
+      "HCPerfInvalidIntervals",
+      "HCPerfIntervalCount",
+      "HCPerfTotalCount"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "PhysAddress"
+    ]
+  },
+  "gBondMIB": {
+    "name": "gBondMIB",
+    "oid": "1.3.6.1.2.1.211",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-03-12 00:00",
+        "description": "Initial version, published as RFC XXXX."
+      }
+    ]
+  },
+  "gBondObjects": {
+    "name": "gBondObjects",
+    "oid": "1.3.6.1.2.1.211.1",
+    "class": "objectidentity"
+  },
+  "gBondConformance": {
+    "name": "gBondConformance",
+    "oid": "1.3.6.1.2.1.211.2",
+    "class": "objectidentity"
+  },
+  "gBondPort": {
+    "name": "gBondPort",
+    "oid": "1.3.6.1.2.1.211.1.1",
+    "class": "objectidentity"
+  },
+  "gBondBce": {
+    "name": "gBondBce",
+    "oid": "1.3.6.1.2.1.211.1.2",
+    "class": "objectidentity"
+  },
+  "GBondSchemeList": {
+    "name": "GBondSchemeList",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "g9981": 1,
+        "g9982": 2,
+        "g9983": 3
+      }
+    },
+    "status": "current"
+  },
+  "GBondScheme": {
+    "name": "GBondScheme",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "g9981": 1,
+          "g9982": 2,
+          "g9983": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "GBondPm1DayIntervalThreshold": {
+    "name": "GBondPm1DayIntervalThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "gBondPortNotifications": {
+    "name": "gBondPortNotifications",
+    "oid": "1.3.6.1.2.1.211.1.1.0",
+    "class": "objectidentity"
+  },
+  "gBondLowUpRateCrossing": {
+    "name": "gBondLowUpRateCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatUpDataRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfThreshLowUpRate"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondLowDnRateCrossing": {
+    "name": "gBondLowDnRateCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatDnDataRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfThreshLowDnRate"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTca15MinESCrossing": {
+    "name": "gBondPmTca15MinESCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh15MinES"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTca15MinSESCrossing": {
+    "name": "gBondPmTca15MinSESCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinSES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh15MinSES"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTca15MinUASCrossing": {
+    "name": "gBondPmTca15MinUASCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh15MinUAS"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTca1DayESCrossing": {
+    "name": "gBondPmTca1DayESCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DayES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh1DayES"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTca1DaySESCrossing": {
+    "name": "gBondPmTca1DaySESCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DaySES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh1DaySES"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTca1DayUASCrossing": {
+    "name": "gBondPmTca1DayUASCrossing",
+    "oid": "1.3.6.1.2.1.211.1.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DayUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh1DayUAS"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortConfTable": {
+    "name": "gBondPortConfTable",
+    "oid": "1.3.6.1.2.1.211.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortConfEntry": {
+    "name": "gBondPortConfEntry",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortConfAdminScheme": {
+    "name": "gBondPortConfAdminScheme",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondScheme",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfPeerAdminScheme": {
+    "name": "gBondPortConfPeerAdminScheme",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondScheme",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfDiscoveryCode": {
+    "name": "gBondPortConfDiscoveryCode",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfTargetUpDataRate": {
+    "name": "gBondPortConfTargetUpDataRate",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfTargetDnDataRate": {
+    "name": "gBondPortConfTargetDnDataRate",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfThreshLowUpRate": {
+    "name": "gBondPortConfThreshLowUpRate",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfThreshLowDnRate": {
+    "name": "gBondPortConfThreshLowDnRate",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfLowRateCrossingEnable": {
+    "name": "gBondPortConfLowRateCrossingEnable",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfPmTcaConfProfile": {
+    "name": "gBondPortConfPmTcaConfProfile",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortConfPmTcaEnable": {
+    "name": "gBondPortConfPmTcaEnable",
+    "oid": "1.3.6.1.2.1.211.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondPortCapTable": {
+    "name": "gBondPortCapTable",
+    "oid": "1.3.6.1.2.1.211.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortCapEntry": {
+    "name": "gBondPortCapEntry",
+    "oid": "1.3.6.1.2.1.211.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortCapSchemesSupported": {
+    "name": "gBondPortCapSchemesSupported",
+    "oid": "1.3.6.1.2.1.211.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondSchemeList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortCapPeerSchemesSupported": {
+    "name": "gBondPortCapPeerSchemesSupported",
+    "oid": "1.3.6.1.2.1.211.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondSchemeList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortCapCapacity": {
+    "name": "gBondPortCapCapacity",
+    "oid": "1.3.6.1.2.1.211.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortCapPeerCapacity": {
+    "name": "gBondPortCapPeerCapacity",
+    "oid": "1.3.6.1.2.1.211.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortStatTable": {
+    "name": "gBondPortStatTable",
+    "oid": "1.3.6.1.2.1.211.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortStatEntry": {
+    "name": "gBondPortStatEntry",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortStatOperScheme": {
+    "name": "gBondPortStatOperScheme",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondScheme",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortStatPeerOperScheme": {
+    "name": "gBondPortStatPeerOperScheme",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondScheme",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortStatUpDataRate": {
+    "name": "gBondPortStatUpDataRate",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortStatDnDataRate": {
+    "name": "gBondPortStatDnDataRate",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortStatFltStatus": {
+    "name": "gBondPortStatFltStatus",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noPeer": 0,
+        "peerPowerLoss": 1,
+        "peerBondSchemeMismatch": 2,
+        "bceSubTypeMismatch": 3,
+        "lowRate": 4,
+        "init": 5,
+        "ready": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortStatSide": {
+    "name": "gBondPortStatSide",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscriber": 1,
+          "office": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortStatNumBCEs": {
+    "name": "gBondPortStatNumBCEs",
+    "oid": "1.3.6.1.2.1.211.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPM": {
+    "name": "gBondPortPM",
+    "oid": "1.3.6.1.2.1.211.1.1.4",
+    "class": "objectidentity"
+  },
+  "gBondPortPmCurTable": {
+    "name": "gBondPortPmCurTable",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortPmCurEntry": {
+    "name": "gBondPortPmCurEntry",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortPmCurES": {
+    "name": "gBondPortPmCurES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCurSES": {
+    "name": "gBondPortPmCurSES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCurUAS": {
+    "name": "gBondPortPmCurUAS",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTotalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur15MinValidIntervals": {
+    "name": "gBondPortPmCur15MinValidIntervals",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfValidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur15MinInvalidIntervals": {
+    "name": "gBondPortPmCur15MinInvalidIntervals",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfInvalidIntervals",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur15MinTimeElapsed": {
+    "name": "gBondPortPmCur15MinTimeElapsed",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur15MinES": {
+    "name": "gBondPortPmCur15MinES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur15MinSES": {
+    "name": "gBondPortPmCur15MinSES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur15MinUAS": {
+    "name": "gBondPortPmCur15MinUAS",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur1DayValidIntervals": {
+    "name": "gBondPortPmCur1DayValidIntervals",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur1DayInvalidIntervals": {
+    "name": "gBondPortPmCur1DayInvalidIntervals",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur1DayTimeElapsed": {
+    "name": "gBondPortPmCur1DayTimeElapsed",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur1DayES": {
+    "name": "gBondPortPmCur1DayES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur1DaySES": {
+    "name": "gBondPortPmCur1DaySES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmCur1DayUAS": {
+    "name": "gBondPortPmCur1DayUAS",
+    "oid": "1.3.6.1.2.1.211.1.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm15MinTable": {
+    "name": "gBondPortPm15MinTable",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortPm15MinEntry": {
+    "name": "gBondPortPm15MinEntry",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm15MinIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortPm15MinIntervalIndex": {
+    "name": "gBondPortPm15MinIntervalIndex",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortPm15MinIntervalMoniTime": {
+    "name": "gBondPortPm15MinIntervalMoniTime",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm15MinIntervalES": {
+    "name": "gBondPortPm15MinIntervalES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm15MinIntervalSES": {
+    "name": "gBondPortPm15MinIntervalSES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm15MinIntervalUAS": {
+    "name": "gBondPortPm15MinIntervalUAS",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm15MinIntervalValid": {
+    "name": "gBondPortPm15MinIntervalValid",
+    "oid": "1.3.6.1.2.1.211.1.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm1DayTable": {
+    "name": "gBondPortPm1DayTable",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortPm1DayEntry": {
+    "name": "gBondPortPm1DayEntry",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm1DayIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortPm1DayIntervalIndex": {
+    "name": "gBondPortPm1DayIntervalIndex",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortPm1DayIntervalMoniTime": {
+    "name": "gBondPortPm1DayIntervalMoniTime",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm1DayIntervalES": {
+    "name": "gBondPortPm1DayIntervalES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm1DayIntervalSES": {
+    "name": "gBondPortPm1DayIntervalSES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm1DayIntervalUAS": {
+    "name": "gBondPortPm1DayIntervalUAS",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPm1DayIntervalValid": {
+    "name": "gBondPortPm1DayIntervalValid",
+    "oid": "1.3.6.1.2.1.211.1.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileTable": {
+    "name": "gBondPortPmTcaProfileTable",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileEntry": {
+    "name": "gBondPortPmTcaProfileEntry",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileName": {
+    "name": "gBondPortPmTcaProfileName",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileThresh15MinES": {
+    "name": "gBondPortPmTcaProfileThresh15MinES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileThresh15MinSES": {
+    "name": "gBondPortPmTcaProfileThresh15MinSES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileThresh15MinUAS": {
+    "name": "gBondPortPmTcaProfileThresh15MinUAS",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileThresh1DayES": {
+    "name": "gBondPortPmTcaProfileThresh1DayES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondPm1DayIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileThresh1DaySES": {
+    "name": "gBondPortPmTcaProfileThresh1DaySES",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondPm1DayIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileThresh1DayUAS": {
+    "name": "gBondPortPmTcaProfileThresh1DayUAS",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GBondPm1DayIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gBondPortPmTcaProfileRowStatus": {
+    "name": "gBondPortPmTcaProfileRowStatus",
+    "oid": "1.3.6.1.2.1.211.1.1.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gBondBceConfTable": {
+    "name": "gBondBceConfTable",
+    "oid": "1.3.6.1.2.1.211.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gBondBceConfEntry": {
+    "name": "gBondBceConfEntry",
+    "oid": "1.3.6.1.2.1.211.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gBondBceConfRemoteDiscoveryCode": {
+    "name": "gBondBceConfRemoteDiscoveryCode",
+    "oid": "1.3.6.1.2.1.211.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gBondGroups": {
+    "name": "gBondGroups",
+    "oid": "1.3.6.1.2.1.211.2.1",
+    "class": "objectidentity"
+  },
+  "gBondCompliances": {
+    "name": "gBondCompliances",
+    "oid": "1.3.6.1.2.1.211.2.2",
+    "class": "objectidentity"
+  },
+  "gBondBasicGroup": {
+    "name": "gBondBasicGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatOperScheme"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatUpDataRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatDnDataRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfTargetUpDataRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfTargetDnDataRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortCapSchemesSupported"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortCapCapacity"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatNumBCEs"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatSide"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatFltStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondDiscoveryGroup": {
+    "name": "gBondDiscoveryGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortStatPeerOperScheme"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortCapPeerSchemesSupported"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortCapPeerCapacity"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfDiscoveryCode"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondBceConfRemoteDiscoveryCode"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondMultiSchemeGroup": {
+    "name": "gBondMultiSchemeGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfAdminScheme"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfPeerAdminScheme"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondTcaConfGroup": {
+    "name": "gBondTcaConfGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfThreshLowUpRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfThreshLowDnRate"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfLowRateCrossingEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondTcaNotificationGroup": {
+    "name": "gBondTcaNotificationGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondLowUpRateCrossing"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondLowDnRateCrossing"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmCurGroup": {
+    "name": "gBondPmCurGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCurES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCurSES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCurUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinValidIntervals"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinInvalidIntervals"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinTimeElapsed"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinSES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur15MinUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DayValidIntervals"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DayInvalidIntervals"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DayTimeElapsed"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DayES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DaySES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmCur1DayUAS"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPm15MinGroup": {
+    "name": "gBondPm15MinGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm15MinIntervalMoniTime"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm15MinIntervalES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm15MinIntervalSES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm15MinIntervalUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm15MinIntervalValid"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPm1DayGroup": {
+    "name": "gBondPm1DayGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm1DayIntervalMoniTime"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm1DayIntervalES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm1DayIntervalSES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm1DayIntervalUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPm1DayIntervalValid"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTcaConfGroup": {
+    "name": "gBondPmTcaConfGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfPmTcaConfProfile"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortConfPmTcaEnable"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh15MinES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh15MinSES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh15MinUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh1DayES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh1DaySES"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileThresh1DayUAS"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPortPmTcaProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondPmTcaNotificationGroup": {
+    "name": "gBondPmTcaNotificationGroup",
+    "oid": "1.3.6.1.2.1.211.2.1.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPmTca15MinESCrossing"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPmTca15MinSESCrossing"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPmTca15MinUASCrossing"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPmTca1DayESCrossing"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPmTca1DaySESCrossing"
+      },
+      {
+        "module": "GBOND-MIB",
+        "object": "gBondPmTca1DayUASCrossing"
+      }
+    ],
+    "status": "current"
+  },
+  "gBondCompliance": {
+    "name": "gBondCompliance",
+    "oid": "1.3.6.1.2.1.211.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "gBondBasicGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondTcaConfGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondTcaNotificationGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondDiscoveryGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondMultiSchemeGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondPmCurGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondPm15MinGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondPm1DayGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondPmTcaConfGroup",
+        "module": "GBOND-MIB"
+      },
+      {
+        "object": "gBondPmTcaNotificationGroup",
+        "module": "GBOND-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/GBOND-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "GBOND-MIB"
+  }
+}

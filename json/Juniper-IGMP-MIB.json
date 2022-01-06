@@ -1,0 +1,1039 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniInterfaceLocationValue",
+      "JuniInterfaceLocationType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ]
+  },
+  "juniIgmpMIB": {
+    "name": "juniIgmpMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.40",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-08-25 05:40",
+        "description": "Added juniIgmpIfLocationType for support on REX platform and deprecated juniIgmpGroupsTable."
+      },
+      {
+        "revision": "2003-09-29 18:39",
+        "description": "Added IGMP administration state support."
+      },
+      {
+        "revision": "2002-10-28 14:55",
+        "description": "Replaced Unisphere names with Juniper names. Added support for interface addresses and multicast group limits."
+      },
+      {
+        "revision": "2000-09-26 18:50",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniIgmpProxyGroupState": {
+    "name": "JuniIgmpProxyGroupState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "juniIgmpProxyGroupUnknown": 0,
+          "juniIgmpProxyGroupIdleMember": 1,
+          "juniIgmpProxyGroupDelayingMember": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniIgmpProxyInterfaceState": {
+    "name": "JuniIgmpProxyInterfaceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "juniIgmpProxyInterfaceUnknown": 0,
+          "juniIgmpProxyInterfaceStateV1RouterPresent": 1,
+          "juniIgmpProxyInterfaceStateNonV1RouterPresent": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "juniIgmpMIBObject": {
+    "name": "juniIgmpMIBObject",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1",
+    "class": "objectidentity"
+  },
+  "juniIgmpProtocol": {
+    "name": "juniIgmpProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1",
+    "class": "objectidentity"
+  },
+  "juniIgmpProxy": {
+    "name": "juniIgmpProxy",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2",
+    "class": "objectidentity"
+  },
+  "juniIgmpGlobal": {
+    "name": "juniIgmpGlobal",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3",
+    "class": "objectidentity"
+  },
+  "juniIgmpGroupsTable": {
+    "name": "juniIgmpGroupsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniIgmpGroupsEntry": {
+    "name": "juniIgmpGroupsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpGroupsSlot",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpGroupsPort",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniIgmpGroupsSlot": {
+    "name": "juniIgmpGroupsSlot",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniIgmpGroupsPort": {
+    "name": "juniIgmpGroupsPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniIgmpGroupsMaxGroups": {
+    "name": "juniIgmpGroupsMaxGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "juniIgmpIfLocationType": {
+    "name": "juniIgmpIfLocationType",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniInterfaceLocationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpGroupsTable2": {
+    "name": "juniIgmpGroupsTable2",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpGroupsEntry2": {
+    "name": "juniIgmpGroupsEntry2",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpIfLocationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpIfLocationIndex": {
+    "name": "juniIgmpIfLocationIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniInterfaceLocationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpGroupsMaxGroups2": {
+    "name": "juniIgmpGroupsMaxGroups2",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpInterfaceTable": {
+    "name": "juniIgmpInterfaceTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpInterfaceEntry": {
+    "name": "juniIgmpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpInterfaceIfIndex": {
+    "name": "juniIgmpInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpInterfaceQuerierTimeout": {
+    "name": "juniIgmpInterfaceQuerierTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 399
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpInterfaceImmediateLeave": {
+    "name": "juniIgmpInterfaceImmediateLeave",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpInterfaceAccessGroup": {
+    "name": "juniIgmpInterfaceAccessGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpInterfacePromiscuous": {
+    "name": "juniIgmpInterfacePromiscuous",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpInterfaceMaxGroups": {
+    "name": "juniIgmpInterfaceMaxGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpInterfaceIoaPacketReplIfIndex": {
+    "name": "juniIgmpInterfaceIoaPacketReplIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpRouterPromiscuous": {
+    "name": "juniIgmpRouterPromiscuous",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpAdminState": {
+    "name": "juniIgmpAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceTable": {
+    "name": "juniIgmpProxyInterfaceTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceEntry": {
+    "name": "juniIgmpProxyInterfaceEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceIfIndex": {
+    "name": "juniIgmpProxyInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceAddress": {
+    "name": "juniIgmpProxyInterfaceAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceMask": {
+    "name": "juniIgmpProxyInterfaceMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceState": {
+    "name": "juniIgmpProxyInterfaceState",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniIgmpProxyInterfaceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceStatus": {
+    "name": "juniIgmpProxyInterfaceStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceVersion": {
+    "name": "juniIgmpProxyInterfaceVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceV1RoutePresentTimeout": {
+    "name": "juniIgmpProxyInterfaceV1RoutePresentTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 400,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceUnsolicitedReportInterval": {
+    "name": "juniIgmpProxyInterfaceUnsolicitedReportInterval",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceTotalGroupCount": {
+    "name": "juniIgmpProxyInterfaceTotalGroupCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceWrongVersionCount": {
+    "name": "juniIgmpProxyInterfaceWrongVersionCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceV1QueryReceiveCount": {
+    "name": "juniIgmpProxyInterfaceV1QueryReceiveCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceV2QueryReceiveCount": {
+    "name": "juniIgmpProxyInterfaceV2QueryReceiveCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceV1ReportReceiveCount": {
+    "name": "juniIgmpProxyInterfaceV1ReportReceiveCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceV2ReportReceiveCount": {
+    "name": "juniIgmpProxyInterfaceV2ReportReceiveCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceV1JoinReportCount": {
+    "name": "juniIgmpProxyInterfaceV1JoinReportCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceV2JoinReportCount": {
+    "name": "juniIgmpProxyInterfaceV2JoinReportCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceLeaveReportCount": {
+    "name": "juniIgmpProxyInterfaceLeaveReportCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpProxyCacheTable": {
+    "name": "juniIgmpProxyCacheTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpProxyCacheEntry": {
+    "name": "juniIgmpProxyCacheEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpProxyIfIndex": {
+    "name": "juniIgmpProxyIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpProxyAddress": {
+    "name": "juniIgmpProxyAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniIgmpProxyStatus": {
+    "name": "juniIgmpProxyStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniIgmpProxyGroupState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniIgmpConformance": {
+    "name": "juniIgmpConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4",
+    "class": "objectidentity"
+  },
+  "juniIgmpCompliances": {
+    "name": "juniIgmpCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.1",
+    "class": "objectidentity"
+  },
+  "juniIgmpGroups": {
+    "name": "juniIgmpGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.2",
+    "class": "objectidentity"
+  },
+  "juniIgmpCompliance": {
+    "name": "juniIgmpCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIgmpProxyInterfaceGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpProxyCacheGroup",
+        "module": "Juniper-IGMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIgmpCompliance2": {
+    "name": "juniIgmpCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIgmpProxyInterfaceGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpProxyCacheGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpInterfaceGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpGroupsGroup",
+        "module": "Juniper-IGMP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIgmpCompliance3": {
+    "name": "juniIgmpCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIgmpProxyInterfaceGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpProxyCacheGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpInterfaceGroup2",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpGroupsGroup",
+        "module": "Juniper-IGMP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniIgmpCompliance4": {
+    "name": "juniIgmpCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniIgmpProxyInterfaceGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpProxyCacheGroup",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpInterfaceGroup2",
+        "module": "Juniper-IGMP-MIB"
+      },
+      {
+        "object": "juniIgmpGroupsGroup2",
+        "module": "Juniper-IGMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpProxyInterfaceGroup": {
+    "name": "juniIgmpProxyInterfaceGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceAddress"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceMask"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceState"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceStatus"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceVersion"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceV1RoutePresentTimeout"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceUnsolicitedReportInterval"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceTotalGroupCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceWrongVersionCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceV1QueryReceiveCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceV2QueryReceiveCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceV1ReportReceiveCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceV2ReportReceiveCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceV1JoinReportCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceV2JoinReportCount"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyInterfaceLeaveReportCount"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpProxyCacheGroup": {
+    "name": "juniIgmpProxyCacheGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpProxyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpInterfaceGroup": {
+    "name": "juniIgmpInterfaceGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceQuerierTimeout"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceImmediateLeave"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceAccessGroup"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfacePromiscuous"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceMaxGroups"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpRouterPromiscuous"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniIgmpGroupsGroup": {
+    "name": "juniIgmpGroupsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpGroupsMaxGroups"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniIgmpInterfaceGroup2": {
+    "name": "juniIgmpInterfaceGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceQuerierTimeout"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceImmediateLeave"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceAccessGroup"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfacePromiscuous"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpInterfaceMaxGroups"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpRouterPromiscuous"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "juniIgmpGroupsGroup2": {
+    "name": "juniIgmpGroupsGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.40.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpIfLocationType"
+      },
+      {
+        "module": "Juniper-IGMP-MIB",
+        "object": "juniIgmpGroupsMaxGroups2"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-IGMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-IGMP-MIB"
+  }
+}

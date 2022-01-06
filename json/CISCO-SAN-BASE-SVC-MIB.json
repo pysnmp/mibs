@@ -1,0 +1,880 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcNameId"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoSanBaseSvcMIB": {
+    "name": "ciscoSanBaseSvcMIB",
+    "oid": "1.3.6.1.4.1.9.9.702",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-11 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "ciscoSanBaseSvcMIBNotifs": {
+    "name": "ciscoSanBaseSvcMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.702.0",
+    "class": "objectidentity"
+  },
+  "ciscoSanBaseSvcMIBObjects": {
+    "name": "ciscoSanBaseSvcMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.702.1",
+    "class": "objectidentity"
+  },
+  "ciscoSanBaseSvcMIBConform": {
+    "name": "ciscoSanBaseSvcMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.702.2",
+    "class": "objectidentity"
+  },
+  "cSanBaseSvcConfig": {
+    "name": "cSanBaseSvcConfig",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1",
+    "class": "objectidentity"
+  },
+  "cSanBaseSvcInterface": {
+    "name": "cSanBaseSvcInterface",
+    "oid": "1.3.6.1.4.1.9.9.702.1.2",
+    "class": "objectidentity"
+  },
+  "CiscoSanBaseSvcInterfaceStatus": {
+    "name": "CiscoSanBaseSvcInterfaceStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "initializing": 2,
+          "offline": 3,
+          "online": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoSanBaseSvcClusterStatus": {
+    "name": "CiscoSanBaseSvcClusterStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inactive": 2,
+          "degraded": 3,
+          "recovery": 4,
+          "active": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoSanBaseSvcClusterIndex": {
+    "name": "CiscoSanBaseSvcClusterIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cSanBaseSvcClusterTable": {
+    "name": "cSanBaseSvcClusterTable",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterEntry": {
+    "name": "cSanBaseSvcClusterEntry",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSanBaseSvcClusterId": {
+    "name": "cSanBaseSvcClusterId",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSanBaseSvcClusterIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterName": {
+    "name": "cSanBaseSvcClusterName",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterState": {
+    "name": "cSanBaseSvcClusterState",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSanBaseSvcClusterStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMasterInetAddrType": {
+    "name": "cSanBaseSvcClusterMasterInetAddrType",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMasterInetAddr": {
+    "name": "cSanBaseSvcClusterMasterInetAddr",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterStorageType": {
+    "name": "cSanBaseSvcClusterStorageType",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterRowStatus": {
+    "name": "cSanBaseSvcClusterRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterApplication": {
+    "name": "cSanBaseSvcClusterApplication",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMembersTable": {
+    "name": "cSanBaseSvcClusterMembersTable",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMembersEntry": {
+    "name": "cSanBaseSvcClusterMembersEntry",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberInetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberInetAddrType": {
+    "name": "cSanBaseSvcClusterMemberInetAddrType",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberInetAddr": {
+    "name": "cSanBaseSvcClusterMemberInetAddr",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberFabric": {
+    "name": "cSanBaseSvcClusterMemberFabric",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberIsLocal": {
+    "name": "cSanBaseSvcClusterMemberIsLocal",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberIsMaster": {
+    "name": "cSanBaseSvcClusterMemberIsMaster",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberStorageType": {
+    "name": "cSanBaseSvcClusterMemberStorageType",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberRowStatus": {
+    "name": "cSanBaseSvcClusterMemberRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcInterfaceTable": {
+    "name": "cSanBaseSvcInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcInterfaceEntry": {
+    "name": "cSanBaseSvcInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSanBaseSvcInterfaceIndex": {
+    "name": "cSanBaseSvcInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcInterfaceState": {
+    "name": "cSanBaseSvcInterfaceState",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSanBaseSvcInterfaceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcInterfaceClusterId": {
+    "name": "cSanBaseSvcInterfaceClusterId",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSanBaseSvcClusterIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcInterfaceStorageType": {
+    "name": "cSanBaseSvcInterfaceStorageType",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcInterfaceRowStatus": {
+    "name": "cSanBaseSvcInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcDevicePortTable": {
+    "name": "cSanBaseSvcDevicePortTable",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcDevicePortEntry": {
+    "name": "cSanBaseSvcDevicePortEntry",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcDevicePortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSanBaseSvcDevicePortName": {
+    "name": "cSanBaseSvcDevicePortName",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcDevicePortClusterId": {
+    "name": "cSanBaseSvcDevicePortClusterId",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSanBaseSvcClusterIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcDevicePortStorageType": {
+    "name": "cSanBaseSvcDevicePortStorageType",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcDevicePortRowStatus": {
+    "name": "cSanBaseSvcDevicePortRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSanBaseSvcConfigTableLastChanged": {
+    "name": "cSanBaseSvcConfigTableLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcDevicePortTableLastChanged": {
+    "name": "cSanBaseSvcDevicePortTableLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cSanBaseSvcNotifyEnable": {
+    "name": "cSanBaseSvcNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.702.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberIfTable": {
+    "name": "cSanBaseSvcClusterMemberIfTable",
+    "oid": "1.3.6.1.4.1.9.9.702.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterMemberIfEntry": {
+    "name": "cSanBaseSvcClusterMemberIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.702.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberInetAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cSanBaseSvcClusterInterfaceIndex": {
+    "name": "cSanBaseSvcClusterInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.9.702.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cSanBaseSvcClusterInterfaceState": {
+    "name": "cSanBaseSvcClusterInterfaceState",
+    "oid": "1.3.6.1.4.1.9.9.702.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoSanBaseSvcInterfaceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSanBaseSvcInterfaceCreate": {
+    "name": "ciscoSanBaseSvcInterfaceCreate",
+    "oid": "1.3.6.1.4.1.9.9.702.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSanBaseSvcInterfaceDelete": {
+    "name": "ciscoSanBaseSvcInterfaceDelete",
+    "oid": "1.3.6.1.4.1.9.9.702.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSanBaseSvcClusterNewMaster": {
+    "name": "ciscoSanBaseSvcClusterNewMaster",
+    "oid": "1.3.6.1.4.1.9.9.702.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterName"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMasterInetAddrType"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMasterInetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSanBaseSvcMIBCompliances": {
+    "name": "ciscoSanBaseSvcMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.702.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSanBaseSvcMIBGroups": {
+    "name": "ciscoSanBaseSvcMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.702.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSanBaseSvcMIBCompliance": {
+    "name": "ciscoSanBaseSvcMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.702.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSanBaseSvcConfigGroup",
+        "module": "CISCO-SAN-BASE-SVC-MIB"
+      },
+      {
+        "object": "ciscoSanBaseSvcNotifControlGroup",
+        "module": "CISCO-SAN-BASE-SVC-MIB"
+      },
+      {
+        "object": "ciscoSanBaseSvcNotifsGroup",
+        "module": "CISCO-SAN-BASE-SVC-MIB"
+      },
+      {
+        "object": "ciscoSanBaseSvcInterfaceGroup",
+        "module": "CISCO-SAN-BASE-SVC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSanBaseSvcConfigGroup": {
+    "name": "ciscoSanBaseSvcConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.702.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterState"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMasterInetAddrType"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMasterInetAddr"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberIsLocal"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcInterfaceState"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcInterfaceClusterId"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcDevicePortClusterId"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcConfigTableLastChanged"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberFabric"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterName"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcInterfaceRowStatus"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterRowStatus"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberIsMaster"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberRowStatus"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterStorageType"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterMemberStorageType"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcInterfaceStorageType"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcDevicePortStorageType"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcDevicePortRowStatus"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterApplication"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcDevicePortTableLastChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSanBaseSvcNotifControlGroup": {
+    "name": "ciscoSanBaseSvcNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.702.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSanBaseSvcNotifsGroup": {
+    "name": "ciscoSanBaseSvcNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.702.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "ciscoSanBaseSvcInterfaceCreate"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "ciscoSanBaseSvcInterfaceDelete"
+      },
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "ciscoSanBaseSvcClusterNewMaster"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSanBaseSvcInterfaceGroup": {
+    "name": "ciscoSanBaseSvcInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.702.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SAN-BASE-SVC-MIB",
+        "object": "cSanBaseSvcClusterInterfaceState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SAN-BASE-SVC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SAN-BASE-SVC-MIB"
+  }
+}

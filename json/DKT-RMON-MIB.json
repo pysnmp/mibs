@@ -1,0 +1,3262 @@
+{
+  "imports": {
+    "class": "imports",
+    "DKT-MIB": [
+      "dkt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "rmonMIB": {
+    "name": "rmonMIB",
+    "oid": "1.3.6.1.4.1.27304.13",
+    "class": "moduleidentity"
+  },
+  "rmonHistogramMode": {
+    "name": "rmonHistogramMode",
+    "oid": "1.3.6.1.4.1.27304.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rmonFlushAllCounter": {
+    "name": "rmonFlushAllCounter",
+    "oid": "1.3.6.1.4.1.27304.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "rmonFlushPortCounter": {
+    "name": "rmonFlushPortCounter",
+    "oid": "1.3.6.1.4.1.27304.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "rmonPorts": {
+    "name": "rmonPorts",
+    "oid": "1.3.6.1.4.1.27304.13.4",
+    "class": "objectidentity"
+  },
+  "rmonCPUPort": {
+    "name": "rmonCPUPort",
+    "oid": "1.3.6.1.4.1.27304.13.4.1",
+    "class": "objectidentity"
+  },
+  "rmonCPUPortGetInGoodOctetsLo": {
+    "name": "rmonCPUPortGetInGoodOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInGoodOctetsHi": {
+    "name": "rmonCPUPortGetInGoodOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInBadOctets": {
+    "name": "rmonCPUPortGetInBadOctets",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOutFCSErr": {
+    "name": "rmonCPUPortGetOutFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInUnicasts": {
+    "name": "rmonCPUPortGetInUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetDeferred": {
+    "name": "rmonCPUPortGetDeferred",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInBroadcasts": {
+    "name": "rmonCPUPortGetInBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInMulticasts": {
+    "name": "rmonCPUPortGetInMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOctets64": {
+    "name": "rmonCPUPortGetOctets64",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOctets127": {
+    "name": "rmonCPUPortGetOctets127",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOctets255": {
+    "name": "rmonCPUPortGetOctets255",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOctets511": {
+    "name": "rmonCPUPortGetOctets511",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOctets1023": {
+    "name": "rmonCPUPortGetOctets1023",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOctetsMax": {
+    "name": "rmonCPUPortGetOctetsMax",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOutOctetsLo": {
+    "name": "rmonCPUPortGetOutOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOutOctetsHi": {
+    "name": "rmonCPUPortGetOutOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOutUnicasts": {
+    "name": "rmonCPUPortGetOutUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetExcessive": {
+    "name": "rmonCPUPortGetExcessive",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOutMulticasts": {
+    "name": "rmonCPUPortGetOutMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOutBroadcasts": {
+    "name": "rmonCPUPortGetOutBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetSingle": {
+    "name": "rmonCPUPortGetSingle",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOutPause": {
+    "name": "rmonCPUPortGetOutPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInPause": {
+    "name": "rmonCPUPortGetInPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetMultiple": {
+    "name": "rmonCPUPortGetMultiple",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetUndersize": {
+    "name": "rmonCPUPortGetUndersize",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetFragments": {
+    "name": "rmonCPUPortGetFragments",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetOversize": {
+    "name": "rmonCPUPortGetOversize",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetJabber": {
+    "name": "rmonCPUPortGetJabber",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInMACRcvErr": {
+    "name": "rmonCPUPortGetInMACRcvErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetInFCSErr": {
+    "name": "rmonCPUPortGetInFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetCollisions": {
+    "name": "rmonCPUPortGetCollisions",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonCPUPortGetLate": {
+    "name": "rmonCPUPortGetLate",
+    "oid": "1.3.6.1.4.1.27304.13.4.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPort": {
+    "name": "rmonWANPort",
+    "oid": "1.3.6.1.4.1.27304.13.4.2",
+    "class": "objectidentity"
+  },
+  "rmonWANPortGetInGoodOctetsLo": {
+    "name": "rmonWANPortGetInGoodOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInGoodOctetsHi": {
+    "name": "rmonWANPortGetInGoodOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInBadOctets": {
+    "name": "rmonWANPortGetInBadOctets",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOutFCSErr": {
+    "name": "rmonWANPortGetOutFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInUnicasts": {
+    "name": "rmonWANPortGetInUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetDeferred": {
+    "name": "rmonWANPortGetDeferred",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInBroadcasts": {
+    "name": "rmonWANPortGetInBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInMulticasts": {
+    "name": "rmonWANPortGetInMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOctets64": {
+    "name": "rmonWANPortGetOctets64",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOctets127": {
+    "name": "rmonWANPortGetOctets127",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOctets255": {
+    "name": "rmonWANPortGetOctets255",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOctets511": {
+    "name": "rmonWANPortGetOctets511",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOctets1023": {
+    "name": "rmonWANPortGetOctets1023",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOctetsMax": {
+    "name": "rmonWANPortGetOctetsMax",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOutOctetsLo": {
+    "name": "rmonWANPortGetOutOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOutOctetsHi": {
+    "name": "rmonWANPortGetOutOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOutUnicasts": {
+    "name": "rmonWANPortGetOutUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetExcessive": {
+    "name": "rmonWANPortGetExcessive",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOutMulticasts": {
+    "name": "rmonWANPortGetOutMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOutBroadcasts": {
+    "name": "rmonWANPortGetOutBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetSingle": {
+    "name": "rmonWANPortGetSingle",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOutPause": {
+    "name": "rmonWANPortGetOutPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInPause": {
+    "name": "rmonWANPortGetInPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetMultiple": {
+    "name": "rmonWANPortGetMultiple",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetUndersize": {
+    "name": "rmonWANPortGetUndersize",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetFragments": {
+    "name": "rmonWANPortGetFragments",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetOversize": {
+    "name": "rmonWANPortGetOversize",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetJabber": {
+    "name": "rmonWANPortGetJabber",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInMACRcvErr": {
+    "name": "rmonWANPortGetInMACRcvErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetInFCSErr": {
+    "name": "rmonWANPortGetInFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetCollisions": {
+    "name": "rmonWANPortGetCollisions",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonWANPortGetLate": {
+    "name": "rmonWANPortGetLate",
+    "oid": "1.3.6.1.4.1.27304.13.4.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1Port": {
+    "name": "rmonLAN1Port",
+    "oid": "1.3.6.1.4.1.27304.13.4.3",
+    "class": "objectidentity"
+  },
+  "rmonLAN1PortGetInGoodOctetsLo": {
+    "name": "rmonLAN1PortGetInGoodOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInGoodOctetsHi": {
+    "name": "rmonLAN1PortGetInGoodOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInBadOctets": {
+    "name": "rmonLAN1PortGetInBadOctets",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOutFCSErr": {
+    "name": "rmonLAN1PortGetOutFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInUnicasts": {
+    "name": "rmonLAN1PortGetInUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetDeferred": {
+    "name": "rmonLAN1PortGetDeferred",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInBroadcasts": {
+    "name": "rmonLAN1PortGetInBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInMulticasts": {
+    "name": "rmonLAN1PortGetInMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOctets64": {
+    "name": "rmonLAN1PortGetOctets64",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOctets127": {
+    "name": "rmonLAN1PortGetOctets127",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOctets255": {
+    "name": "rmonLAN1PortGetOctets255",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOctets511": {
+    "name": "rmonLAN1PortGetOctets511",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOctets1023": {
+    "name": "rmonLAN1PortGetOctets1023",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOctetsMax": {
+    "name": "rmonLAN1PortGetOctetsMax",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOutOctetsLo": {
+    "name": "rmonLAN1PortGetOutOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOutOctetsHi": {
+    "name": "rmonLAN1PortGetOutOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOutUnicasts": {
+    "name": "rmonLAN1PortGetOutUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetExcessive": {
+    "name": "rmonLAN1PortGetExcessive",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOutMulticasts": {
+    "name": "rmonLAN1PortGetOutMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOutBroadcasts": {
+    "name": "rmonLAN1PortGetOutBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetSingle": {
+    "name": "rmonLAN1PortGetSingle",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOutPause": {
+    "name": "rmonLAN1PortGetOutPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInPause": {
+    "name": "rmonLAN1PortGetInPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetMultiple": {
+    "name": "rmonLAN1PortGetMultiple",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetUndersize": {
+    "name": "rmonLAN1PortGetUndersize",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetFragments": {
+    "name": "rmonLAN1PortGetFragments",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetOversize": {
+    "name": "rmonLAN1PortGetOversize",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetJabber": {
+    "name": "rmonLAN1PortGetJabber",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInMACRcvErr": {
+    "name": "rmonLAN1PortGetInMACRcvErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetInFCSErr": {
+    "name": "rmonLAN1PortGetInFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetCollisions": {
+    "name": "rmonLAN1PortGetCollisions",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN1PortGetLate": {
+    "name": "rmonLAN1PortGetLate",
+    "oid": "1.3.6.1.4.1.27304.13.4.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2Port": {
+    "name": "rmonLAN2Port",
+    "oid": "1.3.6.1.4.1.27304.13.4.4",
+    "class": "objectidentity"
+  },
+  "rmonLAN2PortGetInGoodOctetsLo": {
+    "name": "rmonLAN2PortGetInGoodOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInGoodOctetsHi": {
+    "name": "rmonLAN2PortGetInGoodOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInBadOctets": {
+    "name": "rmonLAN2PortGetInBadOctets",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOutFCSErr": {
+    "name": "rmonLAN2PortGetOutFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInUnicasts": {
+    "name": "rmonLAN2PortGetInUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetDeferred": {
+    "name": "rmonLAN2PortGetDeferred",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInBroadcasts": {
+    "name": "rmonLAN2PortGetInBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInMulticasts": {
+    "name": "rmonLAN2PortGetInMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOctets64": {
+    "name": "rmonLAN2PortGetOctets64",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOctets127": {
+    "name": "rmonLAN2PortGetOctets127",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOctets255": {
+    "name": "rmonLAN2PortGetOctets255",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOctets511": {
+    "name": "rmonLAN2PortGetOctets511",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOctets1023": {
+    "name": "rmonLAN2PortGetOctets1023",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOctetsMax": {
+    "name": "rmonLAN2PortGetOctetsMax",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOutOctetsLo": {
+    "name": "rmonLAN2PortGetOutOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOutOctetsHi": {
+    "name": "rmonLAN2PortGetOutOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOutUnicasts": {
+    "name": "rmonLAN2PortGetOutUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetExcessive": {
+    "name": "rmonLAN2PortGetExcessive",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOutMulticasts": {
+    "name": "rmonLAN2PortGetOutMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOutBroadcasts": {
+    "name": "rmonLAN2PortGetOutBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetSingle": {
+    "name": "rmonLAN2PortGetSingle",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOutPause": {
+    "name": "rmonLAN2PortGetOutPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInPause": {
+    "name": "rmonLAN2PortGetInPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetMultiple": {
+    "name": "rmonLAN2PortGetMultiple",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetUndersize": {
+    "name": "rmonLAN2PortGetUndersize",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetFragments": {
+    "name": "rmonLAN2PortGetFragments",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetOversize": {
+    "name": "rmonLAN2PortGetOversize",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetJabber": {
+    "name": "rmonLAN2PortGetJabber",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInMACRcvErr": {
+    "name": "rmonLAN2PortGetInMACRcvErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetInFCSErr": {
+    "name": "rmonLAN2PortGetInFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetCollisions": {
+    "name": "rmonLAN2PortGetCollisions",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN2PortGetLate": {
+    "name": "rmonLAN2PortGetLate",
+    "oid": "1.3.6.1.4.1.27304.13.4.4.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3Port": {
+    "name": "rmonLAN3Port",
+    "oid": "1.3.6.1.4.1.27304.13.4.5",
+    "class": "objectidentity"
+  },
+  "rmonLAN3PortGetInGoodOctetsLo": {
+    "name": "rmonLAN3PortGetInGoodOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInGoodOctetsHi": {
+    "name": "rmonLAN3PortGetInGoodOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInBadOctets": {
+    "name": "rmonLAN3PortGetInBadOctets",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOutFCSErr": {
+    "name": "rmonLAN3PortGetOutFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInUnicasts": {
+    "name": "rmonLAN3PortGetInUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetDeferred": {
+    "name": "rmonLAN3PortGetDeferred",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInBroadcasts": {
+    "name": "rmonLAN3PortGetInBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInMulticasts": {
+    "name": "rmonLAN3PortGetInMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOctets64": {
+    "name": "rmonLAN3PortGetOctets64",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOctets127": {
+    "name": "rmonLAN3PortGetOctets127",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOctets255": {
+    "name": "rmonLAN3PortGetOctets255",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOctets511": {
+    "name": "rmonLAN3PortGetOctets511",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOctets1023": {
+    "name": "rmonLAN3PortGetOctets1023",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOctetsMax": {
+    "name": "rmonLAN3PortGetOctetsMax",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOutOctetsLo": {
+    "name": "rmonLAN3PortGetOutOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOutOctetsHi": {
+    "name": "rmonLAN3PortGetOutOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOutUnicasts": {
+    "name": "rmonLAN3PortGetOutUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetExcessive": {
+    "name": "rmonLAN3PortGetExcessive",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOutMulticasts": {
+    "name": "rmonLAN3PortGetOutMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOutBroadcasts": {
+    "name": "rmonLAN3PortGetOutBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetSingle": {
+    "name": "rmonLAN3PortGetSingle",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOutPause": {
+    "name": "rmonLAN3PortGetOutPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInPause": {
+    "name": "rmonLAN3PortGetInPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetMultiple": {
+    "name": "rmonLAN3PortGetMultiple",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetUndersize": {
+    "name": "rmonLAN3PortGetUndersize",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetFragments": {
+    "name": "rmonLAN3PortGetFragments",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetOversize": {
+    "name": "rmonLAN3PortGetOversize",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetJabber": {
+    "name": "rmonLAN3PortGetJabber",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInMACRcvErr": {
+    "name": "rmonLAN3PortGetInMACRcvErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetInFCSErr": {
+    "name": "rmonLAN3PortGetInFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetCollisions": {
+    "name": "rmonLAN3PortGetCollisions",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN3PortGetLate": {
+    "name": "rmonLAN3PortGetLate",
+    "oid": "1.3.6.1.4.1.27304.13.4.5.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4Port": {
+    "name": "rmonLAN4Port",
+    "oid": "1.3.6.1.4.1.27304.13.4.6",
+    "class": "objectidentity"
+  },
+  "rmonLAN4PortGetInGoodOctetsLo": {
+    "name": "rmonLAN4PortGetInGoodOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInGoodOctetsHi": {
+    "name": "rmonLAN4PortGetInGoodOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInBadOctets": {
+    "name": "rmonLAN4PortGetInBadOctets",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOutFCSErr": {
+    "name": "rmonLAN4PortGetOutFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInUnicasts": {
+    "name": "rmonLAN4PortGetInUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetDeferred": {
+    "name": "rmonLAN4PortGetDeferred",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInBroadcasts": {
+    "name": "rmonLAN4PortGetInBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInMulticasts": {
+    "name": "rmonLAN4PortGetInMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOctets64": {
+    "name": "rmonLAN4PortGetOctets64",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOctets127": {
+    "name": "rmonLAN4PortGetOctets127",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOctets255": {
+    "name": "rmonLAN4PortGetOctets255",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOctets511": {
+    "name": "rmonLAN4PortGetOctets511",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOctets1023": {
+    "name": "rmonLAN4PortGetOctets1023",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOctetsMax": {
+    "name": "rmonLAN4PortGetOctetsMax",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOutOctetsLo": {
+    "name": "rmonLAN4PortGetOutOctetsLo",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOutOctetsHi": {
+    "name": "rmonLAN4PortGetOutOctetsHi",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOutUnicasts": {
+    "name": "rmonLAN4PortGetOutUnicasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetExcessive": {
+    "name": "rmonLAN4PortGetExcessive",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOutMulticasts": {
+    "name": "rmonLAN4PortGetOutMulticasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOutBroadcasts": {
+    "name": "rmonLAN4PortGetOutBroadcasts",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetSingle": {
+    "name": "rmonLAN4PortGetSingle",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOutPause": {
+    "name": "rmonLAN4PortGetOutPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInPause": {
+    "name": "rmonLAN4PortGetInPause",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetMultiple": {
+    "name": "rmonLAN4PortGetMultiple",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetUndersize": {
+    "name": "rmonLAN4PortGetUndersize",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetFragments": {
+    "name": "rmonLAN4PortGetFragments",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetOversize": {
+    "name": "rmonLAN4PortGetOversize",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetJabber": {
+    "name": "rmonLAN4PortGetJabber",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInMACRcvErr": {
+    "name": "rmonLAN4PortGetInMACRcvErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetInFCSErr": {
+    "name": "rmonLAN4PortGetInFCSErr",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetCollisions": {
+    "name": "rmonLAN4PortGetCollisions",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonLAN4PortGetLate": {
+    "name": "rmonLAN4PortGetLate",
+    "oid": "1.3.6.1.4.1.27304.13.4.6.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rmonModuleGroup": {
+    "name": "rmonModuleGroup",
+    "oid": "1.3.6.1.4.1.27304.13.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonHistogramMode"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonFlushAllCounter"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonFlushPortCounter"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonPorts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPort"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInGoodOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInGoodOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInBadOctets"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOutFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetDeferred"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOctets64"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOctets127"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOctets255"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOctets511"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOctets1023"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOctetsMax"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOutOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOutOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOutUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetExcessive"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOutMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOutBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetSingle"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOutPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetMultiple"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetUndersize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetFragments"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetOversize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetJabber"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInMACRcvErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetInFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetCollisions"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonCPUPortGetLate"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPort"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInGoodOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInGoodOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInBadOctets"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOutFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetDeferred"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOctets64"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOctets127"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOctets255"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOctets511"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOctets1023"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOctetsMax"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOutOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOutOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOutUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetExcessive"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOutMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOutBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetSingle"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOutPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetMultiple"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetUndersize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetFragments"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetOversize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetJabber"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInMACRcvErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetInFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetCollisions"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonWANPortGetLate"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1Port"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInGoodOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInGoodOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInBadOctets"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOutFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetDeferred"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOctets64"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOctets127"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOctets255"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOctets511"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOctets1023"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOctetsMax"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOutOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOutOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOutUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetExcessive"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOutMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOutBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetSingle"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOutPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetMultiple"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetUndersize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetFragments"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetOversize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetJabber"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInMACRcvErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetInFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetCollisions"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN1PortGetLate"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2Port"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInGoodOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInGoodOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInBadOctets"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOutFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetDeferred"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOctets64"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOctets127"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOctets255"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOctets511"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOctets1023"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOctetsMax"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOutOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOutOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOutUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetExcessive"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOutMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOutBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetSingle"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOutPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetMultiple"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetUndersize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetFragments"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetOversize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetJabber"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInMACRcvErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetInFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetCollisions"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN2PortGetLate"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3Port"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInGoodOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInGoodOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInBadOctets"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOutFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetDeferred"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOctets64"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOctets127"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOctets255"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOctets511"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOctets1023"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOctetsMax"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOutOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOutOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOutUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetExcessive"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOutMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOutBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetSingle"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOutPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetMultiple"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetUndersize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetFragments"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetOversize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetJabber"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInMACRcvErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetInFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetCollisions"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN3PortGetLate"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4Port"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInGoodOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInGoodOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInBadOctets"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOutFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetDeferred"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOctets64"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOctets127"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOctets255"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOctets511"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOctets1023"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOctetsMax"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOutOctetsLo"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOutOctetsHi"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOutUnicasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetExcessive"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOutMulticasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOutBroadcasts"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetSingle"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOutPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInPause"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetMultiple"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetUndersize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetFragments"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetOversize"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetJabber"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInMACRcvErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetInFCSErr"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetCollisions"
+      },
+      {
+        "module": "DKT-RMON-MIB",
+        "object": "rmonLAN4PortGetLate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-RMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:24 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DKT-RMON-MIB"
+  }
+}

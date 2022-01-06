@@ -1,0 +1,440 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnStateChangeReason",
+      "HWEnableValue",
+      "HWL2VpnVcEncapsType"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "BITS",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwL2VpnPwe3TnlExt": {
+    "name": "hwL2VpnPwe3TnlExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5",
+    "class": "moduleidentity"
+  },
+  "hwL2Vpn": {
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119",
+    "class": "objectidentity"
+  },
+  "hwPwe3TunnelMIBObjects": {
+    "name": "hwPwe3TunnelMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1",
+    "class": "objectidentity"
+  },
+  "hwPwe3TunnelTable": {
+    "name": "hwPwe3TunnelTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPwe3TunnelEntry": {
+    "name": "hwPwe3TunnelEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwVcId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwVcType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3PeerTnlId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3PwInlabel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwVcId": {
+    "name": "hwPwVcId",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPwVcType": {
+    "name": "hwPwVcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPwe3PwInlabel": {
+    "name": "hwPwe3PwInlabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPwe3PeerTnlId": {
+    "name": "hwPwe3PeerTnlId",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPwe3TnlName": {
+    "name": "hwPwe3TnlName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3TnlType": {
+    "name": "hwPwe3TnlType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3TnlSrcAddress": {
+    "name": "hwPwe3TnlSrcAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3TnlDestAddress": {
+    "name": "hwPwe3TnlDestAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3LspIndex": {
+    "name": "hwPwe3LspIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3LspOutIf": {
+    "name": "hwPwe3LspOutIf",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3LspOutLabel": {
+    "name": "hwPwe3LspOutLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3LspNextHop": {
+    "name": "hwPwe3LspNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3LspFec": {
+    "name": "hwPwe3LspFec",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3LspFecPfxLen": {
+    "name": "hwPwe3LspFecPfxLen",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3LspIsBackup": {
+    "name": "hwPwe3LspIsBackup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3PwOutLabel": {
+    "name": "hwPwe3PwOutLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3IsBalance": {
+    "name": "hwPwe3IsBalance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3TnlRowStatus": {
+    "name": "hwPwe3TnlRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3TunnelMIBTraps": {
+    "name": "hwPwe3TunnelMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.2",
+    "class": "objectidentity"
+  },
+  "hwPwe3TunnelMIBConformance": {
+    "name": "hwPwe3TunnelMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3",
+    "class": "objectidentity"
+  },
+  "hwPwe3TunnelMIBCompliances": {
+    "name": "hwPwe3TunnelMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.1",
+    "class": "objectidentity"
+  },
+  "hwPwe3TunnelMIBCompliance": {
+    "name": "hwPwe3TunnelMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwPwe3TunnelGroup",
+        "module": "HUAWEI-PWE3-TNL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwe3TunnelMIBGroups": {
+    "name": "hwPwe3TunnelMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.2",
+    "class": "objectidentity"
+  },
+  "hwPwe3TunnelGroup": {
+    "name": "hwPwe3TunnelGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlName"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlType"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlSrcAddress"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlDestAddress"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspOutIf"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspOutLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspNextHop"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspFec"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspFecPfxLen"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspIsBackup"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3PwOutLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3IsBalance"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PWE3-TNL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-PWE3-TNL-MIB"
+  }
+}

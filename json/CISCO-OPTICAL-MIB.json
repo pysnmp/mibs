@@ -1,0 +1,3332 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoOpticalMIB": {
+    "name": "ciscoOpticalMIB",
+    "oid": "1.3.6.1.4.1.9.9.828",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-05-24 00:00",
+        "description": "Added 1. Extend CoiIntervalType to include thirtySecond. 2. Extend coiOpticalControllerEntry to include coiOpticalControllerTotalRXPower, coiOpticalControllerTotalTXPower. 3. Add coiOpticalPowerGroup. 4. Deprecated the ciscoOpticalMIBCompliance compliance, added ciscoOpticalMIBComplianceRev1."
+      },
+      {
+        "revision": "2015-12-01 00:00",
+        "description": "Added 1. NOTIFICATION-TYPE coiOpticalEquipmentAlarm 2. Textual Convention CoiOptAlarmType, CoiOptAlarmStatus, CoiOptAlarmSeverity, CoiOptAlarmServiceAffecting. 3. coiOpticalEquipmentAlarmGroup OBJECT INDENTIFIER, with coiOpticalAlarmLocation, coiOpticalAlarmType, coiOpticalAlarmTimeStamp, coiOpticalAlarmName, coiOpticalAlarmAdditionalInfo, coiOpticalAlarmSeverity, coiOpticalAlarmStatus, coiOpticalAlarmServiceAffecting as OBJECT-TYPE. 4. ppmFail bit for coiOpticalControllerStatus."
+      },
+      {
+        "revision": "2015-10-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CoiOpticalPower": {
+    "name": "CoiOpticalPower",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -4000,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CoiOpticalWavelength": {
+    "name": "CoiOpticalWavelength",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1528770,
+            "max": 1604030
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CoiIntervalType": {
+    "name": "CoiIntervalType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMin": 1,
+          "oneDay": 2,
+          "thirtySecond": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiPortType": {
+    "name": "CoiPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clientPort": 1,
+          "trunkPort": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiOptAlarmType": {
+    "name": "CoiOptAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmUnknown": 1,
+          "equipmentFailure": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiOptAlarmSeverity": {
+    "name": "CoiOptAlarmSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notReported": 1,
+          "notAlarmed": 2,
+          "minor": 3,
+          "major": 4,
+          "critical": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiOptAlarmStatus": {
+    "name": "CoiOptAlarmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raised": 1,
+          "cleared": 2,
+          "transient": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiOptAlarmServiceAffecting": {
+    "name": "CoiOptAlarmServiceAffecting",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serviceAffecting": 1,
+          "nonServiceAffecting": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoOpticalMIBNotifs": {
+    "name": "ciscoOpticalMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.828.0",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMIBObjects": {
+    "name": "ciscoOpticalMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.828.1",
+    "class": "objectidentity"
+  },
+  "coiOpticsStatusChange": {
+    "name": "coiOpticsStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.828.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPortType"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalEquipmentAlarm": {
+    "name": "coiOpticalEquipmentAlarm",
+    "oid": "1.3.6.1.4.1.9.9.828.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmLocation"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmType"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmTimeStamp"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmName"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmAdditionalInfo"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmSeverity"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmServiceAffecting"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalController": {
+    "name": "coiOpticalController",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1",
+    "class": "objectidentity"
+  },
+  "coiOpticalPerformanceMonitoring": {
+    "name": "coiOpticalPerformanceMonitoring",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2",
+    "class": "objectidentity"
+  },
+  "coiOpticalNotifEnabled": {
+    "name": "coiOpticalNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerTable": {
+    "name": "coiOpticalControllerTable",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOpticalControllerEntry": {
+    "name": "coiOpticalControllerEntry",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalControllerWavelength": {
+    "name": "coiOpticalControllerWavelength",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalWavelength",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1529553,
+        "format": "decimal"
+      }
+    },
+    "units": "1/100 nm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerLaserStatus": {
+    "name": "coiOpticalControllerLaserStatus",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerFrequency": {
+    "name": "coiOpticalControllerFrequency",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "100 MHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerChannelNumber": {
+    "name": "coiOpticalControllerChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerTransmitPower": {
+    "name": "coiOpticalControllerTransmitPower",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerOpticsType": {
+    "name": "coiOpticalControllerOpticsType",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerRXLowThreshold": {
+    "name": "coiOpticalControllerRXLowThreshold",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerTXLowThreshold": {
+    "name": "coiOpticalControllerTXLowThreshold",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerRXHighThreshold": {
+    "name": "coiOpticalControllerRXHighThreshold",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerTXHighThreshold": {
+    "name": "coiOpticalControllerTXHighThreshold",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerLBCHighThreshold": {
+    "name": "coiOpticalControllerLBCHighThreshold",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerStatus": {
+    "name": "coiOpticalControllerStatus",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "improprmvl": 1,
+        "mea": 2,
+        "provMismatch": 3,
+        "highRXPwr": 4,
+        "highTXPwr": 5,
+        "lowRXPwr": 6,
+        "lowTXPwr": 7,
+        "highLBC": 8,
+        "highDGD": 9,
+        "outOfRangeCD": 10,
+        "lowOSNR": 11,
+        "wvlOutOfLock": 12,
+        "highLaserTemp": 13,
+        "lowLaserTemp": 14,
+        "ppmFail": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPortType": {
+    "name": "coiOpticalControllerPortType",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerTotalRXPower": {
+    "name": "coiOpticalControllerTotalRXPower",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerTotalTXPower": {
+    "name": "coiOpticalControllerTotalTXPower",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneTable": {
+    "name": "coiOpticalControllerPerLaneTable",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneEntry": {
+    "name": "coiOpticalControllerPerLaneEntry",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerLane",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalControllerLane": {
+    "name": "coiOpticalControllerLane",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneRXPower": {
+    "name": "coiOpticalControllerPerLaneRXPower",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneTXPower": {
+    "name": "coiOpticalControllerPerLaneTXPower",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneLBC": {
+    "name": "coiOpticalControllerPerLaneLBC",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneOSNR": {
+    "name": "coiOpticalControllerPerLaneOSNR",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneChromaticDispersion": {
+    "name": "coiOpticalControllerPerLaneChromaticDispersion",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneDifferentialGroupDelay": {
+    "name": "coiOpticalControllerPerLaneDifferentialGroupDelay",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneSecondOrderPMD": {
+    "name": "coiOpticalControllerPerLaneSecondOrderPMD",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLanePolarizationDependentLoss": {
+    "name": "coiOpticalControllerPerLanePolarizationDependentLoss",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLanePolarizationChangeRate": {
+    "name": "coiOpticalControllerPerLanePolarizationChangeRate",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalControllerPerLanePhaseNoise": {
+    "name": "coiOpticalControllerPerLanePhaseNoise",
+    "oid": "1.3.6.1.4.1.9.9.828.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalClientInfoTable": {
+    "name": "coiOpticalClientInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.828.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOpticalClientInfoEntry": {
+    "name": "coiOpticalClientInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.828.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalClientEthernetNeighbourMAC": {
+    "name": "coiOpticalClientEthernetNeighbourMAC",
+    "oid": "1.3.6.1.4.1.9.9.828.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalThresholdTable": {
+    "name": "coiOpticalThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOpticalThresholdEntry": {
+    "name": "coiOpticalThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOptThreshIntervalType": {
+    "name": "coiOptThreshIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOptThreshTXPowerMin": {
+    "name": "coiOptThreshTXPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshRXPowerMin": {
+    "name": "coiOptThreshRXPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshOSNRMin": {
+    "name": "coiOptThreshOSNRMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshChromaticDispersionMin": {
+    "name": "coiOptThreshChromaticDispersionMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshDifferentialGroupDelayMin": {
+    "name": "coiOptThreshDifferentialGroupDelayMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshSecondOrderPMDMin": {
+    "name": "coiOptThreshSecondOrderPMDMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationDependentLossMin": {
+    "name": "coiOptThreshPolarizationDependentLossMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationChangeRateMin": {
+    "name": "coiOptThreshPolarizationChangeRateMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPhaseNoiseMin": {
+    "name": "coiOptThreshPhaseNoiseMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshLBCMin": {
+    "name": "coiOptThreshLBCMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshTXPowerMax": {
+    "name": "coiOptThreshTXPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshRXPowerMax": {
+    "name": "coiOptThreshRXPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshOSNRMax": {
+    "name": "coiOptThreshOSNRMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshChromaticDispersionMax": {
+    "name": "coiOptThreshChromaticDispersionMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshDifferentialGroupDelayMax": {
+    "name": "coiOptThreshDifferentialGroupDelayMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshSecondOrderPMDMax": {
+    "name": "coiOptThreshSecondOrderPMDMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationDependentLossMax": {
+    "name": "coiOptThreshPolarizationDependentLossMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationChangeRateMax": {
+    "name": "coiOptThreshPolarizationChangeRateMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPhaseNoiseMax": {
+    "name": "coiOptThreshPhaseNoiseMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshLBCMax": {
+    "name": "coiOptThreshLBCMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshTXPowerEnableMin": {
+    "name": "coiOptThreshTXPowerEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshRXPowerEnableMin": {
+    "name": "coiOptThreshRXPowerEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshOSNREnableMin": {
+    "name": "coiOptThreshOSNREnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshChromaticDispersionEnableMin": {
+    "name": "coiOptThreshChromaticDispersionEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshDifferentialGroupDelayEnableMin": {
+    "name": "coiOptThreshDifferentialGroupDelayEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshSecondOrderPMDEnableMin": {
+    "name": "coiOptThreshSecondOrderPMDEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationDependentLossEnableMin": {
+    "name": "coiOptThreshPolarizationDependentLossEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationChangeRateEnableMin": {
+    "name": "coiOptThreshPolarizationChangeRateEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPhaseNoiseEnableMin": {
+    "name": "coiOptThreshPhaseNoiseEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshLBCEnableMin": {
+    "name": "coiOptThreshLBCEnableMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshTXPowerEnableMax": {
+    "name": "coiOptThreshTXPowerEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshRXPowerEnableMax": {
+    "name": "coiOptThreshRXPowerEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshOSNREnableMax": {
+    "name": "coiOptThreshOSNREnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshChromaticDispersionEnableMax": {
+    "name": "coiOptThreshChromaticDispersionEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshDifferentialGroupDelayEnableMax": {
+    "name": "coiOptThreshDifferentialGroupDelayEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshSecondOrderPMDEnableMax": {
+    "name": "coiOptThreshSecondOrderPMDEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationDependentLossEnableMax": {
+    "name": "coiOptThreshPolarizationDependentLossEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPolarizationChangeRateEnableMax": {
+    "name": "coiOptThreshPolarizationChangeRateEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshPhaseNoiseEnableMax": {
+    "name": "coiOptThreshPhaseNoiseEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOptThreshLBCEnableMax": {
+    "name": "coiOptThreshLBCEnableMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiOpticalCurrentTable": {
+    "name": "coiOpticalCurrentTable",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOpticalCurrentEntry": {
+    "name": "coiOpticalCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentLane",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOptCurrentLane": {
+    "name": "coiOptCurrentLane",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOptCurrentIntervalType": {
+    "name": "coiOptCurrentIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOptCurrentTXPowerMax": {
+    "name": "coiOptCurrentTXPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentRXPowerMax": {
+    "name": "coiOptCurrentRXPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentOSNRMax": {
+    "name": "coiOptCurrentOSNRMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentChromaticDispersionMax": {
+    "name": "coiOptCurrentChromaticDispersionMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentDifferentialGroupDelayMax": {
+    "name": "coiOptCurrentDifferentialGroupDelayMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentSecondOrderPMDMax": {
+    "name": "coiOptCurrentSecondOrderPMDMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPolarizationDependentLossMax": {
+    "name": "coiOptCurrentPolarizationDependentLossMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPolarizationChangeRateMax": {
+    "name": "coiOptCurrentPolarizationChangeRateMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPhaseNoiseMax": {
+    "name": "coiOptCurrentPhaseNoiseMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentLBCMax": {
+    "name": "coiOptCurrentLBCMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentTXPowerMin": {
+    "name": "coiOptCurrentTXPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentRXPowerMin": {
+    "name": "coiOptCurrentRXPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentOSNRMin": {
+    "name": "coiOptCurrentOSNRMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentChromaticDispersionMin": {
+    "name": "coiOptCurrentChromaticDispersionMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentDifferentialGroupDelayMin": {
+    "name": "coiOptCurrentDifferentialGroupDelayMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentSecondOrderPMDMin": {
+    "name": "coiOptCurrentSecondOrderPMDMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPolarizationDependentLossMin": {
+    "name": "coiOptCurrentPolarizationDependentLossMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPolarizationChangeRateMin": {
+    "name": "coiOptCurrentPolarizationChangeRateMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPhaseNoiseMin": {
+    "name": "coiOptCurrentPhaseNoiseMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentLBCMin": {
+    "name": "coiOptCurrentLBCMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentTXPowerAvg": {
+    "name": "coiOptCurrentTXPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentRXPowerAvg": {
+    "name": "coiOptCurrentRXPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentOSNRAvg": {
+    "name": "coiOptCurrentOSNRAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentChromaticDispersionAvg": {
+    "name": "coiOptCurrentChromaticDispersionAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentDifferentialGroupDelayAvg": {
+    "name": "coiOptCurrentDifferentialGroupDelayAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentSecondOrderPMDAvg": {
+    "name": "coiOptCurrentSecondOrderPMDAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPolarizationDependentLossAvg": {
+    "name": "coiOptCurrentPolarizationDependentLossAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPolarizationChangeRateAvg": {
+    "name": "coiOptCurrentPolarizationChangeRateAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentPhaseNoiseAvg": {
+    "name": "coiOptCurrentPhaseNoiseAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentLBCAvg": {
+    "name": "coiOptCurrentLBCAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptCurrentTimestamp": {
+    "name": "coiOptCurrentTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalIntervalTable": {
+    "name": "coiOpticalIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOpticalIntervalEntry": {
+    "name": "coiOpticalIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalLane",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOptIntervalLane": {
+    "name": "coiOptIntervalLane",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOptIntervalIntervalType": {
+    "name": "coiOptIntervalIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOptIntervalNum": {
+    "name": "coiOptIntervalNum",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOptIntervalTXPowerMax": {
+    "name": "coiOptIntervalTXPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalRXPowerMax": {
+    "name": "coiOptIntervalRXPowerMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalOSNRMax": {
+    "name": "coiOptIntervalOSNRMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalChromaticDispersionMax": {
+    "name": "coiOptIntervalChromaticDispersionMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalDifferentialGroupDelayMax": {
+    "name": "coiOptIntervalDifferentialGroupDelayMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalSecondOrderPMDMax": {
+    "name": "coiOptIntervalSecondOrderPMDMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPolarizationDependentLossMax": {
+    "name": "coiOptIntervalPolarizationDependentLossMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPolarizationChangeRateMax": {
+    "name": "coiOptIntervalPolarizationChangeRateMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPhaseNoiseMax": {
+    "name": "coiOptIntervalPhaseNoiseMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalLBCMax": {
+    "name": "coiOptIntervalLBCMax",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalTXPowerMin": {
+    "name": "coiOptIntervalTXPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalRXPowerMin": {
+    "name": "coiOptIntervalRXPowerMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalOSNRMin": {
+    "name": "coiOptIntervalOSNRMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalChromaticDispersionMin": {
+    "name": "coiOptIntervalChromaticDispersionMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalDifferentialGroupDelayMin": {
+    "name": "coiOptIntervalDifferentialGroupDelayMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalSecondOrderPMDMin": {
+    "name": "coiOptIntervalSecondOrderPMDMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPolarizationDependentLossMin": {
+    "name": "coiOptIntervalPolarizationDependentLossMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPolarizationChangeRateMin": {
+    "name": "coiOptIntervalPolarizationChangeRateMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPhaseNoiseMin": {
+    "name": "coiOptIntervalPhaseNoiseMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalLBCMin": {
+    "name": "coiOptIntervalLBCMin",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalTXPowerAvg": {
+    "name": "coiOptIntervalTXPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalRXPowerAvg": {
+    "name": "coiOptIntervalRXPowerAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalPower",
+      "class": "type"
+    },
+    "units": "1/100 dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalOSNRAvg": {
+    "name": "coiOptIntervalOSNRAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalChromaticDispersionAvg": {
+    "name": "coiOptIntervalChromaticDispersionAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalDifferentialGroupDelayAvg": {
+    "name": "coiOptIntervalDifferentialGroupDelayAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalSecondOrderPMDAvg": {
+    "name": "coiOptIntervalSecondOrderPMDAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 ps^2",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPolarizationDependentLossAvg": {
+    "name": "coiOptIntervalPolarizationDependentLossAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPolarizationChangeRateAvg": {
+    "name": "coiOptIntervalPolarizationChangeRateAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/100 rad/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalPhaseNoiseAvg": {
+    "name": "coiOptIntervalPhaseNoiseAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/1000 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalLBCAvg": {
+    "name": "coiOptIntervalLBCAvg",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/10 %",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOptIntervalTimestamp": {
+    "name": "coiOptIntervalTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.828.1.2.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOpticalEquipmentAlarmGroup": {
+    "name": "coiOpticalEquipmentAlarmGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4",
+    "class": "objectidentity"
+  },
+  "coiOpticalAlarmLocation": {
+    "name": "coiOpticalAlarmLocation",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "coiOpticalAlarmType": {
+    "name": "coiOpticalAlarmType",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOptAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "coiOpticalAlarmTimeStamp": {
+    "name": "coiOpticalAlarmTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "coiOpticalAlarmName": {
+    "name": "coiOpticalAlarmName",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "coiOpticalAlarmAdditionalInfo": {
+    "name": "coiOpticalAlarmAdditionalInfo",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "coiOpticalAlarmSeverity": {
+    "name": "coiOpticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOptAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "coiOpticalAlarmStatus": {
+    "name": "coiOpticalAlarmStatus",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOptAlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "coiOpticalAlarmServiceAffecting": {
+    "name": "coiOpticalAlarmServiceAffecting",
+    "oid": "1.3.6.1.4.1.9.9.828.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOptAlarmServiceAffecting",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoOpticalMIBConformance": {
+    "name": "ciscoOpticalMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.828.2",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMIBCompliances": {
+    "name": "ciscoOpticalMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.828.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMIBGroups": {
+    "name": "ciscoOpticalMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoOpticalMIBCompliance": {
+    "name": "ciscoOpticalMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.828.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coiOpticalGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalControllerGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalControllerPerLaneGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalClientInfoGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalThresholdGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalCurrentGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalIntervalGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalNotifEnableGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalNotifStatusObjectGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalNotifGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalEquipmentAlarmInfoGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoOpticalMIBComplianceRev1": {
+    "name": "ciscoOpticalMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.828.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coiOpticalGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalControllerGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalControllerPerLaneGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalClientInfoGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalThresholdGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalCurrentGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalIntervalGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalNotifEnableGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalNotifStatusObjectGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalNotifGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalEquipmentAlarmInfoGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      },
+      {
+        "object": "coiOpticalPowerGroup",
+        "module": "CISCO-OPTICAL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalGroup": {
+    "name": "coiOpticalGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerLaserStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTransmitPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerOpticsType"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerRXLowThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTXLowThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerRXHighThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTXHighThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerLBCHighThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneRXPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneTXPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneLBC"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshTXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshRXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshLBCMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshTXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshRXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshLBCMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentTXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentRXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentLBCMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentTXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentRXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentLBCMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentTXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentRXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentLBCAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalTXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalRXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalLBCMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalTXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalRXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalLBCMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalTXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalRXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalLBCAvg"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalControllerGroup": {
+    "name": "coiOpticalControllerGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerWavelength"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerLaserStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerFrequency"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerChannelNumber"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTransmitPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerOpticsType"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerRXLowThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTXLowThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerRXHighThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTXHighThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerLBCHighThreshold"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPortType"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalControllerPerLaneGroup": {
+    "name": "coiOpticalControllerPerLaneGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneRXPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneTXPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneLBC"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneOSNR"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneChromaticDispersion"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneDifferentialGroupDelay"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLaneSecondOrderPMD"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLanePolarizationDependentLoss"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLanePolarizationChangeRate"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerPerLanePhaseNoise"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalClientInfoGroup": {
+    "name": "coiOpticalClientInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalClientEthernetNeighbourMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalThresholdGroup": {
+    "name": "coiOpticalThresholdGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshTXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshRXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshOSNRMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshChromaticDispersionMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshDifferentialGroupDelayMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshSecondOrderPMDMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationDependentLossMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationChangeRateMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPhaseNoiseMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshLBCMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshTXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshRXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshOSNRMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshChromaticDispersionMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshDifferentialGroupDelayMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshSecondOrderPMDMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationDependentLossMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationChangeRateMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPhaseNoiseMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshLBCMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshTXPowerEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshRXPowerEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshOSNREnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshChromaticDispersionEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshDifferentialGroupDelayEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshSecondOrderPMDEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationDependentLossEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationChangeRateEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPhaseNoiseEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshLBCEnableMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshTXPowerEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshRXPowerEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshOSNREnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshChromaticDispersionEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshDifferentialGroupDelayEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshSecondOrderPMDEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationDependentLossEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPolarizationChangeRateEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshPhaseNoiseEnableMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptThreshLBCEnableMax"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalCurrentGroup": {
+    "name": "coiOpticalCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentTXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentRXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentOSNRMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentChromaticDispersionMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentDifferentialGroupDelayMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentSecondOrderPMDMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPolarizationDependentLossMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPolarizationChangeRateMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPhaseNoiseMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentLBCMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentTXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentRXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentOSNRMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentChromaticDispersionMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentDifferentialGroupDelayMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentSecondOrderPMDMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPolarizationDependentLossMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPolarizationChangeRateMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPhaseNoiseMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentLBCMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentTXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentRXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentOSNRAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentChromaticDispersionAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentDifferentialGroupDelayAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentSecondOrderPMDAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPolarizationDependentLossAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPolarizationChangeRateAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentPhaseNoiseAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentLBCAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptCurrentTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalIntervalGroup": {
+    "name": "coiOpticalIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalTXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalRXPowerMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalOSNRMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalChromaticDispersionMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalDifferentialGroupDelayMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalSecondOrderPMDMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPolarizationDependentLossMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPolarizationChangeRateMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPhaseNoiseMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalLBCMax"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalTXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalRXPowerMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalOSNRMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalChromaticDispersionMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalDifferentialGroupDelayMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalSecondOrderPMDMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPolarizationDependentLossMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPolarizationChangeRateMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPhaseNoiseMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalLBCMin"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalTXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalRXPowerAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalOSNRAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalChromaticDispersionAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalDifferentialGroupDelayAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalSecondOrderPMDAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPolarizationDependentLossAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPolarizationChangeRateAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalPhaseNoiseAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalLBCAvg"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOptIntervalTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalNotifEnableGroup": {
+    "name": "coiOpticalNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalNotifStatusObjectGroup": {
+    "name": "coiOpticalNotifStatusObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalNotifGroup": {
+    "name": "coiOpticalNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticsStatusChange"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalEquipmentAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalEquipmentAlarmInfoGroup": {
+    "name": "coiOpticalEquipmentAlarmInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmLocation"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmType"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmTimeStamp"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmName"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmAdditionalInfo"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmSeverity"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalAlarmServiceAffecting"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOpticalPowerGroup": {
+    "name": "coiOpticalPowerGroup",
+    "oid": "1.3.6.1.4.1.9.9.828.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTotalRXPower"
+      },
+      {
+        "module": "CISCO-OPTICAL-MIB",
+        "object": "coiOpticalControllerTotalTXPower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OPTICAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-OPTICAL-MIB"
+  }
+}

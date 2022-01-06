@@ -1,0 +1,1736 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "cmgwIndex",
+      "CCallControlJitterDelayMode"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
+      "CvcSpeechCoderRate"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVoiceAalxProfileMIB": {
+    "name": "ciscoVoiceAalxProfileMIB",
+    "oid": "1.3.6.1.4.1.9.9.323",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-04-21 00:00",
+        "description": "Deprecated object cvapCodecConfigVbdPacketPeriod and cvapCodecConfigJitterNomDelay; Add new object cvapCodecConfigNewJtrNomDelay."
+      },
+      {
+        "revision": "2004-10-15 00:00",
+        "description": "Add an new enum 'profileCustom210 (210)' to CiscoAal2ProfileNumber."
+      },
+      {
+        "revision": "2003-07-18 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "ciscoVoiceAalxProfileMIBNotifs": {
+    "name": "ciscoVoiceAalxProfileMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.323.0",
+    "class": "objectidentity"
+  },
+  "ciscoVoiceAalxProfileMIBObjects": {
+    "name": "ciscoVoiceAalxProfileMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.323.1",
+    "class": "objectidentity"
+  },
+  "cvapCodecConfig": {
+    "name": "cvapCodecConfig",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1",
+    "class": "objectidentity"
+  },
+  "cvapAal2Config": {
+    "name": "cvapAal2Config",
+    "oid": "1.3.6.1.4.1.9.9.323.1.2",
+    "class": "objectidentity"
+  },
+  "cvapSvcConfig": {
+    "name": "cvapSvcConfig",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3",
+    "class": "objectidentity"
+  },
+  "cvapSvcStats": {
+    "name": "cvapSvcStats",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4",
+    "class": "objectidentity"
+  },
+  "CiscoAal2ProfileType": {
+    "name": "CiscoAal2ProfileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "itu": 1,
+          "custom": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoAal2ProfileNumber": {
+    "name": "CiscoAal2ProfileNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "profileITU1": 1,
+          "profileITU2": 2,
+          "profileITU3": 3,
+          "profileITU7": 7,
+          "profileITU8": 8,
+          "profileITU12": 12,
+          "profileCustom100": 100,
+          "profileCustom101": 101,
+          "profileCustom110": 110,
+          "profileCustom200": 200,
+          "profileCustom210": 210
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoCodecPacketPeriod": {
+    "name": "CiscoCodecPacketPeriod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pktPeriod5000us": 1,
+          "pktPeriod5500us": 2,
+          "pktPeriod5785us": 3,
+          "pktPeriod10000us": 4,
+          "pktPeriod15000us": 5,
+          "pktPeriod20000us": 6,
+          "pktPeriod25000us": 7,
+          "pktPeriod30000us": 8,
+          "pktPeriod35000us": 9,
+          "pktPeriod40000us": 10,
+          "pktPeriod45000us": 11,
+          "pktPeriod50000us": 12,
+          "pktPeriod55000us": 13,
+          "pktPeriod60000us": 14,
+          "pktPeriod65000us": 15,
+          "pktPeriod70000us": 16,
+          "pktPeriod75000us": 17,
+          "pktPeriod80000us": 18,
+          "pktPeriod85000us": 19,
+          "pktPeriod90000us": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cvapCodecTable": {
+    "name": "cvapCodecTable",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvapCodecEntry": {
+    "name": "cvapCodecEntry",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecNegotiationAdaptType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvapCodecNegotiationAdaptType": {
+    "name": "cvapCodecNegotiationAdaptType",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aal5": 1,
+          "aal1": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvapCodecNegotiationOption": {
+    "name": "cvapCodecNegotiationOption",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lcoRcdLcl": 1,
+          "lcoLclRcd": 2,
+          "rcdLcoLcl": 3,
+          "rcdLclLco": 4,
+          "lclLcoRcd": 5,
+          "lclRcdLco": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "lcoRcdLcl",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigTable": {
+    "name": "cvapCodecConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvapCodecConfigEntry": {
+    "name": "cvapCodecConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigAdaptType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvapCodecConfigAdaptType": {
+    "name": "cvapCodecConfigAdaptType",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "aal5": 2,
+          "aal1": 3,
+          "aal2": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvapCodecConfigType": {
+    "name": "cvapCodecConfigType",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcSpeechCoderRate",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvapCodecConfigPreference": {
+    "name": "cvapCodecConfigPreference",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigVoicePacketPeriod": {
+    "name": "cvapCodecConfigVoicePacketPeriod",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCodecPacketPeriod",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigVbdPacketPeriod": {
+    "name": "cvapCodecConfigVbdPacketPeriod",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCodecPacketPeriod",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cvapCodecConfigJitterDelayMode": {
+    "name": "cvapCodecConfigJitterDelayMode",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCallControlJitterDelayMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "adaptive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigJitterMaxDelay": {
+    "name": "cvapCodecConfigJitterMaxDelay",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigJitterNomDelay": {
+    "name": "cvapCodecConfigJitterNomDelay",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cvapCodecConfigJitterMinDelay": {
+    "name": "cvapCodecConfigJitterMinDelay",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigDtmfRelay": {
+    "name": "cvapCodecConfigDtmfRelay",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigPayloadType": {
+    "name": "cvapCodecConfigPayloadType",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapCodecConfigNewJtrNomDelay": {
+    "name": "cvapCodecConfigNewJtrNomDelay",
+    "oid": "1.3.6.1.4.1.9.9.323.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcConfigTable": {
+    "name": "cvapSvcConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvapSvcConfigEntry": {
+    "name": "cvapSvcConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvapSvcAtmQosCellDelay": {
+    "name": "cvapSvcAtmQosCellDelay",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20000,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcAtmQosCtd": {
+    "name": "cvapSvcAtmQosCtd",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20000,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150000,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcAtmQosClr": {
+    "name": "cvapSvcAtmQosClr",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcTrfScalingFactor": {
+    "name": "cvapSvcTrfScalingFactor",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcAal2CidNumber": {
+    "name": "cvapSvcAal2CidNumber",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcAggTrafficClipping": {
+    "name": "cvapSvcAggTrafficClipping",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcAggLinkState": {
+    "name": "cvapSvcAggLinkState",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcPartialFillSupported": {
+    "name": "cvapSvcPartialFillSupported",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 47,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMgcpSelectorByteValue": {
+    "name": "cvapSvcMgcpSelectorByteValue",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 21,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcH248SelectorByteValue": {
+    "name": "cvapSvcH248SelectorByteValue",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcDelNotifGuardTimer": {
+    "name": "cvapSvcDelNotifGuardTimer",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMultiCIDPerSvc": {
+    "name": "cvapSvcMultiCIDPerSvc",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMultiCIDFillTimer": {
+    "name": "cvapSvcMultiCIDFillTimer",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMultiCIDCACSCR": {
+    "name": "cvapSvcMultiCIDCACSCR",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 450,
+        "format": "decimal"
+      }
+    },
+    "units": "Cells per Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMultiCIDCACPCR": {
+    "name": "cvapSvcMultiCIDCACPCR",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 875,
+        "format": "decimal"
+      }
+    },
+    "units": "Cells per Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMultiCIDOriginatDelTimer": {
+    "name": "cvapSvcMultiCIDOriginatDelTimer",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMultiCIDTerminatDelTimer": {
+    "name": "cvapSvcMultiCIDTerminatDelTimer",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1195
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcMultiCIDGlareThreshold": {
+    "name": "cvapSvcMultiCIDGlareThreshold",
+    "oid": "1.3.6.1.4.1.9.9.323.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 248
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 243,
+        "format": "decimal"
+      }
+    },
+    "units": "number of CIDs",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cvapSvcStatsTable": {
+    "name": "cvapSvcStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvapSvcStatsEntry": {
+    "name": "cvapSvcStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvapSvcTxSetups": {
+    "name": "cvapSvcTxSetups",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxSetups": {
+    "name": "cvapSvcRxSetups",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxCallProcs": {
+    "name": "cvapSvcTxCallProcs",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxCallProcs": {
+    "name": "cvapSvcRxCallProcs",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxConns": {
+    "name": "cvapSvcTxConns",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxConnAcks": {
+    "name": "cvapSvcTxConnAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxConns": {
+    "name": "cvapSvcRxConns",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxConnAcks": {
+    "name": "cvapSvcRxConnAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxReleases": {
+    "name": "cvapSvcTxReleases",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxReleaseCompls": {
+    "name": "cvapSvcTxReleaseCompls",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxReleases": {
+    "name": "cvapSvcRxReleases",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxReleaseCompls": {
+    "name": "cvapSvcRxReleaseCompls",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxRestarts": {
+    "name": "cvapSvcTxRestarts",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxRestartAcks": {
+    "name": "cvapSvcTxRestartAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxRestarts": {
+    "name": "cvapSvcRxRestarts",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxRestartAcks": {
+    "name": "cvapSvcRxRestartAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxResyncStrts": {
+    "name": "cvapSvcTxResyncStrts",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxResyncStrtAcks": {
+    "name": "cvapSvcTxResyncStrtAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxResyncStrts": {
+    "name": "cvapSvcRxResyncStrts",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxResyncStrtAcks": {
+    "name": "cvapSvcRxResyncStrtAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxResyncEnds": {
+    "name": "cvapSvcTxResyncEnds",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxResyncEndAcks": {
+    "name": "cvapSvcTxResyncEndAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxResyncEnds": {
+    "name": "cvapSvcRxResyncEnds",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxResyncEndAcks": {
+    "name": "cvapSvcRxResyncEndAcks",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcTxBulkResyncs": {
+    "name": "cvapSvcTxBulkResyncs",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRxBulkResyncs": {
+    "name": "cvapSvcRxBulkResyncs",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcCallProcExpiries": {
+    "name": "cvapSvcCallProcExpiries",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcReleasExpiries": {
+    "name": "cvapSvcReleasExpiries",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcConnExpiries": {
+    "name": "cvapSvcConnExpiries",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcConnAckExpiries": {
+    "name": "cvapSvcConnAckExpiries",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcRestartExpiries": {
+    "name": "cvapSvcRestartExpiries",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvapSvcResyncExpiries": {
+    "name": "cvapSvcResyncExpiries",
+    "oid": "1.3.6.1.4.1.9.9.323.1.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cvaProfileMIBConformance": {
+    "name": "cvaProfileMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.323.2",
+    "class": "objectidentity"
+  },
+  "cvaProfileMIBCompliances": {
+    "name": "cvaProfileMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.323.2.1",
+    "class": "objectidentity"
+  },
+  "cvaProfileMIBGroups": {
+    "name": "cvaProfileMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.323.2.2",
+    "class": "objectidentity"
+  },
+  "cvaProfileMIBCompliance": {
+    "name": "cvaProfileMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.323.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvapCodecConfigGroup",
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB"
+      },
+      {
+        "object": "cvapSvcConfigGroup",
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB"
+      },
+      {
+        "object": "cvapSvcStatsGroup",
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cvaProfileMIBComplianceRev1": {
+    "name": "cvaProfileMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.323.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvapCodecConfigGroupRev1",
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB"
+      },
+      {
+        "object": "cvapSvcConfigGroup",
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB"
+      },
+      {
+        "object": "cvapSvcStatsGroup",
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvapCodecConfigGroup": {
+    "name": "cvapCodecConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.323.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecNegotiationOption"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigPreference"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigVoicePacketPeriod"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigVbdPacketPeriod"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigJitterDelayMode"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigJitterMaxDelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigJitterNomDelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigJitterMinDelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigDtmfRelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigPayloadType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cvapSvcConfigGroup": {
+    "name": "cvapSvcConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.323.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcAtmQosCellDelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcAtmQosCtd"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcAtmQosClr"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTrfScalingFactor"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcAal2CidNumber"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcAggTrafficClipping"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcAggLinkState"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcPartialFillSupported"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMgcpSelectorByteValue"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcH248SelectorByteValue"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcDelNotifGuardTimer"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMultiCIDPerSvc"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMultiCIDFillTimer"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMultiCIDCACSCR"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMultiCIDCACPCR"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMultiCIDOriginatDelTimer"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMultiCIDTerminatDelTimer"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcMultiCIDGlareThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cvapSvcStatsGroup": {
+    "name": "cvapSvcStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.323.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxSetups"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxSetups"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxCallProcs"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxCallProcs"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxConns"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxConnAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxConns"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxConnAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxReleases"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxReleaseCompls"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxReleases"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxReleaseCompls"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxRestarts"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxRestartAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxRestarts"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxRestartAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxResyncStrts"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxResyncStrtAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxResyncStrts"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxResyncStrtAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxResyncEnds"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxResyncEndAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxResyncEnds"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxResyncEndAcks"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcTxBulkResyncs"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRxBulkResyncs"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcCallProcExpiries"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcReleasExpiries"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcConnExpiries"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcConnAckExpiries"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcRestartExpiries"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapSvcResyncExpiries"
+      }
+    ],
+    "status": "current"
+  },
+  "cvapCodecConfigGroupRev1": {
+    "name": "cvapCodecConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.323.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecNegotiationOption"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigPreference"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigVoicePacketPeriod"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigJitterDelayMode"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigJitterMaxDelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigJitterMinDelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigDtmfRelay"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigPayloadType"
+      },
+      {
+        "module": "CISCO-VOICE-AALX-PROFILE-MIB",
+        "object": "cvapCodecConfigNewJtrNomDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VOICE-AALX-PROFILE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VOICE-AALX-PROFILE-MIB"
+  }
+}

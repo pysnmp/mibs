@@ -1,0 +1,165 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pvstpm": {
+    "name": "pvstpm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-29 16:51",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "pvstpmEvents": {
+    "name": "pvstpmEvents",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.0",
+    "class": "objectidentity"
+  },
+  "pvstpmEventVariables": {
+    "name": "pvstpmEventVariables",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.1",
+    "class": "objectidentity"
+  },
+  "pvstpmBridgeId": {
+    "name": "pvstpmBridgeId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pvstpmTopologyChangeVlan": {
+    "name": "pvstpmTopologyChangeVlan",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pvstpmRxPort": {
+    "name": "pvstpmRxPort",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pvstpmRxVlan": {
+    "name": "pvstpmRxVlan",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pvstpmTxVlan": {
+    "name": "pvstpmTxVlan",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pvstpmTopologyChange": {
+    "name": "pvstpmTopologyChange",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-PVSTPM-MIB",
+        "object": "pvstpmBridgeId"
+      },
+      {
+        "module": "AT-PVSTPM-MIB",
+        "object": "pvstpmTopologyChangeVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "pvstpmInconsistentBPDU": {
+    "name": "pvstpmInconsistentBPDU",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.140.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-PVSTPM-MIB",
+        "object": "pvstpmBridgeId"
+      },
+      {
+        "module": "AT-PVSTPM-MIB",
+        "object": "pvstpmRxPort"
+      },
+      {
+        "module": "AT-PVSTPM-MIB",
+        "object": "pvstpmRxVlan"
+      },
+      {
+        "module": "AT-PVSTPM-MIB",
+        "object": "pvstpmTxVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-PVSTPM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-PVSTPM-MIB"
+  }
+}

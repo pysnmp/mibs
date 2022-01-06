@@ -1,0 +1,905 @@
+{
+  "imports": {
+    "class": "imports",
+    "IPV6-TC": [
+      "Ipv6AddressPrefix"
+    ],
+    "JUNIPER-JS-SMI": [
+      "jnxJsPacketMirror"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxJsPacketMirrorMIB": {
+    "name": "jnxJsPacketMirrorMIB",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-10-29 00:00",
+        "description": "Creation Date"
+      },
+      {
+        "revision": "2010-02-25 00:00",
+        "description": "Added analyzer address to the LI Service Activated trap."
+      },
+      {
+        "revision": "2010-12-16 00:00",
+        "description": "Added Target Ipv6 Address address to traps."
+      },
+      {
+        "revision": "2011-03-16 00:00",
+        "description": "Added Target Ipv6 Prefix Length to traps."
+      },
+      {
+        "revision": "2011-03-23 00:00",
+        "description": "Add missing Ipv6 Prefix Length to traps. Use SYNTAX Counter64 for tranmitted and received Octets."
+      },
+      {
+        "revision": "2011-06-07 00:00",
+        "description": "Change SYNTAX of Mirror Identifier."
+      },
+      {
+        "revision": "2011-11-23 00:00",
+        "description": "Add jnxJsPacketMirrorTriggerType circuitId."
+      },
+      {
+        "revision": "2016-04-05 00:00",
+        "description": "Changed trap class from SNMP_TRAP_CLASS_AUTH to SNMP_TRAP_CLASS_V3_ONLY"
+      }
+    ]
+  },
+  "jnxJsPacketMirrorNotifications": {
+    "name": "jnxJsPacketMirrorNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0",
+    "class": "objectidentity"
+  },
+  "jnxJsPacketMirrorObjects": {
+    "name": "jnxJsPacketMirrorObjects",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsPacketMirrorTrapVars": {
+    "name": "jnxJsPacketMirrorTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxJsPacketMirrorIdentifier": {
+    "name": "jnxJsPacketMirrorIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorSessionIdentifier": {
+    "name": "jnxJsPacketMirrorSessionIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorTrigger": {
+    "name": "jnxJsPacketMirrorTrigger",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorTriggerType": {
+    "name": "jnxJsPacketMirrorTriggerType",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceString": 0,
+          "ipAddress": 1,
+          "nasPortId": 2,
+          "username": 3,
+          "callingStationId": 4,
+          "acctSessionId": 5,
+          "option82": 6,
+          "remoteId": 7,
+          "circuitId": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorConfigurationSource": {
+    "name": "jnxJsPacketMirrorConfigurationSource",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radiusLogin": 0,
+          "radiusCoa": 1,
+          "cliTrigger": 2,
+          "cliStatic": 3,
+          "dtcp": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorErrorCause": {
+    "name": "jnxJsPacketMirrorErrorCause",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "genericFailure": 0,
+          "noResourcesAvailable": 1,
+          "memoryExhausted": 2,
+          "noSuchName": 3,
+          "invalidAnalyzerAddress": 4,
+          "noSuchUserOrInterface": 5,
+          "featureNotSupported": 6,
+          "missingOrInvalidAttribute": 7,
+          "routerMismatch": 8,
+          "nameLengthExceeded": 9,
+          "dfcdNak": 10
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorErrorString": {
+    "name": "jnxJsPacketMirrorErrorString",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorApplicationName": {
+    "name": "jnxJsPacketMirrorApplicationName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authd": 0
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorAnalyzerAddress": {
+    "name": "jnxJsPacketMirrorAnalyzerAddress",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorUserName": {
+    "name": "jnxJsPacketMirrorUserName",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorDateAndTime": {
+    "name": "jnxJsPacketMirrorDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorRouterId": {
+    "name": "jnxJsPacketMirrorRouterId",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 257
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorDirection": {
+    "name": "jnxJsPacketMirrorDirection",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 0,
+          "egress": 1,
+          "bidirection": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorTargetIpAddress": {
+    "name": "jnxJsPacketMirrorTargetIpAddress",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorTerminationReason": {
+    "name": "jnxJsPacketMirrorTerminationReason",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "genericFailure": 0,
+          "userRequest": 1,
+          "lostCarrier": 2,
+          "lostService": 3,
+          "idleTimeout": 4,
+          "sessionTimeout": 5,
+          "adminReset": 6,
+          "adminReboot": 7,
+          "portError": 8,
+          "nasError": 9,
+          "nasRequest0": 10,
+          "nasReboot1": 11,
+          "portUnneeded": 12,
+          "portPreempted": 13,
+          "portSuspended": 14,
+          "serviceUnavailable": 15,
+          "callback": 16,
+          "userError": 17,
+          "hostRequest": 18,
+          "supplicantRestart": 19,
+          "reauthenticationFailure": 20,
+          "portReinitialized": 21,
+          "portAdministrativelyDisabled": 22,
+          "authenticationReject": 23,
+          "interfaceDeleted": 24
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxPacketMirrorCallingStationIdentifier": {
+    "name": "jnxPacketMirrorCallingStationIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxPacketMirrorNasIdentifier": {
+    "name": "jnxPacketMirrorNasIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorOctetsReceived": {
+    "name": "jnxJsPacketMirrorOctetsReceived",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorOctetsTransmitted": {
+    "name": "jnxJsPacketMirrorOctetsTransmitted",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorTargetIpv6Address": {
+    "name": "jnxJsPacketMirrorTargetIpv6Address",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorTrgtIpv6PfxLen": {
+    "name": "jnxJsPacketMirrorTrgtIpv6PfxLen",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxJsPacketMirrorMirroringFailure": {
+    "name": "jnxJsPacketMirrorMirroringFailure",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDateAndTime"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTriggerType"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrigger"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorRouterId"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorUserName"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorErrorCause"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorApplicationName"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorErrorString"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPacketMirrorLiSubscriberLoggedIn": {
+    "name": "jnxJsPacketMirrorLiSubscriberLoggedIn",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDateAndTime"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTriggerType"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrigger"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorRouterId"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDirection"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxPacketMirrorNasIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxPacketMirrorCallingStationIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpv6Address"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrgtIpv6PfxLen"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPacketMirrorLiSubscriberLogInFailed": {
+    "name": "jnxJsPacketMirrorLiSubscriberLogInFailed",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDateAndTime"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTriggerType"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrigger"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorRouterId"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDirection"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorErrorCause"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorErrorString"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxPacketMirrorCallingStationIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpv6Address"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrgtIpv6PfxLen"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPacketMirrorLiSubscriberLoggedOut": {
+    "name": "jnxJsPacketMirrorLiSubscriberLoggedOut",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDateAndTime"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTriggerType"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrigger"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorRouterId"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDirection"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTerminationReason"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorOctetsReceived"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorOctetsTransmitted"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpv6Address"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrgtIpv6PfxLen"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPacketMirrorLiServiceActivated": {
+    "name": "jnxJsPacketMirrorLiServiceActivated",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDateAndTime"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTriggerType"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrigger"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorRouterId"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDirection"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxPacketMirrorNasIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxPacketMirrorCallingStationIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpv6Address"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrgtIpv6PfxLen"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPacketMirrorLiServiceActivationFailed": {
+    "name": "jnxJsPacketMirrorLiServiceActivationFailed",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDateAndTime"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTriggerType"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrigger"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorRouterId"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDirection"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorErrorCause"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorErrorString"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxPacketMirrorCallingStationIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpv6Address"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrgtIpv6PfxLen"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxJsPacketMirrorLiServiceDeactivated": {
+    "name": "jnxJsPacketMirrorLiServiceDeactivated",
+    "oid": "1.3.6.1.4.1.2636.3.39.1.16.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDateAndTime"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorConfigurationSource"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTriggerType"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrigger"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorRouterId"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorSessionIdentifier"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorDirection"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorAnalyzerAddress"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTerminationReason"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTargetIpv6Address"
+      },
+      {
+        "module": "JUNIPER-JS-PACKET-MIRROR-MIB",
+        "object": "jnxJsPacketMirrorTrgtIpv6PfxLen"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-JS-PACKET-MIRROR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-JS-PACKET-MIRROR-MIB"
+  }
+}

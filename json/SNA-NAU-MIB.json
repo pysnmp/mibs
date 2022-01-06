@@ -1,0 +1,2621 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "InstancePointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "snanauMIB": {
+    "name": "snanauMIB",
+    "oid": "1.3.6.1.2.1.34",
+    "class": "moduleidentity"
+  },
+  "snanauObjects": {
+    "name": "snanauObjects",
+    "oid": "1.3.6.1.2.1.34.1",
+    "class": "objectidentity"
+  },
+  "snaNode": {
+    "name": "snaNode",
+    "oid": "1.3.6.1.2.1.34.1.1",
+    "class": "objectidentity"
+  },
+  "snaLu": {
+    "name": "snaLu",
+    "oid": "1.3.6.1.2.1.34.1.2",
+    "class": "objectidentity"
+  },
+  "snaMgtTools": {
+    "name": "snaMgtTools",
+    "oid": "1.3.6.1.2.1.34.1.3",
+    "class": "objectidentity"
+  },
+  "snaNodeAdminTable": {
+    "name": "snaNodeAdminTable",
+    "oid": "1.3.6.1.2.1.34.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaNodeAdminEntry": {
+    "name": "snaNodeAdminEntry",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaNodeAdminIndex": {
+    "name": "snaNodeAdminIndex",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaNodeAdminName": {
+    "name": "snaNodeAdminName",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminType": {
+    "name": "snaNodeAdminType",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "pu10": 2,
+          "pu20": 3,
+          "t21len": 4,
+          "endNode": 5,
+          "networkNode": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminXidFormat": {
+    "name": "snaNodeAdminXidFormat",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "format0": 1,
+          "format1": 2,
+          "format3": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminBlockNum": {
+    "name": "snaNodeAdminBlockNum",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminIdNum": {
+    "name": "snaNodeAdminIdNum",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminEnablingMethod": {
+    "name": "snaNodeAdminEnablingMethod",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "startup": 2,
+          "demand": 3,
+          "onlyMS": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminLuTermDefault": {
+    "name": "snaNodeAdminLuTermDefault",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbind": 1,
+          "termself": 2,
+          "rshutd": 3,
+          "poweroff": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminMaxLu": {
+    "name": "snaNodeAdminMaxLu",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminHostDescription": {
+    "name": "snaNodeAdminHostDescription",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminStopMethod": {
+    "name": "snaNodeAdminStopMethod",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "normal": 2,
+          "immed": 3,
+          "force": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminState": {
+    "name": "snaNodeAdminState",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminRowStatus": {
+    "name": "snaNodeAdminRowStatus",
+    "oid": "1.3.6.1.2.1.34.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeAdminTableLastChange": {
+    "name": "snaNodeAdminTableLastChange",
+    "oid": "1.3.6.1.2.1.34.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperTable": {
+    "name": "snaNodeOperTable",
+    "oid": "1.3.6.1.2.1.34.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaNodeOperEntry": {
+    "name": "snaNodeOperEntry",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaNodeOperName": {
+    "name": "snaNodeOperName",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperType": {
+    "name": "snaNodeOperType",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "pu10": 2,
+          "pu20": 3,
+          "t21LEN": 4,
+          "endNode": 5,
+          "networkNode": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperXidFormat": {
+    "name": "snaNodeOperXidFormat",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "format0": 1,
+          "format1": 2,
+          "format3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperBlockNum": {
+    "name": "snaNodeOperBlockNum",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperIdNum": {
+    "name": "snaNodeOperIdNum",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperEnablingMethod": {
+    "name": "snaNodeOperEnablingMethod",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "startup": 2,
+          "demand": 3,
+          "onlyMS": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperLuTermDefault": {
+    "name": "snaNodeOperLuTermDefault",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbind": 1,
+          "termself": 2,
+          "rshutd": 3,
+          "poweroff": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperMaxLu": {
+    "name": "snaNodeOperMaxLu",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperHostDescription": {
+    "name": "snaNodeOperHostDescription",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperStopMethod": {
+    "name": "snaNodeOperStopMethod",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "normal": 2,
+          "immed": 3,
+          "force": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperState": {
+    "name": "snaNodeOperState",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "waiting": 3,
+          "stopping": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperHostSscpId": {
+    "name": "snaNodeOperHostSscpId",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperStartTime": {
+    "name": "snaNodeOperStartTime",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperLastStateChange": {
+    "name": "snaNodeOperLastStateChange",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperActFailures": {
+    "name": "snaNodeOperActFailures",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperActFailureReason": {
+    "name": "snaNodeOperActFailureReason",
+    "oid": "1.3.6.1.2.1.34.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "linkFailure": 2,
+          "noResources": 3,
+          "badConfiguration": 4,
+          "internalError": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeOperTableLastChange": {
+    "name": "snaNodeOperTableLastChange",
+    "oid": "1.3.6.1.2.1.34.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsTable": {
+    "name": "snaPu20StatsTable",
+    "oid": "1.3.6.1.2.1.34.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaPu20StatsEntry": {
+    "name": "snaPu20StatsEntry",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaPu20StatsSentBytes": {
+    "name": "snaPu20StatsSentBytes",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsReceivedBytes": {
+    "name": "snaPu20StatsReceivedBytes",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsSentPius": {
+    "name": "snaPu20StatsSentPius",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsReceivedPius": {
+    "name": "snaPu20StatsReceivedPius",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsSentNegativeResps": {
+    "name": "snaPu20StatsSentNegativeResps",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsReceivedNegativeResps": {
+    "name": "snaPu20StatsReceivedNegativeResps",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsActLus": {
+    "name": "snaPu20StatsActLus",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsInActLus": {
+    "name": "snaPu20StatsInActLus",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaPu20StatsBindLus": {
+    "name": "snaPu20StatsBindLus",
+    "oid": "1.3.6.1.2.1.34.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeLinkAdminTable": {
+    "name": "snaNodeLinkAdminTable",
+    "oid": "1.3.6.1.2.1.34.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaNodeLinkAdminEntry": {
+    "name": "snaNodeLinkAdminEntry",
+    "oid": "1.3.6.1.2.1.34.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaNodeLinkAdminIndex": {
+    "name": "snaNodeLinkAdminIndex",
+    "oid": "1.3.6.1.2.1.34.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaNodeLinkAdminSpecific": {
+    "name": "snaNodeLinkAdminSpecific",
+    "oid": "1.3.6.1.2.1.34.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeLinkAdminMaxPiu": {
+    "name": "snaNodeLinkAdminMaxPiu",
+    "oid": "1.3.6.1.2.1.34.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeLinkAdminRowStatus": {
+    "name": "snaNodeLinkAdminRowStatus",
+    "oid": "1.3.6.1.2.1.34.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaNodeLinkAdminTableLastChange": {
+    "name": "snaNodeLinkAdminTableLastChange",
+    "oid": "1.3.6.1.2.1.34.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeLinkOperTable": {
+    "name": "snaNodeLinkOperTable",
+    "oid": "1.3.6.1.2.1.34.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaNodeLinkOperEntry": {
+    "name": "snaNodeLinkOperEntry",
+    "oid": "1.3.6.1.2.1.34.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaNodeLinkOperSpecific": {
+    "name": "snaNodeLinkOperSpecific",
+    "oid": "1.3.6.1.2.1.34.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeLinkOperMaxPiu": {
+    "name": "snaNodeLinkOperMaxPiu",
+    "oid": "1.3.6.1.2.1.34.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeLinkOperTableLastChange": {
+    "name": "snaNodeLinkOperTableLastChange",
+    "oid": "1.3.6.1.2.1.34.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaNodeTraps": {
+    "name": "snaNodeTraps",
+    "oid": "1.3.6.1.2.1.34.1.1.10",
+    "class": "objectidentity"
+  },
+  "snaNodeStateChangeTrap": {
+    "name": "snaNodeStateChangeTrap",
+    "oid": "1.3.6.1.2.1.34.1.1.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "snaNodeActFailTrap": {
+    "name": "snaNodeActFailTrap",
+    "oid": "1.3.6.1.2.1.34.1.1.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperActFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuAdminTable": {
+    "name": "snaLuAdminTable",
+    "oid": "1.3.6.1.2.1.34.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuAdminEntry": {
+    "name": "snaLuAdminEntry",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminLuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuAdminLuIndex": {
+    "name": "snaLuAdminLuIndex",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuAdminName": {
+    "name": "snaLuAdminName",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuAdminSnaName": {
+    "name": "snaLuAdminSnaName",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuAdminType": {
+    "name": "snaLuAdminType",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "lu0": 2,
+          "lu1": 3,
+          "lu2": 4,
+          "lu3": 5,
+          "lu4": 6,
+          "lu62": 7,
+          "lu7": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuAdminDepType": {
+    "name": "snaLuAdminDepType",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dependent": 1,
+          "independent": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuAdminLocalAddress": {
+    "name": "snaLuAdminLocalAddress",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuAdminDisplayModel": {
+    "name": "snaLuAdminDisplayModel",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "model2A": 2,
+          "model2B": 3,
+          "model3A": 4,
+          "model3B": 5,
+          "model4A": 6,
+          "model4B": 7,
+          "model5A": 8,
+          "model5B": 9,
+          "dynamic": 10
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuAdminTerm": {
+    "name": "snaLuAdminTerm",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbind": 1,
+          "termself": 2,
+          "rshutd": 3,
+          "poweroff": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuAdminRowStatus": {
+    "name": "snaLuAdminRowStatus",
+    "oid": "1.3.6.1.2.1.34.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snaLuOperTable": {
+    "name": "snaLuOperTable",
+    "oid": "1.3.6.1.2.1.34.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuOperEntry": {
+    "name": "snaLuOperEntry",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminLuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuOperName": {
+    "name": "snaLuOperName",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperSnaName": {
+    "name": "snaLuOperSnaName",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperType": {
+    "name": "snaLuOperType",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "lu0": 2,
+          "lu1": 3,
+          "lu2": 4,
+          "lu3": 5,
+          "lu4": 6,
+          "lu62": 7,
+          "lu7": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperDepType": {
+    "name": "snaLuOperDepType",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dependent": 1,
+          "independent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperLocalAddress": {
+    "name": "snaLuOperLocalAddress",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperDisplayModel": {
+    "name": "snaLuOperDisplayModel",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "model2A": 2,
+          "model2B": 3,
+          "model3A": 4,
+          "model3B": 5,
+          "model4A": 6,
+          "model4B": 7,
+          "model5A": 8,
+          "model5B": 9,
+          "dynamic": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperTerm": {
+    "name": "snaLuOperTerm",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbind": 1,
+          "termself": 2,
+          "rshutd": 3,
+          "poweroff": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperState": {
+    "name": "snaLuOperState",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuOperSessnCount": {
+    "name": "snaLuOperSessnCount",
+    "oid": "1.3.6.1.2.1.34.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnTable": {
+    "name": "snaLuSessnTable",
+    "oid": "1.3.6.1.2.1.34.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuSessnEntry": {
+    "name": "snaLuSessnEntry",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminLuIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnRluIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuSessnRluIndex": {
+    "name": "snaLuSessnRluIndex",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnIndex": {
+    "name": "snaLuSessnIndex",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnLocalApplName": {
+    "name": "snaLuSessnLocalApplName",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnRemoteLuName": {
+    "name": "snaLuSessnRemoteLuName",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnMaxSndRuSize": {
+    "name": "snaLuSessnMaxSndRuSize",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnMaxRcvRuSize": {
+    "name": "snaLuSessnMaxRcvRuSize",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnSndPacingSize": {
+    "name": "snaLuSessnSndPacingSize",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnRcvPacingSize": {
+    "name": "snaLuSessnRcvPacingSize",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnActiveTime": {
+    "name": "snaLuSessnActiveTime",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnAdminState": {
+    "name": "snaLuSessnAdminState",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbound": 1,
+          "bound": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snaLuSessnOperState": {
+    "name": "snaLuSessnOperState",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbound": 1,
+          "pendingBind": 2,
+          "bound": 3,
+          "pendingUnbind": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnSenseData": {
+    "name": "snaLuSessnSenseData",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnTerminationRu": {
+    "name": "snaLuSessnTerminationRu",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "bindFailure": 2,
+          "unbind": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnUnbindType": {
+    "name": "snaLuSessnUnbindType",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnLinkIndex": {
+    "name": "snaLuSessnLinkIndex",
+    "oid": "1.3.6.1.2.1.34.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnStatsTable": {
+    "name": "snaLuSessnStatsTable",
+    "oid": "1.3.6.1.2.1.34.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuSessnStatsEntry": {
+    "name": "snaLuSessnStatsEntry",
+    "oid": "1.3.6.1.2.1.34.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminLuIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnRluIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuSessnStatsSentBytes": {
+    "name": "snaLuSessnStatsSentBytes",
+    "oid": "1.3.6.1.2.1.34.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnStatsReceivedBytes": {
+    "name": "snaLuSessnStatsReceivedBytes",
+    "oid": "1.3.6.1.2.1.34.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnStatsSentRus": {
+    "name": "snaLuSessnStatsSentRus",
+    "oid": "1.3.6.1.2.1.34.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnStatsReceivedRus": {
+    "name": "snaLuSessnStatsReceivedRus",
+    "oid": "1.3.6.1.2.1.34.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnStatsSentNegativeResps": {
+    "name": "snaLuSessnStatsSentNegativeResps",
+    "oid": "1.3.6.1.2.1.34.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuSessnStatsReceivedNegativeResps": {
+    "name": "snaLuSessnStatsReceivedNegativeResps",
+    "oid": "1.3.6.1.2.1.34.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuTraps": {
+    "name": "snaLuTraps",
+    "oid": "1.3.6.1.2.1.34.1.2.5",
+    "class": "objectidentity"
+  },
+  "snaLuStateChangeTrap": {
+    "name": "snaLuStateChangeTrap",
+    "oid": "1.3.6.1.2.1.34.1.2.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperSnaName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuSessnBindFailTrap": {
+    "name": "snaLuSessnBindFailTrap",
+    "oid": "1.3.6.1.2.1.34.1.2.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnLocalApplName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnRemoteLuName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnOperState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnSenseData"
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuRtmTable": {
+    "name": "snaLuRtmTable",
+    "oid": "1.3.6.1.2.1.34.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuRtmEntry": {
+    "name": "snaLuRtmEntry",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmPuIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmLuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuRtmPuIndex": {
+    "name": "snaLuRtmPuIndex",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuRtmLuIndex": {
+    "name": "snaLuRtmLuIndex",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snaLuRtmState": {
+    "name": "snaLuRtmState",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmStateTime": {
+    "name": "snaLuRtmStateTime",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmDef": {
+    "name": "snaLuRtmDef",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firstChar": 1,
+          "kb": 2,
+          "cdeb": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmBoundary1": {
+    "name": "snaLuRtmBoundary1",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmBoundary2": {
+    "name": "snaLuRtmBoundary2",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmBoundary3": {
+    "name": "snaLuRtmBoundary3",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmBoundary4": {
+    "name": "snaLuRtmBoundary4",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmCounter1": {
+    "name": "snaLuRtmCounter1",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmCounter2": {
+    "name": "snaLuRtmCounter2",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmCounter3": {
+    "name": "snaLuRtmCounter3",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmCounter4": {
+    "name": "snaLuRtmCounter4",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmOverFlows": {
+    "name": "snaLuRtmOverFlows",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmObjPercent": {
+    "name": "snaLuRtmObjPercent",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmObjRange": {
+    "name": "snaLuRtmObjRange",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "range1": 2,
+          "range2": 3,
+          "range3": 4,
+          "range4": 5,
+          "range5": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmNumTrans": {
+    "name": "snaLuRtmNumTrans",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmLastRspTime": {
+    "name": "snaLuRtmLastRspTime",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLuRtmAvgRspTime": {
+    "name": "snaLuRtmAvgRspTime",
+    "oid": "1.3.6.1.2.1.34.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snanauConformance": {
+    "name": "snanauConformance",
+    "oid": "1.3.6.1.2.1.34.2",
+    "class": "objectidentity"
+  },
+  "snanauCompliances": {
+    "name": "snanauCompliances",
+    "oid": "1.3.6.1.2.1.34.2.1",
+    "class": "objectidentity"
+  },
+  "snanauGroups": {
+    "name": "snanauGroups",
+    "oid": "1.3.6.1.2.1.34.2.2",
+    "class": "objectidentity"
+  },
+  "snanauCompliance": {
+    "name": "snanauCompliance",
+    "oid": "1.3.6.1.2.1.34.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snaNodeGroup",
+        "module": "SNA-NAU-MIB"
+      },
+      {
+        "object": "snaLuGroup",
+        "module": "SNA-NAU-MIB"
+      },
+      {
+        "object": "snaSessionGroup",
+        "module": "SNA-NAU-MIB"
+      },
+      {
+        "object": "snaPu20Group",
+        "module": "SNA-NAU-MIB"
+      },
+      {
+        "object": "snaMgtToolsRtmGroup",
+        "module": "SNA-NAU-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "snaNodeGroup": {
+    "name": "snaNodeGroup",
+    "oid": "1.3.6.1.2.1.34.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminType"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminXidFormat"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminBlockNum"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIdNum"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminEnablingMethod"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminLuTermDefault"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminMaxLu"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminHostDescription"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminStopMethod"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminRowStatus"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminTableLastChange"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperType"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperXidFormat"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperBlockNum"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperIdNum"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperEnablingMethod"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperLuTermDefault"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperMaxLu"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperHostDescription"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperStopMethod"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperHostSscpId"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperStartTime"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperLastStateChange"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperActFailures"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperActFailureReason"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeOperTableLastChange"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkAdminSpecific"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkAdminMaxPiu"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkAdminRowStatus"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkAdminTableLastChange"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkOperSpecific"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkOperMaxPiu"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkOperTableLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "snaLuGroup": {
+    "name": "snaLuGroup",
+    "oid": "1.3.6.1.2.1.34.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminSnaName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminType"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminDepType"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminLocalAddress"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminDisplayModel"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminTerm"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminRowStatus"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperSnaName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperType"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperDepType"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperLocalAddress"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperDisplayModel"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperTerm"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuOperSessnCount"
+      }
+    ],
+    "status": "current"
+  },
+  "snaSessionGroup": {
+    "name": "snaSessionGroup",
+    "oid": "1.3.6.1.2.1.34.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnRluIndex"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnIndex"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnLocalApplName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnRemoteLuName"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnMaxSndRuSize"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnMaxRcvRuSize"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnSndPacingSize"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnRcvPacingSize"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnActiveTime"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnAdminState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnOperState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnSenseData"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnTerminationRu"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnUnbindType"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnLinkIndex"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnStatsSentBytes"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnStatsReceivedBytes"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnStatsSentRus"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnStatsReceivedRus"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnStatsSentNegativeResps"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnStatsReceivedNegativeResps"
+      }
+    ],
+    "status": "current"
+  },
+  "snaPu20Group": {
+    "name": "snaPu20Group",
+    "oid": "1.3.6.1.2.1.34.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsSentBytes"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsReceivedBytes"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsSentPius"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsReceivedPius"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsSentNegativeResps"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsReceivedNegativeResps"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsActLus"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsInActLus"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaPu20StatsBindLus"
+      }
+    ],
+    "status": "current"
+  },
+  "snaMgtToolsRtmGroup": {
+    "name": "snaMgtToolsRtmGroup",
+    "oid": "1.3.6.1.2.1.34.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmState"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmStateTime"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmDef"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmBoundary1"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmBoundary2"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmBoundary3"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmBoundary4"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmCounter1"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmCounter2"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmCounter3"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmCounter4"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmOverFlows"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmObjPercent"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmObjRange"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmNumTrans"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmLastRspTime"
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuRtmAvgRspTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNA-NAU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SNA-NAU-MIB"
+  }
+}

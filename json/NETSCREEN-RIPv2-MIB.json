@@ -1,0 +1,600 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenVR"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "nsRip2": {
+    "name": "nsRip2",
+    "oid": "1.3.6.1.4.1.3224.18.4",
+    "class": "moduleidentity"
+  },
+  "RouteTag": {
+    "name": "RouteTag",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "nsRip2GlobalsTable": {
+    "name": "nsRip2GlobalsTable",
+    "oid": "1.3.6.1.4.1.3224.18.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "nsRip2GlobalsEntry": {
+    "name": "nsRip2GlobalsEntry",
+    "oid": "1.3.6.1.4.1.3224.18.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2GlobalVRID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "nsRip2GlobalRouteChanges": {
+    "name": "nsRip2GlobalRouteChanges",
+    "oid": "1.3.6.1.4.1.3224.18.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2GlobalQueries": {
+    "name": "nsRip2GlobalQueries",
+    "oid": "1.3.6.1.4.1.3224.18.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2GlobalVRID": {
+    "name": "nsRip2GlobalVRID",
+    "oid": "1.3.6.1.4.1.3224.18.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2IfStatTable": {
+    "name": "nsRip2IfStatTable",
+    "oid": "1.3.6.1.4.1.3224.18.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "nsRip2IfStatEntry": {
+    "name": "nsRip2IfStatEntry",
+    "oid": "1.3.6.1.4.1.3224.18.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2IfStatAddress",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2IfStatVRID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "nsRip2IfStatAddress": {
+    "name": "nsRip2IfStatAddress",
+    "oid": "1.3.6.1.4.1.3224.18.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2IfStatRcvBadPackets": {
+    "name": "nsRip2IfStatRcvBadPackets",
+    "oid": "1.3.6.1.4.1.3224.18.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2IfStatRcvBadRoutes": {
+    "name": "nsRip2IfStatRcvBadRoutes",
+    "oid": "1.3.6.1.4.1.3224.18.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2IfStatSentUpdates": {
+    "name": "nsRip2IfStatSentUpdates",
+    "oid": "1.3.6.1.4.1.3224.18.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2IfStatStatus": {
+    "name": "nsRip2IfStatStatus",
+    "oid": "1.3.6.1.4.1.3224.18.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfStatVRID": {
+    "name": "nsRip2IfStatVRID",
+    "oid": "1.3.6.1.4.1.3224.18.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfTable": {
+    "name": "nsRip2IfConfTable",
+    "oid": "1.3.6.1.4.1.3224.18.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfEntry": {
+    "name": "nsRip2IfConfEntry",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2IfConfAddress",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2IfConfVRID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "nsRip2IfConfAddress": {
+    "name": "nsRip2IfConfAddress",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfDomain": {
+    "name": "nsRip2IfConfDomain",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouteTag",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "nsRip2IfConfAuthType": {
+    "name": "nsRip2IfConfAuthType",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthentication": 1,
+          "simplePassword": 2,
+          "md5": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAuthentication",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfAuthKey": {
+    "name": "nsRip2IfConfAuthKey",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfSend": {
+    "name": "nsRip2IfConfSend",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNotSend": 1,
+          "ripVersion1": 2,
+          "rip1Compatible": 3,
+          "ripVersion2": 4,
+          "ripV1Demand": 5,
+          "ripV2Demand": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rip1Compatible",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfReceive": {
+    "name": "nsRip2IfConfReceive",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rip1": 1,
+          "rip2": 2,
+          "rip1OrRip2": 3,
+          "doNotRecieve": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rip1OrRip2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfDefaultMetric": {
+    "name": "nsRip2IfConfDefaultMetric",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfStatus": {
+    "name": "nsRip2IfConfStatus",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfSrcAddress": {
+    "name": "nsRip2IfConfSrcAddress",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "nsRip2IfConfVRID": {
+    "name": "nsRip2IfConfVRID",
+    "oid": "1.3.6.1.4.1.3224.18.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2PeerTable": {
+    "name": "nsRip2PeerTable",
+    "oid": "1.3.6.1.4.1.3224.18.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "nsRip2PeerEntry": {
+    "name": "nsRip2PeerEntry",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2PeerAddress",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2PeerDomain",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-RIPv2-MIB",
+        "object": "nsRip2PeerVRID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "nsRip2PeerAddress": {
+    "name": "nsRip2PeerAddress",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2PeerDomain": {
+    "name": "nsRip2PeerDomain",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouteTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2PeerLastUpdate": {
+    "name": "nsRip2PeerLastUpdate",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2PeerVersion": {
+    "name": "nsRip2PeerVersion",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2PeerRcvBadPackets": {
+    "name": "nsRip2PeerRcvBadPackets",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2PeerRcvBadRoutes": {
+    "name": "nsRip2PeerRcvBadRoutes",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsRip2PeerVRID": {
+    "name": "nsRip2PeerVRID",
+    "oid": "1.3.6.1.4.1.3224.18.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-RIPv2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-RIPv2-MIB"
+  }
+}

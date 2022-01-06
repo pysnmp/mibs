@@ -1,0 +1,1521 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfPortal": {
+    "name": "hpnicfPortal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99",
+    "class": "moduleidentity"
+  },
+  "hpnicfPortalConfig": {
+    "name": "hpnicfPortalConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.1",
+    "class": "objectidentity"
+  },
+  "hpnicfPortalMaxUserNumber": {
+    "name": "hpnicfPortalMaxUserNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPortalCurrentUserNumber": {
+    "name": "hpnicfPortalCurrentUserNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatus": {
+    "name": "hpnicfPortalStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalUserNumberUpperLimit": {
+    "name": "hpnicfPortalUserNumberUpperLimit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalNasId": {
+    "name": "hpnicfPortalNasId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPortalTables": {
+    "name": "hpnicfPortalTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2",
+    "class": "objectidentity"
+  },
+  "hpnicfPortalServerTable": {
+    "name": "hpnicfPortalServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalServerEntry": {
+    "name": "hpnicfPortalServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalServerName": {
+    "name": "hpnicfPortalServerName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfPortalServerUrl": {
+    "name": "hpnicfPortalServerUrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPortalServerPort": {
+    "name": "hpnicfPortalServerPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPortalIfInfoTable": {
+    "name": "hpnicfPortalIfInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalIfInfoEntry": {
+    "name": "hpnicfPortalIfInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalAuthReqNumber": {
+    "name": "hpnicfPortalAuthReqNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalAuthSuccNumber": {
+    "name": "hpnicfPortalAuthSuccNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalAuthFailNumber": {
+    "name": "hpnicfPortalAuthFailNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalIfServerTable": {
+    "name": "hpnicfPortalIfServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalIfServerEntry": {
+    "name": "hpnicfPortalIfServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalIfServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalIfServerIndex": {
+    "name": "hpnicfPortalIfServerIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalIfServerUrl": {
+    "name": "hpnicfPortalIfServerUrl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalIfServerRowStatus": {
+    "name": "hpnicfPortalIfServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalIfVlanNasIDTable": {
+    "name": "hpnicfPortalIfVlanNasIDTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalIfVlanNasIDEntry": {
+    "name": "hpnicfPortalIfVlanNasIDEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalIfVlanNasIDIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalIfVlanNasIDVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalIfVlanNasIDIfIndex": {
+    "name": "hpnicfPortalIfVlanNasIDIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalIfVlanNasIDVlanID": {
+    "name": "hpnicfPortalIfVlanNasIDVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalIfVlanNasIDNasID": {
+    "name": "hpnicfPortalIfVlanNasIDNasID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalSSIDFreeRuleTable": {
+    "name": "hpnicfPortalSSIDFreeRuleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalSSIDFreeRuleEntry": {
+    "name": "hpnicfPortalSSIDFreeRuleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalSSIDFreeRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalSSIDFreeRuleIndex": {
+    "name": "hpnicfPortalSSIDFreeRuleIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalSSIDFreeRuleSrcSSID": {
+    "name": "hpnicfPortalSSIDFreeRuleSrcSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalSSIDFreeRuleRowStatus": {
+    "name": "hpnicfPortalSSIDFreeRuleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalSSIDFreeRuleSrcSpot": {
+    "name": "hpnicfPortalSSIDFreeRuleSrcSpot",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerSrvTable": {
+    "name": "hpnicfPortalMacTriggerSrvTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerSrvEntry": {
+    "name": "hpnicfPortalMacTriggerSrvEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalMacTriggerSrvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerSrvIndex": {
+    "name": "hpnicfPortalMacTriggerSrvIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerSrvIPAddrType": {
+    "name": "hpnicfPortalMacTriggerSrvIPAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerSrvIP": {
+    "name": "hpnicfPortalMacTriggerSrvIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerSrvPort": {
+    "name": "hpnicfPortalMacTriggerSrvPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerSrvRowStatus": {
+    "name": "hpnicfPortalMacTriggerSrvRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerOnIfTable": {
+    "name": "hpnicfPortalMacTriggerOnIfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerOnIfEntry": {
+    "name": "hpnicfPortalMacTriggerOnIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalMacTriggerOnIfIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerOnIfIfIndex": {
+    "name": "hpnicfPortalMacTriggerOnIfIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerOnIfDetctFlowPeriod": {
+    "name": "hpnicfPortalMacTriggerOnIfDetctFlowPeriod",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerOnIfThresholdFlow": {
+    "name": "hpnicfPortalMacTriggerOnIfThresholdFlow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalMacTriggerOnIfRowStatus": {
+    "name": "hpnicfPortalMacTriggerOnIfRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleTable": {
+    "name": "hpnicfPortalFreeRuleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleEntry": {
+    "name": "hpnicfPortalFreeRuleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalFreeRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleIndex": {
+    "name": "hpnicfPortalFreeRuleIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleSrcIfIndex": {
+    "name": "hpnicfPortalFreeRuleSrcIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleSrcVlanID": {
+    "name": "hpnicfPortalFreeRuleSrcVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleSrcMac": {
+    "name": "hpnicfPortalFreeRuleSrcMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleAddrType": {
+    "name": "hpnicfPortalFreeRuleAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleSrcAddr": {
+    "name": "hpnicfPortalFreeRuleSrcAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleSrcPrefix": {
+    "name": "hpnicfPortalFreeRuleSrcPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleDstAddr": {
+    "name": "hpnicfPortalFreeRuleDstAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleDstPrefix": {
+    "name": "hpnicfPortalFreeRuleDstPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleProtocol": {
+    "name": "hpnicfPortalFreeRuleProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "tcp": 6,
+          "udp": 17
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleSrcPort": {
+    "name": "hpnicfPortalFreeRuleSrcPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleDstPort": {
+    "name": "hpnicfPortalFreeRuleDstPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalFreeRuleRowStatus": {
+    "name": "hpnicfPortalFreeRuleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleTable": {
+    "name": "hpnicfPortalForbiddenRuleTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleEntry": {
+    "name": "hpnicfPortalForbiddenRuleEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalForbiddenRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleIndex": {
+    "name": "hpnicfPortalForbiddenRuleIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleSrcIfIndex": {
+    "name": "hpnicfPortalForbiddenRuleSrcIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleSrcVlanID": {
+    "name": "hpnicfPortalForbiddenRuleSrcVlanID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleSrcMac": {
+    "name": "hpnicfPortalForbiddenRuleSrcMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleAddrType": {
+    "name": "hpnicfPortalForbiddenRuleAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleSrcAddr": {
+    "name": "hpnicfPortalForbiddenRuleSrcAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleSrcPrefix": {
+    "name": "hpnicfPortalForbiddenRuleSrcPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleDstAddr": {
+    "name": "hpnicfPortalForbiddenRuleDstAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleDstPrefix": {
+    "name": "hpnicfPortalForbiddenRuleDstPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleProtocol": {
+    "name": "hpnicfPortalForbiddenRuleProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "tcp": 6,
+          "udp": 17
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleSrcPort": {
+    "name": "hpnicfPortalForbiddenRuleSrcPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleDstPort": {
+    "name": "hpnicfPortalForbiddenRuleDstPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalForbiddenRuleRowStatus": {
+    "name": "hpnicfPortalForbiddenRuleRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfPortalTraps": {
+    "name": "hpnicfPortalTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.3",
+    "class": "objectidentity"
+  },
+  "hpnicfPortalTrapPrefix": {
+    "name": "hpnicfPortalTrapPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfPortalServerLost": {
+    "name": "hpnicfPortalServerLost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalServerName"
+      },
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalFirstTrapTime"
+      },
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalServerIP"
+      },
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalServerGet": {
+    "name": "hpnicfPortalServerGet",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalServerName"
+      },
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalFirstTrapTime"
+      },
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalServerIP"
+      },
+      {
+        "module": "HPN-ICF-PORTAL-MIB",
+        "object": "hpnicfPortalServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPortalTrapVarObjects": {
+    "name": "hpnicfPortalTrapVarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfPortalFirstTrapTime": {
+    "name": "hpnicfPortalFirstTrapTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfPortalServerIP": {
+    "name": "hpnicfPortalServerIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfPortalStatistic": {
+    "name": "hpnicfPortalStatistic",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4",
+    "class": "objectidentity"
+  },
+  "hpnicfPortalStatAuthReq": {
+    "name": "hpnicfPortalStatAuthReq",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatAckLogout": {
+    "name": "hpnicfPortalStatAckLogout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatNotifyLogout": {
+    "name": "hpnicfPortalStatNotifyLogout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatChallengeTimeout": {
+    "name": "hpnicfPortalStatChallengeTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatChallengeBusy": {
+    "name": "hpnicfPortalStatChallengeBusy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatChallengeFail": {
+    "name": "hpnicfPortalStatChallengeFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatAuthTimeout": {
+    "name": "hpnicfPortalStatAuthTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatAuthFail": {
+    "name": "hpnicfPortalStatAuthFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatPwdError": {
+    "name": "hpnicfPortalStatPwdError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatAuthBusy": {
+    "name": "hpnicfPortalStatAuthBusy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatAuthDisordered": {
+    "name": "hpnicfPortalStatAuthDisordered",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatAuthUnknownError": {
+    "name": "hpnicfPortalStatAuthUnknownError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatAuthResp": {
+    "name": "hpnicfPortalStatAuthResp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatChallengeReq": {
+    "name": "hpnicfPortalStatChallengeReq",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatChallengeResp": {
+    "name": "hpnicfPortalStatChallengeResp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatHttpReq": {
+    "name": "hpnicfPortalStatHttpReq",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalStatHttpResp": {
+    "name": "hpnicfPortalStatHttpResp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStatistic": {
+    "name": "hpnicfPortalPktStatistic",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5",
+    "class": "objectidentity"
+  },
+  "hpnicfPortalPktStaReqAuthNum": {
+    "name": "hpnicfPortalPktStaReqAuthNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckAuthSuccess": {
+    "name": "hpnicfPortalPktStaAckAuthSuccess",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckAuthReject": {
+    "name": "hpnicfPortalPktStaAckAuthReject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckAuthEstablish": {
+    "name": "hpnicfPortalPktStaAckAuthEstablish",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckAuthBusy": {
+    "name": "hpnicfPortalPktStaAckAuthBusy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckAuthAuthFail": {
+    "name": "hpnicfPortalPktStaAckAuthAuthFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaReqChallengeNum": {
+    "name": "hpnicfPortalPktStaReqChallengeNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckChallengeSuccess": {
+    "name": "hpnicfPortalPktStaAckChallengeSuccess",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckChallengeReject": {
+    "name": "hpnicfPortalPktStaAckChallengeReject",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckChallengeEstablish": {
+    "name": "hpnicfPortalPktStaAckChallengeEstablish",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckChallengeBusy": {
+    "name": "hpnicfPortalPktStaAckChallengeBusy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfPortalPktStaAckChallengeAuthFail": {
+    "name": "hpnicfPortalPktStaAckChallengeAuthFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.99.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-PORTAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-PORTAL-MIB"
+  }
+}

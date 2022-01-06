@@ -1,0 +1,3527 @@
+{
+  "imports": {
+    "class": "imports",
+    "DKT-MIB": [
+      "dkt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "feMIB": {
+    "name": "feMIB",
+    "oid": "1.3.6.1.4.1.27304.12",
+    "class": "moduleidentity"
+  },
+  "feSwitchEngine": {
+    "name": "feSwitchEngine",
+    "oid": "1.3.6.1.4.1.27304.12.1",
+    "class": "objectidentity"
+  },
+  "feATU": {
+    "name": "feATU",
+    "oid": "1.3.6.1.4.1.27304.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20480
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feUnicastDelete": {
+    "name": "feUnicastDelete",
+    "oid": "1.3.6.1.4.1.27304.12.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feMulticastDelete": {
+    "name": "feMulticastDelete",
+    "oid": "1.3.6.1.4.1.27304.12.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feIGMPSnooping": {
+    "name": "feIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feVTU": {
+    "name": "feVTU",
+    "oid": "1.3.6.1.4.1.27304.12.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feVLANCreate": {
+    "name": "feVLANCreate",
+    "oid": "1.3.6.1.4.1.27304.12.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feVLANDelete": {
+    "name": "feVLANDelete",
+    "oid": "1.3.6.1.4.1.27304.12.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feClearVTU": {
+    "name": "feClearVTU",
+    "oid": "1.3.6.1.4.1.27304.12.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feDumpPIRLBuckets": {
+    "name": "feDumpPIRLBuckets",
+    "oid": "1.3.6.1.4.1.27304.12.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feDisablePIRLBucket": {
+    "name": "feDisablePIRLBucket",
+    "oid": "1.3.6.1.4.1.27304.12.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feVLANProviderMode": {
+    "name": "feVLANProviderMode",
+    "oid": "1.3.6.1.4.1.27304.12.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fePorts": {
+    "name": "fePorts",
+    "oid": "1.3.6.1.4.1.27304.12.2",
+    "class": "objectidentity"
+  },
+  "feCPUPort": {
+    "name": "feCPUPort",
+    "oid": "1.3.6.1.4.1.27304.12.2.1",
+    "class": "objectidentity"
+  },
+  "feCPUPortAutoNegotiation": {
+    "name": "feCPUPortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortSpeedMode": {
+    "name": "feCPUPortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortLinkStatus": {
+    "name": "feCPUPortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feCPUPortFlowControl": {
+    "name": "feCPUPortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortIEEEQoSPriority": {
+    "name": "feCPUPortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortIPQoSPriority": {
+    "name": "feCPUPortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortFramePriorityOverwrite": {
+    "name": "feCPUPortFramePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortQueuePriorityOverwrite": {
+    "name": "feCPUPortQueuePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortQueuePriority": {
+    "name": "feCPUPortQueuePriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortQoSPortMapRule": {
+    "name": "feCPUPortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortVIDNRLEnable": {
+    "name": "feCPUPortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortMap2PIRL": {
+    "name": "feCPUPortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feCPUPortDeletePortMap2PIRL": {
+    "name": "feCPUPortDeletePortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feCPUPortEgressRateLimitation": {
+    "name": "feCPUPortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortIngressRateLimitation": {
+    "name": "feCPUPortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortDefaultVLAN": {
+    "name": "feCPUPortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortForceDefaultVID": {
+    "name": "feCPUPortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortVLANPortMode": {
+    "name": "feCPUPortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortBlockAllUnknown": {
+    "name": "feCPUPortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortIGMPSnooping": {
+    "name": "feCPUPortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feCPUPortAddUnicast": {
+    "name": "feCPUPortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feCPUPortAddMulticast": {
+    "name": "feCPUPortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.12.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feWANPort": {
+    "name": "feWANPort",
+    "oid": "1.3.6.1.4.1.27304.12.2.2",
+    "class": "objectidentity"
+  },
+  "feWANPortAutoNegotiation": {
+    "name": "feWANPortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortSpeedMode": {
+    "name": "feWANPortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortLinkStatus": {
+    "name": "feWANPortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feWANPortFlowControl": {
+    "name": "feWANPortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortIEEEQoSPriority": {
+    "name": "feWANPortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortIPQoSPriority": {
+    "name": "feWANPortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortFramePriorityOverwrite": {
+    "name": "feWANPortFramePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortQueuePriorityOverwrite": {
+    "name": "feWANPortQueuePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortQueuePriority": {
+    "name": "feWANPortQueuePriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortQoSPortMapRule": {
+    "name": "feWANPortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortVIDNRLEnable": {
+    "name": "feWANPortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortMap2PIRL": {
+    "name": "feWANPortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feWANPortDeletePortMap2PIRL": {
+    "name": "feWANPortDeletePortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feWANPortEgressRateLimitation": {
+    "name": "feWANPortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortIngressRateLimitation": {
+    "name": "feWANPortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feWANPortDefaultVLAN": {
+    "name": "feWANPortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortForceDefaultVID": {
+    "name": "feWANPortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortVLANPortMode": {
+    "name": "feWANPortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortBlockAllUnknown": {
+    "name": "feWANPortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortIGMPSnooping": {
+    "name": "feWANPortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feWANPortAddUnicast": {
+    "name": "feWANPortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feWANPortAddMulticast": {
+    "name": "feWANPortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feWANPortArpMirroring": {
+    "name": "feWANPortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.12.2.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1Port": {
+    "name": "feLAN1Port",
+    "oid": "1.3.6.1.4.1.27304.12.2.3",
+    "class": "objectidentity"
+  },
+  "feLAN1PortAutoNegotiation": {
+    "name": "feLAN1PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortSpeedMode": {
+    "name": "feLAN1PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortLinkStatus": {
+    "name": "feLAN1PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feLAN1PortFlowControl": {
+    "name": "feLAN1PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortIEEEQoSPriority": {
+    "name": "feLAN1PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortIPQoSPriority": {
+    "name": "feLAN1PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortFramePriorityOverwrite": {
+    "name": "feLAN1PortFramePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortQueuePriorityOverwrite": {
+    "name": "feLAN1PortQueuePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortQueuePriority": {
+    "name": "feLAN1PortQueuePriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortQoSPortMapRule": {
+    "name": "feLAN1PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortVIDNRLEnable": {
+    "name": "feLAN1PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortMap2PIRL": {
+    "name": "feLAN1PortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN1PortDeletePortMap2PIRL": {
+    "name": "feLAN1PortDeletePortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN1PortEgressRateLimitation": {
+    "name": "feLAN1PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortIngressRateLimitation": {
+    "name": "feLAN1PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN1PortDefaultVLAN": {
+    "name": "feLAN1PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortForceDefaultVID": {
+    "name": "feLAN1PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortVLANPortMode": {
+    "name": "feLAN1PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortBlockAllUnknown": {
+    "name": "feLAN1PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortIGMPSnooping": {
+    "name": "feLAN1PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN1PortAddUnicast": {
+    "name": "feLAN1PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN1PortAddMulticast": {
+    "name": "feLAN1PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN1PortArpMirroring": {
+    "name": "feLAN1PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.12.2.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2Port": {
+    "name": "feLAN2Port",
+    "oid": "1.3.6.1.4.1.27304.12.2.4",
+    "class": "objectidentity"
+  },
+  "feLAN2PortAutoNegotiation": {
+    "name": "feLAN2PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortSpeedMode": {
+    "name": "feLAN2PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortLinkStatus": {
+    "name": "feLAN2PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feLAN2PortFlowControl": {
+    "name": "feLAN2PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortIEEEQoSPriority": {
+    "name": "feLAN2PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortIPQoSPriority": {
+    "name": "feLAN2PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortFramePriorityOverwrite": {
+    "name": "feLAN2PortFramePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortQueuePriorityOverwrite": {
+    "name": "feLAN2PortQueuePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortQueuePriority": {
+    "name": "feLAN2PortQueuePriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortQoSPortMapRule": {
+    "name": "feLAN2PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortVIDNRLEnable": {
+    "name": "feLAN2PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortMap2PIRL": {
+    "name": "feLAN2PortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN2PortDeletePortMap2PIRL": {
+    "name": "feLAN2PortDeletePortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN2PortEgressRateLimitation": {
+    "name": "feLAN2PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortIngressRateLimitation": {
+    "name": "feLAN2PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN2PortDefaultVLAN": {
+    "name": "feLAN2PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortForceDefaultVID": {
+    "name": "feLAN2PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortVLANPortMode": {
+    "name": "feLAN2PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortBlockAllUnknown": {
+    "name": "feLAN2PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortIGMPSnooping": {
+    "name": "feLAN2PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN2PortAddUnicast": {
+    "name": "feLAN2PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN2PortAddMulticast": {
+    "name": "feLAN2PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN2PortArpMirroring": {
+    "name": "feLAN2PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.12.2.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3Port": {
+    "name": "feLAN3Port",
+    "oid": "1.3.6.1.4.1.27304.12.2.5",
+    "class": "objectidentity"
+  },
+  "feLAN3PortAutoNegotiation": {
+    "name": "feLAN3PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortSpeedMode": {
+    "name": "feLAN3PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortLinkStatus": {
+    "name": "feLAN3PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feLAN3PortFlowControl": {
+    "name": "feLAN3PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortIEEEQoSPriority": {
+    "name": "feLAN3PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortIPQoSPriority": {
+    "name": "feLAN3PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortFramePriorityOverwrite": {
+    "name": "feLAN3PortFramePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortQueuePriorityOverwrite": {
+    "name": "feLAN3PortQueuePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortQueuePriority": {
+    "name": "feLAN3PortQueuePriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortQoSPortMapRule": {
+    "name": "feLAN3PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortVIDNRLEnable": {
+    "name": "feLAN3PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortMap2PIRL": {
+    "name": "feLAN3PortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN3PortDeletePortMap2PIRL": {
+    "name": "feLAN3PortDeletePortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN3PortEgressRateLimitation": {
+    "name": "feLAN3PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortIngressRateLimitation": {
+    "name": "feLAN3PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN3PortDefaultVLAN": {
+    "name": "feLAN3PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortForceDefaultVID": {
+    "name": "feLAN3PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortVLANPortMode": {
+    "name": "feLAN3PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortBlockAllUnknown": {
+    "name": "feLAN3PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortIGMPSnooping": {
+    "name": "feLAN3PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN3PortAddUnicast": {
+    "name": "feLAN3PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN3PortAddMulticast": {
+    "name": "feLAN3PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN3PortArpMirroring": {
+    "name": "feLAN3PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.12.2.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4Port": {
+    "name": "feLAN4Port",
+    "oid": "1.3.6.1.4.1.27304.12.2.6",
+    "class": "objectidentity"
+  },
+  "feLAN4PortAutoNegotiation": {
+    "name": "feLAN4PortAutoNegotiation",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortSpeedMode": {
+    "name": "feLAN4PortSpeedMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortLinkStatus": {
+    "name": "feLAN4PortLinkStatus",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "feLAN4PortFlowControl": {
+    "name": "feLAN4PortFlowControl",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortIEEEQoSPriority": {
+    "name": "feLAN4PortIEEEQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortIPQoSPriority": {
+    "name": "feLAN4PortIPQoSPriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortFramePriorityOverwrite": {
+    "name": "feLAN4PortFramePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortQueuePriorityOverwrite": {
+    "name": "feLAN4PortQueuePriorityOverwrite",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortQueuePriority": {
+    "name": "feLAN4PortQueuePriority",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortQoSPortMapRule": {
+    "name": "feLAN4PortQoSPortMapRule",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortVIDNRLEnable": {
+    "name": "feLAN4PortVIDNRLEnable",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortMap2PIRL": {
+    "name": "feLAN4PortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN4PortDeletePortMap2PIRL": {
+    "name": "feLAN4PortDeletePortMap2PIRL",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN4PortEgressRateLimitation": {
+    "name": "feLAN4PortEgressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortIngressRateLimitation": {
+    "name": "feLAN4PortIngressRateLimitation",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN4PortDefaultVLAN": {
+    "name": "feLAN4PortDefaultVLAN",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortForceDefaultVID": {
+    "name": "feLAN4PortForceDefaultVID",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortVLANPortMode": {
+    "name": "feLAN4PortVLANPortMode",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortBlockAllUnknown": {
+    "name": "feLAN4PortBlockAllUnknown",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortIGMPSnooping": {
+    "name": "feLAN4PortIGMPSnooping",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feLAN4PortAddUnicast": {
+    "name": "feLAN4PortAddUnicast",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN4PortAddMulticast": {
+    "name": "feLAN4PortAddMulticast",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "current"
+  },
+  "feLAN4PortArpMirroring": {
+    "name": "feLAN4PortArpMirroring",
+    "oid": "1.3.6.1.4.1.27304.12.2.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "feModuleGroup": {
+    "name": "feModuleGroup",
+    "oid": "1.3.6.1.4.1.27304.12.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feSwitchEngine"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feATU"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feUnicastDelete"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feMulticastDelete"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feIGMPSnooping"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feVTU"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feVLANCreate"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feVLANDelete"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feClearVTU"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feDumpPIRLBuckets"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feDisablePIRLBucket"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feVLANProviderMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "fePorts"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPort"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortAutoNegotiation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortSpeedMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortLinkStatus"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortFlowControl"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortIPQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortFramePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortQueuePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortQueuePriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortDeletePortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortDefaultVLAN"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortForceDefaultVID"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortVLANPortMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortIGMPSnooping"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortAddUnicast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feCPUPortAddMulticast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPort"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortAutoNegotiation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortSpeedMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortLinkStatus"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortFlowControl"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortIPQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortFramePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortQueuePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortQueuePriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortDeletePortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortDefaultVLAN"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortForceDefaultVID"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortVLANPortMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortIGMPSnooping"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortAddUnicast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortAddMulticast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feWANPortArpMirroring"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1Port"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortSpeedMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortLinkStatus"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortFlowControl"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortFramePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortQueuePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortQueuePriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortDeletePortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortVLANPortMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortAddUnicast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortAddMulticast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN1PortArpMirroring"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2Port"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortSpeedMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortLinkStatus"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortFlowControl"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortFramePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortQueuePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortQueuePriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortDeletePortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortVLANPortMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortAddUnicast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortAddMulticast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN2PortArpMirroring"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3Port"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortSpeedMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortLinkStatus"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortFlowControl"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortFramePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortQueuePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortQueuePriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortDeletePortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortVLANPortMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortAddUnicast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortAddMulticast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN3PortArpMirroring"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4Port"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortAutoNegotiation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortSpeedMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortLinkStatus"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortFlowControl"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortIEEEQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortIPQoSPriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortFramePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortQueuePriorityOverwrite"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortQueuePriority"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortQoSPortMapRule"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortVIDNRLEnable"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortDeletePortMap2PIRL"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortEgressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortIngressRateLimitation"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortDefaultVLAN"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortForceDefaultVID"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortVLANPortMode"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortBlockAllUnknown"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortIGMPSnooping"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortAddUnicast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortAddMulticast"
+      },
+      {
+        "module": "DKT-FE-MIB",
+        "object": "feLAN4PortArpMirroring"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-FE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:24 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DKT-FE-MIB"
+  }
+}

@@ -1,0 +1,6949 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCallApplicationMIB": {
+    "name": "ciscoCallApplicationMIB",
+    "oid": "1.3.6.1.4.1.9.9.146",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-05-13 00:01",
+        "description": "The changes to this MIB now provide call application statistics for monitoring the call applications. These call application stats are divided into 3 levels - per gateway level (Global). - per application-type level. - per application-instance level. | Level/State | Active | History | -------------+------------------+---------------- | Global lvl| Gauges | Counters | -------------+------------------+---------------- | App-Type lvl| Gauges records | Counter records | -------------+------------------+---------------- | App-Inst lvl| Not available | Counter records v -------------+------------------+---------------- An applicaiton gateway can have multiple types of call applications aka application scripts. User calls could be handled by any of this application types (scripts). Each user call can trigger an instance of this application type. An Application instance has a set of countres during its active and non-active (history) phase. These are available at App-Inst level records. App-Type level records have aggregated counters/gauges from all the application instances of its application type. Global level has aggregated counters/gauges from all application-type records. Gateway administrators are encouraged to follow a 'top-down' approach for monitoring and troubleshooting. This top-down approach emphasizes on polling 'Global active level gauges' for monitoring load on the gateway and 'Global history level counters' monitoring errors. To find out more details about a particular gauge or counter one can step down a level to App-Type level. Similarly, to find out further details, one can goto a level lower at 'Application-Instnace' for find out more details. Finally, event-logs are available at the lowest level for applicaiton instances. Following changes are as per the above mentioned scheme. - ccapAppGlobalAct group of objects are added to provide 'Active Global lvl' gauges. - ccapAppGlobalHis group of objects are added to provide 'Active Global lvl' gauges. - ccapApplicationTable is extended to provide 'Active App-Type lvl' gauges. - ccapAppTypeHistoryTable is added to provided 'History App-Type lvl' counters. - ccapAppInstanceHistoryTable is added to provide 'History App-Inst lvl' counters. This MIB also provides call application interface stats. The call application interfaces are the servers with which applications do the transactions for various services like HTTP, RTSP, TFTP, SMTP, AAA, ASR (Automatic Speech Recognition), TTS (Text-To-Speech), flash file read, RAM media recordings. Following are the new objects/tables to provide 'Application-Interface' statistics. - ccapAppIntfGlobal group of objects - ccapAppIntfHTTPTable - ccapAppIntfRTSPTable - ccapAppIntfTFTPTable - ccapAppIntfSMTPTable - ccapAppIntfAAAMethodListTable - ccapAppIntfASRTable - ccapAppIntfTTSTable - ccapAppIntfFlash group of objects - ccapAppIntfRAMRecord group of objects This MIB also provides facility to enable and disable statistics monitoring for call application at global level. Applicaion interface statistics can also be enabled/disabled through this MIB. Statistics can also be cleared at Global and App-type levels. Hence, lot of objects which could be reset/cleared are defined as ZeroBasedCounter32 TC based of Gauge32. Clearing operation is done either through MIB objects or through CLI (Command Line Interface). Clear or resetting operation in applied to a group of countres. For each group there is a 'discontinuity' object or 'lastResetTime' object provided which specifies the time when associated group of objects were cleared. Application infrastructure has facility to capture events from active application instances and save them in event log buffer in memory and later to FTP dump file. This is referred as event logging mechanism. Event logging can be enabled and disabled either from IOS CLI's or from SNMP objects provided in this MIB change set. This event log facility is available at 'Active and History App-Inst lvl'. Event logging is also available at 'App-Interface lvl', for per interface-type and per server of each interface type. This MIB provides facility to enable/disable application event log facility for all active application instances. However, the MIB does not provide objects to get the event logs, since they can be bulky and degrade the performance of the system. There are mechanisms to dump the event logs to either stdout or ftp through IOS CLI configurations."
+      },
+      {
+        "revision": "1999-09-22 00:00",
+        "description": "This MIB allows management of call applications on a network device. A 'call application' is a software module that processes calls, such as data, voice, video, or fax calls. Initial version 199909220000Z, Nov 22nd, 1999."
+      }
+    ]
+  },
+  "URLStringOrNull": {
+    "name": "URLStringOrNull",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ServerNameString": {
+    "name": "ServerNameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoCallApplicationMIBObjects": {
+    "name": "ciscoCallApplicationMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.146.1",
+    "class": "objectidentity"
+  },
+  "ccapConf": {
+    "name": "ccapConf",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1",
+    "class": "objectidentity"
+  },
+  "ccapAppTypeHisStat": {
+    "name": "ccapAppTypeHisStat",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2",
+    "class": "objectidentity"
+  },
+  "ccapAppInstHisStat": {
+    "name": "ccapAppInstHisStat",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3",
+    "class": "objectidentity"
+  },
+  "ccapAppGblActStat": {
+    "name": "ccapAppGblActStat",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4",
+    "class": "objectidentity"
+  },
+  "ccapAppGblHisStat": {
+    "name": "ccapAppGblHisStat",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5",
+    "class": "objectidentity"
+  },
+  "ccapAppIntf": {
+    "name": "ccapAppIntf",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6",
+    "class": "objectidentity"
+  },
+  "ccapApplicationTable": {
+    "name": "ccapApplicationTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapApplicationEntry": {
+    "name": "ccapApplicationEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppName": {
+    "name": "ccapAppName",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppLocation": {
+    "name": "ccapAppLocation",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "URLStringOrNull",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccapAppLoadState": {
+    "name": "ccapAppLoadState",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "builtIn": 1,
+          "loading": 2,
+          "loaded": 3,
+          "loadFailed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppLoadFailReason": {
+    "name": "ccapAppLoadFailReason",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "notFound": 3,
+          "timedOut": 4,
+          "noPermission": 5,
+          "badSignature": 6,
+          "noSpace": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppDescr": {
+    "name": "ccapAppDescr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccapAppCallType": {
+    "name": "ccapAppCallType",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccapAppRowStatus": {
+    "name": "ccapAppRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccapAppActiveInstances": {
+    "name": "ccapAppActiveInstances",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppEventLogging": {
+    "name": "ccapAppEventLogging",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppPSTNInCallNowConn": {
+    "name": "ccapAppPSTNInCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppPSTNOutCallNowConn": {
+    "name": "ccapAppPSTNOutCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIPInCallNowConn": {
+    "name": "ccapAppIPInCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIPOutCallNowConn": {
+    "name": "ccapAppIPOutCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppPlaceCallInProgress": {
+    "name": "ccapAppPlaceCallInProgress",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppHandoffInProgress": {
+    "name": "ccapAppHandoffInProgress",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppPromptPlayActive": {
+    "name": "ccapAppPromptPlayActive",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppRecordingActive": {
+    "name": "ccapAppRecordingActive",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTTSActive": {
+    "name": "ccapAppTTSActive",
+    "oid": "1.3.6.1.4.1.9.9.146.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHistoryTable": {
+    "name": "ccapAppTypeHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppTypeHistoryEntry": {
+    "name": "ccapAppTypeHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppTypeHisEvtLogging": {
+    "name": "ccapAppTypeHisEvtLogging",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisLastResetTime": {
+    "name": "ccapAppTypeHisLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallSetupInd": {
+    "name": "ccapAppTypeHisPSTNInCallSetupInd",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallTotConn": {
+    "name": "ccapAppTypeHisPSTNInCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallHandedOut": {
+    "name": "ccapAppTypeHisPSTNInCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallHandOutRet": {
+    "name": "ccapAppTypeHisPSTNInCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallInHandoff": {
+    "name": "ccapAppTypeHisPSTNInCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallInHandoffRet": {
+    "name": "ccapAppTypeHisPSTNInCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallDiscNormal": {
+    "name": "ccapAppTypeHisPSTNInCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallDiscUsrErr": {
+    "name": "ccapAppTypeHisPSTNInCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNInCallDiscSysErr": {
+    "name": "ccapAppTypeHisPSTNInCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallSetupReq": {
+    "name": "ccapAppTypeHisPSTNOutCallSetupReq",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallTotConn": {
+    "name": "ccapAppTypeHisPSTNOutCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallHandedOut": {
+    "name": "ccapAppTypeHisPSTNOutCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallHandOutRet": {
+    "name": "ccapAppTypeHisPSTNOutCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallInHandoff": {
+    "name": "ccapAppTypeHisPSTNOutCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallInHandoffRet": {
+    "name": "ccapAppTypeHisPSTNOutCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallDiscNormal": {
+    "name": "ccapAppTypeHisPSTNOutCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallDiscUsrErr": {
+    "name": "ccapAppTypeHisPSTNOutCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPSTNOutCallDiscSysErr": {
+    "name": "ccapAppTypeHisPSTNOutCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallSetupInd": {
+    "name": "ccapAppTypeHisIPInCallSetupInd",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallTotConn": {
+    "name": "ccapAppTypeHisIPInCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallHandedOut": {
+    "name": "ccapAppTypeHisIPInCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallHandOutRet": {
+    "name": "ccapAppTypeHisIPInCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallInHandoff": {
+    "name": "ccapAppTypeHisIPInCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallInHandoffRet": {
+    "name": "ccapAppTypeHisIPInCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallDiscNormal": {
+    "name": "ccapAppTypeHisIPInCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallDiscUsrErr": {
+    "name": "ccapAppTypeHisIPInCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPInCallDiscSysErr": {
+    "name": "ccapAppTypeHisIPInCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallSetupReq": {
+    "name": "ccapAppTypeHisIPOutCallSetupReq",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallTotConn": {
+    "name": "ccapAppTypeHisIPOutCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallHandedOut": {
+    "name": "ccapAppTypeHisIPOutCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallHandOutRet": {
+    "name": "ccapAppTypeHisIPOutCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallInHandoff": {
+    "name": "ccapAppTypeHisIPOutCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallInHandoffRet": {
+    "name": "ccapAppTypeHisIPOutCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallDiscNormal": {
+    "name": "ccapAppTypeHisIPOutCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallDiscUsrErr": {
+    "name": "ccapAppTypeHisIPOutCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisIPOutCallDiscSysErr": {
+    "name": "ccapAppTypeHisIPOutCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPlaceCallAttempts": {
+    "name": "ccapAppTypeHisPlaceCallAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPlaceCallSuccess": {
+    "name": "ccapAppTypeHisPlaceCallSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPlaceCallFailure": {
+    "name": "ccapAppTypeHisPlaceCallFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisInHandoffCallback": {
+    "name": "ccapAppTypeHisInHandoffCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisInHandoffCallbackRet": {
+    "name": "ccapAppTypeHisInHandoffCallbackRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisInHandoffNoCallback": {
+    "name": "ccapAppTypeHisInHandoffNoCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisOutHandoffCallback": {
+    "name": "ccapAppTypeHisOutHandoffCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisOutHandoffCallbackRet": {
+    "name": "ccapAppTypeHisOutHandoffCallbackRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisOutHandoffNoCallback": {
+    "name": "ccapAppTypeHisOutHandoffNoCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisOutHandofffailures": {
+    "name": "ccapAppTypeHisOutHandofffailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDocumentReadAttempts": {
+    "name": "ccapAppTypeHisDocumentReadAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDocumentReadSuccess": {
+    "name": "ccapAppTypeHisDocumentReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDocumentReadFailures": {
+    "name": "ccapAppTypeHisDocumentReadFailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDocumentParseErrors": {
+    "name": "ccapAppTypeHisDocumentParseErrors",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDocumentWriteAttempts": {
+    "name": "ccapAppTypeHisDocumentWriteAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDocumentWriteSuccess": {
+    "name": "ccapAppTypeHisDocumentWriteSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDocumentWriteFailures": {
+    "name": "ccapAppTypeHisDocumentWriteFailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDTMFAttempts": {
+    "name": "ccapAppTypeHisDTMFAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDTMFAborted": {
+    "name": "ccapAppTypeHisDTMFAborted",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDTMFNoMatch": {
+    "name": "ccapAppTypeHisDTMFNoMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDTMFNoInput": {
+    "name": "ccapAppTypeHisDTMFNoInput",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDTMFMatch": {
+    "name": "ccapAppTypeHisDTMFMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisDTMFLongPound": {
+    "name": "ccapAppTypeHisDTMFLongPound",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASRAttempts": {
+    "name": "ccapAppTypeHisASRAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASRAborted": {
+    "name": "ccapAppTypeHisASRAborted",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASRNoMatch": {
+    "name": "ccapAppTypeHisASRNoMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASRNoInput": {
+    "name": "ccapAppTypeHisASRNoInput",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASRMatch": {
+    "name": "ccapAppTypeHisASRMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisAAAAuthenticateFailure": {
+    "name": "ccapAppTypeHisAAAAuthenticateFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisAAAAuthenticateSuccess": {
+    "name": "ccapAppTypeHisAAAAuthenticateSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisAAAAuthorizeFailure": {
+    "name": "ccapAppTypeHisAAAAuthorizeFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisAAAAuthorizeSuccess": {
+    "name": "ccapAppTypeHisAAAAuthorizeSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASNLSubscriptionsSent": {
+    "name": "ccapAppTypeHisASNLSubscriptionsSent",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASNLSubscriptionsSuccess": {
+    "name": "ccapAppTypeHisASNLSubscriptionsSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASNLSubscriptionsFailed": {
+    "name": "ccapAppTypeHisASNLSubscriptionsFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisASNLNotifReceived": {
+    "name": "ccapAppTypeHisASNLNotifReceived",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPromptPlayAttempts": {
+    "name": "ccapAppTypeHisPromptPlayAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPromptPlaySuccess": {
+    "name": "ccapAppTypeHisPromptPlaySuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPromptPlayFailed": {
+    "name": "ccapAppTypeHisPromptPlayFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisPromptPlayDuration": {
+    "name": "ccapAppTypeHisPromptPlayDuration",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisRecordingAttempts": {
+    "name": "ccapAppTypeHisRecordingAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisRecordingSuccess": {
+    "name": "ccapAppTypeHisRecordingSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisRecordingFailed": {
+    "name": "ccapAppTypeHisRecordingFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisRecordingDuration": {
+    "name": "ccapAppTypeHisRecordingDuration",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisTTSAttempts": {
+    "name": "ccapAppTypeHisTTSAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisTTSSuccess": {
+    "name": "ccapAppTypeHisTTSSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppTypeHisTTSFailed": {
+    "name": "ccapAppTypeHisTTSFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.2.2.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstanceHistoryTable": {
+    "name": "ccapAppInstanceHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppInstanceHistoryEntry": {
+    "name": "ccapAppInstanceHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppInstHisIndex": {
+    "name": "ccapAppInstHisIndex",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppInstHisSessionID": {
+    "name": "ccapAppInstHisSessionID",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisAppName": {
+    "name": "ccapAppInstHisAppName",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallSetupInd": {
+    "name": "ccapAppInstHisPSTNInCallSetupInd",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallTotConn": {
+    "name": "ccapAppInstHisPSTNInCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallHandedOut": {
+    "name": "ccapAppInstHisPSTNInCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallHandOutRet": {
+    "name": "ccapAppInstHisPSTNInCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallInHandoff": {
+    "name": "ccapAppInstHisPSTNInCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallInHandoffRet": {
+    "name": "ccapAppInstHisPSTNInCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallDiscNormal": {
+    "name": "ccapAppInstHisPSTNInCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallDiscUsrErr": {
+    "name": "ccapAppInstHisPSTNInCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNInCallDiscSysErr": {
+    "name": "ccapAppInstHisPSTNInCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallSetupReq": {
+    "name": "ccapAppInstHisPSTNOutCallSetupReq",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallTotConn": {
+    "name": "ccapAppInstHisPSTNOutCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallHandedOut": {
+    "name": "ccapAppInstHisPSTNOutCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallHandOutRet": {
+    "name": "ccapAppInstHisPSTNOutCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallInHandoff": {
+    "name": "ccapAppInstHisPSTNOutCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallInHandoffRet": {
+    "name": "ccapAppInstHisPSTNOutCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallDiscNormal": {
+    "name": "ccapAppInstHisPSTNOutCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallDiscUsrErr": {
+    "name": "ccapAppInstHisPSTNOutCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPSTNOutCallDiscSysErr": {
+    "name": "ccapAppInstHisPSTNOutCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallSetupInd": {
+    "name": "ccapAppInstHisIPInCallSetupInd",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallTotConn": {
+    "name": "ccapAppInstHisIPInCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallHandedOut": {
+    "name": "ccapAppInstHisIPInCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallHandOutRet": {
+    "name": "ccapAppInstHisIPInCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallInHandoff": {
+    "name": "ccapAppInstHisIPInCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallInHandoffRet": {
+    "name": "ccapAppInstHisIPInCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallDiscNormal": {
+    "name": "ccapAppInstHisIPInCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallDiscUsrErr": {
+    "name": "ccapAppInstHisIPInCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPInCallDiscSysErr": {
+    "name": "ccapAppInstHisIPInCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallSetupReq": {
+    "name": "ccapAppInstHisIPOutCallSetupReq",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallTotConn": {
+    "name": "ccapAppInstHisIPOutCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallHandedOut": {
+    "name": "ccapAppInstHisIPOutCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallHandOutRet": {
+    "name": "ccapAppInstHisIPOutCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallInHandoff": {
+    "name": "ccapAppInstHisIPOutCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallInHandoffRet": {
+    "name": "ccapAppInstHisIPOutCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallDiscNormal": {
+    "name": "ccapAppInstHisIPOutCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallDiscUsrErr": {
+    "name": "ccapAppInstHisIPOutCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisIPOutCallDiscSysErr": {
+    "name": "ccapAppInstHisIPOutCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPlaceCallAttempts": {
+    "name": "ccapAppInstHisPlaceCallAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPlaceCallSuccess": {
+    "name": "ccapAppInstHisPlaceCallSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPlaceCallFailure": {
+    "name": "ccapAppInstHisPlaceCallFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisInHandoffCallback": {
+    "name": "ccapAppInstHisInHandoffCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisInHandoffCallbackRet": {
+    "name": "ccapAppInstHisInHandoffCallbackRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisInHandoffNoCallback": {
+    "name": "ccapAppInstHisInHandoffNoCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisOutHandoffCallback": {
+    "name": "ccapAppInstHisOutHandoffCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisOutHandoffCallbackRet": {
+    "name": "ccapAppInstHisOutHandoffCallbackRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisOutHandoffNoCallback": {
+    "name": "ccapAppInstHisOutHandoffNoCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisOutHandofffailures": {
+    "name": "ccapAppInstHisOutHandofffailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDocumentReadAttempts": {
+    "name": "ccapAppInstHisDocumentReadAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDocumentReadSuccess": {
+    "name": "ccapAppInstHisDocumentReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDocumentReadFailures": {
+    "name": "ccapAppInstHisDocumentReadFailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDocumentParseErrors": {
+    "name": "ccapAppInstHisDocumentParseErrors",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDocumentWriteAttempts": {
+    "name": "ccapAppInstHisDocumentWriteAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDocumentWriteSuccess": {
+    "name": "ccapAppInstHisDocumentWriteSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDocumentWriteFailures": {
+    "name": "ccapAppInstHisDocumentWriteFailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDTMFAttempts": {
+    "name": "ccapAppInstHisDTMFAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDTMFAborted": {
+    "name": "ccapAppInstHisDTMFAborted",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDTMFNoMatch": {
+    "name": "ccapAppInstHisDTMFNoMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDTMFNoInput": {
+    "name": "ccapAppInstHisDTMFNoInput",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDTMFMatch": {
+    "name": "ccapAppInstHisDTMFMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisDTMFLongPound": {
+    "name": "ccapAppInstHisDTMFLongPound",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASRAttempts": {
+    "name": "ccapAppInstHisASRAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASRAborted": {
+    "name": "ccapAppInstHisASRAborted",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASRNoMatch": {
+    "name": "ccapAppInstHisASRNoMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASRNoInput": {
+    "name": "ccapAppInstHisASRNoInput",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASRMatch": {
+    "name": "ccapAppInstHisASRMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisAAAAuthenticateFailure": {
+    "name": "ccapAppInstHisAAAAuthenticateFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisAAAAuthenticateSuccess": {
+    "name": "ccapAppInstHisAAAAuthenticateSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisAAAAuthorizeFailure": {
+    "name": "ccapAppInstHisAAAAuthorizeFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisAAAAuthorizeSuccess": {
+    "name": "ccapAppInstHisAAAAuthorizeSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASNLSubscriptionsSent": {
+    "name": "ccapAppInstHisASNLSubscriptionsSent",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASNLSubscriptionsSuccess": {
+    "name": "ccapAppInstHisASNLSubscriptionsSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASNLSubscriptionsFailed": {
+    "name": "ccapAppInstHisASNLSubscriptionsFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisASNLNotifReceived": {
+    "name": "ccapAppInstHisASNLNotifReceived",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPromptPlayAttempts": {
+    "name": "ccapAppInstHisPromptPlayAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPromptPlaySuccess": {
+    "name": "ccapAppInstHisPromptPlaySuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPromptPlayFailed": {
+    "name": "ccapAppInstHisPromptPlayFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisPromptPlayDuration": {
+    "name": "ccapAppInstHisPromptPlayDuration",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisRecordingAttempts": {
+    "name": "ccapAppInstHisRecordingAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisRecordingSuccess": {
+    "name": "ccapAppInstHisRecordingSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisRecordingFailed": {
+    "name": "ccapAppInstHisRecordingFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisRecordingDuration": {
+    "name": "ccapAppInstHisRecordingDuration",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisTTSAttempts": {
+    "name": "ccapAppInstHisTTSAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisTTSSuccess": {
+    "name": "ccapAppInstHisTTSSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHisTTSFailed": {
+    "name": "ccapAppInstHisTTSFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppInstHistEvtLogging": {
+    "name": "ccapAppInstHistEvtLogging",
+    "oid": "1.3.6.1.4.1.9.9.146.1.3.3.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActCurrentInstances": {
+    "name": "ccapAppGblActCurrentInstances",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActPSTNInCallNowConn": {
+    "name": "ccapAppGblActPSTNInCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActPSTNOutCallNowConn": {
+    "name": "ccapAppGblActPSTNOutCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActIPInCallNowConn": {
+    "name": "ccapAppGblActIPInCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActIPOutCallNowConn": {
+    "name": "ccapAppGblActIPOutCallNowConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActPlaceCallInProgress": {
+    "name": "ccapAppGblActPlaceCallInProgress",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActHandoffInProgress": {
+    "name": "ccapAppGblActHandoffInProgress",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActPromptPlayActive": {
+    "name": "ccapAppGblActPromptPlayActive",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActRecordingActive": {
+    "name": "ccapAppGblActRecordingActive",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblActTTSActive": {
+    "name": "ccapAppGblActTTSActive",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblStatsLogging": {
+    "name": "ccapAppGblStatsLogging",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppGblEventLogging": {
+    "name": "ccapAppGblEventLogging",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppGblEvtLogflush": {
+    "name": "ccapAppGblEvtLogflush",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppGblStatsClear": {
+    "name": "ccapAppGblStatsClear",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppGblLastResetTime": {
+    "name": "ccapAppGblLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisTotalInstances": {
+    "name": "ccapAppGblHisTotalInstances",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisLastReset": {
+    "name": "ccapAppGblHisLastReset",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallSetupInd": {
+    "name": "ccapAppGblHisPSTNInCallSetupInd",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallTotConn": {
+    "name": "ccapAppGblHisPSTNInCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallHandedOut": {
+    "name": "ccapAppGblHisPSTNInCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallHandOutRet": {
+    "name": "ccapAppGblHisPSTNInCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallInHandoff": {
+    "name": "ccapAppGblHisPSTNInCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallInHandoffRet": {
+    "name": "ccapAppGblHisPSTNInCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallDiscNormal": {
+    "name": "ccapAppGblHisPSTNInCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallDiscUsrErr": {
+    "name": "ccapAppGblHisPSTNInCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNInCallDiscSysErr": {
+    "name": "ccapAppGblHisPSTNInCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallSetupReq": {
+    "name": "ccapAppGblHisPSTNOutCallSetupReq",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallTotConn": {
+    "name": "ccapAppGblHisPSTNOutCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallHandedOut": {
+    "name": "ccapAppGblHisPSTNOutCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallHandOutRet": {
+    "name": "ccapAppGblHisPSTNOutCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallInHandoff": {
+    "name": "ccapAppGblHisPSTNOutCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallInHandoffRet": {
+    "name": "ccapAppGblHisPSTNOutCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallDiscNormal": {
+    "name": "ccapAppGblHisPSTNOutCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallDiscUsrErr": {
+    "name": "ccapAppGblHisPSTNOutCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPSTNOutCallDiscSysErr": {
+    "name": "ccapAppGblHisPSTNOutCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallSetupInd": {
+    "name": "ccapAppGblHisIPInCallSetupInd",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallTotConn": {
+    "name": "ccapAppGblHisIPInCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallHandedOut": {
+    "name": "ccapAppGblHisIPInCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallHandOutRet": {
+    "name": "ccapAppGblHisIPInCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallInHandoff": {
+    "name": "ccapAppGblHisIPInCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallInHandoffRet": {
+    "name": "ccapAppGblHisIPInCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallDiscNormal": {
+    "name": "ccapAppGblHisIPInCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallDiscUsrErr": {
+    "name": "ccapAppGblHisIPInCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPInCallDiscSysErr": {
+    "name": "ccapAppGblHisIPInCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallSetupReq": {
+    "name": "ccapAppGblHisIPOutCallSetupReq",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallTotConn": {
+    "name": "ccapAppGblHisIPOutCallTotConn",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallHandedOut": {
+    "name": "ccapAppGblHisIPOutCallHandedOut",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallHandOutRet": {
+    "name": "ccapAppGblHisIPOutCallHandOutRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallInHandoff": {
+    "name": "ccapAppGblHisIPOutCallInHandoff",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallInHandoffRet": {
+    "name": "ccapAppGblHisIPOutCallInHandoffRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallDiscNormal": {
+    "name": "ccapAppGblHisIPOutCallDiscNormal",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallDiscUsrErr": {
+    "name": "ccapAppGblHisIPOutCallDiscUsrErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisIPOutCallDiscSysErr": {
+    "name": "ccapAppGblHisIPOutCallDiscSysErr",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPlaceCallAttempts": {
+    "name": "ccapAppGblHisPlaceCallAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPlaceCallSuccess": {
+    "name": "ccapAppGblHisPlaceCallSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPlaceCallFailure": {
+    "name": "ccapAppGblHisPlaceCallFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisInHandoffCallback": {
+    "name": "ccapAppGblHisInHandoffCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisInHandoffCallbackRet": {
+    "name": "ccapAppGblHisInHandoffCallbackRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisInHandoffNoCallback": {
+    "name": "ccapAppGblHisInHandoffNoCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisOutHandoffCallback": {
+    "name": "ccapAppGblHisOutHandoffCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisOutHandoffCallbackRet": {
+    "name": "ccapAppGblHisOutHandoffCallbackRet",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisOutHandoffNoCallback": {
+    "name": "ccapAppGblHisOutHandoffNoCallback",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisOutHandofffailures": {
+    "name": "ccapAppGblHisOutHandofffailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDocumentReadAttempts": {
+    "name": "ccapAppGblHisDocumentReadAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDocumentReadSuccess": {
+    "name": "ccapAppGblHisDocumentReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDocumentReadFailures": {
+    "name": "ccapAppGblHisDocumentReadFailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDocumentParseErrors": {
+    "name": "ccapAppGblHisDocumentParseErrors",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDocumentWriteAttempts": {
+    "name": "ccapAppGblHisDocumentWriteAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDocumentWriteSuccess": {
+    "name": "ccapAppGblHisDocumentWriteSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDocumentWriteFailures": {
+    "name": "ccapAppGblHisDocumentWriteFailures",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDTMFAttempts": {
+    "name": "ccapAppGblHisDTMFAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDTMFAborted": {
+    "name": "ccapAppGblHisDTMFAborted",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDTMFNoMatch": {
+    "name": "ccapAppGblHisDTMFNoMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDTMFNoInput": {
+    "name": "ccapAppGblHisDTMFNoInput",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDTMFMatch": {
+    "name": "ccapAppGblHisDTMFMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisDTMFLongPound": {
+    "name": "ccapAppGblHisDTMFLongPound",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASRAttempts": {
+    "name": "ccapAppGblHisASRAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASRAborted": {
+    "name": "ccapAppGblHisASRAborted",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASRNoMatch": {
+    "name": "ccapAppGblHisASRNoMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASRNoInput": {
+    "name": "ccapAppGblHisASRNoInput",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASRMatch": {
+    "name": "ccapAppGblHisASRMatch",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisAAAAuthenticateFailure": {
+    "name": "ccapAppGblHisAAAAuthenticateFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisAAAAuthenticateSuccess": {
+    "name": "ccapAppGblHisAAAAuthenticateSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisAAAAuthorizeFailure": {
+    "name": "ccapAppGblHisAAAAuthorizeFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisAAAAuthorizeSuccess": {
+    "name": "ccapAppGblHisAAAAuthorizeSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASNLSubscriptionsSent": {
+    "name": "ccapAppGblHisASNLSubscriptionsSent",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASNLSubscriptionsSuccess": {
+    "name": "ccapAppGblHisASNLSubscriptionsSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASNLSubscriptionsFailed": {
+    "name": "ccapAppGblHisASNLSubscriptionsFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisASNLNotifReceived": {
+    "name": "ccapAppGblHisASNLNotifReceived",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPromptPlayAttempts": {
+    "name": "ccapAppGblHisPromptPlayAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPromptPlaySuccess": {
+    "name": "ccapAppGblHisPromptPlaySuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPromptPlayFailed": {
+    "name": "ccapAppGblHisPromptPlayFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisPromptPlayDuration": {
+    "name": "ccapAppGblHisPromptPlayDuration",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisRecordingAttempts": {
+    "name": "ccapAppGblHisRecordingAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisRecordingSuccess": {
+    "name": "ccapAppGblHisRecordingSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisRecordingFailed": {
+    "name": "ccapAppGblHisRecordingFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisRecordingDuration": {
+    "name": "ccapAppGblHisRecordingDuration",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisTTSAttempts": {
+    "name": "ccapAppGblHisTTSAttempts",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisTTSSuccess": {
+    "name": "ccapAppGblHisTTSSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppGblHisTTSFailed": {
+    "name": "ccapAppGblHisTTSFailed",
+    "oid": "1.3.6.1.4.1.9.9.146.1.5.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfGblStatsLogging": {
+    "name": "ccapAppIntfGblStatsLogging",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppIntfGblEventLogging": {
+    "name": "ccapAppIntfGblEventLogging",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppIntfGblEvtLogFlush": {
+    "name": "ccapAppIntfGblEvtLogFlush",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppIntfGblStatsClear": {
+    "name": "ccapAppIntfGblStatsClear",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearStats": 1,
+          "clearEventlog": 2,
+          "clear": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccapAppIntfGblLastResetTime": {
+    "name": "ccapAppIntfGblLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPTable": {
+    "name": "ccapAppIntfHTTPTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPEntry": {
+    "name": "ccapAppIntfHTTPEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPServer",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfHTTPServer": {
+    "name": "ccapAppIntfHTTPServer",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerNameString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPStats": {
+    "name": "ccapAppIntfHTTPStats",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPEvtLog": {
+    "name": "ccapAppIntfHTTPEvtLog",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPGetRequest": {
+    "name": "ccapAppIntfHTTPGetRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPGetSuccess": {
+    "name": "ccapAppIntfHTTPGetSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPGetFailure": {
+    "name": "ccapAppIntfHTTPGetFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPPostRequest": {
+    "name": "ccapAppIntfHTTPPostRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPPostSuccess": {
+    "name": "ccapAppIntfHTTPPostSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPPostFailure": {
+    "name": "ccapAppIntfHTTPPostFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPTxBytes": {
+    "name": "ccapAppIntfHTTPTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPRxBytes": {
+    "name": "ccapAppIntfHTTPRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPMinXferRate": {
+    "name": "ccapAppIntfHTTPMinXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPMaxXferRate": {
+    "name": "ccapAppIntfHTTPMaxXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPAvgXferRate": {
+    "name": "ccapAppIntfHTTPAvgXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfHTTPLastResetTime": {
+    "name": "ccapAppIntfHTTPLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPTable": {
+    "name": "ccapAppIntfRTSPTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPEntry": {
+    "name": "ccapAppIntfRTSPEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPServer",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfRTSPServer": {
+    "name": "ccapAppIntfRTSPServer",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerNameString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPStats": {
+    "name": "ccapAppIntfRTSPStats",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPEvtLog": {
+    "name": "ccapAppIntfRTSPEvtLog",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPReadRequest": {
+    "name": "ccapAppIntfRTSPReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPReadSuccess": {
+    "name": "ccapAppIntfRTSPReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPReadFailure": {
+    "name": "ccapAppIntfRTSPReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPWriteRequest": {
+    "name": "ccapAppIntfRTSPWriteRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPWriteSuccess": {
+    "name": "ccapAppIntfRTSPWriteSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPWriteFailure": {
+    "name": "ccapAppIntfRTSPWriteFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPTxBytes": {
+    "name": "ccapAppIntfRTSPTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPRxBytes": {
+    "name": "ccapAppIntfRTSPRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPMinXferRate": {
+    "name": "ccapAppIntfRTSPMinXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPMaxXferRate": {
+    "name": "ccapAppIntfRTSPMaxXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPAvgXferRate": {
+    "name": "ccapAppIntfRTSPAvgXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRTSPLastResetTime": {
+    "name": "ccapAppIntfRTSPLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPTable": {
+    "name": "ccapAppIntfTFTPTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPEntry": {
+    "name": "ccapAppIntfTFTPEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPServer",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfTFTPServer": {
+    "name": "ccapAppIntfTFTPServer",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerNameString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPStats": {
+    "name": "ccapAppIntfTFTPStats",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPEvtLog": {
+    "name": "ccapAppIntfTFTPEvtLog",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPReadRequest": {
+    "name": "ccapAppIntfTFTPReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPReadSuccess": {
+    "name": "ccapAppIntfTFTPReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPReadFailure": {
+    "name": "ccapAppIntfTFTPReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPWriteRequest": {
+    "name": "ccapAppIntfTFTPWriteRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPWriteSuccess": {
+    "name": "ccapAppIntfTFTPWriteSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPWriteFailure": {
+    "name": "ccapAppIntfTFTPWriteFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPTxBytes": {
+    "name": "ccapAppIntfTFTPTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPRxBytes": {
+    "name": "ccapAppIntfTFTPRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPMinXferRate": {
+    "name": "ccapAppIntfTFTPMinXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPMaxXferRate": {
+    "name": "ccapAppIntfTFTPMaxXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPAvgXferRate": {
+    "name": "ccapAppIntfTFTPAvgXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTFTPLastResetTime": {
+    "name": "ccapAppIntfTFTPLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfFlashReadRequest": {
+    "name": "ccapAppIntfFlashReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfFlashReadSuccess": {
+    "name": "ccapAppIntfFlashReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfFlashReadFailure": {
+    "name": "ccapAppIntfFlashReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRAMRecordReadRequest": {
+    "name": "ccapAppIntfRAMRecordReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRAMRecordReadSuccess": {
+    "name": "ccapAppIntfRAMRecordReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRAMRecordiongReadFailure": {
+    "name": "ccapAppIntfRAMRecordiongReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRAMRecordRequest": {
+    "name": "ccapAppIntfRAMRecordRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRAMRecordSuccess": {
+    "name": "ccapAppIntfRAMRecordSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfRAMRecordiongFailure": {
+    "name": "ccapAppIntfRAMRecordiongFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPTable": {
+    "name": "ccapAppIntfSMTPTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPEntry": {
+    "name": "ccapAppIntfSMTPEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPServer",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfSMTPServer": {
+    "name": "ccapAppIntfSMTPServer",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerNameString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPStats": {
+    "name": "ccapAppIntfSMTPStats",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPEvtLog": {
+    "name": "ccapAppIntfSMTPEvtLog",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPReadRequest": {
+    "name": "ccapAppIntfSMTPReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPReadSuccess": {
+    "name": "ccapAppIntfSMTPReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPReadFailure": {
+    "name": "ccapAppIntfSMTPReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPWriteRequest": {
+    "name": "ccapAppIntfSMTPWriteRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPWriteSuccess": {
+    "name": "ccapAppIntfSMTPWriteSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPWriteFailure": {
+    "name": "ccapAppIntfSMTPWriteFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPTxBytes": {
+    "name": "ccapAppIntfSMTPTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPRxBytes": {
+    "name": "ccapAppIntfSMTPRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPMinXferRate": {
+    "name": "ccapAppIntfSMTPMinXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPMaxXferRate": {
+    "name": "ccapAppIntfSMTPMaxXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPAvgXferRate": {
+    "name": "ccapAppIntfSMTPAvgXferRate",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "KBytes/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfSMTPLastResetTime": {
+    "name": "ccapAppIntfSMTPLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListTable": {
+    "name": "ccapAppIntfAAAMethodListTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListEntry": {
+    "name": "ccapAppIntfAAAMethodListEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfAAAMethodListServer",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListServer": {
+    "name": "ccapAppIntfAAAMethodListServer",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListStats": {
+    "name": "ccapAppIntfAAAMethodListStats",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListEvtLog": {
+    "name": "ccapAppIntfAAAMethodListEvtLog",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListReadRequest": {
+    "name": "ccapAppIntfAAAMethodListReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListReadSuccess": {
+    "name": "ccapAppIntfAAAMethodListReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListReadFailure": {
+    "name": "ccapAppIntfAAAMethodListReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListLastResetTime": {
+    "name": "ccapAppIntfAAAMethodListLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfASRTable": {
+    "name": "ccapAppIntfASRTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfASREntry": {
+    "name": "ccapAppIntfASREntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfASRServer",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfASRServer": {
+    "name": "ccapAppIntfASRServer",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerNameString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfASRStats": {
+    "name": "ccapAppIntfASRStats",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfASREvtLog": {
+    "name": "ccapAppIntfASREvtLog",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfASRReadRequest": {
+    "name": "ccapAppIntfASRReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfASRReadSuccess": {
+    "name": "ccapAppIntfASRReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfASRReadFailure": {
+    "name": "ccapAppIntfASRReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfASRLastResetTime": {
+    "name": "ccapAppIntfASRLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTTSTable": {
+    "name": "ccapAppIntfTTSTable",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfTTSEntry": {
+    "name": "ccapAppIntfTTSEntry",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTTSServer",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfTTSServer": {
+    "name": "ccapAppIntfTTSServer",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerNameString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccapAppIntfTTSStats": {
+    "name": "ccapAppIntfTTSStats",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTTSEvtLog": {
+    "name": "ccapAppIntfTTSEvtLog",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTTSReadRequest": {
+    "name": "ccapAppIntfTTSReadRequest",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTTSReadSuccess": {
+    "name": "ccapAppIntfTTSReadSuccess",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTTSReadFailure": {
+    "name": "ccapAppIntfTTSReadFailure",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccapAppIntfTTSLastResetTime": {
+    "name": "ccapAppIntfTTSLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.146.1.6.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallApplicationMIBConformance": {
+    "name": "ciscoCallApplicationMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.146.3",
+    "class": "objectidentity"
+  },
+  "ciscoCallApplicationMIBCompliances": {
+    "name": "ciscoCallApplicationMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.146.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoCallApplicationMIBGroups": {
+    "name": "ciscoCallApplicationMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoCallApplicationMIBCompliance": {
+    "name": "ciscoCallApplicationMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.146.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccapGeneralCfgGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCallApplicationMIBComplianceRev1": {
+    "name": "ciscoCallApplicationMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.146.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccapGeneralCfgGroupRev1",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppTypeHistoryGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppInstanceHistoryGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppGblActGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppGblCfgGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppGblHisGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfGblCfgGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfHTTPGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfRTSPGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfTFTPGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfSMTPGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfAAAMethodListGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfASRGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfTTSGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfFlashGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      },
+      {
+        "object": "ccapAppIntfRAMRecordGroup",
+        "module": "CISCO-CALL-APPLICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapGeneralCfgGroup": {
+    "name": "ccapGeneralCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppLocation"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppLoadState"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppLoadFailReason"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppDescr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppCallType"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccapGeneralCfgGroupRev1": {
+    "name": "ccapGeneralCfgGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppLocation"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppLoadState"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppLoadFailReason"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppDescr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppCallType"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppRowStatus"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppActiveInstances"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppEventLogging"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppPSTNInCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppPSTNOutCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIPInCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIPOutCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppPlaceCallInProgress"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppHandoffInProgress"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppPromptPlayActive"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppRecordingActive"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTTSActive"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppTypeHistoryGroup": {
+    "name": "ccapAppTypeHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisEvtLogging"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisLastResetTime"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallSetupInd"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNInCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallSetupReq"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPSTNOutCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallSetupInd"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPInCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallSetupReq"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisIPOutCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPlaceCallAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPlaceCallSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPlaceCallFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisInHandoffCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisInHandoffCallbackRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisInHandoffNoCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisOutHandoffCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisOutHandoffCallbackRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisOutHandoffNoCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisOutHandofffailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDocumentReadAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDocumentReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDocumentReadFailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDocumentParseErrors"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDocumentWriteAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDocumentWriteSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDocumentWriteFailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDTMFAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDTMFAborted"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDTMFNoMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDTMFNoInput"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDTMFMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisDTMFLongPound"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASRAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASRAborted"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASRNoMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASRNoInput"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASRMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisAAAAuthenticateFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisAAAAuthenticateSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisAAAAuthorizeFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisAAAAuthorizeSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASNLSubscriptionsSent"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASNLSubscriptionsSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASNLSubscriptionsFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisASNLNotifReceived"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPromptPlayAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPromptPlaySuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPromptPlayFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisPromptPlayDuration"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisRecordingAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisRecordingSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisRecordingFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisRecordingDuration"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisTTSAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisTTSSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppTypeHisTTSFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppInstanceHistoryGroup": {
+    "name": "ccapAppInstanceHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisSessionID"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisAppName"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallSetupInd"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNInCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallSetupReq"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPSTNOutCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallSetupInd"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPInCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallSetupReq"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisIPOutCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPlaceCallAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPlaceCallSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPlaceCallFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisInHandoffCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisInHandoffCallbackRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisInHandoffNoCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisOutHandoffCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisOutHandoffCallbackRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisOutHandoffNoCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisOutHandofffailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDocumentReadAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDocumentReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDocumentReadFailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDocumentParseErrors"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDocumentWriteAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDocumentWriteSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDocumentWriteFailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDTMFAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDTMFAborted"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDTMFNoMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDTMFNoInput"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDTMFMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisDTMFLongPound"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASRAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASRAborted"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASRNoMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASRNoInput"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASRMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisAAAAuthenticateFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisAAAAuthenticateSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisAAAAuthorizeFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisAAAAuthorizeSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASNLSubscriptionsSent"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASNLSubscriptionsSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASNLSubscriptionsFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisASNLNotifReceived"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPromptPlayAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPromptPlaySuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPromptPlayFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisPromptPlayDuration"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisRecordingAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisRecordingSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisRecordingFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisRecordingDuration"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisTTSAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisTTSSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHisTTSFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppInstHistEvtLogging"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppGblActGroup": {
+    "name": "ccapAppGblActGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActCurrentInstances"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActPSTNInCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActPSTNOutCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActIPInCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActIPOutCallNowConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActPlaceCallInProgress"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActHandoffInProgress"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActPromptPlayActive"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActRecordingActive"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblActTTSActive"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppGblCfgGroup": {
+    "name": "ccapAppGblCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblStatsLogging"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblEventLogging"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblEvtLogflush"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblStatsClear"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppGblHisGroup": {
+    "name": "ccapAppGblHisGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisTotalInstances"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisLastReset"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallSetupInd"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNInCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallSetupReq"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPSTNOutCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallSetupInd"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPInCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallSetupReq"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallTotConn"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallHandedOut"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallHandOutRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallInHandoff"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallInHandoffRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallDiscNormal"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallDiscUsrErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisIPOutCallDiscSysErr"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPlaceCallAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPlaceCallSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPlaceCallFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisInHandoffCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisInHandoffCallbackRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisInHandoffNoCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisOutHandoffCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisOutHandoffCallbackRet"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisOutHandoffNoCallback"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisOutHandofffailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDocumentReadAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDocumentReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDocumentReadFailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDocumentParseErrors"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDocumentWriteAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDocumentWriteSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDocumentWriteFailures"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDTMFAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDTMFAborted"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDTMFNoMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDTMFNoInput"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDTMFMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisDTMFLongPound"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASRAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASRAborted"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASRNoMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASRNoInput"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASRMatch"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisAAAAuthenticateFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisAAAAuthenticateSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisAAAAuthorizeFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisAAAAuthorizeSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASNLSubscriptionsSent"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASNLSubscriptionsSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASNLSubscriptionsFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisASNLNotifReceived"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPromptPlayAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPromptPlaySuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPromptPlayFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisPromptPlayDuration"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisRecordingAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisRecordingSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisRecordingFailed"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisRecordingDuration"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisTTSAttempts"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisTTSSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppGblHisTTSFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfGblCfgGroup": {
+    "name": "ccapAppIntfGblCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfGblStatsLogging"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfGblEventLogging"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfGblEvtLogFlush"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfGblStatsClear"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfGblLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfHTTPGroup": {
+    "name": "ccapAppIntfHTTPGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPStats"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPEvtLog"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPGetRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPGetSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPGetFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPPostRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPPostSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPPostFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPTxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPRxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPMinXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPMaxXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPAvgXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfHTTPLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfRTSPGroup": {
+    "name": "ccapAppIntfRTSPGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPStats"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPEvtLog"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPReadFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPWriteRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPWriteSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPWriteFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPTxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPRxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPMinXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPMaxXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPAvgXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRTSPLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfTFTPGroup": {
+    "name": "ccapAppIntfTFTPGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPStats"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPEvtLog"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPReadFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPWriteRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPWriteSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPWriteFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPTxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPRxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPMinXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPMaxXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPAvgXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTFTPLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfSMTPGroup": {
+    "name": "ccapAppIntfSMTPGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPStats"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPEvtLog"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPReadFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPWriteRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPWriteSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPWriteFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPTxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPRxBytes"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPMinXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPMaxXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPAvgXferRate"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfSMTPLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfAAAMethodListGroup": {
+    "name": "ccapAppIntfAAAMethodListGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfAAAMethodListStats"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfAAAMethodListEvtLog"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfAAAMethodListReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfAAAMethodListReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfAAAMethodListReadFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfAAAMethodListLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfASRGroup": {
+    "name": "ccapAppIntfASRGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfASRStats"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfASREvtLog"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfASRReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfASRReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfASRReadFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfASRLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfTTSGroup": {
+    "name": "ccapAppIntfTTSGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTTSStats"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTTSEvtLog"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTTSReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTTSReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTTSReadFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfTTSLastResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfFlashGroup": {
+    "name": "ccapAppIntfFlashGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfFlashReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfFlashReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfFlashReadFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "ccapAppIntfRAMRecordGroup": {
+    "name": "ccapAppIntfRAMRecordGroup",
+    "oid": "1.3.6.1.4.1.9.9.146.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRAMRecordReadRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRAMRecordReadSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRAMRecordiongReadFailure"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRAMRecordRequest"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRAMRecordSuccess"
+      },
+      {
+        "module": "CISCO-CALL-APPLICATION-MIB",
+        "object": "ccapAppIntfRAMRecordiongFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALL-APPLICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CALL-APPLICATION-MIB"
+  }
+}

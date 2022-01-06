@@ -1,0 +1,729 @@
+{
+  "imports": {
+    "class": "imports",
+    "DIFFSERV-MIB": [
+      "IndexInteger"
+    ],
+    "IPO-MIB": [
+      "ipoGenMibs",
+      "ipoGTEventStdSeverity",
+      "ipoGTEventDevID",
+      "ipoGTEventEntityName",
+      "ipoGTEventDateTime",
+      "ipoGTEventSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysDescr"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "Counter64",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ipoPhonesMIB": {
+    "name": "ipoPhonesMIB",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-02-09 15:21",
+        "description": "Rev 2.00.06 PhoneType: adding more original Nortel phone sets."
+      },
+      {
+        "revision": "2009-02-18 13:09",
+        "description": "Rev 2.00.05 PhoneType enumerations for a number of SIP phones, the 1400 phones and PhoneManager IP SoftPhone added."
+      },
+      {
+        "revision": "2008-06-12 15:06",
+        "description": "Rev 2.00.04 PhoneType enumerations for the 1700 phones added."
+      },
+      {
+        "revision": "2008-04-17 16:30",
+        "description": "Rev 2.00.03 Added descriptions for new PhoneType enumerations and corrected versioning."
+      },
+      {
+        "revision": "2007-03-28 12:09",
+        "description": "Rev 2.00.02 Added the port number, module number, ip address, and physical address, to the ipoPhonesTable"
+      },
+      {
+        "revision": "2007-02-24 12:09",
+        "description": "Rev 2.00.01 Added descriptions for new PhoneType enumerations and corrected versioning."
+      },
+      {
+        "revision": "2006-06-29 00:00",
+        "description": "Rev 2.00.00 Traps/notifications revised to provide more information about the entity and device concerned."
+      },
+      {
+        "revision": "2006-01-31 00:00",
+        "description": "Rev 1.00.08 Corrected enumeration for 5621 IP phones."
+      },
+      {
+        "revision": "2005-11-22 00:00",
+        "description": "Rev 1.00.07 Revised for 5621 IP phones."
+      },
+      {
+        "revision": "2005-07-21 10:50",
+        "description": "Rev 1.00.06 Revised for 4621 IP phones."
+      },
+      {
+        "revision": "2005-07-21 10:30",
+        "description": "Rev 1.00.05 Revised for 5601 and 5602 Phones"
+      },
+      {
+        "revision": "2005-03-04 00:00",
+        "description": "Rev 1.00.04 Revised for IP Soft Phones"
+      },
+      {
+        "revision": "2005-01-06 00:00",
+        "description": "Rev 1.00.03 Revised for 5610/5620 IP phones."
+      },
+      {
+        "revision": "2004-12-20 00:00",
+        "description": "Rev 1.00.02 Revised for additional phone support."
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Rev 1.00.01 Revised for external publication."
+      },
+      {
+        "revision": "2003-10-10 00:00",
+        "description": "Rev 1.0.0 The first published version of this MIB module."
+      }
+    ]
+  },
+  "ipoPhonesMibNotifications": {
+    "name": "ipoPhonesMibNotifications",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.0",
+    "class": "objectidentity"
+  },
+  "ipoPhonesMibObjects": {
+    "name": "ipoPhonesMibObjects",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ipoPhonesConformance": {
+    "name": "ipoPhonesConformance",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "PhoneType": {
+    "name": "PhoneType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPhone": 1,
+          "genericPhone": 2,
+          "potPhone": 3,
+          "dtPhone": 4,
+          "a4406Dplus": 5,
+          "a4412Dplus": 6,
+          "a4424Dplus": 7,
+          "a4424LDplus": 8,
+          "a9040TransTalk": 9,
+          "a6408Dplus": 10,
+          "a6416Dplus": 11,
+          "a6424Dplus": 12,
+          "a4606ip": 13,
+          "a4612ip": 14,
+          "a4624ip": 15,
+          "a4620ip": 16,
+          "a4602ip": 17,
+          "a2420": 18,
+          "a2010dt": 19,
+          "a2020dt": 20,
+          "a2030dt": 21,
+          "a2050dt": 22,
+          "act5": 23,
+          "att3": 24,
+          "att5": 25,
+          "a5420": 26,
+          "a5410": 27,
+          "a4601ip": 28,
+          "a4610ip": 29,
+          "ablf": 30,
+          "a2402": 31,
+          "a2410": 32,
+          "a5610ip": 33,
+          "a5620ip": 34,
+          "softIPPhone": 35,
+          "a5601ip": 36,
+          "a5602ip": 37,
+          "a4621ip": 38,
+          "a5621ip": 39,
+          "a4625ip": 40,
+          "a5402": 41,
+          "h323Phone": 42,
+          "sipPhone": 43,
+          "t3Compact": 44,
+          "t3Classic": 45,
+          "t3Comfort": 46,
+          "t3Phone": 47,
+          "t3compactIP": 48,
+          "t3classicIP": 49,
+          "t3comfortIP": 50,
+          "avayaSip": 51,
+          "admmPhone": 52,
+          "a9620ip": 53,
+          "a9630ip": 54,
+          "telecommuter": 55,
+          "mobiletwin": 56,
+          "a9640ip": 57,
+          "a9650ip": 58,
+          "a9610ip": 59,
+          "a1603ip": 60,
+          "a1608ip": 61,
+          "a1616ip": 62,
+          "a1703ip": 63,
+          "a1708ip": 64,
+          "a1716ip": 65,
+          "s60Sip": 66,
+          "sp320Sip": 67,
+          "sp601Sip": 68,
+          "a10ataSip": 69,
+          "pmataSip": 70,
+          "ip22Sip": 71,
+          "ip24Sip": 72,
+          "gxp2000Sip": 73,
+          "gxp2020Sip": 74,
+          "eyebeamSip": 75,
+          "a1403": 76,
+          "a1408": 77,
+          "a1416": 78,
+          "a1450": 79,
+          "ip28Sip": 80,
+          "phoneManagerIP": 81,
+          "a1503": 82,
+          "a1508": 83,
+          "a1516": 84,
+          "a1550": 85,
+          "a1603Lip": 86,
+          "a1608Lip": 87,
+          "a1616Lip": 88,
+          "softPhoneSip": 89,
+          "etr34d": 90,
+          "etr18d": 91,
+          "etr6d": 92,
+          "etr34": 93,
+          "etr18": 94,
+          "etr6": 95,
+          "etrpots": 96,
+          "doorphone1": 97,
+          "doorphone2": 98,
+          "bstT7316e": 99,
+          "a9620Sip": 100,
+          "a9630Sip": 101,
+          "a9640Sip": 102,
+          "a9650Sip": 103,
+          "a96xxSip": 104,
+          "a1603Sip": 105,
+          "a9404": 106,
+          "a9408": 107,
+          "a9504": 108,
+          "a9508": 109,
+          "a9608ip": 110,
+          "a9611ip": 111,
+          "a9621ip": 112,
+          "a9641ip": 113,
+          "a3720Admm": 114,
+          "a3725Admm": 115,
+          "a1010Sip": 116,
+          "a1040Sip": 117,
+          "a1120ESip": 118,
+          "a1140ESip": 119,
+          "a1220Sip": 120,
+          "a1230Sip": 121,
+          "a1692Sip": 122,
+          "pvvxSip": 123,
+          "gxv3140Sip": 124,
+          "a3740Admm": 125,
+          "a3749Admm": 126,
+          "bstT7316": 127,
+          "bstT7208": 128,
+          "bstM7208": 129,
+          "bstM7310": 130,
+          "bstM7310blf": 131,
+          "bstM7324": 132,
+          "bstM7100": 133,
+          "bstT7100": 134,
+          "bstT7000": 135,
+          "bstDectA": 136,
+          "bstDectB": 137,
+          "bstDectC": 138,
+          "bstDoorphone": 139,
+          "bstT7406": 140,
+          "bstT7406E": 141,
+          "bstM7310N": 142,
+          "bstAcu": 143,
+          "bstM7100N": 144,
+          "bstM7324N": 145,
+          "bstM7208N": 146,
+          "aB179Sip": 147,
+          "bstAta": 148,
+          "aA175Sip": 149,
+          "aOneXSip": 150,
+          "aFlareSip": 151,
+          "aD100": 152,
+          "aRadvisionXT1000": 153,
+          "aRadvisionXT1200": 154,
+          "aRadvisionXT4000": 155,
+          "aRadvisionXT4200": 156,
+          "aRadvisionXT5000": 157,
+          "aRadvisionXTPiccolo": 158,
+          "aRadvisionScopiaMCU": 159,
+          "aRadvisionScopiaVC240": 160,
+          "aOneXSipMobile": 161,
+          "aACCSServer": 162,
+          "aCIEServer": 163,
+          "aE129SIP": 164,
+          "aE159SIP": 165,
+          "aE169SIP": 166,
+          "aOneXMsiSIP": 167,
+          "aRadvisionXT240": 168,
+          "aWebRTCSIP": 169,
+          "softPhoneSipMac": 170
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ipoPhones": {
+    "name": "ipoPhones",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "ipoPhonesNumber": {
+    "name": "ipoPhonesNumber",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesTable": {
+    "name": "ipoPhonesTable",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoPhonesEntry": {
+    "name": "ipoPhonesEntry",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoPhonesIndex": {
+    "name": "ipoPhonesIndex",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesExtID": {
+    "name": "ipoPhonesExtID",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesExtNumber": {
+    "name": "ipoPhonesExtNumber",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesUserShort": {
+    "name": "ipoPhonesUserShort",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesUserLong": {
+    "name": "ipoPhonesUserLong",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesType": {
+    "name": "ipoPhonesType",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhoneType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesPort": {
+    "name": "ipoPhonesPort",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesPortNumber": {
+    "name": "ipoPhonesPortNumber",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesModuleNumber": {
+    "name": "ipoPhonesModuleNumber",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesIPAddress": {
+    "name": "ipoPhonesIPAddress",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesPhysAddress": {
+    "name": "ipoPhonesPhysAddress",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoPhonesChangeEvent": {
+    "name": "ipoPhonesChangeEvent",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPO-MIB",
+        "object": "ipoGTEventSeverity"
+      },
+      {
+        "module": "IPO-MIB",
+        "object": "ipoGTEventDateTime"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesExtID"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesType"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesPort"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ipoPhonesChangeSvcEvent": {
+    "name": "ipoPhonesChangeSvcEvent",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPO-MIB",
+        "object": "ipoGTEventStdSeverity"
+      },
+      {
+        "module": "IPO-MIB",
+        "object": "ipoGTEventDateTime"
+      },
+      {
+        "module": "IPO-MIB",
+        "object": "ipoGTEventDevID"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesExtID"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesType"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesPort"
+      },
+      {
+        "module": "IPO-MIB",
+        "object": "ipoGTEventEntityName"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoPhonesCompliances": {
+    "name": "ipoPhonesCompliances",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "ipoPhonesGroups": {
+    "name": "ipoPhonesGroups",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "ipoPhonesCompliance": {
+    "name": "ipoPhonesCompliance",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ipoPhonesGroup",
+        "module": "IPO-PHONES-MIB"
+      },
+      {
+        "object": "ipoPhonesNotificationsGroup",
+        "module": "IPO-PHONES-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ipoPhonesv2Compliance": {
+    "name": "ipoPhonesv2Compliance",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ipoPhonesGroup",
+        "module": "IPO-PHONES-MIB"
+      },
+      {
+        "object": "ipoPhonesv2NotificationsGroup",
+        "module": "IPO-PHONES-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ipoPhonesv3Compliance": {
+    "name": "ipoPhonesv3Compliance",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ipoPhonesGroup",
+        "module": "IPO-PHONES-MIB"
+      },
+      {
+        "object": "ipoPhones2Group",
+        "module": "IPO-PHONES-MIB"
+      },
+      {
+        "object": "ipoPhonesv2NotificationsGroup",
+        "module": "IPO-PHONES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoPhonesGroup": {
+    "name": "ipoPhonesGroup",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesNumber"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesIndex"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesExtID"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesExtNumber"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesUserShort"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesUserLong"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesType"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoPhonesNotificationsGroup": {
+    "name": "ipoPhonesNotificationsGroup",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesChangeEvent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ipoPhonesv2NotificationsGroup": {
+    "name": "ipoPhonesv2NotificationsGroup",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesChangeSvcEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoPhones2Group": {
+    "name": "ipoPhones2Group",
+    "oid": "1.3.6.1.4.1.6889.2.2.1.1.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesPortNumber"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesModuleNumber"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesIPAddress"
+      },
+      {
+        "module": "IPO-PHONES-MIB",
+        "object": "ipoPhonesPhysAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/IPO-PHONES-MIB.mib",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IPO-PHONES-MIB"
+  }
+}

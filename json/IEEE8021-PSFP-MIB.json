@@ -1,0 +1,1270 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBaseComponentId"
+    ],
+    "IEEE8021-ST-MIB": [
+      "IEEE8021STPTPtimeValue"
+    ],
+    "IEEE8021-TC-MIB": [
+      "ieee802dot1mibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8021PSFPMib": {
+    "name": "ieee8021PSFPMib",
+    "oid": "1.3.111.2.802.1.1.31",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2017 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2017-09-08 00:00",
+        "description": "Initial version published as part of IEEE Std 802.1Qci."
+      }
+    ]
+  },
+  "ieee8021PSFPNotifications": {
+    "name": "ieee8021PSFPNotifications",
+    "oid": "1.3.111.2.802.1.1.31.0",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPObjects": {
+    "name": "ieee8021PSFPObjects",
+    "oid": "1.3.111.2.802.1.1.31.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPConformance": {
+    "name": "ieee8021PSFPConformance",
+    "oid": "1.3.111.2.802.1.1.31.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPStreamFilterParameters": {
+    "name": "ieee8021PSFPStreamFilterParameters",
+    "oid": "1.3.111.2.802.1.1.31.1.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPStreamGateParameters": {
+    "name": "ieee8021PSFPStreamGateParameters",
+    "oid": "1.3.111.2.802.1.1.31.1.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPFlowMeterParameters": {
+    "name": "ieee8021PSFPFlowMeterParameters",
+    "oid": "1.3.111.2.802.1.1.31.1.3",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPStreamParameters": {
+    "name": "ieee8021PSFPStreamParameters",
+    "oid": "1.3.111.2.802.1.1.31.1.4",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPStreamFilterTable": {
+    "name": "ieee8021PSFPStreamFilterTable",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamFilterEntry": {
+    "name": "ieee8021PSFPStreamFilterEntry",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamFilterInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PSFPStreamFilterInstance": {
+    "name": "ieee8021PSFPStreamFilterInstance",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamHandleSpec": {
+    "name": "ieee8021PSFPStreamHandleSpec",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPPrioritySpec": {
+    "name": "ieee8021PSFPPrioritySpec",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamGateInstanceID": {
+    "name": "ieee8021PSFPStreamGateInstanceID",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFilterSpecificationList": {
+    "name": "ieee8021PSFPFilterSpecificationList",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPMatchingFramesCount": {
+    "name": "ieee8021PSFPMatchingFramesCount",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPPassingFramesCount": {
+    "name": "ieee8021PSFPPassingFramesCount",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPNotPassingFramesCount": {
+    "name": "ieee8021PSFPNotPassingFramesCount",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPPassingSDUCount": {
+    "name": "ieee8021PSFPPassingSDUCount",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPNotPassingSDUCount": {
+    "name": "ieee8021PSFPNotPassingSDUCount",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPREDFramesCount": {
+    "name": "ieee8021PSFPREDFramesCount",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamBlockedDueToOversizeFrameEnable": {
+    "name": "ieee8021PSFPStreamBlockedDueToOversizeFrameEnable",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamBlockedDueToOversizeFrame": {
+    "name": "ieee8021PSFPStreamBlockedDueToOversizeFrame",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamFilterEntryRowStatus": {
+    "name": "ieee8021PSFPStreamFilterEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.31.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamGateTable": {
+    "name": "ieee8021PSFPStreamGateTable",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamGateEntry": {
+    "name": "ieee8021PSFPStreamGateEntry",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamGateInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PSFPStreamGateInstance": {
+    "name": "ieee8021PSFPStreamGateInstance",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PSFPGateEnabled": {
+    "name": "ieee8021PSFPGateEnabled",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminGateStates": {
+    "name": "ieee8021PSFPAdminGateStates",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPOperGateStates": {
+    "name": "ieee8021PSFPOperGateStates",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminControlListLength": {
+    "name": "ieee8021PSFPAdminControlListLength",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPOperControlListLength": {
+    "name": "ieee8021PSFPOperControlListLength",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminControlList": {
+    "name": "ieee8021PSFPAdminControlList",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPOperControlList": {
+    "name": "ieee8021PSFPOperControlList",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminCycleTimeNumerator": {
+    "name": "ieee8021PSFPAdminCycleTimeNumerator",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminCycleTimeDenominator": {
+    "name": "ieee8021PSFPAdminCycleTimeDenominator",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPOperCycleTimeNumerator": {
+    "name": "ieee8021PSFPOperCycleTimeNumerator",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPOperCycleTimeDenominator": {
+    "name": "ieee8021PSFPOperCycleTimeDenominator",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminCycleTimeExtension": {
+    "name": "ieee8021PSFPAdminCycleTimeExtension",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPOperCycleTimeExtension": {
+    "name": "ieee8021PSFPOperCycleTimeExtension",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminBaseTime": {
+    "name": "ieee8021PSFPAdminBaseTime",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "units": "PTP time",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPOperBaseTime": {
+    "name": "ieee8021PSFPOperBaseTime",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "units": "PTP time",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPConfigChange": {
+    "name": "ieee8021PSFPConfigChange",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPConfigChangeTime": {
+    "name": "ieee8021PSFPConfigChangeTime",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "units": "PTP time",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPTickGranularity": {
+    "name": "ieee8021PSFPTickGranularity",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPCurrentTime": {
+    "name": "ieee8021PSFPCurrentTime",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPConfigPending": {
+    "name": "ieee8021PSFPConfigPending",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPConfigChangeError": {
+    "name": "ieee8021PSFPConfigChangeError",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPAdminIPV": {
+    "name": "ieee8021PSFPAdminIPV",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPOperIPV": {
+    "name": "ieee8021PSFPOperIPV",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPGateClosedDueToInvalidRxEnable": {
+    "name": "ieee8021PSFPGateClosedDueToInvalidRxEnable",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPGateClosedDueToInvalidRx": {
+    "name": "ieee8021PSFPGateClosedDueToInvalidRx",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPGateClosedDueToOctetsExceededEnable": {
+    "name": "ieee8021PSFPGateClosedDueToOctetsExceededEnable",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPGateClosedDueToOctetsExceeded": {
+    "name": "ieee8021PSFPGateClosedDueToOctetsExceeded",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamGateEntryRowStatus": {
+    "name": "ieee8021PSFPStreamGateEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.31.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterTable": {
+    "name": "ieee8021PSFPFlowMeterTable",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterEntry": {
+    "name": "ieee8021PSFPFlowMeterEntry",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterInstance": {
+    "name": "ieee8021PSFPFlowMeterInstance",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterCIR": {
+    "name": "ieee8021PSFPFlowMeterCIR",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterCBS": {
+    "name": "ieee8021PSFPFlowMeterCBS",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterEIR": {
+    "name": "ieee8021PSFPFlowMeterEIR",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterEBS": {
+    "name": "ieee8021PSFPFlowMeterEBS",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterCF": {
+    "name": "ieee8021PSFPFlowMeterCF",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterCM": {
+    "name": "ieee8021PSFPFlowMeterCM",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "colorBlind": 1,
+          "colorAware": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterDropOnYellow": {
+    "name": "ieee8021PSFPFlowMeterDropOnYellow",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterMarkAllFramesRedEnable": {
+    "name": "ieee8021PSFPFlowMeterMarkAllFramesRedEnable",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterMarkAllFramesRed": {
+    "name": "ieee8021PSFPFlowMeterMarkAllFramesRed",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPFlowMeterEntryRowStatus": {
+    "name": "ieee8021PSFPFlowMeterEntryRowStatus",
+    "oid": "1.3.111.2.802.1.1.31.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamParameterTable": {
+    "name": "ieee8021PSFPStreamParameterTable",
+    "oid": "1.3.111.2.802.1.1.31.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021PSFPStreamParameterEntry": {
+    "name": "ieee8021PSFPStreamParameterEntry",
+    "oid": "1.3.111.2.802.1.1.31.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PSFPMaxStreamFilterInstances": {
+    "name": "ieee8021PSFPMaxStreamFilterInstances",
+    "oid": "1.3.111.2.802.1.1.31.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPMaxStreamGateInstances": {
+    "name": "ieee8021PSFPMaxStreamGateInstances",
+    "oid": "1.3.111.2.802.1.1.31.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPMaxFlowMeterInstances": {
+    "name": "ieee8021PSFPMaxFlowMeterInstances",
+    "oid": "1.3.111.2.802.1.1.31.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPSupportedListMax": {
+    "name": "ieee8021PSFPSupportedListMax",
+    "oid": "1.3.111.2.802.1.1.31.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021PSFPCompliances": {
+    "name": "ieee8021PSFPCompliances",
+    "oid": "1.3.111.2.802.1.1.31.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPGroups": {
+    "name": "ieee8021PSFPGroups",
+    "oid": "1.3.111.2.802.1.1.31.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021PSFPObjectsGroup": {
+    "name": "ieee8021PSFPObjectsGroup",
+    "oid": "1.3.111.2.802.1.1.31.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamHandleSpec"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPPrioritySpec"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamGateInstanceID"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFilterSpecificationList"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPMatchingFramesCount"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPPassingFramesCount"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPNotPassingFramesCount"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPPassingSDUCount"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPNotPassingSDUCount"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPREDFramesCount"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamBlockedDueToOversizeFrameEnable"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamBlockedDueToOversizeFrame"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamFilterEntryRowStatus"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPGateEnabled"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminGateStates"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperGateStates"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminControlListLength"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperControlListLength"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminControlList"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperControlList"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminCycleTimeNumerator"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminCycleTimeDenominator"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperCycleTimeNumerator"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperCycleTimeDenominator"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminCycleTimeExtension"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperCycleTimeExtension"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminBaseTime"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperBaseTime"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPConfigChange"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPConfigChangeTime"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPTickGranularity"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPCurrentTime"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPConfigPending"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPConfigChangeError"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPAdminIPV"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPOperIPV"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPGateClosedDueToInvalidRxEnable"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPGateClosedDueToInvalidRx"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPGateClosedDueToOctetsExceededEnable"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPGateClosedDueToOctetsExceeded"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPStreamGateEntryRowStatus"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterCIR"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterCBS"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterEIR"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterEBS"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterCF"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterCM"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterDropOnYellow"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterMarkAllFramesRedEnable"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterMarkAllFramesRed"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPFlowMeterEntryRowStatus"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPMaxStreamFilterInstances"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPMaxStreamGateInstances"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPMaxFlowMeterInstances"
+      },
+      {
+        "module": "IEEE8021-PSFP-MIB",
+        "object": "ieee8021PSFPSupportedListMax"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021PSFPCompliance": {
+    "name": "ieee8021PSFPCompliance",
+    "oid": "1.3.111.2.802.1.1.31.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021PSFPObjectsGroup",
+        "module": "IEEE8021-PSFP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-PSFP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-PSFP-MIB"
+  }
+}

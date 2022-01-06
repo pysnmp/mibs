@@ -1,0 +1,1104 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "audioCodes": {
+    "name": "audioCodes",
+    "oid": "1.3.6.1.4.1.5003",
+    "class": "objectidentity"
+  },
+  "acRegistrations": {
+    "name": "acRegistrations",
+    "oid": "1.3.6.1.4.1.5003.7",
+    "class": "objectidentity"
+  },
+  "acGeneric": {
+    "name": "acGeneric",
+    "oid": "1.3.6.1.4.1.5003.8",
+    "class": "objectidentity"
+  },
+  "acProducts": {
+    "name": "acProducts",
+    "oid": "1.3.6.1.4.1.5003.9",
+    "class": "objectidentity"
+  },
+  "acPerformance": {
+    "name": "acPerformance",
+    "oid": "1.3.6.1.4.1.5003.10",
+    "class": "objectidentity"
+  },
+  "acExperimental": {
+    "name": "acExperimental",
+    "oid": "1.3.6.1.4.1.5003.12",
+    "class": "objectidentity"
+  },
+  "acBoardMibs": {
+    "name": "acBoardMibs",
+    "oid": "1.3.6.1.4.1.5003.9.10",
+    "class": "objectidentity"
+  },
+  "acGateway": {
+    "name": "acGateway",
+    "oid": "1.3.6.1.4.1.5003.9.10.3",
+    "class": "objectidentity"
+  },
+  "gwConfiguration": {
+    "name": "gwConfiguration",
+    "oid": "1.3.6.1.4.1.5003.9.10.3.1",
+    "class": "objectidentity"
+  },
+  "acKnownTypes": {
+    "name": "acKnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1",
+    "class": "objectidentity"
+  },
+  "acKnownProducts": {
+    "name": "acKnownProducts",
+    "oid": "1.3.6.1.4.1.5003.8.1.1",
+    "class": "objectidentity"
+  },
+  "acKnownPhysicalTypes": {
+    "name": "acKnownPhysicalTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2",
+    "class": "objectidentity"
+  },
+  "acKnownLogicalTypes": {
+    "name": "acKnownLogicalTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.3",
+    "class": "objectidentity"
+  },
+  "acProductUnknown": {
+    "name": "acProductUnknown",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.0",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack08": {
+    "name": "acProductTrunkPack08",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.1",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack108": {
+    "name": "acProductMediaPack108",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.2",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack124": {
+    "name": "acProductMediaPack124",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.3",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack1600": {
+    "name": "acProductTrunkPack1600",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.20",
+    "class": "objectidentity"
+  },
+  "acProductTPM1100": {
+    "name": "acProductTPM1100",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.22",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260IpMedia": {
+    "name": "acProductTrunkPack260IpMedia",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.23",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack1610": {
+    "name": "acProductTrunkPack1610",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.24",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack104": {
+    "name": "acProductMediaPack104",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.25",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack102": {
+    "name": "acProductMediaPack102",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.26",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack1610SB": {
+    "name": "acProductTrunkPack1610SB",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.29",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack1610IpMedia": {
+    "name": "acProductTrunkPack1610IpMedia",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.30",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPackMEDIANT2000": {
+    "name": "acProductTrunkPackMEDIANT2000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.31",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPackSTRETTO2000": {
+    "name": "acProductTrunkPackSTRETTO2000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.32",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPackIPMServer2000": {
+    "name": "acProductTrunkPackIPMServer2000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.33",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack2810": {
+    "name": "acProductTrunkPack2810",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.34",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260UNIpMedia": {
+    "name": "acProductTrunkPack260UNIpMedia",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.35",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260IpMedia30Ch": {
+    "name": "acProductTrunkPack260IpMedia30Ch",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.36",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260IpMedia60Ch": {
+    "name": "acProductTrunkPack260IpMedia60Ch",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.37",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260IpMedia120Ch": {
+    "name": "acProductTrunkPack260IpMedia120Ch",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.38",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260RTIpMedia30Ch": {
+    "name": "acProductTrunkPack260RTIpMedia30Ch",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.39",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260RTIpMedia60Ch": {
+    "name": "acProductTrunkPack260RTIpMedia60Ch",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.40",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260RTIpMedia120Ch": {
+    "name": "acProductTrunkPack260RTIpMedia120Ch",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.41",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260": {
+    "name": "acProductTrunkPack260",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.42",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack260UN": {
+    "name": "acProductTrunkPack260UN",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.43",
+    "class": "objectidentity"
+  },
+  "acProductTPM1100PCM": {
+    "name": "acProductTPM1100PCM",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.44",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack6310": {
+    "name": "acProductTrunkPack6310",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.45",
+    "class": "objectidentity"
+  },
+  "acProductTPM6300": {
+    "name": "acProductTPM6300",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.46",
+    "class": "objectidentity"
+  },
+  "acProductMediant1000": {
+    "name": "acProductMediant1000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.47",
+    "class": "objectidentity"
+  },
+  "acProductIPMedia3000": {
+    "name": "acProductIPMedia3000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.48",
+    "class": "objectidentity"
+  },
+  "acProductMediant3000": {
+    "name": "acProductMediant3000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.49",
+    "class": "objectidentity"
+  },
+  "acProductStretto3000": {
+    "name": "acProductStretto3000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.50",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack6310IpMedia": {
+    "name": "acProductTrunkPack6310IpMedia",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.51",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack6310SB": {
+    "name": "acProductTrunkPack6310SB",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.52",
+    "class": "objectidentity"
+  },
+  "acProductATP1610": {
+    "name": "acProductATP1610",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.53",
+    "class": "objectidentity"
+  },
+  "acProductATP260": {
+    "name": "acProductATP260",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.54",
+    "class": "objectidentity"
+  },
+  "acProductATP260UN": {
+    "name": "acProductATP260UN",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.55",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack118": {
+    "name": "acProductMediaPack118",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.56",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack114": {
+    "name": "acProductMediaPack114",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.57",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack112": {
+    "name": "acProductMediaPack112",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.58",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack6310T3": {
+    "name": "acProductTrunkPack6310T3",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.59",
+    "class": "objectidentity"
+  },
+  "acProductMediant3000T3": {
+    "name": "acProductMediant3000T3",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.60",
+    "class": "objectidentity"
+  },
+  "acProductIPmedia3000T3": {
+    "name": "acProductIPmedia3000T3",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.61",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack6310T3IpMedia": {
+    "name": "acProductTrunkPack6310T3IpMedia",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.62",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack8410": {
+    "name": "acProductTrunkPack8410",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.63",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack8410IpMedia": {
+    "name": "acProductTrunkPack8410IpMedia",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.64",
+    "class": "objectidentity"
+  },
+  "acProductMediant600": {
+    "name": "acProductMediant600",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.65",
+    "class": "objectidentity"
+  },
+  "acProductTrunkPack12610": {
+    "name": "acProductTrunkPack12610",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.66",
+    "class": "objectidentity"
+  },
+  "acProductMediant1000MSBG": {
+    "name": "acProductMediant1000MSBG",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.67",
+    "class": "objectidentity"
+  },
+  "acProductMediant600MSBG": {
+    "name": "acProductMediant600MSBG",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.68",
+    "class": "objectidentity"
+  },
+  "acProductMediaPack500MSBR": {
+    "name": "acProductMediaPack500MSBR",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.69",
+    "class": "objectidentity"
+  },
+  "acProductM4000": {
+    "name": "acProductM4000",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.70",
+    "class": "objectidentity"
+  },
+  "acProductMediant1000ESBC": {
+    "name": "acProductMediant1000ESBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.71",
+    "class": "objectidentity"
+  },
+  "acProductMediant800ESBC": {
+    "name": "acProductMediant800ESBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.72",
+    "class": "objectidentity"
+  },
+  "acProductHosted": {
+    "name": "acProductHosted",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.73",
+    "class": "objectidentity"
+  },
+  "acProductMediant850MSBG": {
+    "name": "acProductMediant850MSBG",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.74",
+    "class": "objectidentity"
+  },
+  "acProductMediant850ESBC": {
+    "name": "acProductMediant850ESBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.75",
+    "class": "objectidentity"
+  },
+  "acProductMediant500MSBR": {
+    "name": "acProductMediant500MSBR",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.76",
+    "class": "objectidentity"
+  },
+  "acProductMediant500ESBC": {
+    "name": "acProductMediant500ESBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.77",
+    "class": "objectidentity"
+  },
+  "acProductM2600": {
+    "name": "acProductM2600",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.78",
+    "class": "objectidentity"
+  },
+  "acProductMediantVeSBC": {
+    "name": "acProductMediantVeSBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.79",
+    "class": "objectidentity"
+  },
+  "acProductMediantVeHSBC": {
+    "name": "acProductMediantVeHSBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.80",
+    "class": "objectidentity"
+  },
+  "acProductMediantSeSBC": {
+    "name": "acProductMediantSeSBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.81",
+    "class": "objectidentity"
+  },
+  "acProductMediantSeHSBC": {
+    "name": "acProductMediantSeHSBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.82",
+    "class": "objectidentity"
+  },
+  "acProductMediant6000SBC": {
+    "name": "acProductMediant6000SBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.83",
+    "class": "objectidentity"
+  },
+  "acProductMediant500LMSBG": {
+    "name": "acProductMediant500LMSBG",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.84",
+    "class": "objectidentity"
+  },
+  "acProductMediant500LESBC": {
+    "name": "acProductMediant500LESBC",
+    "oid": "1.3.6.1.4.1.5003.8.1.1.85",
+    "class": "objectidentity"
+  },
+  "acKnownChassis": {
+    "name": "acKnownChassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2",
+    "class": "objectidentity"
+  },
+  "acM1000Chassis": {
+    "name": "acM1000Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "acM2000Chassis": {
+    "name": "acM2000Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "acM3000Chassis": {
+    "name": "acM3000Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.3",
+    "class": "objectidentity"
+  },
+  "acM600Chassis": {
+    "name": "acM600Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.4",
+    "class": "objectidentity"
+  },
+  "acM800Chassis": {
+    "name": "acM800Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.5",
+    "class": "objectidentity"
+  },
+  "acMP118Chassis": {
+    "name": "acMP118Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.6",
+    "class": "objectidentity"
+  },
+  "acM4000Chassis": {
+    "name": "acM4000Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.7",
+    "class": "objectidentity"
+  },
+  "acM500Chassis": {
+    "name": "acM500Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.8",
+    "class": "objectidentity"
+  },
+  "acM850Chassis": {
+    "name": "acM850Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.9",
+    "class": "objectidentity"
+  },
+  "acM2600Chassis": {
+    "name": "acM2600Chassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.10",
+    "class": "objectidentity"
+  },
+  "acM500LChassis": {
+    "name": "acM500LChassis",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.2.11",
+    "class": "objectidentity"
+  },
+  "acKnownSlots": {
+    "name": "acKnownSlots",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.3",
+    "class": "objectidentity"
+  },
+  "acKnownModules": {
+    "name": "acKnownModules",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.4",
+    "class": "objectidentity"
+  },
+  "acModuleUnknown": {
+    "name": "acModuleUnknown",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "acKnownPorts": {
+    "name": "acKnownPorts",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5",
+    "class": "objectidentity"
+  },
+  "acPortUnknown": {
+    "name": "acPortUnknown",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.1",
+    "class": "objectidentity"
+  },
+  "acPortAnalog": {
+    "name": "acPortAnalog",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.2",
+    "class": "objectidentity"
+  },
+  "acPortDigital": {
+    "name": "acPortDigital",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3",
+    "class": "objectidentity"
+  },
+  "acPortNetwork": {
+    "name": "acPortNetwork",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.4",
+    "class": "objectidentity"
+  },
+  "acPortFxsAnalog": {
+    "name": "acPortFxsAnalog",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.2.1",
+    "class": "objectidentity"
+  },
+  "acPortFxoAnalog": {
+    "name": "acPortFxoAnalog",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.2.2",
+    "class": "objectidentity"
+  },
+  "acPortEMAnalog": {
+    "name": "acPortEMAnalog",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.2.3",
+    "class": "objectidentity"
+  },
+  "acPortE1T1Quad": {
+    "name": "acPortE1T1Quad",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.1",
+    "class": "objectidentity"
+  },
+  "acPortE1T1Falc56": {
+    "name": "acPortE1T1Falc56",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.2",
+    "class": "objectidentity"
+  },
+  "acPortEthernet": {
+    "name": "acPortEthernet",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.3",
+    "class": "objectidentity"
+  },
+  "acPortPstnOc3Stm1": {
+    "name": "acPortPstnOc3Stm1",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.4",
+    "class": "objectidentity"
+  },
+  "acPortAtmStm1": {
+    "name": "acPortAtmStm1",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.5",
+    "class": "objectidentity"
+  },
+  "acPortGBEthernet": {
+    "name": "acPortGBEthernet",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.6",
+    "class": "objectidentity"
+  },
+  "acPortDs3": {
+    "name": "acPortDs3",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.7",
+    "class": "objectidentity"
+  },
+  "acPortSonetSdh": {
+    "name": "acPortSonetSdh",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.8",
+    "class": "objectidentity"
+  },
+  "acPortBRI": {
+    "name": "acPortBRI",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.9",
+    "class": "objectidentity"
+  },
+  "acPortE1T1OctalFalc": {
+    "name": "acPortE1T1OctalFalc",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.10",
+    "class": "objectidentity"
+  },
+  "acPortWAN": {
+    "name": "acPortWAN",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.11",
+    "class": "objectidentity"
+  },
+  "acPortWireless": {
+    "name": "acPortWireless",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.12",
+    "class": "objectidentity"
+  },
+  "acPortT1WAN": {
+    "name": "acPortT1WAN",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.13",
+    "class": "objectidentity"
+  },
+  "acPortSHDSL": {
+    "name": "acPortSHDSL",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.14",
+    "class": "objectidentity"
+  },
+  "acPortADSLVDSL": {
+    "name": "acPortADSLVDSL",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.15",
+    "class": "objectidentity"
+  },
+  "acPortGPON": {
+    "name": "acPortGPON",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.16",
+    "class": "objectidentity"
+  },
+  "acPortGESFP": {
+    "name": "acPortGESFP",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.5.3.17",
+    "class": "objectidentity"
+  },
+  "acKnownFans": {
+    "name": "acKnownFans",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.6",
+    "class": "objectidentity"
+  },
+  "acFanUnknown": {
+    "name": "acFanUnknown",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.6.1",
+    "class": "objectidentity"
+  },
+  "acKnownSensors": {
+    "name": "acKnownSensors",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.7",
+    "class": "objectidentity"
+  },
+  "acTemperatureSensor": {
+    "name": "acTemperatureSensor",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.7.1",
+    "class": "objectidentity"
+  },
+  "acM1000KnownTypes": {
+    "name": "acM1000KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20",
+    "class": "objectidentity"
+  },
+  "acM1000CpuSlot": {
+    "name": "acM1000CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.1",
+    "class": "objectidentity"
+  },
+  "acM1000IfsSlot": {
+    "name": "acM1000IfsSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.2",
+    "class": "objectidentity"
+  },
+  "acM1000PowerSupplySlot": {
+    "name": "acM1000PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.3",
+    "class": "objectidentity"
+  },
+  "acM1000FanSlot": {
+    "name": "acM1000FanSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.4",
+    "class": "objectidentity"
+  },
+  "acM600CpuSlot": {
+    "name": "acM600CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.5",
+    "class": "objectidentity"
+  },
+  "acM600IfsSlot": {
+    "name": "acM600IfsSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.6",
+    "class": "objectidentity"
+  },
+  "acM600PowerSupplySlot": {
+    "name": "acM600PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.7",
+    "class": "objectidentity"
+  },
+  "acM600FanSlot": {
+    "name": "acM600FanSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.8",
+    "class": "objectidentity"
+  },
+  "acM1000CpuModule": {
+    "name": "acM1000CpuModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.11",
+    "class": "objectidentity"
+  },
+  "acM1000AnalogIfsModule": {
+    "name": "acM1000AnalogIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.12",
+    "class": "objectidentity"
+  },
+  "acM1000DigitalIfsModule": {
+    "name": "acM1000DigitalIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.13",
+    "class": "objectidentity"
+  },
+  "acM1000PowerSupplyModule": {
+    "name": "acM1000PowerSupplyModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.14",
+    "class": "objectidentity"
+  },
+  "acM1000FanModule": {
+    "name": "acM1000FanModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.15",
+    "class": "objectidentity"
+  },
+  "acM1000BRIModule": {
+    "name": "acM1000BRIModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.16",
+    "class": "objectidentity"
+  },
+  "acM1000IPMediaModule": {
+    "name": "acM1000IPMediaModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.17",
+    "class": "objectidentity"
+  },
+  "acM1000EthernetModule": {
+    "name": "acM1000EthernetModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.25",
+    "class": "objectidentity"
+  },
+  "acM600CpuModule": {
+    "name": "acM600CpuModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.18",
+    "class": "objectidentity"
+  },
+  "acM600AnalogIfsModule": {
+    "name": "acM600AnalogIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.19",
+    "class": "objectidentity"
+  },
+  "acM600DigitalIfsModule": {
+    "name": "acM600DigitalIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.20",
+    "class": "objectidentity"
+  },
+  "acM600PowerSupplyModule": {
+    "name": "acM600PowerSupplyModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.21",
+    "class": "objectidentity"
+  },
+  "acM600FanModule": {
+    "name": "acM600FanModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.22",
+    "class": "objectidentity"
+  },
+  "acM600BRIModule": {
+    "name": "acM600BRIModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.23",
+    "class": "objectidentity"
+  },
+  "acM600IPMediaModule": {
+    "name": "acM600IPMediaModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.24",
+    "class": "objectidentity"
+  },
+  "acM600EthernetModule": {
+    "name": "acM600EthernetModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.20.26",
+    "class": "objectidentity"
+  },
+  "acM2000KnownTypes": {
+    "name": "acM2000KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.21",
+    "class": "objectidentity"
+  },
+  "acM2000CpuSlot": {
+    "name": "acM2000CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.21.1",
+    "class": "objectidentity"
+  },
+  "acM2000Module1610": {
+    "name": "acM2000Module1610",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.21.11",
+    "class": "objectidentity"
+  },
+  "acM3000KnownTypes": {
+    "name": "acM3000KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22",
+    "class": "objectidentity"
+  },
+  "acM3000Slot": {
+    "name": "acM3000Slot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.1",
+    "class": "objectidentity"
+  },
+  "acM3000PowerSupplySlot": {
+    "name": "acM3000PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.2",
+    "class": "objectidentity"
+  },
+  "acM3000FanSlot": {
+    "name": "acM3000FanSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.3",
+    "class": "objectidentity"
+  },
+  "acM3000Module6310": {
+    "name": "acM3000Module6310",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.11",
+    "class": "objectidentity"
+  },
+  "acM3000ModuleSat": {
+    "name": "acM3000ModuleSat",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.12",
+    "class": "objectidentity"
+  },
+  "acM3000PowerSupplyModule": {
+    "name": "acM3000PowerSupplyModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.13",
+    "class": "objectidentity"
+  },
+  "acM3000FanModule": {
+    "name": "acM3000FanModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.14",
+    "class": "objectidentity"
+  },
+  "acM3000Module8410": {
+    "name": "acM3000Module8410",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.22.17",
+    "class": "objectidentity"
+  },
+  "acM800KnownTypes": {
+    "name": "acM800KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23",
+    "class": "objectidentity"
+  },
+  "acM800CpuSlot": {
+    "name": "acM800CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.1",
+    "class": "objectidentity"
+  },
+  "acM800IfsSlot": {
+    "name": "acM800IfsSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.2",
+    "class": "objectidentity"
+  },
+  "acM800CpuModule": {
+    "name": "acM800CpuModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.3",
+    "class": "objectidentity"
+  },
+  "acM800AnalogIfsModule": {
+    "name": "acM800AnalogIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.4",
+    "class": "objectidentity"
+  },
+  "acM800DigitalIfsModule": {
+    "name": "acM800DigitalIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.5",
+    "class": "objectidentity"
+  },
+  "acM800BRIModule": {
+    "name": "acM800BRIModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.6",
+    "class": "objectidentity"
+  },
+  "acM800WANModule": {
+    "name": "acM800WANModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.7",
+    "class": "objectidentity"
+  },
+  "acM800WiFiModule": {
+    "name": "acM800WiFiModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.8",
+    "class": "objectidentity"
+  },
+  "acM800IPMediaModule": {
+    "name": "acM800IPMediaModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.9",
+    "class": "objectidentity"
+  },
+  "acM800EthernetModule": {
+    "name": "acM800EthernetModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.23.10",
+    "class": "objectidentity"
+  },
+  "acMP118KnownTypes": {
+    "name": "acMP118KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.24",
+    "class": "objectidentity"
+  },
+  "acMP118Slot": {
+    "name": "acMP118Slot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.24.1",
+    "class": "objectidentity"
+  },
+  "acMP118Module": {
+    "name": "acMP118Module",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.24.2",
+    "class": "objectidentity"
+  },
+  "acM4000KnownTypes": {
+    "name": "acM4000KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25",
+    "class": "objectidentity"
+  },
+  "acM4000CpuSlot": {
+    "name": "acM4000CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25.1",
+    "class": "objectidentity"
+  },
+  "acM4000PowerSupplySlot": {
+    "name": "acM4000PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25.2",
+    "class": "objectidentity"
+  },
+  "acM4000FanSlot": {
+    "name": "acM4000FanSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25.3",
+    "class": "objectidentity"
+  },
+  "acM4000CpuModule": {
+    "name": "acM4000CpuModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25.4",
+    "class": "objectidentity"
+  },
+  "acM4000PowerSupplyModule": {
+    "name": "acM4000PowerSupplyModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25.5",
+    "class": "objectidentity"
+  },
+  "acM4000FanModule": {
+    "name": "acM4000FanModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25.6",
+    "class": "objectidentity"
+  },
+  "acM4000MPModule": {
+    "name": "acM4000MPModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.25.7",
+    "class": "objectidentity"
+  },
+  "acM500KnownTypes": {
+    "name": "acM500KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26",
+    "class": "objectidentity"
+  },
+  "acM500CpuSlot": {
+    "name": "acM500CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.1",
+    "class": "objectidentity"
+  },
+  "acM500IfsSlot": {
+    "name": "acM500IfsSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.2",
+    "class": "objectidentity"
+  },
+  "acM500CpuModule": {
+    "name": "acM500CpuModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.3",
+    "class": "objectidentity"
+  },
+  "acM500AnalogIfsModule": {
+    "name": "acM500AnalogIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.4",
+    "class": "objectidentity"
+  },
+  "acM500DigitalIfsModule": {
+    "name": "acM500DigitalIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.5",
+    "class": "objectidentity"
+  },
+  "acM500BRIModule": {
+    "name": "acM500BRIModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.6",
+    "class": "objectidentity"
+  },
+  "acM500WANModule": {
+    "name": "acM500WANModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.7",
+    "class": "objectidentity"
+  },
+  "acM500WiFiModule": {
+    "name": "acM500WiFiModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.8",
+    "class": "objectidentity"
+  },
+  "acM500IPMediaModule": {
+    "name": "acM500IPMediaModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.9",
+    "class": "objectidentity"
+  },
+  "acM500EthernetModule": {
+    "name": "acM500EthernetModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.26.10",
+    "class": "objectidentity"
+  },
+  "acM850KnownTypes": {
+    "name": "acM850KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27",
+    "class": "objectidentity"
+  },
+  "acM850CpuSlot": {
+    "name": "acM850CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.1",
+    "class": "objectidentity"
+  },
+  "acM850IfsSlot": {
+    "name": "acM850IfsSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.2",
+    "class": "objectidentity"
+  },
+  "acM850CpuModule": {
+    "name": "acM850CpuModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.3",
+    "class": "objectidentity"
+  },
+  "acM850AnalogIfsModule": {
+    "name": "acM850AnalogIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.4",
+    "class": "objectidentity"
+  },
+  "acM850DigitalIfsModule": {
+    "name": "acM850DigitalIfsModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.5",
+    "class": "objectidentity"
+  },
+  "acM850BRIModule": {
+    "name": "acM850BRIModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.6",
+    "class": "objectidentity"
+  },
+  "acM850WANModule": {
+    "name": "acM850WANModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.7",
+    "class": "objectidentity"
+  },
+  "acM850WiFiModule": {
+    "name": "acM850WiFiModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.8",
+    "class": "objectidentity"
+  },
+  "acM850IPMediaModule": {
+    "name": "acM850IPMediaModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.9",
+    "class": "objectidentity"
+  },
+  "acM850EthernetModule": {
+    "name": "acM850EthernetModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.27.10",
+    "class": "objectidentity"
+  },
+  "acM2600KnownTypes": {
+    "name": "acM2600KnownTypes",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28",
+    "class": "objectidentity"
+  },
+  "acM2600CpuSlot": {
+    "name": "acM2600CpuSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28.1",
+    "class": "objectidentity"
+  },
+  "acM2600PowerSupplySlot": {
+    "name": "acM2600PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28.2",
+    "class": "objectidentity"
+  },
+  "acM2600FanSlot": {
+    "name": "acM2600FanSlot",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28.3",
+    "class": "objectidentity"
+  },
+  "acM2600CpuModule": {
+    "name": "acM2600CpuModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28.4",
+    "class": "objectidentity"
+  },
+  "acM2600PowerSupplyModule": {
+    "name": "acM2600PowerSupplyModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28.5",
+    "class": "objectidentity"
+  },
+  "acM2600FanModule": {
+    "name": "acM2600FanModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28.6",
+    "class": "objectidentity"
+  },
+  "acM2600MPModule": {
+    "name": "acM2600MPModule",
+    "oid": "1.3.6.1.4.1.5003.8.1.2.28.7",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-TYPES",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:49 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AUDIOCODES-TYPES-MIB"
+  }
+}

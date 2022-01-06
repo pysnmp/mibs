@@ -1,0 +1,213 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwAAACommonMIB": {
+    "name": "dlinkSwAAACommonMIB",
+    "oid": "1.3.6.1.4.1.171.14.150",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-17 00:00",
+        "description": "This is the first version of the MIB file."
+      }
+    ]
+  },
+  "DAaaSessionType": {
+    "name": "DAaaSessionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "telnet": 1,
+          "console": 2,
+          "ssh": 3,
+          "http": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DAaaPrivilegeLevel": {
+    "name": "DAaaPrivilegeLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DAaaMethodListName": {
+    "name": "DAaaMethodListName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DAaaMethodPriority": {
+    "name": "DAaaMethodPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DAaaMethodName": {
+    "name": "DAaaMethodName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "dAaaCommonMIBNotifications": {
+    "name": "dAaaCommonMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.150.0",
+    "class": "objectidentity"
+  },
+  "dAaaMIBObjects": {
+    "name": "dAaaMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.150.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dAaaCommonMIBConformance": {
+    "name": "dAaaCommonMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.150.2",
+    "class": "objectidentity"
+  },
+  "dAaaCommonObjects": {
+    "name": "dAaaCommonObjects",
+    "oid": "1.3.6.1.4.1.171.14.150.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dAaaNewModelEnabled": {
+    "name": "dAaaNewModelEnabled",
+    "oid": "1.3.6.1.4.1.171.14.150.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dAaaCommonMIBCompliances": {
+    "name": "dAaaCommonMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.150.2.1",
+    "class": "objectidentity"
+  },
+  "daaaMIBCompliance": {
+    "name": "daaaMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.150.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "daaaGlobalCtrlGroup",
+        "module": "DLINKSW-AAA-COMMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dAaaCommonMIBGroups": {
+    "name": "dAaaCommonMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.150.2.2",
+    "class": "objectidentity"
+  },
+  "daaaGlobalCtrlGroup": {
+    "name": "daaaGlobalCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.150.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-AAA-COMMON-MIB",
+        "object": "dAaaNewModelEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-AAA-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-AAA-COMMON-MIB"
+  }
+}

@@ -1,0 +1,1333 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFabricHfrMIB": {
+    "name": "ciscoFabricHfrMIB",
+    "oid": "1.3.6.1.4.1.9.9.257",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-04-14 00:00",
+        "description": "Added cfhPlaneCapacityThreshold object. Added enum value 'oos' in cfhPlaneOperStatus. Deprecated cfhMIBCompliance statement. Added cfhMIBCompliance1 statement."
+      },
+      {
+        "revision": "2006-01-01 00:00",
+        "description": "Replace 'HFR' keyword with 'Enhanced Benes' Replace 'sponge' keyword with 'fabricq' Replace 'sprayer' keyword with 'ingressq'."
+      },
+      {
+        "revision": "2003-06-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cfhMIBNotifications": {
+    "name": "cfhMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.257.0",
+    "class": "objectidentity"
+  },
+  "ciscoFabricHfrMIBObjects": {
+    "name": "ciscoFabricHfrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.257.1",
+    "class": "objectidentity"
+  },
+  "cfhGeneral": {
+    "name": "cfhGeneral",
+    "oid": "1.3.6.1.4.1.9.9.257.1.1",
+    "class": "objectidentity"
+  },
+  "cfhPlane": {
+    "name": "cfhPlane",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2",
+    "class": "objectidentity"
+  },
+  "cfhBundle": {
+    "name": "cfhBundle",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3",
+    "class": "objectidentity"
+  },
+  "cfhBundlePort": {
+    "name": "cfhBundlePort",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4",
+    "class": "objectidentity"
+  },
+  "cfhCard": {
+    "name": "cfhCard",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5",
+    "class": "objectidentity"
+  },
+  "CfhPlane": {
+    "name": "CfhPlane",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfhBundle": {
+    "name": "CfhBundle",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfhAdminState": {
+    "name": "CfhAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CfhScaledPercentage": {
+    "name": "CfhScaledPercentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cfhGenPlaneStateTrapEnable": {
+    "name": "cfhGenPlaneStateTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfhGenBundleStateTrapEnable": {
+    "name": "cfhGenBundleStateTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfhGenBundleDownedLinkTrapEnable": {
+    "name": "cfhGenBundleDownedLinkTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfhPlaneTable": {
+    "name": "cfhPlaneTable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhPlaneEntry": {
+    "name": "cfhPlaneEntry",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfhPlaneId": {
+    "name": "cfhPlaneId",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfhPlane",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhPlaneAdminStatus": {
+    "name": "cfhPlaneAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfhAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfhPlaneOperStatus": {
+    "name": "cfhPlaneOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "mcastDown": 3,
+          "oos": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneTotalBundles": {
+    "name": "cfhPlaneTotalBundles",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneDownedBundles": {
+    "name": "cfhPlaneDownedBundles",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsTable": {
+    "name": "cfhPlaneStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhPlaneStatsEntry": {
+    "name": "cfhPlaneStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfhPlaneStatsEntry",
+      "module": "CISCO-FABRIC-HFR-MIB",
+      "object": "cfhPlaneEntry"
+    },
+    "status": "current"
+  },
+  "cfhPlaneStatsRxDataCells": {
+    "name": "cfhPlaneStatsRxDataCells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsTxDataCells": {
+    "name": "cfhPlaneStatsTxDataCells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsRxCECells": {
+    "name": "cfhPlaneStatsRxCECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsRxUCECells": {
+    "name": "cfhPlaneStatsRxUCECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsRxPECells": {
+    "name": "cfhPlaneStatsRxPECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsUnicastLostCells": {
+    "name": "cfhPlaneStatsUnicastLostCells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsMulticastLostCells": {
+    "name": "cfhPlaneStatsMulticastLostCells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStatsCounterDiscTime": {
+    "name": "cfhPlaneStatsCounterDiscTime",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneCapacityThreshold": {
+    "name": "cfhPlaneCapacityThreshold",
+    "oid": "1.3.6.1.4.1.9.9.257.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfhBundleTotal": {
+    "name": "cfhBundleTotal",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundleDowned": {
+    "name": "cfhBundleDowned",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundleTable": {
+    "name": "cfhBundleTable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhBundleEntry": {
+    "name": "cfhBundleEntry",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfhBundleId": {
+    "name": "cfhBundleId",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfhBundle",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhBundleName": {
+    "name": "cfhBundleName",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePlane": {
+    "name": "cfhBundlePlane",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfhPlane",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundleOperStatus": {
+    "name": "cfhBundleOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundleTotalLinks": {
+    "name": "cfhBundleTotalLinks",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundleDownedLinks": {
+    "name": "cfhBundleDownedLinks",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortLCRCardIndex": {
+    "name": "cfhBundlePortLCRCardIndex",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortLCRId": {
+    "name": "cfhBundlePortLCRId",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortSecondCardIndex": {
+    "name": "cfhBundlePortSecondCardIndex",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortSecondId": {
+    "name": "cfhBundlePortSecondId",
+    "oid": "1.3.6.1.4.1.9.9.257.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortTotalNumber": {
+    "name": "cfhBundlePortTotalNumber",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortTable": {
+    "name": "cfhBundlePortTable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhBundlePortEntry": {
+    "name": "cfhBundlePortEntry",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfhBundlePortId": {
+    "name": "cfhBundlePortId",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhBundlePortAdminState": {
+    "name": "cfhBundlePortAdminState",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfhAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfhBundlePortOperState": {
+    "name": "cfhBundlePortOperState",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortGrpId": {
+    "name": "cfhBundlePortGrpId",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfhBundle",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsTable": {
+    "name": "cfhBundlePortStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhBundlePortStatsEntry": {
+    "name": "cfhBundlePortStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfhBundlePortStatsEntry",
+      "module": "CISCO-FABRIC-HFR-MIB",
+      "object": "cfhBundlePortEntry"
+    },
+    "status": "current"
+  },
+  "cfhBundlePortStatsRxDataCells": {
+    "name": "cfhBundlePortStatsRxDataCells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsTxDataCells": {
+    "name": "cfhBundlePortStatsTxDataCells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsRxCECells": {
+    "name": "cfhBundlePortStatsRxCECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsRxUCECells": {
+    "name": "cfhBundlePortStatsRxUCECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsRxPECells": {
+    "name": "cfhBundlePortStatsRxPECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsHighRxCECells": {
+    "name": "cfhBundlePortStatsHighRxCECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsHighRxUCECells": {
+    "name": "cfhBundlePortStatsHighRxUCECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhBundlePortStatsHighRxPECells": {
+    "name": "cfhBundlePortStatsHighRxPECells",
+    "oid": "1.3.6.1.4.1.9.9.257.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhCardTable": {
+    "name": "cfhCardTable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhCardEntry": {
+    "name": "cfhCardEntry",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfhCardFabInUse": {
+    "name": "cfhCardFabInUse",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhCardFabUsage": {
+    "name": "cfhCardFabUsage",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfhScaledPercentage",
+      "class": "type"
+    },
+    "units": "thousandths of a percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhCardFabInUseDiscTime": {
+    "name": "cfhCardFabInUseDiscTime",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhCardPlaneTable": {
+    "name": "cfhCardPlaneTable",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfhCardPlaneEntry": {
+    "name": "cfhCardPlaneEntry",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfhCardPlaneTxConnectivity": {
+    "name": "cfhCardPlaneTxConnectivity",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhCardPlaneRxConnectivity": {
+    "name": "cfhCardPlaneRxConnectivity",
+    "oid": "1.3.6.1.4.1.9.9.257.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfhPlaneStateNotification": {
+    "name": "cfhPlaneStateNotification",
+    "oid": "1.3.6.1.4.1.9.9.257.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhBundleStateNotification": {
+    "name": "cfhBundleStateNotification",
+    "oid": "1.3.6.1.4.1.9.9.257.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleOperStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePlane"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleName"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhBundleDownedLinkNotification": {
+    "name": "cfhBundleDownedLinkNotification",
+    "oid": "1.3.6.1.4.1.9.9.257.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleOperStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePlane"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleDownedLinks"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleName"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhMIBConformance": {
+    "name": "cfhMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.257.3",
+    "class": "objectidentity"
+  },
+  "cfhMIBCompliances": {
+    "name": "cfhMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.257.3.1",
+    "class": "objectidentity"
+  },
+  "cfhMIBGroups": {
+    "name": "cfhMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2",
+    "class": "objectidentity"
+  },
+  "cfhMIBCompliance": {
+    "name": "cfhMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.257.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfhGenInfoGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhPlaneGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhBundleGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhBundlePortGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhCardGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhNotificationsGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cfhMIBCompliance1": {
+    "name": "cfhMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.257.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfhGenInfoGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhPlaneGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhBundleGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhBundlePortGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhCardGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhNotificationsGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      },
+      {
+        "object": "cfhFabricCapacityGroup",
+        "module": "CISCO-FABRIC-HFR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhGenInfoGroup": {
+    "name": "cfhGenInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhGenPlaneStateTrapEnable"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhGenBundleStateTrapEnable"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhGenBundleDownedLinkTrapEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhPlaneGroup": {
+    "name": "cfhPlaneGroup",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneAdminStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneOperStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneTotalBundles"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneDownedBundles"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsRxDataCells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsTxDataCells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsRxCECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsRxUCECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsRxPECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsUnicastLostCells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsMulticastLostCells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStatsCounterDiscTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhBundleGroup": {
+    "name": "cfhBundleGroup",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleTotal"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleDowned"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleName"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePlane"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleOperStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleTotalLinks"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleDownedLinks"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortLCRCardIndex"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortLCRId"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortSecondCardIndex"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortSecondId"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhBundlePortGroup": {
+    "name": "cfhBundlePortGroup",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortTotalNumber"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortAdminState"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortOperState"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortGrpId"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsRxDataCells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsTxDataCells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsRxCECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsRxUCECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsRxPECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsHighRxCECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsHighRxUCECells"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundlePortStatsHighRxPECells"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhCardGroup": {
+    "name": "cfhCardGroup",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhCardFabInUse"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhCardFabUsage"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhCardFabInUseDiscTime"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhCardPlaneTxConnectivity"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhCardPlaneRxConnectivity"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhNotificationsGroup": {
+    "name": "cfhNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneStateNotification"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleStateNotification"
+      },
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhBundleDownedLinkNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cfhFabricCapacityGroup": {
+    "name": "cfhFabricCapacityGroup",
+    "oid": "1.3.6.1.4.1.9.9.257.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-HFR-MIB",
+        "object": "cfhPlaneCapacityThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FABRIC-HFR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FABRIC-HFR-MIB"
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwDhcp6RelayMIB": {
+    "name": "dlinkSwDhcp6RelayMIB",
+    "oid": "1.3.6.1.4.1.171.14.88",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-18 00:00",
+        "description": "First release of this MIB."
+      },
+      {
+        "revision": "2013-09-05 00:00",
+        "description": "Add dDhcp6RIfRelayDestOutIfIndex into the dDhcp6RIfRelayDestEntry INDEX"
+      }
+    ]
+  },
+  "RemoteIdType": {
+    "name": "RemoteIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "cidWithUserDefine": 2,
+          "userDefine": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dDhcp6RelayMIBNotifications": {
+    "name": "dDhcp6RelayMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.88.0",
+    "class": "objectidentity"
+  },
+  "dDhcp6RelayMIBObjects": {
+    "name": "dDhcp6RelayMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.88.1",
+    "class": "objectidentity"
+  },
+  "dDhcp6RelayMIBConformance": {
+    "name": "dDhcp6RelayMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.88.2",
+    "class": "objectidentity"
+  },
+  "dDhcp6RelayGeneral": {
+    "name": "dDhcp6RelayGeneral",
+    "oid": "1.3.6.1.4.1.171.14.88.1.1",
+    "class": "objectidentity"
+  },
+  "dDhcp6RRemoteIdInsertEnabled": {
+    "name": "dDhcp6RRemoteIdInsertEnabled",
+    "oid": "1.3.6.1.4.1.171.14.88.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcp6RRemoteIdPolicy": {
+    "name": "dDhcp6RRemoteIdPolicy",
+    "oid": "1.3.6.1.4.1.171.14.88.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "keep": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "keep",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcp6RRemoteIdFormat": {
+    "name": "dDhcp6RRemoteIdFormat",
+    "oid": "1.3.6.1.4.1.171.14.88.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RemoteIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcp6RRemoteIdUdfType": {
+    "name": "dDhcp6RRemoteIdUdfType",
+    "oid": "1.3.6.1.4.1.171.14.88.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "string": 1,
+          "hex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcp6RRemoteIdUdfValue": {
+    "name": "dDhcp6RRemoteIdUdfValue",
+    "oid": "1.3.6.1.4.1.171.14.88.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcp6RelayIfObjects": {
+    "name": "dDhcp6RelayIfObjects",
+    "oid": "1.3.6.1.4.1.171.14.88.1.2",
+    "class": "objectidentity"
+  },
+  "dDhcp6RIfRelayDestTable": {
+    "name": "dDhcp6RIfRelayDestTable",
+    "oid": "1.3.6.1.4.1.171.14.88.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6RIfRelayDestEntry": {
+    "name": "dDhcp6RIfRelayDestEntry",
+    "oid": "1.3.6.1.4.1.171.14.88.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RIfRelayDestIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RIfRelayDestDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RIfRelayDestOutIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6RIfRelayDestIndex": {
+    "name": "dDhcp6RIfRelayDestIndex",
+    "oid": "1.3.6.1.4.1.171.14.88.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6RIfRelayDestDestAddr": {
+    "name": "dDhcp6RIfRelayDestDestAddr",
+    "oid": "1.3.6.1.4.1.171.14.88.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6RIfRelayDestOutIfIndex": {
+    "name": "dDhcp6RIfRelayDestOutIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.88.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcp6RIfRelayDestRowStatus": {
+    "name": "dDhcp6RIfRelayDestRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.88.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcp6RelayCompliances": {
+    "name": "dDhcp6RelayCompliances",
+    "oid": "1.3.6.1.4.1.171.14.88.2.1",
+    "class": "objectidentity"
+  },
+  "dDhcp6RelayCompliance": {
+    "name": "dDhcp6RelayCompliance",
+    "oid": "1.3.6.1.4.1.171.14.88.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDhcp6RBasicGroup",
+        "module": "DLINKSW-DHCP6-RELAY-MIB"
+      },
+      {
+        "object": "dDhcp6RelayOption37Group",
+        "module": "DLINKSW-DHCP6-RELAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6RelayGroups": {
+    "name": "dDhcp6RelayGroups",
+    "oid": "1.3.6.1.4.1.171.14.88.2.2",
+    "class": "objectidentity"
+  },
+  "dDhcp6RBasicGroup": {
+    "name": "dDhcp6RBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.88.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RIfRelayDestRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcp6RelayOption37Group": {
+    "name": "dDhcp6RelayOption37Group",
+    "oid": "1.3.6.1.4.1.171.14.88.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RRemoteIdInsertEnabled"
+      },
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RRemoteIdPolicy"
+      },
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RRemoteIdFormat"
+      },
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RRemoteIdUdfType"
+      },
+      {
+        "module": "DLINKSW-DHCP6-RELAY-MIB",
+        "object": "dDhcp6RRemoteIdUdfValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP6-RELAY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-DHCP6-RELAY-MIB"
+  }
+}

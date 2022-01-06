@@ -1,0 +1,71 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniDosProtectionPlatformAgent": {
+    "name": "juniDosProtectionPlatformAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.77",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-01 00:00",
+        "description": "Added support for MAC address in the flow table as well as in the flow traps."
+      },
+      {
+        "revision": "2006-01-01 00:00",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniDosProtectionPlatformAgentV1": {
+    "name": "juniDosProtectionPlatformAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.77.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Dos Protection Platform component of the JUNOSe SNMP agent.\n        This version of the Dos Protection Platform component is supported in JUNOSe 7.3\n        and subsequent system releases.",
+    "status": "current"
+  },
+  "juniDosProtectionPlatformAgentV2": {
+    "name": "juniDosProtectionPlatformAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.77.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the Dos Protection Platform component of the JUNOSe SNMP agent.\n        This version of the Dos Protection Platform component is supported in JUNOSe -.-\n        and subsequent system releases.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/broken/Juniper-Dos-Protection-Platform-CONF",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-Dos-Protection-Platform-CONF"
+  }
+}

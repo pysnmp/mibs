@@ -1,0 +1,1223 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBaseEntry",
+      "ieee8021BridgeBasePortEntry",
+      "ieee8021BridgeBasePort",
+      "ieee8021BridgeBaseComponentId"
+    ],
+    "IEEE8021-FQTSS-MIB": [
+      "IEEE8021FqtssTrafficClassValue"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021VlanIndex",
+      "ieee802dot1mibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "ieee8021SrpMib": {
+    "name": "ieee8021SrpMib",
+    "oid": "1.3.111.2.802.1.1.19",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-10-04 00:00",
+        "description": "Published as part of IEEE 802.1Qcc-2018. Added managed objects for Stream Reservation Protocol (SRP) Enhancements and Performance Improvements"
+      },
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2017. Cross references updated. "
+      },
+      {
+        "revision": "2015-12-02 00:00",
+        "description": "Published as part of IEEE Std 802.1Q-2014 Cor-1. ieee8021SrpReservationFailureBridgeId changed to ieee8021SrpReservationFailureSystemId."
+      },
+      {
+        "revision": "2014-12-15 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2014 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2011-02-27 00:00",
+        "description": "Minor edits to contact information etc. as part of 2011 revision of Std 802.1Q."
+      },
+      {
+        "revision": "2010-04-19 00:00",
+        "description": "Initial revision, included in IEEE 802.1Qat"
+      }
+    ]
+  },
+  "IEEE8021SrpStreamRankValue": {
+    "name": "IEEE8021SrpStreamRankValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "nonEmergency": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE8021SrpStreamIdValue": {
+    "name": "IEEE8021SrpStreamIdValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:1x:1x:1x:1x:1x.1x:1x",
+    "status": "current"
+  },
+  "IEEE8021SrpReservationDirectionValue": {
+    "name": "IEEE8021SrpReservationDirectionValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "talkerRegistrations": 0,
+          "listenerRegistrations": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE8021SrpReservationDeclarationTypeValue": {
+    "name": "IEEE8021SrpReservationDeclarationTypeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "talkerAdvertise": 0,
+          "talkerFailed": 1,
+          "listenerAskingFailed": 2,
+          "listenerReady": 3,
+          "listenerReadyFailed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IEEE8021SrpReservationFailureCodeValue": {
+    "name": "IEEE8021SrpReservationFailureCodeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFailure": 0,
+          "insufficientBandwidth": 1,
+          "insufficientResources": 2,
+          "insufficientTrafficClassBandwidth": 3,
+          "streamIDInUse": 4,
+          "streamDestinationAddressInUse": 5,
+          "streamPreemptedByHigherRank": 6,
+          "latencyHasChanged": 7,
+          "egressPortNotAVBCapable": 8,
+          "useDifferentDestinationAddress": 9,
+          "outOfMSRPResources": 10,
+          "outOfMMRPResources": 11,
+          "cannotStoreDestinationAddress": 12,
+          "priorityIsNoAnSRCLass": 13,
+          "maxFrameSizeTooLarge": 14,
+          "maxFanInPortsLimitReached": 15,
+          "firstValueChangedForStreamID": 16,
+          "vlanBlockedOnEgress": 17,
+          "vlanTaggingDisabledOnEgress": 18,
+          "srClassPriorityMismatch": 19
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ieee8021SrpNotifications": {
+    "name": "ieee8021SrpNotifications",
+    "oid": "1.3.111.2.802.1.1.19.0",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpObjects": {
+    "name": "ieee8021SrpObjects",
+    "oid": "1.3.111.2.802.1.1.19.1",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpConformance": {
+    "name": "ieee8021SrpConformance",
+    "oid": "1.3.111.2.802.1.1.19.2",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpConfiguration": {
+    "name": "ieee8021SrpConfiguration",
+    "oid": "1.3.111.2.802.1.1.19.1.1",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpLatency": {
+    "name": "ieee8021SrpLatency",
+    "oid": "1.3.111.2.802.1.1.19.1.2",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpStreams": {
+    "name": "ieee8021SrpStreams",
+    "oid": "1.3.111.2.802.1.1.19.1.3",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpReservations": {
+    "name": "ieee8021SrpReservations",
+    "oid": "1.3.111.2.802.1.1.19.1.4",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpBridgeBaseTable": {
+    "name": "ieee8021SrpBridgeBaseTable",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpBridgeBaseEntry": {
+    "name": "ieee8021SrpBridgeBaseEntry",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021SrpBridgeBaseEntry",
+      "module": "IEEE8021-SRP-MIB",
+      "object": "ieee8021BridgeBaseEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021SrpBridgeBaseMsrpEnabledStatus": {
+    "name": "ieee8021SrpBridgeBaseMsrpEnabledStatus",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpBridgeBaseMsrpTalkerPruning": {
+    "name": "ieee8021SrpBridgeBaseMsrpTalkerPruning",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpBridgeBaseMsrpMaxFanInPorts": {
+    "name": "ieee8021SrpBridgeBaseMsrpMaxFanInPorts",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpBridgeBaseMsrpLatencyMaxFrameSize": {
+    "name": "ieee8021SrpBridgeBaseMsrpLatencyMaxFrameSize",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpBridgeBaseMsrpTalkerVlanPruning": {
+    "name": "ieee8021SrpBridgeBaseMsrpTalkerVlanPruning",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpBridgeBaseMsrpMaxSRClasses": {
+    "name": "ieee8021SrpBridgeBaseMsrpMaxSRClasses",
+    "oid": "1.3.111.2.802.1.1.19.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpBridgePortTable": {
+    "name": "ieee8021SrpBridgePortTable",
+    "oid": "1.3.111.2.802.1.1.19.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpBridgePortEntry": {
+    "name": "ieee8021SrpBridgePortEntry",
+    "oid": "1.3.111.2.802.1.1.19.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021SrpBridgePortEntry",
+      "module": "IEEE8021-SRP-MIB",
+      "object": "ieee8021BridgeBasePortEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021SrpBridgePortMsrpEnabledStatus": {
+    "name": "ieee8021SrpBridgePortMsrpEnabledStatus",
+    "oid": "1.3.111.2.802.1.1.19.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpBridgePortMsrpFailedRegistrations": {
+    "name": "ieee8021SrpBridgePortMsrpFailedRegistrations",
+    "oid": "1.3.111.2.802.1.1.19.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "failed MSRP registrations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpBridgePortMsrpLastPduOrigin": {
+    "name": "ieee8021SrpBridgePortMsrpLastPduOrigin",
+    "oid": "1.3.111.2.802.1.1.19.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpBridgePortSrPvid": {
+    "name": "ieee8021SrpBridgePortSrPvid",
+    "oid": "1.3.111.2.802.1.1.19.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpBridgePortMsrpTalkerPrunningPerPort": {
+    "name": "ieee8021SrpBridgePortMsrpTalkerPrunningPerPort",
+    "oid": "1.3.111.2.802.1.1.19.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021SrpLatencyTable": {
+    "name": "ieee8021SrpLatencyTable",
+    "oid": "1.3.111.2.802.1.1.19.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpLatencyEntry": {
+    "name": "ieee8021SrpLatencyEntry",
+    "oid": "1.3.111.2.802.1.1.19.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpTrafficClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpTrafficClass": {
+    "name": "ieee8021SrpTrafficClass",
+    "oid": "1.3.111.2.802.1.1.19.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021FqtssTrafficClassValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpPortTcLatency": {
+    "name": "ieee8021SrpPortTcLatency",
+    "oid": "1.3.111.2.802.1.1.19.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "nano-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpStreamTable": {
+    "name": "ieee8021SrpStreamTable",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpStreamEntry": {
+    "name": "ieee8021SrpStreamEntry",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpStreamId": {
+    "name": "ieee8021SrpStreamId",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpStreamIdValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpStreamDestinationAddress": {
+    "name": "ieee8021SrpStreamDestinationAddress",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpStreamVlanId": {
+    "name": "ieee8021SrpStreamVlanId",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpStreamTspecMaxFrameSize": {
+    "name": "ieee8021SrpStreamTspecMaxFrameSize",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpStreamTspecMaxIntervalFrames": {
+    "name": "ieee8021SrpStreamTspecMaxIntervalFrames",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpStreamDataFramePriority": {
+    "name": "ieee8021SrpStreamDataFramePriority",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityCodePoint",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpStreamRank": {
+    "name": "ieee8021SrpStreamRank",
+    "oid": "1.3.111.2.802.1.1.19.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpStreamRankValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadTable": {
+    "name": "ieee8021SrpStreamPreloadTable",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadEntry": {
+    "name": "ieee8021SrpStreamPreloadEntry",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadId": {
+    "name": "ieee8021SrpStreamPreloadId",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpStreamIdValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadDestinationAddress": {
+    "name": "ieee8021SrpStreamPreloadDestinationAddress",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadVlanId": {
+    "name": "ieee8021SrpStreamPreloadVlanId",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadTspecMaxFrameSize": {
+    "name": "ieee8021SrpStreamPreloadTspecMaxFrameSize",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadTspecMaxIntervalFrames": {
+    "name": "ieee8021SrpStreamPreloadTspecMaxIntervalFrames",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadDataFramePriority": {
+    "name": "ieee8021SrpStreamPreloadDataFramePriority",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityCodePoint",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpStreamPreloadRank": {
+    "name": "ieee8021SrpStreamPreloadRank",
+    "oid": "1.3.111.2.802.1.1.19.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpStreamRankValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpReservationsTable": {
+    "name": "ieee8021SrpReservationsTable",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpReservationsEntry": {
+    "name": "ieee8021SrpReservationsEntry",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationStreamId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationDirection",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpReservationStreamId": {
+    "name": "ieee8021SrpReservationStreamId",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpStreamIdValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpReservationDirection": {
+    "name": "ieee8021SrpReservationDirection",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpReservationDirectionValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpReservationDeclarationType": {
+    "name": "ieee8021SrpReservationDeclarationType",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpReservationDeclarationTypeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpReservationAccumulatedLatency": {
+    "name": "ieee8021SrpReservationAccumulatedLatency",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "nano-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpReservationFailureSystemId": {
+    "name": "ieee8021SrpReservationFailureSystemId",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpReservationFailureCode": {
+    "name": "ieee8021SrpReservationFailureCode",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpReservationFailureCodeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpReservationDroppedStreamFrames": {
+    "name": "ieee8021SrpReservationDroppedStreamFrames",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpReservationStreamAge": {
+    "name": "ieee8021SrpReservationStreamAge",
+    "oid": "1.3.111.2.802.1.1.19.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021SrpReservationsPreloadTable": {
+    "name": "ieee8021SrpReservationsPreloadTable",
+    "oid": "1.3.111.2.802.1.1.19.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpReservationsPreloadEntry": {
+    "name": "ieee8021SrpReservationsPreloadEntry",
+    "oid": "1.3.111.2.802.1.1.19.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationsPreloadStreamId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationPreloadDirection",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpReservationsPreloadStreamId": {
+    "name": "ieee8021SrpReservationsPreloadStreamId",
+    "oid": "1.3.111.2.802.1.1.19.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpStreamIdValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021SrpReservationPreloadDirection": {
+    "name": "ieee8021SrpReservationPreloadDirection",
+    "oid": "1.3.111.2.802.1.1.19.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021SrpReservationDirectionValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpReservationPreloadAccumulatedLatency": {
+    "name": "ieee8021SrpReservationPreloadAccumulatedLatency",
+    "oid": "1.3.111.2.802.1.1.19.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "nano-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021SrpCompliances": {
+    "name": "ieee8021SrpCompliances",
+    "oid": "1.3.111.2.802.1.1.19.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpGroups": {
+    "name": "ieee8021SrpGroups",
+    "oid": "1.3.111.2.802.1.1.19.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021SrpConfigurationGroup": {
+    "name": "ieee8021SrpConfigurationGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpEnabledStatus"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpTalkerPruning"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpMaxFanInPorts"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpLatencyMaxFrameSize"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpTalkerVlanPruning"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpMaxSRClasses"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgePortMsrpEnabledStatus"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgePortMsrpFailedRegistrations"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgePortMsrpLastPduOrigin"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgePortSrPvid"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgePortMsrpTalkerPrunningPerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpLatencyGroup": {
+    "name": "ieee8021SrpLatencyGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpPortTcLatency"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpStreamsGroup": {
+    "name": "ieee8021SrpStreamsGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamDestinationAddress"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamVlanId"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamTspecMaxFrameSize"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamTspecMaxIntervalFrames"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamDataFramePriority"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamRank"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpReservationsGroup": {
+    "name": "ieee8021SrpReservationsGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationDeclarationType"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationAccumulatedLatency"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationFailureSystemId"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationFailureCode"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationDroppedStreamFrames"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationStreamAge"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpConfigurationPruningGroup": {
+    "name": "ieee8021SrpConfigurationPruningGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpTalkerVlanPruning"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgePortMsrpTalkerPrunningPerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpMonitoringSRclassesGroup": {
+    "name": "ieee8021SrpMonitoringSRclassesGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpBridgeBaseMsrpMaxSRClasses"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpStreamsPreloadGroup": {
+    "name": "ieee8021SrpStreamsPreloadGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadId"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadDestinationAddress"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadVlanId"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadTspecMaxFrameSize"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadTspecMaxIntervalFrames"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadDataFramePriority"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpStreamPreloadRank"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpReservationsPreloadGroup": {
+    "name": "ieee8021SrpReservationsPreloadGroup",
+    "oid": "1.3.111.2.802.1.1.19.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationsPreloadStreamId"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationPreloadDirection"
+      },
+      {
+        "module": "IEEE8021-SRP-MIB",
+        "object": "ieee8021SrpReservationPreloadAccumulatedLatency"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021SrpCompliance": {
+    "name": "ieee8021SrpCompliance",
+    "oid": "1.3.111.2.802.1.1.19.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021SrpConfigurationGroup",
+        "module": "IEEE8021-SRP-MIB"
+      },
+      {
+        "object": "ieee8021SrpLatencyGroup",
+        "module": "IEEE8021-SRP-MIB"
+      },
+      {
+        "object": "ieee8021SrpStreamsGroup",
+        "module": "IEEE8021-SRP-MIB"
+      },
+      {
+        "object": "ieee8021SrpReservationsGroup",
+        "module": "IEEE8021-SRP-MIB"
+      },
+      {
+        "object": "ieee8021SrpConfigurationPruningGroup",
+        "module": "IEEE8021-SRP-MIB"
+      },
+      {
+        "object": "ieee8021SrpMonitoringSRclassesGroup",
+        "module": "IEEE8021-SRP-MIB"
+      },
+      {
+        "object": "ieee8021SrpStreamsPreloadGroup",
+        "module": "IEEE8021-SRP-MIB"
+      },
+      {
+        "object": "ieee8021SrpReservationsPreloadGroup",
+        "module": "IEEE8021-SRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-SRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-SRP-MIB"
+  }
+}

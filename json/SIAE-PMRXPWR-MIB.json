@@ -1,0 +1,849 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "AlarmStatus",
+      "AlarmSeverityCode"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "pmRxPwr": {
+    "name": "pmRxPwr",
+    "oid": "1.3.6.1.4.1.3373.1103.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-07 00:00",
+        "description": "Changed MAX-ACCESS caluse of some object of pmRxPwrTpClassTable from read-write to read-create "
+      },
+      {
+        "revision": "2014-05-13 00:00",
+        "description": "Changed DEFVAL clause of pmRxPwrTpClassRltXThreshold. "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of pmRxPwrMibVersion "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "pmRxPwrMibVersion": {
+    "name": "pmRxPwrMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrCounterTable": {
+    "name": "pmRxPwrCounterTable",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmRxPwrCounterRecord": {
+    "name": "pmRxPwrCounterRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-PMRXPWR-MIB",
+        "object": "pmRxPwrBranchId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-PMRXPWR-MIB",
+        "object": "pmRxPwrCounterBlockId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmRxPwrBranchId": {
+    "name": "pmRxPwrBranchId",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrCounterBlockId": {
+    "name": "pmRxPwrCounterBlockId",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrCounterBlockType": {
+    "name": "pmRxPwrCounterBlockType",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daily": 1,
+          "fifteenMin": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrCounterBlockStatus": {
+    "name": "pmRxPwrCounterBlockStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "meaningless": 1,
+          "meaningfull": 2,
+          "incomplete": 3,
+          "dummy": 4,
+          "lost": 5,
+          "restarted": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrCounterTimeStamp": {
+    "name": "pmRxPwrCounterTimeStamp",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrRlts1Counter": {
+    "name": "pmRxPwrRlts1Counter",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrRlts2Counter": {
+    "name": "pmRxPwrRlts2Counter",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrRlts3Counter": {
+    "name": "pmRxPwrRlts3Counter",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrRlts4Counter": {
+    "name": "pmRxPwrRlts4Counter",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrRlts5Counter": {
+    "name": "pmRxPwrRlts5Counter",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTMMax": {
+    "name": "pmRxPwrTMMax",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTMMin": {
+    "name": "pmRxPwrTMMin",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrAverageRxLevel": {
+    "name": "pmRxPwrAverageRxLevel",
+    "oid": "1.3.6.1.4.1.3373.1103.12.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClassTable": {
+    "name": "pmRxPwrTpClassTable",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmRxPwrTpClassRecord": {
+    "name": "pmRxPwrTpClassRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-PMRXPWR-MIB",
+        "object": "pmRxPwrTpClassBranchId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmRxPwrTpClassBranchId": {
+    "name": "pmRxPwrTpClassBranchId",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClassStartStop": {
+    "name": "pmRxPwrTpClassStartStop",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClassLabel": {
+    "name": "pmRxPwrTpClassLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClassTimeStamp": {
+    "name": "pmRxPwrTpClassTimeStamp",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts1Alarm": {
+    "name": "pmRxPwrTpClass15MRlts1Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts2Alarm": {
+    "name": "pmRxPwrTpClass15MRlts2Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts3Alarm": {
+    "name": "pmRxPwrTpClass15MRlts3Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts4Alarm": {
+    "name": "pmRxPwrTpClass15MRlts4Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts5Alarm": {
+    "name": "pmRxPwrTpClass15MRlts5Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts1Alarm": {
+    "name": "pmRxPwrTpClass24HRlts1Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts2Alarm": {
+    "name": "pmRxPwrTpClass24HRlts2Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts3Alarm": {
+    "name": "pmRxPwrTpClass24HRlts3Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts4Alarm": {
+    "name": "pmRxPwrTpClass24HRlts4Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts5Alarm": {
+    "name": "pmRxPwrTpClass24HRlts5Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pmRxPwrTpClassRlt1Threshold": {
+    "name": "pmRxPwrTpClassRlt1Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": -20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClassRlt2Threshold": {
+    "name": "pmRxPwrTpClassRlt2Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": -20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClassRlt3Threshold": {
+    "name": "pmRxPwrTpClassRlt3Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": -20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClassRlt4Threshold": {
+    "name": "pmRxPwrTpClassRlt4Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": -20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -70,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClassRlt5Threshold": {
+    "name": "pmRxPwrTpClassRlt5Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": -20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts1Threshold": {
+    "name": "pmRxPwrTpClass15MRlts1Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts2Threshold": {
+    "name": "pmRxPwrTpClass15MRlts2Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts3Threshold": {
+    "name": "pmRxPwrTpClass15MRlts3Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts4Threshold": {
+    "name": "pmRxPwrTpClass15MRlts4Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRlts5Threshold": {
+    "name": "pmRxPwrTpClass15MRlts5Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts1Threshold": {
+    "name": "pmRxPwrTpClass24HRlts1Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts2Threshold": {
+    "name": "pmRxPwrTpClass24HRlts2Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts3Threshold": {
+    "name": "pmRxPwrTpClass24HRlts3Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts4Threshold": {
+    "name": "pmRxPwrTpClass24HRlts4Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRlts5Threshold": {
+    "name": "pmRxPwrTpClass24HRlts5Threshold",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpClassRowStatus": {
+    "name": "pmRxPwrTpClassRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.12.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pmRxPwrTpMaintTable": {
+    "name": "pmRxPwrTpMaintTable",
+    "oid": "1.3.6.1.4.1.3373.1103.12.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pmRxPwrTpMaintRecord": {
+    "name": "pmRxPwrTpMaintRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.12.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-PMRXPWR-MIB",
+        "object": "pmRxPwrTpClassBranchId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pmRxPwrTpMaintCounterClear": {
+    "name": "pmRxPwrTpMaintCounterClear",
+    "oid": "1.3.6.1.4.1.3373.1103.12.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmRxPwrTpMaintAlarmClear": {
+    "name": "pmRxPwrTpMaintAlarmClear",
+    "oid": "1.3.6.1.4.1.3373.1103.12.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmRxPwrTpClass15MRltsAlarmSeverityCode": {
+    "name": "pmRxPwrTpClass15MRltsAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pmRxPwrTpClass24HRltsAlarmSeverityCode": {
+    "name": "pmRxPwrTpClass24HRltsAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-PMRXPWR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-PMRXPWR-MIB"
+  }
+}

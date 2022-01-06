@@ -1,0 +1,2033 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoL4L7moduleResourceLimitMIB": {
+    "name": "ciscoL4L7moduleResourceLimitMIB",
+    "oid": "1.3.6.1.4.1.9.9.480",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-20 00:00",
+        "description": "Added the following two enum names to CiscoResourceLimitType TC: - cpu - memory Added the following groups: - ciscoL4L7ResourceNotifGroupRev2 - ciscoL4L7ResourceNotifOnlyObjectsGroupExt Deprecated ciscoL4L7ResourceNotifGroupRev1; Updated the DESCRIOTION of the following objects: - clrResourceRateLimitReachedNotifEnabled - clrResourceLimitReachedNotifEnabled"
+      },
+      {
+        "revision": "2012-09-20 00:00",
+        "description": "Added the following groups - ciscoL4L7ResourceNotifGroupRev1 - ciscoL4L7ResourceNotifOnlyObjectsGroup Deprecated the following groups - ciscoL4L7ResourceNotifGroup Added the following compliance - ciscoL4L7ResourceLimitComplianceRev6"
+      },
+      {
+        "revision": "2011-06-10 00:00",
+        "description": "-Added following OBJECT-TYPEs in table ciscoL4L7BufferUtilizationTable. crlExternalBufferUsageValue crlExternalPercentageBufferUsage crlExternalPercentageBufferUsageDisplay -Deprecated OBJECT-GROUP ciscoL4L7BufferUtilizationGroup. -Added OBJECT-GROUP ciscoL4L7BufferUtilizationGroupRev1. -Deprecated MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev4. -Added MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev5."
+      },
+      {
+        "revision": "2011-04-15 00:00",
+        "description": "- Added new table ciscoL4L7NpCpuUtilTable. - Added OBJECT-GROUP ciscoL4L7NpCpuUtilizationGroup. - Deprecated MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev3. - Added MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev4."
+      },
+      {
+        "revision": "2010-12-06 00:00",
+        "description": "- Added TEXTUAL-CONVENTION CiscoBufferUtilPercentage. - Added table ciscoL4L7BufferUtilizationTable. - Added an OBJECT-GROUP ciscoL4L7BufferUtilizationGroup. - Deprecated MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev2. - Added MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev3."
+      },
+      {
+        "revision": "2008-03-07 00:00",
+        "description": "- Added TEXTUAL-CONVENTION CiscoResourceType. - Added table ciscoL4L7ResourceUsageSummaryTable. - Added an OBJECT-GROUP ciscoL4L7ResourceUsageSummaryGroup. - Deprecated MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev1. - Added MODULE-COMPLIANCE ciscoL4L7ResourceLimitComplianceRev2."
+      },
+      {
+        "revision": "2008-02-07 00:00",
+        "description": "- Added following enumerations in CiscoRateLimitResourceType sslConnections (9) mgmtBandwidth (10) throughput (11) missedMac (12) httpCompression (13) - Updated the description of bandwidth(4) enumeration in CiscoRateLimitResourceType."
+      },
+      {
+        "revision": "2006-06-19 00:00",
+        "description": "- Added following enumerations in CiscoResourceLimitType hosts (15) ipsecSessions (16) asdmSessions (17) sshSessions (18) telnetSessions (19) - Added following objects in ciscoL4L7ResourceLimitTable crlResourceLimitCurrentUsage crlResourceLimitPeakUsage crlResourceLimitReqsDeniedCount - Added following objects in ciscoL4L7RateLimitTable crlRateLimitResourceCurrentUsage crlRateLimitResourcePeakUsage crlRateLimitResourceReqsDeniedCount - Added following objects: clrResourceLimitReachedNotifEnabled clrResourceRateLimitReachedNotifEnabled - Added following Notification objects clrResourceLimitReached clrResourceRateLimitReached - Added following in Compliance/Conformance ciscoL4L7ResourceLimitComplianceRev1."
+      },
+      {
+        "revision": "2005-08-05 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoL4L7ResourceLimitNotifs": {
+    "name": "ciscoL4L7ResourceLimitNotifs",
+    "oid": "1.3.6.1.4.1.9.9.480.0",
+    "class": "objectidentity"
+  },
+  "ciscoL4L7ResourceLimitMIBObjects": {
+    "name": "ciscoL4L7ResourceLimitMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.480.1",
+    "class": "objectidentity"
+  },
+  "ciscoResourceLimitMIBConform": {
+    "name": "ciscoResourceLimitMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.480.2",
+    "class": "objectidentity"
+  },
+  "crlResource": {
+    "name": "crlResource",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1",
+    "class": "objectidentity"
+  },
+  "crlNotificationObjects": {
+    "name": "crlNotificationObjects",
+    "oid": "1.3.6.1.4.1.9.9.480.1.2",
+    "class": "objectidentity"
+  },
+  "crlNotificationOnlyObjects": {
+    "name": "crlNotificationOnlyObjects",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3",
+    "class": "objectidentity"
+  },
+  "CiscoResourceClass": {
+    "name": "CiscoResourceClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoResourceLimitType": {
+    "name": "CiscoResourceLimitType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "macAddresses": 2,
+          "concurrentConns": 3,
+          "mgmtConnections": 4,
+          "proxyConns": 5,
+          "probes": 6,
+          "stickyEntries": 7,
+          "natTranslations": 8,
+          "regexState": 9,
+          "aclMemory": 10,
+          "syslogBuffer": 11,
+          "ipReassemBuffer": 12,
+          "tcpOOOBuffer": 13,
+          "sslConnections": 14,
+          "hosts": 15,
+          "ipsecSessions": 16,
+          "asdmSessions": 17,
+          "sshSessions": 18,
+          "telnetSessions": 19,
+          "cpu": 20,
+          "memory": 21
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoRateLimitResourceType": {
+    "name": "CiscoRateLimitResourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "arpRequestsXmt": 2,
+          "arpResponses": 3,
+          "bandwidth": 4,
+          "connections": 5,
+          "appInspections": 6,
+          "syslog": 7,
+          "sslBandwidth": 8,
+          "sslConnections": 9,
+          "mgmtBandwidth": 10,
+          "throughput": 11,
+          "missedMac": 12,
+          "httpCompression": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoResourceType": {
+    "name": "CiscoResourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lMacAddresses": 1,
+          "lConcurrentConns": 2,
+          "lMgmtConnections": 3,
+          "lProxyConns": 4,
+          "lProbes": 5,
+          "lStickyEntries": 6,
+          "lNatTranslations": 7,
+          "lRegexState": 8,
+          "lAclMemory": 9,
+          "lIpReassemBuffer": 10,
+          "lSyslogBuffer": 11,
+          "lTcpOOOBuffer": 12,
+          "lSslConnections": 13,
+          "lHosts": 14,
+          "lIpsecSessions": 15,
+          "lAsdmSessions": 16,
+          "lSshSessions": 17,
+          "lTelnetSessions": 18,
+          "rlArpRequestsXmt": 19,
+          "rlArpResponses": 20,
+          "rlBandwidth": 21,
+          "rlConnections": 22,
+          "rlAppInspections": 23,
+          "rlSyslog": 24,
+          "rlSslBandwidth": 25,
+          "rlSslConnections": 26,
+          "rlMgmtBandwidth": 27,
+          "rlThroughput": 28,
+          "rlMissedMac": 29,
+          "rlHttpCompression": 30
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoBufferUtilPercentage": {
+    "name": "CiscoBufferUtilPercentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceClassTable": {
+    "name": "ciscoL4L7ResourceClassTable",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceClassEntry": {
+    "name": "ciscoL4L7ResourceClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crlResourceClassName": {
+    "name": "crlResourceClassName",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoResourceClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crlResourceClassStorageType": {
+    "name": "crlResourceClassStorageType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlResourceClassRowStatus": {
+    "name": "crlResourceClassRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceLimitTable": {
+    "name": "ciscoL4L7ResourceLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceLimitEntry": {
+    "name": "ciscoL4L7ResourceLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceClassName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crlResourceLimitType": {
+    "name": "crlResourceLimitType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoResourceLimitType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crlResourceLimitValueType": {
+    "name": "crlResourceLimitValueType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absolute": 1,
+          "percentage": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "percentage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlResourceLimitMin": {
+    "name": "crlResourceLimitMin",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlResourceLimitMax": {
+    "name": "crlResourceLimitMax",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlResourceLimitStorageType": {
+    "name": "crlResourceLimitStorageType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlResourceLimitRowStatus": {
+    "name": "crlResourceLimitRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlResourceLimitCurrentUsage": {
+    "name": "crlResourceLimitCurrentUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlResourceLimitPeakUsage": {
+    "name": "crlResourceLimitPeakUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlResourceLimitReqsDeniedCount": {
+    "name": "crlResourceLimitReqsDeniedCount",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceRateLimitTable": {
+    "name": "ciscoL4L7ResourceRateLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceRateLimitEntry": {
+    "name": "ciscoL4L7ResourceRateLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceClassName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crlRateLimitResourceType": {
+    "name": "crlRateLimitResourceType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRateLimitResourceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crlRateLimitResourceMin": {
+    "name": "crlRateLimitResourceMin",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlRateLimitResourceMax": {
+    "name": "crlRateLimitResourceMax",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlRateLimitResourceStorageType": {
+    "name": "crlRateLimitResourceStorageType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlRateLimitResourceRowStatus": {
+    "name": "crlRateLimitResourceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlRateLimitResourceCurrentUsage": {
+    "name": "crlRateLimitResourceCurrentUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlRateLimitResourcePeakUsage": {
+    "name": "crlRateLimitResourcePeakUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlRateLimitResourceReqsDeniedCount": {
+    "name": "crlRateLimitResourceReqsDeniedCount",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceUsageSummaryTable": {
+    "name": "ciscoL4L7ResourceUsageSummaryTable",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoL4L7ResourceUsageSummaryEntry": {
+    "name": "ciscoL4L7ResourceUsageSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceSummaryType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crlResourceSummaryType": {
+    "name": "crlResourceSummaryType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoResourceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crlResourceSummaryCurrentUsage": {
+    "name": "crlResourceSummaryCurrentUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlResourceSummaryPeakUsage": {
+    "name": "crlResourceSummaryPeakUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlResourceSummaryReqsDeniedCount": {
+    "name": "crlResourceSummaryReqsDeniedCount",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlResourceSummaryLastClearedTime": {
+    "name": "crlResourceSummaryLastClearedTime",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlResourceSummaryStorageType": {
+    "name": "crlResourceSummaryStorageType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crlResourceSummaryRowStatus": {
+    "name": "crlResourceSummaryRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoL4L7BufferUtilizationTable": {
+    "name": "ciscoL4L7BufferUtilizationTable",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoL4L7BufferUtilizationEntry": {
+    "name": "ciscoL4L7BufferUtilizationEntry",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrNetworkProcessor",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrNetworkProcessor": {
+    "name": "clrNetworkProcessor",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crlBufferUsageValue": {
+    "name": "crlBufferUsageValue",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlPercentageBufferUsage": {
+    "name": "crlPercentageBufferUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBufferUtilPercentage",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlPercentageBufferUsageDisplay": {
+    "name": "crlPercentageBufferUsageDisplay",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlExternalBufferUsageValue": {
+    "name": "crlExternalBufferUsageValue",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "buffers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlExternalPercentageBufferUsage": {
+    "name": "crlExternalPercentageBufferUsage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoBufferUtilPercentage",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crlExternalPercentageBufferUsageDisplay": {
+    "name": "crlExternalPercentageBufferUsageDisplay",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoL4L7NpCpuUtilTable": {
+    "name": "ciscoL4L7NpCpuUtilTable",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoL4L7NpCpuUtilEntry": {
+    "name": "ciscoL4L7NpCpuUtilEntry",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrNetworkProcessor",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrNpCpuUtilizationAverage": {
+    "name": "clrNpCpuUtilizationAverage",
+    "oid": "1.3.6.1.4.1.9.9.480.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrResourceLimitReachedNotifEnabled": {
+    "name": "clrResourceLimitReachedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.480.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrResourceRateLimitReachedNotifEnabled": {
+    "name": "clrResourceRateLimitReachedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.480.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crlNotifType": {
+    "name": "crlNotifType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "risingHighThresh": 1,
+          "fallingMinThresh": 2,
+          "fallingWatermarkThresh": 3,
+          "risingWatermarkThresh": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifContextOrSystem": {
+    "name": "crlNotifContextOrSystem",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "context": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifContextName": {
+    "name": "crlNotifContextName",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifCurrentUsagePcnt": {
+    "name": "crlNotifCurrentUsagePcnt",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifMaxThresholdPcnt": {
+    "name": "crlNotifMaxThresholdPcnt",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifWatermarkPcnt": {
+    "name": "crlNotifWatermarkPcnt",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifMinThresholdPcnt": {
+    "name": "crlNotifMinThresholdPcnt",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifSourceType": {
+    "name": "crlNotifSourceType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "virtualIP": 1,
+          "realServer": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifRealServerName": {
+    "name": "crlNotifRealServerName",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifVirtualIPAddrType": {
+    "name": "crlNotifVirtualIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "crlNotifVirtualIPAddress": {
+    "name": "crlNotifVirtualIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.480.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrResourceLimitReached": {
+    "name": "clrResourceLimitReached",
+    "oid": "1.3.6.1.4.1.9.9.480.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitValueType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitMax"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clrResourceRateLimitReached": {
+    "name": "clrResourceRateLimitReached",
+    "oid": "1.3.6.1.4.1.9.9.480.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceMax"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clrResourceLimitReachedNotif": {
+    "name": "clrResourceLimitReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.480.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitCurrentUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitMax"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitMin"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifCurrentUsagePcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMaxThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifWatermarkPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMinThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextOrSystem"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clrResourceRateLimitReachedNotif": {
+    "name": "clrResourceRateLimitReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.480.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceCurrentUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceMax"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceMin"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifCurrentUsagePcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMaxThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifWatermarkPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMinThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextOrSystem"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clrResourceRateLimitReachedNotifRev1": {
+    "name": "clrResourceRateLimitReachedNotifRev1",
+    "oid": "1.3.6.1.4.1.9.9.480.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceCurrentUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceMax"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceMin"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifCurrentUsagePcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMaxThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifWatermarkPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMinThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextOrSystem"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextName"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifSourceType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifRealServerName"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifVirtualIPAddrType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifVirtualIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "clrResourceLimitReachedNotifRev1": {
+    "name": "clrResourceLimitReachedNotifRev1",
+    "oid": "1.3.6.1.4.1.9.9.480.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitCurrentUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitMax"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitMin"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifCurrentUsagePcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMaxThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifWatermarkPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMinThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextOrSystem"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextName"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifSourceType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifRealServerName"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifVirtualIPAddrType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifVirtualIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceLimitConformance": {
+    "name": "ciscoL4L7ResourceLimitConformance",
+    "oid": "1.3.6.1.4.1.9.9.480.3",
+    "class": "objectidentity"
+  },
+  "ciscoL4L7ResourceLimitCompliances": {
+    "name": "ciscoL4L7ResourceLimitCompliances",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoL4L7ResourceLimitGroups": {
+    "name": "ciscoL4L7ResourceLimitGroups",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoL4L7ResourceLimitCompliance": {
+    "name": "ciscoL4L7ResourceLimitCompliance",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceLimitComplianceRev1": {
+    "name": "ciscoL4L7ResourceLimitComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifEnabledGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceLimitComplianceRev2": {
+    "name": "ciscoL4L7ResourceLimitComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifEnabledGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceUsageSummaryGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceLimitComplianceRev3": {
+    "name": "ciscoL4L7ResourceLimitComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7BufferUtilizationGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifEnabledGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceUsageSummaryGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceLimitComplianceRev4": {
+    "name": "ciscoL4L7ResourceLimitComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7BufferUtilizationGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7NpCpuUtilizationGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifEnabledGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceUsageSummaryGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceLimitComplianceRev5": {
+    "name": "ciscoL4L7ResourceLimitComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7BufferUtilizationGroupRev1",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7NpCpuUtilizationGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifEnabledGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceUsageSummaryGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceLimitComplianceRev6": {
+    "name": "ciscoL4L7ResourceLimitComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7BufferUtilizationGroupRev1",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7NpCpuUtilizationGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifEnabledGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceUsageSummaryGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifOnlyObjectsGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceLimitComplianceRev7": {
+    "name": "ciscoL4L7ResourceLimitComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.480.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoL4L7ResourceClassGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7BufferUtilizationGroupRev1",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7NpCpuUtilizationGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceRateLimitUsageGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifEnabledGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceUsageSummaryGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifOnlyObjectsGroup",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifOnlyObjectsGroupExt",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      },
+      {
+        "object": "ciscoL4L7ResourceNotifGroupRev2",
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceClassGroup": {
+    "name": "ciscoL4L7ResourceClassGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceClassStorageType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceClassRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceLimitGroup": {
+    "name": "ciscoL4L7ResourceLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitValueType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitMin"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitMax"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitStorageType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceRateLimitGroup": {
+    "name": "ciscoL4L7ResourceRateLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceMin"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceMax"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceStorageType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceLimitUsageGroup": {
+    "name": "ciscoL4L7ResourceLimitUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitCurrentUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitPeakUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceLimitReqsDeniedCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceRateLimitUsageGroup": {
+    "name": "ciscoL4L7ResourceRateLimitUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceCurrentUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourcePeakUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlRateLimitResourceReqsDeniedCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceNotifEnabledGroup": {
+    "name": "ciscoL4L7ResourceNotifEnabledGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceLimitReachedNotifEnabled"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceRateLimitReachedNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceNotifGroup": {
+    "name": "ciscoL4L7ResourceNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceLimitReached"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceRateLimitReached"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceUsageSummaryGroup": {
+    "name": "ciscoL4L7ResourceUsageSummaryGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceSummaryCurrentUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceSummaryPeakUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceSummaryReqsDeniedCount"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceSummaryLastClearedTime"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceSummaryStorageType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlResourceSummaryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7BufferUtilizationGroup": {
+    "name": "ciscoL4L7BufferUtilizationGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlBufferUsageValue"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlPercentageBufferUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlPercentageBufferUsageDisplay"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7NpCpuUtilizationGroup": {
+    "name": "ciscoL4L7NpCpuUtilizationGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrNpCpuUtilizationAverage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7BufferUtilizationGroupRev1": {
+    "name": "ciscoL4L7BufferUtilizationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlBufferUsageValue"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlPercentageBufferUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlPercentageBufferUsageDisplay"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlExternalBufferUsageValue"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlExternalPercentageBufferUsage"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlExternalPercentageBufferUsageDisplay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceNotifGroupRev1": {
+    "name": "ciscoL4L7ResourceNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceLimitReachedNotif"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceRateLimitReachedNotif"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoL4L7ResourceNotifOnlyObjectsGroup": {
+    "name": "ciscoL4L7ResourceNotifOnlyObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifCurrentUsagePcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMaxThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifWatermarkPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifMinThresholdPcnt"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextOrSystem"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifContextName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceNotifGroupRev2": {
+    "name": "ciscoL4L7ResourceNotifGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceLimitReachedNotifRev1"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "clrResourceRateLimitReachedNotifRev1"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoL4L7ResourceNotifOnlyObjectsGroupExt": {
+    "name": "ciscoL4L7ResourceNotifOnlyObjectsGroupExt",
+    "oid": "1.3.6.1.4.1.9.9.480.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifSourceType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifRealServerName"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifVirtualIPAddrType"
+      },
+      {
+        "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+        "object": "crlNotifVirtualIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-L4L7MODULE-RESOURCE-LIMIT-MIB"
+  }
+}

@@ -1,0 +1,5384 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "routingIND1Tm"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1DrcTmMIB": {
+    "name": "alcatelIND1DrcTmMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "alcatelIND1DrcTmMIBObjects": {
+    "name": "alcatelIND1DrcTmMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaDrcTmConfig": {
+    "name": "alaDrcTmConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaDrcTmDebug": {
+    "name": "alaDrcTmDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaDrcTmRipDebug": {
+    "name": "alaDrcTmRipDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "alaDrcTmOspfDebug": {
+    "name": "alaDrcTmOspfDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "alaDrcTmBgpDebug": {
+    "name": "alaDrcTmBgpDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "alaDrcTmDvmrpDebug": {
+    "name": "alaDrcTmDvmrpDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "alaDrcTmPimDebug": {
+    "name": "alaDrcTmPimDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "alaDrcTmRipngDebug": {
+    "name": "alaDrcTmRipngDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaDrcTmIprmDebug": {
+    "name": "alaDrcTmIprmDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaDrcTmIpmrmDebug": {
+    "name": "alaDrcTmIpmrmDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10",
+    "class": "objectidentity"
+  },
+  "alaDrcTmOspf3Debug": {
+    "name": "alaDrcTmOspf3Debug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11",
+    "class": "objectidentity"
+  },
+  "alaDrcTmLogDestination": {
+    "name": "alaDrcTmLogDestination",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12",
+    "class": "objectidentity"
+  },
+  "alaDrcTmIsisDebug": {
+    "name": "alaDrcTmIsisDebug",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13",
+    "class": "objectidentity"
+  },
+  "alaDrcTmIPRouterPrimaryAddress": {
+    "name": "alaDrcTmIPRouterPrimaryAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPRouterId": {
+    "name": "alaDrcTmIPRouterId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPRipStatus": {
+    "name": "alaDrcTmIPRipStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPOspfStatus": {
+    "name": "alaDrcTmIPOspfStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPBgpStatus": {
+    "name": "alaDrcTmIPBgpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPDvmrpStatus": {
+    "name": "alaDrcTmIPDvmrpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPPimStatus": {
+    "name": "alaDrcTmIPPimStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPMsdpStatus": {
+    "name": "alaDrcTmIPMsdpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPRipngStatus": {
+    "name": "alaDrcTmIPRipngStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPOspf3Status": {
+    "name": "alaDrcTmIPOspf3Status",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIPIsisStatus": {
+    "name": "alaDrcTmIPIsisStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogToSysFacility": {
+    "name": "alaDrcTmLogToSysFacility",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "printf": 1,
+          "session": 2,
+          "swLog": 3,
+          "sysTrace": 4,
+          "sysLog": 5,
+          "truncBuffer": 6,
+          "ringBuffer": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "printf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogToSessionId": {
+    "name": "alaDrcTmLogToSessionId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogBufferSize": {
+    "name": "alaDrcTmLogBufferSize",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogBufferDumpfile": {
+    "name": "alaDrcTmLogBufferDumpfile",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogCriticalBufferDumpfile": {
+    "name": "alaDrcTmLogCriticalBufferDumpfile",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogShowTask": {
+    "name": "alaDrcTmLogShowTask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogShowFunction": {
+    "name": "alaDrcTmLogShowFunction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogShowLine": {
+    "name": "alaDrcTmLogShowLine",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogShowDate": {
+    "name": "alaDrcTmLogShowDate",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogShowTime": {
+    "name": "alaDrcTmLogShowTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmLogClearBuffer": {
+    "name": "alaDrcTmLogClearBuffer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.12.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "buffer": 1,
+          "criticalbuffer": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "buffer",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugLevel": {
+    "name": "alaDrcTmDebugLevel",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaDrcTmDebugError": {
+    "name": "alaDrcTmDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugUnusedA": {
+    "name": "alaDrcTmDebugUnusedA",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugTaskInfo": {
+    "name": "alaDrcTmDebugTaskInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugEvents": {
+    "name": "alaDrcTmDebugEvents",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugMip": {
+    "name": "alaDrcTmDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugUnusedB": {
+    "name": "alaDrcTmDebugUnusedB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugMisc": {
+    "name": "alaDrcTmDebugMisc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugUnused1": {
+    "name": "alaDrcTmDebugUnused1",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugUnused2": {
+    "name": "alaDrcTmDebugUnused2",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugUnused3": {
+    "name": "alaDrcTmDebugUnused3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugUnused4": {
+    "name": "alaDrcTmDebugUnused4",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDebugAll": {
+    "name": "alaDrcTmDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugError": {
+    "name": "alaDrcTmOspfDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugWarning": {
+    "name": "alaDrcTmOspfDebugWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugState": {
+    "name": "alaDrcTmOspfDebugState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugRecv": {
+    "name": "alaDrcTmOspfDebugRecv",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugSend": {
+    "name": "alaDrcTmOspfDebugSend",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugFlood": {
+    "name": "alaDrcTmOspfDebugFlood",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugSPF": {
+    "name": "alaDrcTmOspfDebugSPF",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugLsdb": {
+    "name": "alaDrcTmOspfDebugLsdb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugRdb": {
+    "name": "alaDrcTmOspfDebugRdb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugAge": {
+    "name": "alaDrcTmOspfDebugAge",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugVlink": {
+    "name": "alaDrcTmOspfDebugVlink",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugRedist": {
+    "name": "alaDrcTmOspfDebugRedist",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugSummary": {
+    "name": "alaDrcTmOspfDebugSummary",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugDbexch": {
+    "name": "alaDrcTmOspfDebugDbexch",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugHello": {
+    "name": "alaDrcTmOspfDebugHello",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugAuth": {
+    "name": "alaDrcTmOspfDebugAuth",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugArea": {
+    "name": "alaDrcTmOspfDebugArea",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugIntf": {
+    "name": "alaDrcTmOspfDebugIntf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugMip": {
+    "name": "alaDrcTmOspfDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugInfo": {
+    "name": "alaDrcTmOspfDebugInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugSetup": {
+    "name": "alaDrcTmOspfDebugSetup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugTime": {
+    "name": "alaDrcTmOspfDebugTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugTm": {
+    "name": "alaDrcTmOspfDebugTm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugRestart": {
+    "name": "alaDrcTmOspfDebugRestart",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugHelper": {
+    "name": "alaDrcTmOspfDebugHelper",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugAll": {
+    "name": "alaDrcTmOspfDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugDamp": {
+    "name": "alaDrcTmBgpDebugDamp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugFsm": {
+    "name": "alaDrcTmBgpDebugFsm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugRecvUpd": {
+    "name": "alaDrcTmBgpDebugRecvUpd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugSendUpd": {
+    "name": "alaDrcTmBgpDebugSendUpd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugOpen": {
+    "name": "alaDrcTmBgpDebugOpen",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugKeepAlive": {
+    "name": "alaDrcTmBgpDebugKeepAlive",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugNotify": {
+    "name": "alaDrcTmBgpDebugNotify",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugPolicy": {
+    "name": "alaDrcTmBgpDebugPolicy",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugRoute": {
+    "name": "alaDrcTmBgpDebugRoute",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugSync": {
+    "name": "alaDrcTmBgpDebugSync",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugAggr": {
+    "name": "alaDrcTmBgpDebugAggr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugTcp": {
+    "name": "alaDrcTmBgpDebugTcp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugWarnings": {
+    "name": "alaDrcTmBgpDebugWarnings",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugErrors": {
+    "name": "alaDrcTmBgpDebugErrors",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugRedist": {
+    "name": "alaDrcTmBgpDebugRedist",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugPeer": {
+    "name": "alaDrcTmBgpDebugPeer",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugLocal": {
+    "name": "alaDrcTmBgpDebugLocal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugMip": {
+    "name": "alaDrcTmBgpDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugTm": {
+    "name": "alaDrcTmBgpDebugTm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugInfo": {
+    "name": "alaDrcTmBgpDebugInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugRestart": {
+    "name": "alaDrcTmBgpDebugRestart",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugAll": {
+    "name": "alaDrcTmBgpDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugPeer6": {
+    "name": "alaDrcTmBgpDebugPeer6",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugRoute6": {
+    "name": "alaDrcTmBgpDebugRoute6",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.5.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugError": {
+    "name": "alaDrcTmRipDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugWarning": {
+    "name": "alaDrcTmRipDebugWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugRecv": {
+    "name": "alaDrcTmRipDebugRecv",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugSend": {
+    "name": "alaDrcTmRipDebugSend",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugRdb": {
+    "name": "alaDrcTmRipDebugRdb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugAge": {
+    "name": "alaDrcTmRipDebugAge",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugConfig": {
+    "name": "alaDrcTmRipDebugConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugRedist": {
+    "name": "alaDrcTmRipDebugRedist",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugInfo": {
+    "name": "alaDrcTmRipDebugInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugSetup": {
+    "name": "alaDrcTmRipDebugSetup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugTime": {
+    "name": "alaDrcTmRipDebugTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipDebugAll": {
+    "name": "alaDrcTmRipDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugError": {
+    "name": "alaDrcTmIpmrmDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugFib": {
+    "name": "alaDrcTmIpmrmDebugFib",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugAging": {
+    "name": "alaDrcTmIpmrmDebugAging",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugProtos": {
+    "name": "alaDrcTmIpmrmDebugProtos",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugIpms": {
+    "name": "alaDrcTmIpmrmDebugIpms",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugMip": {
+    "name": "alaDrcTmIpmrmDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugInit": {
+    "name": "alaDrcTmIpmrmDebugInit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugTm": {
+    "name": "alaDrcTmIpmrmDebugTm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugMisc": {
+    "name": "alaDrcTmIpmrmDebugMisc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugAll": {
+    "name": "alaDrcTmIpmrmDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugError": {
+    "name": "alaDrcTmIprmDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugAccesslist": {
+    "name": "alaDrcTmIprmDebugAccesslist",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugIntf": {
+    "name": "alaDrcTmIprmDebugIntf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugMip": {
+    "name": "alaDrcTmIprmDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugMisc": {
+    "name": "alaDrcTmIprmDebugMisc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugNhs": {
+    "name": "alaDrcTmIprmDebugNhs",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugPrefix": {
+    "name": "alaDrcTmIprmDebugPrefix",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugRedist": {
+    "name": "alaDrcTmIprmDebugRedist",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugRoute4": {
+    "name": "alaDrcTmIprmDebugRoute4",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugRoute6": {
+    "name": "alaDrcTmIprmDebugRoute6",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugRoutemap": {
+    "name": "alaDrcTmIprmDebugRoutemap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugRoutepref": {
+    "name": "alaDrcTmIprmDebugRoutepref",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugStatic": {
+    "name": "alaDrcTmIprmDebugStatic",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugAll": {
+    "name": "alaDrcTmIprmDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugBfd": {
+    "name": "alaDrcTmIprmDebugBfd",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.9.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugError": {
+    "name": "alaDrcTmRipngDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugWarning": {
+    "name": "alaDrcTmRipngDebugWarning",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugRecv": {
+    "name": "alaDrcTmRipngDebugRecv",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugSend": {
+    "name": "alaDrcTmRipngDebugSend",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugRdb": {
+    "name": "alaDrcTmRipngDebugRdb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugAge": {
+    "name": "alaDrcTmRipngDebugAge",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugMip": {
+    "name": "alaDrcTmRipngDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugInfo": {
+    "name": "alaDrcTmRipngDebugInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugSetup": {
+    "name": "alaDrcTmRipngDebugSetup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugTime": {
+    "name": "alaDrcTmRipngDebugTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugTm": {
+    "name": "alaDrcTmRipngDebugTm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugRouteFilter": {
+    "name": "alaDrcTmRipngDebugRouteFilter",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugNexthopFilter": {
+    "name": "alaDrcTmRipngDebugNexthopFilter",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugSummary": {
+    "name": "alaDrcTmRipngDebugSummary",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugAll": {
+    "name": "alaDrcTmRipngDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugRedist": {
+    "name": "alaDrcTmRipngDebugRedist",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.8.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugError": {
+    "name": "alaDrcTmPimDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugMip": {
+    "name": "alaDrcTmPimDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugInit": {
+    "name": "alaDrcTmPimDebugInit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugBootstrap": {
+    "name": "alaDrcTmPimDebugBootstrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugCRP": {
+    "name": "alaDrcTmPimDebugCRP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugTime": {
+    "name": "alaDrcTmPimDebugTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSpt": {
+    "name": "alaDrcTmPimDebugSpt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmNbr": {
+    "name": "alaDrcTmPimDebugSmNbr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmHello": {
+    "name": "alaDrcTmPimDebugSmHello",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmRoute": {
+    "name": "alaDrcTmPimDebugSmRoute",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmJoinPrune": {
+    "name": "alaDrcTmPimDebugSmJoinPrune",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmAssert": {
+    "name": "alaDrcTmPimDebugSmAssert",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmIgmp": {
+    "name": "alaDrcTmPimDebugSmIgmp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmIpmrm": {
+    "name": "alaDrcTmPimDebugSmIpmrm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugSmMisc": {
+    "name": "alaDrcTmPimDebugSmMisc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmNbr": {
+    "name": "alaDrcTmPimDebugDmNbr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmHello": {
+    "name": "alaDrcTmPimDebugDmHello",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmRoute": {
+    "name": "alaDrcTmPimDebugDmRoute",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmJoinPrune": {
+    "name": "alaDrcTmPimDebugDmJoinPrune",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmAssert": {
+    "name": "alaDrcTmPimDebugDmAssert",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmIgmp": {
+    "name": "alaDrcTmPimDebugDmIgmp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmIpmrm": {
+    "name": "alaDrcTmPimDebugDmIpmrm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugDmMisc": {
+    "name": "alaDrcTmPimDebugDmMisc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugGraft": {
+    "name": "alaDrcTmPimDebugGraft",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugStateRefresh": {
+    "name": "alaDrcTmPimDebugStateRefresh",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmPimDebugAll": {
+    "name": "alaDrcTmPimDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.7.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugError": {
+    "name": "alaDrcTmDvmrpDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugNbr": {
+    "name": "alaDrcTmDvmrpDebugNbr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugRoutes": {
+    "name": "alaDrcTmDvmrpDebugRoutes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugProbes": {
+    "name": "alaDrcTmDvmrpDebugProbes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugPrunes": {
+    "name": "alaDrcTmDvmrpDebugPrunes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugGrafts": {
+    "name": "alaDrcTmDvmrpDebugGrafts",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugTime": {
+    "name": "alaDrcTmDvmrpDebugTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugIgmp": {
+    "name": "alaDrcTmDvmrpDebugIgmp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugFlash": {
+    "name": "alaDrcTmDvmrpDebugFlash",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugMip": {
+    "name": "alaDrcTmDvmrpDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugInit": {
+    "name": "alaDrcTmDvmrpDebugInit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugTm": {
+    "name": "alaDrcTmDvmrpDebugTm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugIpmrm": {
+    "name": "alaDrcTmDvmrpDebugIpmrm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugMisc": {
+    "name": "alaDrcTmDvmrpDebugMisc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugAll": {
+    "name": "alaDrcTmDvmrpDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugError": {
+    "name": "alaDrcTmOspf3DebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugInfo": {
+    "name": "alaDrcTmOspf3DebugInfo",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugIntf": {
+    "name": "alaDrcTmOspf3DebugIntf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugRecv": {
+    "name": "alaDrcTmOspf3DebugRecv",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugSend": {
+    "name": "alaDrcTmOspf3DebugSend",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugNbr": {
+    "name": "alaDrcTmOspf3DebugNbr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugState": {
+    "name": "alaDrcTmOspf3DebugState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugArea": {
+    "name": "alaDrcTmOspf3DebugArea",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugLsa": {
+    "name": "alaDrcTmOspf3DebugLsa",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugFlood": {
+    "name": "alaDrcTmOspf3DebugFlood",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugSpf": {
+    "name": "alaDrcTmOspf3DebugSpf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugRdb": {
+    "name": "alaDrcTmOspf3DebugRdb",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugVlink": {
+    "name": "alaDrcTmOspf3DebugVlink",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugMip": {
+    "name": "alaDrcTmOspf3DebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugAll": {
+    "name": "alaDrcTmOspf3DebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.11.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugError": {
+    "name": "alaDrcTmIsisDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugWarn": {
+    "name": "alaDrcTmIsisDebugWarn",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugPkt": {
+    "name": "alaDrcTmIsisDebugPkt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugAdj": {
+    "name": "alaDrcTmIsisDebugAdj",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugCkt": {
+    "name": "alaDrcTmIsisDebugCkt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugSpf": {
+    "name": "alaDrcTmIsisDebugSpf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugLsp": {
+    "name": "alaDrcTmIsisDebugLsp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugFlood": {
+    "name": "alaDrcTmIsisDebugFlood",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugIntf": {
+    "name": "alaDrcTmIsisDebugIntf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugIprm": {
+    "name": "alaDrcTmIsisDebugIprm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugMip": {
+    "name": "alaDrcTmIsisDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugMsg": {
+    "name": "alaDrcTmIsisDebugMsg",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugLeak": {
+    "name": "alaDrcTmIsisDebugLeak",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugSummary": {
+    "name": "alaDrcTmIsisDebugSummary",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugRestart": {
+    "name": "alaDrcTmIsisDebugRestart",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugAll": {
+    "name": "alaDrcTmIsisDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.1.13.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1DrcTmMIBConformance": {
+    "name": "alcatelIND1DrcTmMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1DrcTmMIBCompliances": {
+    "name": "alcatelIND1DrcTmMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1DrcTmMIBGroups": {
+    "name": "alcatelIND1DrcTmMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaDrcTmCompliance": {
+    "name": "alaDrcTmCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaDrcTmConfigMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmRipDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmOspfDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmBgpDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmDvmrpDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmPimDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmRipngDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmIprmDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmIpmrmDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmOspf3DebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmLogDestination",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      },
+      {
+        "object": "alaDrcTmIsisDebugMIBGroup",
+        "module": "ALCATEL-IND1-DRCTM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmConfigMIBGroup": {
+    "name": "alaDrcTmConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPRouterPrimaryAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPRouterId"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPRipStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPOspfStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPBgpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPDvmrpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPPimStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPMsdpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPRipngStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPOspf3Status"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIPIsisStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmDebugMIBGroup": {
+    "name": "alaDrcTmDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDebugTaskInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDebugEvents"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDebugMisc"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmRipDebugMIBGroup": {
+    "name": "alaDrcTmRipDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugRecv"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugSend"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugRdb"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugAge"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugRedist"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugSetup"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugTime"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmOspfDebugMIBGroup": {
+    "name": "alaDrcTmOspfDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugState"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugRecv"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugSend"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugFlood"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugSPF"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugLsdb"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugRdb"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugAge"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugVlink"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugRedist"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugSummary"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugDbexch"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugHello"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugAuth"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugArea"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugIntf"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugSetup"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugTime"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugTm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspfDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmBgpDebugMIBGroup": {
+    "name": "alaDrcTmBgpDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugDamp"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugFsm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugRecvUpd"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugSendUpd"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugOpen"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugKeepAlive"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugNotify"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugPolicy"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugRoute"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugSync"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugAggr"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugTcp"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugWarnings"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugRedist"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugPeer"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugLocal"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugTm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugRestart"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugAll"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugPeer6"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmBgpDebugRoute6"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmDvmrpDebugMIBGroup": {
+    "name": "alaDrcTmDvmrpDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugNbr"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugRoutes"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugProbes"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugPrunes"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugGrafts"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugTime"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugIgmp"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugFlash"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugInit"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugTm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugIpmrm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugMisc"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmDvmrpDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmPimDebugMIBGroup": {
+    "name": "alaDrcTmPimDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugInit"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugBootstrap"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugCRP"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugTime"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSpt"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmNbr"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmHello"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmRoute"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmJoinPrune"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmAssert"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmIgmp"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmIpmrm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugSmMisc"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmNbr"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmHello"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmRoute"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmJoinPrune"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmAssert"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmIgmp"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmIpmrm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugDmMisc"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugGraft"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugStateRefresh"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmPimDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmRipngDebugMIBGroup": {
+    "name": "alaDrcTmRipngDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugWarning"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugRecv"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugSend"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugRdb"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugAge"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugSetup"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugTime"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugTm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugRouteFilter"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugNexthopFilter"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugSummary"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugAll"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmRipngDebugRedist"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmIprmDebugMIBGroup": {
+    "name": "alaDrcTmIprmDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugAccesslist"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugIntf"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugMisc"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugNhs"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugPrefix"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugRedist"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugRoute4"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugRoute6"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugRoutemap"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugRoutepref"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugStatic"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugBfd"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIprmDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmIpmrmDebugMIBGroup": {
+    "name": "alaDrcTmIpmrmDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugFib"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugAging"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugProtos"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugIpms"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugInit"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugTm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugMisc"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIpmrmDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmOspf3DebugMIBGroup": {
+    "name": "alaDrcTmOspf3DebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugIntf"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugRecv"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugSend"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugNbr"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugState"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugArea"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugLsa"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugFlood"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugSpf"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugRdb"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugVlink"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmOspf3DebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmLogDestinationMIBGroup": {
+    "name": "alaDrcTmLogDestinationMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmLogToSysFacility"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmLogToSessionId"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmLogBufferSize"
+      }
+    ],
+    "status": "current"
+  },
+  "alaDrcTmIsisDebugMIBGroup": {
+    "name": "alaDrcTmIsisDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.1.1.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugWarn"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugPkt"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugAdj"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugCkt"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugSpf"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugLsp"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugFlood"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugIntf"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugIprm"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugMsg"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugLeak"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugSummary"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugRestart"
+      },
+      {
+        "module": "ALCATEL-IND1-DRCTM-MIB",
+        "object": "alaDrcTmIsisDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DRCTM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-DRCTM-MIB"
+  }
+}

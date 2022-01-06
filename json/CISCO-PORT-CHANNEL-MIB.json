@@ -1,0 +1,639 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "PortMemberList"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoPortChannelMIB": {
+    "name": "ciscoPortChannelMIB",
+    "oid": "1.3.6.1.4.1.9.9.285",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-13 00:00",
+        "description": "Added new object portChannelExtOperChannelGrpMode to portChannelExtTable. Changed the SYNTAX of portChannelExtPersistent to INTEGER from TruthValue."
+      },
+      {
+        "revision": "2004-06-08 00:00",
+        "description": "Added new tables portChannelGrpIfExtTable and portChannelExtTable. Also, added new object portChannelProtocolEnable."
+      },
+      {
+        "revision": "2004-03-11 00:00",
+        "description": "Added portChannelMemberOperStatus to portChannelTable. "
+      },
+      {
+        "revision": "2003-05-28 00:00",
+        "description": "Superceeded portChannelMIBCompliances with portChannelMIBCompliances1. Added portChannelAdminChannelMode object to portChannelMIBCompliances1. "
+      },
+      {
+        "revision": "2002-10-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPortChannelObjects": {
+    "name": "ciscoPortChannelObjects",
+    "oid": "1.3.6.1.4.1.9.9.285.1",
+    "class": "objectidentity"
+  },
+  "portChannelMIBConformance": {
+    "name": "portChannelMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.285.2",
+    "class": "objectidentity"
+  },
+  "portChannelConfig": {
+    "name": "portChannelConfig",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1",
+    "class": "objectidentity"
+  },
+  "portChannelStatistics": {
+    "name": "portChannelStatistics",
+    "oid": "1.3.6.1.4.1.9.9.285.1.2",
+    "class": "objectidentity"
+  },
+  "portChannelNotification": {
+    "name": "portChannelNotification",
+    "oid": "1.3.6.1.4.1.9.9.285.1.3",
+    "class": "objectidentity"
+  },
+  "portChannelNotifications": {
+    "name": "portChannelNotifications",
+    "oid": "1.3.6.1.4.1.9.9.285.1.3.0",
+    "class": "objectidentity"
+  },
+  "PortChannelMode": {
+    "name": "PortChannelMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "on": 2,
+          "off": 3,
+          "desirable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortChannelGroupMode": {
+    "name": "PortChannelGroupMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "active": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "portChannelTable": {
+    "name": "portChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portChannelEntry": {
+    "name": "portChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portChannelIndex": {
+    "name": "portChannelIndex",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portChannelIfIndex": {
+    "name": "portChannelIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelAdminChannelMode": {
+    "name": "portChannelAdminChannelMode",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortChannelMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portChannelOperChannelMode": {
+    "name": "portChannelOperChannelMode",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortChannelMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelAddType": {
+    "name": "portChannelAddType",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "force": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portChannelLastActionStatus": {
+    "name": "portChannelLastActionStatus",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "successful": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelLastActionStatusCause": {
+    "name": "portChannelLastActionStatusCause",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelLastActionTime": {
+    "name": "portChannelLastActionTime",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelMemberList": {
+    "name": "portChannelMemberList",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMemberList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portChannelCreationTime": {
+    "name": "portChannelCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelRowStatus": {
+    "name": "portChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portChannelMemberOperStatus": {
+    "name": "portChannelMemberOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMemberList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelProtocolEnable": {
+    "name": "portChannelProtocolEnable",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portChannelGrpIfExtTable": {
+    "name": "portChannelGrpIfExtTable",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portChannelGrpIfExtEntry": {
+    "name": "portChannelGrpIfExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portChannelGrpIfAutoCreation": {
+    "name": "portChannelGrpIfAutoCreation",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portChannelExtTable": {
+    "name": "portChannelExtTable",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portChannelExtEntry": {
+    "name": "portChannelExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "portChannelExtEntry",
+      "module": "CISCO-PORT-CHANNEL-MIB",
+      "object": "portChannelEntry"
+    },
+    "status": "current"
+  },
+  "portChannelExtChannelGrpMode": {
+    "name": "portChannelExtChannelGrpMode",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortChannelGroupMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portChannelExtAutoCreated": {
+    "name": "portChannelExtAutoCreated",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelExtPersistent": {
+    "name": "portChannelExtPersistent",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portChannelExtOperChannelGrpMode": {
+    "name": "portChannelExtOperChannelGrpMode",
+    "oid": "1.3.6.1.4.1.9.9.285.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortChannelGroupMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portChannelMIBCompliances": {
+    "name": "portChannelMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.285.2.1",
+    "class": "objectidentity"
+  },
+  "portChannelMIBGroups": {
+    "name": "portChannelMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.285.2.2",
+    "class": "objectidentity"
+  },
+  "portChannelMIBCompliance": {
+    "name": "portChannelMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.285.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "portChannelGroup",
+        "module": "CISCO-PORT-CHANNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "portChannelMIBCompliance1": {
+    "name": "portChannelMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.285.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "portChannelGroup",
+        "module": "CISCO-PORT-CHANNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "portChannelMIBCompliance2": {
+    "name": "portChannelMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.285.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "portChannelGroup",
+        "module": "CISCO-PORT-CHANNEL-MIB"
+      },
+      {
+        "object": "portChannelGroupRev1",
+        "module": "CISCO-PORT-CHANNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "portChannelMIBCompliance3": {
+    "name": "portChannelMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.285.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "portChannelGroup",
+        "module": "CISCO-PORT-CHANNEL-MIB"
+      },
+      {
+        "object": "portChannelGroupRev1",
+        "module": "CISCO-PORT-CHANNEL-MIB"
+      },
+      {
+        "object": "portChannelProtocolGroup",
+        "module": "CISCO-PORT-CHANNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "portChannelGroup": {
+    "name": "portChannelGroup",
+    "oid": "1.3.6.1.4.1.9.9.285.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelIfIndex"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelAdminChannelMode"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelOperChannelMode"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelAddType"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelLastActionStatus"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelLastActionStatusCause"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelLastActionTime"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelMemberList"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelCreationTime"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "portChannelGroupRev1": {
+    "name": "portChannelGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.285.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelMemberOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "portChannelProtocolGroup": {
+    "name": "portChannelProtocolGroup",
+    "oid": "1.3.6.1.4.1.9.9.285.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelProtocolEnable"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelGrpIfAutoCreation"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelExtChannelGrpMode"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelExtAutoCreated"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelExtPersistent"
+      },
+      {
+        "module": "CISCO-PORT-CHANNEL-MIB",
+        "object": "portChannelExtOperChannelGrpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PORT-CHANNEL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PORT-CHANNEL-MIB"
+  }
+}

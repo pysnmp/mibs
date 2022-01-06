@@ -1,0 +1,776 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACCEDIAN-SMI": [
+      "acdMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "acdDiscovery": {
+    "name": "acdDiscovery",
+    "oid": "1.3.6.1.4.1.22420.2.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-11-01 01:00",
+        "description": "Addition of MAC Address List table."
+      },
+      {
+        "revision": "2008-10-01 01:00",
+        "description": "Initial version of MIB module ACD-DISCOVERY-MIB."
+      }
+    ]
+  },
+  "acdDiscoveryNotifications": {
+    "name": "acdDiscoveryNotifications",
+    "oid": "1.3.6.1.4.1.22420.2.11.0",
+    "class": "objectidentity"
+  },
+  "acdDiscoveryMIBObjects": {
+    "name": "acdDiscoveryMIBObjects",
+    "oid": "1.3.6.1.4.1.22420.2.11.1",
+    "class": "objectidentity"
+  },
+  "acdDiscoveryConformance": {
+    "name": "acdDiscoveryConformance",
+    "oid": "1.3.6.1.4.1.22420.2.11.2",
+    "class": "objectidentity"
+  },
+  "acdDiscoveryInventory": {
+    "name": "acdDiscoveryInventory",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1",
+    "class": "objectidentity"
+  },
+  "acdDiscoveryInventoryTable": {
+    "name": "acdDiscoveryInventoryTable",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdDiscoveryInventoryEntry": {
+    "name": "acdDiscoveryInventoryEntry",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdDiscoveryIndex": {
+    "name": "acdDiscoveryIndex",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdDiscoveryMgmtIpAddress": {
+    "name": "acdDiscoveryMgmtIpAddress",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoverySystemName": {
+    "name": "acdDiscoverySystemName",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoverySystemDesc": {
+    "name": "acdDiscoverySystemDesc",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoverySerialNumber": {
+    "name": "acdDiscoverySerialNumber",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryLastChange": {
+    "name": "acdDiscoveryLastChange",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryDomain": {
+    "name": "acdDiscoveryDomain",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryFirmware": {
+    "name": "acdDiscoveryFirmware",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryBaseMacAddress": {
+    "name": "acdDiscoveryBaseMacAddress",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryInterfaceMacAddress": {
+    "name": "acdDiscoveryInterfaceMacAddress",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryChassisIdSubtype": {
+    "name": "acdDiscoveryChassisIdSubtype",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryChassisId": {
+    "name": "acdDiscoveryChassisId",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryLocalPortId": {
+    "name": "acdDiscoveryLocalPortId",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryRemotePortId": {
+    "name": "acdDiscoveryRemotePortId",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryWebServerPort": {
+    "name": "acdDiscoveryWebServerPort",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoverySnmpAgentPort": {
+    "name": "acdDiscoverySnmpAgentPort",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoverySshPort": {
+    "name": "acdDiscoverySshPort",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryVlan1": {
+    "name": "acdDiscoveryVlan1",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryVlan2": {
+    "name": "acdDiscoveryVlan2",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryIpListTable": {
+    "name": "acdDiscoveryIpListTable",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdDiscoveryIpListEntry": {
+    "name": "acdDiscoveryIpListEntry",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryIndex",
+        "implied": 0
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryIpListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdDiscoveryIpListIndex": {
+    "name": "acdDiscoveryIpListIndex",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdDiscoveryIpListAddress": {
+    "name": "acdDiscoveryIpListAddress",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListTable": {
+    "name": "acdDiscoveryMacAddressListTable",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListEntry": {
+    "name": "acdDiscoveryMacAddressListEntry",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryIndex",
+        "implied": 0
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryMacAddressListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListIndex": {
+    "name": "acdDiscoveryMacAddressListIndex",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListSystemSlotId": {
+    "name": "acdDiscoveryMacAddressListSystemSlotId",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListPortId": {
+    "name": "acdDiscoveryMacAddressListPortId",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListPortName": {
+    "name": "acdDiscoveryMacAddressListPortName",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListPortMacAddress": {
+    "name": "acdDiscoveryMacAddressListPortMacAddress",
+    "oid": "1.3.6.1.4.1.22420.2.11.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdDiscoveryCompliances": {
+    "name": "acdDiscoveryCompliances",
+    "oid": "1.3.6.1.4.1.22420.2.11.2.1",
+    "class": "objectidentity"
+  },
+  "acdDiscoveryGroups": {
+    "name": "acdDiscoveryGroups",
+    "oid": "1.3.6.1.4.1.22420.2.11.2.2",
+    "class": "objectidentity"
+  },
+  "acdDiscoveryInventoryGroup": {
+    "name": "acdDiscoveryInventoryGroup",
+    "oid": "1.3.6.1.4.1.22420.2.11.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryMgmtIpAddress"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoverySystemName"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoverySystemDesc"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoverySerialNumber"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryLastChange"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryDomain"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryFirmware"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryBaseMacAddress"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryInterfaceMacAddress"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryChassisIdSubtype"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryChassisId"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryLocalPortId"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryRemotePortId"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryWebServerPort"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoverySnmpAgentPort"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoverySshPort"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryVlan1"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryVlan2"
+      }
+    ],
+    "status": "current"
+  },
+  "acdDiscoveryIpListGroup": {
+    "name": "acdDiscoveryIpListGroup",
+    "oid": "1.3.6.1.4.1.22420.2.11.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryIpListAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "acdDiscoveryMacAddressListGroup": {
+    "name": "acdDiscoveryMacAddressListGroup",
+    "oid": "1.3.6.1.4.1.22420.2.11.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryMacAddressListSystemSlotId"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryMacAddressListPortId"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryMacAddressListPortName"
+      },
+      {
+        "module": "ACD-DISCOVERY-MIB",
+        "object": "acdDiscoveryMacAddressListPortMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "acdDiscoveryCompliance": {
+    "name": "acdDiscoveryCompliance",
+    "oid": "1.3.6.1.4.1.22420.2.11.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acdDiscoveryInventoryGroup",
+        "module": "ACD-DISCOVERY-MIB"
+      },
+      {
+        "object": "acdDiscoveryIpListGroup",
+        "module": "ACD-DISCOVERY-MIB"
+      },
+      {
+        "object": "acdDiscoveryMacAddressListGroup",
+        "module": "ACD-DISCOVERY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-DISCOVERY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACD-DISCOVERY-MIB"
+  }
+}

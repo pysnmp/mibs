@@ -1,0 +1,1995 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtEfmOamMIB": {
+    "name": "prvtEfmOamMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.133",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-01-10 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "prvtEfmOamNotifications": {
+    "name": "prvtEfmOamNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.133.0",
+    "class": "objectidentity"
+  },
+  "prvtEfmOamObjects": {
+    "name": "prvtEfmOamObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1",
+    "class": "objectidentity"
+  },
+  "prvtEfmOamEnable": {
+    "name": "prvtEfmOamEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamMultiPduCount": {
+    "name": "prvtEfmOamMultiPduCount",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamRemoteEvent": {
+    "name": "prvtEfmOamRemoteEvent",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamLogEvents": {
+    "name": "prvtEfmOamLogEvents",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamPriority": {
+    "name": "prvtEfmOamPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamPriorityEnable": {
+    "name": "prvtEfmOamPriorityEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamKeepAliveInterval": {
+    "name": "prvtEfmOamKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 200,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamHelloInterval": {
+    "name": "prvtEfmOamHelloInterval",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamHistoryLimit": {
+    "name": "prvtEfmOamHistoryLimit",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamHistoryCount": {
+    "name": "prvtEfmOamHistoryCount",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamHistoryClear": {
+    "name": "prvtEfmOamHistoryClear",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamPacketSent": {
+    "name": "prvtEfmOamPacketSent",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPacketReceived": {
+    "name": "prvtEfmOamPacketReceived",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLocalMac": {
+    "name": "prvtEfmOamLocalMac",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPingTable": {
+    "name": "prvtEfmOamPingTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamPingEntry": {
+    "name": "prvtEfmOamPingEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamPingRowStatus": {
+    "name": "prvtEfmOamPingRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamPingStatus": {
+    "name": "prvtEfmOamPingStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startPing": 1,
+          "stopPing": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamPingEchoNumber": {
+    "name": "prvtEfmOamPingEchoNumber",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamPingDelayTime": {
+    "name": "prvtEfmOamPingDelayTime",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamPingTimeOut": {
+    "name": "prvtEfmOamPingTimeOut",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultClear": {
+    "name": "prvtEfmOamPingResultClear",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultTable": {
+    "name": "prvtEfmOamPingResultTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultEntry": {
+    "name": "prvtEfmOamPingResultEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamPingResultStatus": {
+    "name": "prvtEfmOamPingResultStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPing": 1,
+          "running": 2,
+          "terminated": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultSentPackets": {
+    "name": "prvtEfmOamPingResultSentPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultReceivedPackets": {
+    "name": "prvtEfmOamPingResultReceivedPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultReceiveRate": {
+    "name": "prvtEfmOamPingResultReceiveRate",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultTimeMin": {
+    "name": "prvtEfmOamPingResultTimeMin",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultTimeMax": {
+    "name": "prvtEfmOamPingResultTimeMax",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPingResultAverageTime": {
+    "name": "prvtEfmOamPingResultAverageTime",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackTable": {
+    "name": "prvtEfmOamLoopbackTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackEntry": {
+    "name": "prvtEfmOamLoopbackEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackRowStatus": {
+    "name": "prvtEfmOamLoopbackRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackType": {
+    "name": "prvtEfmOamLoopbackType",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "storm": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackStatus": {
+    "name": "prvtEfmOamLoopbackStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initiatingLoopback": 2,
+          "terminatingLoopback": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackCount": {
+    "name": "prvtEfmOamLoopbackCount",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackPacketSize": {
+    "name": "prvtEfmOamLoopbackPacketSize",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackDelay": {
+    "name": "prvtEfmOamLoopbackDelay",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackTimeout": {
+    "name": "prvtEfmOamLoopbackTimeout",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultsClear": {
+    "name": "prvtEfmOamLoopbackResultsClear",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultTable": {
+    "name": "prvtEfmOamLoopbackResultTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultEntry": {
+    "name": "prvtEfmOamLoopbackResultEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultStatus": {
+    "name": "prvtEfmOamLoopbackResultStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLoopback": 1,
+          "startCmdSent": 2,
+          "startFail": 3,
+          "dataStarted": 4,
+          "stopCmdSent": 5,
+          "terminated": 6,
+          "remoteFailure": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultSentPackets": {
+    "name": "prvtEfmOamLoopbackResultSentPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultReceivedPackets": {
+    "name": "prvtEfmOamLoopbackResultReceivedPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultRateBurst": {
+    "name": "prvtEfmOamLoopbackResultRateBurst",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalInOctets": {
+    "name": "prvtEfmOamLoopbackResultLocalInOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalOutOctets": {
+    "name": "prvtEfmOamLoopbackResultLocalOutOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalInUcastPkts": {
+    "name": "prvtEfmOamLoopbackResultLocalInUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalOutUcastPkts": {
+    "name": "prvtEfmOamLoopbackResultLocalOutUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalInNUcastPkts": {
+    "name": "prvtEfmOamLoopbackResultLocalInNUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalOutNUcastPkts": {
+    "name": "prvtEfmOamLoopbackResultLocalOutNUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalInDiscards": {
+    "name": "prvtEfmOamLoopbackResultLocalInDiscards",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalOutDiscards": {
+    "name": "prvtEfmOamLoopbackResultLocalOutDiscards",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalInErrors": {
+    "name": "prvtEfmOamLoopbackResultLocalInErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamLoopbackResultLocalOutErrors": {
+    "name": "prvtEfmOamLoopbackResultLocalOutErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.18.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerTable": {
+    "name": "prvtEfmOamPeerTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamPeerEntry": {
+    "name": "prvtEfmOamPeerEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamPeerMacAddress": {
+    "name": "prvtEfmOamPeerMacAddress",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerVendorOui": {
+    "name": "prvtEfmOamPeerVendorOui",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerVendorInfo": {
+    "name": "prvtEfmOamPeerVendorInfo",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerRole": {
+    "name": "prvtEfmOamPeerRole",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passive": 1,
+          "active": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerMaxOamPduSize": {
+    "name": "prvtEfmOamPeerMaxOamPduSize",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerConfigRevision": {
+    "name": "prvtEfmOamPeerConfigRevision",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerFunctionsSupported": {
+    "name": "prvtEfmOamPeerFunctionsSupported",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unidirectionalSupport": 0,
+        "loopbackSupport": 1,
+        "eventSupport": 2,
+        "variableSupport": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerPort": {
+    "name": "prvtEfmOamPeerPort",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerName": {
+    "name": "prvtEfmOamPeerName",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamPeerMode": {
+    "name": "prvtEfmOamPeerMode",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic": 1,
+          "enhanced": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsTable": {
+    "name": "prvtEfmOamStatisticsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsEntry": {
+    "name": "prvtEfmOamStatisticsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsInformationTx": {
+    "name": "prvtEfmOamStatisticsInformationTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsInformationRx": {
+    "name": "prvtEfmOamStatisticsInformationRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsUniqueEventNotificationTx": {
+    "name": "prvtEfmOamStatisticsUniqueEventNotificationTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsUniqueEventNotificationRx": {
+    "name": "prvtEfmOamStatisticsUniqueEventNotificationRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsDuplicateEventNotificationTx": {
+    "name": "prvtEfmOamStatisticsDuplicateEventNotificationTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsDuplicateEventNotificationRx": {
+    "name": "prvtEfmOamStatisticsDuplicateEventNotificationRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsLoopbackControlTx": {
+    "name": "prvtEfmOamStatisticsLoopbackControlTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsLoopbackControlRx": {
+    "name": "prvtEfmOamStatisticsLoopbackControlRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsVariableRequestTx": {
+    "name": "prvtEfmOamStatisticsVariableRequestTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsVariableRequestRx": {
+    "name": "prvtEfmOamStatisticsVariableRequestRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsVariableResponseTx": {
+    "name": "prvtEfmOamStatisticsVariableResponseTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsVariableResponseRx": {
+    "name": "prvtEfmOamStatisticsVariableResponseRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsOrganizationSpecificTx": {
+    "name": "prvtEfmOamStatisticsOrganizationSpecificTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsOrganizationSpecificRx": {
+    "name": "prvtEfmOamStatisticsOrganizationSpecificRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsUnsupportedCodesTx": {
+    "name": "prvtEfmOamStatisticsUnsupportedCodesTx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsUnsupportedCodesRx": {
+    "name": "prvtEfmOamStatisticsUnsupportedCodesRx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamStatisticsFramesLostDueToOam": {
+    "name": "prvtEfmOamStatisticsFramesLostDueToOam",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.20.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigTable": {
+    "name": "prvtEfmOamEventConfigTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigEntry": {
+    "name": "prvtEfmOamEventConfigEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigErrorSymbolPeriodWindow": {
+    "name": "prvtEfmOamEventConfigErrorSymbolPeriodWindow",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigErrorSymbolPeriodThreshold": {
+    "name": "prvtEfmOamEventConfigErrorSymbolPeriodThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigErrorSymbolPeriodEventNotificationEnable": {
+    "name": "prvtEfmOamEventConfigErrorSymbolPeriodEventNotificationEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigErrorFrameWindow": {
+    "name": "prvtEfmOamEventConfigErrorFrameWindow",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigErrorFrameThreshold": {
+    "name": "prvtEfmOamEventConfigErrorFrameThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigErrorFrameEventNotificationEnable": {
+    "name": "prvtEfmOamEventConfigErrorFrameEventNotificationEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventConfigDyingGaspEnable": {
+    "name": "prvtEfmOamEventConfigDyingGaspEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogTable": {
+    "name": "prvtEfmOamEventLogTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogEntry": {
+    "name": "prvtEfmOamEventLogEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamEventLogId": {
+    "name": "prvtEfmOamEventLogId",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogTimeStamp": {
+    "name": "prvtEfmOamEventLogTimeStamp",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogOui": {
+    "name": "prvtEfmOamEventLogOui",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogType": {
+    "name": "prvtEfmOamEventLogType",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "erroredSymbolEvent": 1,
+          "erroredFramePeriodEvent": 2,
+          "erroredFrameEvent": 3,
+          "erroredFrameSecondsEvent": 4,
+          "linkFault": 256,
+          "dyingGaspEvent": 257,
+          "criticalEvent": 258
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogLocation": {
+    "name": "prvtEfmOamEventLogLocation",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogWindow": {
+    "name": "prvtEfmOamEventLogWindow",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogThreshold": {
+    "name": "prvtEfmOamEventLogThreshold",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogValue": {
+    "name": "prvtEfmOamEventLogValue",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogRunningTotal": {
+    "name": "prvtEfmOamEventLogRunningTotal",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamEventLogEventTotal": {
+    "name": "prvtEfmOamEventLogEventTotal",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceTable": {
+    "name": "prvtEfmOamInterfaceTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceEntry": {
+    "name": "prvtEfmOamInterfaceEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceEnable": {
+    "name": "prvtEfmOamInterfaceEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceOperStatus": {
+    "name": "prvtEfmOamInterfaceOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "linkFault": 2,
+          "passiveWait": 3,
+          "activeSendLocal": 4,
+          "sendLocalAndRemote": 5,
+          "sendLocalAndRemoteOk": 6,
+          "oamPeeringLocallyRejected": 7,
+          "oamPeeringRemoteRejected": 8,
+          "operational": 9,
+          "nonOperHalfDuplex": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceRole": {
+    "name": "prvtEfmOamInterfaceRole",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceMaxPduSize": {
+    "name": "prvtEfmOamInterfaceMaxPduSize",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceConfigRevision": {
+    "name": "prvtEfmOamInterfaceConfigRevision",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceFunctionsSupported": {
+    "name": "prvtEfmOamInterfaceFunctionsSupported",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unidirectionalSupport": 0,
+        "loopbackSupport": 1,
+        "eventSupport": 2,
+        "variableSupport": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfacePacketSent": {
+    "name": "prvtEfmOamInterfacePacketSent",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfacePacketReceived": {
+    "name": "prvtEfmOamInterfacePacketReceived",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceMode": {
+    "name": "prvtEfmOamInterfaceMode",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic": 1,
+          "enhanced": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceLoopbackStatus": {
+    "name": "prvtEfmOamInterfaceLoopbackStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLoopback": 1,
+          "initiatingLoopback": 2,
+          "remoteLoopback": 3,
+          "terminatingLoopback": 4,
+          "localLoopback": 5,
+          "unknownLoopback": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceAcceptLoopbackCommands": {
+    "name": "prvtEfmOamInterfaceAcceptLoopbackCommands",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamInterfaceEventReturnShutdown": {
+    "name": "prvtEfmOamInterfaceEventReturnShutdown",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.23.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardStatusTable": {
+    "name": "prvtEfmOamEventForwardStatusTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardStatusEntry": {
+    "name": "prvtEfmOamEventForwardStatusEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventForwardStatusIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardStatusIdx": {
+    "name": "prvtEfmOamEventForwardStatusIdx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardStatusRowStatus": {
+    "name": "prvtEfmOamEventForwardStatusRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardShutdownTable": {
+    "name": "prvtEfmOamEventForwardShutdownTable",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardShutdownEntry": {
+    "name": "prvtEfmOamEventForwardShutdownEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventForwardShutdownIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardShutdownIdx": {
+    "name": "prvtEfmOamEventForwardShutdownIdx",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtEfmOamEventForwardShutdownRowStatus": {
+    "name": "prvtEfmOamEventForwardShutdownRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.133.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtEfmOamLoopBackState": {
+    "name": "prvtEfmOamLoopBackState",
+    "oid": "1.3.6.1.4.1.738.1.5.133.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamInterfaceEnable"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamInterfaceRole"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamInterfaceLoopbackStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamDyingGasp": {
+    "name": "prvtEfmOamDyingGasp",
+    "oid": "1.3.6.1.4.1.738.1.5.133.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "prvtEfmOamThresholdEvent": {
+    "name": "prvtEfmOamThresholdEvent",
+    "oid": "1.3.6.1.4.1.738.1.5.133.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogTimeStamp"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogOui"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogType"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogLocation"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogWindow"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogThreshold"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogValue"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogRunningTotal"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogEventTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtEfmOamNonThresholdEvent": {
+    "name": "prvtEfmOamNonThresholdEvent",
+    "oid": "1.3.6.1.4.1.738.1.5.133.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogTimeStamp"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogOui"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogType"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogLocation"
+      },
+      {
+        "module": "PRVT-EFM-OAM-MIB",
+        "object": "prvtEfmOamEventLogEventTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-EFM-OAM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-EFM-OAM-MIB"
+  }
+}

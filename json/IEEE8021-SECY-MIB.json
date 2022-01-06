@@ -1,0 +1,1976 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "RowPointer"
+    ]
+  },
+  "ieee8021SecyMIB": {
+    "name": "ieee8021SecyMIB",
+    "oid": "1.0.8802.1.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-10 00:00",
+        "description": "Initial version of this MIB module. Published as part of IEEE standard 802.1AE"
+      }
+    ]
+  },
+  "secyMIBNotifications": {
+    "name": "secyMIBNotifications",
+    "oid": "1.0.8802.1.1.3.0",
+    "class": "objectidentity"
+  },
+  "secyMIBObjects": {
+    "name": "secyMIBObjects",
+    "oid": "1.0.8802.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "secyMIBConformance": {
+    "name": "secyMIBConformance",
+    "oid": "1.0.8802.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "SecySCI": {
+    "name": "SecySCI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SecyAN": {
+    "name": "SecyAN",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "secyMgmtMIBObjects": {
+    "name": "secyMgmtMIBObjects",
+    "oid": "1.0.8802.1.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "secyStatsMIBObjects": {
+    "name": "secyStatsMIBObjects",
+    "oid": "1.0.8802.1.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "secyIfTable": {
+    "name": "secyIfTable",
+    "oid": "1.0.8802.1.1.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyIfEntry": {
+    "name": "secyIfEntry",
+    "oid": "1.0.8802.1.1.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "secyIfInterfaceIndex": {
+    "name": "secyIfInterfaceIndex",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyIfMaxPeerSCs": {
+    "name": "secyIfMaxPeerSCs",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "security connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyIfRxMaxKeys": {
+    "name": "secyIfRxMaxKeys",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "keys",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyIfTxMaxKeys": {
+    "name": "secyIfTxMaxKeys",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "keys",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyIfProtectFramesEnable": {
+    "name": "secyIfProtectFramesEnable",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfValidateFrames": {
+    "name": "secyIfValidateFrames",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "check": 2,
+          "strict": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "strict",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfReplayProtectEnable": {
+    "name": "secyIfReplayProtectEnable",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfReplayProtectWindow": {
+    "name": "secyIfReplayProtectWindow",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfCurrentCipherSuite": {
+    "name": "secyIfCurrentCipherSuite",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfAdminPt2PtMAC": {
+    "name": "secyIfAdminPt2PtMAC",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfOperPt2PtMAC": {
+    "name": "secyIfOperPt2PtMAC",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyIfIncludeSCIEnable": {
+    "name": "secyIfIncludeSCIEnable",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfUseESEnable": {
+    "name": "secyIfUseESEnable",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyIfUseSCBEnable": {
+    "name": "secyIfUseSCBEnable",
+    "oid": "1.0.8802.1.1.3.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyTxSCTable": {
+    "name": "secyTxSCTable",
+    "oid": "1.0.8802.1.1.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyTxSCEntry": {
+    "name": "secyTxSCEntry",
+    "oid": "1.0.8802.1.1.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "secyTxSCI": {
+    "name": "secyTxSCI",
+    "oid": "1.0.8802.1.1.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecySCI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCState": {
+    "name": "secyTxSCState",
+    "oid": "1.0.8802.1.1.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inUse": 1,
+          "notInUse": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCEncodingSA": {
+    "name": "secyTxSCEncodingSA",
+    "oid": "1.0.8802.1.1.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCEncipheringSA": {
+    "name": "secyTxSCEncipheringSA",
+    "oid": "1.0.8802.1.1.3.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCCreatedTime": {
+    "name": "secyTxSCCreatedTime",
+    "oid": "1.0.8802.1.1.3.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCStartedTime": {
+    "name": "secyTxSCStartedTime",
+    "oid": "1.0.8802.1.1.3.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCStoppedTime": {
+    "name": "secyTxSCStoppedTime",
+    "oid": "1.0.8802.1.1.3.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSATable": {
+    "name": "secyTxSATable",
+    "oid": "1.0.8802.1.1.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyTxSAEntry": {
+    "name": "secyTxSAEntry",
+    "oid": "1.0.8802.1.1.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSA",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "secyTxSA": {
+    "name": "secyTxSA",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecyAN",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyTxSAState": {
+    "name": "secyTxSAState",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inUse": 1,
+          "notInUse": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSANextPN": {
+    "name": "secyTxSANextPN",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSAConfidentiality": {
+    "name": "secyTxSAConfidentiality",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSASAKUnchanged": {
+    "name": "secyTxSASAKUnchanged",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSACreatedTime": {
+    "name": "secyTxSACreatedTime",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSAStartedTime": {
+    "name": "secyTxSAStartedTime",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSAStoppedTime": {
+    "name": "secyTxSAStoppedTime",
+    "oid": "1.0.8802.1.1.3.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCTable": {
+    "name": "secyRxSCTable",
+    "oid": "1.0.8802.1.1.3.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyRxSCEntry": {
+    "name": "secyRxSCEntry",
+    "oid": "1.0.8802.1.1.3.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "secyRxSCI": {
+    "name": "secyRxSCI",
+    "oid": "1.0.8802.1.1.3.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecySCI",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyRxSCState": {
+    "name": "secyRxSCState",
+    "oid": "1.0.8802.1.1.3.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inUse": 1,
+          "notInUse": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCCurrentSA": {
+    "name": "secyRxSCCurrentSA",
+    "oid": "1.0.8802.1.1.3.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCCreatedTime": {
+    "name": "secyRxSCCreatedTime",
+    "oid": "1.0.8802.1.1.3.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStartedTime": {
+    "name": "secyRxSCStartedTime",
+    "oid": "1.0.8802.1.1.3.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStoppedTime": {
+    "name": "secyRxSCStoppedTime",
+    "oid": "1.0.8802.1.1.3.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSATable": {
+    "name": "secyRxSATable",
+    "oid": "1.0.8802.1.1.3.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyRxSAEntry": {
+    "name": "secyRxSAEntry",
+    "oid": "1.0.8802.1.1.3.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCI",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSA",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "secyRxSA": {
+    "name": "secyRxSA",
+    "oid": "1.0.8802.1.1.3.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecyAN",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyRxSAState": {
+    "name": "secyRxSAState",
+    "oid": "1.0.8802.1.1.3.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inUse": 1,
+          "notInUse": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSANextPN": {
+    "name": "secyRxSANextPN",
+    "oid": "1.0.8802.1.1.3.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secyRxSASAKUnchanged": {
+    "name": "secyRxSASAKUnchanged",
+    "oid": "1.0.8802.1.1.3.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSACreatedTime": {
+    "name": "secyRxSACreatedTime",
+    "oid": "1.0.8802.1.1.3.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSAStartedTime": {
+    "name": "secyRxSAStartedTime",
+    "oid": "1.0.8802.1.1.3.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSAStoppedTime": {
+    "name": "secyRxSAStoppedTime",
+    "oid": "1.0.8802.1.1.3.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyCipherSuiteTable": {
+    "name": "secyCipherSuiteTable",
+    "oid": "1.0.8802.1.1.3.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyCipherSuiteEntry": {
+    "name": "secyCipherSuiteEntry",
+    "oid": "1.0.8802.1.1.3.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "secyCipherSuiteIndex": {
+    "name": "secyCipherSuiteIndex",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyCipherSuiteId": {
+    "name": "secyCipherSuiteId",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyCipherSuiteName": {
+    "name": "secyCipherSuiteName",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyCipherSuiteCapability": {
+    "name": "secyCipherSuiteCapability",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "integrity": 0,
+        "confidentiality": 1,
+        "offsetConfidentiality": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyCipherSuiteProtection": {
+    "name": "secyCipherSuiteProtection",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "integrity": 0,
+        "confidentiality": 1,
+        "offsetConfidentiality": 2
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "integrity": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyCipherSuiteProtectionOffset": {
+    "name": "secyCipherSuiteProtectionOffset",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 50,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyCipherSuiteDataLengthChange": {
+    "name": "secyCipherSuiteDataLengthChange",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyCipherSuiteICVLength": {
+    "name": "secyCipherSuiteICVLength",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyCipherSuiteRowStatus": {
+    "name": "secyCipherSuiteRowStatus",
+    "oid": "1.0.8802.1.1.3.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "secyTxSAStatsTable": {
+    "name": "secyTxSAStatsTable",
+    "oid": "1.0.8802.1.1.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyTxSAStatsEntry": {
+    "name": "secyTxSAStatsEntry",
+    "oid": "1.0.8802.1.1.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "secyTxSAStatsEntry",
+      "module": "IEEE8021-SECY-MIB",
+      "object": "secyTxSAEntry"
+    },
+    "status": "current"
+  },
+  "secyTxSAStatsProtectedPkts": {
+    "name": "secyTxSAStatsProtectedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSAStatsEncryptedPkts": {
+    "name": "secyTxSAStatsEncryptedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCStatsTable": {
+    "name": "secyTxSCStatsTable",
+    "oid": "1.0.8802.1.1.3.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyTxSCStatsEntry": {
+    "name": "secyTxSCStatsEntry",
+    "oid": "1.0.8802.1.1.3.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "secyTxSCStatsEntry",
+      "module": "IEEE8021-SECY-MIB",
+      "object": "secyTxSCEntry"
+    },
+    "status": "current"
+  },
+  "secyTxSCStatsProtectedPkts": {
+    "name": "secyTxSCStatsProtectedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCStatsEncryptedPkts": {
+    "name": "secyTxSCStatsEncryptedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCStatsOctetsProtected": {
+    "name": "secyTxSCStatsOctetsProtected",
+    "oid": "1.0.8802.1.1.3.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyTxSCStatsOctetsEncrypted": {
+    "name": "secyTxSCStatsOctetsEncrypted",
+    "oid": "1.0.8802.1.1.3.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSAStatsTable": {
+    "name": "secyRxSAStatsTable",
+    "oid": "1.0.8802.1.1.3.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyRxSAStatsEntry": {
+    "name": "secyRxSAStatsEntry",
+    "oid": "1.0.8802.1.1.3.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "secyRxSAStatsEntry",
+      "module": "IEEE8021-SECY-MIB",
+      "object": "secyRxSAEntry"
+    },
+    "status": "current"
+  },
+  "secyRxSAStatsUnusedSAPkts": {
+    "name": "secyRxSAStatsUnusedSAPkts",
+    "oid": "1.0.8802.1.1.3.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSAStatsNoUsingSAPkts": {
+    "name": "secyRxSAStatsNoUsingSAPkts",
+    "oid": "1.0.8802.1.1.3.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSAStatsNotValidPkts": {
+    "name": "secyRxSAStatsNotValidPkts",
+    "oid": "1.0.8802.1.1.3.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSAStatsInvalidPkts": {
+    "name": "secyRxSAStatsInvalidPkts",
+    "oid": "1.0.8802.1.1.3.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSAStatsOKPkts": {
+    "name": "secyRxSAStatsOKPkts",
+    "oid": "1.0.8802.1.1.3.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsTable": {
+    "name": "secyRxSCStatsTable",
+    "oid": "1.0.8802.1.1.3.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyRxSCStatsEntry": {
+    "name": "secyRxSCStatsEntry",
+    "oid": "1.0.8802.1.1.3.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "secyRxSCStatsEntry",
+      "module": "IEEE8021-SECY-MIB",
+      "object": "secyRxSCEntry"
+    },
+    "status": "current"
+  },
+  "secyRxSCStatsUnusedSAPkts": {
+    "name": "secyRxSCStatsUnusedSAPkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsNoUsingSAPkts": {
+    "name": "secyRxSCStatsNoUsingSAPkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsLatePkts": {
+    "name": "secyRxSCStatsLatePkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsNotValidPkts": {
+    "name": "secyRxSCStatsNotValidPkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsInvalidPkts": {
+    "name": "secyRxSCStatsInvalidPkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsDelayedPkts": {
+    "name": "secyRxSCStatsDelayedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsUncheckedPkts": {
+    "name": "secyRxSCStatsUncheckedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsOKPkts": {
+    "name": "secyRxSCStatsOKPkts",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsOctetsValidated": {
+    "name": "secyRxSCStatsOctetsValidated",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyRxSCStatsOctetsDecrypted": {
+    "name": "secyRxSCStatsOctetsDecrypted",
+    "oid": "1.0.8802.1.1.3.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsTable": {
+    "name": "secyStatsTable",
+    "oid": "1.0.8802.1.1.3.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "secyStatsEntry": {
+    "name": "secyStatsEntry",
+    "oid": "1.0.8802.1.1.3.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "secyStatsEntry",
+      "module": "IEEE8021-SECY-MIB",
+      "object": "secyIfEntry"
+    },
+    "status": "current"
+  },
+  "secyStatsTxUntaggedPkts": {
+    "name": "secyStatsTxUntaggedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsTxTooLongPkts": {
+    "name": "secyStatsTxTooLongPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsRxUntaggedPkts": {
+    "name": "secyStatsRxUntaggedPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsRxNoTagPkts": {
+    "name": "secyStatsRxNoTagPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsRxBadTagPkts": {
+    "name": "secyStatsRxBadTagPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsRxUnknownSCIPkts": {
+    "name": "secyStatsRxUnknownSCIPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsRxNoSCIPkts": {
+    "name": "secyStatsRxNoSCIPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyStatsRxOverrunPkts": {
+    "name": "secyStatsRxOverrunPkts",
+    "oid": "1.0.8802.1.1.3.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secyMIBCompliances": {
+    "name": "secyMIBCompliances",
+    "oid": "1.0.8802.1.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "secyMIBGroups": {
+    "name": "secyMIBGroups",
+    "oid": "1.0.8802.1.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "secyMIBCompliance": {
+    "name": "secyMIBCompliance",
+    "oid": "1.0.8802.1.1.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "secyIfCtrlGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyTxSCGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyTxSAGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyRxSCGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyRxSAGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyCipherSuiteGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyTxSAStatsGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyTxSCStatsGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyRxSAStatsGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyRxSCStatsGroup",
+        "module": "IEEE8021-SECY-MIB"
+      },
+      {
+        "object": "secyStatsGroup",
+        "module": "IEEE8021-SECY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "secyIfCtrlGroup": {
+    "name": "secyIfCtrlGroup",
+    "oid": "1.0.8802.1.1.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfMaxPeerSCs"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfRxMaxKeys"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfTxMaxKeys"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfProtectFramesEnable"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfValidateFrames"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfReplayProtectEnable"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfReplayProtectWindow"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfCurrentCipherSuite"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfAdminPt2PtMAC"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfOperPt2PtMAC"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfIncludeSCIEnable"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfUseESEnable"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyIfUseSCBEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "secyTxSCGroup": {
+    "name": "secyTxSCGroup",
+    "oid": "1.0.8802.1.1.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCI"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCState"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCEncodingSA"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCEncipheringSA"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCCreatedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCStartedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCStoppedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "secyTxSAGroup": {
+    "name": "secyTxSAGroup",
+    "oid": "1.0.8802.1.1.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSAState"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSANextPN"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSAConfidentiality"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSASAKUnchanged"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSACreatedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSAStartedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSAStoppedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "secyRxSCGroup": {
+    "name": "secyRxSCGroup",
+    "oid": "1.0.8802.1.1.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCState"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCCurrentSA"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCCreatedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStartedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStoppedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "secyRxSAGroup": {
+    "name": "secyRxSAGroup",
+    "oid": "1.0.8802.1.1.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAState"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSANextPN"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSASAKUnchanged"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSACreatedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAStartedTime"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAStoppedTime"
+      }
+    ],
+    "status": "current"
+  },
+  "secyCipherSuiteGroup": {
+    "name": "secyCipherSuiteGroup",
+    "oid": "1.0.8802.1.1.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteId"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteName"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteCapability"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteProtection"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteProtectionOffset"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteDataLengthChange"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteICVLength"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyCipherSuiteRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "secyTxSAStatsGroup": {
+    "name": "secyTxSAStatsGroup",
+    "oid": "1.0.8802.1.1.3.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSAStatsProtectedPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSAStatsEncryptedPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "secyRxSAStatsGroup": {
+    "name": "secyRxSAStatsGroup",
+    "oid": "1.0.8802.1.1.3.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAStatsUnusedSAPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAStatsNoUsingSAPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAStatsNotValidPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAStatsInvalidPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSAStatsOKPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "secyTxSCStatsGroup": {
+    "name": "secyTxSCStatsGroup",
+    "oid": "1.0.8802.1.1.3.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCStatsProtectedPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCStatsEncryptedPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCStatsOctetsProtected"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyTxSCStatsOctetsEncrypted"
+      }
+    ],
+    "status": "current"
+  },
+  "secyRxSCStatsGroup": {
+    "name": "secyRxSCStatsGroup",
+    "oid": "1.0.8802.1.1.3.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsUnusedSAPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsNoUsingSAPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsLatePkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsNotValidPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsInvalidPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsDelayedPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsUncheckedPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsOKPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsOctetsValidated"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyRxSCStatsOctetsDecrypted"
+      }
+    ],
+    "status": "current"
+  },
+  "secyStatsGroup": {
+    "name": "secyStatsGroup",
+    "oid": "1.0.8802.1.1.3.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsTxUntaggedPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsTxTooLongPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsRxUntaggedPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsRxNoTagPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsRxBadTagPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsRxUnknownSCIPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsRxNoSCIPkts"
+      },
+      {
+        "module": "IEEE8021-SECY-MIB",
+        "object": "secyStatsRxOverrunPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-SECY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-SECY-MIB"
+  }
+}

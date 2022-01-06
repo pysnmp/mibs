@@ -1,0 +1,1513 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "POWER-ETHERNET-MIB": [
+      "pethPsePortGroupIndex",
+      "pethMainPseGroupIndex",
+      "pethPsePortEntry",
+      "pethPsePortIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPowerEthernetExtMIB": {
+    "name": "ciscoPowerEthernetExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.402",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-01-19 00:00",
+        "description": "Added following OBJECT-GROUP - cpeExtPseInfoPwrGroup Added new compliance - cpeExtMIBCompliance6."
+      },
+      {
+        "revision": "2013-07-10 00:00",
+        "description": "Added following TEXTUAL-CONVENTION - CpeExtLldpPwrClassOrZero Added following OBJECT-GROUP - cpeExtPsePortLldpPowerGroup Added new compliance - cpeExtMIBCompliance5."
+      },
+      {
+        "revision": "2011-07-18 00:00",
+        "description": "Added cpeExtPowerPriorityGroup, cpeExtPsePortLldpGroup and cpeExtPsePortCapabilitiesGroup. Added a new enumeration 'class4' in cpeExtPdStatsClass. Added TEXTUAL-CONVENTION CpeExtLldpPwrType, CpeExtLldpPwrSrc, and CpeExtPwrPriority."
+      },
+      {
+        "revision": "2009-12-04 00:00",
+        "description": "Updated the DESCRIPTION of cpeExtPolicingNotif."
+      },
+      {
+        "revision": "2007-04-12 00:00",
+        "description": "Added 'overdrawLog' value to cpeExtPsePortAdditionalStatus. Added cpeExtPortPolicingActionGroup, cpeExtPortPwrManAllocGroup cpeExtPolicingNotifEnableGroup, and cpeExtPolicingNotifGroup."
+      },
+      {
+        "revision": "2007-02-02 00:00",
+        "description": "Added cpeExtPsePortEntPhyIndex, cpeExtPsePortPolicingCapable and cpeExtPsePortPolicingEnable to cpeExtPsePortTable. Added cpeExtPdStatsTotalDevices and cpeExtPdStatsTable. Added enumerated value disable(5) to cpeExtPsePortEnable."
+      },
+      {
+        "revision": "2005-06-10 00:00",
+        "description": "Added 'limit' to cpeExtPsePortEnable, 'overdraw' to cpeExtPsePortAdditionalStatus and the groups cpeExtPsePortPwrMonitorGroup and cpeExtMainPseGroup."
+      },
+      {
+        "revision": "2004-04-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cpeExtMIBNotifs": {
+    "name": "cpeExtMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.402.0",
+    "class": "objectidentity"
+  },
+  "cpeExtMIBObjects": {
+    "name": "cpeExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.402.1",
+    "class": "objectidentity"
+  },
+  "cpeExtMIBConformance": {
+    "name": "cpeExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.402.2",
+    "class": "objectidentity"
+  },
+  "CpeExtLldpPwrType": {
+    "name": "CpeExtLldpPwrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1Pd": 1,
+          "type1Pse": 2,
+          "type2Pd": 3,
+          "type2Pse": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpeExtLldpPwrSrc": {
+    "name": "CpeExtLldpPwrSrc",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pseAndLocal": 1,
+          "local": 2,
+          "pse": 3,
+          "backupSrc": 4,
+          "primarySrc": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpeExtPwrPriority": {
+    "name": "CpeExtPwrPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "low": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CpeExtLldpPwrClassOrZero": {
+    "name": "CpeExtLldpPwrClassOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "class0": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cpeExtDefaultAllocation": {
+    "name": "cpeExtDefaultAllocation",
+    "oid": "1.3.6.1.4.1.9.9.402.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPsePortTable": {
+    "name": "cpeExtPsePortTable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpeExtPsePortEntry": {
+    "name": "cpeExtPsePortEntry",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpeExtPsePortEntry",
+      "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+      "object": "pethPsePortEntry"
+    },
+    "status": "current"
+  },
+  "cpeExtPsePortEnable": {
+    "name": "cpeExtPsePortEnable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "static": 2,
+          "limit": 3,
+          "disable": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPsePortDiscoverMode": {
+    "name": "cpeExtPsePortDiscoverMode",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "off": 2,
+          "ieee": 3,
+          "cisco": 4,
+          "ieeeAndCisco": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortDeviceDetected": {
+    "name": "cpeExtPsePortDeviceDetected",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortIeeePd": {
+    "name": "cpeExtPsePortIeeePd",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortAdditionalStatus": {
+    "name": "cpeExtPsePortAdditionalStatus",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "deny": 0,
+        "overdraw": 1,
+        "overdrawLog": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortPwrMax": {
+    "name": "cpeExtPsePortPwrMax",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPsePortPwrAllocated": {
+    "name": "cpeExtPsePortPwrAllocated",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortPwrAvailable": {
+    "name": "cpeExtPsePortPwrAvailable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortPwrConsumption": {
+    "name": "cpeExtPsePortPwrConsumption",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortMaxPwrDrawn": {
+    "name": "cpeExtPsePortMaxPwrDrawn",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortEntPhyIndex": {
+    "name": "cpeExtPsePortEntPhyIndex",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortPolicingCapable": {
+    "name": "cpeExtPsePortPolicingCapable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortPolicingEnable": {
+    "name": "cpeExtPsePortPolicingEnable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPsePortPolicingAction": {
+    "name": "cpeExtPsePortPolicingAction",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "logOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPsePortPwrManAlloc": {
+    "name": "cpeExtPsePortPwrManAlloc",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPsePortCapabilities": {
+    "name": "cpeExtPsePortCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.402.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "policing": 0,
+        "poePlus": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtMainPseTable": {
+    "name": "cpeExtMainPseTable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpeExtMainPseEntry": {
+    "name": "cpeExtMainPseEntry",
+    "oid": "1.3.6.1.4.1.9.9.402.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethMainPseGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtMainPseEntPhyIndex": {
+    "name": "cpeExtMainPseEntPhyIndex",
+    "oid": "1.3.6.1.4.1.9.9.402.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtMainPseDescr": {
+    "name": "cpeExtMainPseDescr",
+    "oid": "1.3.6.1.4.1.9.9.402.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtMainPsePwrMonitorCapable": {
+    "name": "cpeExtMainPsePwrMonitorCapable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtMainPseUsedPower": {
+    "name": "cpeExtMainPseUsedPower",
+    "oid": "1.3.6.1.4.1.9.9.402.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "miliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtMainPseRemainingPower": {
+    "name": "cpeExtMainPseRemainingPower",
+    "oid": "1.3.6.1.4.1.9.9.402.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "miliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPdStatistics": {
+    "name": "cpeExtPdStatistics",
+    "oid": "1.3.6.1.4.1.9.9.402.1.4",
+    "class": "objectidentity"
+  },
+  "cpeExtPdStatsTotalDevices": {
+    "name": "cpeExtPdStatsTotalDevices",
+    "oid": "1.3.6.1.4.1.9.9.402.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPdStatsTable": {
+    "name": "cpeExtPdStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpeExtPdStatsEntry": {
+    "name": "cpeExtPdStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.402.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPdStatsClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPdStatsClass": {
+    "name": "cpeExtPdStatsClass",
+    "oid": "1.3.6.1.4.1.9.9.402.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cisco": 1,
+          "class0": 2,
+          "class1": 3,
+          "class2": 4,
+          "class3": 5,
+          "class4": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpeExtPdStatsDeviceCount": {
+    "name": "cpeExtPdStatsDeviceCount",
+    "oid": "1.3.6.1.4.1.9.9.402.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPolicingNotifEnable": {
+    "name": "cpeExtPolicingNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPowerPriorityEnable": {
+    "name": "cpeExtPowerPriorityEnable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpTable": {
+    "name": "cpeExtPsePortLldpTable",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpEntry": {
+    "name": "cpeExtPsePortLldpEntry",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethPsePortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "POWER-ETHERNET-MIB",
+        "object": "pethPsePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPwrType": {
+    "name": "cpeExtPsePortLldpPwrType",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtLldpPwrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrType": {
+    "name": "cpeExtPsePortLldpPdPwrType",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtLldpPwrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPwrSrc": {
+    "name": "cpeExtPsePortLldpPwrSrc",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtLldpPwrSrc",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrSrc": {
+    "name": "cpeExtPsePortLldpPdPwrSrc",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtLldpPwrSrc",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPwrPriority": {
+    "name": "cpeExtPsePortLldpPwrPriority",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtPwrPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrPriority": {
+    "name": "cpeExtPsePortLldpPdPwrPriority",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtPwrPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPwrReq": {
+    "name": "cpeExtPsePortLldpPwrReq",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrReq": {
+    "name": "cpeExtPsePortLldpPdPwrReq",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPwrAlloc": {
+    "name": "cpeExtPsePortLldpPwrAlloc",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrAlloc": {
+    "name": "cpeExtPsePortLldpPdPwrAlloc",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPwrClass": {
+    "name": "cpeExtPsePortLldpPwrClass",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtLldpPwrClassOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrClass": {
+    "name": "cpeExtPsePortLldpPdPwrClass",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpeExtLldpPwrClassOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrSupport": {
+    "name": "cpeExtPsePortLldpPdPwrSupport",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "portClass": 0,
+        "pseMdiPwrSupport": 1,
+        "pseMdiPwrState": 2,
+        "psePairCtrlAbility": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPdPwrPairsOrZero": {
+    "name": "cpeExtPsePortLldpPdPwrPairsOrZero",
+    "oid": "1.3.6.1.4.1.9.9.402.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "signal": 1,
+          "spare": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpeExtPolicingNotif": {
+    "name": "cpeExtPolicingNotif",
+    "oid": "1.3.6.1.4.1.9.9.402.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPolicingAction"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortAdditionalStatus"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPwrAllocated"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortMaxPwrDrawn"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtMIBCompliances": {
+    "name": "cpeExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.402.2.1",
+    "class": "objectidentity"
+  },
+  "cpeExtMIBGroups": {
+    "name": "cpeExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2",
+    "class": "objectidentity"
+  },
+  "cpeExtMIBCompliance": {
+    "name": "cpeExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.402.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpeExtPsePortGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortGlobalConfigGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpeExtMIBCompliance2": {
+    "name": "cpeExtMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.402.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpeExtPsePortGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortGlobalConfigGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortPwrMonitorGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtMainPseGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpeExtMIBCompliance3": {
+    "name": "cpeExtMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.402.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpeExtPsePortGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortGlobalConfigGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortPwrMonitorGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtMainPseGroup2",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPseGrpPwrGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortEntityIndexGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPdStatsGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingActionGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPwrManAllocGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifEnableGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpeExtMIBCompliance4": {
+    "name": "cpeExtMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.402.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpeExtPsePortGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortGlobalConfigGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortPwrMonitorGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtMainPseGroup2",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPseGrpPwrGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortEntityIndexGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPdStatsGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingActionGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPwrManAllocGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifEnableGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPowerPriorityGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortLldpGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortCapabilitiesGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpeExtMIBCompliance5": {
+    "name": "cpeExtMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.402.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpeExtPsePortGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortGlobalConfigGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortPwrMonitorGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtMainPseGroup2",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPseGrpPwrGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortEntityIndexGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPdStatsGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingActionGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPwrManAllocGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifEnableGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPowerPriorityGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortLldpGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortCapabilitiesGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortLldpPowerGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpeExtMIBCompliance6": {
+    "name": "cpeExtMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.402.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpeExtPsePortGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortGlobalConfigGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortPwrMonitorGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtMainPseGroup2",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPseGrpPwrGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortEntityIndexGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPdStatsGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPolicingActionGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPortPwrManAllocGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifEnableGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPolicingNotifGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPowerPriorityGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortLldpGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortCapabilitiesGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPsePortLldpPowerGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      },
+      {
+        "object": "cpeExtPseInfoPwrGroup",
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPsePortGroup": {
+    "name": "cpeExtPsePortGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortEnable"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortDiscoverMode"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortDeviceDetected"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortIeeePd"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortAdditionalStatus"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPwrMax"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPwrAllocated"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPwrAvailable"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPwrConsumption"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPsePortGlobalConfigGroup": {
+    "name": "cpeExtPsePortGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtDefaultAllocation"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPsePortPwrMonitorGroup": {
+    "name": "cpeExtPsePortPwrMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortMaxPwrDrawn"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtMainPseGroup": {
+    "name": "cpeExtMainPseGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPseEntPhyIndex"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPseDescr"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPsePwrMonitorCapable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpeExtPortEntityIndexGroup": {
+    "name": "cpeExtPortEntityIndexGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortEntPhyIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPortPolicingGroup": {
+    "name": "cpeExtPortPolicingGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPolicingCapable"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPolicingEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPdStatsGroup": {
+    "name": "cpeExtPdStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPdStatsTotalDevices"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPdStatsDeviceCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtMainPseGroup2": {
+    "name": "cpeExtMainPseGroup2",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPseEntPhyIndex"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPseDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPseGrpPwrGroup": {
+    "name": "cpeExtPseGrpPwrGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPsePwrMonitorCapable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPortPolicingActionGroup": {
+    "name": "cpeExtPortPolicingActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPolicingAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPortPwrManAllocGroup": {
+    "name": "cpeExtPortPwrManAllocGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortPwrManAlloc"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPolicingNotifEnableGroup": {
+    "name": "cpeExtPolicingNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPolicingNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPolicingNotifGroup": {
+    "name": "cpeExtPolicingNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPolicingNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPowerPriorityGroup": {
+    "name": "cpeExtPowerPriorityGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPowerPriorityEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPsePortLldpGroup": {
+    "name": "cpeExtPsePortLldpGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPwrType"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrType"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPwrSrc"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrSrc"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPwrPriority"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrPriority"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPwrReq"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrReq"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPwrAlloc"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrAlloc"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPsePortCapabilitiesGroup": {
+    "name": "cpeExtPsePortCapabilitiesGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPsePortLldpPowerGroup": {
+    "name": "cpeExtPsePortLldpPowerGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPwrClass"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrClass"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrSupport"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtPsePortLldpPdPwrPairsOrZero"
+      }
+    ],
+    "status": "current"
+  },
+  "cpeExtPseInfoPwrGroup": {
+    "name": "cpeExtPseInfoPwrGroup",
+    "oid": "1.3.6.1.4.1.9.9.402.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPseUsedPower"
+      },
+      {
+        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
+        "object": "cpeExtMainPseRemainingPower"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-POWER-ETHERNET-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-POWER-ETHERNET-EXT-MIB"
+  }
+}

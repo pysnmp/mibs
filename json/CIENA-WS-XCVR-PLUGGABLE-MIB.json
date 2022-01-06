@@ -1,0 +1,1375 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsConfig"
+    ],
+    "CIENA-WS-TYPEDEFS-MIB": [
+      "XcvrSerdesRxEmphasis",
+      "StringMaxl16",
+      "XcvrSerdesTxEq",
+      "StringMaxl32",
+      "XcvrId",
+      "Decimal2Dig",
+      "XcvrSerdesRxAmplitude",
+      "ChannelsNumber"
+    ],
+    "CIENA-WS-XCVR-MIB": [
+      "cwsXcvrDeviceIdEntry",
+      "cwsXcvrChannelDiagnosticsEntry",
+      "cwsXcvrVendorDiagnosticMonitoringEntry",
+      "cwsXcvrVendorIdEntry",
+      "cwsXcvrVendorTransmitterEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsXcvrPluggableMIB": {
+    "name": "cienaWsXcvrPluggableMIB",
+    "oid": "1.3.6.1.4.1.1271.3.4.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-24 00:00",
+        "description": "Waveserver Release 1.5 Added 'serdes-config' container for QSFP28s."
+      },
+      {
+        "revision": "2017-03-02 00:00",
+        "description": "Waveserver Release 1.4 Aligned MIB files to respect YANG read/write status."
+      },
+      {
+        "revision": "2016-12-12 00:00",
+        "description": "Waveserver Rel 1.3 revised. Updated enum definition for leaf identifier to remove the parentheses in some enum names. Added a new entry to enum of 'revision-compliance' leaf."
+      },
+      {
+        "revision": "2016-06-14 00:00",
+        "description": "Waveserver Rel 1.2 revised. Major restructuring of this YANG module."
+      },
+      {
+        "revision": "2015-02-25 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "cwsXcvrAugXcvrPluggableVendorIdTable": {
+    "name": "cwsXcvrAugXcvrPluggableVendorIdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableVendorIdEntry": {
+    "name": "cwsXcvrAugXcvrPluggableVendorIdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsXcvrAugXcvrPluggableVendorIdEntry",
+      "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+      "object": "cwsXcvrVendorIdEntry"
+    },
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorIdRevisionCompliance": {
+    "name": "cwsXcvrPluggableVendorIdRevisionCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notspecified": 0,
+          "rv47": 1,
+          "rv472h": 2,
+          "rv13": 3,
+          "rv14": 4,
+          "rv15": 5,
+          "rv20": 6,
+          "rv20and26and27": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorOuiTable": {
+    "name": "cwsXcvrPluggableVendorOuiTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorOuiEntry": {
+    "name": "cwsXcvrPluggableVendorOuiEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrVendorIdTableSnmpKey",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorOuiTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorOuiTableSnmpKey": {
+    "name": "cwsXcvrPluggableVendorOuiTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorOui": {
+    "name": "cwsXcvrPluggableVendorOui",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableDeviceIdTable": {
+    "name": "cwsXcvrAugXcvrPluggableDeviceIdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableDeviceIdEntry": {
+    "name": "cwsXcvrAugXcvrPluggableDeviceIdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsXcvrAugXcvrPluggableDeviceIdEntry",
+      "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+      "object": "cwsXcvrDeviceIdEntry"
+    },
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceIdIdentifier": {
+    "name": "cwsXcvrPluggableDeviceIdIdentifier",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownorunspecified": 0,
+          "gbic": 1,
+          "moduleconnectorsolderedtomotherboard": 2,
+          "fpsfpplussfp": 3,
+          "xbi300pin": 4,
+          "xenpak": 5,
+          "xfp": 6,
+          "xff": 7,
+          "xfpe": 8,
+          "xpak": 9,
+          "x2": 10,
+          "wdmsfporsf": 11,
+          "qsfp": 12,
+          "qsfpplus": 13,
+          "cxp": 14,
+          "shieldedminimultilanehd4x": 15,
+          "qsfp28": 17,
+          "cxp2": 18,
+          "cdfpstyle1or2": 19,
+          "shieldedminimultilanehd4xfanout": 20,
+          "shieldedminimultilanehd8xfanout": 21,
+          "cdfpstyle3": 22,
+          "wavelogic3extreme": 256
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceIdIdentifierRaw": {
+    "name": "cwsXcvrPluggableDeviceIdIdentifierRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceIdExtendedIdentifierRaw": {
+    "name": "cwsXcvrPluggableDeviceIdExtendedIdentifierRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceIdPowerConsumption": {
+    "name": "cwsXcvrPluggableDeviceIdPowerConsumption",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class1module15wmax": 0,
+          "class2module20wmax": 1,
+          "class3module25wmax": 2,
+          "class4module35wmax": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceIdClei": {
+    "name": "cwsXcvrPluggableDeviceIdClei",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl16",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceIdConnectorTypeRaw": {
+    "name": "cwsXcvrPluggableDeviceIdConnectorTypeRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableVendorTransmitterTable": {
+    "name": "cwsXcvrAugXcvrPluggableVendorTransmitterTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableVendorTransmitterEntry": {
+    "name": "cwsXcvrAugXcvrPluggableVendorTransmitterEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsXcvrAugXcvrPluggableVendorTransmitterEntry",
+      "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+      "object": "cwsXcvrVendorTransmitterEntry"
+    },
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorTransmitterWavelength": {
+    "name": "cwsXcvrPluggableVendorTransmitterWavelength",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorTransmitterWavelengthRaw": {
+    "name": "cwsXcvrPluggableVendorTransmitterWavelengthRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorTransmitterEncodingDescription": {
+    "name": "cwsXcvrPluggableVendorTransmitterEncodingDescription",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 0,
+          "encoding8b10b": 1,
+          "encoding4b5b": 2,
+          "nrz": 3,
+          "sonetscrambled": 4,
+          "encoding64b66b": 5,
+          "manchester": 6,
+          "encoding256b257b": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorTransmitterEncodingRaw": {
+    "name": "cwsXcvrPluggableVendorTransmitterEncodingRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableVendorDiagnosticMonitoringTable": {
+    "name": "cwsXcvrAugXcvrPluggableVendorDiagnosticMonitoringTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableVendorDiagnosticMonitoringEntry": {
+    "name": "cwsXcvrAugXcvrPluggableVendorDiagnosticMonitoringEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsXcvrAugXcvrPluggableVendorDiagnosticMonitoringEntry",
+      "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+      "object": "cwsXcvrVendorDiagnosticMonitoringEntry"
+    },
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorDiagnosticMonitoringDiagnosticMonitoringTypeRaw": {
+    "name": "cwsXcvrPluggableVendorDiagnosticMonitoringDiagnosticMonitoringTypeRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableVendorDiagnosticMonitoringDiagnosticMonitoringImplemented": {
+    "name": "cwsXcvrPluggableVendorDiagnosticMonitoringDiagnosticMonitoringImplemented",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableTransceiverCodeTable": {
+    "name": "cwsXcvrPluggableTransceiverCodeTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableTransceiverCodeEntry": {
+    "name": "cwsXcvrPluggableTransceiverCodeEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableTransceiverCodeTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableTransceiverCodeTableSnmpKey": {
+    "name": "cwsXcvrPluggableTransceiverCodeTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableTransceiverCodeSpecificationCompliance": {
+    "name": "cwsXcvrPluggableTransceiverCodeSpecificationCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "speccompliance40gactivecablexlppi": 0,
+        "speccompliance40gbaselr4": 1,
+        "speccompliance40gbasesr4": 2,
+        "speccompliance40gbasecr4": 3,
+        "speccompliance10gbasesr": 4,
+        "speccompliance10gbaselr": 5,
+        "speccompliance10gbaselrm": 6,
+        "extendedspeccompliance100gactiveopticalcable": 8,
+        "extendedspeccompliance100gbasesr4": 9,
+        "extendedspeccompliance100gbaselr4": 10,
+        "extendedspeccompliance100gbaseer4": 11,
+        "extendedspeccompliance100gbasesr10": 12,
+        "extendedspeccompliance100gcwdm4msawithfec": 13,
+        "extendedspeccompliance100gpsm4parallelsmf": 14,
+        "extendedspeccompliance100gactivecoppercable": 15,
+        "extendedspeccompliance100gcwdmmsawithoutfec": 16,
+        "extendedspeccompliance100gbasecr4": 18,
+        "extendedspeccompliance40gbaseer4": 23,
+        "extendedspeccompliance4x10gbasesr": 24,
+        "extendedspeccompliance40gpsm4parallelsmf": 25,
+        "extendedspeccomplianceg9591p1i12d1": 26,
+        "extendedspeccomplianceg9591p1s12d2": 27,
+        "extendedspeccomplianceg9591p1l12d2": 28,
+        "extspeccode10gbasetwithsfi": 29,
+        "unknown": 30
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsXcvrPluggableTransceiverCodeTransceiverCodeRaw": {
+    "name": "cwsXcvrPluggableTransceiverCodeTransceiverCodeRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceTechnologyTable": {
+    "name": "cwsXcvrPluggableDeviceTechnologyTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceTechnologyEntry": {
+    "name": "cwsXcvrPluggableDeviceTechnologyEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceTechnologyTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceTechnologyTableSnmpKey": {
+    "name": "cwsXcvrPluggableDeviceTechnologyTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceTechnologyDeviceTechnologyRaw": {
+    "name": "cwsXcvrPluggableDeviceTechnologyDeviceTechnologyRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceTechnologyTransmitterTunable": {
+    "name": "cwsXcvrPluggableDeviceTechnologyTransmitterTunable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableDeviceTechnologyMaxCaseTemperature": {
+    "name": "cwsXcvrPluggableDeviceTechnologyMaxCaseTemperature",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsTable": {
+    "name": "cwsXcvrPluggableOptionsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsEntry": {
+    "name": "cwsXcvrPluggableOptionsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsTableSnmpKey": {
+    "name": "cwsXcvrPluggableOptionsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsOptionsRaw": {
+    "name": "cwsXcvrPluggableOptionsOptionsRaw",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StringMaxl32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsTxinpeqautoadaptcapable": {
+    "name": "cwsXcvrPluggableOptionsTxinpeqautoadaptcapable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsTxinpeqfixedprogramsetting": {
+    "name": "cwsXcvrPluggableOptionsTxinpeqfixedprogramsetting",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsRxoutemfixedprogramsetting": {
+    "name": "cwsXcvrPluggableOptionsRxoutemfixedprogramsetting",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsRxoutamfixedprogramsetting": {
+    "name": "cwsXcvrPluggableOptionsRxoutamfixedprogramsetting",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsTxCdrLossOfLockFlag": {
+    "name": "cwsXcvrPluggableOptionsTxCdrLossOfLockFlag",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsRxCdrLossOfLockFlag": {
+    "name": "cwsXcvrPluggableOptionsRxCdrLossOfLockFlag",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsUserEepromPage02hProvided": {
+    "name": "cwsXcvrPluggableOptionsUserEepromPage02hProvided",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableOptionsAstPage01hProvided": {
+    "name": "cwsXcvrPluggableOptionsAstPage01hProvided",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableSupplyVoltageTable": {
+    "name": "cwsXcvrPluggableSupplyVoltageTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableSupplyVoltageEntry": {
+    "name": "cwsXcvrPluggableSupplyVoltageEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableSupplyVoltageTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableSupplyVoltageTableSnmpKey": {
+    "name": "cwsXcvrPluggableSupplyVoltageTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableSupplyVoltageActual": {
+    "name": "cwsXcvrPluggableSupplyVoltageActual",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableStatusTable": {
+    "name": "cwsXcvrPluggableStatusTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableStatusEntry": {
+    "name": "cwsXcvrPluggableStatusEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableStatusTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableStatusTableSnmpKey": {
+    "name": "cwsXcvrPluggableStatusTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrStatusHighAlarmStatus": {
+    "name": "cwsXcvrStatusHighAlarmStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrStatusLowAlarmStatus": {
+    "name": "cwsXcvrStatusLowAlarmStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrStatusHighWarningStatus": {
+    "name": "cwsXcvrStatusHighWarningStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrStatusLowWarningStatus": {
+    "name": "cwsXcvrStatusLowWarningStatus",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableThresholdTable": {
+    "name": "cwsXcvrPluggableThresholdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableThresholdEntry": {
+    "name": "cwsXcvrPluggableThresholdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableThresholdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableThresholdTableSnmpKey": {
+    "name": "cwsXcvrPluggableThresholdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrThresholdHighAlarmThreshold": {
+    "name": "cwsXcvrThresholdHighAlarmThreshold",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrThresholdLowAlarmThreshold": {
+    "name": "cwsXcvrThresholdLowAlarmThreshold",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrThresholdHighWarningThreshold": {
+    "name": "cwsXcvrThresholdHighWarningThreshold",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrThresholdLowWarningThreshold": {
+    "name": "cwsXcvrThresholdLowWarningThreshold",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal2Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableChannelDiagnosticsTable": {
+    "name": "cwsXcvrAugXcvrPluggableChannelDiagnosticsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrAugXcvrPluggableChannelDiagnosticsEntry": {
+    "name": "cwsXcvrAugXcvrPluggableChannelDiagnosticsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cwsXcvrAugXcvrPluggableChannelDiagnosticsEntry",
+      "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+      "object": "cwsXcvrChannelDiagnosticsEntry"
+    },
+    "status": "current"
+  },
+  "cwsXcvrPluggableChannelDiagnosticsTransmitterFault": {
+    "name": "cwsXcvrPluggableChannelDiagnosticsTransmitterFault",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableChannelDiagnosticsTxAdaptiveEqFault": {
+    "name": "cwsXcvrPluggableChannelDiagnosticsTxAdaptiveEqFault",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsXcvrPluggableSerdesConfigTable": {
+    "name": "cwsXcvrPluggableSerdesConfigTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrPluggableSerdesConfigEntry": {
+    "name": "cwsXcvrPluggableSerdesConfigEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrXcvrsXcvrIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableSerdesConfigTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsXcvrPluggableSerdesConfigTableSnmpKey": {
+    "name": "cwsXcvrPluggableSerdesConfigTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsXcvrSerdesConfigSerdesTxEq": {
+    "name": "cwsXcvrSerdesConfigSerdesTxEq",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XcvrSerdesTxEq",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsXcvrSerdesConfigSerdesRxAmplitude": {
+    "name": "cwsXcvrSerdesConfigSerdesRxAmplitude",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XcvrSerdesRxAmplitude",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsXcvrSerdesConfigSerdesRxEmphasis": {
+    "name": "cwsXcvrSerdesConfigSerdesRxEmphasis",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XcvrSerdesRxEmphasis",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaWsXcvrPluggableObjects": {
+    "name": "cienaWsXcvrPluggableObjects",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.1",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrPluggableConformance": {
+    "name": "cienaWsXcvrPluggableConformance",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.2",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrPluggableGroups": {
+    "name": "cienaWsXcvrPluggableGroups",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.2.1",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrPluggableGroup": {
+    "name": "cienaWsXcvrPluggableGroup",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorIdRevisionCompliance"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceIdIdentifier"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceIdIdentifierRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceIdExtendedIdentifierRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceIdPowerConsumption"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceIdClei"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceIdConnectorTypeRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorTransmitterWavelength"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorTransmitterWavelengthRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorTransmitterEncodingDescription"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorTransmitterEncodingRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorDiagnosticMonitoringDiagnosticMonitoringTypeRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableVendorDiagnosticMonitoringDiagnosticMonitoringImplemented"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableTransceiverCodeSpecificationCompliance"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableTransceiverCodeTransceiverCodeRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceTechnologyDeviceTechnologyRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceTechnologyTransmitterTunable"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableDeviceTechnologyMaxCaseTemperature"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsOptionsRaw"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsTxinpeqautoadaptcapable"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsTxinpeqfixedprogramsetting"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsRxoutemfixedprogramsetting"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsRxoutamfixedprogramsetting"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsTxCdrLossOfLockFlag"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsRxCdrLossOfLockFlag"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsUserEepromPage02hProvided"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableOptionsAstPage01hProvided"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableSupplyVoltageActual"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrStatusHighAlarmStatus"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrStatusLowAlarmStatus"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrStatusHighWarningStatus"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrStatusLowWarningStatus"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrThresholdHighAlarmThreshold"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrThresholdLowAlarmThreshold"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrThresholdHighWarningThreshold"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrThresholdLowWarningThreshold"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableChannelDiagnosticsTransmitterFault"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrPluggableChannelDiagnosticsTxAdaptiveEqFault"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrSerdesConfigSerdesTxEq"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrSerdesConfigSerdesRxAmplitude"
+      },
+      {
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB",
+        "object": "cwsXcvrSerdesConfigSerdesRxEmphasis"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaWsXcvrPluggableCompliances": {
+    "name": "cienaWsXcvrPluggableCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.2.2",
+    "class": "objectidentity"
+  },
+  "cienaWsXcvrPluggableCompliance": {
+    "name": "cienaWsXcvrPluggableCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.17.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cienaWsXcvrPluggableGroup",
+        "module": "CIENA-WS-XCVR-PLUGGABLE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-PLUGGABLE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-XCVR-PLUGGABLE-MIB"
+  }
+}

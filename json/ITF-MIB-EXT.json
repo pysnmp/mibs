@@ -1,0 +1,1186 @@
+{
+  "imports": {
+    "class": "imports",
+    "ASAM-ALARM-MIB": [
+      "AsamAlarmSeverityType"
+    ],
+    "ASAM-EQUIP-MIB": [
+      "eqptHolderId"
+    ],
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "ITF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SYSTEM-MIB": [
+      "asam"
+    ]
+  },
+  "AsamItfSeverityFilterType": {
+    "name": "AsamItfSeverityFilterType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "indeterminate": 1,
+          "warning": 2,
+          "minor": 3,
+          "major": 4,
+          "critical": 5,
+          "noAlarms": 254,
+          "default": 255
+        }
+      }
+    }
+  },
+  "asamItfMIB": {
+    "name": "asamItfMIB",
+    "oid": "1.3.6.1.4.1.637.61.1.6",
+    "class": "objectidentity"
+  },
+  "asamPhyItfOperStatus": {
+    "name": "asamPhyItfOperStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "asamPhyItfBitmap": {
+    "name": "asamPhyItfBitmap",
+    "oid": "1.3.6.1.4.1.637.61.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "asamPhyItfChangeOccurredTrapEnable": {
+    "name": "asamPhyItfChangeOccurredTrapEnable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "asamPhyItfNumberChangeOccurred": {
+    "name": "asamPhyItfNumberChangeOccurred",
+    "oid": "1.3.6.1.4.1.637.61.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamIfExtTable": {
+    "name": "asamIfExtTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamIfExtEntry": {
+    "name": "asamIfExtEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ITF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamIfExtCustomerId": {
+    "name": "asamIfExtCustomerId",
+    "oid": "1.3.6.1.4.1.637.61.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "available",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamIfExtAlmReportingSeverity": {
+    "name": "asamIfExtAlmReportingSeverity",
+    "oid": "1.3.6.1.4.1.637.61.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamItfSeverityFilterType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamIfExtIfSpecific": {
+    "name": "asamIfExtIfSpecific",
+    "oid": "1.3.6.1.4.1.637.61.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamNextAvailablePortType": {
+    "name": "asamNextAvailablePortType",
+    "oid": "1.3.6.1.4.1.637.61.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamNextAvailablePort": {
+    "name": "asamNextAvailablePort",
+    "oid": "1.3.6.1.4.1.637.61.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamIfExtAlmReportingSeverityDefaultTable": {
+    "name": "asamIfExtAlmReportingSeverityDefaultTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamIfExtAlmReportingSeverityDefaultEntry": {
+    "name": "asamIfExtAlmReportingSeverityDefaultEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ITF-MIB-EXT",
+        "object": "asamIfExtIfType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamIfExtIfType": {
+    "name": "asamIfExtIfType",
+    "oid": "1.3.6.1.4.1.637.61.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamIfExtAlmReportingSeverityDefault": {
+    "name": "asamIfExtAlmReportingSeverityDefault",
+    "oid": "1.3.6.1.4.1.637.61.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamAlarmSeverityType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "major",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamItfTest": {
+    "name": "asamItfTest",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestGroup": {
+    "name": "asamItfMetallicTestGroup",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestTypes": {
+    "name": "asamItfMetallicTestTypes",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestLimited": {
+    "name": "asamItfMetallicTestLimited",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1.1",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestTapLooped": {
+    "name": "asamItfMetallicTestTapLooped",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1.2",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestMonitor": {
+    "name": "asamItfMetallicTestMonitor",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1.3",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestSplitAccess": {
+    "name": "asamItfMetallicTestSplitAccess",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1.4",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestInwardOnly": {
+    "name": "asamItfMetallicTestInwardOnly",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1.5",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestOutwardOnly": {
+    "name": "asamItfMetallicTestOutwardOnly",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1.6",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestResetTimer": {
+    "name": "asamItfMetallicTestResetTimer",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.1.7",
+    "class": "objectidentity"
+  },
+  "asamItfMetallicTestCodes": {
+    "name": "asamItfMetallicTestCodes",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2",
+    "class": "objectidentity"
+  },
+  "asamItfLineNotReachable": {
+    "name": "asamItfLineNotReachable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.1",
+    "class": "objectidentity"
+  },
+  "asamItfPreparingMetallicTest": {
+    "name": "asamItfPreparingMetallicTest",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.2",
+    "class": "objectidentity"
+  },
+  "asamItfAnotherMetallicTestInProgress": {
+    "name": "asamItfAnotherMetallicTestInProgress",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.3",
+    "class": "objectidentity"
+  },
+  "asamItfTestAppliqueNotReachable": {
+    "name": "asamItfTestAppliqueNotReachable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.4",
+    "class": "objectidentity"
+  },
+  "asamItfPotsSplitterNotReachable": {
+    "name": "asamItfPotsSplitterNotReachable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.5",
+    "class": "objectidentity"
+  },
+  "asamItfWcapNotReachable": {
+    "name": "asamItfWcapNotReachable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.6",
+    "class": "objectidentity"
+  },
+  "asamItfLineBusy": {
+    "name": "asamItfLineBusy",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.7",
+    "class": "objectidentity"
+  },
+  "asamItfLineAdminOperAbnormal": {
+    "name": "asamItfLineAdminOperAbnormal",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.8",
+    "class": "objectidentity"
+  },
+  "asamItfLineAnotherLineTestInProgress": {
+    "name": "asamItfLineAnotherLineTestInProgress",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.9",
+    "class": "objectidentity"
+  },
+  "asamItfTestNotPossible": {
+    "name": "asamItfTestNotPossible",
+    "oid": "1.3.6.1.4.1.637.61.1.6.9.1.2.10",
+    "class": "objectidentity"
+  },
+  "asamShelfPhyItfSummaryTable": {
+    "name": "asamShelfPhyItfSummaryTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamShelfPhyItfSummaryEntry": {
+    "name": "asamShelfPhyItfSummaryEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASAM-EQUIP-MIB",
+        "object": "eqptHolderId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamShelfPhyItfNumberChangeOccurred": {
+    "name": "asamShelfPhyItfNumberChangeOccurred",
+    "oid": "1.3.6.1.4.1.637.61.1.6.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamShelfPhyItfOperStatus": {
+    "name": "asamShelfPhyItfOperStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.6.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamShelfPhyItfBitmap": {
+    "name": "asamShelfPhyItfBitmap",
+    "oid": "1.3.6.1.4.1.637.61.1.6.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamLluTable": {
+    "name": "asamLluTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamLluEntry": {
+    "name": "asamLluEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ITF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "AsamLluRelayStatus": {
+    "name": "AsamLluRelayStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbundle": 1,
+          "connect": 2,
+          "connectForMelt": 3,
+          "disconnect": 4,
+          "disconnectTimed": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "asamLluRelayStatus": {
+    "name": "asamLluRelayStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.6.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamLluRelayStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamLluRelayActionTime": {
+    "name": "asamLluRelayActionTime",
+    "oid": "1.3.6.1.4.1.637.61.1.6.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "asamLluRelayOperStatus": {
+    "name": "asamLluRelayOperStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.6.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AsamLluRelayStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamLluRelayActionTimer": {
+    "name": "asamLluRelayActionTimer",
+    "oid": "1.3.6.1.4.1.637.61.1.6.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamIfExtCounterSupportTable": {
+    "name": "asamIfExtCounterSupportTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamIfExtCounterSupportEntry": {
+    "name": "asamIfExtCounterSupportEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ITF-MIB-EXT",
+        "object": "asamIfExtCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamIfExtCounterIndex": {
+    "name": "asamIfExtCounterIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifDescr": {
+    "name": "asamifTblifDescr",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifMtu": {
+    "name": "asamifTblifMtu",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifSpeed": {
+    "name": "asamifTblifSpeed",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifPhysAddress": {
+    "name": "asamifTblifPhysAddress",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifAdminStatus": {
+    "name": "asamifTblifAdminStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifOperStatus": {
+    "name": "asamifTblifOperStatus",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifLastChange": {
+    "name": "asamifTblifLastChange",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifInOctets": {
+    "name": "asamifTblifInOctets",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifInUcastPkts": {
+    "name": "asamifTblifInUcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifInNUcastPkts": {
+    "name": "asamifTblifInNUcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifInDiscards": {
+    "name": "asamifTblifInDiscards",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifInErrors": {
+    "name": "asamifTblifInErrors",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifInUbknownProtos": {
+    "name": "asamifTblifInUbknownProtos",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifOutOctets": {
+    "name": "asamifTblifOutOctets",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifOutUcastPkts": {
+    "name": "asamifTblifOutUcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifOutNUcastPkts": {
+    "name": "asamifTblifOutNUcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifOutDiscards": {
+    "name": "asamifTblifOutDiscards",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifTblifOutErrors": {
+    "name": "asamifTblifOutErrors",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifName": {
+    "name": "asamifxTblifName",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifInMulticastPkts": {
+    "name": "asamifxTblifInMulticastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifInBroadcastPkts": {
+    "name": "asamifxTblifInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifOutMulticastPkts": {
+    "name": "asamifxTblifOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifOutBroadcastPkts": {
+    "name": "asamifxTblifOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCInOctets": {
+    "name": "asamifxTblifHCInOctets",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCInUcastPkts": {
+    "name": "asamifxTblifHCInUcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCInMulticastPkts": {
+    "name": "asamifxTblifHCInMulticastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCInBroadcastPkts": {
+    "name": "asamifxTblifHCInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCOutOctets": {
+    "name": "asamifxTblifHCOutOctets",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCOutUcastPkts": {
+    "name": "asamifxTblifHCOutUcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCOutMulticastPkts": {
+    "name": "asamifxTblifHCOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHCOutBroadcastPkts": {
+    "name": "asamifxTblifHCOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifLinkUpDownTrapEnable": {
+    "name": "asamifxTblifLinkUpDownTrapEnable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifHighSpeed": {
+    "name": "asamifxTblifHighSpeed",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifPromiscuousMode": {
+    "name": "asamifxTblifPromiscuousMode",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifConnectorPresent": {
+    "name": "asamifxTblifConnectorPresent",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifAlias": {
+    "name": "asamifxTblifAlias",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamifxTblifCounterDiscontinuityTime": {
+    "name": "asamifxTblifCounterDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.637.61.1.6.12.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamIfIndexToExtIfIndexMappingTable": {
+    "name": "asamIfIndexToExtIfIndexMappingTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamIfIndexToExtIfIndexMappingEntry": {
+    "name": "asamIfIndexToExtIfIndexMappingEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ITF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamExtIfIndexId1": {
+    "name": "asamExtIfIndexId1",
+    "oid": "1.3.6.1.4.1.637.61.1.6.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamExtIfIndexId2": {
+    "name": "asamExtIfIndexId2",
+    "oid": "1.3.6.1.4.1.637.61.1.6.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamExtIfIndexId3": {
+    "name": "asamExtIfIndexId3",
+    "oid": "1.3.6.1.4.1.637.61.1.6.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamExtIfIndexToIfIndexMappingTable": {
+    "name": "asamExtIfIndexToIfIndexMappingTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamExtIfIndexToIfIndexMappingEntry": {
+    "name": "asamExtIfIndexToIfIndexMappingEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ITF-MIB-EXT",
+        "object": "asamExtIfIndexId1",
+        "implied": 0
+      },
+      {
+        "module": "ITF-MIB-EXT",
+        "object": "asamExtIfIndexId2",
+        "implied": 0
+      },
+      {
+        "module": "ITF-MIB-EXT",
+        "object": "asamExtIfIndexId3",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamIfIndex": {
+    "name": "asamIfIndex",
+    "oid": "1.3.6.1.4.1.637.61.1.6.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "asamIfPortTypeTable": {
+    "name": "asamIfPortTypeTable",
+    "oid": "1.3.6.1.4.1.637.61.1.6.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "asamIfPortTypeEntry": {
+    "name": "asamIfPortTypeEntry",
+    "oid": "1.3.6.1.4.1.637.61.1.6.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ITF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "asamIfPortType": {
+    "name": "asamIfPortType",
+    "oid": "1.3.6.1.4.1.637.61.1.6.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uni": 1,
+          "nni": 2,
+          "huni": 3,
+          "uplink": 4,
+          "lemi": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ITF-MIB-EXT",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ITF-MIB-EXT"
+  }
+}

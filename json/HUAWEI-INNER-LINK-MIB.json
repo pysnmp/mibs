@@ -1,0 +1,480 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "BITS",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwInnerLinkMIB": {
+    "name": "hwInnerLinkMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.158",
+    "class": "moduleidentity"
+  },
+  "hwInnerLinkMIBObjects": {
+    "name": "hwInnerLinkMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1",
+    "class": "objectidentity"
+  },
+  "hwInnerLinkMIBObjPrefix": {
+    "name": "hwInnerLinkMIBObjPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1",
+    "class": "objectidentity"
+  },
+  "hwInnerLinkLeftPortPhysicalIndex": {
+    "name": "hwInnerLinkLeftPortPhysicalIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwInnerLinkLeftPortPhysicalName": {
+    "name": "hwInnerLinkLeftPortPhysicalName",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwInnerLinkRightPortPhysicalIndex": {
+    "name": "hwInnerLinkRightPortPhysicalIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwInnerLinkRightPortPhysicalName": {
+    "name": "hwInnerLinkRightPortPhysicalName",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwInnerLinkTable": {
+    "name": "hwInnerLinkTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInnerLinkEntry": {
+    "name": "hwInnerLinkEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInnerLinkIndex": {
+    "name": "hwInnerLinkIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInnerLinkLeftFrameType": {
+    "name": "hwInnerLinkLeftFrameType",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "centralChassis": 2,
+          "lineChassis": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkLeftFrameId": {
+    "name": "hwInnerLinkLeftFrameId",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkLeftPortId": {
+    "name": "hwInnerLinkLeftPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkRightFrameType": {
+    "name": "hwInnerLinkRightFrameType",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "centralChassis": 2,
+          "lineChassis": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkRightFrameId": {
+    "name": "hwInnerLinkRightFrameId",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkRightPortId": {
+    "name": "hwInnerLinkRightPortId",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkType": {
+    "name": "hwInnerLinkType",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "controlChannel": 2,
+          "monitorChannel": 3,
+          "forwardChannel": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkAdminState": {
+    "name": "hwInnerLinkAdminState",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "locked": 2,
+          "shuttingDown": 3,
+          "unlocked": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwInnerLinkOperState": {
+    "name": "hwInnerLinkOperState",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "mostPhyChannelUp": 2,
+          "partPhyChannelUp": 3,
+          "mostPhyChannelDown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkAlarmLight": {
+    "name": "hwInnerLinkAlarmLight",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "notSupported": 0,
+        "underRepair": 1,
+        "critical": 2,
+        "major": 3,
+        "minor": 4,
+        "alarmOutstanding": 5,
+        "warning": 6,
+        "indeterminate": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInnerLinkTraps": {
+    "name": "hwInnerLinkTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2",
+    "class": "objectidentity"
+  },
+  "hwInnerLinkTrapsPrefix": {
+    "name": "hwInnerLinkTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2.1",
+    "class": "objectidentity"
+  },
+  "hwInnerLinkOnePhysicalLinkUp": {
+    "name": "hwInnerLinkOnePhysicalLinkUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInnerLinkOnePhysicalLinkDown": {
+    "name": "hwInnerLinkOnePhysicalLinkDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInnerLinkConformance": {
+    "name": "hwInnerLinkConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3",
+    "class": "objectidentity"
+  },
+  "hwInnerLinkCompliances": {
+    "name": "hwInnerLinkCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.1",
+    "class": "objectidentity"
+  },
+  "hwInnerLinkCompliance": {
+    "name": "hwInnerLinkCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwInnerLinkGroup",
+        "module": "HUAWEI-INNER-LINK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInnerLinkGroups": {
+    "name": "hwInnerLinkGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.2",
+    "class": "objectidentity"
+  },
+  "hwInnerLinkGroup": {
+    "name": "hwInnerLinkGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftFrameType"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftFrameId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightFrameType"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightFrameId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkType"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkAdminState"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkOperState"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkAlarmLight"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInnerLinkNotificationGroup": {
+    "name": "hwInnerLinkNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkOnePhysicalLinkUp"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkOnePhysicalLinkDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-INNER-LINK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-INNER-LINK-MIB"
+  }
+}

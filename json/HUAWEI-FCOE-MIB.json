@@ -1,0 +1,577 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "BITS"
+    ]
+  },
+  "hwFCoEMIB": {
+    "name": "hwFCoEMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.303",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-20 14:25",
+        "description": "Add type ResetFlag and mib node hwDcbPfcFrameStatisticsObjects."
+      },
+      {
+        "revision": "2010-08-11 16:00",
+        "description": "V1.00, initial version."
+      },
+      {
+        "revision": "2014-12-11 16:00",
+        "description": "Add type hwFCoEPortResource, hwTNPortVlan."
+      },
+      {
+        "revision": "2014-12-23 19:04",
+        "description": "Add type hwFCoEFcfVlan, hwFCoEVFPortNum, hwFCoEVNPortNum, hwFCoEInstName, hwSysMacNum, hwFCoEVsId ."
+      },
+      {
+        "revision": "2015-01-04 18:04",
+        "description": "Modify type hwFCoEVsId and other description ."
+      }
+    ]
+  },
+  "HWResetFlag": {
+    "name": "HWResetFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "reset": 1,
+          "enable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWCosType": {
+    "name": "HWCosType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 1,
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "ef": 6,
+          "cs6": 7,
+          "cs7": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwFCoEMIBTrapObjects": {
+    "name": "hwFCoEMIBTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1",
+    "class": "objectidentity"
+  },
+  "hwFCoEIfName": {
+    "name": "hwFCoEIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEVlan": {
+    "name": "hwFCoEVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEPortResource": {
+    "name": "hwFCoEPortResource",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTNPortVlan": {
+    "name": "hwTNPortVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEFcfVlan": {
+    "name": "hwFCoEFcfVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEVFPortNum": {
+    "name": "hwFCoEVFPortNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEVNPortNum": {
+    "name": "hwFCoEVNPortNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEInstName": {
+    "name": "hwFCoEInstName",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSysMacNum": {
+    "name": "hwSysMacNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEVsId": {
+    "name": "hwFCoEVsId",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFCoEMIBTraps": {
+    "name": "hwFCoEMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.2",
+    "class": "objectidentity"
+  },
+  "hwFCoEPortLoseVlan": {
+    "name": "hwFCoEPortLoseVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEIfName"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoEVLanError": {
+    "name": "hwFCoEVLanError",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEIfName"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoEConnectVfNum": {
+    "name": "hwFCoEConnectVfNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEPortResource"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoELoginVnNum": {
+    "name": "hwFCoELoginVnNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEInstName"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVFPortNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVNPortNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoETnNum": {
+    "name": "hwFCoETnNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVsId"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwSysMacNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVNPortNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoETnPortVlan": {
+    "name": "hwFCoETnPortVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEInstName"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwTNPortVlan"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEFcfVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoEConformance": {
+    "name": "hwFCoEConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.3",
+    "class": "objectidentity"
+  },
+  "hwFCoECompliances": {
+    "name": "hwFCoECompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.3.1",
+    "class": "objectidentity"
+  },
+  "hwFCoECompliance": {
+    "name": "hwFCoECompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwFCoEMIBTrapGroup",
+        "module": "HUAWEI-FCOE-MIB"
+      },
+      {
+        "object": "hwDcbPfcFrameGroup",
+        "module": "HUAWEI-FCOE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoEGroups": {
+    "name": "hwFCoEGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.3.2",
+    "class": "objectidentity"
+  },
+  "hwFCoEMIBTrapObjectGroup": {
+    "name": "hwFCoEMIBTrapObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEIfName"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVlan"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEPortResource"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwTNPortVlan"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEFcfVlan"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVFPortNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVNPortNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEInstName"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwSysMacNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVsId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFCoEMIBTrapGroup": {
+    "name": "hwFCoEMIBTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEPortLoseVlan"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEVLanError"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoEConnectVfNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoELoginVnNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoETnNum"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwFCoETnPortVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDcbPfcFrameGroup": {
+    "name": "hwDcbPfcFrameGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwDcbPfcIfIndex"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwDcbPfcQueueID"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwDcbPfcRxFrames"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwDcbPfcTxFrames"
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwDcbPfcResetFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDcbPfcFrameStatisticsObjects": {
+    "name": "hwDcbPfcFrameStatisticsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4",
+    "class": "objectidentity"
+  },
+  "hwDcbPfcFrameStatisticsTable": {
+    "name": "hwDcbPfcFrameStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDcbPfcFrameStatisticsEntry": {
+    "name": "hwDcbPfcFrameStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwDcbPfcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FCOE-MIB",
+        "object": "hwDcbPfcQueueID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDcbPfcIfIndex": {
+    "name": "hwDcbPfcIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDcbPfcQueueID": {
+    "name": "hwDcbPfcQueueID",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWCosType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDcbPfcRxFrames": {
+    "name": "hwDcbPfcRxFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDcbPfcTxFrames": {
+    "name": "hwDcbPfcTxFrames",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDcbPfcResetFlag": {
+    "name": "hwDcbPfcResetFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.303.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWResetFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-FCOE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-FCOE-MIB"
+  }
+}

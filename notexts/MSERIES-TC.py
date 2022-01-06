@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MSERIES-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-TC
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:32:20 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:50:13 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
 mseries, = mibBuilder.importSymbols("MSERIES-MIB", "mseries")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, iso, Gauge32, NotificationType, Integer32, IpAddress, MibIdentifier, Counter32, Counter64, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "iso", "Gauge32", "NotificationType", "Integer32", "IpAddress", "MibIdentifier", "Counter32", "Counter64", "TimeTicks", "Unsigned32")
+Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, ObjectIdentity, Unsigned32, MibIdentifier, Counter32, TimeTicks, ModuleIdentity, Bits, NotificationType, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "MibIdentifier", "Counter32", "TimeTicks", "ModuleIdentity", "Bits", "NotificationType", "iso", "IpAddress")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 smartTcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 1, 5))
 smartTcMIB.setRevisions(('2014-02-12 13:27', '2013-10-15 13:41', '2011-12-05 00:00',))
@@ -51,4 +51,4 @@ class PortMode(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
     namedValues = NamedValues(("normal", 1), ("service", 2))
 
-mibBuilder.exportSymbols("MSERIES-TC", AlarmProbableCause=AlarmProbableCause, PortType=PortType, PYSNMP_MODULE_ID=smartTcMIB, PortStatus=PortStatus, UnitType=UnitType, PortMode=PortMode, AlarmNotificationType=AlarmNotificationType, AlarmPerceivedSeverity=AlarmPerceivedSeverity, smartTcMIB=smartTcMIB)
+mibBuilder.exportSymbols("MSERIES-TC", smartTcMIB=smartTcMIB, PortType=PortType, UnitType=UnitType, AlarmProbableCause=AlarmProbableCause, PortStatus=PortStatus, PYSNMP_MODULE_ID=smartTcMIB, AlarmPerceivedSeverity=AlarmPerceivedSeverity, PortMode=PortMode, AlarmNotificationType=AlarmNotificationType)

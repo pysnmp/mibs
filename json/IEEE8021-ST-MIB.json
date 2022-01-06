@@ -1,0 +1,641 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePort",
+      "ieee8021BridgeBaseComponentId"
+    ],
+    "IEEE8021-TC-MIB": [
+      "ieee802dot1mibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8021STMib": {
+    "name": "ieee8021STMib",
+    "oid": "1.3.111.2.802.1.1.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-21 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2017 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2016-08-15 00:00",
+        "description": "Revised to include Set-And-Hold-MAC and Set-And-Release-MAC in the description of ieee8021STAdminControlList and ieee8021STOperControlList. Published as part of IEEE Std 802.1Qbu."
+      },
+      {
+        "revision": "2016-02-19 00:00",
+        "description": "Initial version published as part of IEEE Std 802.1Qbv."
+      }
+    ]
+  },
+  "IEEE8021STTrafficClassValue": {
+    "name": "IEEE8021STTrafficClassValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IEEE8021STPTPtimeValue": {
+    "name": "IEEE8021STPTPtimeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ieee8021STNotifications": {
+    "name": "ieee8021STNotifications",
+    "oid": "1.3.111.2.802.1.1.30.0",
+    "class": "objectidentity"
+  },
+  "ieee8021STObjects": {
+    "name": "ieee8021STObjects",
+    "oid": "1.3.111.2.802.1.1.30.1",
+    "class": "objectidentity"
+  },
+  "ieee8021STConformance": {
+    "name": "ieee8021STConformance",
+    "oid": "1.3.111.2.802.1.1.30.2",
+    "class": "objectidentity"
+  },
+  "ieee8021STMaxSDUSubtree": {
+    "name": "ieee8021STMaxSDUSubtree",
+    "oid": "1.3.111.2.802.1.1.30.1.1",
+    "class": "objectidentity"
+  },
+  "ieee8021STParameters": {
+    "name": "ieee8021STParameters",
+    "oid": "1.3.111.2.802.1.1.30.1.2",
+    "class": "objectidentity"
+  },
+  "ieee8021STMaxSDUTable": {
+    "name": "ieee8021STMaxSDUTable",
+    "oid": "1.3.111.2.802.1.1.30.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021STMaxSDUEntry": {
+    "name": "ieee8021STMaxSDUEntry",
+    "oid": "1.3.111.2.802.1.1.30.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STTrafficClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021STTrafficClass": {
+    "name": "ieee8021STTrafficClass",
+    "oid": "1.3.111.2.802.1.1.30.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STTrafficClassValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021STMaxSDU": {
+    "name": "ieee8021STMaxSDU",
+    "oid": "1.3.111.2.802.1.1.30.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TransmissionOverrun": {
+    "name": "ieee8021TransmissionOverrun",
+    "oid": "1.3.111.2.802.1.1.30.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STParametersTable": {
+    "name": "ieee8021STParametersTable",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021STParametersEntry": {
+    "name": "ieee8021STParametersEntry",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBaseComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021STGateEnabled": {
+    "name": "ieee8021STGateEnabled",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STAdminGateStates": {
+    "name": "ieee8021STAdminGateStates",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STOperGateStates": {
+    "name": "ieee8021STOperGateStates",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STAdminControlListLength": {
+    "name": "ieee8021STAdminControlListLength",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STOperControlListLength": {
+    "name": "ieee8021STOperControlListLength",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STAdminControlList": {
+    "name": "ieee8021STAdminControlList",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STOperControlList": {
+    "name": "ieee8021STOperControlList",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STAdminCycleTimeNumerator": {
+    "name": "ieee8021STAdminCycleTimeNumerator",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STAdminCycleTimeDenominator": {
+    "name": "ieee8021STAdminCycleTimeDenominator",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STOperCycleTimeNumerator": {
+    "name": "ieee8021STOperCycleTimeNumerator",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STOperCycleTimeDenominator": {
+    "name": "ieee8021STOperCycleTimeDenominator",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STAdminCycleTimeExtension": {
+    "name": "ieee8021STAdminCycleTimeExtension",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STOperCycleTimeExtension": {
+    "name": "ieee8021STOperCycleTimeExtension",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STAdminBaseTime": {
+    "name": "ieee8021STAdminBaseTime",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "units": "PTP time",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STOperBaseTime": {
+    "name": "ieee8021STOperBaseTime",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "units": "PTP time",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STConfigChange": {
+    "name": "ieee8021STConfigChange",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021STConfigChangeTime": {
+    "name": "ieee8021STConfigChangeTime",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "units": "PTP time",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STTickGranularity": {
+    "name": "ieee8021STTickGranularity",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STCurrentTime": {
+    "name": "ieee8021STCurrentTime",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021STPTPtimeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STConfigPending": {
+    "name": "ieee8021STConfigPending",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STConfigChangeError": {
+    "name": "ieee8021STConfigChangeError",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STSupportedListMax": {
+    "name": "ieee8021STSupportedListMax",
+    "oid": "1.3.111.2.802.1.1.30.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021STCompliances": {
+    "name": "ieee8021STCompliances",
+    "oid": "1.3.111.2.802.1.1.30.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021STGroups": {
+    "name": "ieee8021STGroups",
+    "oid": "1.3.111.2.802.1.1.30.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021STObjectsGroup": {
+    "name": "ieee8021STObjectsGroup",
+    "oid": "1.3.111.2.802.1.1.30.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STMaxSDU"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021TransmissionOverrun"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STGateEnabled"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STAdminGateStates"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STOperGateStates"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STAdminControlListLength"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STOperControlListLength"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STAdminControlList"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STOperControlList"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STAdminCycleTimeNumerator"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STAdminCycleTimeDenominator"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STOperCycleTimeNumerator"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STOperCycleTimeDenominator"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STAdminCycleTimeExtension"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STOperCycleTimeExtension"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STAdminBaseTime"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STOperBaseTime"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STConfigChange"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STConfigChangeTime"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STTickGranularity"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STCurrentTime"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STConfigPending"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STConfigChangeError"
+      },
+      {
+        "module": "IEEE8021-ST-MIB",
+        "object": "ieee8021STSupportedListMax"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021STCompliance": {
+    "name": "ieee8021STCompliance",
+    "oid": "1.3.111.2.802.1.1.30.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021STObjectsGroup",
+        "module": "IEEE8021-ST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-ST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-ST-MIB"
+  }
+}

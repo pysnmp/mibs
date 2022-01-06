@@ -1,0 +1,670 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "UBQS-SMI": [
+      "ubiMgmtv2"
+    ]
+  },
+  "ubiConfigMIB": {
+    "name": "ubiConfigMIB",
+    "oid": "1.3.6.1.4.1.7800.100.18",
+    "class": "moduleidentity"
+  },
+  "ConfigMethodType": {
+    "name": "ConfigMethodType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMethod": 0,
+          "startupConfig": 1,
+          "runningConfig": 2,
+          "ftp": 3,
+          "tftp": 4,
+          "flash": 5,
+          "usbFlash": 6,
+          "configFile": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ubiConfigMIBObjects": {
+    "name": "ubiConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.7800.100.18.1",
+    "class": "objectidentity"
+  },
+  "ubiConfigErase": {
+    "name": "ubiConfigErase",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.2",
+    "class": "objectidentity"
+  },
+  "ubiConfigCopy": {
+    "name": "ubiConfigCopy",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3",
+    "class": "objectidentity"
+  },
+  "ubiConfigInfoTable": {
+    "name": "ubiConfigInfoTable",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiConfigInfoEntry": {
+    "name": "ubiConfigInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiConfigName": {
+    "name": "ubiConfigName",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiConfigType": {
+    "name": "ubiConfigType",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "config": 1,
+          "image": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiConfigCurrentStatus": {
+    "name": "ubiConfigCurrentStatus",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCurrent": 0,
+          "currentConfig": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiConfigNextStatus": {
+    "name": "ubiConfigNextStatus",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noNext": 0,
+          "nextConfig": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigEraseMode": {
+    "name": "ubiConfigEraseMode",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMode": 0,
+          "startupConfig": 1,
+          "fileInFlash": 2,
+          "fileInUsbFlash": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigEraseFileName": {
+    "name": "ubiConfigEraseFileName",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigEraseOperate": {
+    "name": "ubiConfigEraseOperate",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "excute": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigEraseUsbPartNum": {
+    "name": "ubiConfigEraseUsbPartNum",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigSourceMethod": {
+    "name": "ubiConfigSourceMethod",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigMethodType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigSourceFileName": {
+    "name": "ubiConfigSourceFileName",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigSourceIpAddress": {
+    "name": "ubiConfigSourceIpAddress",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigSouceUserId": {
+    "name": "ubiConfigSouceUserId",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigSourceUserPassword": {
+    "name": "ubiConfigSourceUserPassword",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigSourcePartNum": {
+    "name": "ubiConfigSourcePartNum",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigDestinationMethod": {
+    "name": "ubiConfigDestinationMethod",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigMethodType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigDestinationFileName": {
+    "name": "ubiConfigDestinationFileName",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigDestinationIpAddress": {
+    "name": "ubiConfigDestinationIpAddress",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigDestinationUserId": {
+    "name": "ubiConfigDestinationUserId",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigDestinationUserPassword": {
+    "name": "ubiConfigDestinationUserPassword",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigDestinationPartNum": {
+    "name": "ubiConfigDestinationPartNum",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigCopyOperate": {
+    "name": "ubiConfigCopyOperate",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "excute": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiUsbConfigInfoTable": {
+    "name": "ubiUsbConfigInfoTable",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ubiUsbConfigInfoEntry": {
+    "name": "ubiUsbConfigInfoEntry",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiUsbPartNum",
+        "implied": 0
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiUsbConfigName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ubiUsbPartNum": {
+    "name": "ubiUsbPartNum",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiUsbConfigName": {
+    "name": "ubiUsbConfigName",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiUsbConfigType": {
+    "name": "ubiUsbConfigType",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "config": 1,
+          "image": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiUsbConfigCurrentStatus": {
+    "name": "ubiUsbConfigCurrentStatus",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCurrent": 0,
+          "currentConfig": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ubiUsbConfigNextStatus": {
+    "name": "ubiUsbConfigNextStatus",
+    "oid": "1.3.6.1.4.1.7800.100.18.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noNext": 0,
+          "nextConfig": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ubiConfigMIBNotificationPrefix": {
+    "name": "ubiConfigMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.7800.100.18.0",
+    "class": "objectidentity"
+  },
+  "ubiConfigMIBConformance": {
+    "name": "ubiConfigMIBConformance",
+    "oid": "1.3.6.1.4.1.7800.100.18.2",
+    "class": "objectidentity"
+  },
+  "ubiConfigMIBCompliances": {
+    "name": "ubiConfigMIBCompliances",
+    "oid": "1.3.6.1.4.1.7800.100.18.2.1",
+    "class": "objectidentity"
+  },
+  "ubiConfigMonMIBGroups": {
+    "name": "ubiConfigMonMIBGroups",
+    "oid": "1.3.6.1.4.1.7800.100.18.2.2",
+    "class": "objectidentity"
+  },
+  "ubiConfigMIBCompliance": {
+    "name": "ubiConfigMIBCompliance",
+    "oid": "1.3.6.1.4.1.7800.100.18.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ubiConfigMIBGroup",
+        "module": "UBQS-CONFIG-MIB"
+      },
+      {
+        "object": "ubiConfigMIBNotifGroup",
+        "module": "UBQS-CONFIG-MIB"
+      },
+      {
+        "object": "ubiConfigMIBGroup",
+        "module": "UBQS-CONFIG-MIB"
+      },
+      {
+        "object": "ubiConfigMIBNotifGroup",
+        "module": "UBQS-CONFIG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiConfigMIBGroup": {
+    "name": "ubiConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.7800.100.18.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigName"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigType"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigCurrentStatus"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigNextStatus"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigEraseMode"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigEraseFileName"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigEraseOperate"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigSourceMethod"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigSourceFileName"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigSourceIpAddress"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigSourceUserId"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigSourceUserPassword"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigSourcePartNum"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigDestinationMethod"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigDestinationFileName"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigDestinationIpAddress"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigDestinationUserId"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigDestinationUserPassword"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigDestinationPartNum"
+      },
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigCopyOperate"
+      }
+    ],
+    "status": "current"
+  },
+  "ubiConfigMIBNotifGroup": {
+    "name": "ubiConfigMIBNotifGroup",
+    "oid": "1.3.6.1.4.1.7800.100.18.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "UBQS-CONFIG-MIB",
+        "object": "ubiConfigRemoveNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-CONFIG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "UBQS-CONFIG-MIB"
+  }
+}

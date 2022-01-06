@@ -1,0 +1,692 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "ZYXEL-ES-SMI": [
+      "esMgmt"
+    ]
+  },
+  "zyxelHwMonitor": {
+    "name": "zyxelHwMonitor",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26",
+    "class": "moduleidentity"
+  },
+  "zyxelHwMonitorStatus": {
+    "name": "zyxelHwMonitorStatus",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1",
+    "class": "objectidentity"
+  },
+  "zyxelHwMonitorNotifications": {
+    "name": "zyxelHwMonitorNotifications",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2",
+    "class": "objectidentity"
+  },
+  "zyxelHwMonitorTrapInfoObject": {
+    "name": "zyxelHwMonitorTrapInfoObject",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.3",
+    "class": "objectidentity"
+  },
+  "zyxelHwMonitorFanRpmTable": {
+    "name": "zyxelHwMonitorFanRpmTable",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyxelHwMonitorFanRpmEntry": {
+    "name": "zyxelHwMonitorFanRpmEntry",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorFanRpmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorFanRpmIndex": {
+    "name": "zyHwMonitorFanRpmIndex",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyHwMonitorFanRpmDescription": {
+    "name": "zyHwMonitorFanRpmDescription",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorFanRpmCurrentValue": {
+    "name": "zyHwMonitorFanRpmCurrentValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorFanRpmMaxValue": {
+    "name": "zyHwMonitorFanRpmMaxValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorFanRpmMinValue": {
+    "name": "zyHwMonitorFanRpmMinValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorFanRpmLowThreshold": {
+    "name": "zyHwMonitorFanRpmLowThreshold",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorFanRpmStatus": {
+    "name": "zyHwMonitorFanRpmStatus",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyxelHwMonitorTemperatureTable": {
+    "name": "zyxelHwMonitorTemperatureTable",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyxelHwMonitorTemperatureEntry": {
+    "name": "zyxelHwMonitorTemperatureEntry",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorTemperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureIndex": {
+    "name": "zyHwMonitorTemperatureIndex",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureDescription": {
+    "name": "zyHwMonitorTemperatureDescription",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureCurrentValue": {
+    "name": "zyHwMonitorTemperatureCurrentValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureMaxValue": {
+    "name": "zyHwMonitorTemperatureMaxValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureMinValue": {
+    "name": "zyHwMonitorTemperatureMinValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureHighThreshold": {
+    "name": "zyHwMonitorTemperatureHighThreshold",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureStatus": {
+    "name": "zyHwMonitorTemperatureStatus",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyxelHwMonitorVoltageTable": {
+    "name": "zyxelHwMonitorVoltageTable",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyxelHwMonitorVoltageEntry": {
+    "name": "zyxelHwMonitorVoltageEntry",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorVoltageIndex": {
+    "name": "zyHwMonitorVoltageIndex",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyHwMonitorVoltageDescription": {
+    "name": "zyHwMonitorVoltageDescription",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorVoltageCurrentValue": {
+    "name": "zyHwMonitorVoltageCurrentValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorVoltageMaxValue": {
+    "name": "zyHwMonitorVoltageMaxValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorVoltageMinValue": {
+    "name": "zyHwMonitorVoltageMinValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorVoltageNominalValue": {
+    "name": "zyHwMonitorVoltageNominalValue",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorVoltageLowThreshold": {
+    "name": "zyHwMonitorVoltageLowThreshold",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorVoltageStatus": {
+    "name": "zyHwMonitorVoltageStatus",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyxelHwMonitorPowerSource": {
+    "name": "zyxelHwMonitorPowerSource",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4",
+    "class": "objectidentity"
+  },
+  "zyHwMonitorPowerSourceMode": {
+    "name": "zyHwMonitorPowerSourceMode",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyxelHwMonitorPowerSourceTable": {
+    "name": "zyxelHwMonitorPowerSourceTable",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyxelHwMonitorPowerSourceEntry": {
+    "name": "zyxelHwMonitorPowerSourceEntry",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourceIndex": {
+    "name": "zyHwMonitorPowerSourceIndex",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourceType": {
+    "name": "zyHwMonitorPowerSourceType",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourceStatus": {
+    "name": "zyHwMonitorPowerSourceStatus",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourceDescription": {
+    "name": "zyHwMonitorPowerSourceDescription",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourcePreviousStatus": {
+    "name": "zyHwMonitorPowerSourcePreviousStatus",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zyHwMonitorFanSpeedOutOfRange": {
+    "name": "zyHwMonitorFanSpeedOutOfRange",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorFanRpmIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorFanRpmDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureOutOfRange": {
+    "name": "zyHwMonitorTemperatureOutOfRange",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorTemperatureIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorTemperatureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorPowerSupplyVoltageOutOfRange": {
+    "name": "zyHwMonitorPowerSupplyVoltageOutOfRange",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorVoltageIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorVoltageDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorBackupPowerSupplyInUse": {
+    "name": "zyHwMonitorBackupPowerSupplyInUse",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "zyHwMonitorDyingGasp": {
+    "name": "zyHwMonitorDyingGasp",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "zyHwMonitorFanAirFlowInconsistency": {
+    "name": "zyHwMonitorFanAirFlowInconsistency",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "zyHwMonitorFanSpeedOutOfRangeRecovered": {
+    "name": "zyHwMonitorFanSpeedOutOfRangeRecovered",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorFanRpmIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorFanRpmDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorTemperatureOutOfRangeRecovered": {
+    "name": "zyHwMonitorTemperatureOutOfRangeRecovered",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorTemperatureIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorTemperatureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorPowerSupplyVoltageOutOfRangeRecovered": {
+    "name": "zyHwMonitorPowerSupplyVoltageOutOfRangeRecovered",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorVoltageIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorVoltageDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourceAbnormal": {
+    "name": "zyHwMonitorPowerSourceAbnormal",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceStatus"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceDescription"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorTrapPowerSourceErrorType"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourceAbnormalRecovered": {
+    "name": "zyHwMonitorPowerSourceAbnormalRecovered",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceStatus"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorPowerSourceStatusChange": {
+    "name": "zyHwMonitorPowerSourceStatusChange",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceIndex"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourcePreviousStatus"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceStatus"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorPowerSourceDescription"
+      },
+      {
+        "module": "ZYXEL-HW-MONITOR-MIB",
+        "object": "zyHwMonitorTrapPowerSourceErrorType"
+      }
+    ],
+    "status": "current"
+  },
+  "zyHwMonitorTrapPowerSourceErrorType": {
+    "name": "zyHwMonitorTrapPowerSourceErrorType",
+    "oid": "1.3.6.1.4.1.890.1.15.3.26.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-HW-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ZYXEL-HW-MONITOR-MIB"
+  }
+}

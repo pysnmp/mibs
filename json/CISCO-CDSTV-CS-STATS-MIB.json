@@ -1,0 +1,929 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "TimeIntervalSec"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCdstvCsStatsMIB": {
+    "name": "ciscoCdstvCsStatsMIB",
+    "oid": "1.3.6.1.4.1.9.9.743",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-17 00:00",
+        "description": "Added bandwidth reporting by content type support."
+      },
+      {
+        "revision": "2010-07-29 00:00",
+        "description": "Added stream control message queue reporting support."
+      },
+      {
+        "revision": "2010-06-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCdstvStatsMIBNotifs": {
+    "name": "ciscoCdstvStatsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.743.0",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvStatsMIBObjects": {
+    "name": "ciscoCdstvStatsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.743.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvStatsMIBConform": {
+    "name": "ciscoCdstvStatsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.743.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvCacheStats": {
+    "name": "ciscoCdstvCacheStats",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvStreamStats": {
+    "name": "ciscoCdstvStreamStats",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2",
+    "class": "objectidentity"
+  },
+  "cdstvCacheCapacity": {
+    "name": "cdstvCacheCapacity",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCacheLevel": {
+    "name": "cdstvCacheLevel",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvFillReceiveStreams": {
+    "name": "cdstvFillReceiveStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvFillStreamCommittedBW": {
+    "name": "cdstvFillStreamCommittedBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvFillStreamActualBW": {
+    "name": "cdstvFillStreamActualBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvDiskReadStreams": {
+    "name": "cdstvDiskReadStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvDiskReadBW": {
+    "name": "cdstvDiskReadBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPInfromVaultStreams": {
+    "name": "cdstvCCPInfromVaultStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPInFromVaultStreamBW": {
+    "name": "cdstvCCPInFromVaultStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPInFromCacheStreams": {
+    "name": "cdstvCCPInFromCacheStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPInFromCacheStreamBW": {
+    "name": "cdstvCCPInFromCacheStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPInFromStreamerStreamCount": {
+    "name": "cdstvCCPInFromStreamerStreamCount",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPInFromStreamerStreamBW": {
+    "name": "cdstvCCPInFromStreamerStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvActiveStreams": {
+    "name": "cdstvActiveStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvActiveStreamBW": {
+    "name": "cdstvActiveStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvUniqueStreams": {
+    "name": "cdstvUniqueStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvUniqueStreamBW": {
+    "name": "cdstvUniqueStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPOutStreams": {
+    "name": "cdstvCCPOutStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvCCPOutStreamBW": {
+    "name": "cdstvCCPOutStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvHTTPOutStreams": {
+    "name": "cdstvHTTPOutStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvHTTPOutStreamBW": {
+    "name": "cdstvHTTPOutStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvSessionSetupSuccess": {
+    "name": "cdstvSessionSetupSuccess",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvSessionSetupFailures": {
+    "name": "cdstvSessionSetupFailures",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvSecondsSinceReference": {
+    "name": "cdstvSecondsSinceReference",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvStreamControlMessageQueueMax": {
+    "name": "cdstvStreamControlMessageQueueMax",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "elements",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvStreamControlMessageQueueSize": {
+    "name": "cdstvStreamControlMessageQueueSize",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "elements",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvSkippedPlaylistElements": {
+    "name": "cdstvSkippedPlaylistElements",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "elements",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvStatsByContentTypeTable": {
+    "name": "cdstvStatsByContentTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdstvStatsByContentTypeEntry": {
+    "name": "cdstvStatsByContentTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvContentType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdstvContentType": {
+    "name": "cdstvContentType",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "legacyVod": 1,
+          "ndvrUniqueCopy": 2,
+          "ndvrCommonCopy": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdstvActiveEgressCount": {
+    "name": "cdstvActiveEgressCount",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvActiveEgressBW": {
+    "name": "cdstvActiveEgressBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvActiveIngressCount": {
+    "name": "cdstvActiveIngressCount",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "fill count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvActiveIngressBW": {
+    "name": "cdstvActiveIngressBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvHTTPInStreams": {
+    "name": "cdstvHTTPInStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvHTTPInStreamBW": {
+    "name": "cdstvHTTPInStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvActiveIngestStreams": {
+    "name": "cdstvActiveIngestStreams",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "stream count",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdstvActiveIngestStreamBW": {
+    "name": "cdstvActiveIngestStreamBW",
+    "oid": "1.3.6.1.4.1.9.9.743.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCdstvStatsMIBCompliances": {
+    "name": "ciscoCdstvStatsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.743.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvStatsMIBGroups": {
+    "name": "ciscoCdstvStatsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.743.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdstvStatsMIBModuleCompliance": {
+    "name": "ciscoCdstvStatsMIBModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.9.743.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdstvStatsMIBCacheObjectGroup",
+        "module": "CISCO-CDSTV-CS-STATS-MIB"
+      },
+      {
+        "object": "ciscoCdstvStatsMIBStreamObjectGroup",
+        "module": "CISCO-CDSTV-CS-STATS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCdstvStatsMIBModuleCompliance2": {
+    "name": "ciscoCdstvStatsMIBModuleCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.743.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdstvStatsMIBCacheObjectGroup",
+        "module": "CISCO-CDSTV-CS-STATS-MIB"
+      },
+      {
+        "object": "ciscoCdstvStatsMIBStreamObjectGroup2",
+        "module": "CISCO-CDSTV-CS-STATS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdstvStatsMIBModuleCompliance3": {
+    "name": "ciscoCdstvStatsMIBModuleCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.743.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdstvStatsMIBCacheObjectGroup",
+        "module": "CISCO-CDSTV-CS-STATS-MIB"
+      },
+      {
+        "object": "ciscoCdstvStatsMIBStreamObjectGroup3",
+        "module": "CISCO-CDSTV-CS-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdstvStatsMIBCacheObjectGroup": {
+    "name": "ciscoCdstvStatsMIBCacheObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.743.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCacheCapacity"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCacheLevel"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvFillReceiveStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvFillStreamCommittedBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvFillStreamActualBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvDiskReadStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvDiskReadBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPInfromVaultStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPInFromVaultStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPInFromCacheStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPInFromCacheStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPInFromStreamerStreamCount"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPInFromStreamerStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPInStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPInStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveIngestStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveIngestStreamBW"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdstvStatsMIBStreamObjectGroup": {
+    "name": "ciscoCdstvStatsMIBStreamObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.743.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvUniqueStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvUniqueStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPOutStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPOutStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPOutStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPOutStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSessionSetupSuccess"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSecondsSinceReference"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSessionSetupFailures"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdstvStatsMIBStreamObjectGroup2": {
+    "name": "ciscoCdstvStatsMIBStreamObjectGroup2",
+    "oid": "1.3.6.1.4.1.9.9.743.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvUniqueStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvUniqueStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPOutStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPOutStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPOutStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPOutStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSessionSetupSuccess"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSessionSetupFailures"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSecondsSinceReference"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvStreamControlMessageQueueMax"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvStreamControlMessageQueueSize"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSkippedPlaylistElements"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdstvStatsMIBStreamObjectGroup3": {
+    "name": "ciscoCdstvStatsMIBStreamObjectGroup3",
+    "oid": "1.3.6.1.4.1.9.9.743.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvUniqueStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvUniqueStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPOutStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvCCPOutStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPOutStreams"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvHTTPOutStreamBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSessionSetupSuccess"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSessionSetupFailures"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSecondsSinceReference"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvStreamControlMessageQueueMax"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvStreamControlMessageQueueSize"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvSkippedPlaylistElements"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveEgressCount"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveEgressBW"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveIngressCount"
+      },
+      {
+        "module": "CISCO-CDSTV-CS-STATS-MIB",
+        "object": "cdstvActiveIngressBW"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CDSTV-CS-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CDSTV-CS-STATS-MIB"
+  }
+}

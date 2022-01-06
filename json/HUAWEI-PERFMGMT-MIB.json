@@ -1,0 +1,2641 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "hwPerfMgmt": {
+    "name": "hwPerfMgmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.190",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-21 09:58",
+        "description": "V4.14 modify description."
+      },
+      {
+        "revision": "2017-08-17 21:19",
+        "description": "V4.12 add MIB nodes ."
+      },
+      {
+        "revision": "2017-08-09 21:19",
+        "description": "V4.11 delete MIB nodes ."
+      },
+      {
+        "revision": "2016-01-29 14:34",
+        "description": "V4.10 add MIB nodes ."
+      },
+      {
+        "revision": "2016-01-19 14:34",
+        "description": "V4.09 modify MIB nodes hwPMMeasureExceed ."
+      },
+      {
+        "revision": "2015-10-16 14:34",
+        "description": "The MIB module for performance management."
+      },
+      {
+        "revision": "2015-09-21 14:34",
+        "description": "V4.08 add MIB nodes."
+      },
+      {
+        "revision": "2015-02-07 14:34",
+        "description": "V4.07 modify MIB nodes hwPMReSetCurrentDataIndicatorID, hwPMReSetCurrentDataInstanceName,hwPMReSetCurrentDataInstanceType for mistakes in format."
+      },
+      {
+        "revision": "2015-02-06 14:34",
+        "description": "V4.06 delete MIB nodes hwPMReSetCurrentDataIndicatorID, hwPMReSetCurrentDataInstanceName,hwPMReSetCurrentDataInstanceType from group as they are undefined or unaccessible."
+      },
+      {
+        "revision": "2014-05-05 16:31",
+        "description": "V4.05 modify MIB nodes."
+      },
+      {
+        "revision": "2014-03-13 21:19",
+        "description": "V4.04 modify MIB nodes."
+      },
+      {
+        "revision": "2013-10-14 16:55",
+        "description": "V4.03 modify MIB nodes."
+      },
+      {
+        "revision": "2013-09-26 10:00",
+        "description": "V4.02 Add hwPMServerVPNType to support VPN."
+      },
+      {
+        "revision": "2013-05-20 15:12",
+        "description": "V4.00, modify MIB nodes."
+      },
+      {
+        "revision": "2013-05-20 15:12",
+        "description": "V3.00, add MIB nodes."
+      },
+      {
+        "revision": "2013-05-20 15:12",
+        "description": "V3.00, modify for this MIB module."
+      },
+      {
+        "revision": "2011-03-16 00:00",
+        "description": "V1.01 modify for mib index."
+      },
+      {
+        "revision": "2009-02-27 11:41",
+        "description": "V1.00, The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hwPMStatisticsMIBInstances": {
+    "name": "hwPMStatisticsMIBInstances",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1",
+    "class": "objectidentity"
+  },
+  "hwPMStatisticsEnable": {
+    "name": "hwPMStatisticsEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPMStatisticsMaxFilesPerTask": {
+    "name": "hwPMStatisticsMaxFilesPerTask",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsMaxTasks": {
+    "name": "hwPMStatisticsMaxTasks",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsCurrentTasks": {
+    "name": "hwPMStatisticsCurrentTasks",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskTable": {
+    "name": "hwPMStatisticsTaskTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskEntry": {
+    "name": "hwPMStatisticsTaskEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMStatisticsTaskName": {
+    "name": "hwPMStatisticsTaskName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskFileFormat": {
+    "name": "hwPMStatisticsTaskFileFormat",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hwPMtxtv1": 1,
+          "hwPMbinv1": 2,
+          "hwPM3Gppxmlv1": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "hwPMtxtv1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsRecordFileEnable": {
+    "name": "hwPMStatisticsRecordFileEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsThresholdEnable": {
+    "name": "hwPMStatisticsThresholdEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskPeriod": {
+    "name": "hwPMStatisticsTaskPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "five": 5,
+          "ten": 10,
+          "fifteen": 15,
+          "thirty": 30,
+          "sixty": 60,
+          "twentyfourhours": 1440,
+          "invalid": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fifteen",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskTransferPeriod": {
+    "name": "hwPMStatisticsTaskTransferPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskCurrentFileIndex": {
+    "name": "hwPMStatisticsTaskCurrentFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskRowStatus": {
+    "name": "hwPMStatisticsTaskRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskSampleInterval": {
+    "name": "hwPMStatisticsTaskSampleInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one": 1,
+          "two": 2,
+          "three": 3,
+          "five": 5,
+          "ten": 10,
+          "fifteen": 15,
+          "thirty": 30,
+          "sixty": 60
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsUploadAutoName": {
+    "name": "hwPMStatisticsUploadAutoName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskType": {
+    "name": "hwPMStatisticsTaskType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pmStatistics": 3,
+          "pmSdh": 6,
+          "monHistory": 7,
+          "monStatistics": 8,
+          "sdhShort": 10
+        }
+      }
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsHighPrecisionPeriod": {
+    "name": "hwPMStatisticsHighPrecisionPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsSampleLevel": {
+    "name": "hwPMStatisticsSampleLevel",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "second": 1
+        }
+      }
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskInstanceTable": {
+    "name": "hwPMStatisticsTaskInstanceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskInstanceEntry": {
+    "name": "hwPMStatisticsTaskInstanceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMStatisticsTaskInstanceType": {
+    "name": "hwPMStatisticsTaskInstanceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskInstanceName": {
+    "name": "hwPMStatisticsTaskInstanceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskInstanceRowStatus": {
+    "name": "hwPMStatisticsTaskInstanceRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskIndicatorTable": {
+    "name": "hwPMStatisticsTaskIndicatorTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskIndicatorEntry": {
+    "name": "hwPMStatisticsTaskIndicatorEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicator",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMStatisticsTaskIndicator": {
+    "name": "hwPMStatisticsTaskIndicator",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskIndicatorRowStatus": {
+    "name": "hwPMStatisticsTaskIndicatorRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdRuleTable": {
+    "name": "hwPMStatisticsTaskThresholdRuleTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdRuleEntry": {
+    "name": "hwPMStatisticsTaskThresholdRuleEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicator",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdType": {
+    "name": "hwPMStatisticsTaskThresholdType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hightrigger": 1,
+          "lowtrigger": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdHighTriggerValue": {
+    "name": "hwPMStatisticsTaskThresholdHighTriggerValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdLowTriggerValue": {
+    "name": "hwPMStatisticsTaskThresholdLowTriggerValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdHighClearedValue": {
+    "name": "hwPMStatisticsTaskThresholdHighClearedValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdLowClearedValue": {
+    "name": "hwPMStatisticsTaskThresholdLowClearedValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdRuleRowStatus": {
+    "name": "hwPMStatisticsTaskThresholdRuleRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.8.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdEvent": {
+    "name": "hwPMStatisticsTaskThresholdEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdTriggerAlarm": {
+    "name": "hwPMStatisticsTaskThresholdTriggerAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.9.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskPeriod"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicator"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdHighTriggerValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdLowTriggerValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicateHighValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicateLowValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMStatisticsTaskThresholdClearAlarm": {
+    "name": "hwPMStatisticsTaskThresholdClearAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.9.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskPeriod"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicator"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdHighClearedValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdLowClearedValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicateHighValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicateLowValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMCSESEvent": {
+    "name": "hwPMCSESEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.9.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMEventStartTime"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMEventDuration"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsInstanceTypeName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMInstanceType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMInstanceName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIndicator"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsIndicatorName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMUATEvent": {
+    "name": "hwPMUATEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.9.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMEventStartTime"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMEventEndTime"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMEventState"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsInstanceTypeName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMInstanceType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMInstanceName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIndicator"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsIndicatorName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMStatisticsTaskIndicateLowValue": {
+    "name": "hwPMStatisticsTaskIndicateLowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskIndicateHighValue": {
+    "name": "hwPMStatisticsTaskIndicateHighValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskFileTable": {
+    "name": "hwPMStatisticsTaskFileTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskFileEntry": {
+    "name": "hwPMStatisticsTaskFileEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMStatisticsTaskFileIndex": {
+    "name": "hwPMStatisticsTaskFileIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsTaskFileName": {
+    "name": "hwPMStatisticsTaskFileName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMStatisticsTraps": {
+    "name": "hwPMStatisticsTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwPMEventStartTime": {
+    "name": "hwPMEventStartTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMEventEndTime": {
+    "name": "hwPMEventEndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMEventDuration": {
+    "name": "hwPMEventDuration",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMEventState": {
+    "name": "hwPMEventState",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMIndicator": {
+    "name": "hwPMIndicator",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMInstanceType": {
+    "name": "hwPMInstanceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMStatisticsInstanceTypeName": {
+    "name": "hwPMStatisticsInstanceTypeName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMInstanceName": {
+    "name": "hwPMInstanceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMStatisticsIndicatorName": {
+    "name": "hwPMStatisticsIndicatorName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPMMeasureExceed": {
+    "name": "hwPMMeasureExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.1.13.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwPMFileUploadMgmtInstances": {
+    "name": "hwPMFileUploadMgmtInstances",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2",
+    "class": "objectidentity"
+  },
+  "hwPMServerTable": {
+    "name": "hwPMServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMServerEntry": {
+    "name": "hwPMServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMServerName": {
+    "name": "hwPMServerName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMServerSrcAddrType": {
+    "name": "hwPMServerSrcAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMServerSrcAddr": {
+    "name": "hwPMServerSrcAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMServerVpnName": {
+    "name": "hwPMServerVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerHostAddrType": {
+    "name": "hwPMServerHostAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerHostAddr": {
+    "name": "hwPMServerHostAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerPort": {
+    "name": "hwPMServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerUserName": {
+    "name": "hwPMServerUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerPassword": {
+    "name": "hwPMServerPassword",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerSrcIfName": {
+    "name": "hwPMServerSrcIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMServerRetryTimes": {
+    "name": "hwPMServerRetryTimes",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerDestPath": {
+    "name": "hwPMServerDestPath",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerTransferProtocol": {
+    "name": "hwPMServerTransferProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "tftp": 2,
+          "sftp": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerRowStatus": {
+    "name": "hwPMServerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMServerVpnType": {
+    "name": "hwPMServerVpnType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "managevpn": 1,
+          "vpninstance": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMFileUploadCfgTable": {
+    "name": "hwPMFileUploadCfgTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMFileUploadCfgEntry": {
+    "name": "hwPMFileUploadCfgEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMFileUploadRequestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMFileUploadRequestName": {
+    "name": "hwPMFileUploadRequestName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMFileUploadServerName": {
+    "name": "hwPMFileUploadServerName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMFileUploadCfgRowStatus": {
+    "name": "hwPMFileUploadCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMFileUploadMgmtTable": {
+    "name": "hwPMFileUploadMgmtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMFileUploadMgmtEntry": {
+    "name": "hwPMFileUploadMgmtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMFileUploadRequestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMFileUploadFileList": {
+    "name": "hwPMFileUploadFileList",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 543
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPMFileUploadStatus": {
+    "name": "hwPMFileUploadStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "running": 2,
+          "success": 3,
+          "fileOpenFail": 4,
+          "unreachableServerIp": 5,
+          "linkFailed": 6,
+          "authenticateFailed": 7,
+          "fileReadFailed": 8,
+          "fileWriteFailed": 9,
+          "failed": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMDataInstances": {
+    "name": "hwPMDataInstances",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4",
+    "class": "objectidentity"
+  },
+  "hwPMHistoryDataTable": {
+    "name": "hwPMHistoryDataTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMHistoryDataEntry": {
+    "name": "hwPMHistoryDataEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDataInstanceType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDataInstanceName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDataIndicatorID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDataIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMHistoryDataInstanceType": {
+    "name": "hwPMHistoryDataInstanceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMHistoryDataInstanceName": {
+    "name": "hwPMHistoryDataInstanceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMHistoryDataIndicatorID": {
+    "name": "hwPMHistoryDataIndicatorID",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMHistoryDataIntervalIndex": {
+    "name": "hwPMHistoryDataIntervalIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMHistoryDataHighValue": {
+    "name": "hwPMHistoryDataHighValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMHistoryDataLowValue": {
+    "name": "hwPMHistoryDataLowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMHistoryDataValidFlag": {
+    "name": "hwPMHistoryDataValidFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "valid": 2,
+          "incredible": 3,
+          "measureNotConfigured": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMHistoryDateAndTime": {
+    "name": "hwPMHistoryDateAndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMCurrentDataTable": {
+    "name": "hwPMCurrentDataTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMCurrentDataEntry": {
+    "name": "hwPMCurrentDataEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCurrentDataInstanceType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCurrentDataInstanceName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCurrentDataIndicatorID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMCurrentDataInstanceType": {
+    "name": "hwPMCurrentDataInstanceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMCurrentDataInstanceName": {
+    "name": "hwPMCurrentDataInstanceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMCurrentDataIndicatorID": {
+    "name": "hwPMCurrentDataIndicatorID",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMCurrentDataHighValue": {
+    "name": "hwPMCurrentDataHighValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMCurrentDataLowValue": {
+    "name": "hwPMCurrentDataLowValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMCurrentDataValidFlag": {
+    "name": "hwPMCurrentDataValidFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "valid": 2,
+          "incredible": 3,
+          "measureNotConfigured": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMCurrentDateAndTime": {
+    "name": "hwPMCurrentDateAndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMResetCurrentDataTable": {
+    "name": "hwPMResetCurrentDataTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMResetCurrentDataEntry": {
+    "name": "hwPMResetCurrentDataEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMResetCurrentDataInstanceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMResetCurrentDataInstanceType": {
+    "name": "hwPMResetCurrentDataInstanceType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPMResetCurrentDataInstanceName": {
+    "name": "hwPMResetCurrentDataInstanceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPMResetCurrentDataIndicatorID": {
+    "name": "hwPMResetCurrentDataIndicatorID",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPMGlobalInstances": {
+    "name": "hwPMGlobalInstances",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5",
+    "class": "objectidentity"
+  },
+  "hwPMIntervalTypeTable": {
+    "name": "hwPMIntervalTypeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMIntervalTypeEntry": {
+    "name": "hwPMIntervalTypeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMIntervalType": {
+    "name": "hwPMIntervalType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMIntervalTypeName": {
+    "name": "hwPMIntervalTypeName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMIntervalTypeInterval": {
+    "name": "hwPMIntervalTypeInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "five": 5,
+          "ten": 10,
+          "fifteen": 15,
+          "thirty": 30,
+          "sixty": 60,
+          "twentyfourhours": 1440
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMIntervalTypeHistorynum": {
+    "name": "hwPMIntervalTypeHistorynum",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMIntervalTypeDelayRange": {
+    "name": "hwPMIntervalTypeDelayRange",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMIntervalTypeSampleInterval": {
+    "name": "hwPMIntervalTypeSampleInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMInstanceTypeTable": {
+    "name": "hwPMInstanceTypeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMInstanceTypeEntry": {
+    "name": "hwPMInstanceTypeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMInstanceTypeID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMInstanceTypeID": {
+    "name": "hwPMInstanceTypeID",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMInstanceTypeName": {
+    "name": "hwPMInstanceTypeName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMIndicatorTable": {
+    "name": "hwPMIndicatorTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMIndicatorEntry": {
+    "name": "hwPMIndicatorEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIndicatorID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMIndicatorID": {
+    "name": "hwPMIndicatorID",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPMIndicatorName": {
+    "name": "hwPMIndicatorName",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMIndicatorType": {
+    "name": "hwPMIndicatorType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "increase": 1,
+          "measure": 2,
+          "max": 3,
+          "min": 4,
+          "avg": 5,
+          "es": 6,
+          "delta": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMIndicatorCounterType": {
+    "name": "hwPMIndicatorCounterType",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "counter32": 1,
+          "counter64": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPMConformance": {
+    "name": "hwPMConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6",
+    "class": "objectidentity"
+  },
+  "hwPMCompliances": {
+    "name": "hwPMCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.1",
+    "class": "objectidentity"
+  },
+  "hwPMCompliance": {
+    "name": "hwPMCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwPMMIBGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMTaskGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMTaskInstanceGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMTaskThresholdGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMFileUploadGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMTaskFileGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMDataInstanceGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMIntervalTypeGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMInstanceTypeGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMIndicatorGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      },
+      {
+        "object": "hwPMNotificationGroup",
+        "module": "HUAWEI-PERFMGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMGroup": {
+    "name": "hwPMGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2",
+    "class": "objectidentity"
+  },
+  "hwPMMIBGroup": {
+    "name": "hwPMMIBGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsEnable"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsMaxFilesPerTask"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsMaxTasks"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsCurrentTasks"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMTaskGroup": {
+    "name": "hwPMTaskGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskFileFormat"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsRecordFileEnable"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsThresholdEnable"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskPeriod"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskTransferPeriod"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskRowStatus"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskSampleInterval"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicator"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicatorRowStatus"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskCurrentFileIndex"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsUploadAutoName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMTaskInstanceGroup": {
+    "name": "hwPMTaskInstanceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskInstanceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMTaskThresholdGroup": {
+    "name": "hwPMTaskThresholdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdHighTriggerValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdLowTriggerValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdHighClearedValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdLowClearedValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdRuleRowStatus"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicateLowValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskIndicateHighValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdRuleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMTaskFileGroup": {
+    "name": "hwPMTaskFileGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskFileIndex"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMFileUploadGroup": {
+    "name": "hwPMFileUploadGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMFileUploadRequestName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMFileUploadServerName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMFileUploadFileList"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMFileUploadStatus"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMFileUploadCfgRowStatus"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerSrcAddrType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerSrcAddr"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerVpnName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerHostAddr"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerHostAddrType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerPort"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerUserName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerPassword"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerSrcIfName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerRetryTimes"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerTransferProtocol"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerDestPath"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerRowStatus"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMServerVpnType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMDataInstanceGroup": {
+    "name": "hwPMDataInstanceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDataHighValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDataLowValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDataValidFlag"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMHistoryDateAndTime"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCurrentDataHighValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCurrentDataLowValue"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCurrentDataValidFlag"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCurrentDateAndTime"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMResetCurrentDataIndicatorID"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMResetCurrentDataInstanceName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMResetCurrentDataInstanceType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMIntervalTypeGroup": {
+    "name": "hwPMIntervalTypeGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIntervalTypeName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIntervalTypeInterval"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIntervalTypeHistorynum"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIntervalTypeDelayRange"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIntervalTypeSampleInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMInstanceTypeGroup": {
+    "name": "hwPMInstanceTypeGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMInstanceTypeName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMIndicatorGroup": {
+    "name": "hwPMIndicatorGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIndicatorName"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIndicatorType"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMIndicatorCounterType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPMNotificationGroup": {
+    "name": "hwPMNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.190.6.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdTriggerAlarm"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMStatisticsTaskThresholdClearAlarm"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMCSESEvent"
+      },
+      {
+        "module": "HUAWEI-PERFMGMT-MIB",
+        "object": "hwPMUATEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PERFMGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-PERFMGMT-MIB"
+  }
+}

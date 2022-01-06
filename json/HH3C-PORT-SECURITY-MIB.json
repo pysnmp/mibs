@@ -1,0 +1,959 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cPortSecurity"
+    ],
+    "IEEE8021-PAE-MIB": [
+      "dot1xAuthSessionAuthenticMethod",
+      "dot1xAuthSessionUserName",
+      "dot1xPaePortNumber",
+      "dot1xAuthSessionTerminateCause"
+    ],
+    "IF-MIB": [
+      "ifAdminStatus",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "hh3cPortSecurityMIB": {
+    "name": "hh3cPortSecurityMIB",
+    "oid": "1.3.6.1.4.1.25506.2.26.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-24 00:00",
+        "description": "The Initial Version of hh3cPortSecurityMIB"
+      }
+    ]
+  },
+  "hh3cPortSecurityLeaf": {
+    "name": "hh3cPortSecurityLeaf",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cSecurePortSecurityControl": {
+    "name": "hh3cSecurePortSecurityControl",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecurePortVlanMembershipList": {
+    "name": "hh3cSecurePortVlanMembershipList",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSecureRalmObjects": {
+    "name": "hh3cSecureRalmObjects",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cSecureRalmDefaultSessionTime": {
+    "name": "hh3cSecureRalmDefaultSessionTime",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmHoldoffTime": {
+    "name": "hh3cSecureRalmHoldoffTime",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmReauthenticate": {
+    "name": "hh3cSecureRalmReauthenticate",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmAuthMode": {
+    "name": "hh3cSecureRalmAuthMode",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "papUsernameAsMacAddress": 1,
+          "papUsernameFixed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmAuthUsername": {
+    "name": "hh3cSecureRalmAuthUsername",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmAuthPassword": {
+    "name": "hh3cSecureRalmAuthPassword",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmAuthDomain": {
+    "name": "hh3cSecureRalmAuthDomain",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmAuthOfflineTime": {
+    "name": "hh3cSecureRalmAuthOfflineTime",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureRalmAuthServerTimeoutTime": {
+    "name": "hh3cSecureRalmAuthServerTimeoutTime",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureMacControl": {
+    "name": "hh3cSecureMacControl",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cPortSecurityTables": {
+    "name": "hh3cPortSecurityTables",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cSecurePortTable": {
+    "name": "hh3cSecurePortTable",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSecurePortEntry": {
+    "name": "hh3cSecurePortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecurePortMode": {
+    "name": "hh3cSecurePortMode",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRestrictions": 1,
+          "continuousLearning": 2,
+          "autoLearn": 3,
+          "secure": 4,
+          "userLogin": 5,
+          "userLoginSecure": 6,
+          "userLoginWithOUI": 7,
+          "macAddressWithRadius": 8,
+          "macAddressOrUserLoginSecure": 9,
+          "macAddressElseUserLoginSecure": 10,
+          "userLoginSecureExt": 11,
+          "macAddressOrUserLoginSecureExt": 12,
+          "macAddressElseUserLoginSecureExt": 13,
+          "macAddressAndUserLoginSecure": 14,
+          "macAddressAndUserLoginSecureExt": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureNeedToKnowMode": {
+    "name": "hh3cSecureNeedToKnowMode",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "disabled": 2,
+          "needToKnowOnly": 3,
+          "needToKnowWithBroadcastsAllowed": 4,
+          "needToKnowWithMulticastsAllowed": 5,
+          "permanentNeedToKnowOnly": 6,
+          "permanentNeedToKnowWithBroadcastsAllowed": 7,
+          "permanentNeedToKnowWithMulticastsAllowed": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureIntrusionAction": {
+    "name": "hh3cSecureIntrusionAction",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "noAction": 2,
+          "disablePort": 3,
+          "disablePortTemporarily": 4,
+          "allowDefaultAccess": 5,
+          "blockMacAddress": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureNumberAddresses": {
+    "name": "hh3cSecureNumberAddresses",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureNumberAddressesStored": {
+    "name": "hh3cSecureNumberAddressesStored",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSecureMaximumAddresses": {
+    "name": "hh3cSecureMaximumAddresses",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSecureAddressTable": {
+    "name": "hh3cSecureAddressTable",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSecureAddressEntry": {
+    "name": "hh3cSecureAddressEntry",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureAddrMAC": {
+    "name": "hh3cSecureAddrMAC",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSecureAddrVlanID": {
+    "name": "hh3cSecureAddrVlanID",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureAddrMACStatus": {
+    "name": "hh3cSecureAddrMACStatus",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "addressBlackhole": 1,
+          "addressUserConfig": 2,
+          "addressDot1xAuth": 3,
+          "addressRALM": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureAddrRowStatus": {
+    "name": "hh3cSecureAddrRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureOUITable": {
+    "name": "hh3cSecureOUITable",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSecureOUIEntry": {
+    "name": "hh3cSecureOUIEntry",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureOUIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureOUIIndex": {
+    "name": "hh3cSecureOUIIndex",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSecureOUI": {
+    "name": "hh3cSecureOUI",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureOUIRowStatus": {
+    "name": "hh3cSecureOUIRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureBindingTable": {
+    "name": "hh3cSecureBindingTable",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSecureBindingEntry": {
+    "name": "hh3cSecureBindingEntry",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureBindingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureBindingIndex": {
+    "name": "hh3cSecureBindingIndex",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSecureBindingPort": {
+    "name": "hh3cSecureBindingPort",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureBindingAddrMAC": {
+    "name": "hh3cSecureBindingAddrMAC",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureBindingAddrIp": {
+    "name": "hh3cSecureBindingAddrIp",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureBindingRowStatus": {
+    "name": "hh3cSecureBindingRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSecureAssignTable": {
+    "name": "hh3cSecureAssignTable",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSecureAssignEntry": {
+    "name": "hh3cSecureAssignEntry",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureAssignEnable": {
+    "name": "hh3cSecureAssignEnable",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSecureVlanAssignment": {
+    "name": "hh3cSecureVlanAssignment",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cPortSecurityNotifications": {
+    "name": "hh3cPortSecurityNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cSecureAddressLearned": {
+    "name": "hh3cSecureAddressLearned",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureViolation": {
+    "name": "hh3cSecureViolation",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureLoginFailure": {
+    "name": "hh3cSecureLoginFailure",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureLogon": {
+    "name": "hh3cSecureLogon",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionUserName"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionAuthenticMethod"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureLogoff": {
+    "name": "hh3cSecureLogoff",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionUserName"
+      },
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xAuthSessionTerminateCause"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureRalmLoginFailure": {
+    "name": "hh3cSecureRalmLoginFailure",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureRalmAuthMode"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureRalmAuthUsername"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureRalmLogon": {
+    "name": "hh3cSecureRalmLogon",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureRalmAuthMode"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureRalmAuthUsername"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSecureRalmLogoff": {
+    "name": "hh3cSecureRalmLogoff",
+    "oid": "1.3.6.1.4.1.25506.2.26.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureAddrMAC"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureRalmAuthMode"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecureRalmAuthUsername"
+      },
+      {
+        "module": "HH3C-PORT-SECURITY-MIB",
+        "object": "hh3cSecurePortVlanMembershipList"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-PORT-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-PORT-SECURITY-MIB"
+  }
+}

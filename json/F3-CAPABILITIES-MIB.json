@@ -1,0 +1,757 @@
+{
+  "imports": {
+    "class": "imports",
+    "CM-COMMON-MIB": [
+      "f3Capabilities"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrAnyOrNone"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "f3CapabilityMIB": {
+    "name": "f3CapabilityMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-02-18 00:00",
+        "description": " Notes from release 202002180000Z - Added f3Rfc2544Capabilities Notes from release 201903110000Z - Added f3NidXG118PROACSHCapabilities Notes from release 201809240000Z - Added f3NidXG118PROSHCapabilities Notes from release 201804190000Z - Added f3NidXG116PROHCapabilities Notes from release 201107080000Z -Added capabilities for ethernetNTEGE206CardFineGrainedPmInterval, ethernetNTEGE201SyncECardFineGrainedPmInterval, ethernetNTEGE201CardFineGrainedPmInterval, ethernetNTEGE206FCardFineGrainedPmInterval Notes from release 201106010000Z -First release of the agent capabilities with R5.2.1CC."
+      }
+    ]
+  },
+  "f3CapabilityDefinitions": {
+    "name": "f3CapabilityDefinitions",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "f3BaseStandardsCapabilities": {
+    "name": "f3BaseStandardsCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3StandardIfEntityCapabilities": {
+    "name": "f3StandardIfEntityCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3StandardTargetNotifCapabilities": {
+    "name": "f3StandardTargetNotifCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.3",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - Standard Interface and Entity capabilities ",
+    "status": "current"
+  },
+  "f3StandardSecurityCapabilities": {
+    "name": "f3StandardSecurityCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.4",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3StandardRMONCapabilities": {
+    "name": "f3StandardRMONCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.5",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3StandardCfmCapabilities": {
+    "name": "f3StandardCfmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.6",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3StandardBridgeCapabilities": {
+    "name": "f3StandardBridgeCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.7",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3StandardLAGCapabilities": {
+    "name": "f3StandardLAGCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.8",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3CommonVendorSpecificCapabilities": {
+    "name": "f3CommonVendorSpecificCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.9",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3FacilityCapabilities": {
+    "name": "f3FacilityCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.10",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid206Capabilities": {
+    "name": "f3Nid206Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.11",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid201SyncECapabilities": {
+    "name": "f3Nid201SyncECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.12",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid201NonSyncECapabilities": {
+    "name": "f3Nid201NonSyncECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.13",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid206FCapabilities": {
+    "name": "f3Nid206FCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.14",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid112Capabilities": {
+    "name": "f3Nid112Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.15",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid114Capabilities": {
+    "name": "f3Nid114Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.16",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3EcpaCapabilities": {
+    "name": "f3EcpaCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.17",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3EsaCapabilities": {
+    "name": "f3EsaCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.18",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3BridgeCapabilitiesCmHub": {
+    "name": "f3BridgeCapabilitiesCmHub",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.19",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3CommonVendorSpecificCapabilitiesCmHub": {
+    "name": "f3CommonVendorSpecificCapabilitiesCmHub",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.20",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3FacilityCapabilitiesCmHub": {
+    "name": "f3FacilityCapabilitiesCmHub",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.21",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3EntityCmHubCapabilities": {
+    "name": "f3EntityCmHubCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.22",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid206VCapabilities": {
+    "name": "f3Nid206VCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.23",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3NidXG210Capabilities": {
+    "name": "f3NidXG210Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.24",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3PtpCapabilities": {
+    "name": "f3PtpCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.25",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3PseudoWireCapabilities": {
+    "name": "f3PseudoWireCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.26",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3DS1Capabilities": {
+    "name": "f3DS1Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.27",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3SonetCapabilities": {
+    "name": "f3SonetCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.28",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3SyncECapabilities": {
+    "name": "f3SyncECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.29",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3CfmCapabilities": {
+    "name": "f3CfmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.30",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3LAGCapabilities": {
+    "name": "f3LAGCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.31",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3PBBCapabilities": {
+    "name": "f3PBBCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.32",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid1804Capabilities": {
+    "name": "f3Nid1804Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.33",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid3204Capabilities": {
+    "name": "f3Nid3204Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.34",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3BertCapabilities": {
+    "name": "f3BertCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.35",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidSyncProbeCapabilities": {
+    "name": "f3NidSyncProbeCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.36",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3SyncJackCapabilities": {
+    "name": "f3SyncJackCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.37",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3EsmCapabilities": {
+    "name": "f3EsmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.38",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3AMPClientCapabilities": {
+    "name": "f3AMPClientCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.39",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3AMPServerCapabilities": {
+    "name": "f3AMPServerCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.40",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114HCapabilities": {
+    "name": "f3Nid114HCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.41",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid114PHCapabilities": {
+    "name": "f3Nid114PHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.42",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3ERPCapabilities": {
+    "name": "f3ERPCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.43",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3ShgCapabilities": {
+    "name": "f3ShgCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.44",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114SCapabilities": {
+    "name": "f3Nid114SCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.45",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid114SHCapabilities": {
+    "name": "f3Nid114SHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.46",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Ipv6Capabilities": {
+    "name": "f3Ipv6Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.47",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3SatCapabilities": {
+    "name": "f3SatCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.48",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3JdsuCapabilities": {
+    "name": "f3JdsuCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.49",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3PortMirrorCapabilities": {
+    "name": "f3PortMirrorCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.50",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3JdsuGeneratorCapabilities": {
+    "name": "f3JdsuGeneratorCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.51",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3TwampCapabilities": {
+    "name": "f3TwampCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.52",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3OspfCapabilities": {
+    "name": "f3OspfCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.53",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Mef35Capabilities": {
+    "name": "f3Mef35Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.54",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid112ProCapabilities": {
+    "name": "f3Nid112ProCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.55",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid112ProMCapabilities": {
+    "name": "f3Nid112ProMCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.56",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProCapabilities": {
+    "name": "f3Nid114ProCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.57",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProCCapabilities": {
+    "name": "f3Nid114ProCCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.58",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProSHCapabilities": {
+    "name": "f3Nid114ProSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.59",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProCSHCapabilities": {
+    "name": "f3Nid114ProCSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.60",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProHECapabilities": {
+    "name": "f3Nid114ProHECapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.61",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid112ProHCapabilities": {
+    "name": "f3Nid112ProHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.62",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3ConnectGuardCapabilities": {
+    "name": "f3ConnectGuardCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.63",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3L3Capabilities": {
+    "name": "f3L3Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.64",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114GCapabilities": {
+    "name": "f3Nid114GCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.65",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3BfdCapabilities": {
+    "name": "f3BfdCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.66",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3EoMplsCapabilities": {
+    "name": "f3EoMplsCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.67",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3FpmCapabilities": {
+    "name": "f3FpmCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.68",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProVMHCapabilities": {
+    "name": "f3Nid114ProVMHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.69",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProVMCHCapabilities": {
+    "name": "f3Nid114ProVMCHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.70",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid114ProVMCSHCapabilities": {
+    "name": "f3Nid114ProVMCSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.71",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidGe101ProCapabilities": {
+    "name": "f3NidGe101ProCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.72",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidGo102ProSCapabilities": {
+    "name": "f3NidGo102ProSCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.73",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidGo102ProSPCapabilities": {
+    "name": "f3NidGo102ProSPCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.74",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidCx101Pro30ACapabilities": {
+    "name": "f3NidCx101Pro30ACapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.75",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidCx102Pro30ACapabilities": {
+    "name": "f3NidCx102Pro30ACapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.76",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3IpfixCapabilities": {
+    "name": "f3IpfixCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.77",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3VxlanCapabilities": {
+    "name": "f3VxlanCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.78",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3GreCapabilities": {
+    "name": "f3GreCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.79",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NtpCapabilities": {
+    "name": "f3NtpCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.80",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3ElpCapabilities": {
+    "name": "f3ElpCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.81",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidXG116PROCapabilities": {
+    "name": "f3NidXG116PROCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.82",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3NidXG120PROCapabilities": {
+    "name": "f3NidXG120PROCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.83",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3FacilityCapabilitiesXGPRO": {
+    "name": "f3FacilityCapabilitiesXGPRO",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.84",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3EoMplsCapabilitiesXG": {
+    "name": "f3EoMplsCapabilitiesXG",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.85",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3Nid112ProVMCapabilities": {
+    "name": "f3Nid112ProVMCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.86",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3SystemCommonCapabilities": {
+    "name": "f3SystemCommonCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.87",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3NidXG116PROHCapabilities": {
+    "name": "f3NidXG116PROHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.88",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3NidGo102ProSMCapabilities": {
+    "name": "f3NidGo102ProSMCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.89",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidXG118PROSHCapabilities": {
+    "name": "f3NidXG118PROSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.90",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3L3CapabilitiesGE": {
+    "name": "f3L3CapabilitiesGE",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.91",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3L3TrafficOSPFCapabilties": {
+    "name": "f3L3TrafficOSPFCapabilties",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.92",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3L3TrafficBGPCapabilties": {
+    "name": "f3L3TrafficBGPCapabilties",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.93",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3L3TrafficIPv6Capabilities": {
+    "name": "f3L3TrafficIPv6Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.94",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidXG118PROACSHCapabilities": {
+    "name": "f3NidXG118PROACSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.95",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Nid114ProVMSHCapabilities": {
+    "name": "f3Nid114ProVMSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.96",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidGe104Capabilities": {
+    "name": "f3NidGe104Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.97",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "f3NidXG120PROSHCapabilities": {
+    "name": "f3NidXG120PROSHCapabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.98",
+    "class": "agentcapabilities",
+    "productrelease": "F3 - family of products",
+    "status": "current"
+  },
+  "f3Rfc2544Capabilities": {
+    "name": "f3Rfc2544Capabilities",
+    "oid": "1.3.6.1.4.1.2544.1.12.1.2.1.1.99",
+    "class": "agentcapabilities",
+    "productrelease": "F3- family of products",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CAPABILITIES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-CAPABILITIES-MIB"
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSibuFlashMIB": {
+    "name": "ciscoSibuFlashMIB",
+    "oid": "1.3.6.1.4.1.9.10.45",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-10-23 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSibuFlashMIBObjects": {
+    "name": "ciscoSibuFlashMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.45.1",
+    "class": "objectidentity"
+  },
+  "csfUpgrade": {
+    "name": "csfUpgrade",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1",
+    "class": "objectidentity"
+  },
+  "csfUpgradeFirmwareVersion": {
+    "name": "csfUpgradeFirmwareVersion",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfUpgradeFlashSize": {
+    "name": "csfUpgradeFlashSize",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfUpgradeTFTPServerAddress": {
+    "name": "csfUpgradeTFTPServerAddress",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csfUpgradeTFTPLoadFilename": {
+    "name": "csfUpgradeTFTPLoadFilename",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csfUpgradeTFTPInitiate": {
+    "name": "csfUpgradeTFTPInitiate",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upgrade": 1,
+          "noUpgrade": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noUpgrade",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csfUpgradeFlashMode": {
+    "name": "csfUpgradeFlashMode",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permanent": 1,
+          "temporary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permanent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csfUpgradeFirmwareStatus": {
+    "name": "csfUpgradeFirmwareStatus",
+    "oid": "1.3.6.1.4.1.9.10.45.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "succeeded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSibuFlashMIBNotificationsPrefix": {
+    "name": "ciscoSibuFlashMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.10.45.2",
+    "class": "objectidentity"
+  },
+  "ciscoSibuFlashMIBNotifications": {
+    "name": "ciscoSibuFlashMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.45.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoSibuFlashMIBComformance": {
+    "name": "ciscoSibuFlashMIBComformance",
+    "oid": "1.3.6.1.4.1.9.10.45.3",
+    "class": "objectidentity"
+  },
+  "ciscoSibuFlashMIBCompliances": {
+    "name": "ciscoSibuFlashMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.45.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSibuFlashMIBGroups": {
+    "name": "ciscoSibuFlashMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.45.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSibuFlashCompliance": {
+    "name": "ciscoSibuFlashCompliance",
+    "oid": "1.3.6.1.4.1.9.10.45.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSibuFlashMIBGroup",
+        "module": "CISCO-SIBU-FLASH-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSibuFlashMIBGroup": {
+    "name": "ciscoSibuFlashMIBGroup",
+    "oid": "1.3.6.1.4.1.9.10.45.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SIBU-FLASH-MIB",
+        "object": "csfUpgradeFirmwareVersion"
+      },
+      {
+        "module": "CISCO-SIBU-FLASH-MIB",
+        "object": "csfUpgradeFlashSize"
+      },
+      {
+        "module": "CISCO-SIBU-FLASH-MIB",
+        "object": "csfUpgradeTFTPServerAddress"
+      },
+      {
+        "module": "CISCO-SIBU-FLASH-MIB",
+        "object": "csfUpgradeTFTPLoadFilename"
+      },
+      {
+        "module": "CISCO-SIBU-FLASH-MIB",
+        "object": "csfUpgradeTFTPInitiate"
+      },
+      {
+        "module": "CISCO-SIBU-FLASH-MIB",
+        "object": "csfUpgradeFlashMode"
+      },
+      {
+        "module": "CISCO-SIBU-FLASH-MIB",
+        "object": "csfUpgradeFirmwareStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SIBU-FLASH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SIBU-FLASH-MIB"
+  }
+}

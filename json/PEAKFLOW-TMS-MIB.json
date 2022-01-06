@@ -1,0 +1,1787 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARBOR-SMI": [
+      "arbornetworksProducts"
+    ],
+    "IF-MIB": [
+      "ifName"
+    ],
+    "IPV6-TC": [
+      "Ipv6AddressPrefix",
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "peakflowTmsMIB": {
+    "name": "peakflowTmsMIB",
+    "oid": "1.3.6.1.4.1.9694.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-12 00:00",
+        "description": "Added entry for tmsTrapGreName field"
+      },
+      {
+        "revision": "2013-09-19 00:00",
+        "description": "Added entry for tmsSpCommunicationDegraded trap"
+      },
+      {
+        "revision": "2013-08-19 00:00",
+        "description": "Updated contact information"
+      },
+      {
+        "revision": "2012-03-29 12:00",
+        "description": "Bug#50908: Fix reversed tmsSpCommunication enumerations."
+      },
+      {
+        "revision": "2012-01-12 12:00",
+        "description": "Added tmsSystemPrefixesOk and tmsSystemPrefixesMissing traps."
+      },
+      {
+        "revision": "2011-06-14 16:00",
+        "description": "Fix stray quote that was causing a syntax error."
+      },
+      {
+        "revision": "2011-06-03 16:00",
+        "description": "Added performnace traps."
+      },
+      {
+        "revision": "2011-06-03 00:00",
+        "description": "Fixed some typos and grammar problems."
+      },
+      {
+        "revision": "2011-05-23 00:00",
+        "description": "Added IPv6 versions of existing IPv4 objects."
+      },
+      {
+        "revision": "2011-01-21 00:00",
+        "description": "Added new traps (tmsAutomitigationBgp {Enabled/Disabled/Suspended}) for traffic-triggered automitigation BGP announcements."
+      },
+      {
+        "revision": "2010-10-28 00:00",
+        "description": "Added new traps (tmsSpCommunicationDown and tmsSpCommunicationUp) for alerting about failed communication with Peakflow SP."
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Added new traps (tmsFilesystemCritical and tmsFilesystemNominal) for new filesystem monitoring feature."
+      },
+      {
+        "revision": "2009-05-27 00:00",
+        "description": "The March 11 2009 revision had accidentally obsoleted the tmsHostFault OID, rather than the hostFault trap. This is now fixed. The tmsHostFault OID is restored to current status and the hostFault trap is marked obsolete."
+      },
+      {
+        "revision": "2009-05-08 00:00",
+        "description": "Update contact group name and company address."
+      },
+      {
+        "revision": "2009-03-11 00:00",
+        "description": "Obsoleted the tmsHostFault trap."
+      },
+      {
+        "revision": "2009-02-13 00:00",
+        "description": "Added new objects to support TMS 5.0"
+      },
+      {
+        "revision": "2008-11-13 00:00",
+        "description": "Update contact info."
+      },
+      {
+        "revision": "2008-04-07 00:00",
+        "description": "Prefixed Textual Conventions with 'Tms' for uniqueness"
+      },
+      {
+        "revision": "2007-11-20 00:00",
+        "description": "Removed unused Textual Conventions, added display hints"
+      },
+      {
+        "revision": "2007-04-27 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "TmsTableIndex": {
+    "name": "TmsTableIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TmsTableIndexOrZero": {
+    "name": "TmsTableIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TmsPercentage": {
+    "name": "TmsPercentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TmsHundredths": {
+    "name": "TmsHundredths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "peakflowTmsMgr": {
+    "name": "peakflowTmsMgr",
+    "oid": "1.3.6.1.4.1.9694.1.5.2",
+    "class": "objectidentity"
+  },
+  "tmsHostFault": {
+    "name": "tmsHostFault",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsHostUpTime": {
+    "name": "tmsHostUpTime",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCpuLoadAvg1min": {
+    "name": "deviceCpuLoadAvg1min",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCpuLoadAvg5min": {
+    "name": "deviceCpuLoadAvg5min",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCpuLoadAvg15min": {
+    "name": "deviceCpuLoadAvg15min",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsHundredths",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceDiskUsage": {
+    "name": "deviceDiskUsage",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePhysicalMemoryUsage": {
+    "name": "devicePhysicalMemoryUsage",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceSwapSpaceUsage": {
+    "name": "deviceSwapSpaceUsage",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapString": {
+    "name": "tmsTrapString",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapDetail": {
+    "name": "tmsTrapDetail",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapSubhostName": {
+    "name": "tmsTrapSubhostName",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapComponentName": {
+    "name": "tmsTrapComponentName",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapBgpPeer": {
+    "name": "tmsTrapBgpPeer",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapGreSource": {
+    "name": "tmsTrapGreSource",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapGreDestination": {
+    "name": "tmsTrapGreDestination",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapNexthop": {
+    "name": "tmsTrapNexthop",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapIpv6BgpPeer": {
+    "name": "tmsTrapIpv6BgpPeer",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapIpv6GreSource": {
+    "name": "tmsTrapIpv6GreSource",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapIpv6GreDestination": {
+    "name": "tmsTrapIpv6GreDestination",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapIpv6Nexthop": {
+    "name": "tmsTrapIpv6Nexthop",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsTrapGreName": {
+    "name": "tmsTrapGreName",
+    "oid": "1.3.6.1.4.1.9694.1.5.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "peakflowTmsTraps": {
+    "name": "peakflowTmsTraps",
+    "oid": "1.3.6.1.4.1.9694.1.5.3",
+    "class": "objectidentity"
+  },
+  "peakflowTmsTrapsEnumerate": {
+    "name": "peakflowTmsTrapsEnumerate",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0",
+    "class": "objectidentity"
+  },
+  "hostFault": {
+    "name": "hostFault",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsHostFault"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "greTunnelDown": {
+    "name": "greTunnelDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapGreSource"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapGreDestination"
+      }
+    ],
+    "status": "current"
+  },
+  "greTunnelUp": {
+    "name": "greTunnelUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapGreSource"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapGreDestination"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsLinkUp": {
+    "name": "tmsLinkUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmsLinkDown": {
+    "name": "tmsLinkDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "subHostUp": {
+    "name": "subHostUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapSubhostName"
+      }
+    ],
+    "status": "current"
+  },
+  "subHostDown": {
+    "name": "subHostDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapSubhostName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsBgpNeighborDown": {
+    "name": "tmsBgpNeighborDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapBgpPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsBgpNeighborUp": {
+    "name": "tmsBgpNeighborUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapBgpPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsNexthopDown": {
+    "name": "tmsNexthopDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapNexthop"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsNexthopUp": {
+    "name": "tmsNexthopUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapNexthop"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsMitigationError": {
+    "name": "tmsMitigationError",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsMitigationIndex"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsMitigationName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsMitigationSuspended": {
+    "name": "tmsMitigationSuspended",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsMitigationIndex"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsMitigationName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsMitigationRunning": {
+    "name": "tmsMitigationRunning",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsMitigationIndex"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsMitigationName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsConfigMissing": {
+    "name": "tmsConfigMissing",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsConfigError": {
+    "name": "tmsConfigError",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsConfigOk": {
+    "name": "tmsConfigOk",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsHwDeviceDown": {
+    "name": "tmsHwDeviceDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsHwDeviceUp": {
+    "name": "tmsHwDeviceUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsHwSensorCritical": {
+    "name": "tmsHwSensorCritical",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsHwSensorOk": {
+    "name": "tmsHwSensorOk",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSwComponentDown": {
+    "name": "tmsSwComponentDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapSubhostName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSwComponentUp": {
+    "name": "tmsSwComponentUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapSubhostName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSystemStatusCritical": {
+    "name": "tmsSystemStatusCritical",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSystemStatusDegraded": {
+    "name": "tmsSystemStatusDegraded",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSystemStatusNominal": {
+    "name": "tmsSystemStatusNominal",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsFilesystemCritical": {
+    "name": "tmsFilesystemCritical",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsFilesystemNominal": {
+    "name": "tmsFilesystemNominal",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsHwSensorUnknown": {
+    "name": "tmsHwSensorUnknown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSpCommunicationUp": {
+    "name": "tmsSpCommunicationUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSpCommunicationDown": {
+    "name": "tmsSpCommunicationDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSystemStatusError": {
+    "name": "tmsSystemStatusError",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsAutomitigationBgpEnabled": {
+    "name": "tmsAutomitigationBgpEnabled",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsAutomitigationBgpDisabled": {
+    "name": "tmsAutomitigationBgpDisabled",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsAutomitigationBgpSuspended": {
+    "name": "tmsAutomitigationBgpSuspended",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsIpv6GreTunnelDown": {
+    "name": "tmsIpv6GreTunnelDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6GreSource"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6GreDestination"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsIpv6GreTunnelUp": {
+    "name": "tmsIpv6GreTunnelUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6GreSource"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6GreDestination"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsIpv6BgpNeighborDown": {
+    "name": "tmsIpv6BgpNeighborDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6BgpPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsIpv6BgpNeighborUp": {
+    "name": "tmsIpv6BgpNeighborUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6BgpPeer"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsIpv6NexthopDown": {
+    "name": "tmsIpv6NexthopDown",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6Nexthop"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsIpv6NexthopUp": {
+    "name": "tmsIpv6NexthopUp",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapIpv6Nexthop"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsPerformanceOk": {
+    "name": "tmsPerformanceOk",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsPerformanceLossy": {
+    "name": "tmsPerformanceLossy",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSystemPrefixesOk": {
+    "name": "tmsSystemPrefixesOk",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSystemPrefixesMissing": {
+    "name": "tmsSystemPrefixesMissing",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "tmsSpCommunicationDegraded": {
+    "name": "tmsSpCommunicationDegraded",
+    "oid": "1.3.6.1.4.1.9694.1.5.3.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapString"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapDetail"
+      },
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsTrapComponentName"
+      }
+    ],
+    "status": "current"
+  },
+  "peakflowTmsObj": {
+    "name": "peakflowTmsObj",
+    "oid": "1.3.6.1.4.1.9694.1.5.5",
+    "class": "objectidentity"
+  },
+  "tmsDpiConfig": {
+    "name": "tmsDpiConfig",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.1",
+    "class": "objectidentity"
+  },
+  "tmsVersion": {
+    "name": "tmsVersion",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsLastUpdate": {
+    "name": "tmsLastUpdate",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsMitigationConfig": {
+    "name": "tmsMitigationConfig",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2",
+    "class": "objectidentity"
+  },
+  "tmsMitigationLastUpdate": {
+    "name": "tmsMitigationLastUpdate",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsMitigationNumber": {
+    "name": "tmsMitigationNumber",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsTableIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsMitigationTable": {
+    "name": "tmsMitigationTable",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmsMitigationEntry": {
+    "name": "tmsMitigationEntry",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PEAKFLOW-TMS-MIB",
+        "object": "tmsMitigationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmsMitigationIndex": {
+    "name": "tmsMitigationIndex",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmsTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsMitigationId": {
+    "name": "tmsMitigationId",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsDestinationPrefix": {
+    "name": "tmsDestinationPrefix",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsDestinationPrefixMask": {
+    "name": "tmsDestinationPrefixMask",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsMitigationName": {
+    "name": "tmsMitigationName",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsIpv6DestinationPrefix": {
+    "name": "tmsIpv6DestinationPrefix",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmsIpv6DestinationPrefixMask": {
+    "name": "tmsIpv6DestinationPrefixMask",
+    "oid": "1.3.6.1.4.1.9694.1.5.5.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-PEAKFLOW-TMS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PEAKFLOW-TMS-MIB"
+  }
+}

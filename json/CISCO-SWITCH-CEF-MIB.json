@@ -1,0 +1,469 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSwitchCefMIB": {
+    "name": "ciscoSwitchCefMIB",
+    "oid": "1.3.6.1.4.1.9.9.790",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSwitchCefMIBNotifs": {
+    "name": "ciscoSwitchCefMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.790.0",
+    "class": "objectidentity"
+  },
+  "ciscoSwitchCefMIBObjects": {
+    "name": "ciscoSwitchCefMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.790.1",
+    "class": "objectidentity"
+  },
+  "ciscoSwitchCefMIBConform": {
+    "name": "ciscoSwitchCefMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.790.2",
+    "class": "objectidentity"
+  },
+  "cscStats": {
+    "name": "cscStats",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1",
+    "class": "objectidentity"
+  },
+  "cscSwitchCefStatsTable": {
+    "name": "cscSwitchCefStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscSwitchCefStatsEntry": {
+    "name": "cscSwitchCefStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscIpv4NonVrfRoutes": {
+    "name": "cscIpv4NonVrfRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv4VrfRoutes": {
+    "name": "cscIpv4VrfRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv4MulticastRoutes": {
+    "name": "cscIpv4MulticastRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv4UnicastRoutes": {
+    "name": "cscIpv4UnicastRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv6GlobalRoutes": {
+    "name": "cscIpv6GlobalRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv6NonVrfRoutes": {
+    "name": "cscIpv6NonVrfRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv6VrfRoutes": {
+    "name": "cscIpv6VrfRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv6LinkLocalRoutes": {
+    "name": "cscIpv6LinkLocalRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv6MulticastRoutes": {
+    "name": "cscIpv6MulticastRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscIpv6UnicastRoutes": {
+    "name": "cscIpv6UnicastRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscMplsRoutes": {
+    "name": "cscMplsRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscMplsVpnRoutes": {
+    "name": "cscMplsVpnRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscEomL2Routes": {
+    "name": "cscEomL2Routes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscEomIpv4MulticastRoutes": {
+    "name": "cscEomIpv4MulticastRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscEomIpv6MulticastRoutes": {
+    "name": "cscEomIpv6MulticastRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscTotalRoutes": {
+    "name": "cscTotalRoutes",
+    "oid": "1.3.6.1.4.1.9.9.790.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscSwitchCefMIBCompliances": {
+    "name": "cscSwitchCefMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.790.2.1",
+    "class": "objectidentity"
+  },
+  "cscSwitchCefMIBGroups": {
+    "name": "cscSwitchCefMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2",
+    "class": "objectidentity"
+  },
+  "cscSwitchCefMIBCompliance": {
+    "name": "cscSwitchCefMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.790.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cscSwitchCefIpv4StatsGroup",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      },
+      {
+        "object": "cscSwitchCefIpv6StatsGroup",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      },
+      {
+        "object": "cscTotalStatsGroup",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      },
+      {
+        "object": "cscSwitchCefIpv6GlobalStatsGroup",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      },
+      {
+        "object": "cscSwitchCefIpv6LinkLocalGroup",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      },
+      {
+        "object": "cscSwitchCefEomL2Group",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      },
+      {
+        "object": "cscMplsStatsGroup",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      },
+      {
+        "object": "cscMplsStatsGroupExt",
+        "module": "CISCO-SWITCH-CEF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cscSwitchCefIpv4StatsGroup": {
+    "name": "cscSwitchCefIpv4StatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv4NonVrfRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv4VrfRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv4MulticastRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv4UnicastRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "cscSwitchCefIpv6StatsGroup": {
+    "name": "cscSwitchCefIpv6StatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv6NonVrfRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv6VrfRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv6MulticastRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv6UnicastRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "cscSwitchCefIpv6GlobalStatsGroup": {
+    "name": "cscSwitchCefIpv6GlobalStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv6GlobalRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "cscSwitchCefIpv6LinkLocalGroup": {
+    "name": "cscSwitchCefIpv6LinkLocalGroup",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscIpv6LinkLocalRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "cscSwitchCefEomL2Group": {
+    "name": "cscSwitchCefEomL2Group",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscEomL2Routes"
+      }
+    ],
+    "status": "current"
+  },
+  "cscMplsStatsGroup": {
+    "name": "cscMplsStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscMplsRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "cscMplsStatsGroupExt": {
+    "name": "cscMplsStatsGroupExt",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscMplsVpnRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscEomIpv4MulticastRoutes"
+      },
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscEomIpv6MulticastRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "cscTotalStatsGroup": {
+    "name": "cscTotalStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.790.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-CEF-MIB",
+        "object": "cscTotalRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-CEF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SWITCH-CEF-MIB"
+  }
+}

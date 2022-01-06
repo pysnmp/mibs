@@ -1,0 +1,186 @@
+{
+  "imports": {
+    "class": "imports",
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "TN-MGMT-MIB": [
+      "tnDevMgmt"
+    ]
+  },
+  "tnDevVlanTranslation": {
+    "name": "tnDevVlanTranslation",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37",
+    "class": "objectidentity"
+  },
+  "tnVlanTransPort2GroupMapTable": {
+    "name": "tnVlanTransPort2GroupMapTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVlanTransPort2GroupMapEntry": {
+    "name": "tnVlanTransPort2GroupMapEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-VLAN-TRANSLATION-MIB",
+        "object": "tnVlanTransPort2GroupMapGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnVlanTransPort2GroupMapGroupId": {
+    "name": "tnVlanTransPort2GroupMapGroupId",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVlanTransPort2GroupMapPortMember": {
+    "name": "tnVlanTransPort2GroupMapPortMember",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanTransPort2GroupMapRowStatus": {
+    "name": "tnVlanTransPort2GroupMapRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnVlanTransMapTable": {
+    "name": "tnVlanTransMapTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVlanTransMapEntry": {
+    "name": "tnVlanTransMapEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-DEV-VLAN-TRANSLATION-MIB",
+        "object": "tnVlanTransMapGroupId",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-VLAN-TRANSLATION-MIB",
+        "object": "tnVlanTransMapVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnVlanTransMapGroupId": {
+    "name": "tnVlanTransMapGroupId",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVlanTransMapVlanId": {
+    "name": "tnVlanTransMapVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnVlanTransMapTranslatedVlanId": {
+    "name": "tnVlanTransMapTranslatedVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnVlanTransMapRowStatus": {
+    "name": "tnVlanTransMapRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.37.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DEV-VLAN-TRANSLATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DEV-VLAN-TRANSLATION-MIB"
+  }
+}

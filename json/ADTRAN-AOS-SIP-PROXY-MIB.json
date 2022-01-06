@@ -1,0 +1,273 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSConformance",
+      "adGenAOSVoice"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentityShared"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "adGenAOSSipProxy": {
+    "name": "adGenAOSSipProxy",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.5.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "adSipProxy": {
+    "name": "adSipProxy",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5",
+    "class": "objectidentity"
+  },
+  "adSipProxyTraps": {
+    "name": "adSipProxyTraps",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.0",
+    "class": "objectidentity"
+  },
+  "adProxyTimestamp": {
+    "name": "adProxyTimestamp",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adProxyRolloverFromServerInetAddressType": {
+    "name": "adProxyRolloverFromServerInetAddressType",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adProxyRolloverFromServerInetAddress": {
+    "name": "adProxyRolloverFromServerInetAddress",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adProxyRolloverToServerInetAddressType": {
+    "name": "adProxyRolloverToServerInetAddressType",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adProxyRolloverToServerInetAddress": {
+    "name": "adProxyRolloverToServerInetAddress",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "AdProxyRolloverCauseTC": {
+    "name": "AdProxyRolloverCauseTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transactionFailed": 1,
+          "pollFailed": 2,
+          "pollSucceeded": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "adProxyRolloverCause": {
+    "name": "adProxyRolloverCause",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdProxyRolloverCauseTC",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "adSipProxyRollover": {
+    "name": "adSipProxyRollover",
+    "oid": "1.3.6.1.4.1.664.5.53.5.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyTimestamp"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverFromServerInetAddressType"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverFromServerInetAddress"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverToServerInetAddressType"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverToServerInetAddress"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverCause"
+      }
+    ],
+    "status": "current"
+  },
+  "adSipProxyConformance": {
+    "name": "adSipProxyConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.14",
+    "class": "objectidentity"
+  },
+  "adSipProxyGroups": {
+    "name": "adSipProxyGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.14.1",
+    "class": "objectidentity"
+  },
+  "adSipProxyCompliances": {
+    "name": "adSipProxyCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.14.2",
+    "class": "objectidentity"
+  },
+  "adSipProxyFullCompliance": {
+    "name": "adSipProxyFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.14.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adSipProxyNotificationUtilityGroup",
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB"
+      },
+      {
+        "object": "adSipProxyNotificationGroup",
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adSipProxyNotificationGroup": {
+    "name": "adSipProxyNotificationGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.14.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adSipProxyRollover"
+      }
+    ],
+    "status": "current"
+  },
+  "adSipProxyNotificationUtilityGroup": {
+    "name": "adSipProxyNotificationUtilityGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.14.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyTimestamp"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverFromServerInetAddressType"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverFromServerInetAddress"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverToServerInetAddressType"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverToServerInetAddress"
+      },
+      {
+        "module": "ADTRAN-AOS-SIP-PROXY-MIB",
+        "object": "adProxyRolloverCause"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-SIP-PROXY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-SIP-PROXY-MIB"
+  }
+}

@@ -1,0 +1,1002 @@
+{
+  "imports": {
+    "class": "imports",
+    "COMMON-TC-4RF": [
+      "FourRFImageType",
+      "FourRFTftpFileName",
+      "FourRFImageVersion",
+      "FourRFResetType",
+      "FourRFTimeZone",
+      "FourRFWebUserGroup",
+      "FourRFSerialNumber",
+      "FourRFFileSize",
+      "FourRFImageStatus",
+      "FourRFProcessResultType",
+      "FourRFWebUserEnabled"
+    ],
+    "MIB-4RF": [
+      "fourRFGeneric",
+      "fourRFModules"
+    ],
+    "PRODUCTS-MIB-4RF": [
+      "fourRFCommon"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime"
+    ]
+  },
+  "fourRFCommonModule": {
+    "name": "fourRFCommonModule",
+    "oid": "1.3.6.1.4.1.14817.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-30 00:00",
+        "description": "Second draft"
+      },
+      {
+        "revision": "2005-02-11 00:00",
+        "description": "First draft"
+      }
+    ]
+  },
+  "fourRFGroups": {
+    "name": "fourRFGroups",
+    "oid": "1.3.6.1.4.1.14817.7.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFObjects": {
+    "name": "fourRFObjects",
+    "oid": "1.3.6.1.4.1.14817.7.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFEvents": {
+    "name": "fourRFEvents",
+    "oid": "1.3.6.1.4.1.14817.7.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFEventsV2": {
+    "name": "fourRFEventsV2",
+    "oid": "1.3.6.1.4.1.14817.7.1.3.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fourRFSystem": {
+    "name": "fourRFSystem",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1",
+    "class": "objectidentity"
+  },
+  "fourRFSystemID": {
+    "name": "fourRFSystemID",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemSoftwareVersion": {
+    "name": "fourRFSystemSoftwareVersion",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFImageVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFSystemIpAddress": {
+    "name": "fourRFSystemIpAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemRemoteIpAddress": {
+    "name": "fourRFSystemRemoteIpAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemSubnetMask": {
+    "name": "fourRFSystemSubnetMask",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemDefaultGateway": {
+    "name": "fourRFSystemDefaultGateway",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemIpAssignment": {
+    "name": "fourRFSystemIpAssignment",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "useDHCP": 0,
+          "userAssigned": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemDateAndTime": {
+    "name": "fourRFSystemDateAndTime",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemTftpServerAddress": {
+    "name": "fourRFSystemTftpServerAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemSerialNumber": {
+    "name": "fourRFSystemSerialNumber",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFSerialNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFSystemLastReset": {
+    "name": "fourRFSystemLastReset",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFResetType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFSystemTimeZone": {
+    "name": "fourRFSystemTimeZone",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemSyslogAddress": {
+    "name": "fourRFSystemSyslogAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemSyslogPort": {
+    "name": "fourRFSystemSyslogPort",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemTimeDaylightSavings": {
+    "name": "fourRFSystemTimeDaylightSavings",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daylightSavingsDisabled": 0,
+          "daylightSavingsEnabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemTimeZoneGMTOffset": {
+    "name": "fourRFSystemTimeZoneGMTOffset",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFTimeZone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemMACAddress": {
+    "name": "fourRFSystemMACAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFSystemLocalRadioBIpAddress": {
+    "name": "fourRFSystemLocalRadioBIpAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemRemoteRadioBIpAddress": {
+    "name": "fourRFSystemRemoteRadioBIpAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemLocalRadioAIpAddress": {
+    "name": "fourRFSystemLocalRadioAIpAddress",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFSystemGroup": {
+    "name": "fourRFSystemGroup",
+    "oid": "1.3.6.1.4.1.14817.7.1.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemID"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemSoftwareVersion"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemIpAddress"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemRemoteIpAddress"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemSubnetMask"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemDefaultGateway"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemIpAssignment"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemDateAndTime"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemTftpServerAddress"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemSerialNumber"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemLastReset"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemTimeZone"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemSyslogAddress"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemSyslogPort"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemTimeDaylightSavings"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemTimeZoneGMTOffset"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemMACAddress"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemLocalRadioBIpAddress"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemRemoteRadioBIpAddress"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFSystemLocalRadioAIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFReset": {
+    "name": "fourRFReset",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.2",
+    "class": "objectidentity"
+  },
+  "fourRFResetType": {
+    "name": "fourRFResetType",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "softReset": 1,
+          "hardReset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFResetTime": {
+    "name": "fourRFResetTime",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFResetCommand": {
+    "name": "fourRFResetCommand",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "resetNow": 1,
+          "timedReset": 2,
+          "cancelReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFResetGroup": {
+    "name": "fourRFResetGroup",
+    "oid": "1.3.6.1.4.1.14817.7.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFResetType"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFResetTime"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFResetCommand"
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFMibBackup": {
+    "name": "fourRFMibBackup",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.3",
+    "class": "objectidentity"
+  },
+  "fourRFMibBackupFile": {
+    "name": "fourRFMibBackupFile",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFTftpFileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFMibBackupCommand": {
+    "name": "fourRFMibBackupCommand",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "remoteBackup": 1,
+          "localBackup": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFMibBackupResult": {
+    "name": "fourRFMibBackupResult",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFProcessResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFMibBackupGroup": {
+    "name": "fourRFMibBackupGroup",
+    "oid": "1.3.6.1.4.1.14817.7.1.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFMibBackupFile"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFMibBackupCommand"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFMibBackupResult"
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFUpload": {
+    "name": "fourRFUpload",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.4",
+    "class": "objectidentity"
+  },
+  "fourRFUploadType": {
+    "name": "fourRFUploadType",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFUploadFile": {
+    "name": "fourRFUploadFile",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFTftpFileName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFUploadCommand": {
+    "name": "fourRFUploadCommand",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "upload": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFUploadResult": {
+    "name": "fourRFUploadResult",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFProcessResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFUploadGroup": {
+    "name": "fourRFUploadGroup",
+    "oid": "1.3.6.1.4.1.14817.7.1.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFUploadType"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFUploadFile"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFUploadCommand"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFUploadResult"
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFImageTable": {
+    "name": "fourRFImageTable",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fourRFImageTableEntry": {
+    "name": "fourRFImageTableEntry",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFImageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFImageIndex": {
+    "name": "fourRFImageIndex",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fourRFImageType": {
+    "name": "fourRFImageType",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFImageStatus": {
+    "name": "fourRFImageStatus",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFImageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFImageSize": {
+    "name": "fourRFImageSize",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFFileSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFImageVersion": {
+    "name": "fourRFImageVersion",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFImageVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fourRFImageControl": {
+    "name": "fourRFImageControl",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.6",
+    "class": "objectidentity"
+  },
+  "fourRFImageTableIndex": {
+    "name": "fourRFImageTableIndex",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFImageTableCommand": {
+    "name": "fourRFImageTableCommand",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "deactivateImage": 1,
+          "activateImage": 2,
+          "deleteImage": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFImageControlGroup": {
+    "name": "fourRFImageControlGroup",
+    "oid": "1.3.6.1.4.1.14817.7.1.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFImageTableIndex"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFImageTableCommand"
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFWebUserManagementTable": {
+    "name": "fourRFWebUserManagementTable",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fourRFWebUserEntry": {
+    "name": "fourRFWebUserEntry",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFWebUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFWebUserIndex": {
+    "name": "fourRFWebUserIndex",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fourRFWebUserName": {
+    "name": "fourRFWebUserName",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFWebUserPassword": {
+    "name": "fourRFWebUserPassword",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFWebUserGroup": {
+    "name": "fourRFWebUserGroup",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFWebUserGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFWebUserEnabled": {
+    "name": "fourRFWebUserEnabled",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FourRFWebUserEnabled",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFWebUserPasswordConfirm": {
+    "name": "fourRFWebUserPasswordConfirm",
+    "oid": "1.3.6.1.4.1.14817.7.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fourRFResetEvent": {
+    "name": "fourRFResetEvent",
+    "oid": "1.3.6.1.4.1.14817.7.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFResetType"
+      }
+    ],
+    "status": "current"
+  },
+  "fourRFMibBackupStatusEvent": {
+    "name": "fourRFMibBackupStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFMibBackupFile"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFMibBackupCommand"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFMibBackupResult"
+      }
+    ],
+    "status": "current"
+  },
+  "fouRFUploadStatusEvent": {
+    "name": "fouRFUploadStatusEvent",
+    "oid": "1.3.6.1.4.1.14817.7.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFUploadFile"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFUploadType"
+      },
+      {
+        "module": "COMMON-4RF",
+        "object": "fourRFUploadResult"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:55 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COMMON-4RF"
+  }
+}

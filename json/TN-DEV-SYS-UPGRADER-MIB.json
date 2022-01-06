@@ -1,0 +1,734 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TN-MGMT-MIB": [
+      "tnDevMgmt"
+    ]
+  },
+  "tnDevSysUpgraderMIB": {
+    "name": "tnDevSysUpgraderMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-06-01 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnDevSysUpgraderNotifications": {
+    "name": "tnDevSysUpgraderNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.0",
+    "class": "objectidentity"
+  },
+  "tnDevSysUpgrader": {
+    "name": "tnDevSysUpgrader",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1",
+    "class": "objectidentity"
+  },
+  "tnUpgradeOpTable": {
+    "name": "tnUpgradeOpTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnUpgradeOpEntry": {
+    "name": "tnUpgradeOpEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upgradeOpCommand": {
+    "name": "upgradeOpCommand",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "upgrade": 2,
+          "done": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgradeOpStatus": {
+    "name": "upgradeOpStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnUpgradeResultTable": {
+    "name": "tnUpgradeResultTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnUpgradeResultEntry": {
+    "name": "tnUpgradeResultEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-SYS-UPGRADER-MIB",
+        "object": "upgradeResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upgradeResultIndex": {
+    "name": "upgradeResultIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upgradeResultModule": {
+    "name": "upgradeResultModule",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeResultStatus": {
+    "name": "upgradeResultStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "failure": 3,
+          "success": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeResultReason": {
+    "name": "upgradeResultReason",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeResultTimeStarted": {
+    "name": "upgradeResultTimeStarted",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeResultTimeCompleted": {
+    "name": "upgradeResultTimeCompleted",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnUpgradeTargetTable": {
+    "name": "tnUpgradeTargetTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnUpgradeTargetEntry": {
+    "name": "tnUpgradeTargetEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-SYS-UPGRADER-MIB",
+        "object": "upgradeTargetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upgradeTargetIndex": {
+    "name": "upgradeTargetIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upgradeTargetModule": {
+    "name": "upgradeTargetModule",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "upgradeTargetEntryStatus": {
+    "name": "upgradeTargetEntryStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnUpgradeGetIndexTable": {
+    "name": "tnUpgradeGetIndexTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnUpgradeGetIndexEntry": {
+    "name": "tnUpgradeGetIndexEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nextTargetIndex": {
+    "name": "nextTargetIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nextFirmwareIndex": {
+    "name": "nextFirmwareIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnUpgradeFirmwareTable": {
+    "name": "tnUpgradeFirmwareTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnUpgradeFirmwareEntry": {
+    "name": "tnUpgradeFirmwareEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-SYS-UPGRADER-MIB",
+        "object": "upgradeFirmwareIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upgradeFirmwareIndex": {
+    "name": "upgradeFirmwareIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upgradeFirmwareCardType": {
+    "name": "upgradeFirmwareCardType",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeFirmwareRevision": {
+    "name": "upgradeFirmwareRevision",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeFirmwareFileName": {
+    "name": "upgradeFirmwareFileName",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeFirmwareBuildDate": {
+    "name": "upgradeFirmwareBuildDate",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnUpgradeFirmwareDBTable": {
+    "name": "tnUpgradeFirmwareDBTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnUpgradeFirmwareDBEntry": {
+    "name": "tnUpgradeFirmwareDBEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upgradeFirmwareDBFileName": {
+    "name": "upgradeFirmwareDBFileName",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgradeFirmwareDBOpCommand": {
+    "name": "upgradeFirmwareDBOpCommand",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "update": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgradeFirmwareDBOpResult": {
+    "name": "upgradeFirmwareDBOpResult",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "failure": 3,
+          "success": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeFirmwareDBResultReason": {
+    "name": "upgradeFirmwareDBResultReason",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnFirmwareUpgradeTable": {
+    "name": "tnFirmwareUpgradeTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnFirmwareUpgradeEntry": {
+    "name": "tnFirmwareUpgradeEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fwDownloadFile": {
+    "name": "fwDownloadFile",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fwDownloadTFTPServerType": {
+    "name": "fwDownloadTFTPServerType",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fwDownloadTFTPServer": {
+    "name": "fwDownloadTFTPServer",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fwDownloadAction": {
+    "name": "fwDownloadAction",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDownloading": 1,
+          "downloadToActive": 2,
+          "downloadToBackup": 3,
+          "swap": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fwDownloadStatus": {
+    "name": "fwDownloadStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadSuccess": 1,
+          "downloadStatusUnknown": 2,
+          "downloadErrorIP": 3,
+          "downloadErrorTFTP": 4,
+          "downloadErrorBusy": 5,
+          "downloadErrorMalloc": 6,
+          "downloadErrorInvalid": 7,
+          "downloadErrorFlashProgram": 8,
+          "downloadErrorSame": 9,
+          "downloadErrorCurrentUnknown": 10,
+          "downloadErrorCurrentNotFound": 11,
+          "downloadErrorUpdateNotFound": 12,
+          "downloadErrorUpdateCRC": 13,
+          "downloadErrorUpdateSize": 14,
+          "downloadErrorFlashErase": 15,
+          "downloadErrorIncorrectImageVersion": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwDownloadType": {
+    "name": "fwDownloadType",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "perph": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnUpgradeEvt": {
+    "name": "tnUpgradeEvt",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.30.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-DEV-SYS-UPGRADER-MIB",
+        "object": "upgradeResultModule"
+      },
+      {
+        "module": "TN-DEV-SYS-UPGRADER-MIB",
+        "object": "upgradeResultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DEV-SYS-UPGRADER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DEV-SYS-UPGRADER-MIB"
+  }
+}

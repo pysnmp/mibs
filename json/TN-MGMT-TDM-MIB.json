@@ -1,0 +1,672 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "TN-MGMT-MIB": [
+      "tnMgmtNotifications",
+      "tnInterfaceMgmt"
+    ],
+    "TRANSITION-TC": [
+      "CpsConnector"
+    ]
+  },
+  "tnIfTDMTable": {
+    "name": "tnIfTDMTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfTDMEntry": {
+    "name": "tnIfTDMEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MGMT-TDM-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfTDMAISTransmit": {
+    "name": "tnIfTDMAISTransmit",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDMAISFormat": {
+    "name": "tnIfTDMAISFormat",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allones": 1,
+          "blue": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDMAlarmIndicationSignal": {
+    "name": "tnIfTDMAlarmIndicationSignal",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDMLongHaul": {
+    "name": "tnIfTDMLongHaul",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDMType": {
+    "name": "tnIfTDMType",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "t1": 1,
+          "e1": 2,
+          "j1": 3,
+          "dS3": 4,
+          "e3": 5,
+          "sts-1": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDMT1E1LineBuildout": {
+    "name": "tnIfTDMT1E1LineBuildout",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "e13-0V120ohm": 1,
+          "e12-37V75ohm": 2,
+          "t1SH-DSX-0-133ANSIT1403": 3,
+          "t1SH-DSX-133-266": 4,
+          "t1SH-DSX-266-399": 5,
+          "t1SH-DSX-399-533": 6,
+          "t1SH-DSX-533-655": 7,
+          "t1SH-DSX-6V": 8,
+          "t1LH-0dB": 9,
+          "t1LH-m7-5dB": 10,
+          "t1LH-m15dB": 11,
+          "t1LH-m22-5dB": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDMDS3E3LineBuildout": {
+    "name": "tnIfTDMDS3E3LineBuildout",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "boost": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDMConnectorType": {
+    "name": "tnIfTDMConnectorType",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpsConnector",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDMExtTable": {
+    "name": "tnIfTDMExtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfTDMExtEntry": {
+    "name": "tnIfTDMExtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MGMT-TDM-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-MGMT-TDM-MIB",
+        "object": "tnIfTDMExtId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfTDMExtId": {
+    "name": "tnIfTDMExtId",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99999999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfTDMExtAISTrasmit": {
+    "name": "tnIfTDMExtAISTrasmit",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDMExtAISFormat": {
+    "name": "tnIfTDMExtAISFormat",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allones": 1,
+          "blue": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDMExtAlarmIndicationSingnal": {
+    "name": "tnIfTDMExtAlarmIndicationSingnal",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "normal": 2,
+          "yellow": 3,
+          "red": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDMExtLoopback": {
+    "name": "tnIfTDMExtLoopback",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDMExtYellowTrasmit": {
+    "name": "tnIfTDMExtYellowTrasmit",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2Table": {
+    "name": "tnIfTDM2Table",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnIfTDM2Entry": {
+    "name": "tnIfTDM2Entry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MGMT-TDM-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnIfTDM2FiberLineNum": {
+    "name": "tnIfTDM2FiberLineNum",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDM2FiberActiveLine": {
+    "name": "tnIfTDM2FiberActiveLine",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 0,
+          "secondary": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2FiberRevertive": {
+    "name": "tnIfTDM2FiberRevertive",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2FiberPrimaryLinkStatus": {
+    "name": "tnIfTDM2FiberPrimaryLinkStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDM2FiberSecondaryLinkStatus": {
+    "name": "tnIfTDM2FiberSecondaryLinkStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnIfTDM2InBandLPEnable": {
+    "name": "tnIfTDM2InBandLPEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandLPStartPatten": {
+    "name": "tnIfTDM2InBandLPStartPatten",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandLPStopPatten": {
+    "name": "tnIfTDM2InBandLPStopPatten",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandPEERLPEnable": {
+    "name": "tnIfTDM2InBandPEERLPEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandPEERLPStartPatten": {
+    "name": "tnIfTDM2InBandPEERLPStartPatten",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandPEERLPStopPatten": {
+    "name": "tnIfTDM2InBandPEERLPStopPatten",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandLPTimeoutEnable": {
+    "name": "tnIfTDM2InBandLPTimeoutEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandLPTimeoutCount": {
+    "name": "tnIfTDM2InBandLPTimeoutCount",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandPEERLPTimeoutEnable": {
+    "name": "tnIfTDM2InBandPEERLPTimeoutEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDM2InBandPEERLPTimeoutCount": {
+    "name": "tnIfTDM2InBandPEERLPTimeoutCount",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.2.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnIfTDMAlarmIndicationSignalEvt": {
+    "name": "tnIfTDMAlarmIndicationSignalEvt",
+    "oid": "1.3.6.1.4.1.868.2.5.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-MGMT-TDM-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "TN-MGMT-TDM-MIB",
+        "object": "tnIfTDMAlarmIndicationSignal"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-MGMT-TDM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-MGMT-TDM-MIB"
+  }
+}

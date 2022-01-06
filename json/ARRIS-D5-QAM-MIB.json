@@ -1,0 +1,1193 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARRIS-D5-VIDEO-MIB": [
+      "D5Program"
+    ],
+    "ARRIS-MIB": [
+      "arrisD5UEQam"
+    ],
+    "DOCS-IF-MIB": [
+      "TenthdB",
+      "TenthdBmV"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "d5QamMib": {
+    "name": "d5QamMib",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-01-27 17:44",
+        "description": "Changed low bound on d5QamRFChannelSymbolRate to 3450000"
+      }
+    ]
+  },
+  "d5QamRFObjects": {
+    "name": "d5QamRFObjects",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1",
+    "class": "objectidentity"
+  },
+  "d5QamStatObjects": {
+    "name": "d5QamStatObjects",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.3",
+    "class": "objectidentity"
+  },
+  "d5QamSpareObjects": {
+    "name": "d5QamSpareObjects",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4",
+    "class": "objectidentity"
+  },
+  "d5QamDocsisObjects": {
+    "name": "d5QamDocsisObjects",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.5",
+    "class": "objectidentity"
+  },
+  "d5QamMonitorObjects": {
+    "name": "d5QamMonitorObjects",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6",
+    "class": "objectidentity"
+  },
+  "d5QamRFChannelTable": {
+    "name": "d5QamRFChannelTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5QamRFChannelEntry": {
+    "name": "d5QamRFChannelEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamRFChannelAnnex": {
+    "name": "d5QamRFChannelAnnex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "annexA": 1,
+          "annexB": 2,
+          "annexC": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelFrequency": {
+    "name": "d5QamRFChannelFrequency",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hertz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelModulation": {
+    "name": "d5QamRFChannelModulation",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "qam64": 6,
+          "qam128": 7,
+          "qam256": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "qam256",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelFECInterleaverLevel": {
+    "name": "d5QamRFChannelFECInterleaverLevel",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "variable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "variable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelFECInterleaverMode": {
+    "name": "d5QamRFChannelFECInterleaverMode",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          },
+          {
+            "min": 12,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelPower": {
+    "name": "d5QamRFChannelPower",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TenthdBmV",
+      "class": "type"
+    },
+    "units": "dBmV",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelSpectralInversion": {
+    "name": "d5QamRFChannelSpectralInversion",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelSymbolRate": {
+    "name": "d5QamRFChannelSymbolRate",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3450000,
+            "max": 7040000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6952000,
+        "format": "decimal"
+      }
+    },
+    "units": "symbols/s",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelWidth": {
+    "name": "d5QamRFChannelWidth",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6000000,
+            "max": 8000000
+          }
+        ]
+      }
+    },
+    "units": "hertz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFChannelRowStatus": {
+    "name": "d5QamRFChannelRowStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamStatProgramCounterTable": {
+    "name": "d5QamStatProgramCounterTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5QamStatProgramCounterEntry": {
+    "name": "d5QamStatProgramCounterEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamStatProgramCounterQamIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamStatProgramCounterProgram",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamStatProgramCounterQamIfIndex": {
+    "name": "d5QamStatProgramCounterQamIfIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamStatProgramCounterProgram": {
+    "name": "d5QamStatProgramCounterProgram",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "D5Program",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamStatProgramCounterPackets": {
+    "name": "d5QamStatProgramCounterPackets",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamSpareGroupTable": {
+    "name": "d5QamSpareGroupTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5QamSpareGroupEntry": {
+    "name": "d5QamSpareGroupEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupPrimaryPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamSpareGroupPrimaryPhysicalIndex": {
+    "name": "d5QamSpareGroupPrimaryPhysicalIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamSpareGroupSparePhysicalIndex": {
+    "name": "d5QamSpareGroupSparePhysicalIndex",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSpareGroupFailbackMode": {
+    "name": "d5QamSpareGroupFailbackMode",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "manual": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSpareGroupFailoverStatus": {
+    "name": "d5QamSpareGroupFailoverStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "standby": 2,
+          "switched": 3,
+          "fail": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamSpareGroupRowStatus": {
+    "name": "d5QamSpareGroupRowStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSpareGroupTraps": {
+    "name": "d5QamSpareGroupTraps",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.2",
+    "class": "objectidentity"
+  },
+  "d5QamSpareGroupFailOver": {
+    "name": "d5QamSpareGroupFailOver",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupPrimaryPhysicalIndex"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupSparePhysicalIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamSpareGroupFailBack": {
+    "name": "d5QamSpareGroupFailBack",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.4.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupPrimaryPhysicalIndex"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupSparePhysicalIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamDocsisChannelTable": {
+    "name": "d5QamDocsisChannelTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5QamDocsisChannelEntry": {
+    "name": "d5QamDocsisChannelEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamDocsisChannelDtiOffset": {
+    "name": "d5QamDocsisChannelDtiOffset",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -30000,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "units": "ticks",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5QamSnoopObjects": {
+    "name": "d5QamSnoopObjects",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1",
+    "class": "objectidentity"
+  },
+  "d5QamSnoopTable": {
+    "name": "d5QamSnoopTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5QamSnoopEntry": {
+    "name": "d5QamSnoopEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopProbe",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamSnoopProbe": {
+    "name": "d5QamSnoopProbe",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "post-mux": 1,
+          "post-rf": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamSnoopTSID": {
+    "name": "d5QamSnoopTSID",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSnoopEncapsulation": {
+    "name": "d5QamSnoopEncapsulation",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "udp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSnoopIpSrc": {
+    "name": "d5QamSnoopIpSrc",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamSnoopPortSrc": {
+    "name": "d5QamSnoopPortSrc",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamSnoopIpDest": {
+    "name": "d5QamSnoopIpDest",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSnoopPortDest": {
+    "name": "d5QamSnoopPortDest",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSnoopRowStatus": {
+    "name": "d5QamSnoopRowStatus",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamSnoopTOS": {
+    "name": "d5QamSnoopTOS",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5QamSnoopVlanPriority": {
+    "name": "d5QamSnoopVlanPriority",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "d5QamRFSignalObjects": {
+    "name": "d5QamRFSignalObjects",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2",
+    "class": "objectidentity"
+  },
+  "d5QamRFSignalQualityTable": {
+    "name": "d5QamRFSignalQualityTable",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "d5QamRFSignalQualityEntry": {
+    "name": "d5QamRFSignalQualityEntry",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamRFSigQMeasureControl": {
+    "name": "d5QamRFSigQMeasureControl",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "scan": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "scan",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFSigQMeasureDelay": {
+    "name": "d5QamRFSigQMeasureDelay",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 70,
+        "format": "decimal"
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "d5QamRFSigQMpegLock": {
+    "name": "d5QamRFSigQMpegLock",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamRFSigQBitErrorRate": {
+    "name": "d5QamRFSigQBitErrorRate",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamRFSigQUnerroreds": {
+    "name": "d5QamRFSigQUnerroreds",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamRFSigQCorrecteds": {
+    "name": "d5QamRFSigQCorrecteds",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamRFSigQUncorrectables": {
+    "name": "d5QamRFSigQUncorrectables",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamRFSigQSignalNoise": {
+    "name": "d5QamRFSigQSignalNoise",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.6.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TenthdB",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d5QamConformance": {
+    "name": "d5QamConformance",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99",
+    "class": "objectidentity"
+  },
+  "d5QamObjectGroups": {
+    "name": "d5QamObjectGroups",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.1",
+    "class": "objectidentity"
+  },
+  "d5QamNotificationGroups": {
+    "name": "d5QamNotificationGroups",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.2",
+    "class": "objectidentity"
+  },
+  "d5QamCompliances": {
+    "name": "d5QamCompliances",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.3",
+    "class": "objectidentity"
+  },
+  "d5QamRFObjectGroup": {
+    "name": "d5QamRFObjectGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelAnnex"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelFrequency"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelModulation"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelFECInterleaverLevel"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelFECInterleaverMode"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelPower"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelSpectralInversion"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelSymbolRate"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelWidth"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFChannelRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamStatObjectGroup": {
+    "name": "d5QamStatObjectGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamStatProgramCounterQamIfIndex"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamStatProgramCounterProgram"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamStatProgramCounterPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamSpareObjectGroup": {
+    "name": "d5QamSpareObjectGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupPrimaryPhysicalIndex"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupSparePhysicalIndex"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupFailbackMode"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupFailoverStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamDocsisObjectGroup": {
+    "name": "d5QamDocsisObjectGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamDocsisChannelDtiOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamSnoopObjectGroup": {
+    "name": "d5QamSnoopObjectGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopTSID"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopProbe"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopEncapsulation"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopIpSrc"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopPortSrc"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopIpDest"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopPortDest"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopRowStatus"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopTOS"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSnoopVlanPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamRFSigQObjectGroup": {
+    "name": "d5QamRFSigQObjectGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQMeasureControl"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQMeasureDelay"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQMpegLock"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQBitErrorRate"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQUnerroreds"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQCorrecteds"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQUncorrectables"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamRFSigQSignalNoise"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamSpareGroupNotificationGroup": {
+    "name": "d5QamSpareGroupNotificationGroup",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupFailOver"
+      },
+      {
+        "module": "ARRIS-D5-QAM-MIB",
+        "object": "d5QamSpareGroupFailBack"
+      }
+    ],
+    "status": "current"
+  },
+  "d5QamCompliance": {
+    "name": "d5QamCompliance",
+    "oid": "1.3.6.1.4.1.4115.1.8.1.5.99.3.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "d5QamRFObjectGroup",
+        "module": "ARRIS-D5-QAM-MIB"
+      },
+      {
+        "object": "d5QamStatObjectGroup",
+        "module": "ARRIS-D5-QAM-MIB"
+      },
+      {
+        "object": "d5QamSpareObjectGroup",
+        "module": "ARRIS-D5-QAM-MIB"
+      },
+      {
+        "object": "d5QamSpareGroupNotificationGroup",
+        "module": "ARRIS-D5-QAM-MIB"
+      },
+      {
+        "object": "d5QamDocsisObjectGroup",
+        "module": "ARRIS-D5-QAM-MIB"
+      },
+      {
+        "object": "d5QamSnoopObjectGroup",
+        "module": "ARRIS-D5-QAM-MIB"
+      },
+      {
+        "object": "d5QamRFSigQObjectGroup",
+        "module": "ARRIS-D5-QAM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-QAM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ARRIS-D5-QAM-MIB"
+  }
+}

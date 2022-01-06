@@ -1,0 +1,2732 @@
+{
+  "imports": {
+    "class": "imports",
+    "ASYNCOS-MAIL-MIB": [
+      "connectionURL"
+    ],
+    "IRONPORT-SMI": [
+      "asyncOSAppliances"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "asyncOSWebSecurityAppliance": {
+    "name": "asyncOSWebSecurityAppliance",
+    "oid": "1.3.6.1.4.1.15497.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-09 00:00",
+        "description": "Add missing connectionURL import"
+      },
+      {
+        "revision": "2010-04-20 00:00",
+        "description": "Add missing cacheMemoryBufferUsagePct, cacheClientReqMisses, cacheClientReqDenials."
+      },
+      {
+        "revision": "2010-04-15 00:00",
+        "description": "Minor description tweaks"
+      },
+      {
+        "revision": "2009-07-13 00:00",
+        "description": "Cleaning up integration with IRONPORT-SMI"
+      },
+      {
+        "revision": "2007-03-27 00:00",
+        "description": "MIB Version 0.1"
+      }
+    ]
+  },
+  "proxySystem": {
+    "name": "proxySystem",
+    "oid": "1.3.6.1.4.1.15497.1.2.1",
+    "class": "objectidentity"
+  },
+  "proxyConfig": {
+    "name": "proxyConfig",
+    "oid": "1.3.6.1.4.1.15497.1.2.2",
+    "class": "objectidentity"
+  },
+  "proxyPerf": {
+    "name": "proxyPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3",
+    "class": "objectidentity"
+  },
+  "proxyHardware": {
+    "name": "proxyHardware",
+    "oid": "1.3.6.1.4.1.15497.1.2.4",
+    "class": "objectidentity"
+  },
+  "proxyTraps": {
+    "name": "proxyTraps",
+    "oid": "1.3.6.1.4.1.15497.1.2.5",
+    "class": "objectidentity"
+  },
+  "cacheUptime": {
+    "name": "cacheUptime",
+    "oid": "1.3.6.1.4.1.15497.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMemory": {
+    "name": "cacheMemory",
+    "oid": "1.3.6.1.4.1.15497.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheSysStorage": {
+    "name": "cacheSysStorage",
+    "oid": "1.3.6.1.4.1.15497.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheAdmin": {
+    "name": "cacheAdmin",
+    "oid": "1.3.6.1.4.1.15497.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheSoftware": {
+    "name": "cacheSoftware",
+    "oid": "1.3.6.1.4.1.15497.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheVersion": {
+    "name": "cacheVersion",
+    "oid": "1.3.6.1.4.1.15497.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "licenseExpiration": {
+    "name": "licenseExpiration",
+    "oid": "1.3.6.1.4.1.15497.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxySysPerf": {
+    "name": "proxySysPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.1",
+    "class": "objectidentity"
+  },
+  "proxyClientSidePerf": {
+    "name": "proxyClientSidePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2",
+    "class": "objectidentity"
+  },
+  "proxyServerSidePerf": {
+    "name": "proxyServerSidePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3",
+    "class": "objectidentity"
+  },
+  "proxyCachePerf": {
+    "name": "proxyCachePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4",
+    "class": "objectidentity"
+  },
+  "proxyMedianSvcTime": {
+    "name": "proxyMedianSvcTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5",
+    "class": "objectidentity"
+  },
+  "proxyExecutiveSummary": {
+    "name": "proxyExecutiveSummary",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6",
+    "class": "objectidentity"
+  },
+  "proxyRecentPerf": {
+    "name": "proxyRecentPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7",
+    "class": "objectidentity"
+  },
+  "cacheCpuTime": {
+    "name": "cacheCpuTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCpuUsage": {
+    "name": "cacheCpuUsage",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMaxResSize": {
+    "name": "cacheMaxResSize",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheUsedStoragePct": {
+    "name": "cacheUsedStoragePct",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBusyCPUPct": {
+    "name": "cacheBusyCPUPct",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMemoryBufferUsagePct": {
+    "name": "cacheMemoryBufferUsagePct",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientSizeHistTable": {
+    "name": "cacheClientSizeHistTable",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cacheClientSizeHistEntry": {
+    "name": "cacheClientSizeHistEntry",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASYNCOSWEBSECURITYAPPLIANCE-MIB",
+        "object": "cacheClientSizeHistBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cacheClientSizeHistBinNumber": {
+    "name": "cacheClientSizeHistBinNumber",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientReqSize": {
+    "name": "cacheClientReqSize",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientRequests": {
+    "name": "cacheClientRequests",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientHits": {
+    "name": "cacheClientHits",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientErrors": {
+    "name": "cacheClientErrors",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientInKb": {
+    "name": "cacheClientInKb",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientOutKb": {
+    "name": "cacheClientOutKb",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientIdleConns": {
+    "name": "cacheClientIdleConns",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientTotalConns": {
+    "name": "cacheClientTotalConns",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientMaxConns": {
+    "name": "cacheClientMaxConns",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientAccepts": {
+    "name": "cacheClientAccepts",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientICPRequests": {
+    "name": "cacheClientICPRequests",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientICPHits": {
+    "name": "cacheClientICPHits",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientICPMisses": {
+    "name": "cacheClientICPMisses",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientICPErrors": {
+    "name": "cacheClientICPErrors",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientICPDenials": {
+    "name": "cacheClientICPDenials",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientReqMisses": {
+    "name": "cacheClientReqMisses",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheClientReqDenials": {
+    "name": "cacheClientReqDenials",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerSizeHistTable": {
+    "name": "cacheServerSizeHistTable",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cacheServerSizeHistEntry": {
+    "name": "cacheServerSizeHistEntry",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASYNCOSWEBSECURITYAPPLIANCE-MIB",
+        "object": "cacheServerSizeHistBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cacheServerSizeHistBinNumber": {
+    "name": "cacheServerSizeHistBinNumber",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerReplySize": {
+    "name": "cacheServerReplySize",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerRequests": {
+    "name": "cacheServerRequests",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerSockets": {
+    "name": "cacheServerSockets",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerErrors": {
+    "name": "cacheServerErrors",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerInKb": {
+    "name": "cacheServerInKb",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerOutKb": {
+    "name": "cacheServerOutKb",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerIdleConns": {
+    "name": "cacheServerIdleConns",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerTotalConns": {
+    "name": "cacheServerTotalConns",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerCloseIdleConns": {
+    "name": "cacheServerCloseIdleConns",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerLimitIdleConns": {
+    "name": "cacheServerLimitIdleConns",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerConnsThresh": {
+    "name": "cacheServerConnsThresh",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerPersisConnsRetries": {
+    "name": "cacheServerPersisConnsRetries",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerRegConnsRetries": {
+    "name": "cacheServerRegConnsRetries",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerRWErrorRetries": {
+    "name": "cacheServerRWErrorRetries",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerEarlyCloseRetries": {
+    "name": "cacheServerEarlyCloseRetries",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerICPRequests": {
+    "name": "cacheServerICPRequests",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerICPHits": {
+    "name": "cacheServerICPHits",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerICPMisses": {
+    "name": "cacheServerICPMisses",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerICPErrors": {
+    "name": "cacheServerICPErrors",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheServerICPDenials": {
+    "name": "cacheServerICPDenials",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCacheSizeHistTable": {
+    "name": "cacheCacheSizeHistTable",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cacheCacheSizeHistEntry": {
+    "name": "cacheCacheSizeHistEntry",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASYNCOSWEBSECURITYAPPLIANCE-MIB",
+        "object": "cacheSizeHistBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cacheSizeHistBinNumber": {
+    "name": "cacheSizeHistBinNumber",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCacheActiveObjs": {
+    "name": "cacheCacheActiveObjs",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCacheAllObjs": {
+    "name": "cacheCacheAllObjs",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCacheLiveCachedObjs": {
+    "name": "cacheCacheLiveCachedObjs",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCacheLiveCachedObjSizes": {
+    "name": "cacheCacheLiveCachedObjSizes",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCacheTotalCachedObjs": {
+    "name": "cacheCacheTotalCachedObjs",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCacheTotalCachedObjSizes": {
+    "name": "cacheCacheTotalCachedObjSizes",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMedianSvcTable": {
+    "name": "cacheMedianSvcTable",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cacheMedianSvcEntry": {
+    "name": "cacheMedianSvcEntry",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASYNCOSWEBSECURITYAPPLIANCE-MIB",
+        "object": "cacheMedianTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cacheMedianTime": {
+    "name": "cacheMedianTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHTTPCltSvcTime": {
+    "name": "cacheHTTPCltSvcTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHTTPMissSvcTime": {
+    "name": "cacheHTTPMissSvcTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHTTPHitSvcTime": {
+    "name": "cacheHTTPHitSvcTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHTTPSrvSvcTime": {
+    "name": "cacheHTTPSrvSvcTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDnsSvcTime": {
+    "name": "cacheDnsSvcTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHTTPSvcWaitTime": {
+    "name": "cacheHTTPSvcWaitTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.5.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalHttpReqs": {
+    "name": "cacheTotalHttpReqs",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMeanRespTime": {
+    "name": "cacheMeanRespTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMeanMissRespTime": {
+    "name": "cacheMeanMissRespTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMeanHitRespTime": {
+    "name": "cacheMeanHitRespTime",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMeanHitRatio": {
+    "name": "cacheMeanHitRatio",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMeanByteHitRatio": {
+    "name": "cacheMeanByteHitRatio",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalBandwidthSaving": {
+    "name": "cacheTotalBandwidthSaving",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDuration": {
+    "name": "cacheDuration",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheCltReplyErrPct": {
+    "name": "cacheCltReplyErrPct",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentThruputPerf": {
+    "name": "proxyRecentThruputPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1",
+    "class": "objectidentity"
+  },
+  "cacheThruputNow": {
+    "name": "cacheThruputNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruput1hrPeak": {
+    "name": "cacheThruput1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruput1hrMean": {
+    "name": "cacheThruput1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruput1dayPeak": {
+    "name": "cacheThruput1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruput1dayMean": {
+    "name": "cacheThruput1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruput1weekPeak": {
+    "name": "cacheThruput1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruput1weekMean": {
+    "name": "cacheThruput1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruputLifePeak": {
+    "name": "cacheThruputLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheThruputLifeMean": {
+    "name": "cacheThruputLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentBandWSavPerf": {
+    "name": "proxyRecentBandWSavPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2",
+    "class": "objectidentity"
+  },
+  "cacheBwidthSavingNow": {
+    "name": "cacheBwidthSavingNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSaving1hrPeak": {
+    "name": "cacheBwidthSaving1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSaving1hrMean": {
+    "name": "cacheBwidthSaving1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSaving1dayPeak": {
+    "name": "cacheBwidthSaving1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSaving1dayMean": {
+    "name": "cacheBwidthSaving1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSaving1weekPeak": {
+    "name": "cacheBwidthSaving1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSaving1weekMean": {
+    "name": "cacheBwidthSaving1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSavingLifePeak": {
+    "name": "cacheBwidthSavingLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSavingLifeMean": {
+    "name": "cacheBwidthSavingLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentBandWSpntPerf": {
+    "name": "proxyRecentBandWSpntPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3",
+    "class": "objectidentity"
+  },
+  "cacheBwidthSpentNow": {
+    "name": "cacheBwidthSpentNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpent1hrPeak": {
+    "name": "cacheBwidthSpent1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpent1hrMean": {
+    "name": "cacheBwidthSpent1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpent1dayPeak": {
+    "name": "cacheBwidthSpent1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpent1dayMean": {
+    "name": "cacheBwidthSpent1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpent1weekPeak": {
+    "name": "cacheBwidthSpent1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpent1weekMean": {
+    "name": "cacheBwidthSpent1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpentLifePeak": {
+    "name": "cacheBwidthSpentLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthSpentLifeMean": {
+    "name": "cacheBwidthSpentLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentBandWTotPerf": {
+    "name": "proxyRecentBandWTotPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4",
+    "class": "objectidentity"
+  },
+  "cacheBwidthTotalNow": {
+    "name": "cacheBwidthTotalNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotal1hrPeak": {
+    "name": "cacheBwidthTotal1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotal1hrMean": {
+    "name": "cacheBwidthTotal1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotal1dayPeak": {
+    "name": "cacheBwidthTotal1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotal1dayMean": {
+    "name": "cacheBwidthTotal1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotal1weekPeak": {
+    "name": "cacheBwidthTotal1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotal1weekMean": {
+    "name": "cacheBwidthTotal1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotalLifePeak": {
+    "name": "cacheBwidthTotalLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheBwidthTotalLifeMean": {
+    "name": "cacheBwidthTotalLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentHitsPerf": {
+    "name": "proxyRecentHitsPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5",
+    "class": "objectidentity"
+  },
+  "cacheHitsNow": {
+    "name": "cacheHitsNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHits1hrPeak": {
+    "name": "cacheHits1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHits1hrMean": {
+    "name": "cacheHits1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHits1dayPeak": {
+    "name": "cacheHits1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHits1dayMean": {
+    "name": "cacheHits1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHits1weekPeak": {
+    "name": "cacheHits1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHits1weekMean": {
+    "name": "cacheHits1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitsLifePeak": {
+    "name": "cacheHitsLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitsLifeMean": {
+    "name": "cacheHitsLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentMissesPerf": {
+    "name": "proxyRecentMissesPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6",
+    "class": "objectidentity"
+  },
+  "cacheMissesNow": {
+    "name": "cacheMissesNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMisses1hrPeak": {
+    "name": "cacheMisses1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMisses1hrMean": {
+    "name": "cacheMisses1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMisses1dayPeak": {
+    "name": "cacheMisses1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMisses1dayMean": {
+    "name": "cacheMisses1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMisses1weekPeak": {
+    "name": "cacheMisses1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMisses1weekMean": {
+    "name": "cacheMisses1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissesLifePeak": {
+    "name": "cacheMissesLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissesLifeMean": {
+    "name": "cacheMissesLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentHitRespTimePerf": {
+    "name": "proxyRecentHitRespTimePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7",
+    "class": "objectidentity"
+  },
+  "cacheHitRespTimeNow": {
+    "name": "cacheHitRespTimeNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTime1hrPeak": {
+    "name": "cacheHitRespTime1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTime1hrMean": {
+    "name": "cacheHitRespTime1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTime1dayPeak": {
+    "name": "cacheHitRespTime1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTime1dayMean": {
+    "name": "cacheHitRespTime1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTime1weekPeak": {
+    "name": "cacheHitRespTime1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTime1weekMean": {
+    "name": "cacheHitRespTime1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTimeLifePeak": {
+    "name": "cacheHitRespTimeLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheHitRespTimeLifeMean": {
+    "name": "cacheHitRespTimeLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentMissRespTimePerf": {
+    "name": "proxyRecentMissRespTimePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8",
+    "class": "objectidentity"
+  },
+  "cacheMissRespTimeNow": {
+    "name": "cacheMissRespTimeNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTime1hrPeak": {
+    "name": "cacheMissRespTime1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTime1hrMean": {
+    "name": "cacheMissRespTime1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTime1dayPeak": {
+    "name": "cacheMissRespTime1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTime1dayMean": {
+    "name": "cacheMissRespTime1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTime1weekPeak": {
+    "name": "cacheMissRespTime1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTime1weekMean": {
+    "name": "cacheMissRespTime1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTimeLifePeak": {
+    "name": "cacheMissRespTimeLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheMissRespTimeLifeMean": {
+    "name": "cacheMissRespTimeLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentTotalRespTimePerf": {
+    "name": "proxyRecentTotalRespTimePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9",
+    "class": "objectidentity"
+  },
+  "cacheTotalRespTimeNow": {
+    "name": "cacheTotalRespTimeNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTime1hrPeak": {
+    "name": "cacheTotalRespTime1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTime1hrMean": {
+    "name": "cacheTotalRespTime1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTime1dayPeak": {
+    "name": "cacheTotalRespTime1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTime1dayMean": {
+    "name": "cacheTotalRespTime1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTime1weekPeak": {
+    "name": "cacheTotalRespTime1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTime1weekMean": {
+    "name": "cacheTotalRespTime1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTimeLifePeak": {
+    "name": "cacheTotalRespTimeLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheTotalRespTimeLifeMean": {
+    "name": "cacheTotalRespTimeLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentErrsPerf": {
+    "name": "proxyRecentErrsPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10",
+    "class": "objectidentity"
+  },
+  "cacheErrsNow": {
+    "name": "cacheErrsNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrs1hrPeak": {
+    "name": "cacheErrs1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrs1hrMean": {
+    "name": "cacheErrs1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrs1dayPeak": {
+    "name": "cacheErrs1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrs1dayMean": {
+    "name": "cacheErrs1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrs1weekPeak": {
+    "name": "cacheErrs1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrs1weekMean": {
+    "name": "cacheErrs1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrsLifePeak": {
+    "name": "cacheErrsLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrsLifeMean": {
+    "name": "cacheErrsLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentDeniedPerf": {
+    "name": "proxyRecentDeniedPerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11",
+    "class": "objectidentity"
+  },
+  "cacheDeniedNow": {
+    "name": "cacheDeniedNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDenied1hrPeak": {
+    "name": "cacheDenied1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDenied1hrMean": {
+    "name": "cacheDenied1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDenied1dayPeak": {
+    "name": "cacheDenied1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDenied1dayMean": {
+    "name": "cacheDenied1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDenied1weekPeak": {
+    "name": "cacheDenied1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDenied1weekMean": {
+    "name": "cacheDenied1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedLifePeak": {
+    "name": "cacheDeniedLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedLifeMean": {
+    "name": "cacheDeniedLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentErrRespTimePerf": {
+    "name": "proxyRecentErrRespTimePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12",
+    "class": "objectidentity"
+  },
+  "cacheErrRespTimeNow": {
+    "name": "cacheErrRespTimeNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTime1hrPeak": {
+    "name": "cacheErrRespTime1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTime1hrMean": {
+    "name": "cacheErrRespTime1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTime1dayPeak": {
+    "name": "cacheErrRespTime1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTime1dayMean": {
+    "name": "cacheErrRespTime1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTime1weekPeak": {
+    "name": "cacheErrRespTime1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTime1weekMean": {
+    "name": "cacheErrRespTime1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTimeLifePeak": {
+    "name": "cacheErrRespTimeLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheErrRespTimeLifeMean": {
+    "name": "cacheErrRespTimeLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyRecentDeniedRespTimePerf": {
+    "name": "proxyRecentDeniedRespTimePerf",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13",
+    "class": "objectidentity"
+  },
+  "cacheDeniedRespTimeNow": {
+    "name": "cacheDeniedRespTimeNow",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTime1hrPeak": {
+    "name": "cacheDeniedRespTime1hrPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTime1hrMean": {
+    "name": "cacheDeniedRespTime1hrMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTime1dayPeak": {
+    "name": "cacheDeniedRespTime1dayPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTime1dayMean": {
+    "name": "cacheDeniedRespTime1dayMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTime1weekPeak": {
+    "name": "cacheDeniedRespTime1weekPeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTime1weekMean": {
+    "name": "cacheDeniedRespTime1weekMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTimeLifePeak": {
+    "name": "cacheDeniedRespTimeLifePeak",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cacheDeniedRespTimeLifeMean": {
+    "name": "cacheDeniedRespTimeLifeMean",
+    "oid": "1.3.6.1.4.1.15497.1.2.3.7.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proxyHardwareDisk": {
+    "name": "proxyHardwareDisk",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "hardwareDiskStatTable": {
+    "name": "hardwareDiskStatTable",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskStatEntry": {
+    "name": "diskStatEntry",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ASYNCOSWEBSECURITYAPPLIANCE-MIB",
+        "object": "diskStatEntryNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskStatEntryNumber": {
+    "name": "diskStatEntryNumber",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskStatWrites": {
+    "name": "diskStatWrites",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskStatWriteErrs": {
+    "name": "diskStatWriteErrs",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskStatReads": {
+    "name": "diskStatReads",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskStatReadErrs": {
+    "name": "diskStatReadErrs",
+    "oid": "1.3.6.1.4.1.15497.1.2.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upstreamProxyFailure": {
+    "name": "upstreamProxyFailure",
+    "oid": "1.3.6.1.4.1.15497.1.2.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ASYNCOS-MAIL-MIB",
+        "object": "connectionURL"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ASYNCOSWEBSECURITYAPPLIANCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ASYNCOSWEBSECURITYAPPLIANCE-MIB"
+  }
+}

@@ -1,0 +1,1687 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoNetworkRegistrarMIB": {
+    "name": "ciscoNetworkRegistrarMIB",
+    "oid": "1.3.6.1.4.1.9.9.120",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-03 00:00",
+        "description": "Added the following new notification: ciscoNetRegHaDnsPartnerUp ciscoNetRegMastersNotResp ciscoNetRegMastersResp ciscoNetRegSecondaryZonesExpired ciscoNetRegDnsForwardersNotResp ciscoNetRegDnsForwardersResp ciscoNetRegHaDnsConfigErr ciscoNetRegFreeAddrLow ciscoNetRegFreeAddrHigh Added the following new objects: cnrNotifDHCPScopeFreeAddrLow cnrNotifDHCPScopeFreeAddrHigh cnrNotifDHCPScopeFreeAddrValue cnrNotifDHCPThresholdType cnrNotifDHCPThresholdValue cnrNotifDHCPScopeName cnrNotifPrimarySubnetNumber cnrNotifRelatedServerType cnrNotifDnsServerIpAddress cnrNotifZoneName cnrNotifDnsRemoteServersList Deprecated the following notifications: ciscoNetRegFreeAddressLow ciscoNetRegFreeAddressHigh ciscoNetRegOtherServerNotResponding ciscoNetRegOtherServerResponding Deprecated the following objects in cnrDHCPScopeTable: cnrDHCPScopeName cnrDHCPScopeFreeAddrLowThreshold cnrDHCPScopeFreeAddrHighThreshold cnrDHCPScopeFreeAddrValue cnrDHCPScopeFreeAddrUnits "
+      },
+      {
+        "revision": "2003-01-11 00:00",
+        "description": "Added configuration objects to enable or disable notifications."
+      },
+      {
+        "revision": "1999-06-17 00:00",
+        "description": "Fixed OID for ciscoNetworkRegistrarMIBConformance"
+      },
+      {
+        "revision": "1998-11-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoNetworkRegistrarMIBObjects": {
+    "name": "ciscoNetworkRegistrarMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.120.1",
+    "class": "objectidentity"
+  },
+  "cnrDHCP": {
+    "name": "cnrDHCP",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1",
+    "class": "objectidentity"
+  },
+  "cnrNotifObjects": {
+    "name": "cnrNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2",
+    "class": "objectidentity"
+  },
+  "cnrNotifCfgObjects": {
+    "name": "cnrNotifCfgObjects",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3",
+    "class": "objectidentity"
+  },
+  "CnrPhysAddress": {
+    "name": "CnrPhysAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cnrDHCPScopeTable": {
+    "name": "cnrDHCPScopeTable",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cnrDHCPScopeEntry": {
+    "name": "cnrDHCPScopeEntry",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeName",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cnrDHCPScopeName": {
+    "name": "cnrDHCPScopeName",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cnrDHCPScopeFreeAddrLowThreshold": {
+    "name": "cnrDHCPScopeFreeAddrLowThreshold",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cnrDHCPScopeFreeAddrHighThreshold": {
+    "name": "cnrDHCPScopeFreeAddrHighThreshold",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cnrDHCPScopeFreeAddrValue": {
+    "name": "cnrDHCPScopeFreeAddrValue",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cnrDHCPScopeFreeAddrUnits": {
+    "name": "cnrDHCPScopeFreeAddrUnits",
+    "oid": "1.3.6.1.4.1.9.9.120.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "value": 1,
+          "percent": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "deprecated"
+  },
+  "cnrNotifDupIpAddress": {
+    "name": "cnrNotifDupIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifMACAddress": {
+    "name": "cnrNotifMACAddress",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CnrPhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifServer": {
+    "name": "cnrNotifServer",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifServerType": {
+    "name": "cnrNotifServerType",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dns": 1,
+          "dhcp": 2,
+          "ldap": 3,
+          "tftp": 4,
+          "ccm": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDupIpAddressDetectedBy": {
+    "name": "cnrNotifDupIpAddressDetectedBy",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcpClient": 1,
+          "dhcpServer": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifContestedIpAddress": {
+    "name": "cnrNotifContestedIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDHCPScopeFreeAddrLow": {
+    "name": "cnrNotifDHCPScopeFreeAddrLow",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDHCPScopeFreeAddrHigh": {
+    "name": "cnrNotifDHCPScopeFreeAddrHigh",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDHCPScopeFreeAddrValue": {
+    "name": "cnrNotifDHCPScopeFreeAddrValue",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDHCPThresholdType": {
+    "name": "cnrNotifDHCPThresholdType",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "scope": 1,
+          "network": 2,
+          "selectionTags": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDHCPThresholdValue": {
+    "name": "cnrNotifDHCPThresholdValue",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDHCPScopeName": {
+    "name": "cnrNotifDHCPScopeName",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifPrimarySubnetNumber": {
+    "name": "cnrNotifPrimarySubnetNumber",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifRelatedServerType": {
+    "name": "cnrNotifRelatedServerType",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnsPrimary": 1,
+          "ldap": 2,
+          "failoverPartner": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDnsServerIpAddress": {
+    "name": "cnrNotifDnsServerIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifZoneName": {
+    "name": "cnrNotifZoneName",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrNotifDnsRemoteServersList": {
+    "name": "cnrNotifDnsRemoteServersList",
+    "oid": "1.3.6.1.4.1.9.9.120.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cnrEnableFreeAddressLow": {
+    "name": "cnrEnableFreeAddressLow",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cnrEnableFreeAddressHigh": {
+    "name": "cnrEnableFreeAddressHigh",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cnrEnableServerStart": {
+    "name": "cnrEnableServerStart",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableServerStop": {
+    "name": "cnrEnableServerStop",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableDNSQueueTooBig": {
+    "name": "cnrEnableDNSQueueTooBig",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableOtherServerNotResponding": {
+    "name": "cnrEnableOtherServerNotResponding",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cnrEnableDuplicateAddress": {
+    "name": "cnrEnableDuplicateAddress",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableAddressConflict": {
+    "name": "cnrEnableAddressConflict",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableOtherServerResponding": {
+    "name": "cnrEnableOtherServerResponding",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cnrEnableFailoverConfigMismatch": {
+    "name": "cnrEnableFailoverConfigMismatch",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableFreeAddrLow": {
+    "name": "cnrEnableFreeAddrLow",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableFreeAddrHigh": {
+    "name": "cnrEnableFreeAddrHigh",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableOtherServerNotResp": {
+    "name": "cnrEnableOtherServerNotResp",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableOtherServerResp": {
+    "name": "cnrEnableOtherServerResp",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableHaDnsPartnerDown": {
+    "name": "cnrEnableHaDnsPartnerDown",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableHaDnsPartnerUp": {
+    "name": "cnrEnableHaDnsPartnerUp",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableMastersNotResp": {
+    "name": "cnrEnableMastersNotResp",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableMastersResp": {
+    "name": "cnrEnableMastersResp",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableSecondaryZoneExpired": {
+    "name": "cnrEnableSecondaryZoneExpired",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableDnsForwardersNotResp": {
+    "name": "cnrEnableDnsForwardersNotResp",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableDnsForwardersResp": {
+    "name": "cnrEnableDnsForwardersResp",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnrEnableHaDnsConfigErr": {
+    "name": "cnrEnableHaDnsConfigErr",
+    "oid": "1.3.6.1.4.1.9.9.120.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoNetRegMIBNotificationPrefix": {
+    "name": "ciscoNetRegMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.120.2",
+    "class": "objectidentity"
+  },
+  "ciscoNetRegMIBNotifications": {
+    "name": "ciscoNetRegMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoNetRegFreeAddressLow": {
+    "name": "ciscoNetRegFreeAddressLow",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrLowThreshold"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrValue"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrUnits"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetRegFreeAddressHigh": {
+    "name": "ciscoNetRegFreeAddressHigh",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrHighThreshold"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrValue"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrUnits"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetRegServerStart": {
+    "name": "ciscoNetRegServerStart",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegServerStop": {
+    "name": "ciscoNetRegServerStop",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegDNSQueueTooBig": {
+    "name": "ciscoNetRegDNSQueueTooBig",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ciscoNetRegOtherServerNotResponding": {
+    "name": "ciscoNetRegOtherServerNotResponding",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServerType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetRegDuplicateAddress": {
+    "name": "ciscoNetRegDuplicateAddress",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDupIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifMACAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDupIpAddressDetectedBy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegAddressConflict": {
+    "name": "ciscoNetRegAddressConflict",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifContestedIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegOtherServerResponding": {
+    "name": "ciscoNetRegOtherServerResponding",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServerType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetRegFailoverConfigMismatch": {
+    "name": "ciscoNetRegFailoverConfigMismatch",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegFreeAddrLowThreshold": {
+    "name": "ciscoNetRegFreeAddrLowThreshold",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeFreeAddrLow"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeFreeAddrValue"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeName"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifPrimarySubnetNumber"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPThresholdType"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPThresholdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegFreeAddrHighThreshold": {
+    "name": "ciscoNetRegFreeAddrHighThreshold",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeFreeAddrHigh"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeFreeAddrValue"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeName"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifPrimarySubnetNumber"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPThresholdType"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPThresholdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegOtherServerNotResp": {
+    "name": "ciscoNetRegOtherServerNotResp",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifRelatedServerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegOtherServerResp": {
+    "name": "ciscoNetRegOtherServerResp",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifRelatedServerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegHaDnsPartnerDown": {
+    "name": "ciscoNetRegHaDnsPartnerDown",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegHaDnsPartnerUp": {
+    "name": "ciscoNetRegHaDnsPartnerUp",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegMastersNotResp": {
+    "name": "ciscoNetRegMastersNotResp",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsServerIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifZoneName"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsRemoteServersList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegMastersResp": {
+    "name": "ciscoNetRegMastersResp",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsServerIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifZoneName"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsRemoteServersList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegSecondaryZonesExpired": {
+    "name": "ciscoNetRegSecondaryZonesExpired",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsServerIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifZoneName"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsRemoteServersList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegDnsForwardersNotResp": {
+    "name": "ciscoNetRegDnsForwardersNotResp",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsServerIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsRemoteServersList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegDnsForwardersResp": {
+    "name": "ciscoNetRegDnsForwardersResp",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsServerIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsRemoteServersList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegHaDnsConfigErr": {
+    "name": "ciscoNetRegHaDnsConfigErr",
+    "oid": "1.3.6.1.4.1.9.9.120.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifZoneName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetworkRegistrarMIBConformance": {
+    "name": "ciscoNetworkRegistrarMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.120.3",
+    "class": "objectidentity"
+  },
+  "ciscoNetworkRegistrarMIBCompliances": {
+    "name": "ciscoNetworkRegistrarMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.120.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoNetworkRegistrarMIBGroups": {
+    "name": "ciscoNetworkRegistrarMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoNetworkRegistrarMIBCompliance": {
+    "name": "ciscoNetworkRegistrarMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.120.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNetworkRegistrarDHCPScopeObjectsGroup",
+        "module": "CISCO-NETWORK-REGISTRAR-MIB"
+      },
+      {
+        "object": "ciscoNetworkRegistrarNotifObjectsGroup",
+        "module": "CISCO-NETWORK-REGISTRAR-MIB"
+      },
+      {
+        "object": "ciscoNetworkRegistrarNotifCfgObjectsGroup",
+        "module": "CISCO-NETWORK-REGISTRAR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetworkRegistrarMIBCompRev1": {
+    "name": "ciscoNetworkRegistrarMIBCompRev1",
+    "oid": "1.3.6.1.4.1.9.9.120.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNetRegistrarNotifInfoGroup",
+        "module": "CISCO-NETWORK-REGISTRAR-MIB"
+      },
+      {
+        "object": "ciscoNetRegistrarNotEnableGroup",
+        "module": "CISCO-NETWORK-REGISTRAR-MIB"
+      },
+      {
+        "object": "ciscoNetRegistrarNotificatGroup",
+        "module": "CISCO-NETWORK-REGISTRAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetworkRegistrarDHCPScopeObjectsGroup": {
+    "name": "ciscoNetworkRegistrarDHCPScopeObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrLowThreshold"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrHighThreshold"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrValue"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrDHCPScopeFreeAddrUnits"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetworkRegistrarNotifObjectsGroup": {
+    "name": "ciscoNetworkRegistrarNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDupIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifMACAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDupIpAddressDetectedBy"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServerType"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifContestedIpAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetworkRegistrarNotifCfgObjectsGroup": {
+    "name": "ciscoNetworkRegistrarNotifCfgObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableFreeAddressLow"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableFreeAddressHigh"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableServerStart"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableServerStop"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableDNSQueueTooBig"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableOtherServerNotResponding"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableDuplicateAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableAddressConflict"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableOtherServerResponding"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableFailoverConfigMismatch"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetworkRegistrarNotificationsGroup": {
+    "name": "ciscoNetworkRegistrarNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegFreeAddressLow"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegFreeAddressHigh"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegServerStart"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegServerStop"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegDNSQueueTooBig"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegOtherServerNotResponding"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegDuplicateAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegAddressConflict"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegOtherServerResponding"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegFailoverConfigMismatch"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoNetRegistrarNotifInfoGroup": {
+    "name": "ciscoNetRegistrarNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDupIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifMACAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServer"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifServerType"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDupIpAddressDetectedBy"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifContestedIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeFreeAddrLow"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeFreeAddrHigh"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeFreeAddrValue"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPThresholdType"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPThresholdValue"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDHCPScopeName"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifPrimarySubnetNumber"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifRelatedServerType"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsServerIpAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifZoneName"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrNotifDnsRemoteServersList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegistrarNotEnableGroup": {
+    "name": "ciscoNetRegistrarNotEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableServerStart"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableServerStop"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableDNSQueueTooBig"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableDuplicateAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableAddressConflict"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableFailoverConfigMismatch"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableFreeAddrLow"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableFreeAddrHigh"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableOtherServerNotResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableOtherServerResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableHaDnsPartnerDown"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableHaDnsPartnerUp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableMastersNotResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableMastersResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableSecondaryZoneExpired"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableDnsForwardersNotResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableDnsForwardersResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "cnrEnableHaDnsConfigErr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNetRegistrarNotificatGroup": {
+    "name": "ciscoNetRegistrarNotificatGroup",
+    "oid": "1.3.6.1.4.1.9.9.120.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegServerStart"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegServerStop"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegDNSQueueTooBig"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegFreeAddrLowThreshold"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegFreeAddrHighThreshold"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegAddressConflict"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegDuplicateAddress"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegOtherServerNotResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegOtherServerResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegFailoverConfigMismatch"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegHaDnsPartnerDown"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegHaDnsPartnerUp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegMastersNotResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegMastersResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegSecondaryZonesExpired"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegDnsForwardersNotResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegDnsForwardersResp"
+      },
+      {
+        "module": "CISCO-NETWORK-REGISTRAR-MIB",
+        "object": "ciscoNetRegHaDnsConfigErr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NETWORK-REGISTRAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NETWORK-REGISTRAR-MIB"
+  }
+}

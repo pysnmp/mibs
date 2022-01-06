@@ -1,0 +1,2756 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DIAL-CONTROL-MIB": [
+      "cCallHistoryIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-VIDEO-TC": [
+      "CvcVideoCodecAnnexMap",
+      "CvcVideoRtpPayloadFormat",
+      "CvcVideoLevel",
+      "CvcVideoProfile"
+    ],
+    "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
+      "CvcVideoCoderRate",
+      "CvcCallReferenceIdOrZero",
+      "CvcGUid"
+    ],
+    "DIAL-CONTROL-MIB": [
+      "callActiveIndex",
+      "AbsoluteCounter32",
+      "callActiveSetupTime"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVideoSessionMIB": {
+    "name": "ciscoVideoSessionMIB",
+    "oid": "1.3.6.1.4.1.9.9.753",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-04-20 00:00",
+        "description": "1. Deprecated video-specific textual conventions and import them from CISCO-VIDEO-TC instead : CvcVideoLevel, CvcVideoProfile, CvcVideoCodecAnnexMap and CvcRtpPayloadFormat. 2. Added cVideoCommonHistorySessionId and cVideoCommonActiveSessionId to cVideoCommonHistoryTable and cVideoCommonActiveTable, respectively. 3. Added monitoredCall to CvcVoIPCallServiceType TC. 4. Added cVideoCommonStatsHistoryTable with these objects: cVideoCommonStatsHistoryTxTotalLostPackets, cVideoCommonStatsHistoryTxPercentLostPackets, cVideoCommonStatsHistoryTxTotalOutOfOrderPackets, cVideoCommonStatsHistoryTxMaxJitter, cVideoCommonStatsHistoryTxAvgJitter, cVideoCommonStatsHistoryTxMaxDelay, cVideoCommonStatsHistoryTxAvgDelay, cVideoCommonStatsHistoryRxTotalLostPackets and cVideoCommonStatsHistoryRxPercentLostPackets. 5. Added cVideoCommonStatsActiveTable with these objects: cVideoCommonStatsActiveTxActualBitrate, cVideoCommonStatsActiveTxTotalLostPackets, cVideoCommonStatsActiveTxPercentLostPackets, cVideoCommonStatsActiveTxCurrentLostPackets, cVideoCommonStatsActiveTxTotalOutOfOrderPackets, cVideoCommonStatsActiveTxCurrentOutOfOrderPackets, cVideoCommonStatsActiveTxMaxJitter, cVideoCommonStatsActiveTxAvgJitter, cVideoCommonStatsActiveTxCurrentJitter, cVideoCommonStatsActiveTxMaxDelay, cVideoCommonStatsActiveTxAvgDelay, cVideoCommonStatsActiveTxCurrentDelay, cVideoCommonStatsActiveRxActualBitrate, cVideoCommonStatsActiveRxTotalLostPackets, cVideoCommonStatsActiveRxPercentLostPackets and cVideoCommonStatsActiveRxCurrentLostPackets. 6. Deprecated cVideoConfereeHistoryMaxJitter, cVideoConfereeHistoryMaxDelay, cVideoConfereeHistoryTotalOutOfOrderPackets and cVideoConfereeHistoryTotalLostPackets from cVideoConfereeHistoryTable, replacing them with cVideoCommonStatsHistoryTxMaxJitter, cVideoCommonStatsHistoryTxMaxDelay, cVideoCommonStatsHistoryTxTotalOutOfOrderPackets and cVideoCommonStatsHistoryTxTotalLostPackets, respectively, in cVideoCommonStatsHistoryTable. 7. Deprecated cVideoCallHistoryTxOutOfOrderPackets and cVideoCallHistoryTxLostPackets in cVideoCallHistoryTable, replacing them with cVideoCommonStatsHistoryTxTotalOutOfOrderPackets and cVideoCommonStatsHistoryTxTotalLostPackets, respectively, in cVideoCommonStatsHistoryTable. 8. Deprecated cVideoConfereeActiveActualBitrate, cVideoConfereeActiveTable, cVideoConfereeActiveTotalOutOfOrderPackets, cVideoConfereeActiveCurrentOutOfOrderPackets, cVideoConfereeActiveTotalLostPackets, cVideoConfereeActiveCurrentLostPackets, cVideoConfereeActiveMaxJitter, cVideoConfereeActiveCurrentJitter, cVideoConfereeActiveMaxDelay and cVideoConfereeActiveCurrentDelay, replacing them with cVideoCommonStatsActiveTxActualBitrate, cVideoCommonStatsActiveTxTotalOutOfOrderPackets, cVideoCommonStatsActiveTxCurrentOutOfOrderPackets, cVideoCommonStatsActiveTxTotalLostPackets, cVideoCommonStatsActiveTxCurrentLostPackets, cVideoCommonStatsActiveTxMaxJitter, cVideoCommonStatsActiveTxAvgJitter, cVideoCommonStatsActiveTxMaxDelay and cVideoCommonStatsActiveTxCurrentDelay, respectively, in cVideoCommonStatsActiveTable. 9. Deprecated cVideoCallActiveRxActualBitrate and cVideoCallActiveTxLostPackets in cVideoCallActiveTable, replacing them with cVideoCommonStatsActiveRxActualBitrate and cVideoCommonStatsActiveTxTotalLostPackets, respectively, in cVideoCommonStatsActiveTable. 10. Added new compliance groups: cVideoSessionCommonStatusGroup, cVideoSessionCommonStatisticsGroup, cVideoSessionCallStatisticsGroup and cVideoSessionConfereeStatisticsGroup; and deprecated old ones: cVideoSessionHistoryGroup and cVideoSessionActiveGroup. 11. Added new compliance statement (cVideoSessionMIBComplianceRev1) to include the new compliance groups and deprecated the old one (cVideoSessionMIBCompliance)."
+      },
+      {
+        "revision": "2010-07-21 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "CvcVoIPCallServiceType": {
+    "name": "CvcVoIPCallServiceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conferenceCall": 1,
+          "pointToPointCall": 2,
+          "monitoredCall": 3,
+          "other": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CvcVideoLevel": {
+    "name": "CvcVideoLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1b": 9,
+          "level1": 10,
+          "level11": 11,
+          "level12": 12,
+          "level13": 13,
+          "level2": 20,
+          "level21": 21,
+          "level22": 22,
+          "level3": 30,
+          "level31": 31,
+          "level32": 32,
+          "level4": 40,
+          "level41": 41,
+          "level42": 42,
+          "level5": 50,
+          "level51": 51,
+          "other": 255
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "CvcVideoProfile": {
+    "name": "CvcVideoProfile",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "h263Profile0": 10,
+          "h263Profile1": 11,
+          "h263Profile2": 12,
+          "h263Profile3": 13,
+          "h263Profile4": 14,
+          "h263Profile5": 15,
+          "h263Profile6": 16,
+          "h263Profile7": 17,
+          "h263Profile8": 18,
+          "h264ProfileBaseline": 100,
+          "h264ProfileMain": 101,
+          "h264ProfileExtended": 102,
+          "h264ProfileHigh": 103,
+          "h264ProfileHigh10": 104,
+          "h264ProfileHigh422": 105,
+          "h264ProfileHigh444Predictive": 106,
+          "h264ProfileHigh10Intra": 107,
+          "h264ProfileHigh422Intra": 108,
+          "h264ProfileHigh444Intra": 109,
+          "h264ProfileCavlc444Intra": 110,
+          "other": 255
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "CvcVideoCodecAnnexMap": {
+    "name": "CvcVideoCodecAnnexMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "annexNone": 0,
+        "annexD1": 1,
+        "annexD2": 2,
+        "annexE": 3,
+        "annexF": 4,
+        "annexG": 5,
+        "annexH": 6,
+        "annexI": 7,
+        "annexJ": 8,
+        "annexK": 9,
+        "annexL": 10,
+        "annexM": 11,
+        "annexN": 12,
+        "annexO": 13,
+        "annexP": 14,
+        "annexQ": 15,
+        "annexR": 16,
+        "annexS": 17,
+        "annexT": 18,
+        "annexU": 19,
+        "annexV": 20,
+        "annexW": 21
+      }
+    },
+    "status": "deprecated"
+  },
+  "CvcRtpPayloadFormat": {
+    "name": "CvcRtpPayloadFormat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfc2190": 1,
+          "rfc2429": 2,
+          "rfc4629": 3,
+          "rfc3984": 4,
+          "other": 255
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "ciscoVideoSessionMIBNotifs": {
+    "name": "ciscoVideoSessionMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.753.0",
+    "class": "objectidentity"
+  },
+  "ciscoVideoSessionMIBObjects": {
+    "name": "ciscoVideoSessionMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.753.1",
+    "class": "objectidentity"
+  },
+  "ciscoVideoSessionMIBConform": {
+    "name": "ciscoVideoSessionMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.753.2",
+    "class": "objectidentity"
+  },
+  "cVideoSessionHistory": {
+    "name": "cVideoSessionHistory",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1",
+    "class": "objectidentity"
+  },
+  "cVideoSessionActive": {
+    "name": "cVideoSessionActive",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2",
+    "class": "objectidentity"
+  },
+  "cVideoCommonHistoryTable": {
+    "name": "cVideoCommonHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoCommonHistoryEntry": {
+    "name": "cVideoCommonHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAL-CONTROL-MIB",
+        "object": "cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoCommonHistoryConnectionId": {
+    "name": "cVideoCommonHistoryConnectionId",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcGUid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryCallReferenceId": {
+    "name": "cVideoCommonHistoryCallReferenceId",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcCallReferenceIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryCallType": {
+    "name": "cVideoCommonHistoryCallType",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVoIPCallServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxCodec": {
+    "name": "cVideoCommonHistoryTxCodec",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCoderRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxPictureWidth": {
+    "name": "cVideoCommonHistoryTxPictureWidth",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxPictureHeight": {
+    "name": "cVideoCommonHistoryTxPictureHeight",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxConfigFrameRate": {
+    "name": "cVideoCommonHistoryTxConfigFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxConfigBitrate": {
+    "name": "cVideoCommonHistoryTxConfigBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxPayloadFormat": {
+    "name": "cVideoCommonHistoryTxPayloadFormat",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoRtpPayloadFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxAnnex": {
+    "name": "cVideoCommonHistoryTxAnnex",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCodecAnnexMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxProfile": {
+    "name": "cVideoCommonHistoryTxProfile",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxLevel": {
+    "name": "cVideoCommonHistoryTxLevel",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxPackets": {
+    "name": "cVideoCommonHistoryTxPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxBytes": {
+    "name": "cVideoCommonHistoryTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryTxDuration": {
+    "name": "cVideoCommonHistoryTxDuration",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxCodec": {
+    "name": "cVideoCommonHistoryRxCodec",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCoderRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxPictureWidth": {
+    "name": "cVideoCommonHistoryRxPictureWidth",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxPictureHeight": {
+    "name": "cVideoCommonHistoryRxPictureHeight",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxConfigFrameRate": {
+    "name": "cVideoCommonHistoryRxConfigFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxConfigBitrate": {
+    "name": "cVideoCommonHistoryRxConfigBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxPayloadFormat": {
+    "name": "cVideoCommonHistoryRxPayloadFormat",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoRtpPayloadFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxAnnex": {
+    "name": "cVideoCommonHistoryRxAnnex",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCodecAnnexMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxProfile": {
+    "name": "cVideoCommonHistoryRxProfile",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxLevel": {
+    "name": "cVideoCommonHistoryRxLevel",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxPackets": {
+    "name": "cVideoCommonHistoryRxPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxBytes": {
+    "name": "cVideoCommonHistoryRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistoryRxDuration": {
+    "name": "cVideoCommonHistoryRxDuration",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonHistorySessionId": {
+    "name": "cVideoCommonHistorySessionId",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeHistoryTable": {
+    "name": "cVideoConfereeHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoConfereeHistoryEntry": {
+    "name": "cVideoConfereeHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAL-CONTROL-MIB",
+        "object": "cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoConfereeHistoryTotalDroppedPackets": {
+    "name": "cVideoConfereeHistoryTotalDroppedPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeHistoryMaxJitter": {
+    "name": "cVideoConfereeHistoryMaxJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeHistoryMaxDelay": {
+    "name": "cVideoConfereeHistoryMaxDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeHistoryTotalOutOfOrderPackets": {
+    "name": "cVideoConfereeHistoryTotalOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeHistoryMaxOutOfSyncDelay": {
+    "name": "cVideoConfereeHistoryMaxOutOfSyncDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeHistoryTotalLostPackets": {
+    "name": "cVideoConfereeHistoryTotalLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoCallHistoryTable": {
+    "name": "cVideoCallHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoCallHistoryEntry": {
+    "name": "cVideoCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAL-CONTROL-MIB",
+        "object": "cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoCallHistoryTxMacroblocksConcealed": {
+    "name": "cVideoCallHistoryTxMacroblocksConcealed",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "macroblocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallHistoryTxFramesConcealed": {
+    "name": "cVideoCallHistoryTxFramesConcealed",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallHistoryTxBadHeaderPackets": {
+    "name": "cVideoCallHistoryTxBadHeaderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallHistoryTxOverflowPackets": {
+    "name": "cVideoCallHistoryTxOverflowPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallHistoryTxOutOfOrderPackets": {
+    "name": "cVideoCallHistoryTxOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoCallHistoryTxLostPackets": {
+    "name": "cVideoCallHistoryTxLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoCommonStatsHistoryTable": {
+    "name": "cVideoCommonStatsHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryEntry": {
+    "name": "cVideoCommonStatsHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIAL-CONTROL-MIB",
+        "object": "cCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryTxTotalLostPackets": {
+    "name": "cVideoCommonStatsHistoryTxTotalLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryTxPercentLostPackets": {
+    "name": "cVideoCommonStatsHistoryTxPercentLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryTxTotalOutOfOrderPackets": {
+    "name": "cVideoCommonStatsHistoryTxTotalOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryTxMaxJitter": {
+    "name": "cVideoCommonStatsHistoryTxMaxJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryTxAvgJitter": {
+    "name": "cVideoCommonStatsHistoryTxAvgJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryTxMaxDelay": {
+    "name": "cVideoCommonStatsHistoryTxMaxDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryTxAvgDelay": {
+    "name": "cVideoCommonStatsHistoryTxAvgDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryRxTotalLostPackets": {
+    "name": "cVideoCommonStatsHistoryRxTotalLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsHistoryRxPercentLostPackets": {
+    "name": "cVideoCommonStatsHistoryRxPercentLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTable": {
+    "name": "cVideoCommonActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoCommonActiveEntry": {
+    "name": "cVideoCommonActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoCommonActiveConnectionId": {
+    "name": "cVideoCommonActiveConnectionId",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcGUid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveCallReferenceId": {
+    "name": "cVideoCommonActiveCallReferenceId",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcCallReferenceIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveCallType": {
+    "name": "cVideoCommonActiveCallType",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVoIPCallServiceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxCodec": {
+    "name": "cVideoCommonActiveTxCodec",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCoderRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxPictureWidth": {
+    "name": "cVideoCommonActiveTxPictureWidth",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxPictureHeight": {
+    "name": "cVideoCommonActiveTxPictureHeight",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxConfigFrameRate": {
+    "name": "cVideoCommonActiveTxConfigFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxConfigBitrate": {
+    "name": "cVideoCommonActiveTxConfigBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxPayloadFormat": {
+    "name": "cVideoCommonActiveTxPayloadFormat",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoRtpPayloadFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxAnnex": {
+    "name": "cVideoCommonActiveTxAnnex",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCodecAnnexMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxProfile": {
+    "name": "cVideoCommonActiveTxProfile",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxLevel": {
+    "name": "cVideoCommonActiveTxLevel",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxPackets": {
+    "name": "cVideoCommonActiveTxPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxBytes": {
+    "name": "cVideoCommonActiveTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveTxDuration": {
+    "name": "cVideoCommonActiveTxDuration",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxCodec": {
+    "name": "cVideoCommonActiveRxCodec",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCoderRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxPictureWidth": {
+    "name": "cVideoCommonActiveRxPictureWidth",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxPictureHeight": {
+    "name": "cVideoCommonActiveRxPictureHeight",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "pixels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxConfigFrameRate": {
+    "name": "cVideoCommonActiveRxConfigFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxConfigBitrate": {
+    "name": "cVideoCommonActiveRxConfigBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxPayloadFormat": {
+    "name": "cVideoCommonActiveRxPayloadFormat",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoRtpPayloadFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxAnnex": {
+    "name": "cVideoCommonActiveRxAnnex",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoCodecAnnexMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxProfile": {
+    "name": "cVideoCommonActiveRxProfile",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxLevel": {
+    "name": "cVideoCommonActiveRxLevel",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcVideoLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxPackets": {
+    "name": "cVideoCommonActiveRxPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxBytes": {
+    "name": "cVideoCommonActiveRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveRxDuration": {
+    "name": "cVideoCommonActiveRxDuration",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonActiveSessionId": {
+    "name": "cVideoCommonActiveSessionId",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeActiveTable": {
+    "name": "cVideoConfereeActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoConfereeActiveEntry": {
+    "name": "cVideoConfereeActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoConfereeActiveActualFrameRate": {
+    "name": "cVideoConfereeActiveActualFrameRate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeActiveActualBitrate": {
+    "name": "cVideoConfereeActiveActualBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveTotalDroppedPackets": {
+    "name": "cVideoConfereeActiveTotalDroppedPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeActiveCurrentDroppedPackets": {
+    "name": "cVideoConfereeActiveCurrentDroppedPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeActiveTotalOutOfOrderPackets": {
+    "name": "cVideoConfereeActiveTotalOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveCurrentOutOfOrderPackets": {
+    "name": "cVideoConfereeActiveCurrentOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveTotalLostPackets": {
+    "name": "cVideoConfereeActiveTotalLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveCurrentLostPackets": {
+    "name": "cVideoConfereeActiveCurrentLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveMaxJitter": {
+    "name": "cVideoConfereeActiveMaxJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveCurrentJitter": {
+    "name": "cVideoConfereeActiveCurrentJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveMaxDelay": {
+    "name": "cVideoConfereeActiveMaxDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveCurrentDelay": {
+    "name": "cVideoConfereeActiveCurrentDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoConfereeActiveMaxOutOfSyncDelay": {
+    "name": "cVideoConfereeActiveMaxOutOfSyncDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeActiveCurrentOutOfSyncDelay": {
+    "name": "cVideoConfereeActiveCurrentOutOfSyncDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoConfereeActiveFastVideoUpdateRate": {
+    "name": "cVideoConfereeActiveFastVideoUpdateRate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallActiveTable": {
+    "name": "cVideoCallActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoCallActiveEntry": {
+    "name": "cVideoCallActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoCallActiveRxActualBitrate": {
+    "name": "cVideoCallActiveRxActualBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoCallActiveTxMacroblocksConcealed": {
+    "name": "cVideoCallActiveTxMacroblocksConcealed",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "macroblocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallActiveTxFramesConcealed": {
+    "name": "cVideoCallActiveTxFramesConcealed",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallActiveTxBadHeaderPackets": {
+    "name": "cVideoCallActiveTxBadHeaderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallActiveTxOverflowPackets": {
+    "name": "cVideoCallActiveTxOverflowPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCallActiveTxLostPackets": {
+    "name": "cVideoCallActiveTxLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cVideoCommonStatsActiveTable": {
+    "name": "cVideoCommonStatsActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveEntry": {
+    "name": "cVideoCommonStatsActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxActualBitrate": {
+    "name": "cVideoCommonStatsActiveTxActualBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxTotalLostPackets": {
+    "name": "cVideoCommonStatsActiveTxTotalLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxPercentLostPackets": {
+    "name": "cVideoCommonStatsActiveTxPercentLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxCurrentLostPackets": {
+    "name": "cVideoCommonStatsActiveTxCurrentLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxTotalOutOfOrderPackets": {
+    "name": "cVideoCommonStatsActiveTxTotalOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxCurrentOutOfOrderPackets": {
+    "name": "cVideoCommonStatsActiveTxCurrentOutOfOrderPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxMaxJitter": {
+    "name": "cVideoCommonStatsActiveTxMaxJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxAvgJitter": {
+    "name": "cVideoCommonStatsActiveTxAvgJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxCurrentJitter": {
+    "name": "cVideoCommonStatsActiveTxCurrentJitter",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxMaxDelay": {
+    "name": "cVideoCommonStatsActiveTxMaxDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxAvgDelay": {
+    "name": "cVideoCommonStatsActiveTxAvgDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveTxCurrentDelay": {
+    "name": "cVideoCommonStatsActiveTxCurrentDelay",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveRxActualBitrate": {
+    "name": "cVideoCommonStatsActiveRxActualBitrate",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveRxTotalLostPackets": {
+    "name": "cVideoCommonStatsActiveRxTotalLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveRxPercentLostPackets": {
+    "name": "cVideoCommonStatsActiveRxPercentLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cVideoCommonStatsActiveRxCurrentLostPackets": {
+    "name": "cVideoCommonStatsActiveRxCurrentLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.753.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoVideoSessionMIBCompliances": {
+    "name": "ciscoVideoSessionMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.753.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoVideoSessionMIBGroups": {
+    "name": "ciscoVideoSessionMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.753.2.2",
+    "class": "objectidentity"
+  },
+  "cVideoSessionMIBCompliance": {
+    "name": "cVideoSessionMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.753.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cVideoSessionHistoryGroup",
+        "module": "CISCO-VIDEO-SESSION-MIB"
+      },
+      {
+        "object": "cVideoSessionActiveGroup",
+        "module": "CISCO-VIDEO-SESSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cVideoSessionMIBComplianceRev1": {
+    "name": "cVideoSessionMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.753.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cVideoSessionCommonStatusGroup",
+        "module": "CISCO-VIDEO-SESSION-MIB"
+      },
+      {
+        "object": "cVideoSessionCommonStatisticsGroup",
+        "module": "CISCO-VIDEO-SESSION-MIB"
+      },
+      {
+        "object": "cVideoSessionCallStatisticsGroup",
+        "module": "CISCO-VIDEO-SESSION-MIB"
+      },
+      {
+        "object": "cVideoSessionConfereeStatisticsGroup",
+        "module": "CISCO-VIDEO-SESSION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoSessionHistoryGroup": {
+    "name": "cVideoSessionHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.753.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryConnectionId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryCallReferenceId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryCallType"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryTotalDroppedPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryMaxJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryMaxDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryTotalOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryMaxOutOfSyncDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryTotalLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxMacroblocksConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxFramesConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxBadHeaderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxOverflowPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxLostPackets"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cVideoSessionActiveGroup": {
+    "name": "cVideoSessionActiveGroup",
+    "oid": "1.3.6.1.4.1.9.9.753.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveConnectionId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveCallReferenceId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveCallType"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveActualFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveActualBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveTotalDroppedPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentDroppedPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveTotalOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveTotalLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveMaxJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveMaxDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveMaxOutOfSyncDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentOutOfSyncDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveFastVideoUpdateRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveRxActualBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxMacroblocksConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxFramesConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxBadHeaderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxOverflowPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxLostPackets"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cVideoSessionCommonStatusGroup": {
+    "name": "cVideoSessionCommonStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.753.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryConnectionId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryCallReferenceId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryCallType"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryTxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistoryRxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonHistorySessionId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveConnectionId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveCallReferenceId"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveCallType"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveTxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxCodec"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPictureWidth"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPictureHeight"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxConfigFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxConfigBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPayloadFormat"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxAnnex"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxProfile"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxLevel"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxBytes"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveRxDuration"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonActiveSessionId"
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoSessionCommonStatisticsGroup": {
+    "name": "cVideoSessionCommonStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.753.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryTxTotalLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryTxPercentLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryTxTotalOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryTxMaxJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryTxAvgJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryTxMaxDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryTxAvgDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryRxTotalLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsHistoryRxPercentLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxActualBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxTotalLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxPercentLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxCurrentLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxTotalOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxCurrentOutOfOrderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxMaxJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxAvgJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxCurrentJitter"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxMaxDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxAvgDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveTxCurrentDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveRxActualBitrate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveRxTotalLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveRxPercentLostPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCommonStatsActiveRxCurrentLostPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoSessionCallStatisticsGroup": {
+    "name": "cVideoSessionCallStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.753.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxMacroblocksConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxFramesConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxBadHeaderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallHistoryTxOverflowPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxMacroblocksConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxFramesConcealed"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxBadHeaderPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoCallActiveTxOverflowPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cVideoSessionConfereeStatisticsGroup": {
+    "name": "cVideoSessionConfereeStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.753.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryTotalDroppedPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeHistoryMaxOutOfSyncDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveActualFrameRate"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveTotalDroppedPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentDroppedPackets"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveMaxOutOfSyncDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveCurrentOutOfSyncDelay"
+      },
+      {
+        "module": "CISCO-VIDEO-SESSION-MIB",
+        "object": "cVideoConfereeActiveFastVideoUpdateRate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VIDEO-SESSION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VIDEO-SESSION-MIB"
+  }
+}

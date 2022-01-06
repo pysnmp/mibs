@@ -1,0 +1,76 @@
+#
+# PySNMP MIB module DPS-TEXT-RTU-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-TEXT-RTU-MIB
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:27:36 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+#
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+dpsAlarmControl, = mibBuilder.importSymbols("DPS-MIB-V38", "dpsAlarmControl")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, IpAddress, TimeTicks, iso, MibIdentifier, NotificationType, Bits, ObjectIdentity, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "IpAddress", "TimeTicks", "iso", "MibIdentifier", "NotificationType", "Bits", "ObjectIdentity", "Gauge32", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+dpsTEXTRTUv2 = MibIdentifier((1, 3, 6, 1, 4, 1, 2682, 1, 5))
+dpsTEXTRTUv2Ident = MibIdentifier((1, 3, 6, 1, 4, 1, 2682, 1, 5, 1))
+class AnalogThresholds(TextualConvention, Integer32):
+    description = 'Highest threshold level crossed, if MJ, MN is assumed.  Will be blank if alarm is not from an analog sources'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
+    namedValues = NamedValues(("noAlarms", 0), ("minorUnder", 1), ("minorOver", 2), ("majorUnder", 3), ("majorOver", 4), ("notDetected", 5))
+
+class RTUCAction(TextualConvention, Integer32):
+    description = 'Requested action.  Latch, release, and momentary will affect relays.  Sync(s) will resend traps for currently active alarms(TEXT RTU will ignore if invalid).'
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
+    namedValues = NamedValues(("latch", 1), ("release", 2), ("momentary", 3), ("syncStanding", 4), ("syncAnalogs", 5))
+
+dpsTEXTRTUv2DateTime = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 1, 1), DisplayString()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpsTEXTRTUv2DateTime.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2DateTime.setDescription('The RTU system date and time.')
+dpsTEXTRTUv2DeviceType = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 1, 2), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUv2DeviceType.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2DeviceType.setDescription('Device type of far end SMS device as received in SMS messages to SMS receiver.  ie NG216_G3')
+dpsTEXTRTUv2Phone = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 1, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUv2Phone.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2Phone.setDescription('The phone number of the far end or originating SMS RTU, only SMS RTUs will have/respond to this variable')
+dpsTEXTRTUv2AlarmGrid = MibIdentifier((1, 3, 6, 1, 4, 1, 2682, 1, 5, 2))
+dpsTEXTRTUv2ADisplay = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 2, 1), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUv2ADisplay.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2ADisplay.setDescription('TEXT RTU display number.  See the usermanual for display mapping information')
+dpsTEXTRTUv2APoint = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 2, 2), Integer32()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUv2APoint.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2APoint.setDescription('TEXT RTU point number.  See the usermanual for point mapping information')
+dpsTEXTRTUv2APntDesc = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 2, 3), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUv2APntDesc.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2APntDesc.setDescription('A description of this point.')
+dpsTEXTRTUv2AState = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 2, 4), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUv2AState.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2AState.setDescription('The current state of this point.')
+dpsTEXTRTUAnalogvalue = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 2, 5), DisplayString()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUAnalogvalue.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUAnalogvalue.setDescription('The current value of the channel.  Will be blank if alarm is not from an analog source')
+dpsTEXTRTUAnalogthresholds = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 2, 6), AnalogThresholds()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: dpsTEXTRTUAnalogthresholds.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUAnalogthresholds.setDescription('Highest threshold level crossed, if MJ, MN is assumed.  Will be blank if alarm is not from an analog sources')
+dpsTEXTRTUv2ControlGrid = MibIdentifier((1, 3, 6, 1, 4, 1, 2682, 1, 5, 3))
+dpsTEXTRTUv2CDisplay = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 3, 1), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpsTEXTRTUv2CDisplay.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2CDisplay.setDescription('RTU_port_address display number.')
+dpsTEXTRTUv2CPoint = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpsTEXTRTUv2CPoint.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2CPoint.setDescription('RTU_port_display point number (1-64).')
+dpsTEXTRTUv2CMOMTime = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 3, 3), Integer32()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpsTEXTRTUv2CMOMTime.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2CMOMTime.setDescription('Momentary latch time (in milliseconds).  If value is blank, the default of 600ms will be used')
+dpsTEXTRTUv2CAction = MibScalar((1, 3, 6, 1, 4, 1, 2682, 1, 5, 3, 4), RTUCAction()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dpsTEXTRTUv2CAction.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2CAction.setDescription('Requested action.  Latch, release, and momentary will affect relays.  Sync(s) will resend traps for currently active alarms(TEXT RTU will ignore if invalid).')
+dpsTEXTRTUv2AlarmSet = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 5, 100)).setObjects(("DPS-TEXT-RTU-MIB", "sysDescr"), ("DPS-TEXT-RTU-MIB", "sysLocation"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2DateTime"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2DeviceType"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2Phone"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2ADisplay"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2APoint"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2APntDesc"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2AState"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUAnalogvalue"))
+if mibBuilder.loadTexts: dpsTEXTRTUv2AlarmSet.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2AlarmSet.setDescription('Generated when alarm is received from far end SMS device to SMS receiver.')
+dpsTEXTRTUv2AlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 5, 200)).setObjects(("DPS-TEXT-RTU-MIB", "sysDescr"), ("DPS-TEXT-RTU-MIB", "sysLocation"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2DateTime"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2DeviceType"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2Phone"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2ADisplay"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2APoint"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2APntDesc"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUv2AState"), ("DPS-TEXT-RTU-MIB", "dpsTEXTRTUAnalogvalue"))
+if mibBuilder.loadTexts: dpsTEXTRTUv2AlarmClear.setStatus('current')
+if mibBuilder.loadTexts: dpsTEXTRTUv2AlarmClear.setDescription('Generated when clear is received from far end SMS device to SMS receiver.')
+mibBuilder.exportSymbols("DPS-TEXT-RTU-MIB", dpsTEXTRTUv2AlarmGrid=dpsTEXTRTUv2AlarmGrid, RTUCAction=RTUCAction, dpsTEXTRTUv2APntDesc=dpsTEXTRTUv2APntDesc, dpsTEXTRTUv2AlarmSet=dpsTEXTRTUv2AlarmSet, dpsTEXTRTUv2AState=dpsTEXTRTUv2AState, dpsTEXTRTUv2ControlGrid=dpsTEXTRTUv2ControlGrid, dpsTEXTRTUv2CPoint=dpsTEXTRTUv2CPoint, dpsTEXTRTUAnalogthresholds=dpsTEXTRTUAnalogthresholds, dpsTEXTRTUv2ADisplay=dpsTEXTRTUv2ADisplay, dpsTEXTRTUv2APoint=dpsTEXTRTUv2APoint, dpsTEXTRTUv2DeviceType=dpsTEXTRTUv2DeviceType, dpsTEXTRTUv2DateTime=dpsTEXTRTUv2DateTime, AnalogThresholds=AnalogThresholds, dpsTEXTRTUv2Ident=dpsTEXTRTUv2Ident, dpsTEXTRTUv2CMOMTime=dpsTEXTRTUv2CMOMTime, dpsTEXTRTUv2CAction=dpsTEXTRTUv2CAction, dpsTEXTRTUv2AlarmClear=dpsTEXTRTUv2AlarmClear, dpsTEXTRTUv2CDisplay=dpsTEXTRTUv2CDisplay, dpsTEXTRTUv2=dpsTEXTRTUv2, dpsTEXTRTUAnalogvalue=dpsTEXTRTUAnalogvalue, dpsTEXTRTUv2Phone=dpsTEXTRTUv2Phone)

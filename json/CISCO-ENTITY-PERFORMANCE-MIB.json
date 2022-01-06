@@ -1,0 +1,997 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityPerformanceMIB": {
+    "name": "ciscoEntityPerformanceMIB",
+    "oid": "1.3.6.1.4.1.9.9.756",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-18 00:00",
+        "description": "Added the following objects to the MIB. cepThroughputLicensedBW, cepThroughputLevel, cepThroughputInterval, cepThroughputThreshold, cepThroughputAvgRate to cepThroughputTable. Added cepThroughputNotifEnabled to ciscoEntityPerformanceMIBNotifObjects group. Added cepThroughputNotif as a new notification to the MIB. Added a new MIB conform group, ciscoEntityPerformanceMIBThroughputGroup for the new objects. Also modified the ciscoEntityPerformanceMIBCompliance to add the new group ciscoEntityPerformanceMIBThroughputGroup."
+      },
+      {
+        "revision": "2010-09-09 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "CiscoEntPerfMeasurement": {
+    "name": "CiscoEntPerfMeasurement",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CiscoEntPerfRange": {
+    "name": "CiscoEntPerfRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rangePercentage": 1,
+          "rangeInt32": 2,
+          "rangeInt64": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoEntPerfType": {
+    "name": "CiscoEntPerfType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "utilization": 1,
+          "bitInputRate": 2,
+          "bitOutputRate": 3,
+          "bitDropRate": 4,
+          "packetInputRate": 5,
+          "packetOutputRate": 6,
+          "packetDropRate": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoEntPerfInterval": {
+    "name": "CiscoEntPerfInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "current": 1,
+          "oneMinute": 2,
+          "fiveMinutes": 3,
+          "fifteenMinutes": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoEntPerfHistInterval": {
+    "name": "CiscoEntPerfHistInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneMinute": 1,
+          "fiveMinutes": 2,
+          "fifteenMinutes": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoEntPerfIntervalAlgo": {
+    "name": "CiscoEntPerfIntervalAlgo",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "current": 3,
+          "algoSMA": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBNotifs": {
+    "name": "ciscoEntityPerformanceMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.756.0",
+    "class": "objectidentity"
+  },
+  "ciscoEntityPerformanceMIBObjects": {
+    "name": "ciscoEntityPerformanceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.756.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityPerformanceMIBConform": {
+    "name": "ciscoEntityPerformanceMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.756.2",
+    "class": "objectidentity"
+  },
+  "cepEntityTable": {
+    "name": "cepEntityTable",
+    "oid": "1.3.6.1.4.1.9.9.756.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepEntityEntry": {
+    "name": "cepEntityEntry",
+    "oid": "1.3.6.1.4.1.9.9.756.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cepEntityNumReloads": {
+    "name": "cepEntityNumReloads",
+    "oid": "1.3.6.1.4.1.9.9.756.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "reloads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepEntityLastReloadTime": {
+    "name": "cepEntityLastReloadTime",
+    "oid": "1.3.6.1.4.1.9.9.756.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepConfigTable": {
+    "name": "cepConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepConfigEntry": {
+    "name": "cepConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigInterval",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigPerfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cepConfigInterval": {
+    "name": "cepConfigInterval",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfInterval",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepConfigPerfType": {
+    "name": "cepConfigPerfType",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepConfigPerfRange": {
+    "name": "cepConfigPerfRange",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfRange",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepConfigRisingThreshold": {
+    "name": "cepConfigRisingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfMeasurement",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cepConfigFallingThreshold": {
+    "name": "cepConfigFallingThreshold",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfMeasurement",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cepConfigThresholdNotifEnabled": {
+    "name": "cepConfigThresholdNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.756.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cepStatsTable": {
+    "name": "cepStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.756.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepStatsEntry": {
+    "name": "cepStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.756.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigInterval",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigPerfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cepStatsAlgorithm": {
+    "name": "cepStatsAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.756.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfIntervalAlgo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepStatsMeasurement": {
+    "name": "cepStatsMeasurement",
+    "oid": "1.3.6.1.4.1.9.9.756.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfMeasurement",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepEntityIntervalTable": {
+    "name": "cepEntityIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.756.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepEntityIntervalEntry": {
+    "name": "cepEntityIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.756.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepHistInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cepHistInterval": {
+    "name": "cepHistInterval",
+    "oid": "1.3.6.1.4.1.9.9.756.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfHistInterval",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepIntervalTimeElapsed": {
+    "name": "cepIntervalTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.9.756.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepValidIntervalCount": {
+    "name": "cepValidIntervalCount",
+    "oid": "1.3.6.1.4.1.9.9.756.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepIntervalStatsTable": {
+    "name": "cepIntervalStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.756.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepIntervalStatsEntry": {
+    "name": "cepIntervalStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.756.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepHistInterval",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigPerfType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cepIntervalNumber": {
+    "name": "cepIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.9.756.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepIntervalStatsValidData": {
+    "name": "cepIntervalStatsValidData",
+    "oid": "1.3.6.1.4.1.9.9.756.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepIntervalStatsRange": {
+    "name": "cepIntervalStatsRange",
+    "oid": "1.3.6.1.4.1.9.9.756.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfRange",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepIntervalStatsMeasurement": {
+    "name": "cepIntervalStatsMeasurement",
+    "oid": "1.3.6.1.4.1.9.9.756.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEntPerfMeasurement",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepIntervalStatsCreateTime": {
+    "name": "cepIntervalStatsCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.756.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBNotifObjects": {
+    "name": "ciscoEntityPerformanceMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.756.1.6",
+    "class": "objectidentity"
+  },
+  "cepThroughputTable": {
+    "name": "cepThroughputTable",
+    "oid": "1.3.6.1.4.1.9.9.756.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cepThroughputEntry": {
+    "name": "cepThroughputEntry",
+    "oid": "1.3.6.1.4.1.9.9.756.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cepThroughputLicensedBW": {
+    "name": "cepThroughputLicensedBW",
+    "oid": "1.3.6.1.4.1.9.9.756.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepThroughputLevel": {
+    "name": "cepThroughputLevel",
+    "oid": "1.3.6.1.4.1.9.9.756.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "exceed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepThroughputInterval": {
+    "name": "cepThroughputInterval",
+    "oid": "1.3.6.1.4.1.9.9.756.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cepThroughputThreshold": {
+    "name": "cepThroughputThreshold",
+    "oid": "1.3.6.1.4.1.9.9.756.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 75,
+            "max": 95
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cepThroughputAvgRate": {
+    "name": "cepThroughputAvgRate",
+    "oid": "1.3.6.1.4.1.9.9.756.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cepThresholdNotifEnabled": {
+    "name": "cepThresholdNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.756.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cepThroughputNotifEnabled": {
+    "name": "cepThroughputNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.756.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cepPerfThreshRisingEvent": {
+    "name": "cepPerfThreshRisingEvent",
+    "oid": "1.3.6.1.4.1.9.9.756.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigPerfRange"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigRisingThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepStatsMeasurement"
+      }
+    ],
+    "status": "current"
+  },
+  "cepPerfThreshFallingEvent": {
+    "name": "cepPerfThreshFallingEvent",
+    "oid": "1.3.6.1.4.1.9.9.756.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigPerfRange"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigFallingThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepStatsMeasurement"
+      }
+    ],
+    "status": "current"
+  },
+  "cepThroughputNotif": {
+    "name": "cepThroughputNotif",
+    "oid": "1.3.6.1.4.1.9.9.756.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputLicensedBW"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputLevel"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputAvgRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBCompliances": {
+    "name": "ciscoEntityPerformanceMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.756.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityPerformanceMIBGroups": {
+    "name": "ciscoEntityPerformanceMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoEntityPerformanceMIBCompliance": {
+    "name": "ciscoEntityPerformanceMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.756.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoEntityPerformanceMIBEntityGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      },
+      {
+        "object": "ciscoEntityPerformanceMIBConfigGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      },
+      {
+        "object": "ciscoEntityPerformanceMIBNotificationGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      },
+      {
+        "object": "ciscoEntityPerformanceMIBPerfStatsGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      },
+      {
+        "object": "ciscoEntityPerformanceMIBIntervalStatsGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      },
+      {
+        "object": "ciscoEntityPerformanceMIBNotifControlGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      },
+      {
+        "object": "ciscoEntityPerformanceMIBEntityIntervalGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      },
+      {
+        "object": "ciscoEntityPerformanceMIBThroughputGroup",
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBEntityGroup": {
+    "name": "ciscoEntityPerformanceMIBEntityGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepEntityNumReloads"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepEntityLastReloadTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBConfigGroup": {
+    "name": "ciscoEntityPerformanceMIBConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigRisingThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigFallingThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigPerfRange"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepConfigThresholdNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBPerfStatsGroup": {
+    "name": "ciscoEntityPerformanceMIBPerfStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepStatsAlgorithm"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepStatsMeasurement"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBEntityIntervalGroup": {
+    "name": "ciscoEntityPerformanceMIBEntityIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepIntervalTimeElapsed"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepValidIntervalCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBIntervalStatsGroup": {
+    "name": "ciscoEntityPerformanceMIBIntervalStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepIntervalStatsValidData"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepIntervalStatsMeasurement"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepIntervalStatsCreateTime"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepIntervalStatsRange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBNotifControlGroup": {
+    "name": "ciscoEntityPerformanceMIBNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThresholdNotifEnabled"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBNotificationGroup": {
+    "name": "ciscoEntityPerformanceMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepPerfThreshRisingEvent"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepPerfThreshFallingEvent"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityPerformanceMIBThroughputGroup": {
+    "name": "ciscoEntityPerformanceMIBThroughputGroup",
+    "oid": "1.3.6.1.4.1.9.9.756.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputLicensedBW"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputLevel"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputInterval"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputThreshold"
+      },
+      {
+        "module": "CISCO-ENTITY-PERFORMANCE-MIB",
+        "object": "cepThroughputAvgRate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-PERFORMANCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-PERFORMANCE-MIB"
+  }
+}

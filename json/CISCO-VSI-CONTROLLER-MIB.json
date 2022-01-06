@@ -1,0 +1,315 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVSIControllerMIB": {
+    "name": "ciscoVSIControllerMIB",
+    "oid": "1.3.6.1.4.1.9.9.141",
+    "class": "moduleidentity"
+  },
+  "CvcControllerShelfLocation": {
+    "name": "CvcControllerShelfLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CvcControllerType": {
+    "name": "CvcControllerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "par": 1,
+          "pnni": 2,
+          "lsc": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cvcMIBObjects": {
+    "name": "cvcMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.141.1",
+    "class": "objectidentity"
+  },
+  "cvcConfController": {
+    "name": "cvcConfController",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1",
+    "class": "objectidentity"
+  },
+  "cvcConfTable": {
+    "name": "cvcConfTable",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvcConfEntry": {
+    "name": "cvcConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfControllerID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cvcConfControllerID": {
+    "name": "cvcConfControllerID",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvcConfControllerType": {
+    "name": "cvcConfControllerType",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcControllerType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcConfControllerShelfLocation": {
+    "name": "cvcConfControllerShelfLocation",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcControllerShelfLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcConfControllerLocation": {
+    "name": "cvcConfControllerLocation",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcConfControllerName": {
+    "name": "cvcConfControllerName",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcConfVpi": {
+    "name": "cvcConfVpi",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcConfVci": {
+    "name": "cvcConfVci",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcConfRowStatus": {
+    "name": "cvcConfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.141.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cvcMIBConformance": {
+    "name": "cvcMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.141.3",
+    "class": "objectidentity"
+  },
+  "cvcMIBCompliances": {
+    "name": "cvcMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.141.3.1",
+    "class": "objectidentity"
+  },
+  "cvcMIBGroups": {
+    "name": "cvcMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.141.3.2",
+    "class": "objectidentity"
+  },
+  "cvcMIBCompliance": {
+    "name": "cvcMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.141.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvcConfGroup",
+        "module": "CISCO-VSI-CONTROLLER-MIB"
+      },
+      {
+        "object": "cvcConfGroupExternal",
+        "module": "CISCO-VSI-CONTROLLER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvcConfGroup": {
+    "name": "cvcConfGroup",
+    "oid": "1.3.6.1.4.1.9.9.141.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfControllerType"
+      },
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfControllerShelfLocation"
+      },
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfControllerLocation"
+      },
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfControllerName"
+      },
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cvcConfGroupExternal": {
+    "name": "cvcConfGroupExternal",
+    "oid": "1.3.6.1.4.1.9.9.141.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfVpi"
+      },
+      {
+        "module": "CISCO-VSI-CONTROLLER-MIB",
+        "object": "cvcConfVci"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VSI-CONTROLLER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VSI-CONTROLLER-MIB"
+  }
+}

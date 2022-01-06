@@ -1,0 +1,518 @@
+{
+  "imports": {
+    "class": "imports",
+    "NE-ALARM-MIB": [
+      "neMibAlarm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ]
+  },
+  "neAlarm": {
+    "name": "neAlarm",
+    "oid": "1.3.6.1.4.1.22764.2.1",
+    "class": "moduleidentity"
+  },
+  "ItuAlarmProbableCause": {
+    "name": "ItuAlarmProbableCause",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "adapterError": 2,
+          "applicationSubsystemFailure": 3,
+          "bandwidthReduced": 4,
+          "callEstablishmentError": 5,
+          "communicationsProtocolError": 6,
+          "communicationsSubsystemFailure": 7,
+          "configurationOrCustomizationError": 8,
+          "congestion": 9,
+          "corruptData": 10,
+          "cpuCyclesLimitExceeded": 11,
+          "dataSetOrModemError": 12,
+          "degradedSignal": 13,
+          "dteDceInterfaceError": 14,
+          "enclosureDoorOpen": 15,
+          "equipmentMalfunction": 16,
+          "excessiveVibration": 17,
+          "fileError": 18,
+          "fireDetected": 19,
+          "floodDetected": 20,
+          "framingError": 21,
+          "heatingVentCoolingSystemProblem": 22,
+          "humidityUnacceptable": 23,
+          "inputOutputDeviceError": 24,
+          "inputDeviceError": 25,
+          "lanError": 26,
+          "leakDetected": 27,
+          "localNodeTransmissionError": 28,
+          "lossOfFrame": 29,
+          "lossOfSignal": 30,
+          "materialSupplyExhausted": 31,
+          "multiplexerProblem": 32,
+          "outOfMemory": 33,
+          "ouputDeviceError": 34,
+          "performanceDegraded": 35,
+          "powerProblem": 36,
+          "pressureUnacceptable": 37,
+          "processorProblem": 38,
+          "pumpFailure": 39,
+          "queueSizeExceeded": 40,
+          "receiveFailure": 41,
+          "receiverFailure": 42,
+          "remoteNodeTransmissionError": 43,
+          "resourceAtOrNearingCapacity": 44,
+          "responseTimeExecessive": 45,
+          "retransmissionRateExcessive": 46,
+          "softwareError": 47,
+          "softwareProgramAbnormallyTerminated": 48,
+          "softwareProgramError": 49,
+          "storageCapacityProblem": 50,
+          "temperatureUnacceptable": 51,
+          "thresholdCrossed": 52,
+          "timingProblem": 53,
+          "toxicLeakDetected": 54,
+          "transmitFailure": 55,
+          "transmitterFailure": 56,
+          "underlyingResourceUnavailable": 57,
+          "versionMismatch": 58,
+          "authenticationFailure": 59,
+          "breachOfConfidentiality": 60,
+          "cableTamper": 61,
+          "delayedInformation": 62,
+          "denialOfService": 63,
+          "duplicateInformation": 64,
+          "informationMissing": 65,
+          "informationModificationDetected": 66,
+          "informationOutOfSequence": 67,
+          "intrusionDetection": 68,
+          "keyExpired": 69,
+          "nonRepudiationFailure": 70,
+          "outOfHoursActivity": 71,
+          "outOfService": 72,
+          "proceduralError": 73,
+          "unauthorizedAccessAttempt": 74,
+          "unexpectedInformation": 75
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ItuAlarmType": {
+    "name": "ItuAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "communicationsAlarm": 2,
+          "qualityOfServiceAlarm": 3,
+          "processingErrorAlarm": 4,
+          "equipmentAlarm": 5,
+          "environmentalAlarm": 6,
+          "integrityViolation": 7,
+          "operationalViolation": 8,
+          "physicalViolation": 9,
+          "securityServiceOrMechanismViolation": 10,
+          "timeDomainViolation": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NeAlarmPhoto": {
+    "name": "NeAlarmPhoto",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "takePhoto": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NeTrapFilter": {
+    "name": "NeTrapFilter",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapFilterOff": 0,
+          "trapFilterOn": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "neAlarmTable": {
+    "name": "neAlarmTable",
+    "oid": "1.3.6.1.4.1.22764.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "neAlarmEntry": {
+    "name": "neAlarmEntry",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "neAlarmIndex": {
+    "name": "neAlarmIndex",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmAdditionalText": {
+    "name": "neAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmProbableCause": {
+    "name": "neAlarmProbableCause",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuAlarmProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmDescription": {
+    "name": "neAlarmDescription",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmType": {
+    "name": "neAlarmType",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmManagedObject": {
+    "name": "neAlarmManagedObject",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmStatus": {
+    "name": "neAlarmStatus",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "terminate": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neAlarmAlreadyPresent": {
+    "name": "neAlarmAlreadyPresent",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmTimeStamp": {
+    "name": "neAlarmTimeStamp",
+    "oid": "1.3.6.1.4.1.22764.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmActiveLastTrapIndex": {
+    "name": "neAlarmActiveLastTrapIndex",
+    "oid": "1.3.6.1.4.1.22764.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neClearTerminatedAlarms": {
+    "name": "neClearTerminatedAlarms",
+    "oid": "1.3.6.1.4.1.22764.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neAlarmActivePhoto": {
+    "name": "neAlarmActivePhoto",
+    "oid": "1.3.6.1.4.1.22764.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neAlarmTrap": {
+    "name": "neAlarmTrap",
+    "oid": "1.3.6.1.4.1.22764.2.1.10",
+    "class": "objectidentity"
+  },
+  "neAlarmTrapCounter": {
+    "name": "neAlarmTrapCounter",
+    "oid": "1.3.6.1.4.1.22764.2.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "neAlarmTrapFilter": {
+    "name": "neAlarmTrapFilter",
+    "oid": "1.3.6.1.4.1.22764.2.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NeTrapFilter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neAlarmTrapDestiIp": {
+    "name": "neAlarmTrapDestiIp",
+    "oid": "1.3.6.1.4.1.22764.2.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neAlarmTrapDestiPort": {
+    "name": "neAlarmTrapDestiPort",
+    "oid": "1.3.6.1.4.1.22764.2.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neAlarmGroup": {
+    "name": "neAlarmGroup",
+    "oid": "1.3.6.1.4.1.22764.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmIndex"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmAdditionalText"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmProbableCause"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmDescription"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmType"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmManagedObject"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmAlreadyPresent"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmTimeStamp"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "neAlarmActiveGroup": {
+    "name": "neAlarmActiveGroup",
+    "oid": "1.3.6.1.4.1.22764.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmActiveLastTrapIndex"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmActivePhoto"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmTrapFilter"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmTrapDestiIp"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmTrapDestiPort"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neAlarmTrapCounter"
+      },
+      {
+        "module": "SPIDCOM-ALARM-MIB",
+        "object": "neClearTerminatedAlarms"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPIDCOM-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SPIDCOM-ALARM-MIB"
+  }
+}

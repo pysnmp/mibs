@@ -1,0 +1,215 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoHardwareIpVerifyMIB": {
+    "name": "ciscoHardwareIpVerifyMIB",
+    "oid": "1.3.6.1.4.1.9.9.804",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoHardwareIpVerifyMIBNotifs": {
+    "name": "ciscoHardwareIpVerifyMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.804.0",
+    "class": "objectidentity"
+  },
+  "ciscoHardwareIpVerifyMIBObjects": {
+    "name": "ciscoHardwareIpVerifyMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.804.1",
+    "class": "objectidentity"
+  },
+  "ciscoHardwareIpVerifyMIBConform": {
+    "name": "ciscoHardwareIpVerifyMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.804.2",
+    "class": "objectidentity"
+  },
+  "chivIpVerifyTable": {
+    "name": "chivIpVerifyTable",
+    "oid": "1.3.6.1.4.1.9.9.804.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chivIpVerifyEntry": {
+    "name": "chivIpVerifyEntry",
+    "oid": "1.3.6.1.4.1.9.9.804.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-HARDWARE-IP-VERIFY-MIB",
+        "object": "chivIpVerifyCheckIpType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-HARDWARE-IP-VERIFY-MIB",
+        "object": "chivIpVerifyCheckTypeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chivIpVerifyCheckIpType": {
+    "name": "chivIpVerifyCheckIpType",
+    "oid": "1.3.6.1.4.1.9.9.804.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chivIpVerifyCheckTypeName": {
+    "name": "chivIpVerifyCheckTypeName",
+    "oid": "1.3.6.1.4.1.9.9.804.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "addressSrcBroadcast": 1,
+          "addressSrcMulticast": 2,
+          "addressDestZero": 3,
+          "addressIdentical": 4,
+          "addressSrcReserved": 5,
+          "addressClassE": 6,
+          "checksum": 7,
+          "protocol": 8,
+          "fragment": 9,
+          "lengthMinimum": 10,
+          "lengthConsistent": 11,
+          "lengthMaximumFragment": 12,
+          "lengthMaximumUdp": 13,
+          "lengthMaximumTcp": 14,
+          "tcpFlags": 15,
+          "tcpTinyFlags": 16,
+          "version": 17
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chivIpVerifyCheckStatus": {
+    "name": "chivIpVerifyCheckStatus",
+    "oid": "1.3.6.1.4.1.9.9.804.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chivIpVerifyPacketsDropped": {
+    "name": "chivIpVerifyPacketsDropped",
+    "oid": "1.3.6.1.4.1.9.9.804.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoHardwareIpVerifyMIBCompliances": {
+    "name": "ciscoHardwareIpVerifyMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.804.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoHardwareIpVerifyMIBGroups": {
+    "name": "ciscoHardwareIpVerifyMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.804.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoHardwareIpVerifyMIBCompliance": {
+    "name": "ciscoHardwareIpVerifyMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.804.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoHardwareIpVerifyMIBStatisticGroup",
+        "module": "CISCO-HARDWARE-IP-VERIFY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoHardwareIpVerifyMIBStatisticGroup": {
+    "name": "ciscoHardwareIpVerifyMIBStatisticGroup",
+    "oid": "1.3.6.1.4.1.9.9.804.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-HARDWARE-IP-VERIFY-MIB",
+        "object": "chivIpVerifyCheckStatus"
+      },
+      {
+        "module": "CISCO-HARDWARE-IP-VERIFY-MIB",
+        "object": "chivIpVerifyPacketsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-HARDWARE-IP-VERIFY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-HARDWARE-IP-VERIFY-MIB"
+  }
+}

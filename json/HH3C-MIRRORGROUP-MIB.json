@@ -1,0 +1,657 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cMirrGroup": {
+    "name": "hh3cMirrGroup",
+    "oid": "1.3.6.1.4.1.25506.2.68",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-10 19:03",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cMGInfoObjects": {
+    "name": "hh3cMGInfoObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1",
+    "class": "objectidentity"
+  },
+  "hh3cMGObjects": {
+    "name": "hh3cMGObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cMGTable": {
+    "name": "hh3cMGTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGEntry": {
+    "name": "hh3cMGEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGID": {
+    "name": "hh3cMGID",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGType": {
+    "name": "hh3cMGType",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remoteSource": 2,
+          "remoteDestination": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGStatus": {
+    "name": "hh3cMGStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMGRowStatus": {
+    "name": "hh3cMGRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGMirrorIfObjects": {
+    "name": "hh3cMGMirrorIfObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cMGMirrorIfTable": {
+    "name": "hh3cMGMirrorIfTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorIfEntry": {
+    "name": "hh3cMGMirrorIfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGMirrorIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGMirrorDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGMirrorIfIndex": {
+    "name": "hh3cMGMirrorIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorDirection": {
+    "name": "hh3cMGMirrorDirection",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorRowStatus": {
+    "name": "hh3cMGMirrorRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGMonitorIfObjects": {
+    "name": "hh3cMGMonitorIfObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cMGMonitorIfTable": {
+    "name": "hh3cMGMonitorIfTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMonitorIfEntry": {
+    "name": "hh3cMGMonitorIfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGMonitorIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGMonitorIfIndex": {
+    "name": "hh3cMGMonitorIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMonitorRowStatus": {
+    "name": "hh3cMGMonitorRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGReflectorIfObjects": {
+    "name": "hh3cMGReflectorIfObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cMGReflectorIfTable": {
+    "name": "hh3cMGReflectorIfTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGReflectorIfEntry": {
+    "name": "hh3cMGReflectorIfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGReflectorIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGReflectorIfIndex": {
+    "name": "hh3cMGReflectorIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGReflectorRowStatus": {
+    "name": "hh3cMGReflectorRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGRprobeVlanObjects": {
+    "name": "hh3cMGRprobeVlanObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.5",
+    "class": "objectidentity"
+  },
+  "hh3cMGRprobeVlanTable": {
+    "name": "hh3cMGRprobeVlanTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGRprobeVlanEntry": {
+    "name": "hh3cMGRprobeVlanEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGRprobeVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGRprobeVlanID": {
+    "name": "hh3cMGRprobeVlanID",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGRprobeVlanRowStatus": {
+    "name": "hh3cMGRprobeVlanRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGEgressIfObjects": {
+    "name": "hh3cMGEgressIfObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.6",
+    "class": "objectidentity"
+  },
+  "hh3cMGEgressIfTable": {
+    "name": "hh3cMGEgressIfTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGEgressIfEntry": {
+    "name": "hh3cMGEgressIfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGEgressIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGEgressIfIndex": {
+    "name": "hh3cMGEgressIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGEgressRowStatus": {
+    "name": "hh3cMGEgressRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGMirrorVlanObjects": {
+    "name": "hh3cMGMirrorVlanObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.7",
+    "class": "objectidentity"
+  },
+  "hh3cMGMirrorVlanTable": {
+    "name": "hh3cMGMirrorVlanTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorVlanEntry": {
+    "name": "hh3cMGMirrorVlanEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGMirrorVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGMirrorVlanID": {
+    "name": "hh3cMGMirrorVlanID",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorVlanDirection": {
+    "name": "hh3cMGMirrorVlanDirection",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGMirrorVlanRowStatus": {
+    "name": "hh3cMGMirrorVlanRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGMirrorCpuObjects": {
+    "name": "hh3cMGMirrorCpuObjects",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.8",
+    "class": "objectidentity"
+  },
+  "hh3cMGMirrorCpuTable": {
+    "name": "hh3cMGMirrorCpuTable",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorCpuEntry": {
+    "name": "hh3cMGMirrorCpuEntry",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGMirrorCpuChassis",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-MIRRORGROUP-MIB",
+        "object": "hh3cMGMirrorCpuSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMGMirrorCpuChassis": {
+    "name": "hh3cMGMirrorCpuChassis",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorCpuSlot": {
+    "name": "hh3cMGMirrorCpuSlot",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMGMirrorCpuDirection": {
+    "name": "hh3cMGMirrorCpuDirection",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMGMirrorCpuRowStatus": {
+    "name": "hh3cMGMirrorCpuRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.68.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MIRRORGROUP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-MIRRORGROUP-MIB"
+  }
+}

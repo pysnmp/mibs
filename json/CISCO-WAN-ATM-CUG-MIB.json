@@ -1,0 +1,440 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmAddr"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWanAtmCugMIB": {
+    "name": "ciscoWanAtmCugMIB",
+    "oid": "1.3.6.1.4.1.9.9.99999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-22 00:00",
+        "description": "Initial version of the MIB."
+      }
+    ]
+  },
+  "cwaCugMIBNotifications": {
+    "name": "cwaCugMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.99999.0",
+    "class": "objectidentity"
+  },
+  "cwaCugMIBObjects": {
+    "name": "cwaCugMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.99999.1",
+    "class": "objectidentity"
+  },
+  "cwaCug": {
+    "name": "cwaCug",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1",
+    "class": "objectidentity"
+  },
+  "cwaAddressCug": {
+    "name": "cwaAddressCug",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2",
+    "class": "objectidentity"
+  },
+  "CiscoAtmAddressType": {
+    "name": "CiscoAtmAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e164": 3,
+          "nsap": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoAtmAddressLength": {
+    "name": "CiscoAtmAddressLength",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoAtmInterlockCode": {
+    "name": "CiscoAtmInterlockCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 24,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cwaCugTable": {
+    "name": "cwaCugTable",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaCugEntry": {
+    "name": "cwaCugEntry",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaAtmAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaAddressLength",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaCugIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwaAtmAddress": {
+    "name": "cwaAtmAddress",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaAddressLength": {
+    "name": "cwaAddressLength",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAtmAddressLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaCugIndex": {
+    "name": "cwaCugIndex",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaAddressPlan": {
+    "name": "cwaAddressPlan",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAtmAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaInterlockCode": {
+    "name": "cwaInterlockCode",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAtmInterlockCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaCallsBarred": {
+    "name": "cwaCallsBarred",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "incoming": 2,
+          "outgoing": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaCugRowStatus": {
+    "name": "cwaCugRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwaAddressCugTable": {
+    "name": "cwaAddressCugTable",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwaAddressCugEntry": {
+    "name": "cwaAddressCugEntry",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaAtmAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaAddressLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwaCugAtmAddressPlan": {
+    "name": "cwaCugAtmAddressPlan",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAtmAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwaIncomingAccess": {
+    "name": "cwaIncomingAccess",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAllowed": 1,
+          "allowed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwaOutgoingAccess": {
+    "name": "cwaOutgoingAccess",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAllowed": 1,
+          "allowedPerCall": 2,
+          "allowedPermanently": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwaPreferentialCug": {
+    "name": "cwaPreferentialCug",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoWanAtmCugMIBConformance": {
+    "name": "ciscoWanAtmCugMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.99999.3",
+    "class": "objectidentity"
+  },
+  "ciscoWanAtmCugMIBCompliances": {
+    "name": "ciscoWanAtmCugMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoWanAtmCugMIBGroups": {
+    "name": "ciscoWanAtmCugMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoWanAtmCugMIBCompliance": {
+    "name": "ciscoWanAtmCugMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWanAtmCugGroup",
+        "module": "CISCO-WAN-ATM-CUG-MIB"
+      },
+      {
+        "object": "ciscoWanAtmAddressCugGroup",
+        "module": "CISCO-WAN-ATM-CUG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanAtmCugGroup": {
+    "name": "ciscoWanAtmCugGroup",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaAddressPlan"
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaInterlockCode"
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaCallsBarred"
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaCugRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWanAtmAddressCugGroup": {
+    "name": "ciscoWanAtmAddressCugGroup",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaCugAtmAddressPlan"
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaIncomingAccess"
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaOutgoingAccess"
+      },
+      {
+        "module": "CISCO-WAN-ATM-CUG-MIB",
+        "object": "cwaPreferentialCug"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-ATM-CUG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-ATM-CUG-MIB"
+  }
+}

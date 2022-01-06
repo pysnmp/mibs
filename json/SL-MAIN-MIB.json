@@ -1,0 +1,1769 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-NE-MIB": [
+      "sitelight"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Opaque",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "slMain": {
+    "name": "slMain",
+    "oid": "1.3.6.1.4.1.4515.1.3",
+    "class": "moduleidentity"
+  },
+  "slmSys": {
+    "name": "slmSys",
+    "oid": "1.3.6.1.4.1.4515.1.3.1",
+    "class": "objectidentity"
+  },
+  "slmAdmin": {
+    "name": "slmAdmin",
+    "oid": "1.3.6.1.4.1.4515.1.3.2",
+    "class": "objectidentity"
+  },
+  "slmAuth": {
+    "name": "slmAuth",
+    "oid": "1.3.6.1.4.1.4515.1.3.3",
+    "class": "objectidentity"
+  },
+  "slmLogin": {
+    "name": "slmLogin",
+    "oid": "1.3.6.1.4.1.4515.1.3.4",
+    "class": "objectidentity"
+  },
+  "slmTrap": {
+    "name": "slmTrap",
+    "oid": "1.3.6.1.4.1.4515.1.3.5",
+    "class": "objectidentity"
+  },
+  "slmLogFile": {
+    "name": "slmLogFile",
+    "oid": "1.3.6.1.4.1.4515.1.3.8",
+    "class": "objectidentity"
+  },
+  "slmConfigFile": {
+    "name": "slmConfigFile",
+    "oid": "1.3.6.1.4.1.4515.1.3.9",
+    "class": "objectidentity"
+  },
+  "slmChPass": {
+    "name": "slmChPass",
+    "oid": "1.3.6.1.4.1.4515.1.3.12",
+    "class": "objectidentity"
+  },
+  "slmLicense": {
+    "name": "slmLicense",
+    "oid": "1.3.6.1.4.1.4515.1.3.17",
+    "class": "objectidentity"
+  },
+  "UserLogin": {
+    "name": "UserLogin",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "UserPassword": {
+    "name": "UserPassword",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "UserCommunity": {
+    "name": "UserCommunity",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SoftwareRevision": {
+    "name": "SoftwareRevision",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AdminAccess": {
+    "name": "AdminAccess",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "read": 1,
+          "readwrite": 2,
+          "provisioning": 3,
+          "admin": 4,
+          "trap": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "slmSysGatewayAddr": {
+    "name": "slmSysGatewayAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysSubnetMask": {
+    "name": "slmSysSubnetMask",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysIpAddr": {
+    "name": "slmSysIpAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysAlmAct": {
+    "name": "slmSysAlmAct",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysAlmDeact": {
+    "name": "slmSysAlmDeact",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysAdminStatus": {
+    "name": "slmSysAdminStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "warmBoot": 3,
+          "coldBoot": 4,
+          "factoryBoot": 5,
+          "testing": 6,
+          "hotBoot": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysOperStatus": {
+    "name": "slmSysOperStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmBoxSize": {
+    "name": "slmBoxSize",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysCalendarTime": {
+    "name": "slmSysCalendarTime",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysPmStartOfDay": {
+    "name": "slmSysPmStartOfDay",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysActiveSwVersion": {
+    "name": "slmSysActiveSwVersion",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swRevA": 1,
+          "swRevB": 2,
+          "swRevFtpStart": 3,
+          "swRevFtpEnd": 4,
+          "swRevAHot": 5,
+          "swRevBHot": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSwRevTable": {
+    "name": "slmSwRevTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmConfigSysUptime": {
+    "name": "slmConfigSysUptime",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmConfigSysSignalType": {
+    "name": "slmConfigSysSignalType",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonet": 1,
+          "sdh": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmRebootDelay": {
+    "name": "slmRebootDelay",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmVcatDelay": {
+    "name": "slmVcatDelay",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTid": {
+    "name": "slmTid",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmPsuNumber": {
+    "name": "slmPsuNumber",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmOemType": {
+    "name": "slmOemType",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysName": {
+    "name": "slmSysName",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysLocation": {
+    "name": "slmSysLocation",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysResetPm": {
+    "name": "slmSysResetPm",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysUplinkRate": {
+    "name": "slmSysUplinkRate",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up100": 1,
+          "up1000": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysChassisId": {
+    "name": "slmSysChassisId",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysNetworkPrefix": {
+    "name": "slmSysNetworkPrefix",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysLanIpAddr": {
+    "name": "slmSysLanIpAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysLanSubnetAddr": {
+    "name": "slmSysLanSubnetAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmPmAvailable": {
+    "name": "slmPmAvailable",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmPortsNumber": {
+    "name": "slmPortsNumber",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmEdfaNumber": {
+    "name": "slmEdfaNumber",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmMuxNumber": {
+    "name": "slmMuxNumber",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmOpticalSwitchExist": {
+    "name": "slmOpticalSwitchExist",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmReadCommunity": {
+    "name": "slmReadCommunity",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmWriteCommunity": {
+    "name": "slmWriteCommunity",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysEffectiveSubnetMask": {
+    "name": "slmSysEffectiveSubnetMask",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysEffectiveIpAddr": {
+    "name": "slmSysEffectiveIpAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysLanEffectiveIpAddr": {
+    "name": "slmSysLanEffectiveIpAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysLanEffectiveSubnetAddr": {
+    "name": "slmSysLanEffectiveSubnetAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysGatewayEffectiveIpAddr": {
+    "name": "slmSysGatewayEffectiveIpAddr",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSysMode": {
+    "name": "slmSysMode",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysTrapFormat": {
+    "name": "slmSysTrapFormat",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullIfIndex": 1,
+          "portIfIndex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysTemperature": {
+    "name": "slmSysTemperature",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmNetworkMode": {
+    "name": "slmNetworkMode",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routing": 1,
+          "switching": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slm40GConf": {
+    "name": "slm40GConf",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g40": 0,
+          "g41": 1,
+          "g42": 2,
+          "g43": 3,
+          "g100": 100
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmRstpEnabled": {
+    "name": "slmRstpEnabled",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmTopologyEnabled": {
+    "name": "slmTopologyEnabled",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmAdminCommunity": {
+    "name": "slmAdminCommunity",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmTrapCommunity": {
+    "name": "slmTrapCommunity",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysSnmpVersion": {
+    "name": "slmSysSnmpVersion",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v3Only": 3,
+          "v1v2v3": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmSysEncryptionCapability": {
+    "name": "slmSysEncryptionCapability",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSwRevEntry": {
+    "name": "slmSwRevEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmSwRevDirectory",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmSwRevDirectory": {
+    "name": "slmSwRevDirectory",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swRevDirA": 1,
+          "swRevDirB": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSwRevStatus": {
+    "name": "slmSwRevStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2,
+          "copyingToStandby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSwRevName": {
+    "name": "slmSwRevName",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareRevision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmSwRevDate": {
+    "name": "slmSwRevDate",
+    "oid": "1.3.6.1.4.1.4515.1.3.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmAdminTable": {
+    "name": "slmAdminTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmAdminEntry": {
+    "name": "slmAdminEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmAdminLogin",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmAdminLogin": {
+    "name": "slmAdminLogin",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserLogin",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmAdminPassword": {
+    "name": "slmAdminPassword",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmAdminRowStatus": {
+    "name": "slmAdminRowStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmAdminAccess": {
+    "name": "slmAdminAccess",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmSnmpv3Auth": {
+    "name": "slmSnmpv3Auth",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaccess": 1,
+          "noauth": 2,
+          "md5": 3,
+          "sha": 4,
+          "sha224": 5,
+          "sha256": 6,
+          "sha384": 7,
+          "sha512": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmSnmpv3Priv": {
+    "name": "slmSnmpv3Priv",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaccess": 1,
+          "nopriv": 2,
+          "des": 3,
+          "aes": 4,
+          "des3": 5,
+          "aes192": 6,
+          "aes256": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmSnmpv3Password": {
+    "name": "slmSnmpv3Password",
+    "oid": "1.3.6.1.4.1.4515.1.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmAuthTable": {
+    "name": "slmAuthTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmAuthEntry": {
+    "name": "slmAuthEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmAuthLogin",
+        "implied": 0
+      },
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmAuthPassword",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmAuthLogin": {
+    "name": "slmAuthLogin",
+    "oid": "1.3.6.1.4.1.4515.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserLogin",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmAuthPassword": {
+    "name": "slmAuthPassword",
+    "oid": "1.3.6.1.4.1.4515.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserPassword",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmAuthCommunity": {
+    "name": "slmAuthCommunity",
+    "oid": "1.3.6.1.4.1.4515.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserCommunity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmChPassTable": {
+    "name": "slmChPassTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmChPassEntry": {
+    "name": "slmChPassEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmChPassLogin",
+        "implied": 0
+      },
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmChPassOldPass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmChPassLogin": {
+    "name": "slmChPassLogin",
+    "oid": "1.3.6.1.4.1.4515.1.3.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserLogin",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmChPassOldPass": {
+    "name": "slmChPassOldPass",
+    "oid": "1.3.6.1.4.1.4515.1.3.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserPassword",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmChPassNewPass": {
+    "name": "slmChPassNewPass",
+    "oid": "1.3.6.1.4.1.4515.1.3.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserPassword",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slmTrapDestTable": {
+    "name": "slmTrapDestTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmTrapDestEntry": {
+    "name": "slmTrapDestEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmTrapDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmTrapDestAddress": {
+    "name": "slmTrapDestAddress",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapDestRowStatus": {
+    "name": "slmTrapDestRowStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapDestCommunity": {
+    "name": "slmTrapDestCommunity",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserCommunity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapDestProtVersion": {
+    "name": "slmTrapDestProtVersion",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpVer1": 1,
+          "snmpVer2": 2,
+          "snmpVer3": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "snmpVer2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapUserLogin": {
+    "name": "slmTrapUserLogin",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UserLogin",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapUserAccess": {
+    "name": "slmTrapUserAccess",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapEnable": {
+    "name": "slmTrapEnable",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapPort": {
+    "name": "slmTrapPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapDestIpAddress": {
+    "name": "slmTrapDestIpAddress",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmTrapLogTable": {
+    "name": "slmTrapLogTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmTrapLogEntry": {
+    "name": "slmTrapLogEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmTrapLogId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmTrapLogId": {
+    "name": "slmTrapLogId",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogName": {
+    "name": "slmTrapLogName",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogTimeStamp": {
+    "name": "slmTrapLogTimeStamp",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogParam1": {
+    "name": "slmTrapLogParam1",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogParam2": {
+    "name": "slmTrapLogParam2",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogParam3": {
+    "name": "slmTrapLogParam3",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogParam4": {
+    "name": "slmTrapLogParam4",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogParam5": {
+    "name": "slmTrapLogParam5",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapLogParam6": {
+    "name": "slmTrapLogParam6",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmTrapSoftwareStatusChange": {
+    "name": "slmTrapSoftwareStatusChange",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmSwRevDirectory"
+      },
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmSwRevStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "slmTrapSysNameChange": {
+    "name": "slmTrapSysNameChange",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmSysName"
+      }
+    ],
+    "status": "current"
+  },
+  "slmTrapSysLocationChange": {
+    "name": "slmTrapSysLocationChange",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmSysLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "slmSyslogDestTable": {
+    "name": "slmSyslogDestTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmSyslogDestEntry": {
+    "name": "slmSyslogDestEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmSyslogDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmSyslogDestAddress": {
+    "name": "slmSyslogDestAddress",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmSyslogDestRowStatus": {
+    "name": "slmSyslogDestRowStatus",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmSyslogLevel": {
+    "name": "slmSyslogLevel",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "traps": 1,
+          "log": 2,
+          "debug": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmSyslogPort": {
+    "name": "slmSyslogPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmSyslogDestIpAddress": {
+    "name": "slmSyslogDestIpAddress",
+    "oid": "1.3.6.1.4.1.4515.1.3.5.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slmLicenseTable": {
+    "name": "slmLicenseTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slmLicenseEntry": {
+    "name": "slmLicenseEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmLicenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slmLicenseIndex": {
+    "name": "slmLicenseIndex",
+    "oid": "1.3.6.1.4.1.4515.1.3.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmLicenseExpiration": {
+    "name": "slmLicenseExpiration",
+    "oid": "1.3.6.1.4.1.4515.1.3.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slmLicenseId": {
+    "name": "slmLicenseId",
+    "oid": "1.3.6.1.4.1.4515.1.3.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-MAIN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-MAIN-MIB"
+  }
+}

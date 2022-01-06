@@ -1,0 +1,1722 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "hwAlarmMIB": {
+    "name": "hwAlarmMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.180",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-14 11:36",
+        "description": "Revert to the revision 2.10."
+      },
+      {
+        "revision": "2017-02-16 09:43",
+        "description": "Revert to the revision 2.10."
+      },
+      {
+        "revision": "2013-10-28 09:43",
+        "description": "Revert to the revision 2.10."
+      },
+      {
+        "revision": "2013-10-18 16:43",
+        "description": "Add history alarm MIB."
+      },
+      {
+        "revision": "2009-12-05 11:50",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "hwAlarmObjects": {
+    "name": "hwAlarmObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1",
+    "class": "objectidentity"
+  },
+  "hwSnmpTargetAddrExtTable": {
+    "name": "hwSnmpTargetAddrExtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSnmpTargetAddrExtEntry": {
+    "name": "hwSnmpTargetAddrExtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hwSnmpTargetAddrExtIndex": {
+    "name": "hwSnmpTargetAddrExtIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwSnmpTargetSlaveAddressList": {
+    "name": "hwSnmpTargetSlaveAddressList",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSnmpTargetAddrReliability": {
+    "name": "hwSnmpTargetAddrReliability",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSnmpTargetAddrAlarmReliability": {
+    "name": "hwSnmpTargetAddrAlarmReliability",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSnmpTargetAddrEventReliability": {
+    "name": "hwSnmpTargetAddrEventReliability",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSnmpTargetAddrExtRowStatus": {
+    "name": "hwSnmpTargetAddrExtRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwMinAlarmSyncIndex": {
+    "name": "hwMinAlarmSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaxAlarmSyncIndex": {
+    "name": "hwMaxAlarmSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmSyncTable": {
+    "name": "hwAlarmSyncTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmSyncEntry": {
+    "name": "hwAlarmSyncEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmSyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmSyncIndex": {
+    "name": "hwAlarmSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmSyncId": {
+    "name": "hwAlarmSyncId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmSyncPara": {
+    "name": "hwAlarmSyncPara",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinEventSyncIndex": {
+    "name": "hwMinEventSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaxEventSyncIndex": {
+    "name": "hwMaxEventSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventSyncTable": {
+    "name": "hwEventSyncTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventSyncEntry": {
+    "name": "hwEventSyncEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventSyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEventSyncIndex": {
+    "name": "hwEventSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventSyncId": {
+    "name": "hwEventSyncId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventSyncPara": {
+    "name": "hwEventSyncPara",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmActiveTable": {
+    "name": "hwAlarmActiveTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmActiveEntry": {
+    "name": "hwAlarmActiveEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwActiveAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwActiveAlarmIndex": {
+    "name": "hwActiveAlarmIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwActiveAlarmId": {
+    "name": "hwActiveAlarmId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwActiveAlarmPara": {
+    "name": "hwActiveAlarmPara",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwActiveAlarmRowStatus": {
+    "name": "hwActiveAlarmRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwEventTable": {
+    "name": "hwEventTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventEntry": {
+    "name": "hwEventEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEventIndex": {
+    "name": "hwEventIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventId": {
+    "name": "hwEventId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventPara": {
+    "name": "hwEventPara",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventRowStatus": {
+    "name": "hwEventRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAlarmDateAndTime": {
+    "name": "hwAlarmDateAndTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmOrEventFlag": {
+    "name": "hwAlarmOrEventFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "event": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmReasonInfo": {
+    "name": "hwAlarmReasonInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmSeverity": {
+    "name": "hwAlarmSeverity",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "indeterminate": 5,
+          "cleared": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSnmpTargetSyncIndexTable": {
+    "name": "hwSnmpTargetSyncIndexTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSnmpTargetSyncIndexEntry": {
+    "name": "hwSnmpTargetSyncIndexEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinAlmSyncIndex": {
+    "name": "hwMinAlmSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaxAlmSyncIndex": {
+    "name": "hwMaxAlmSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMinEvtSyncIndex": {
+    "name": "hwMinEvtSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwMaxEvtSyncIndex": {
+    "name": "hwMaxEvtSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmActiveVsTable": {
+    "name": "hwAlarmActiveVsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmActiveVsEntry": {
+    "name": "hwAlarmActiveVsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwAlarmActiveVsEntry",
+      "module": "HUAWEI-ALARM-MIB",
+      "object": "hwAlarmActiveEntry"
+    },
+    "status": "current"
+  },
+  "hwAlarmActiveVsId": {
+    "name": "hwAlarmActiveVsId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.31.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventVsTable": {
+    "name": "hwEventVsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventVsEntry": {
+    "name": "hwEventVsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwEventVsEntry",
+      "module": "HUAWEI-ALARM-MIB",
+      "object": "hwEventEntry"
+    },
+    "status": "current"
+  },
+  "hwEventVsId": {
+    "name": "hwEventVsId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.33.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmSyncVsTable": {
+    "name": "hwAlarmSyncVsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmSyncVsEntry": {
+    "name": "hwAlarmSyncVsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwAlarmSyncVsEntry",
+      "module": "HUAWEI-ALARM-MIB",
+      "object": "hwAlarmSyncEntry"
+    },
+    "status": "current"
+  },
+  "hwAlarmSyncVsId": {
+    "name": "hwAlarmSyncVsId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventSyncVsTable": {
+    "name": "hwEventSyncVsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.39",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventSyncVsEntry": {
+    "name": "hwEventSyncVsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.39.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwEventSyncVsEntry",
+      "module": "HUAWEI-ALARM-MIB",
+      "object": "hwEventSyncEntry"
+    },
+    "status": "current"
+  },
+  "hwEvevtSyncVsId": {
+    "name": "hwEvevtSyncVsId",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.1.39.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmNotifications": {
+    "name": "hwAlarmNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.2",
+    "class": "objectidentity"
+  },
+  "hwAlarmTargetHostDel": {
+    "name": "hwAlarmTargetHostDel",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmStorm": {
+    "name": "hwAlarmStorm",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.2.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwAlarmConformance": {
+    "name": "hwAlarmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3",
+    "class": "objectidentity"
+  },
+  "hwAlarmCompliances": {
+    "name": "hwAlarmCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.1",
+    "class": "objectidentity"
+  },
+  "hwAlarmCompliance": {
+    "name": "hwAlarmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwAlarmReliabilityGroup",
+        "module": "HUAWEI-ALARM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmGroups": {
+    "name": "hwAlarmGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2",
+    "class": "objectidentity"
+  },
+  "hwAlarmReliabilityGroup": {
+    "name": "hwAlarmReliabilityGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetSlaveAddressList"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrEventReliability"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrAlarmReliability"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrReliability"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwActiveInfoGroup": {
+    "name": "hwActiveInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwActiveAlarmId"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwActiveAlarmPara"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventRowStatus"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwActiveAlarmRowStatus"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventId"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventPara"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapInfoSyncGroup": {
+    "name": "hwTrapInfoSyncGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMinAlarmSyncIndex"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMaxAlarmSyncIndex"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmSyncId"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmSyncPara"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMinEventSyncIndex"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMaxEventSyncIndex"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventSyncId"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventSyncPara"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmDateAndTime"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmCorrAnalyzeSuppressionRootCauseIndication"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmCorrAnalyzeSuppressionParentSequence"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmReasonInfo"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmSeverity"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmOrEventFlag"
+      }
+    ],
+    "status": "current"
+  },
+  "hwActiveInfoVsGroup": {
+    "name": "hwActiveInfoVsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmActiveVsId"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventVsId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapSyncVsGroup": {
+    "name": "hwTrapSyncVsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmSyncVsId"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEvevtSyncVsId"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMinAlmSyncIndex"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMaxAlmSyncIndex"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMinEvtSyncIndex"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwMaxEvtSyncIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmTrapInfoGroup": {
+    "name": "hwAlarmTrapInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmTargetHostDel"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmStorm"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapSuppressionGroup": {
+    "name": "hwTrapSuppressionGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmDelaySuppressionEnable"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmDelaySuppressionCausePersistPeriod"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmDelaySuppressionClearPersistPeriod"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmCorrAnalyzeSuppressionEnable"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmCorrAnalyzeSuppressionStatus"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventDelaySuppressionEnable"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventDelaySuppressionCausePersistPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapInfoGroup": {
+    "name": "hwTrapInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmAttrSeverity"
+      },
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventAttrSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmConfig": {
+    "name": "hwAlarmConfig",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5",
+    "class": "objectidentity"
+  },
+  "hwAlarmAttr": {
+    "name": "hwAlarmAttr",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.1",
+    "class": "objectidentity"
+  },
+  "hwAlarmAttrTable": {
+    "name": "hwAlarmAttrTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmAttrEntry": {
+    "name": "hwAlarmAttrEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmName": {
+    "name": "hwAlarmName",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmAttrSeverity": {
+    "name": "hwAlarmAttrSeverity",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "indeterminate": 5,
+          "cleared": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAlarmMask": {
+    "name": "hwAlarmMask",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3",
+    "class": "objectidentity"
+  },
+  "hwAlarmMaskBasedOnIfnameTable": {
+    "name": "hwAlarmMaskBasedOnIfnameTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmMaskBasedOnIfnameEntry": {
+    "name": "hwAlarmMaskBasedOnIfnameEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmMaskIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmMaskIfName": {
+    "name": "hwAlarmMaskIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmMaskBasedOnIfnameRowStatus": {
+    "name": "hwAlarmMaskBasedOnIfnameRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAlarmMaskBasedOnEntityTable": {
+    "name": "hwAlarmMaskBasedOnEntityTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmMaskBasedOnEntityEntry": {
+    "name": "hwAlarmMaskBasedOnEntityEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmMaskEntPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmMaskEntPhysicalIndex": {
+    "name": "hwAlarmMaskEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmMaskEntPhysicalName": {
+    "name": "hwAlarmMaskEntPhysicalName",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAlarmMaskBasedOnEntityRowStatus": {
+    "name": "hwAlarmMaskBasedOnEntityRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.3.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwAlarmDelay": {
+    "name": "hwAlarmDelay",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.4",
+    "class": "objectidentity"
+  },
+  "hwAlarmDelaySuppressionEnable": {
+    "name": "hwAlarmDelaySuppressionEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAlarmDelaySuppressionTable": {
+    "name": "hwAlarmDelaySuppressionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmDelaySuppressionEntry": {
+    "name": "hwAlarmDelaySuppressionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwAlarmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmDelaySuppressionCausePersistPeriod": {
+    "name": "hwAlarmDelaySuppressionCausePersistPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAlarmDelaySuppressionClearPersistPeriod": {
+    "name": "hwAlarmDelaySuppressionClearPersistPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAlarmCorrAnalyze": {
+    "name": "hwAlarmCorrAnalyze",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.5",
+    "class": "objectidentity"
+  },
+  "hwAlarmCorrAnalyzeSuppressionEnable": {
+    "name": "hwAlarmCorrAnalyzeSuppressionEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwAlarmCorrAnalyzeSuppressionRootCauseIndication": {
+    "name": "hwAlarmCorrAnalyzeSuppressionRootCauseIndication",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "independent": 0,
+          "rootcause": 1,
+          "nonrootcause": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmCorrAnalyzeSuppressionParentSequence": {
+    "name": "hwAlarmCorrAnalyzeSuppressionParentSequence",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwAlarmCorrAnalyzeSuppressionTable": {
+    "name": "hwAlarmCorrAnalyzeSuppressionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwAlarmCorrAnalyzeSuppressionEntry": {
+    "name": "hwAlarmCorrAnalyzeSuppressionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwSnmpTargetAddrExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwAlarmCorrAnalyzeSuppressionStatus": {
+    "name": "hwAlarmCorrAnalyzeSuppressionStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.5.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEventConfig": {
+    "name": "hwEventConfig",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6",
+    "class": "objectidentity"
+  },
+  "hwEventAttr": {
+    "name": "hwEventAttr",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.1",
+    "class": "objectidentity"
+  },
+  "hwEventAttrTable": {
+    "name": "hwEventAttrTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventAttrEntry": {
+    "name": "hwEventAttrEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEventName": {
+    "name": "hwEventName",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventAttrSeverity": {
+    "name": "hwEventAttrSeverity",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "indeterminate": 5,
+          "cleared": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEventDelay": {
+    "name": "hwEventDelay",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.4",
+    "class": "objectidentity"
+  },
+  "hwEventDelaySuppressionEnable": {
+    "name": "hwEventDelaySuppressionEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwEventDelaySuppressionTable": {
+    "name": "hwEventDelaySuppressionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEventDelaySuppressionEntry": {
+    "name": "hwEventDelaySuppressionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-ALARM-MIB",
+        "object": "hwEventName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEventDelaySuppressionCausePersistPeriod": {
+    "name": "hwEventDelaySuppressionCausePersistPeriod",
+    "oid": "1.3.6.1.4.1.2011.5.25.180.6.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-ALARM-MIB"
+  }
+}

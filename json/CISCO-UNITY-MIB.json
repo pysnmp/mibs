@@ -1,0 +1,1273 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoUnityMIB": {
+    "name": "ciscoUnityMIB",
+    "oid": "1.3.6.1.4.1.9.9.385",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-12 00:00",
+        "description": "Added these objects: ciscoUnityLicLanguagesMax, ciscoUnityLicTTSSessionsMax, ciscoUnityLicSubscribersMax, ciscoUnityLicUMSubscribersMax, ciscoUnityLicVMISubscribersMax, ciscoUnityLicVoicePortsMax, ciscoUnityLicBridgeSessionsMax, ciscoUnityLicAMISIsLicensed, ciscoUnityLicMaxMsgRecLenIsLic, ciscoUnityLicPoolingIsEnabled, ciscoUnityLicVPIMIsLicensed, ciscoUnityLicPrimaryServerIsLic, ciscoUnityLicSecondServerIsLic, ciscoUnityLicUtilSecondServer, ciscoUnityLicUtilSubs, ciscoUnityLicUtilVMISubs, ciscoUnityPortActivity, ciscoUnityPortObjectId"
+      },
+      {
+        "revision": "2004-01-06 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "CiscoUnityIndex": {
+    "name": "CiscoUnityIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoUnityServerStatus": {
+    "name": "CiscoUnityServerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stopped": 1,
+          "starting": 2,
+          "running": 3,
+          "stopping": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoUnityMIBNotifs": {
+    "name": "ciscoUnityMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.385.0",
+    "class": "objectidentity"
+  },
+  "ciscoUnityMIBObjects": {
+    "name": "ciscoUnityMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.385.1",
+    "class": "objectidentity"
+  },
+  "ciscoUnityMIBConform": {
+    "name": "ciscoUnityMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.385.2",
+    "class": "objectidentity"
+  },
+  "ciscoUnityGeneralInfo": {
+    "name": "ciscoUnityGeneralInfo",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoUnityGlobalInfo": {
+    "name": "ciscoUnityGlobalInfo",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoUnityNotificationsInfo": {
+    "name": "ciscoUnityNotificationsInfo",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoUnityTable": {
+    "name": "ciscoUnityTable",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoUnityEntry": {
+    "name": "ciscoUnityEntry",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityIndex": {
+    "name": "ciscoUnityIndex",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoUnityIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoUnityName": {
+    "name": "ciscoUnityName",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityVersion": {
+    "name": "ciscoUnityVersion",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortTable": {
+    "name": "ciscoUnityPortTable",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoUnityPortEntry": {
+    "name": "ciscoUnityPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityPortIndex": {
+    "name": "ciscoUnityPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoUnityIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoUnityPortNumber": {
+    "name": "ciscoUnityPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortIntegration": {
+    "name": "ciscoUnityPortIntegration",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortExtension": {
+    "name": "ciscoUnityPortExtension",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortEnabled": {
+    "name": "ciscoUnityPortEnabled",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortAnswerCalls": {
+    "name": "ciscoUnityPortAnswerCalls",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortMessageNotif": {
+    "name": "ciscoUnityPortMessageNotif",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortDialoutMWI": {
+    "name": "ciscoUnityPortDialoutMWI",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortAMISDelivery": {
+    "name": "ciscoUnityPortAMISDelivery",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortTRAPConnection": {
+    "name": "ciscoUnityPortTRAPConnection",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortActivity": {
+    "name": "ciscoUnityPortActivity",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortObjectId": {
+    "name": "ciscoUnityPortObjectId",
+    "oid": "1.3.6.1.4.1.9.9.385.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityServerState": {
+    "name": "ciscoUnityServerState",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoUnityServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPorts": {
+    "name": "ciscoUnityPorts",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortsActive": {
+    "name": "ciscoUnityPortsActive",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortsInbound": {
+    "name": "ciscoUnityPortsInbound",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortsInboundActive": {
+    "name": "ciscoUnityPortsInboundActive",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortsOutbound": {
+    "name": "ciscoUnityPortsOutbound",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityPortsOutboundActive": {
+    "name": "ciscoUnityPortsOutboundActive",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicLanguagesMax": {
+    "name": "ciscoUnityLicLanguagesMax",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicTTSSessionsMax": {
+    "name": "ciscoUnityLicTTSSessionsMax",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicSubscribersMax": {
+    "name": "ciscoUnityLicSubscribersMax",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicUMSubscribersMax": {
+    "name": "ciscoUnityLicUMSubscribersMax",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicVMISubscribersMax": {
+    "name": "ciscoUnityLicVMISubscribersMax",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicVoicePortsMax": {
+    "name": "ciscoUnityLicVoicePortsMax",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicBridgeSessionsMax": {
+    "name": "ciscoUnityLicBridgeSessionsMax",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicAMISIsLicensed": {
+    "name": "ciscoUnityLicAMISIsLicensed",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicMaxMsgRecLenIsLic": {
+    "name": "ciscoUnityLicMaxMsgRecLenIsLic",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicPoolingIsEnabled": {
+    "name": "ciscoUnityLicPoolingIsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicVPIMIsLicensed": {
+    "name": "ciscoUnityLicVPIMIsLicensed",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicPrimaryServerIsLic": {
+    "name": "ciscoUnityLicPrimaryServerIsLic",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicSecondServerIsLic": {
+    "name": "ciscoUnityLicSecondServerIsLic",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicUtilSecondServer": {
+    "name": "ciscoUnityLicUtilSecondServer",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicUtilSubs": {
+    "name": "ciscoUnityLicUtilSubs",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityLicUtilVMISubs": {
+    "name": "ciscoUnityLicUtilVMISubs",
+    "oid": "1.3.6.1.4.1.9.9.385.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoUnityEventType": {
+    "name": "ciscoUnityEventType",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "warning": 2,
+          "informational": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventSource": {
+    "name": "ciscoUnityEventSource",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventCategory": {
+    "name": "ciscoUnityEventCategory",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventId": {
+    "name": "ciscoUnityEventId",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventDate": {
+    "name": "ciscoUnityEventDate",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventUser": {
+    "name": "ciscoUnityEventUser",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventComputer": {
+    "name": "ciscoUnityEventComputer",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventDescription": {
+    "name": "ciscoUnityEventDescription",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityEventEMSNotes": {
+    "name": "ciscoUnityEventEMSNotes",
+    "oid": "1.3.6.1.4.1.9.9.385.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoUnityMonitoredEvent": {
+    "name": "ciscoUnityMonitoredEvent",
+    "oid": "1.3.6.1.4.1.9.9.385.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventType"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventSource"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventCategory"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventId"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventDate"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventUser"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventComputer"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventDescription"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventEMSNotes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityMIBCompliances": {
+    "name": "ciscoUnityMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.385.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoUnityMIBGroups": {
+    "name": "ciscoUnityMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoUnityMIBCompliance": {
+    "name": "ciscoUnityMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.385.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoUnityInfoGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityNotificationsInfoGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityNotificationsGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityPortInfoGroup",
+        "module": "CISCO-UNITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoUnityMIBComplianceRev1": {
+    "name": "ciscoUnityMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.385.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoUnityInfoGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityNotificationsInfoGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityNotificationsGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityLicInfoGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityPortInfoGroup",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityPortInfoGroup2",
+        "module": "CISCO-UNITY-MIB"
+      },
+      {
+        "object": "ciscoUnityPortInfoGroup3",
+        "module": "CISCO-UNITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityInfoGroup": {
+    "name": "ciscoUnityInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityName"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityVersion"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityServerState"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPorts"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortsActive"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortsInbound"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortsInboundActive"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortsOutbound"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortsOutboundActive"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityPortInfoGroup": {
+    "name": "ciscoUnityPortInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortNumber"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortIntegration"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortExtension"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortEnabled"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortAnswerCalls"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortMessageNotif"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortDialoutMWI"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortAMISDelivery"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortTRAPConnection"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityNotificationsInfoGroup": {
+    "name": "ciscoUnityNotificationsInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventType"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventSource"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventCategory"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventId"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventDate"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventUser"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventComputer"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventDescription"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityEventEMSNotes"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityNotificationsGroup": {
+    "name": "ciscoUnityNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityMonitoredEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityLicInfoGroup": {
+    "name": "ciscoUnityLicInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicLanguagesMax"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicTTSSessionsMax"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicSubscribersMax"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicUMSubscribersMax"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicVMISubscribersMax"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicVoicePortsMax"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicBridgeSessionsMax"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicAMISIsLicensed"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicMaxMsgRecLenIsLic"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicPoolingIsEnabled"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicVPIMIsLicensed"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicPrimaryServerIsLic"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicSecondServerIsLic"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicUtilSecondServer"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicUtilSubs"
+      },
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityLicUtilVMISubs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityPortInfoGroup2": {
+    "name": "ciscoUnityPortInfoGroup2",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortActivity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoUnityPortInfoGroup3": {
+    "name": "ciscoUnityPortInfoGroup3",
+    "oid": "1.3.6.1.4.1.9.9.385.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-UNITY-MIB",
+        "object": "ciscoUnityPortObjectId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNITY-MIB"
+  }
+}

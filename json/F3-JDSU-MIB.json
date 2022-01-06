@@ -1,0 +1,1383 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "OperationalState",
+      "SecondaryState",
+      "VlanPriority",
+      "AdminState",
+      "VlanId"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "cmEthernetTrafficPortIndex",
+      "cmEthernetTrafficPortEntry"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
+    ]
+  },
+  "f3JdsuMIB": {
+    "name": "f3JdsuMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.31",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-02 00:00",
+        "description": "Notes from release 201401020000Z"
+      }
+    ]
+  },
+  "f3JdsuObjects": {
+    "name": "f3JdsuObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1",
+    "class": "objectidentity"
+  },
+  "f3JdsuNotifications": {
+    "name": "f3JdsuNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.2",
+    "class": "objectidentity"
+  },
+  "f3JdsuConformance": {
+    "name": "f3JdsuConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.3",
+    "class": "objectidentity"
+  },
+  "GeneratorStatus": {
+    "name": "GeneratorStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "initial": 2,
+          "helloIngress": 3,
+          "helloCompleted": 4,
+          "helloFailed": 5,
+          "lookupIngress": 6,
+          "lookupCompleted": 7,
+          "lookupFailed": 8,
+          "lookdownIngress": 9,
+          "lookdownCompleted": 10,
+          "lookdownFailed": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ItemOperation": {
+    "name": "ItemOperation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "save": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UpdateReachStatus": {
+    "name": "UpdateReachStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "update": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuGeneratorFrameType": {
+    "name": "JdsuGeneratorFrameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "frameType8023": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuGeneratorPayloadType": {
+    "name": "JdsuGeneratorPayloadType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "fixed": 2,
+          "random": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "GeneratorAction": {
+    "name": "GeneratorAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "loopUp": 2,
+          "loopDown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DiscoveryAction": {
+    "name": "DiscoveryAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "discover": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3JdsuGeneratorPort": {
+    "name": "f3JdsuGeneratorPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorOuterVlanEnabled": {
+    "name": "f3JdsuGeneratorOuterVlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorOuterVlanId": {
+    "name": "f3JdsuGeneratorOuterVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorOuterVlanPri": {
+    "name": "f3JdsuGeneratorOuterVlanPri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorOuterVlanEtherType": {
+    "name": "f3JdsuGeneratorOuterVlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan1Enabled": {
+    "name": "f3JdsuGeneratorInnerVlan1Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan1Id": {
+    "name": "f3JdsuGeneratorInnerVlan1Id",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan1Pri": {
+    "name": "f3JdsuGeneratorInnerVlan1Pri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan1EtherType": {
+    "name": "f3JdsuGeneratorInnerVlan1EtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan2Enabled": {
+    "name": "f3JdsuGeneratorInnerVlan2Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan2Id": {
+    "name": "f3JdsuGeneratorInnerVlan2Id",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan2Pri": {
+    "name": "f3JdsuGeneratorInnerVlan2Pri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorInnerVlan2EtherType": {
+    "name": "f3JdsuGeneratorInnerVlan2EtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorFrameType": {
+    "name": "f3JdsuGeneratorFrameType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuGeneratorFrameType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorPayloadType": {
+    "name": "f3JdsuGeneratorPayloadType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuGeneratorPayloadType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorFrameLength": {
+    "name": "f3JdsuGeneratorFrameLength",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoveryAction": {
+    "name": "f3JdsuGeneratorDiscoveryAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DiscoveryAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverTable": {
+    "name": "f3JdsuGeneratorDiscoverTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverEntry": {
+    "name": "f3JdsuGeneratorDiscoverEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetTrafficPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverDestMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverDestMacAddr": {
+    "name": "f3JdsuGeneratorDiscoverDestMacAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverOuterVlanEnabled": {
+    "name": "f3JdsuGeneratorDiscoverOuterVlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverOuterVlanId": {
+    "name": "f3JdsuGeneratorDiscoverOuterVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverOuterVlanPri": {
+    "name": "f3JdsuGeneratorDiscoverOuterVlanPri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverOuterVlanEtherType": {
+    "name": "f3JdsuGeneratorDiscoverOuterVlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan1Enabled": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan1Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan1Id": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan1Id",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan1Pri": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan1Pri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan1EtherType": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan1EtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan2Enabled": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan2Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan2Id": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan2Id",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan2Pri": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan2Pri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverInnerVlan2EtherType": {
+    "name": "f3JdsuGeneratorDiscoverInnerVlan2EtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverFrameType": {
+    "name": "f3JdsuGeneratorDiscoverFrameType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuGeneratorFrameType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverPayloadType": {
+    "name": "f3JdsuGeneratorDiscoverPayloadType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuGeneratorPayloadType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverFrameLength": {
+    "name": "f3JdsuGeneratorDiscoverFrameLength",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverUnitTextId": {
+    "name": "f3JdsuGeneratorDiscoverUnitTextId",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverIfReachable": {
+    "name": "f3JdsuGeneratorDiscoverIfReachable",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverGeneratorStatus": {
+    "name": "f3JdsuGeneratorDiscoverGeneratorStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GeneratorStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverItemOperation": {
+    "name": "f3JdsuGeneratorDiscoverItemOperation",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItemOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverItemIfSaved": {
+    "name": "f3JdsuGeneratorDiscoverItemIfSaved",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorDiscoverGeneratorAction": {
+    "name": "f3JdsuGeneratorDiscoverGeneratorAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.18.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GeneratorAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureTable": {
+    "name": "f3JdsuGeneratorConfigureTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureEntry": {
+    "name": "f3JdsuGeneratorConfigureEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetTrafficPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureDestMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureDestMacAddr": {
+    "name": "f3JdsuGeneratorConfigureDestMacAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureOuterVlanEnabled": {
+    "name": "f3JdsuGeneratorConfigureOuterVlanEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureOuterVlanId": {
+    "name": "f3JdsuGeneratorConfigureOuterVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureOuterVlanPri": {
+    "name": "f3JdsuGeneratorConfigureOuterVlanPri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureOuterVlanEtherType": {
+    "name": "f3JdsuGeneratorConfigureOuterVlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan1Enabled": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan1Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan1Id": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan1Id",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan1Pri": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan1Pri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan1EtherType": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan1EtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan2Enabled": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan2Enabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan2Id": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan2Id",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan2Pri": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan2Pri",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureInnerVlan2EtherType": {
+    "name": "f3JdsuGeneratorConfigureInnerVlan2EtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureFrameType": {
+    "name": "f3JdsuGeneratorConfigureFrameType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuGeneratorFrameType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigurePayloadType": {
+    "name": "f3JdsuGeneratorConfigurePayloadType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuGeneratorPayloadType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureFrameLength": {
+    "name": "f3JdsuGeneratorConfigureFrameLength",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureUnitTextId": {
+    "name": "f3JdsuGeneratorConfigureUnitTextId",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureIfReachable": {
+    "name": "f3JdsuGeneratorConfigureIfReachable",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureReachableUpdate": {
+    "name": "f3JdsuGeneratorConfigureReachableUpdate",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpdateReachStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureStatus": {
+    "name": "f3JdsuGeneratorConfigureStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GeneratorStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureGeneratorAction": {
+    "name": "f3JdsuGeneratorConfigureGeneratorAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GeneratorAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureStorageType": {
+    "name": "f3JdsuGeneratorConfigureStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3JdsuGeneratorConfigureRowStatus": {
+    "name": "f3JdsuGeneratorConfigureRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.19.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3EthernetTrafficPortJdsuExtTable": {
+    "name": "f3EthernetTrafficPortJdsuExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EthernetTrafficPortJdsuExtEntry": {
+    "name": "f3EthernetTrafficPortJdsuExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3EthernetTrafficPortJdsuExtEntry",
+      "module": "F3-JDSU-MIB",
+      "object": "cmEthernetTrafficPortEntry"
+    },
+    "status": "current"
+  },
+  "f3EthernetTrafficPortJdsuLoopbackEnabled": {
+    "name": "f3EthernetTrafficPortJdsuLoopbackEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetTrafficPortJdsuGenerationEanbled": {
+    "name": "f3EthernetTrafficPortJdsuGenerationEanbled",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EthernetTrafficPortJdsuLoopbackVlanList": {
+    "name": "f3EthernetTrafficPortJdsuLoopbackVlanList",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3JdsuCompliances": {
+    "name": "f3JdsuCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.3.1",
+    "class": "objectidentity"
+  },
+  "f3JdsuGroups": {
+    "name": "f3JdsuGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.3.2",
+    "class": "objectidentity"
+  },
+  "f3JdsuCompliance": {
+    "name": "f3JdsuCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3JdsuGroup",
+        "module": "F3-JDSU-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3JdsuGroup": {
+    "name": "f3JdsuGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.31.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverDestMacAddr"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverOuterVlanEnabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverOuterVlanId"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverOuterVlanPri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverOuterVlanEtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan1Enabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan1Id"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan1Pri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan1EtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan2Enabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan2Id"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan2Pri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverInnerVlan2EtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverFrameType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverPayloadType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverFrameLength"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverUnitTextId"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverIfReachable"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverGeneratorStatus"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverItemOperation"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverItemIfSaved"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoverGeneratorAction"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureDestMacAddr"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureOuterVlanEnabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureOuterVlanId"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureOuterVlanPri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureOuterVlanEtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan1Enabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan1Id"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan1Pri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan1EtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan2Enabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan2Id"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan2Pri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureInnerVlan2EtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureFrameType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigurePayloadType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureFrameLength"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureUnitTextId"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureIfReachable"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureReachableUpdate"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureStatus"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureGeneratorAction"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureStorageType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorConfigureRowStatus"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3EthernetTrafficPortJdsuLoopbackEnabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3EthernetTrafficPortJdsuGenerationEanbled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3EthernetTrafficPortJdsuLoopbackVlanList"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorPort"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorOuterVlanEnabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorOuterVlanId"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorOuterVlanPri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorOuterVlanEtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan1Enabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan1Id"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan1Pri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan1EtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan2Enabled"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan2Id"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan2Pri"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorInnerVlan2EtherType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorFrameType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorPayloadType"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorFrameLength"
+      },
+      {
+        "module": "F3-JDSU-MIB",
+        "object": "f3JdsuGeneratorDiscoveryAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-JDSU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-JDSU-MIB"
+  }
+}

@@ -1,0 +1,805 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQLGROUP-MIB": [
+      "eqlGroupId"
+    ],
+    "EQLMEMBER-MIB": [
+      "eqlMemberIndex",
+      "eqlDriveGroupIndex"
+    ],
+    "EQLSTORAGEPOOL-MIB": [
+      "eqlStoragePoolIndex"
+    ],
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "IF-MIB": [
+      "ifEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "eqlRAIDModule": {
+    "name": "eqlRAIDModule",
+    "oid": "1.3.6.1.4.1.12740.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-11-11 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "eqlRAIDObjects": {
+    "name": "eqlRAIDObjects",
+    "oid": "1.3.6.1.4.1.12740.10.1",
+    "class": "objectidentity"
+  },
+  "eqlRAIDNotifications": {
+    "name": "eqlRAIDNotifications",
+    "oid": "1.3.6.1.4.1.12740.10.2",
+    "class": "objectidentity"
+  },
+  "eqlRAIDConformance": {
+    "name": "eqlRAIDConformance",
+    "oid": "1.3.6.1.4.1.12740.10.3",
+    "class": "objectidentity"
+  },
+  "eqlRAIDDeviceTable": {
+    "name": "eqlRAIDDeviceTable",
+    "oid": "1.3.6.1.4.1.12740.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRAIDDeviceEntry": {
+    "name": "eqlRAIDDeviceEntry",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlRAIDDeviceLUNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlRAIDDeviceLUNIndex": {
+    "name": "eqlRAIDDeviceLUNIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceLUN": {
+    "name": "eqlRAIDDeviceLUN",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceOperStatus": {
+    "name": "eqlRAIDDeviceOperStatus",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDevice": 1,
+          "dataLoss": 2,
+          "nominal": 3,
+          "degraded": 4,
+          "failed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceUUID": {
+    "name": "eqlRAIDDeviceUUID",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceDriveCount": {
+    "name": "eqlRAIDDeviceDriveCount",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceLayoutOperStatus": {
+    "name": "eqlRAIDDeviceLayoutOperStatus",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "expSuspended": 2,
+          "expInProgress": 3,
+          "swapSuspended": 4,
+          "swapInProgress": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceLayoutSectPerSU": {
+    "name": "eqlRAIDDeviceLayoutSectPerSU",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceLUNCapacity": {
+    "name": "eqlRAIDDeviceLUNCapacity",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceLostBlocks": {
+    "name": "eqlRAIDDeviceLostBlocks",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceOutIOOps": {
+    "name": "eqlRAIDDeviceOutIOOps",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceCacheWrites": {
+    "name": "eqlRAIDDeviceCacheWrites",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceCacheReads": {
+    "name": "eqlRAIDDeviceCacheReads",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceCompCacheWrites": {
+    "name": "eqlRAIDDeviceCompCacheWrites",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceCompCacheReads": {
+    "name": "eqlRAIDDeviceCompCacheReads",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceSectWritten": {
+    "name": "eqlRAIDDeviceSectWritten",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceSectRead": {
+    "name": "eqlRAIDDeviceSectRead",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceStoragePoolIndex": {
+    "name": "eqlRAIDDeviceStoragePoolIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRAIDDeviceDriveGroupIndex": {
+    "name": "eqlRAIDDeviceDriveGroupIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRAIDLayoutTable": {
+    "name": "eqlRAIDLayoutTable",
+    "oid": "1.3.6.1.4.1.12740.10.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRAIDLayoutEntry": {
+    "name": "eqlRAIDLayoutEntry",
+    "oid": "1.3.6.1.4.1.12740.10.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlRAIDDeviceLUNIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlRAIDLayoutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlRAIDLayoutIndex": {
+    "name": "eqlRAIDLayoutIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "first": 1,
+          "second": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDLayoutOperStatus": {
+    "name": "eqlRAIDLayoutOperStatus",
+    "oid": "1.3.6.1.4.1.12740.10.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDevice": 1,
+          "noLayout": 2,
+          "failed": 3,
+          "nominal": 4,
+          "degraded": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDLayoutNumParityGrp": {
+    "name": "eqlRAIDLayoutNumParityGrp",
+    "oid": "1.3.6.1.4.1.12740.10.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDLayoutParityType": {
+    "name": "eqlRAIDLayoutParityType",
+    "oid": "1.3.6.1.4.1.12740.10.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stripe": 0,
+          "raid1": 1,
+          "raid10": 10,
+          "raid5": 5,
+          "raid50": 50
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDLayoutBeginLBA": {
+    "name": "eqlRAIDLayoutBeginLBA",
+    "oid": "1.3.6.1.4.1.12740.10.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDLayoutLength": {
+    "name": "eqlRAIDLayoutLength",
+    "oid": "1.3.6.1.4.1.12740.10.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDParityGroupTable": {
+    "name": "eqlRAIDParityGroupTable",
+    "oid": "1.3.6.1.4.1.12740.10.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRAIDParityGroupEntry": {
+    "name": "eqlRAIDParityGroupEntry",
+    "oid": "1.3.6.1.4.1.12740.10.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlRAIDDeviceLUNIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlRAIDLayoutIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlParityGrpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlParityGrpIndex": {
+    "name": "eqlParityGrpIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlParityGrpOperStatus": {
+    "name": "eqlParityGrpOperStatus",
+    "oid": "1.3.6.1.4.1.12740.10.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDevice": 1,
+          "noLayout": 2,
+          "noGroup": 3,
+          "degraded": 4,
+          "failed": 5,
+          "nominal": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlParityGrpDriveCount": {
+    "name": "eqlParityGrpDriveCount",
+    "oid": "1.3.6.1.4.1.12740.10.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlParityGrpOperation": {
+    "name": "eqlParityGrpOperation",
+    "oid": "1.3.6.1.4.1.12740.10.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "verify": 1,
+          "reconstruct": 2,
+          "noOp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlParityGrpReconstChkpt": {
+    "name": "eqlParityGrpReconstChkpt",
+    "oid": "1.3.6.1.4.1.12740.10.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlParityGrpVerifyChkpt": {
+    "name": "eqlParityGrpVerifyChkpt",
+    "oid": "1.3.6.1.4.1.12740.10.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDriveTable": {
+    "name": "eqlRAIDDriveTable",
+    "oid": "1.3.6.1.4.1.12740.10.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlRAIDDriveEntry": {
+    "name": "eqlRAIDDriveEntry",
+    "oid": "1.3.6.1.4.1.12740.10.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlRAIDDriveDriveLUNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlRAIDDriveDriveLUNIndex": {
+    "name": "eqlRAIDDriveDriveLUNIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDriveDriveLUN": {
+    "name": "eqlRAIDDriveDriveLUN",
+    "oid": "1.3.6.1.4.1.12740.10.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDriveOperStatus": {
+    "name": "eqlRAIDDriveOperStatus",
+    "oid": "1.3.6.1.4.1.12740.10.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDrive": 1,
+          "active": 2,
+          "failed": 3,
+          "tooSmall": 4,
+          "reconstruct": 5,
+          "swap": 6,
+          "spare": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDriveUUID": {
+    "name": "eqlRAIDDriveUUID",
+    "oid": "1.3.6.1.4.1.12740.10.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDiskIndex": {
+    "name": "eqlRAIDDiskIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlRAIDDeviceIndex": {
+    "name": "eqlRAIDDeviceIndex",
+    "oid": "1.3.6.1.4.1.12740.10.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlStoragePoolRAIDLUNTable": {
+    "name": "eqlStoragePoolRAIDLUNTable",
+    "oid": "1.3.6.1.4.1.12740.10.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlStoragePoolRAIDLUNEntry": {
+    "name": "eqlStoragePoolRAIDLUNEntry",
+    "oid": "1.3.6.1.4.1.12740.10.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLSTORAGEPOOL-MIB",
+        "object": "eqlStoragePoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLRAID-MIB",
+        "object": "eqlRAIDDeviceLUNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlStoragePoolRAIDLUNfoo": {
+    "name": "eqlStoragePoolRAIDLUNfoo",
+    "oid": "1.3.6.1.4.1.12740.10.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLRAID-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQLRAID-MIB"
+  }
+}

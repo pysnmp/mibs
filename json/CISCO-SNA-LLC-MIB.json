@@ -1,0 +1,2762 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSnaLlcMIB": {
+    "name": "ciscoSnaLlcMIB",
+    "oid": "1.3.6.1.4.1.9.10.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-05-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSnaLlcMIBObjects": {
+    "name": "ciscoSnaLlcMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.8.1",
+    "class": "objectidentity"
+  },
+  "llcPortGroup": {
+    "name": "llcPortGroup",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1",
+    "class": "objectidentity"
+  },
+  "llcSapGroup": {
+    "name": "llcSapGroup",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2",
+    "class": "objectidentity"
+  },
+  "llcCcGroup": {
+    "name": "llcCcGroup",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3",
+    "class": "objectidentity"
+  },
+  "llcPortAdminTable": {
+    "name": "llcPortAdminTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcPortAdminEntry": {
+    "name": "llcPortAdminEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcPortVirtualIndex": {
+    "name": "llcPortVirtualIndex",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcPortAdminName": {
+    "name": "llcPortAdminName",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminMaxSaps": {
+    "name": "llcPortAdminMaxSaps",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminMaxCcs": {
+    "name": "llcPortAdminMaxCcs",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminMaxPDUOctets": {
+    "name": "llcPortAdminMaxPDUOctets",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminMaxUnackedIPDUsSend": {
+    "name": "llcPortAdminMaxUnackedIPDUsSend",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminMaxUnackedIPDUsRcv": {
+    "name": "llcPortAdminMaxUnackedIPDUsRcv",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminMaxRetransmits": {
+    "name": "llcPortAdminMaxRetransmits",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminAckTimer": {
+    "name": "llcPortAdminAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminPbitTimer": {
+    "name": "llcPortAdminPbitTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminRejTimer": {
+    "name": "llcPortAdminRejTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminBusyTimer": {
+    "name": "llcPortAdminBusyTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminInactTimer": {
+    "name": "llcPortAdminInactTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminDelayAckCount": {
+    "name": "llcPortAdminDelayAckCount",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminDelayAckTimer": {
+    "name": "llcPortAdminDelayAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortAdminNw": {
+    "name": "llcPortAdminNw",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcPortOperTable": {
+    "name": "llcPortOperTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcPortOperEntry": {
+    "name": "llcPortOperEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcPortOperMacAddress": {
+    "name": "llcPortOperMacAddress",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortOperNumSaps": {
+    "name": "llcPortOperNumSaps",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortOperHiWaterNumSaps": {
+    "name": "llcPortOperHiWaterNumSaps",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortOperSimRim": {
+    "name": "llcPortOperSimRim",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortOperLastModifyTime": {
+    "name": "llcPortOperLastModifyTime",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsTable": {
+    "name": "llcPortStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcPortStatsEntry": {
+    "name": "llcPortStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcPortStatsPDUsIn": {
+    "name": "llcPortStatsPDUsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsPDUsOut": {
+    "name": "llcPortStatsPDUsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsOctetsIn": {
+    "name": "llcPortStatsOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsOctetsOut": {
+    "name": "llcPortStatsOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsTESTCommandsIn": {
+    "name": "llcPortStatsTESTCommandsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsTESTResponsesOut": {
+    "name": "llcPortStatsTESTResponsesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsLocalBusies": {
+    "name": "llcPortStatsLocalBusies",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcPortStatsUnknownSaps": {
+    "name": "llcPortStatsUnknownSaps",
+    "oid": "1.3.6.1.4.1.9.10.8.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapAdminTable": {
+    "name": "llcSapAdminTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcSapAdminEntry": {
+    "name": "llcSapAdminEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcSapNumber": {
+    "name": "llcSapNumber",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcSapAdminMaxPDUOctets": {
+    "name": "llcSapAdminMaxPDUOctets",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminMaxUnackedIPDUsSend": {
+    "name": "llcSapAdminMaxUnackedIPDUsSend",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminMaxUnackedIPDUsRcv": {
+    "name": "llcSapAdminMaxUnackedIPDUsRcv",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminMaxRetransmits": {
+    "name": "llcSapAdminMaxRetransmits",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminAckTimer": {
+    "name": "llcSapAdminAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminPbitTimer": {
+    "name": "llcSapAdminPbitTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminRejTimer": {
+    "name": "llcSapAdminRejTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminBusyTimer": {
+    "name": "llcSapAdminBusyTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminInactTimer": {
+    "name": "llcSapAdminInactTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminDelayAckCount": {
+    "name": "llcSapAdminDelayAckCount",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminDelayAckTimer": {
+    "name": "llcSapAdminDelayAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapAdminNw": {
+    "name": "llcSapAdminNw",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "llcSapOperTable": {
+    "name": "llcSapOperTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcSapOperEntry": {
+    "name": "llcSapOperEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcSapOperStatus": {
+    "name": "llcSapOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapOperNumCcs": {
+    "name": "llcSapOperNumCcs",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapOperHiWaterNumCcs": {
+    "name": "llcSapOperHiWaterNumCcs",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapOperLlc2Support": {
+    "name": "llcSapOperLlc2Support",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsTable": {
+    "name": "llcSapStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcSapStatsEntry": {
+    "name": "llcSapStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcSapStatsLocalBusies": {
+    "name": "llcSapStatsLocalBusies",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsRemoteBusies": {
+    "name": "llcSapStatsRemoteBusies",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsIFramesIn": {
+    "name": "llcSapStatsIFramesIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsIFramesOut": {
+    "name": "llcSapStatsIFramesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsIOctetsIn": {
+    "name": "llcSapStatsIOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsIOctetsOut": {
+    "name": "llcSapStatsIOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsSFramesIn": {
+    "name": "llcSapStatsSFramesIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsSFramesOut": {
+    "name": "llcSapStatsSFramesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsRetransmitsOut": {
+    "name": "llcSapStatsRetransmitsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsREJsIn": {
+    "name": "llcSapStatsREJsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsREJsOut": {
+    "name": "llcSapStatsREJsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsWwCount": {
+    "name": "llcSapStatsWwCount",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsTESTCommandsIn": {
+    "name": "llcSapStatsTESTCommandsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsTESTCommandsOut": {
+    "name": "llcSapStatsTESTCommandsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsTESTResponsesIn": {
+    "name": "llcSapStatsTESTResponsesIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsTESTResponsesOut": {
+    "name": "llcSapStatsTESTResponsesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsXIDCommandsIn": {
+    "name": "llcSapStatsXIDCommandsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsXIDCommandsOut": {
+    "name": "llcSapStatsXIDCommandsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsXIDResponsesIn": {
+    "name": "llcSapStatsXIDResponsesIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsXIDResponsesOut": {
+    "name": "llcSapStatsXIDResponsesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsUIFramesIn": {
+    "name": "llcSapStatsUIFramesIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsUIFramesOut": {
+    "name": "llcSapStatsUIFramesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsUIOctetsIn": {
+    "name": "llcSapStatsUIOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsUIOctetsOut": {
+    "name": "llcSapStatsUIOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsConnectOk": {
+    "name": "llcSapStatsConnectOk",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsConnectFail": {
+    "name": "llcSapStatsConnectFail",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsDisconnect": {
+    "name": "llcSapStatsDisconnect",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsDisconnectFRMRSend": {
+    "name": "llcSapStatsDisconnectFRMRSend",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsDisconnectFRMRRcv": {
+    "name": "llcSapStatsDisconnectFRMRRcv",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsDisconnectTimer": {
+    "name": "llcSapStatsDisconnectTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsDMsInABM": {
+    "name": "llcSapStatsDMsInABM",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcSapStatsSABMEsInABM": {
+    "name": "llcSapStatsSABMEsInABM",
+    "oid": "1.3.6.1.4.1.9.10.8.1.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcAdminTable": {
+    "name": "llcCcAdminTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcCcAdminEntry": {
+    "name": "llcCcAdminEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcRMac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcRSap",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcCcRMac": {
+    "name": "llcCcRMac",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcCcRSap": {
+    "name": "llcCcRSap",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcCcAdminBounce": {
+    "name": "llcCcAdminBounce",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminMaxPDUOctets": {
+    "name": "llcCcAdminMaxPDUOctets",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminMaxUnackedIPDUsSend": {
+    "name": "llcCcAdminMaxUnackedIPDUsSend",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminMaxUnackedIPDUsRcv": {
+    "name": "llcCcAdminMaxUnackedIPDUsRcv",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminMaxRetransmits": {
+    "name": "llcCcAdminMaxRetransmits",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminAckTimer": {
+    "name": "llcCcAdminAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminPbitTimer": {
+    "name": "llcCcAdminPbitTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminRejTimer": {
+    "name": "llcCcAdminRejTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminBusyTimer": {
+    "name": "llcCcAdminBusyTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminInactTimer": {
+    "name": "llcCcAdminInactTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminDelayAckCount": {
+    "name": "llcCcAdminDelayAckCount",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminDelayAckTimer": {
+    "name": "llcCcAdminDelayAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminNw": {
+    "name": "llcCcAdminNw",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcAdminRowStatus": {
+    "name": "llcCcAdminRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "llcCcOperTable": {
+    "name": "llcCcOperTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcCcOperEntry": {
+    "name": "llcCcOperEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcRMac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcRSap",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcCcOperState": {
+    "name": "llcCcOperState",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aDM": 1,
+          "setup": 2,
+          "normal": 3,
+          "busy": 4,
+          "reject": 5,
+          "await": 6,
+          "awaitBusy": 7,
+          "awaitReject": 8,
+          "dConn": 9,
+          "reset": 10,
+          "error": 11,
+          "conn": 12,
+          "resetCheck": 13,
+          "resetWait": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperMaxIPDUOctetsSend": {
+    "name": "llcCcOperMaxIPDUOctetsSend",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperMaxIPDUOctetsRcv": {
+    "name": "llcCcOperMaxIPDUOctetsRcv",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperMaxUnackedIPDUsSend": {
+    "name": "llcCcOperMaxUnackedIPDUsSend",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperMaxUnackedIPDUsRcv": {
+    "name": "llcCcOperMaxUnackedIPDUsRcv",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperMaxRetransmits": {
+    "name": "llcCcOperMaxRetransmits",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperAckTimer": {
+    "name": "llcCcOperAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperPbitTimer": {
+    "name": "llcCcOperPbitTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperRejTimer": {
+    "name": "llcCcOperRejTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperBusyTimer": {
+    "name": "llcCcOperBusyTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperInactTimer": {
+    "name": "llcCcOperInactTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperDelayAckCount": {
+    "name": "llcCcOperDelayAckCount",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperDelayAckTimer": {
+    "name": "llcCcOperDelayAckTimer",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperNw": {
+    "name": "llcCcOperNw",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperWw": {
+    "name": "llcCcOperWw",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperCreateTime": {
+    "name": "llcCcOperCreateTime",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperLastModifyTime": {
+    "name": "llcCcOperLastModifyTime",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperLastFailTime": {
+    "name": "llcCcOperLastFailTime",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperLastFailCause": {
+    "name": "llcCcOperLastFailCause",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "rxFRMR": 2,
+          "txFRMR": 3,
+          "discReceived": 4,
+          "discSent": 5,
+          "retriesExpired": 6,
+          "forcedShutdown": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "undefined",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperLastFailFRMRInfo": {
+    "name": "llcCcOperLastFailFRMRInfo",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcOperLastWwCause": {
+    "name": "llcCcOperLastWwCause",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "neverInvoked": 1,
+          "lostData": 2,
+          "macLayerCongestion": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsTable": {
+    "name": "llcCcStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "llcCcStatsEntry": {
+    "name": "llcCcStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortVirtualIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcRMac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcRSap",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "llcCcStatsLocalBusies": {
+    "name": "llcCcStatsLocalBusies",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsRemoteBusies": {
+    "name": "llcCcStatsRemoteBusies",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsIFramesIn": {
+    "name": "llcCcStatsIFramesIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsIFramesOut": {
+    "name": "llcCcStatsIFramesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsIOctetsIn": {
+    "name": "llcCcStatsIOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsIOctetsOut": {
+    "name": "llcCcStatsIOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsSFramesIn": {
+    "name": "llcCcStatsSFramesIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsSFramesOut": {
+    "name": "llcCcStatsSFramesOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsRetransmitsOut": {
+    "name": "llcCcStatsRetransmitsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsREJsIn": {
+    "name": "llcCcStatsREJsIn",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsREJsOut": {
+    "name": "llcCcStatsREJsOut",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "llcCcStatsWwCount": {
+    "name": "llcCcStatsWwCount",
+    "oid": "1.3.6.1.4.1.9.10.8.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snaLlcMIBNotificationPrefix": {
+    "name": "snaLlcMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.8.2",
+    "class": "objectidentity"
+  },
+  "snaLlcMIBNotifications": {
+    "name": "snaLlcMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.10.8.2.0",
+    "class": "objectidentity"
+  },
+  "llcCcStatusChange": {
+    "name": "llcCcStatusChange",
+    "oid": "1.3.6.1.4.1.9.10.8.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperState"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastFailTime"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastFailCause"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastFailFRMRInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "snaLlcMIBConformance": {
+    "name": "snaLlcMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.8.3",
+    "class": "objectidentity"
+  },
+  "snaLlcMIBCompliances": {
+    "name": "snaLlcMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.8.3.1",
+    "class": "objectidentity"
+  },
+  "snaLlcMIBGroups": {
+    "name": "snaLlcMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.8.3.2",
+    "class": "objectidentity"
+  },
+  "llcCoreCompliance": {
+    "name": "llcCoreCompliance",
+    "oid": "1.3.6.1.4.1.9.10.8.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "llcCorePortGroup",
+        "module": "CISCO-SNA-LLC-MIB"
+      },
+      {
+        "object": "llcCoreSapGroup",
+        "module": "CISCO-SNA-LLC-MIB"
+      },
+      {
+        "object": "llcCoreCcGroup",
+        "module": "CISCO-SNA-LLC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "llcCorePortGroup": {
+    "name": "llcCorePortGroup",
+    "oid": "1.3.6.1.4.1.9.10.8.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminName"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminMaxSaps"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminMaxCcs"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminMaxPDUOctets"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminMaxUnackedIPDUsSend"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminMaxUnackedIPDUsRcv"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminMaxRetransmits"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminPbitTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminRejTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminBusyTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminInactTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminDelayAckCount"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminDelayAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortAdminNw"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortOperMacAddress"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortOperNumSaps"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortOperHiWaterNumSaps"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortOperSimRim"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortOperLastModifyTime"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsPDUsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsPDUsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsOctetsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsOctetsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsTESTCommandsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsTESTResponsesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsLocalBusies"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcPortStatsUnknownSaps"
+      }
+    ],
+    "status": "current"
+  },
+  "llcCoreSapGroup": {
+    "name": "llcCoreSapGroup",
+    "oid": "1.3.6.1.4.1.9.10.8.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminMaxPDUOctets"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminMaxUnackedIPDUsSend"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminMaxUnackedIPDUsRcv"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminMaxRetransmits"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminPbitTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminRejTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminBusyTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminInactTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminDelayAckCount"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminDelayAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapAdminNw"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapOperStatus"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapOperNumCcs"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapOperHiWaterNumCcs"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapOperLlc2Support"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsLocalBusies"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsRemoteBusies"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsIFramesIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsIFramesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsIOctetsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsIOctetsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsSFramesIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsSFramesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsRetransmitsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsREJsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsREJsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsWwCount"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsTESTCommandsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsTESTCommandsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsTESTResponsesIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsTESTResponsesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsXIDCommandsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsXIDCommandsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsXIDResponsesIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsXIDResponsesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsUIFramesIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsUIFramesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsUIOctetsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsUIOctetsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsConnectOk"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsConnectFail"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsDisconnect"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsDisconnectFRMRSend"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsDisconnectFRMRRcv"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsDisconnectTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsDMsInABM"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcSapStatsSABMEsInABM"
+      }
+    ],
+    "status": "current"
+  },
+  "llcCoreCcGroup": {
+    "name": "llcCoreCcGroup",
+    "oid": "1.3.6.1.4.1.9.10.8.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminBounce"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminMaxPDUOctets"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminMaxUnackedIPDUsSend"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminMaxUnackedIPDUsRcv"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminMaxRetransmits"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminPbitTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminRejTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminBusyTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminInactTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminDelayAckCount"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminDelayAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminNw"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcAdminRowStatus"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperState"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperMaxIPDUOctetsSend"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperMaxIPDUOctetsRcv"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperMaxUnackedIPDUsSend"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperMaxUnackedIPDUsRcv"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperMaxRetransmits"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperPbitTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperRejTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperBusyTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperInactTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperDelayAckCount"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperDelayAckTimer"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperNw"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperWw"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperCreateTime"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastModifyTime"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastFailTime"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastFailCause"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastFailFRMRInfo"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcOperLastWwCause"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsLocalBusies"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsRemoteBusies"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsIFramesIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsIFramesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsIOctetsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsIOctetsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsSFramesIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsSFramesOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsRetransmitsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsREJsIn"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsREJsOut"
+      },
+      {
+        "module": "CISCO-SNA-LLC-MIB",
+        "object": "llcCcStatsWwCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SNA-LLC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SNA-LLC-MIB"
+  }
+}

@@ -1,0 +1,1530 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IETF-PW-MIB": [
+      "cpwVcIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "cpwCTDMMIB": {
+    "name": "cpwCTDMMIB",
+    "oid": "1.3.6.1.4.1.9.10.131",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-07-21 00:00",
+        "description": "Cisco'ized the IETF draft: draft-ietf-pwe3-tdm-mib-05.txt 1-Align object names with CISCO-IETF-PW-MIB and CISCO-IETF-PW-TC-MIB 2-Used cpwVcType instead of pwType 3-Used cpwVcTable instead of pwTable"
+      },
+      {
+        "revision": "2006-03-01 00:00",
+        "description": "Changes since last draft: 1-Remove Vc from all objects 2-Move MIB root to transmission 3-Change default of pwCTDMCfgSetUp2SynchTimeOut to 5000ms 4-Change PM running counters to daily intervals 5-Enhance description of pwCTDMCfgPktReplacePolicy 6-Enhance description of ES, SES, and UAS 7-Aligned objects with other PW MIBs"
+      },
+      {
+        "revision": "2005-10-23 00:00",
+        "description": "Changes since last draft: 1-Align object names with CISCO-IETF-PW-MIB and PW-TC-STD-MIB 2-clean up some text 3-pwCTDMCfgIndexNext SYNTAX was changed to TestAndIncr 4-Add explanation to descriptions of few objects 5-Performance objecs were modified to better represent their counts and type"
+      },
+      {
+        "revision": "2005-07-12 00:00",
+        "description": "Changes since last draft: 1-Merged all configurable objects from Satop MIB with objects of pwCTDMCfgTable in this MIB module. 2-pwCTDMCfgJtrBfrDepth-changed units to microsec. 3-pwCTDMAvePktLossTimeWindow moved to the pwCTDMCfgTable. 4-In pwCTDMCfgConfErr, the enum(1)was renamed to PayloadSize. 5-Renamed pwCSatopCfgConsecPktsLoss2Normal and pwCSatopCfgConsecMissPktNorma2Loss to pwCTDMCfgConsecPktsInSynch and to pwCTDMCfgConsecMissPktsOutSynch respectively."
+      },
+      {
+        "revision": "2004-04-20 00:00",
+        "description": "Initial version, published as draft-ietf-pwe3-TDM-mib-00.txt"
+      }
+    ]
+  },
+  "CpwTDMCfgIndex": {
+    "name": "CpwTDMCfgIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "cpwCTDMNotifications": {
+    "name": "cpwCTDMNotifications",
+    "oid": "1.3.6.1.4.1.9.10.131.0",
+    "class": "objectidentity"
+  },
+  "cpwCTDMObjects": {
+    "name": "cpwCTDMObjects",
+    "oid": "1.3.6.1.4.1.9.10.131.1",
+    "class": "objectidentity"
+  },
+  "cpwCTDMConformance": {
+    "name": "cpwCTDMConformance",
+    "oid": "1.3.6.1.4.1.9.10.131.2",
+    "class": "objectidentity"
+  },
+  "cpwCTDMTable": {
+    "name": "cpwCTDMTable",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMEntry": {
+    "name": "cpwCTDMEntry",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMRate": {
+    "name": "cpwCTDMRate",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwCTDMIfIndex": {
+    "name": "cpwCTDMIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwCGenTDMCfgIndex": {
+    "name": "cpwCGenTDMCfgIndex",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwTDMCfgIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwCRelTDMCfgIndex": {
+    "name": "cpwCRelTDMCfgIndex",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwTDMCfgIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwCTDMConfigError": {
+    "name": "cpwCTDMConfigError",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "tdmTypeIncompatible": 1,
+        "peerRtpIncompatible": 2,
+        "peerPayloadSizeIncompatible": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMTimeElapsed": {
+    "name": "cpwCTDMTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMValidIntervals": {
+    "name": "cpwCTDMValidIntervals",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMValidDayIntervals": {
+    "name": "cpwCTDMValidDayIntervals",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMCurrentIndications": {
+    "name": "cpwCTDMCurrentIndications",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "strayPacket": 1,
+        "malformedPacket": 2,
+        "excessivePktLossRate": 3,
+        "bufferOverrun": 4,
+        "bufferUnderrun": 5,
+        "remotePktLoss": 6,
+        "pktMisOrder": 7,
+        "packetLoss": 8,
+        "tdmFault": 9
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMLatchedIndications": {
+    "name": "cpwCTDMLatchedIndications",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "staryPacket": 1,
+        "malformedPacket": 2,
+        "excessivePktLossRate": 3,
+        "bufferOverrun": 4,
+        "bufferUnderrun": 5,
+        "remotePktLoss": 6,
+        "pktMisOrder": 7,
+        "packetLoss": 8,
+        "tdmFault": 9
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMLastEsTimeStamp": {
+    "name": "cpwCTDMLastEsTimeStamp",
+    "oid": "1.3.6.1.4.1.9.10.131.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMCfgIndexNext": {
+    "name": "cpwCTDMCfgIndexNext",
+    "oid": "1.3.6.1.4.1.9.10.131.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMCfgTable": {
+    "name": "cpwCTDMCfgTable",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMCfgEntry": {
+    "name": "cpwCTDMCfgEntry",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMCfgIndex": {
+    "name": "cpwCTDMCfgIndex",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwTDMCfgIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMCfgConfErr": {
+    "name": "cpwCTDMCfgConfErr",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "payloadSize": 1,
+        "jtrBfrDepth": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMCfgPayloadSize": {
+    "name": "cpwCTDMCfgPayloadSize",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgPktReorder": {
+    "name": "cpwCTDMCfgPktReorder",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgRtpHdrUsed": {
+    "name": "cpwCTDMCfgRtpHdrUsed",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgJtrBfrDepth": {
+    "name": "cpwCTDMCfgJtrBfrDepth",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "microsecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgPayloadSuppression": {
+    "name": "cpwCTDMCfgPayloadSuppression",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgConsecPktsInSynch": {
+    "name": "cpwCTDMCfgConsecPktsInSynch",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgConsecMissPktsOutSynch": {
+    "name": "cpwCTDMCfgConsecMissPktsOutSynch",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgSetUp2SynchTimeOut": {
+    "name": "cpwCTDMCfgSetUp2SynchTimeOut",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgPktReplacePolicy": {
+    "name": "cpwCTDMCfgPktReplacePolicy",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ais": 1,
+          "implementationSpecific": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ais",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgAvePktLossTimeWindow": {
+    "name": "cpwCTDMCfgAvePktLossTimeWindow",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "millisecond",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgExcessivePktLossThreshold": {
+    "name": "cpwCTDMCfgExcessivePktLossThreshold",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgAlarmThreshold": {
+    "name": "cpwCTDMCfgAlarmThreshold",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgClearAlarmThreshold": {
+    "name": "cpwCTDMCfgClearAlarmThreshold",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgMissingPktsToSes": {
+    "name": "cpwCTDMCfgMissingPktsToSes",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgTimestampMode": {
+    "name": "cpwCTDMCfgTimestampMode",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "absolute": 2,
+          "differential": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "absolute",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgStorageType": {
+    "name": "cpwCTDMCfgStorageType",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMCfgRowStatus": {
+    "name": "cpwCTDMCfgRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.131.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentTable": {
+    "name": "cpwCTDMPerfCurrentTable",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentEntry": {
+    "name": "cpwCTDMPerfCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentMissingPkts": {
+    "name": "cpwCTDMPerfCurrentMissingPkts",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentPktsReOrder": {
+    "name": "cpwCTDMPerfCurrentPktsReOrder",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentJtrBfrUnderruns": {
+    "name": "cpwCTDMPerfCurrentJtrBfrUnderruns",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentMisOrderDropped": {
+    "name": "cpwCTDMPerfCurrentMisOrderDropped",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentMalformedPkt": {
+    "name": "cpwCTDMPerfCurrentMalformedPkt",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentESs": {
+    "name": "cpwCTDMPerfCurrentESs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentSESs": {
+    "name": "cpwCTDMPerfCurrentSESs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentUASs": {
+    "name": "cpwCTDMPerfCurrentUASs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentFC": {
+    "name": "cpwCTDMPerfCurrentFC",
+    "oid": "1.3.6.1.4.1.9.10.131.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalTable": {
+    "name": "cpwCTDMPerfIntervalTable",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalEntry": {
+    "name": "cpwCTDMPerfIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalNumber": {
+    "name": "cpwCTDMPerfIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalValidData": {
+    "name": "cpwCTDMPerfIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalDuration": {
+    "name": "cpwCTDMPerfIntervalDuration",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalMissingPkts": {
+    "name": "cpwCTDMPerfIntervalMissingPkts",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalPktsReOrder": {
+    "name": "cpwCTDMPerfIntervalPktsReOrder",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalJtrBfrUnderruns": {
+    "name": "cpwCTDMPerfIntervalJtrBfrUnderruns",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalMisOrderDropped": {
+    "name": "cpwCTDMPerfIntervalMisOrderDropped",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalMalformedPkt": {
+    "name": "cpwCTDMPerfIntervalMalformedPkt",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalESs": {
+    "name": "cpwCTDMPerfIntervalESs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalSESs": {
+    "name": "cpwCTDMPerfIntervalSESs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalUASs": {
+    "name": "cpwCTDMPerfIntervalUASs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalFC": {
+    "name": "cpwCTDMPerfIntervalFC",
+    "oid": "1.3.6.1.4.1.9.10.131.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalTable": {
+    "name": "cpwCTDMPerf1DayIntervalTable",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalEntry": {
+    "name": "cpwCTDMPerf1DayIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalNumber": {
+    "name": "cpwCTDMPerf1DayIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalValidData": {
+    "name": "cpwCTDMPerf1DayIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalDuration": {
+    "name": "cpwCTDMPerf1DayIntervalDuration",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalMissingPkts": {
+    "name": "cpwCTDMPerf1DayIntervalMissingPkts",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalPktsReOrder": {
+    "name": "cpwCTDMPerf1DayIntervalPktsReOrder",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalJtrBfrUnderruns": {
+    "name": "cpwCTDMPerf1DayIntervalJtrBfrUnderruns",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalMisOrderDropped": {
+    "name": "cpwCTDMPerf1DayIntervalMisOrderDropped",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalMalformedPkt": {
+    "name": "cpwCTDMPerf1DayIntervalMalformedPkt",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalESs": {
+    "name": "cpwCTDMPerf1DayIntervalESs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalSESs": {
+    "name": "cpwCTDMPerf1DayIntervalSESs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalUASs": {
+    "name": "cpwCTDMPerf1DayIntervalUASs",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalFC": {
+    "name": "cpwCTDMPerf1DayIntervalFC",
+    "oid": "1.3.6.1.4.1.9.10.131.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwCTDMGroups": {
+    "name": "cpwCTDMGroups",
+    "oid": "1.3.6.1.4.1.9.10.131.2.1",
+    "class": "objectidentity"
+  },
+  "cpwCTDMCompliances": {
+    "name": "cpwCTDMCompliances",
+    "oid": "1.3.6.1.4.1.9.10.131.2.2",
+    "class": "objectidentity"
+  },
+  "cpwTDMModuleCompliance": {
+    "name": "cpwTDMModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.10.131.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpwCTDMGroup",
+        "module": "CISCO-IETF-PW-TDM-MIB"
+      },
+      {
+        "object": "cpwCTDMPerfCurrentGroup",
+        "module": "CISCO-IETF-PW-TDM-MIB"
+      },
+      {
+        "object": "cpwCTDMPerfIntervalGroup",
+        "module": "CISCO-IETF-PW-TDM-MIB"
+      },
+      {
+        "object": "cpwCTDMPerf1DayIntervalGroup",
+        "module": "CISCO-IETF-PW-TDM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMGroup": {
+    "name": "cpwCTDMGroup",
+    "oid": "1.3.6.1.4.1.9.10.131.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMRate"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCGenTDMCfgIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCRelTDMCfgIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMConfigError"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMTimeElapsed"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMValidIntervals"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMValidDayIntervals"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCurrentIndications"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMLatchedIndications"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMLastEsTimeStamp"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgIndexNext"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgConfErr"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgPayloadSize"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgPktReorder"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgRtpHdrUsed"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgJtrBfrDepth"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgPayloadSuppression"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgConsecPktsInSynch"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgConsecMissPktsOutSynch"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgSetUp2SynchTimeOut"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgPktReplacePolicy"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgAvePktLossTimeWindow"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgExcessivePktLossThreshold"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgAlarmThreshold"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgClearAlarmThreshold"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgMissingPktsToSes"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgTimestampMode"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMCfgStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMPerfCurrentGroup": {
+    "name": "cpwCTDMPerfCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.10.131.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentMissingPkts"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentPktsReOrder"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentJtrBfrUnderruns"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentMisOrderDropped"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentMalformedPkt"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentESs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentSESs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentUASs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfCurrentFC"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMPerfIntervalGroup": {
+    "name": "cpwCTDMPerfIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.10.131.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalValidData"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalDuration"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalMissingPkts"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalPktsReOrder"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalJtrBfrUnderruns"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalMisOrderDropped"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalMalformedPkt"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalESs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalSESs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalUASs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerfIntervalFC"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwCTDMPerf1DayIntervalGroup": {
+    "name": "cpwCTDMPerf1DayIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.10.131.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalValidData"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalDuration"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalMissingPkts"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalPktsReOrder"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalJtrBfrUnderruns"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalMisOrderDropped"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalMalformedPkt"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalESs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalSESs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalUASs"
+      },
+      {
+        "module": "CISCO-IETF-PW-TDM-MIB",
+        "object": "cpwCTDMPerf1DayIntervalFC"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PW-TDM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-PW-TDM-MIB"
+  }
+}

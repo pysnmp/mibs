@@ -1,0 +1,415 @@
+{
+  "imports": {
+    "class": "imports",
+    "Brocade-REG-MIB": [
+      "bcsiModules"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "brocadeInterfaceStatsMIB": {
+    "name": "brocadeInterfaceStatsMIB",
+    "oid": "1.3.6.1.4.1.1588.3.1.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-29 12:00",
+        "description": "Updated ORGANIZATION and CONTACT-INFO with Extreme Networks"
+      },
+      {
+        "revision": "2016-09-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcsiIfStatsNotifications": {
+    "name": "bcsiIfStatsNotifications",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.0",
+    "class": "objectidentity"
+  },
+  "bcsiIfStatsObjects": {
+    "name": "bcsiIfStatsObjects",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1",
+    "class": "objectidentity"
+  },
+  "bcsiIfStatsConformance": {
+    "name": "bcsiIfStatsConformance",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.2",
+    "class": "objectidentity"
+  },
+  "bcsiIfStatsTable": {
+    "name": "bcsiIfStatsTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiIfStatsEntry": {
+    "name": "bcsiIfStatsEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiIfStatsInBitsPerSec": {
+    "name": "bcsiIfStatsInBitsPerSec",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfStatsOutBitsPerSec": {
+    "name": "bcsiIfStatsOutBitsPerSec",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfStatsInPktsPerSec": {
+    "name": "bcsiIfStatsInPktsPerSec",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfStatsOutPktsPerSec": {
+    "name": "bcsiIfStatsOutPktsPerSec",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfStatsInUtilization": {
+    "name": "bcsiIfStatsInUtilization",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfStatsOutUtilization": {
+    "name": "bcsiIfStatsOutUtilization",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfStatsInJumboFrames": {
+    "name": "bcsiIfStatsInJumboFrames",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfWatermarkTable": {
+    "name": "bcsiIfWatermarkTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiIfWatermarkEntry": {
+    "name": "bcsiIfWatermarkEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfWatermarkWindowType",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfWatermarkTrafficDirection",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfWatermarkType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiIfWatermarkWindowType": {
+    "name": "bcsiIfWatermarkWindowType",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bcsiIfWatermarkCurrent1Hr": 1,
+          "bcsiIfWatermarkLast1Hr": 2,
+          "bcsiIfWatermarkCurrent24Hr": 3,
+          "bcsiIfWatermarkLast24Hr": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiIfWatermarkTrafficDirection": {
+    "name": "bcsiIfWatermarkTrafficDirection",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bcsiIfWatermarkTrafficDirIn": 1,
+          "bcsiIfWatermarkTrafficDirOut": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiIfWatermarkType": {
+    "name": "bcsiIfWatermarkType",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bcsiIfWatermarkTypeLow": 1,
+          "bcsiIfWatermarkTypeHigh": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiIfWatermarkBitRate": {
+    "name": "bcsiIfWatermarkBitRate",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "BitsPerSec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfWatermarkPktRate": {
+    "name": "bcsiIfWatermarkPktRate",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "PktsPerSec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfWatermarkUpdateTime": {
+    "name": "bcsiIfWatermarkUpdateTime",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfWatermarkWindowStartTime": {
+    "name": "bcsiIfWatermarkWindowStartTime",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfStatsCompliances": {
+    "name": "bcsiIfStatsCompliances",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.2.1",
+    "class": "objectidentity"
+  },
+  "bcsiIfStatsGroups": {
+    "name": "bcsiIfStatsGroups",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.2.2",
+    "class": "objectidentity"
+  },
+  "bcsiIfStatsCompliance": {
+    "name": "bcsiIfStatsCompliance",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bcsiIfStatsGroup",
+        "module": "BROCADE-INTERFACE-STATS-MIB"
+      },
+      {
+        "object": "bcsiIfWatermarkGroup",
+        "module": "BROCADE-INTERFACE-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiIfStatsGroup": {
+    "name": "bcsiIfStatsGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfStatsInBitsPerSec"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfStatsOutBitsPerSec"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfStatsInPktsPerSec"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfStatsOutPktsPerSec"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfStatsInUtilization"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfStatsOutUtilization"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfStatsInJumboFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiIfWatermarkGroup": {
+    "name": "bcsiIfWatermarkGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.11.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfWatermarkBitRate"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfWatermarkPktRate"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfWatermarkUpdateTime"
+      },
+      {
+        "module": "BROCADE-INTERFACE-STATS-MIB",
+        "object": "bcsiIfWatermarkWindowStartTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-INTERFACE-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BROCADE-INTERFACE-STATS-MIB"
+  }
+}

@@ -1,0 +1,1698 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-RTPROTO-MIB": [
+      "IANAipRouteProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetAutonomousSystemNumber"
+    ],
+    "MPLS-LSR-STD-MIB": [
+      "MplsIndexType"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "mplsStdMIB"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
+    ],
+    "VPN-TC-STD-MIB": [
+      "VPNIdOrZero"
+    ]
+  },
+  "mplsL3VpnMIB": {
+    "name": "mplsL3VpnMIB",
+    "oid": "1.3.6.1.2.1.10.166.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-23 00:00",
+        "description": "Initial version. Published as RFC 4382."
+      }
+    ]
+  },
+  "MplsL3VpnName": {
+    "name": "MplsL3VpnName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsL3VpnRouteDistinguisher": {
+    "name": "MplsL3VpnRouteDistinguisher",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsL3VpnRtType": {
+    "name": "MplsL3VpnRtType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "import": 1,
+          "export": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mplsL3VpnNotifications": {
+    "name": "mplsL3VpnNotifications",
+    "oid": "1.3.6.1.2.1.10.166.11.0",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnObjects": {
+    "name": "mplsL3VpnObjects",
+    "oid": "1.3.6.1.2.1.10.166.11.1",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnScalars": {
+    "name": "mplsL3VpnScalars",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnConf": {
+    "name": "mplsL3VpnConf",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnPerf": {
+    "name": "mplsL3VpnPerf",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnRoute": {
+    "name": "mplsL3VpnRoute",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnConformance": {
+    "name": "mplsL3VpnConformance",
+    "oid": "1.3.6.1.2.1.10.166.11.2",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnConfiguredVrfs": {
+    "name": "mplsL3VpnConfiguredVrfs",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnActiveVrfs": {
+    "name": "mplsL3VpnActiveVrfs",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnConnectedInterfaces": {
+    "name": "mplsL3VpnConnectedInterfaces",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnNotificationEnable": {
+    "name": "mplsL3VpnNotificationEnable",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfMaxPossRts": {
+    "name": "mplsL3VpnVrfConfMaxPossRts",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfRteMxThrshTime": {
+    "name": "mplsL3VpnVrfConfRteMxThrshTime",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnIllLblRcvThrsh": {
+    "name": "mplsL3VpnIllLblRcvThrsh",
+    "oid": "1.3.6.1.2.1.10.166.11.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mplsL3VpnIfConfTable": {
+    "name": "mplsL3VpnIfConfTable",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnIfConfEntry": {
+    "name": "mplsL3VpnIfConfEntry",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIfConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnIfConfIndex": {
+    "name": "mplsL3VpnIfConfIndex",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnIfVpnClassification": {
+    "name": "mplsL3VpnIfVpnClassification",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "carrierOfCarrier": 1,
+          "enterprise": 2,
+          "interProvider": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enterprise",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnIfVpnRouteDistProtocol": {
+    "name": "mplsL3VpnIfVpnRouteDistProtocol",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "bgp": 1,
+        "ospf": 2,
+        "rip": 3,
+        "isis": 4,
+        "static": 5,
+        "other": 6
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnIfConfStorageType": {
+    "name": "mplsL3VpnIfConfStorageType",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnIfConfRowStatus": {
+    "name": "mplsL3VpnIfConfRowStatus",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfTable": {
+    "name": "mplsL3VpnVrfTable",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfEntry": {
+    "name": "mplsL3VpnVrfEntry",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfName": {
+    "name": "mplsL3VpnVrfName",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsL3VpnName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfVpnId": {
+    "name": "mplsL3VpnVrfVpnId",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VPNIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfDescription": {
+    "name": "mplsL3VpnVrfDescription",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRD": {
+    "name": "mplsL3VpnVrfRD",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsL3VpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfCreationTime": {
+    "name": "mplsL3VpnVrfCreationTime",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfOperStatus": {
+    "name": "mplsL3VpnVrfOperStatus",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfActiveInterfaces": {
+    "name": "mplsL3VpnVrfActiveInterfaces",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfAssociatedInterfaces": {
+    "name": "mplsL3VpnVrfAssociatedInterfaces",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfMidRteThresh": {
+    "name": "mplsL3VpnVrfConfMidRteThresh",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfHighRteThresh": {
+    "name": "mplsL3VpnVrfConfHighRteThresh",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfMaxRoutes": {
+    "name": "mplsL3VpnVrfConfMaxRoutes",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfLastChanged": {
+    "name": "mplsL3VpnVrfConfLastChanged",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfRowStatus": {
+    "name": "mplsL3VpnVrfConfRowStatus",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfAdminStatus": {
+    "name": "mplsL3VpnVrfConfAdminStatus",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfConfStorageType": {
+    "name": "mplsL3VpnVrfConfStorageType",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTTable": {
+    "name": "mplsL3VpnVrfRTTable",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTEntry": {
+    "name": "mplsL3VpnVrfRTEntry",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRTIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRTType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTIndex": {
+    "name": "mplsL3VpnVrfRTIndex",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTType": {
+    "name": "mplsL3VpnVrfRTType",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsL3VpnRtType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRT": {
+    "name": "mplsL3VpnVrfRT",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsL3VpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTDescr": {
+    "name": "mplsL3VpnVrfRTDescr",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTRowStatus": {
+    "name": "mplsL3VpnVrfRTRowStatus",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTStorageType": {
+    "name": "mplsL3VpnVrfRTStorageType",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfSecTable": {
+    "name": "mplsL3VpnVrfSecTable",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfSecEntry": {
+    "name": "mplsL3VpnVrfSecEntry",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mplsL3VpnVrfSecEntry",
+      "module": "MPLS-L3VPN-STD-MIB",
+      "object": "mplsL3VpnVrfEntry"
+    },
+    "status": "current"
+  },
+  "mplsL3VpnVrfSecIllegalLblVltns": {
+    "name": "mplsL3VpnVrfSecIllegalLblVltns",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfSecDiscontinuityTime": {
+    "name": "mplsL3VpnVrfSecDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.10.166.11.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfPerfTable": {
+    "name": "mplsL3VpnVrfPerfTable",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfPerfEntry": {
+    "name": "mplsL3VpnVrfPerfEntry",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mplsL3VpnVrfPerfEntry",
+      "module": "MPLS-L3VPN-STD-MIB",
+      "object": "mplsL3VpnVrfEntry"
+    },
+    "status": "current"
+  },
+  "mplsL3VpnVrfPerfRoutesAdded": {
+    "name": "mplsL3VpnVrfPerfRoutesAdded",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfPerfRoutesDeleted": {
+    "name": "mplsL3VpnVrfPerfRoutesDeleted",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfPerfCurrNumRoutes": {
+    "name": "mplsL3VpnVrfPerfCurrNumRoutes",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfPerfRoutesDropped": {
+    "name": "mplsL3VpnVrfPerfRoutesDropped",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfPerfDiscTime": {
+    "name": "mplsL3VpnVrfPerfDiscTime",
+    "oid": "1.3.6.1.2.1.10.166.11.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteTable": {
+    "name": "mplsL3VpnVrfRteTable",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteEntry": {
+    "name": "mplsL3VpnVrfRteEntry",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrDestType",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrDest",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrPfxLen",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrPolicy",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrNHopType",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrDestType": {
+    "name": "mplsL3VpnVrfRteInetCidrDestType",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrDest": {
+    "name": "mplsL3VpnVrfRteInetCidrDest",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrPfxLen": {
+    "name": "mplsL3VpnVrfRteInetCidrPfxLen",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrPolicy": {
+    "name": "mplsL3VpnVrfRteInetCidrPolicy",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrNHopType": {
+    "name": "mplsL3VpnVrfRteInetCidrNHopType",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrNextHop": {
+    "name": "mplsL3VpnVrfRteInetCidrNextHop",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrIfIndex": {
+    "name": "mplsL3VpnVrfRteInetCidrIfIndex",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrType": {
+    "name": "mplsL3VpnVrfRteInetCidrType",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reject": 2,
+          "local": 3,
+          "remote": 4,
+          "blackhole": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrProto": {
+    "name": "mplsL3VpnVrfRteInetCidrProto",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrAge": {
+    "name": "mplsL3VpnVrfRteInetCidrAge",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrNextHopAS": {
+    "name": "mplsL3VpnVrfRteInetCidrNextHopAS",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrMetric1": {
+    "name": "mplsL3VpnVrfRteInetCidrMetric1",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrMetric2": {
+    "name": "mplsL3VpnVrfRteInetCidrMetric2",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrMetric3": {
+    "name": "mplsL3VpnVrfRteInetCidrMetric3",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrMetric4": {
+    "name": "mplsL3VpnVrfRteInetCidrMetric4",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrMetric5": {
+    "name": "mplsL3VpnVrfRteInetCidrMetric5",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteXCPointer": {
+    "name": "mplsL3VpnVrfRteXCPointer",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteInetCidrStatus": {
+    "name": "mplsL3VpnVrfRteInetCidrStatus",
+    "oid": "1.3.6.1.2.1.10.166.11.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsL3VpnVrfUp": {
+    "name": "mplsL3VpnVrfUp",
+    "oid": "1.3.6.1.2.1.10.166.11.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIfConfRowStatus"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfDown": {
+    "name": "mplsL3VpnVrfDown",
+    "oid": "1.3.6.1.2.1.10.166.11.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIfConfRowStatus"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfRouteMidThreshExceeded": {
+    "name": "mplsL3VpnVrfRouteMidThreshExceeded",
+    "oid": "1.3.6.1.2.1.10.166.11.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfCurrNumRoutes"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfMidRteThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfNumVrfRouteMaxThreshExceeded": {
+    "name": "mplsL3VpnVrfNumVrfRouteMaxThreshExceeded",
+    "oid": "1.3.6.1.2.1.10.166.11.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfCurrNumRoutes"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfHighRteThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnNumVrfSecIllglLblThrshExcd": {
+    "name": "mplsL3VpnNumVrfSecIllglLblThrshExcd",
+    "oid": "1.3.6.1.2.1.10.166.11.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfSecIllegalLblVltns"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnNumVrfRouteMaxThreshCleared": {
+    "name": "mplsL3VpnNumVrfRouteMaxThreshCleared",
+    "oid": "1.3.6.1.2.1.10.166.11.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfCurrNumRoutes"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfHighRteThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnGroups": {
+    "name": "mplsL3VpnGroups",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnCompliances": {
+    "name": "mplsL3VpnCompliances",
+    "oid": "1.3.6.1.2.1.10.166.11.2.2",
+    "class": "objectidentity"
+  },
+  "mplsL3VpnModuleFullCompliance": {
+    "name": "mplsL3VpnModuleFullCompliance",
+    "oid": "1.3.6.1.2.1.10.166.11.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mplsL3VpnScalarGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnVrfGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnIfGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnPerfGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnVrfRteGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnVrfRTGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnSecGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnNotificationGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnPerfRouteGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnModuleReadOnlyCompliance": {
+    "name": "mplsL3VpnModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.2.1.10.166.11.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mplsL3VpnScalarGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnVrfGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnIfGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnPerfGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnVrfRteGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnVrfRTGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnSecGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnNotificationGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      },
+      {
+        "object": "mplsL3VpnPerfRouteGroup",
+        "module": "MPLS-L3VPN-STD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnScalarGroup": {
+    "name": "mplsL3VpnScalarGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnConfiguredVrfs"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnActiveVrfs"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnConnectedInterfaces"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnNotificationEnable"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfMaxPossRts"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfRteMxThrshTime"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIllLblRcvThrsh"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfGroup": {
+    "name": "mplsL3VpnVrfGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfVpnId"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfDescription"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRD"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfCreationTime"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfOperStatus"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfActiveInterfaces"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfAssociatedInterfaces"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfMidRteThresh"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfHighRteThresh"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfMaxRoutes"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfLastChanged"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfRowStatus"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfAdminStatus"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnIfGroup": {
+    "name": "mplsL3VpnIfGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIfVpnClassification"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIfVpnRouteDistProtocol"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIfConfStorageType"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnIfConfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnPerfGroup": {
+    "name": "mplsL3VpnPerfGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfRoutesAdded"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfRoutesDeleted"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfCurrNumRoutes"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnPerfRouteGroup": {
+    "name": "mplsL3VpnPerfRouteGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfRoutesDropped"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfDiscTime"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnSecGroup": {
+    "name": "mplsL3VpnSecGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfSecIllegalLblVltns"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfSecDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfRteGroup": {
+    "name": "mplsL3VpnVrfRteGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrIfIndex"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrType"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrProto"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrAge"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrNextHopAS"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrMetric1"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrMetric2"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrMetric3"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrMetric4"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrMetric5"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteXCPointer"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRteInetCidrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnVrfRTGroup": {
+    "name": "mplsL3VpnVrfRTGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRTDescr"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRT"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRTRowStatus"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRTStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsL3VpnNotificationGroup": {
+    "name": "mplsL3VpnNotificationGroup",
+    "oid": "1.3.6.1.2.1.10.166.11.2.1.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfUp"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfDown"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfRouteMidThreshExceeded"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfNumVrfRouteMaxThreshExceeded"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnNumVrfSecIllglLblThrshExcd"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnNumVrfRouteMaxThreshCleared"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-L3VPN-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MPLS-L3VPN-STD-MIB"
+  }
+}

@@ -1,0 +1,3227 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-SECY-MIB": [
+      "SecySCI"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "RowPointer"
+    ]
+  },
+  "ieee8021XPaeMIB": {
+    "name": "ieee8021XPaeMIB",
+    "oid": "1.3.111.2.802.1.1.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-10-28 14:57",
+        "description": "Published as part of IEEE 802.1Xck. Minor DESCRIPTION clarifications as required by resolution of maintenance items 154, 155, 157 (see 802.1 maintenance process discussion). Added ieee8021XPaeEapolGroupMAC Address."
+      },
+      {
+        "revision": "2014-04-10 16:19",
+        "description": "Update published as part of IEEE 802.1Xbx (Amendment to IEEE 802.1X-2010)"
+      },
+      {
+        "revision": "2009-10-01 16:50",
+        "description": "Initial version of this MIB module. Published as part of IEEE P802.1X (Revision of IEEE Standard 802.1X-2009)"
+      }
+    ]
+  },
+  "Ieee8021XPaeCKN": {
+    "name": "Ieee8021XPaeCKN",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XPaeCKNOrNull": {
+    "name": "Ieee8021XPaeCKNOrNull",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XPaeKMD": {
+    "name": "Ieee8021XPaeKMD",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XPaeNID": {
+    "name": "Ieee8021XPaeNID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XPaeNIDOrNull": {
+    "name": "Ieee8021XPaeNIDOrNull",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XMkaKeyServerPriority": {
+    "name": "Ieee8021XMkaKeyServerPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XMkaMI": {
+    "name": "Ieee8021XMkaMI",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XMkaMN": {
+    "name": "Ieee8021XMkaMN",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483648
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Ieee8021XMkaKN": {
+    "name": "Ieee8021XMkaKN",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483648
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Ieee8021XPaeNIDCapabilites": {
+    "name": "Ieee8021XPaeNIDCapabilites",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "eap": 0,
+        "eapMka": 1,
+        "eapMkaMacSec": 2,
+        "mka": 3,
+        "mkaMacSec": 4,
+        "higherLayer": 5,
+        "higherLayerFallback": 6,
+        "vendorSpecific": 7
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XPaeNIDAccessStatus": {
+    "name": "Ieee8021XPaeNIDAccessStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAccess": 0,
+          "remedialAccess": 1,
+          "restrictedAccess": 2,
+          "expectedAccess": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Ieee8021XPaeNIDUnauthenticatedStatus": {
+    "name": "Ieee8021XPaeNIDUnauthenticatedStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAccess": 0,
+          "fallbackAccess": 1,
+          "limitedAccess": 2,
+          "openAccess": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ieee8021XPaeMIBNotifications": {
+    "name": "ieee8021XPaeMIBNotifications",
+    "oid": "1.3.111.2.802.1.1.15.0",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeMIBObjects": {
+    "name": "ieee8021XPaeMIBObjects",
+    "oid": "1.3.111.2.802.1.1.15.1",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeMIBConformance": {
+    "name": "ieee8021XPaeMIBConformance",
+    "oid": "1.3.111.2.802.1.1.15.2",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeSystem": {
+    "name": "ieee8021XPaeSystem",
+    "oid": "1.3.111.2.802.1.1.15.1.1",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeLogon": {
+    "name": "ieee8021XPaeLogon",
+    "oid": "1.3.111.2.802.1.1.15.1.2",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeAuthenticator": {
+    "name": "ieee8021XPaeAuthenticator",
+    "oid": "1.3.111.2.802.1.1.15.1.3",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeSupplicant": {
+    "name": "ieee8021XPaeSupplicant",
+    "oid": "1.3.111.2.802.1.1.15.1.4",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeEapol": {
+    "name": "ieee8021XPaeEapol",
+    "oid": "1.3.111.2.802.1.1.15.1.5",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeKaY": {
+    "name": "ieee8021XPaeKaY",
+    "oid": "1.3.111.2.802.1.1.15.1.6",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeNetworkIdentifier": {
+    "name": "ieee8021XPaeNetworkIdentifier",
+    "oid": "1.3.111.2.802.1.1.15.1.7",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeSysAccessControl": {
+    "name": "ieee8021XPaeSysAccessControl",
+    "oid": "1.3.111.2.802.1.1.15.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaeSysAnnouncements": {
+    "name": "ieee8021XPaeSysAnnouncements",
+    "oid": "1.3.111.2.802.1.1.15.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaeSysEapolVersion": {
+    "name": "ieee8021XPaeSysEapolVersion",
+    "oid": "1.3.111.2.802.1.1.15.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaeSysMkaVersion": {
+    "name": "ieee8021XPaeSysMkaVersion",
+    "oid": "1.3.111.2.802.1.1.15.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortTable": {
+    "name": "ieee8021XPaePortTable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XPaePortEntry": {
+    "name": "ieee8021XPaePortEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaePortNumber": {
+    "name": "ieee8021XPaePortNumber",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XPaePortType": {
+    "name": "ieee8021XPaePortType",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "realPort": 1,
+          "virtualPort": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaeControlledPortNumber": {
+    "name": "ieee8021XPaeControlledPortNumber",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaeUncontrolledPortNumber": {
+    "name": "ieee8021XPaeUncontrolledPortNumber",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaeCommonPortNumber": {
+    "name": "ieee8021XPaeCommonPortNumber",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortInitialize": {
+    "name": "ieee8021XPaePortInitialize",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaePortCapabilities": {
+    "name": "ieee8021XPaePortCapabilities",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "suppImplemented": 0,
+        "authImplemented": 1,
+        "mkaImplemented": 2,
+        "macsecImplemented": 3,
+        "announcementsImplemented": 4,
+        "listenerImplemented": 5,
+        "virtualPortsImplemented": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortVirtualPortsEnable": {
+    "name": "ieee8021XPaePortVirtualPortsEnable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaePortMaxVirtualPorts": {
+    "name": "ieee8021XPaePortMaxVirtualPorts",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortCurrentVirtualPorts": {
+    "name": "ieee8021XPaePortCurrentVirtualPorts",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortVirtualPortStart": {
+    "name": "ieee8021XPaePortVirtualPortStart",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortVirtualPortPeerMAC": {
+    "name": "ieee8021XPaePortVirtualPortPeerMAC",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortLogonEnable": {
+    "name": "ieee8021XPaePortLogonEnable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaePortAuthenticatorEnable": {
+    "name": "ieee8021XPaePortAuthenticatorEnable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSupplicantEnable": {
+    "name": "ieee8021XPaePortSupplicantEnable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortKayMkaEnable": {
+    "name": "ieee8021XPaePortKayMkaEnable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaePortAnnouncerEnable": {
+    "name": "ieee8021XPaePortAnnouncerEnable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaePortListenerEnable": {
+    "name": "ieee8021XPaePortListenerEnable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPaeEapolGroupMAC": {
+    "name": "ieee8021XPaeEapolGroupMAC",
+    "oid": "1.3.111.2.802.1.1.15.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPacPortTable": {
+    "name": "ieee8021XPacPortTable",
+    "oid": "1.3.111.2.802.1.1.15.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XPacPortEntry": {
+    "name": "ieee8021XPacPortEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPacPortControlledPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPacPortControlledPortNumber": {
+    "name": "ieee8021XPacPortControlledPortNumber",
+    "oid": "1.3.111.2.802.1.1.15.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XPacPortAdminPt2PtMAC": {
+    "name": "ieee8021XPacPortAdminPt2PtMAC",
+    "oid": "1.3.111.2.802.1.1.15.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XPacPortOperPt2PtMAC": {
+    "name": "ieee8021XPacPortOperPt2PtMAC",
+    "oid": "1.3.111.2.802.1.1.15.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortLogonTable": {
+    "name": "ieee8021XPaePortLogonTable",
+    "oid": "1.3.111.2.802.1.1.15.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XPaePortLogonEntry": {
+    "name": "ieee8021XPaePortLogonEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaePortLogonConnectStatus": {
+    "name": "ieee8021XPaePortLogonConnectStatus",
+    "oid": "1.3.111.2.802.1.1.15.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pending": 1,
+          "unauthenticated": 2,
+          "authenticated": 3,
+          "secure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortPortValid": {
+    "name": "ieee8021XPaePortPortValid",
+    "oid": "1.3.111.2.802.1.1.15.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionTable": {
+    "name": "ieee8021XPaePortSessionTable",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionEntry": {
+    "name": "ieee8021XPaePortSessionEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeSessionControlledPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeSessionControlledPortNumber": {
+    "name": "ieee8021XPaeSessionControlledPortNumber",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionOctetsRx": {
+    "name": "ieee8021XPaePortSessionOctetsRx",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionOctetsTx": {
+    "name": "ieee8021XPaePortSessionOctetsTx",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionPktsRx": {
+    "name": "ieee8021XPaePortSessionPktsRx",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionPktsTx": {
+    "name": "ieee8021XPaePortSessionPktsTx",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionId": {
+    "name": "ieee8021XPaePortSessionId",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionStartTime": {
+    "name": "ieee8021XPaePortSessionStartTime",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionIntervalTime": {
+    "name": "ieee8021XPaePortSessionIntervalTime",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionTerminate": {
+    "name": "ieee8021XPaePortSessionTerminate",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macOperFailed": 1,
+          "sysAccessDisableOrPortInit": 2,
+          "receiveEapolLogOff": 3,
+          "eapReauthFailure": 4,
+          "mkaFailure": 5,
+          "newSessionBegin": 6,
+          "notTerminateYet": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaePortSessionUserName": {
+    "name": "ieee8021XPaePortSessionUserName",
+    "oid": "1.3.111.2.802.1.1.15.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XLogonNIDTable": {
+    "name": "ieee8021XLogonNIDTable",
+    "oid": "1.3.111.2.802.1.1.15.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XLogonNIDEntry": {
+    "name": "ieee8021XLogonNIDEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XLogonNIDConnectedNID": {
+    "name": "ieee8021XLogonNIDConnectedNID",
+    "oid": "1.3.111.2.802.1.1.15.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XLogonNIDRequestedNID": {
+    "name": "ieee8021XLogonNIDRequestedNID",
+    "oid": "1.3.111.2.802.1.1.15.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDOrNull",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XLogonNIDSelectedNID": {
+    "name": "ieee8021XLogonNIDSelectedNID",
+    "oid": "1.3.111.2.802.1.1.15.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDOrNull",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XAuthenticatorTable": {
+    "name": "ieee8021XAuthenticatorTable",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XAuthenticatorEntry": {
+    "name": "ieee8021XAuthenticatorEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XAuthPaeAuthenticate": {
+    "name": "ieee8021XAuthPaeAuthenticate",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAuthPaeAuthenticated": {
+    "name": "ieee8021XAuthPaeAuthenticated",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAuthPaeFailed": {
+    "name": "ieee8021XAuthPaeFailed",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAuthPaeReAuthEnabled": {
+    "name": "ieee8021XAuthPaeReAuthEnabled",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XAuthPaeQuietPeriod": {
+    "name": "ieee8021XAuthPaeQuietPeriod",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XAuthPaeReauthPeriod": {
+    "name": "ieee8021XAuthPaeReauthPeriod",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XAuthPaeRetryMax": {
+    "name": "ieee8021XAuthPaeRetryMax",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XAuthPaeRetryCount": {
+    "name": "ieee8021XAuthPaeRetryCount",
+    "oid": "1.3.111.2.802.1.1.15.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "times",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XSupplicantTable": {
+    "name": "ieee8021XSupplicantTable",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XSupplicantEntry": {
+    "name": "ieee8021XSupplicantEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XSuppPaeAuthenticate": {
+    "name": "ieee8021XSuppPaeAuthenticate",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XSuppPaeAuthenticated": {
+    "name": "ieee8021XSuppPaeAuthenticated",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XSuppPaeFailed": {
+    "name": "ieee8021XSuppPaeFailed",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XSuppPaeHelloPeriod": {
+    "name": "ieee8021XSuppPaeHelloPeriod",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XSuppPaeRetryMax": {
+    "name": "ieee8021XSuppPaeRetryMax",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "times",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XSuppPaeRetryCount": {
+    "name": "ieee8021XSuppPaeRetryCount",
+    "oid": "1.3.111.2.802.1.1.15.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "times",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolStatsTable": {
+    "name": "ieee8021XEapolStatsTable",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XEapolStatsEntry": {
+    "name": "ieee8021XEapolStatsEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XEapolInvalidFramesRx": {
+    "name": "ieee8021XEapolInvalidFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolEapLengthErrorFramesRx": {
+    "name": "ieee8021XEapolEapLengthErrorFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolAnnouncementFramesRx": {
+    "name": "ieee8021XEapolAnnouncementFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolAnnouncementReqFramesRx": {
+    "name": "ieee8021XEapolAnnouncementReqFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolPortUnavailableFramesRx": {
+    "name": "ieee8021XEapolPortUnavailableFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolStartFramesRx": {
+    "name": "ieee8021XEapolStartFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolEapFramesRx": {
+    "name": "ieee8021XEapolEapFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolLogoffFramesRx": {
+    "name": "ieee8021XEapolLogoffFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolMkNoCknFramesRx": {
+    "name": "ieee8021XEapolMkNoCknFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolMkInvalidFramesRx": {
+    "name": "ieee8021XEapolMkInvalidFramesRx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolLastRxFrameVersion": {
+    "name": "ieee8021XEapolLastRxFrameVersion",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolLastRxFrameSource": {
+    "name": "ieee8021XEapolLastRxFrameSource",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolSuppEapFramesTx": {
+    "name": "ieee8021XEapolSuppEapFramesTx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolLogoffFramesTx": {
+    "name": "ieee8021XEapolLogoffFramesTx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolAnnouncementFramesTx": {
+    "name": "ieee8021XEapolAnnouncementFramesTx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolAnnouncementReqFramesTx": {
+    "name": "ieee8021XEapolAnnouncementReqFramesTx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolStartFramesTx": {
+    "name": "ieee8021XEapolStartFramesTx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolAuthEapFramesTx": {
+    "name": "ieee8021XEapolAuthEapFramesTx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XEapolMkaFramesTx": {
+    "name": "ieee8021XEapolMkaFramesTx",
+    "oid": "1.3.111.2.802.1.1.15.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaTable": {
+    "name": "ieee8021XKayMkaTable",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XKayMkaEntry": {
+    "name": "ieee8021XKayMkaEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XKayMkaActive": {
+    "name": "ieee8021XKayMkaActive",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaAuthenticated": {
+    "name": "ieee8021XKayMkaAuthenticated",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaSecured": {
+    "name": "ieee8021XKayMkaSecured",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaFailed": {
+    "name": "ieee8021XKayMkaFailed",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaActorSCI": {
+    "name": "ieee8021XKayMkaActorSCI",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecySCI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaActorsPriority": {
+    "name": "ieee8021XKayMkaActorsPriority",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XMkaKeyServerPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XKayMkaKeyServerPriority": {
+    "name": "ieee8021XKayMkaKeyServerPriority",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XMkaKeyServerPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaKeyServerSCI": {
+    "name": "ieee8021XKayMkaKeyServerSCI",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecySCI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayAllowedJoinGroup": {
+    "name": "ieee8021XKayAllowedJoinGroup",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayAllowedFormGroup": {
+    "name": "ieee8021XKayAllowedFormGroup",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayCreateNewGroup": {
+    "name": "ieee8021XKayCreateNewGroup",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XKayMacSecCapability": {
+    "name": "ieee8021XKayMacSecCapability",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMACsec": 0,
+          "macSecCapability1": 1,
+          "macSecCapability2": 2,
+          "macSecCapability3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMacSecDesired": {
+    "name": "ieee8021XKayMacSecDesired",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XKayMacSecProtect": {
+    "name": "ieee8021XKayMacSecProtect",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMacSecReplayProtect": {
+    "name": "ieee8021XKayMacSecReplayProtect",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMacSecValidate": {
+    "name": "ieee8021XKayMacSecValidate",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMacSecConfidentialityOffset": {
+    "name": "ieee8021XKayMacSecConfidentialityOffset",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 50,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XKayMkaTxKN": {
+    "name": "ieee8021XKayMkaTxKN",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XMkaKN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaTxAN": {
+    "name": "ieee8021XKayMkaTxAN",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaRxKN": {
+    "name": "ieee8021XKayMkaRxKN",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XMkaKN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaRxAN": {
+    "name": "ieee8021XKayMkaRxAN",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaSuspendFor": {
+    "name": "ieee8021XKayMkaSuspendFor",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XKayMkaSuspendOnRequest": {
+    "name": "ieee8021XKayMkaSuspendOnRequest",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XKayMkaSuspendedWhile": {
+    "name": "ieee8021XKayMkaSuspendedWhile",
+    "oid": "1.3.111.2.802.1.1.15.1.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021XKayMkaParticipantTable": {
+    "name": "ieee8021XKayMkaParticipantTable",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XKayMkaParticipantEntry": {
+    "name": "ieee8021XKayMkaParticipantEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartCKN",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartCKN": {
+    "name": "ieee8021XKayMkaPartCKN",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeCKN",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartKMD": {
+    "name": "ieee8021XKayMkaPartKMD",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeKMD",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartNID": {
+    "name": "ieee8021XKayMkaPartNID",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartCached": {
+    "name": "ieee8021XKayMkaPartCached",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartActive": {
+    "name": "ieee8021XKayMkaPartActive",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartRetain": {
+    "name": "ieee8021XKayMkaPartRetain",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartActivateControl": {
+    "name": "ieee8021XKayMkaPartActivateControl",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "disabled": 2,
+          "onOperUp": 3,
+          "always": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartPrincipal": {
+    "name": "ieee8021XKayMkaPartPrincipal",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartDistCKN": {
+    "name": "ieee8021XKayMkaPartDistCKN",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeCKNOrNull",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPartRowStatus": {
+    "name": "ieee8021XKayMkaPartRowStatus",
+    "oid": "1.3.111.2.802.1.1.15.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPeerListTable": {
+    "name": "ieee8021XKayMkaPeerListTable",
+    "oid": "1.3.111.2.802.1.1.15.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPeerListEntry": {
+    "name": "ieee8021XKayMkaPeerListEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartCKN",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPeerListMI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XKayMkaPeerListMI": {
+    "name": "ieee8021XKayMkaPeerListMI",
+    "oid": "1.3.111.2.802.1.1.15.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XMkaMI",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPeerListMN": {
+    "name": "ieee8021XKayMkaPeerListMN",
+    "oid": "1.3.111.2.802.1.1.15.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XMkaMN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPeerListType": {
+    "name": "ieee8021XKayMkaPeerListType",
+    "oid": "1.3.111.2.802.1.1.15.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "livePeerList": 1,
+          "potentialPeerList": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XKayMkaPeerListSCI": {
+    "name": "ieee8021XKayMkaPeerListSCI",
+    "oid": "1.3.111.2.802.1.1.15.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecySCI",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XNidConfigTable": {
+    "name": "ieee8021XNidConfigTable",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XNidConfigEntry": {
+    "name": "ieee8021XNidConfigEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidNID",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XNidNID": {
+    "name": "ieee8021XNidNID",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XNidUseEap": {
+    "name": "ieee8021XNidUseEap",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "immediate": 2,
+          "mkaFail": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XNidUnauthAllowed": {
+    "name": "ieee8021XNidUnauthAllowed",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "immediate": 2,
+          "authFail": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XNidUnsecuredAllowed": {
+    "name": "ieee8021XNidUnsecuredAllowed",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "immediate": 2,
+          "mkaFail": 3,
+          "mkaServer": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XNidUnauthenticatedAccess": {
+    "name": "ieee8021XNidUnauthenticatedAccess",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDUnauthenticatedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XNidAccessCapabilities": {
+    "name": "ieee8021XNidAccessCapabilities",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDCapabilites",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XNidKMD": {
+    "name": "ieee8021XNidKMD",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeKMD",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XNidRowStatus": {
+    "name": "ieee8021XNidRowStatus",
+    "oid": "1.3.111.2.802.1.1.15.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021XAnnounceTable": {
+    "name": "ieee8021XAnnounceTable",
+    "oid": "1.3.111.2.802.1.1.15.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XAnnounceEntry": {
+    "name": "ieee8021XAnnounceEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnounceNID",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XAnnounceNID": {
+    "name": "ieee8021XAnnounceNID",
+    "oid": "1.3.111.2.802.1.1.15.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XAnnounceAccessStatus": {
+    "name": "ieee8021XAnnounceAccessStatus",
+    "oid": "1.3.111.2.802.1.1.15.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDAccessStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementTable": {
+    "name": "ieee8021XAnnouncementTable",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementEntry": {
+    "name": "ieee8021XAnnouncementEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementNID",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XAnnouncementNID": {
+    "name": "ieee8021XAnnouncementNID",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementKMD": {
+    "name": "ieee8021XAnnouncementKMD",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeKMD",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementSpecific": {
+    "name": "ieee8021XAnnouncementSpecific",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementAccessStatus": {
+    "name": "ieee8021XAnnouncementAccessStatus",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDAccessStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementAccessRequested": {
+    "name": "ieee8021XAnnouncementAccessRequested",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementUnauthAccess": {
+    "name": "ieee8021XAnnouncementUnauthAccess",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDUnauthenticatedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementCapabilities": {
+    "name": "ieee8021XAnnouncementCapabilities",
+    "oid": "1.3.111.2.802.1.1.15.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ieee8021XPaeNIDCapabilites",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementCipherSuitesTable": {
+    "name": "ieee8021XAnnouncementCipherSuitesTable",
+    "oid": "1.3.111.2.802.1.1.15.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementCipherSuitesEntry": {
+    "name": "ieee8021XAnnouncementCipherSuitesEntry",
+    "oid": "1.3.111.2.802.1.1.15.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortNumber",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementNID",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementCipherSuite",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XAnnouncementCipherSuite": {
+    "name": "ieee8021XAnnouncementCipherSuite",
+    "oid": "1.3.111.2.802.1.1.15.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021XAnnouncementCipherCapability": {
+    "name": "ieee8021XAnnouncementCipherCapability",
+    "oid": "1.3.111.2.802.1.1.15.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021XPaeCompliances": {
+    "name": "ieee8021XPaeCompliances",
+    "oid": "1.3.111.2.802.1.1.15.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeGroups": {
+    "name": "ieee8021XPaeGroups",
+    "oid": "1.3.111.2.802.1.1.15.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021XPaeCompliance": {
+    "name": "ieee8021XPaeCompliance",
+    "oid": "1.3.111.2.802.1.1.15.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021XPaeSystemGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeLogonGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeEapolStatsGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPacGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeAuthConfigGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeSuppConfigGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeKaYMkaGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeNetworkIdentifierGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeAnnouncerGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeListenerGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeV2Compliance": {
+    "name": "ieee8021XPaeV2Compliance",
+    "oid": "1.3.111.2.802.1.1.15.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021XPaeSystemGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeLogonGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeEapolStatsGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPacGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeAuthConfigGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeSuppConfigGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeKaYMkaGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeNetworkIdentifierGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeAnnouncerGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeListenerGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      },
+      {
+        "object": "ieee8021XPaeKaYIsupgradeGroup",
+        "module": "IEEE8021X-PAE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeSystemGroup": {
+    "name": "ieee8021XPaeSystemGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeSysAccessControl"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeSysAnnouncements"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeSysEapolVersion"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeSysMkaVersion"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortType"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeControlledPortNumber"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeUncontrolledPortNumber"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeCommonPortNumber"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortInitialize"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortCapabilities"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortVirtualPortsEnable"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortMaxVirtualPorts"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortCurrentVirtualPorts"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortVirtualPortStart"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortVirtualPortPeerMAC"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortLogonEnable"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortAuthenticatorEnable"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSupplicantEnable"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortKayMkaEnable"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortAnnouncerEnable"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortListenerEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPacGroup": {
+    "name": "ieee8021XPacGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPacPortAdminPt2PtMAC"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPacPortOperPt2PtMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeLogonGroup": {
+    "name": "ieee8021XPaeLogonGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortLogonConnectStatus"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortPortValid"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionOctetsRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionOctetsTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionPktsRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionPktsTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionId"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionStartTime"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionIntervalTime"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionTerminate"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaePortSessionUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeAuthConfigGroup": {
+    "name": "ieee8021XPaeAuthConfigGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeAuthenticate"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeAuthenticated"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeFailed"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeReAuthEnabled"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeQuietPeriod"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeReauthPeriod"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeRetryMax"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAuthPaeRetryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeSuppConfigGroup": {
+    "name": "ieee8021XPaeSuppConfigGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XSuppPaeAuthenticate"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XSuppPaeAuthenticated"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XSuppPaeFailed"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XSuppPaeHelloPeriod"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XSuppPaeRetryMax"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XSuppPaeRetryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeEapolStatsGroup": {
+    "name": "ieee8021XPaeEapolStatsGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolInvalidFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolEapLengthErrorFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolAnnouncementFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolAnnouncementReqFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolPortUnavailableFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolStartFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolEapFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolLogoffFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolMkNoCknFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolMkInvalidFramesRx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolLastRxFrameVersion"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolLastRxFrameSource"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolSuppEapFramesTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolLogoffFramesTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolAnnouncementFramesTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolAnnouncementReqFramesTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolStartFramesTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolAuthEapFramesTx"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XEapolMkaFramesTx"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeKaYMkaGroup": {
+    "name": "ieee8021XPaeKaYMkaGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaActive"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaAuthenticated"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaSecured"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaFailed"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaActorSCI"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaActorsPriority"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaKeyServerPriority"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaKeyServerSCI"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayAllowedJoinGroup"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayAllowedFormGroup"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayCreateNewGroup"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMacSecCapability"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMacSecDesired"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMacSecProtect"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMacSecReplayProtect"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMacSecValidate"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMacSecConfidentialityOffset"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaTxKN"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaTxAN"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaRxKN"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaRxAN"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartKMD"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartNID"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartCached"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartActive"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartRetain"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartActivateControl"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartPrincipal"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartDistCKN"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPartRowStatus"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPeerListMN"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPeerListType"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaPeerListSCI"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeNetworkIdentifierGroup": {
+    "name": "ieee8021XPaeNetworkIdentifierGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XLogonNIDConnectedNID"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XLogonNIDRequestedNID"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XLogonNIDSelectedNID"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidUseEap"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidUnauthAllowed"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidUnsecuredAllowed"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidUnauthenticatedAccess"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidAccessCapabilities"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidKMD"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XNidRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeAnnouncerGroup": {
+    "name": "ieee8021XPaeAnnouncerGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnounceAccessStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeListenerGroup": {
+    "name": "ieee8021XPaeListenerGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementKMD"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementSpecific"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementAccessStatus"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementAccessRequested"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementUnauthAccess"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementCapabilities"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XAnnouncementCipherCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeKaYIsupgradeGroup": {
+    "name": "ieee8021XPaeKaYIsupgradeGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaSuspendFor"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaSuspendOnRequest"
+      },
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XKayMkaSuspendedWhile"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021XPaeSystemAddGroup": {
+    "name": "ieee8021XPaeSystemAddGroup",
+    "oid": "1.3.111.2.802.1.1.15.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021X-PAE-MIB",
+        "object": "ieee8021XPaeEapolGroupMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021X-PAE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021X-PAE-MIB"
+  }
+}

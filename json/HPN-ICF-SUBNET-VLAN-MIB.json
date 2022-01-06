@@ -1,0 +1,409 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfSubnetVlan": {
+    "name": "hpnicfSubnetVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-02 13:53",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfSubnetVlanObjects": {
+    "name": "hpnicfSubnetVlanObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSubnetVlanScalarObjects": {
+    "name": "hpnicfSubnetVlanScalarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSubnetNumAllVlan": {
+    "name": "hpnicfSubnetNumAllVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSubnetNumPerVlan": {
+    "name": "hpnicfSubnetNumPerVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSubnetNumAllPort": {
+    "name": "hpnicfSubnetNumAllPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSubnetNumPerPort": {
+    "name": "hpnicfSubnetNumPerPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanTable": {
+    "name": "hpnicfSubnetVlanTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanEntry": {
+    "name": "hpnicfSubnetVlanEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanSubnetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSubnetVlanVlanId": {
+    "name": "hpnicfSubnetVlanVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanSubnetIndex": {
+    "name": "hpnicfSubnetVlanSubnetIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanVlanIpAddressType": {
+    "name": "hpnicfSubnetVlanVlanIpAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanIpAddressValue": {
+    "name": "hpnicfSubnetVlanIpAddressValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanNetMaskValue": {
+    "name": "hpnicfSubnetVlanNetMaskValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanRowStatus": {
+    "name": "hpnicfSubnetVlanRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortCreateTable": {
+    "name": "hpnicfSubnetVlanPortCreateTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortCreateEntry": {
+    "name": "hpnicfSubnetVlanPortCreateEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanPortCreateIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanPortCreateVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortCreateIndex": {
+    "name": "hpnicfSubnetVlanPortCreateIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortCreateVlanId": {
+    "name": "hpnicfSubnetVlanPortCreateVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortInfoVlanId": {
+    "name": "hpnicfSubnetVlanPortInfoVlanId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortRowStatus": {
+    "name": "hpnicfSubnetVlanPortRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortStatus": {
+    "name": "hpnicfSubnetVlanPortStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfSubnetVlanConformance": {
+    "name": "hpnicfSubnetVlanConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.2",
+    "class": "objectidentity"
+  },
+  "hpnicfSubnetVlanCompliances": {
+    "name": "hpnicfSubnetVlanCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSubnetVlanCompliance": {
+    "name": "hpnicfSubnetVlanCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfSubnetVlanScalarObjectGroup",
+        "module": "HPN-ICF-SUBNET-VLAN-MIB"
+      },
+      {
+        "object": "hpnicfSubnetVlanSubnetGroup",
+        "module": "HPN-ICF-SUBNET-VLAN-MIB"
+      },
+      {
+        "object": "hpnicfSubnetVlanPortCreateGroup",
+        "module": "HPN-ICF-SUBNET-VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSubnetVlanGroups": {
+    "name": "hpnicfSubnetVlanGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfSubnetVlanScalarObjectGroup": {
+    "name": "hpnicfSubnetVlanScalarObjectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetNumAllVlan"
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetNumPerVlan"
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetNumAllPort"
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetNumPerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSubnetVlanSubnetGroup": {
+    "name": "hpnicfSubnetVlanSubnetGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanVlanIpAddressType"
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanIpAddressValue"
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanNetMaskValue"
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSubnetVlanPortCreateGroup": {
+    "name": "hpnicfSubnetVlanPortCreateGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.61.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanPortInfoVlanId"
+      },
+      {
+        "module": "HPN-ICF-SUBNET-VLAN-MIB",
+        "object": "hpnicfSubnetVlanPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-SUBNET-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-SUBNET-VLAN-MIB"
+  }
+}

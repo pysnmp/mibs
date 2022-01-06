@@ -1,0 +1,604 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Dot1Q"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1Dot1QMIB": {
+    "name": "alcatelIND1Dot1QMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "Addressing discrepancies with Alcatel Standard."
+      }
+    ]
+  },
+  "alcatelIND1Dot1QMIBObjects": {
+    "name": "alcatelIND1Dot1QMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Dot1QMIBConformance": {
+    "name": "alcatelIND1Dot1QMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Dot1QMIBGroups": {
+    "name": "alcatelIND1Dot1QMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1Dot1QMIBCompliances": {
+    "name": "alcatelIND1Dot1QMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "v8021Q": {
+    "name": "v8021Q",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1",
+    "class": "objectidentity"
+  },
+  "qPortVlanTable": {
+    "name": "qPortVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qPortVlanEntry": {
+    "name": "qPortVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanSlot",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanPort",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanTagValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qPortVlanSlot": {
+    "name": "qPortVlanSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qPortVlanPort": {
+    "name": "qPortVlanPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qPortVlanTagValue": {
+    "name": "qPortVlanTagValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qPortVlanStatus": {
+    "name": "qPortVlanStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qPortVlanDescription": {
+    "name": "qPortVlanDescription",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qPortVlanForceTagInternal": {
+    "name": "qPortVlanForceTagInternal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 2,
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "na",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAggregateVlanTable": {
+    "name": "qAggregateVlanTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qAggregateVlanEntry": {
+    "name": "qAggregateVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAggregateVlanAggregateId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAggregateVlanTagValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qAggregateVlanAggregateId": {
+    "name": "qAggregateVlanAggregateId",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAggregateVlanTagValue": {
+    "name": "qAggregateVlanTagValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAggregateVlanStatus": {
+    "name": "qAggregateVlanStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAggregateVlanDescription": {
+    "name": "qAggregateVlanDescription",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmIfIndexVpiVciTable": {
+    "name": "qAtmIfIndexVpiVciTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qAtmIfIndexVpiVciEntry": {
+    "name": "qAtmIfIndexVpiVciEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAtmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAtmVpiValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAtmVciValue",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAtmIfIndexVpiVciVlanTagValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qAtmIfIndex": {
+    "name": "qAtmIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4259841,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmVpiValue": {
+    "name": "qAtmVpiValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmVciValue": {
+    "name": "qAtmVciValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmIfIndexVpiVciVlanTagValue": {
+    "name": "qAtmIfIndexVpiVciVlanTagValue",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmIfIndexVpiVciVlanAction": {
+    "name": "qAtmIfIndexVpiVciVlanAction",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmIfIndexVpiVciVlanDescription": {
+    "name": "qAtmIfIndexVpiVciVlanDescription",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmIfIndexVpiVciAcceptableFrameTypes": {
+    "name": "qAtmIfIndexVpiVciAcceptableFrameTypes",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitAll": 1,
+          "admitOnlyVlanTagged": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "admitAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qAtmIfIndexVpiVciForceTagInternal": {
+    "name": "qAtmIfIndexVpiVciForceTagInternal",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 2,
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "na",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1Dot1QMIBCompliance": {
+    "name": "alcatelIND1Dot1QMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dot1qPortGroup",
+        "module": "ALCATEL-IND1-DOT1Q-MIB"
+      },
+      {
+        "object": "dot1qAggregateGroup",
+        "module": "ALCATEL-IND1-DOT1Q-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qPortGroup": {
+    "name": "dot1qPortGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanPort"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanTagValue"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanDescription"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qPortVlanForceTagInternal"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1qAggregateGroup": {
+    "name": "dot1qAggregateGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.21.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAggregateVlanAggregateId"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAggregateVlanTagValue"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAggregateVlanStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DOT1Q-MIB",
+        "object": "qAggregateVlanDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT1Q-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-DOT1Q-MIB"
+  }
+}

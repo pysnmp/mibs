@@ -1,0 +1,441 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "transmission",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "mplsTCPrivStdExtMIB": {
+    "name": "mplsTCPrivStdExtMIB",
+    "oid": "1.3.6.1.2.1.10.166.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-12-06 00:00",
+        "description": "Extended standard MIB with private TC"
+      },
+      {
+        "revision": "2004-06-03 00:00",
+        "description": "Initial version published as part of RFC 3811."
+      }
+    ]
+  },
+  "mplsStdMIB": {
+    "name": "mplsStdMIB",
+    "oid": "1.3.6.1.2.1.10.166",
+    "class": "objectidentity"
+  },
+  "MplsAtmVcIdentifier": {
+    "name": "MplsAtmVcIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 32,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "MplsBitRate": {
+    "name": "MplsBitRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "MplsBurstSize": {
+    "name": "MplsBurstSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "MplsExtendedTunnelId": {
+    "name": "MplsExtendedTunnelId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsLabel": {
+    "name": "MplsLabel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsLabelDistributionMethod": {
+    "name": "MplsLabelDistributionMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downstreamOnDemand": 1,
+          "downstreamUnsolicited": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsLdpIdentifier": {
+    "name": "MplsLdpIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d:2d",
+    "status": "current"
+  },
+  "MplsLsrIdentifier": {
+    "name": "MplsLsrIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsLdpLabelType": {
+    "name": "MplsLdpLabelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "generic": 1,
+          "atm": 2,
+          "frameRelay": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsLSPID": {
+    "name": "MplsLSPID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsLspType": {
+    "name": "MplsLspType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "terminatingLsp": 2,
+          "originatingLsp": 3,
+          "crossConnectingLsp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsOwner": {
+    "name": "MplsOwner",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "snmp": 3,
+          "ldp": 4,
+          "crldp": 5,
+          "rsvpTe": 6,
+          "policyAgent": 7,
+          "mplsVpn": 8,
+          "cli": 9,
+          "dynamic": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsPathIndexOrZero": {
+    "name": "MplsPathIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsPathIndex": {
+    "name": "MplsPathIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsRetentionMode": {
+    "name": "MplsRetentionMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conservative": 1,
+          "liberal": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsTunnelAffinity": {
+    "name": "MplsTunnelAffinity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsTunnelIndex": {
+    "name": "MplsTunnelIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsTunnelInstanceIndex": {
+    "name": "MplsTunnelInstanceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65535
+          },
+          {
+            "min": 65536,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TeHopAddressType": {
+    "name": "TeHopAddressType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "asnumber": 3,
+          "unnum": 4,
+          "lspid": 5,
+          "unnumv6": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TeHopAddress": {
+    "name": "TeHopAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TeHopAddressAS": {
+    "name": "TeHopAddressAS",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TeHopAddressUnnum": {
+    "name": "TeHopAddressUnnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/MPLS-TC-PRIV-STDEXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MPLS-TC-PRIV-STDEXT-MIB"
+  }
+}

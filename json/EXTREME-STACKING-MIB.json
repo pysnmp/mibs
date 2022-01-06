@@ -1,0 +1,555 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeAgent"
+    ],
+    "EXTREME-SYSTEM-MIB": [
+      "extremeCurrentTemperature"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime",
+      "sysDescr"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeStackable": {
+    "name": "extremeStackable",
+    "oid": "1.3.6.1.4.1.1916.1.33",
+    "class": "moduleidentity"
+  },
+  "extremeStackDetection": {
+    "name": "extremeStackDetection",
+    "oid": "1.3.6.1.4.1.1916.1.33.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeStackMemberTable": {
+    "name": "extremeStackMemberTable",
+    "oid": "1.3.6.1.4.1.1916.1.33.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeStackMemberEntry": {
+    "name": "extremeStackMemberEntry",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackMemberSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeStackMemberSlotId": {
+    "name": "extremeStackMemberSlotId",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberType": {
+    "name": "extremeStackMemberType",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberOperStatus": {
+    "name": "extremeStackMemberOperStatus",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "mismatch": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberRole": {
+    "name": "extremeStackMemberRole",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberEntPhysicalIndex": {
+    "name": "extremeStackMemberEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberMACAddress": {
+    "name": "extremeStackMemberMACAddress",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberCurImageVersion": {
+    "name": "extremeStackMemberCurImageVersion",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberPriImageVersion": {
+    "name": "extremeStackMemberPriImageVersion",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberSecImageVersion": {
+    "name": "extremeStackMemberSecImageVersion",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberBootRomVersion": {
+    "name": "extremeStackMemberBootRomVersion",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberCurConfig": {
+    "name": "extremeStackMemberCurConfig",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberConfigSelected": {
+    "name": "extremeStackMemberConfigSelected",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberImageSelected": {
+    "name": "extremeStackMemberImageSelected",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberStackPriority": {
+    "name": "extremeStackMemberStackPriority",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberMgmtIpAddress": {
+    "name": "extremeStackMemberMgmtIpAddress",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberSysLocation": {
+    "name": "extremeStackMemberSysLocation",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeStackMemberAutoConfig": {
+    "name": "extremeStackMemberAutoConfig",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackMemberStackStatus": {
+    "name": "extremeStackMemberStackStatus",
+    "oid": "1.3.6.1.4.1.1916.1.33.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeStackingPortTable": {
+    "name": "extremeStackingPortTable",
+    "oid": "1.3.6.1.4.1.1916.1.33.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeStackingPortEntry": {
+    "name": "extremeStackingPortEntry",
+    "oid": "1.3.6.1.4.1.1916.1.33.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackingPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeStackingPortIfIndex": {
+    "name": "extremeStackingPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.33.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackingPortRemoteMac": {
+    "name": "extremeStackingPortRemoteMac",
+    "oid": "1.3.6.1.4.1.1916.1.33.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackingPortLinkSpeed": {
+    "name": "extremeStackingPortLinkSpeed",
+    "oid": "1.3.6.1.4.1.1916.1.33.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackingPortLinkStatus": {
+    "name": "extremeStackingPortLinkStatus",
+    "oid": "1.3.6.1.4.1.1916.1.33.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeStackableTraps": {
+    "name": "extremeStackableTraps",
+    "oid": "1.3.6.1.4.1.1916.1.33.4",
+    "class": "objectidentity"
+  },
+  "extremeStackTrapsPrefix": {
+    "name": "extremeStackTrapsPrefix",
+    "oid": "1.3.6.1.4.1.1916.1.33.4.0",
+    "class": "objectidentity"
+  },
+  "extremeStackMemberOverheat": {
+    "name": "extremeStackMemberOverheat",
+    "oid": "1.3.6.1.4.1.1916.1.33.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "EXTREME-SYSTEM-MIB",
+        "object": "extremeCurrentTemperature"
+      },
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackMemberSlotId"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeStackMemberStatusChanged": {
+    "name": "extremeStackMemberStatusChanged",
+    "oid": "1.3.6.1.4.1.1916.1.33.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackMemberSlotId"
+      },
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackMemberOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "extremeStackingPortStatusChanged": {
+    "name": "extremeStackingPortStatusChanged",
+    "oid": "1.3.6.1.4.1.1916.1.33.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackingPortRemoteMac"
+      },
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackingPortLinkSpeed"
+      },
+      {
+        "module": "EXTREME-STACKING-MIB",
+        "object": "extremeStackingPortLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EXTREME-STACKING-MIB"
+  }
+}

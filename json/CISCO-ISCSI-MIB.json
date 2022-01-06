@@ -1,0 +1,3424 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "AutonomousType",
+      "RowPointer",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIscsiModule": {
+    "name": "ciscoIscsiModule",
+    "oid": "1.3.6.1.4.1.9.10.94",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-05 00:00",
+        "description": "Initial revision published of this MIB module."
+      }
+    ]
+  },
+  "cIscsiObjects": {
+    "name": "cIscsiObjects",
+    "oid": "1.3.6.1.4.1.9.10.94.1",
+    "class": "objectidentity"
+  },
+  "cIscsiNotifications": {
+    "name": "cIscsiNotifications",
+    "oid": "1.3.6.1.4.1.9.10.94.2",
+    "class": "objectidentity"
+  },
+  "cIscsiConformance": {
+    "name": "cIscsiConformance",
+    "oid": "1.3.6.1.4.1.9.10.94.3",
+    "class": "objectidentity"
+  },
+  "CIscsiTransportProtocols": {
+    "name": "CIscsiTransportProtocols",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CIscsiDigestMethod": {
+    "name": "CIscsiDigestMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "noDigest": 3,
+          "crc32c": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cIscsiDescriptors": {
+    "name": "cIscsiDescriptors",
+    "oid": "1.3.6.1.4.1.9.10.94.1.1",
+    "class": "objectidentity"
+  },
+  "cIscsiHeaderIntegrityTypes": {
+    "name": "cIscsiHeaderIntegrityTypes",
+    "oid": "1.3.6.1.4.1.9.10.94.1.1.1",
+    "class": "objectidentity"
+  },
+  "cIscsiHdrIntegrityNone": {
+    "name": "cIscsiHdrIntegrityNone",
+    "oid": "1.3.6.1.4.1.9.10.94.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cIscsiHdrIntegrityCrc32c": {
+    "name": "cIscsiHdrIntegrityCrc32c",
+    "oid": "1.3.6.1.4.1.9.10.94.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cIscsiDataIntegrityTypes": {
+    "name": "cIscsiDataIntegrityTypes",
+    "oid": "1.3.6.1.4.1.9.10.94.1.1.2",
+    "class": "objectidentity"
+  },
+  "cIscsiDataIntegrityNone": {
+    "name": "cIscsiDataIntegrityNone",
+    "oid": "1.3.6.1.4.1.9.10.94.1.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cIscsiDataIntegrityCrc32c": {
+    "name": "cIscsiDataIntegrityCrc32c",
+    "oid": "1.3.6.1.4.1.9.10.94.1.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cIscsiInstance": {
+    "name": "cIscsiInstance",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2",
+    "class": "objectidentity"
+  },
+  "cIscsiInstanceAttributesTable": {
+    "name": "cIscsiInstanceAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiInstanceAttributesEntry": {
+    "name": "cIscsiInstanceAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiInstIndex": {
+    "name": "cIscsiInstIndex",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiInstDescr": {
+    "name": "cIscsiInstDescr",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstVersionMin": {
+    "name": "cIscsiInstVersionMin",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstVersionMax": {
+    "name": "cIscsiInstVersionMax",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstVendorID": {
+    "name": "cIscsiInstVendorID",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstVendorVersion": {
+    "name": "cIscsiInstVendorVersion",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstPortalNumber": {
+    "name": "cIscsiInstPortalNumber",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "transport endpoints",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstNodeNumber": {
+    "name": "cIscsiInstNodeNumber",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Internet Network Addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstSessionNumber": {
+    "name": "cIscsiInstSessionNumber",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstSsnFailures": {
+    "name": "cIscsiInstSsnFailures",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstLastSsnFailureType": {
+    "name": "cIscsiInstLastSsnFailureType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstLastSsnRmtNodeName": {
+    "name": "cIscsiInstLastSsnRmtNodeName",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstanceSsnErrorStatsTable": {
+    "name": "cIscsiInstanceSsnErrorStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiInstanceSsnErrorStatsEntry": {
+    "name": "cIscsiInstanceSsnErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIscsiInstanceSsnErrorStatsEntry",
+      "module": "CISCO-ISCSI-MIB",
+      "object": "cIscsiInstanceAttributesEntry"
+    },
+    "status": "current"
+  },
+  "cIscsiInstSsnDigestErrors": {
+    "name": "cIscsiInstSsnDigestErrors",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstSsnCxnTimeoutErrors": {
+    "name": "cIscsiInstSsnCxnTimeoutErrors",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInstSsnFormatErrors": {
+    "name": "cIscsiInstSsnFormatErrors",
+    "oid": "1.3.6.1.4.1.9.10.94.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiPortal": {
+    "name": "cIscsiPortal",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3",
+    "class": "objectidentity"
+  },
+  "cIscsiPortalAttributesTable": {
+    "name": "cIscsiPortalAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiPortalAttributesEntry": {
+    "name": "cIscsiPortalAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiPortalIndex": {
+    "name": "cIscsiPortalIndex",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiPortalRowStatus": {
+    "name": "cIscsiPortalRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalRoles": {
+    "name": "cIscsiPortalRoles",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "targetTypePortal": 0,
+        "initiatorTypePortal": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalAddrType": {
+    "name": "cIscsiPortalAddrType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalAddr": {
+    "name": "cIscsiPortalAddr",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalProtocol": {
+    "name": "cIscsiPortalProtocol",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiTransportProtocols",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalMaxRecvDataSegLength": {
+    "name": "cIscsiPortalMaxRecvDataSegLength",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8192,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalPrimaryHdrDigest": {
+    "name": "cIscsiPortalPrimaryHdrDigest",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiDigestMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noDigest",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalPrimaryDataDigest": {
+    "name": "cIscsiPortalPrimaryDataDigest",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiDigestMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noDigest",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalSecondaryHdrDigest": {
+    "name": "cIscsiPortalSecondaryHdrDigest",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiDigestMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalSecondaryDataDigest": {
+    "name": "cIscsiPortalSecondaryDataDigest",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiDigestMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiPortalRecvMarker": {
+    "name": "cIscsiPortalRecvMarker",
+    "oid": "1.3.6.1.4.1.9.10.94.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiTargetPortal": {
+    "name": "cIscsiTargetPortal",
+    "oid": "1.3.6.1.4.1.9.10.94.1.4",
+    "class": "objectidentity"
+  },
+  "cIscsiTgtPortalAttributesTable": {
+    "name": "cIscsiTgtPortalAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiTgtPortalAttributesEntry": {
+    "name": "cIscsiTgtPortalAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTgtPortalPort": {
+    "name": "cIscsiTgtPortalPort",
+    "oid": "1.3.6.1.4.1.9.10.94.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiTgtPortalTag": {
+    "name": "cIscsiTgtPortalTag",
+    "oid": "1.3.6.1.4.1.9.10.94.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiInitiatorPortal": {
+    "name": "cIscsiInitiatorPortal",
+    "oid": "1.3.6.1.4.1.9.10.94.1.5",
+    "class": "objectidentity"
+  },
+  "cIscsiIntrPortalAttributesTable": {
+    "name": "cIscsiIntrPortalAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiIntrPortalAttributesEntry": {
+    "name": "cIscsiIntrPortalAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiIntrPortalTag": {
+    "name": "cIscsiIntrPortalTag",
+    "oid": "1.3.6.1.4.1.9.10.94.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNode": {
+    "name": "cIscsiNode",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6",
+    "class": "objectidentity"
+  },
+  "cIscsiNodeAttributesTable": {
+    "name": "cIscsiNodeAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiNodeAttributesEntry": {
+    "name": "cIscsiNodeAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiNodeIndex": {
+    "name": "cIscsiNodeIndex",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiNodeName": {
+    "name": "cIscsiNodeName",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiNodeAlias": {
+    "name": "cIscsiNodeAlias",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiNodeRoles": {
+    "name": "cIscsiNodeRoles",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "targetTypeNode": 0,
+        "initiatorTypeNode": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiNodeTransportType": {
+    "name": "cIscsiNodeTransportType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiNodeInitialR2T": {
+    "name": "cIscsiNodeInitialR2T",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiNodeBidiInitialR2T": {
+    "name": "cIscsiNodeBidiInitialR2T",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiNodeImmediateData": {
+    "name": "cIscsiNodeImmediateData",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeMaxOutstandingR2T": {
+    "name": "cIscsiNodeMaxOutstandingR2T",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeFirstBurstSize": {
+    "name": "cIscsiNodeFirstBurstSize",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65536,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeMaxBurstSize": {
+    "name": "cIscsiNodeMaxBurstSize",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 262144,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeMaxConnections": {
+    "name": "cIscsiNodeMaxConnections",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "connections",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeDataSequenceInOrder": {
+    "name": "cIscsiNodeDataSequenceInOrder",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeDataPduInOrder": {
+    "name": "cIscsiNodeDataPduInOrder",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeDefaultTime2Wait": {
+    "name": "cIscsiNodeDefaultTime2Wait",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeDefaultTime2Retain": {
+    "name": "cIscsiNodeDefaultTime2Retain",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiNodeErrorRecoveryLevel": {
+    "name": "cIscsiNodeErrorRecoveryLevel",
+    "oid": "1.3.6.1.4.1.9.10.94.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIscsiTarget": {
+    "name": "cIscsiTarget",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7",
+    "class": "objectidentity"
+  },
+  "cIscsiTargetAttributesTable": {
+    "name": "cIscsiTargetAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiTargetAttributesEntry": {
+    "name": "cIscsiTargetAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTgtLoginFailures": {
+    "name": "cIscsiTgtLoginFailures",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed login attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLastFailureTime": {
+    "name": "cIscsiTgtLastFailureTime",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLastFailureType": {
+    "name": "cIscsiTgtLastFailureType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLastIntrFailureName": {
+    "name": "cIscsiTgtLastIntrFailureName",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLastIntrFailureAddrType": {
+    "name": "cIscsiTgtLastIntrFailureAddrType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLastIntrFailureAddr": {
+    "name": "cIscsiTgtLastIntrFailureAddr",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTargetLoginStatsTable": {
+    "name": "cIscsiTargetLoginStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiTargetLoginStatsEntry": {
+    "name": "cIscsiTargetLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIscsiTargetLoginStatsEntry",
+      "module": "CISCO-ISCSI-MIB",
+      "object": "cIscsiTargetAttributesEntry"
+    },
+    "status": "current"
+  },
+  "cIscsiTgtLoginAccepts": {
+    "name": "cIscsiTgtLoginAccepts",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "successful logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLoginOtherFails": {
+    "name": "cIscsiTgtLoginOtherFails",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLoginRedirects": {
+    "name": "cIscsiTgtLoginRedirects",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLoginAuthorizeFails": {
+    "name": "cIscsiTgtLoginAuthorizeFails",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLoginAuthenticateFails": {
+    "name": "cIscsiTgtLoginAuthenticateFails",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLoginNegotiateFails": {
+    "name": "cIscsiTgtLoginNegotiateFails",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTargetLogoutStatsTable": {
+    "name": "cIscsiTargetLogoutStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiTargetLogoutStatsEntry": {
+    "name": "cIscsiTargetLogoutStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIscsiTargetLogoutStatsEntry",
+      "module": "CISCO-ISCSI-MIB",
+      "object": "cIscsiTargetAttributesEntry"
+    },
+    "status": "current"
+  },
+  "cIscsiTgtLogoutNormals": {
+    "name": "cIscsiTgtLogoutNormals",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "normal logouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtLogoutOthers": {
+    "name": "cIscsiTgtLogoutOthers",
+    "oid": "1.3.6.1.4.1.9.10.94.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "abnormal logouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiTgtAuthorization": {
+    "name": "cIscsiTgtAuthorization",
+    "oid": "1.3.6.1.4.1.9.10.94.1.8",
+    "class": "objectidentity"
+  },
+  "cIscsiTgtAuthAttributesTable": {
+    "name": "cIscsiTgtAuthAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiTgtAuthAttributesEntry": {
+    "name": "cIscsiTgtAuthAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtAuthIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTgtAuthIndex": {
+    "name": "cIscsiTgtAuthIndex",
+    "oid": "1.3.6.1.4.1.9.10.94.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiTgtAuthRowStatus": {
+    "name": "cIscsiTgtAuthRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.94.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiTgtAuthIdentity": {
+    "name": "cIscsiTgtAuthIdentity",
+    "oid": "1.3.6.1.4.1.9.10.94.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cIscsiInitiator": {
+    "name": "cIscsiInitiator",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9",
+    "class": "objectidentity"
+  },
+  "cIscsiInitiatorAttributesTable": {
+    "name": "cIscsiInitiatorAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiInitiatorAttributesEntry": {
+    "name": "cIscsiInitiatorAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiIntrLoginFailures": {
+    "name": "cIscsiIntrLoginFailures",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLastFailureTime": {
+    "name": "cIscsiIntrLastFailureTime",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLastFailureType": {
+    "name": "cIscsiIntrLastFailureType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLastTgtFailureName": {
+    "name": "cIscsiIntrLastTgtFailureName",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLastTgtFailureAddrType": {
+    "name": "cIscsiIntrLastTgtFailureAddrType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLastTgtFailureAddr": {
+    "name": "cIscsiIntrLastTgtFailureAddr",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInitiatorLoginStatsTable": {
+    "name": "cIscsiInitiatorLoginStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiInitiatorLoginStatsEntry": {
+    "name": "cIscsiInitiatorLoginStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIscsiInitiatorLoginStatsEntry",
+      "module": "CISCO-ISCSI-MIB",
+      "object": "cIscsiInitiatorAttributesEntry"
+    },
+    "status": "current"
+  },
+  "cIscsiIntrLoginAcceptRsps": {
+    "name": "cIscsiIntrLoginAcceptRsps",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "successful logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLoginOtherFailRsps": {
+    "name": "cIscsiIntrLoginOtherFailRsps",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLoginRedirectRsps": {
+    "name": "cIscsiIntrLoginRedirectRsps",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLoginAuthFailRsps": {
+    "name": "cIscsiIntrLoginAuthFailRsps",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLoginAuthenticateFails": {
+    "name": "cIscsiIntrLoginAuthenticateFails",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLoginNegotiateFails": {
+    "name": "cIscsiIntrLoginNegotiateFails",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed logins",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiInitiatorLogoutStatsTable": {
+    "name": "cIscsiInitiatorLogoutStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiInitiatorLogoutStatsEntry": {
+    "name": "cIscsiInitiatorLogoutStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIscsiInitiatorLogoutStatsEntry",
+      "module": "CISCO-ISCSI-MIB",
+      "object": "cIscsiInitiatorAttributesEntry"
+    },
+    "status": "current"
+  },
+  "cIscsiIntrLogoutNormals": {
+    "name": "cIscsiIntrLogoutNormals",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "normal logouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrLogoutOthers": {
+    "name": "cIscsiIntrLogoutOthers",
+    "oid": "1.3.6.1.4.1.9.10.94.1.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "abnormal logouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrAuthorization": {
+    "name": "cIscsiIntrAuthorization",
+    "oid": "1.3.6.1.4.1.9.10.94.1.10",
+    "class": "objectidentity"
+  },
+  "cIscsiIntrAuthAttributesTable": {
+    "name": "cIscsiIntrAuthAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiIntrAuthAttributesEntry": {
+    "name": "cIscsiIntrAuthAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrAuthIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiIntrAuthIndex": {
+    "name": "cIscsiIntrAuthIndex",
+    "oid": "1.3.6.1.4.1.9.10.94.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiIntrAuthRowStatus": {
+    "name": "cIscsiIntrAuthRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.94.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiIntrAuthIdentity": {
+    "name": "cIscsiIntrAuthIdentity",
+    "oid": "1.3.6.1.4.1.9.10.94.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSession": {
+    "name": "cIscsiSession",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11",
+    "class": "objectidentity"
+  },
+  "cIscsiSessionAttributesTable": {
+    "name": "cIscsiSessionAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiSessionAttributesEntry": {
+    "name": "cIscsiSessionAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiSsnIndex": {
+    "name": "cIscsiSsnIndex",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiSsnDirection": {
+    "name": "cIscsiSsnDirection",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inboundSession": 1,
+          "outboundSession": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnInitiatorName": {
+    "name": "cIscsiSsnInitiatorName",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnTargetName": {
+    "name": "cIscsiSsnTargetName",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnTsih": {
+    "name": "cIscsiSsnTsih",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnIsid": {
+    "name": "cIscsiSsnIsid",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnInitiatorAlias": {
+    "name": "cIscsiSsnInitiatorAlias",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnTargetAlias": {
+    "name": "cIscsiSsnTargetAlias",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnInitialR2T": {
+    "name": "cIscsiSsnInitialR2T",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnBidiInitialR2T": {
+    "name": "cIscsiSsnBidiInitialR2T",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnImmediateData": {
+    "name": "cIscsiSsnImmediateData",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnType": {
+    "name": "cIscsiSsnType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalSession": 1,
+          "discoverySession": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normalSession",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnMaxOutstandingR2T": {
+    "name": "cIscsiSsnMaxOutstandingR2T",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnFirstBurstSize": {
+    "name": "cIscsiSsnFirstBurstSize",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65536,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnMaxBurstSize": {
+    "name": "cIscsiSsnMaxBurstSize",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 262144,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnConnectionNumber": {
+    "name": "cIscsiSsnConnectionNumber",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnAuthIdentity": {
+    "name": "cIscsiSsnAuthIdentity",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnDataSequenceInOrder": {
+    "name": "cIscsiSsnDataSequenceInOrder",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnDataPduInOrder": {
+    "name": "cIscsiSsnDataPduInOrder",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnErrorRecoveryLevel": {
+    "name": "cIscsiSsnErrorRecoveryLevel",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSessionStatsTable": {
+    "name": "cIscsiSessionStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiSessionStatsEntry": {
+    "name": "cIscsiSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIscsiSessionStatsEntry",
+      "module": "CISCO-ISCSI-MIB",
+      "object": "cIscsiSessionAttributesEntry"
+    },
+    "status": "current"
+  },
+  "cIscsiSsnCmdPdus": {
+    "name": "cIscsiSsnCmdPdus",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnRspPdus": {
+    "name": "cIscsiSsnRspPdus",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnTxDataOctets": {
+    "name": "cIscsiSsnTxDataOctets",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnRxDataOctets": {
+    "name": "cIscsiSsnRxDataOctets",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSessionCxnErrorStatsTable": {
+    "name": "cIscsiSessionCxnErrorStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiSessionCxnErrorStatsEntry": {
+    "name": "cIscsiSessionCxnErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cIscsiSessionCxnErrorStatsEntry",
+      "module": "CISCO-ISCSI-MIB",
+      "object": "cIscsiSessionAttributesEntry"
+    },
+    "status": "current"
+  },
+  "cIscsiSsnDigestErrors": {
+    "name": "cIscsiSsnDigestErrors",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiSsnCxnTimeoutErrors": {
+    "name": "cIscsiSsnCxnTimeoutErrors",
+    "oid": "1.3.6.1.4.1.9.10.94.1.11.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sequences",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiConnection": {
+    "name": "cIscsiConnection",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12",
+    "class": "objectidentity"
+  },
+  "cIscsiConnectionAttributesTable": {
+    "name": "cIscsiConnectionAttributesTable",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiConnectionAttributesEntry": {
+    "name": "cIscsiConnectionAttributesEntry",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiCxnIndex": {
+    "name": "cIscsiCxnIndex",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIscsiCxnCid": {
+    "name": "cIscsiCxnCid",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnState": {
+    "name": "cIscsiCxnState",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "login": 1,
+          "full": 2,
+          "logout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnLocalAddrType": {
+    "name": "cIscsiCxnLocalAddrType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnLocalAddr": {
+    "name": "cIscsiCxnLocalAddr",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnProtocol": {
+    "name": "cIscsiCxnProtocol",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiTransportProtocols",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnLocalPort": {
+    "name": "cIscsiCxnLocalPort",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnRemoteAddrType": {
+    "name": "cIscsiCxnRemoteAddrType",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnRemoteAddr": {
+    "name": "cIscsiCxnRemoteAddr",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnRemotePort": {
+    "name": "cIscsiCxnRemotePort",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnMaxRecvDataSegLength": {
+    "name": "cIscsiCxnMaxRecvDataSegLength",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8192,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnHeaderIntegrity": {
+    "name": "cIscsiCxnHeaderIntegrity",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiDigestMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnDataIntegrity": {
+    "name": "cIscsiCxnDataIntegrity",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CIscsiDigestMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnRecvMarker": {
+    "name": "cIscsiCxnRecvMarker",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiCxnSendMarker": {
+    "name": "cIscsiCxnSendMarker",
+    "oid": "1.3.6.1.4.1.9.10.94.1.12.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIscsiNotificationsPrefix": {
+    "name": "cIscsiNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.10.94.2.0",
+    "class": "objectidentity"
+  },
+  "cIscsiTgtLoginFailure": {
+    "name": "cIscsiTgtLoginFailure",
+    "oid": "1.3.6.1.4.1.9.10.94.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginFailures"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastFailureType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastIntrFailureName"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastIntrFailureAddrType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastIntrFailureAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiIntrLoginFailure": {
+    "name": "cIscsiIntrLoginFailure",
+    "oid": "1.3.6.1.4.1.9.10.94.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginFailures"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastFailureType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastTgtFailureName"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastTgtFailureAddrType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastTgtFailureAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiInstSessionFailure": {
+    "name": "cIscsiInstSessionFailure",
+    "oid": "1.3.6.1.4.1.9.10.94.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstSsnFailures"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstLastSsnFailureType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstLastSsnRmtNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiGroups": {
+    "name": "cIscsiGroups",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1",
+    "class": "objectidentity"
+  },
+  "cIscsiInstanceAttributesGroup": {
+    "name": "cIscsiInstanceAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstDescr"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstVersionMin"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstVersionMax"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstVendorID"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstVendorVersion"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstPortalNumber"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstNodeNumber"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstSessionNumber"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstSsnFailures"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstLastSsnFailureType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstLastSsnRmtNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiInstanceSsnErrorStatsGroup": {
+    "name": "cIscsiInstanceSsnErrorStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstSsnDigestErrors"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstSsnCxnTimeoutErrors"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstSsnFormatErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiPortalAttributesGroup": {
+    "name": "cIscsiPortalAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalRoles"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalAddrType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalProtocol"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalMaxRecvDataSegLength"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalPrimaryHdrDigest"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalPrimaryDataDigest"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalSecondaryHdrDigest"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalSecondaryDataDigest"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiPortalRecvMarker"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTgtPortalAttributesGroup": {
+    "name": "cIscsiTgtPortalAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtPortalPort"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtPortalTag"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiIntrPortalAttributesGroup": {
+    "name": "cIscsiIntrPortalAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrPortalTag"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiNodeAttributesGroup": {
+    "name": "cIscsiNodeAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeName"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeAlias"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeRoles"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeTransportType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeInitialR2T"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeBidiInitialR2T"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeImmediateData"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeMaxOutstandingR2T"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeFirstBurstSize"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeMaxBurstSize"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeMaxConnections"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeDataSequenceInOrder"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeDataPduInOrder"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeDefaultTime2Wait"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeDefaultTime2Retain"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiNodeErrorRecoveryLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTargetAttributesGroup": {
+    "name": "cIscsiTargetAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginFailures"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastFailureTime"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastFailureType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastIntrFailureName"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastIntrFailureAddrType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLastIntrFailureAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTargetLoginStatsGroup": {
+    "name": "cIscsiTargetLoginStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginAccepts"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginOtherFails"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginRedirects"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginAuthorizeFails"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginAuthenticateFails"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginNegotiateFails"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTargetLogoutStatsGroup": {
+    "name": "cIscsiTargetLogoutStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLogoutNormals"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLogoutOthers"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTargetAuthGroup": {
+    "name": "cIscsiTargetAuthGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtAuthRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtAuthIdentity"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiInitiatorAttributesGroup": {
+    "name": "cIscsiInitiatorAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginFailures"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastFailureTime"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastFailureType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastTgtFailureName"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastTgtFailureAddrType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLastTgtFailureAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiInitiatorLoginStatsGroup": {
+    "name": "cIscsiInitiatorLoginStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginAcceptRsps"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginOtherFailRsps"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginRedirectRsps"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginAuthFailRsps"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginAuthenticateFails"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginNegotiateFails"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiInitiatorLogoutStatsGroup": {
+    "name": "cIscsiInitiatorLogoutStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLogoutNormals"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLogoutOthers"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiInitiatorAuthGroup": {
+    "name": "cIscsiInitiatorAuthGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrAuthRowStatus"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrAuthIdentity"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiSessionAttributesGroup": {
+    "name": "cIscsiSessionAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnDirection"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnInitiatorName"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnTargetName"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnTsih"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnIsid"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnInitiatorAlias"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnTargetAlias"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnInitialR2T"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnBidiInitialR2T"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnImmediateData"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnMaxOutstandingR2T"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnFirstBurstSize"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnMaxBurstSize"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnConnectionNumber"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnAuthIdentity"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnDataSequenceInOrder"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnDataPduInOrder"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnErrorRecoveryLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiSessionStatsGroup": {
+    "name": "cIscsiSessionStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnCmdPdus"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnRspPdus"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnTxDataOctets"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnRxDataOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiSessionCxnErrorStatsGroup": {
+    "name": "cIscsiSessionCxnErrorStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnDigestErrors"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiSsnCxnTimeoutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiConnectionAttributesGroup": {
+    "name": "cIscsiConnectionAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnCid"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnState"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnProtocol"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnLocalAddrType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnLocalAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnLocalPort"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnRemoteAddrType"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnRemoteAddr"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnRemotePort"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnMaxRecvDataSegLength"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnHeaderIntegrity"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnDataIntegrity"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnRecvMarker"
+      },
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiCxnSendMarker"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiTgtLgnNotificationsGroup": {
+    "name": "cIscsiTgtLgnNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiTgtLoginFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiIntrLgnNotificationsGroup": {
+    "name": "cIscsiIntrLgnNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.20",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiIntrLoginFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiSsnFlrNotificationsGroup": {
+    "name": "cIscsiSsnFlrNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.94.3.1.21",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ISCSI-MIB",
+        "object": "cIscsiInstSessionFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "cIscsiCompliances": {
+    "name": "cIscsiCompliances",
+    "oid": "1.3.6.1.4.1.9.10.94.3.2",
+    "class": "objectidentity"
+  },
+  "cIscsiComplianceV1": {
+    "name": "cIscsiComplianceV1",
+    "oid": "1.3.6.1.4.1.9.10.94.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIscsiInstanceAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiPortalAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiNodeAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiSessionAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiSessionStatsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiSessionCxnErrorStatsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiConnectionAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiSsnFlrNotificationsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiInstanceSsnErrorStatsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiTgtPortalAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiTargetAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiTargetLoginStatsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiTargetLogoutStatsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiTgtLgnNotificationsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiTargetAuthGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiIntrPortalAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiInitiatorAttributesGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiInitiatorLoginStatsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiInitiatorLogoutStatsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiIntrLgnNotificationsGroup",
+        "module": "CISCO-ISCSI-MIB"
+      },
+      {
+        "object": "cIscsiInitiatorAuthGroup",
+        "module": "CISCO-ISCSI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ISCSI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ISCSI-MIB"
+  }
+}

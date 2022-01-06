@@ -1,0 +1,952 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoServiceControlRdrMIB": {
+    "name": "ciscoServiceControlRdrMIB",
+    "oid": "1.3.6.1.4.1.9.9.637",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-14 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "ciscoSCRdrMIBNotifs": {
+    "name": "ciscoSCRdrMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.637.0",
+    "class": "objectidentity"
+  },
+  "ciscoSCRdrMIBObjects": {
+    "name": "ciscoSCRdrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.637.1",
+    "class": "objectidentity"
+  },
+  "ciscoSCRdrMIBConform": {
+    "name": "ciscoSCRdrMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.637.2",
+    "class": "objectidentity"
+  },
+  "cscRdrFormatterTable": {
+    "name": "cscRdrFormatterTable",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscRdrFormatterEntry": {
+    "name": "cscRdrFormatterEntry",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrFormatterEnable": {
+    "name": "cscRdrFormatterEnable",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrFormatterNumSentReports": {
+    "name": "cscRdrFormatterNumSentReports",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "reports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrFormatterNumDiscardedReports": {
+    "name": "cscRdrFormatterNumDiscardedReports",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "reports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrFormatterReportRate": {
+    "name": "cscRdrFormatterReportRate",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "reports per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrFormatterReportRatePeak": {
+    "name": "cscRdrFormatterReportRatePeak",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "reports per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrFormatterReportRatePeakTime": {
+    "name": "cscRdrFormatterReportRatePeakTime",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrFormatterProtocol": {
+    "name": "cscRdrFormatterProtocol",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rdrv1": 2,
+          "netflowV9": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rdrv1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscRdrFormatterForwardingMode": {
+    "name": "cscRdrFormatterForwardingMode",
+    "oid": "1.3.6.1.4.1.9.9.637.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "redundancy": 2,
+          "simpleLoadBalancing": 3,
+          "multicast": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "redundancy",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscRdrDestTable": {
+    "name": "cscRdrDestTable",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscRdrDestEntry": {
+    "name": "cscRdrDestEntry",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrDestIndex": {
+    "name": "cscRdrDestIndex",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscRdrDestInetAddressType": {
+    "name": "cscRdrDestInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestInetAddress": {
+    "name": "cscRdrDestInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestPort": {
+    "name": "cscRdrDestPort",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestPriority": {
+    "name": "cscRdrDestPriority",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestStatus": {
+    "name": "cscRdrDestStatus",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestConnectionStatus": {
+    "name": "cscRdrDestConnectionStatus",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestNumSentReports": {
+    "name": "cscRdrDestNumSentReports",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "reports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestNumDiscardedReports": {
+    "name": "cscRdrDestNumDiscardedReports",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrDestReportRate": {
+    "name": "cscRdrDestReportRate",
+    "oid": "1.3.6.1.4.1.9.9.637.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "reports per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryTable": {
+    "name": "cscRdrCategoryTable",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscRdrCategoryEntry": {
+    "name": "cscRdrCategoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrCategoryIndex": {
+    "name": "cscRdrCategoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscRdrCategoryID": {
+    "name": "cscRdrCategoryID",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryName": {
+    "name": "cscRdrCategoryName",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryNumSentReports": {
+    "name": "cscRdrCategoryNumSentReports",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "reports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryNumDiscardedReports": {
+    "name": "cscRdrCategoryNumDiscardedReports",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "reports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryReportRate": {
+    "name": "cscRdrCategoryReportRate",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "reports per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryNumQueuedReports": {
+    "name": "cscRdrCategoryNumQueuedReports",
+    "oid": "1.3.6.1.4.1.9.9.637.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "reports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryDestTable": {
+    "name": "cscRdrCategoryDestTable",
+    "oid": "1.3.6.1.4.1.9.9.637.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cscRdrCategoryDestEntry": {
+    "name": "cscRdrCategoryDestEntry",
+    "oid": "1.3.6.1.4.1.9.9.637.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrCategoryDestPriority": {
+    "name": "cscRdrCategoryDestPriority",
+    "oid": "1.3.6.1.4.1.9.9.637.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrCategoryDestStatus": {
+    "name": "cscRdrCategoryDestStatus",
+    "oid": "1.3.6.1.4.1.9.9.637.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrNotifsConfig": {
+    "name": "cscRdrNotifsConfig",
+    "oid": "1.3.6.1.4.1.9.9.637.1.5",
+    "class": "objectidentity"
+  },
+  "cscRdrCounterDiscontinuityTime": {
+    "name": "cscRdrCounterDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.637.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cscRdrReportsEnableNotifs": {
+    "name": "cscRdrReportsEnableNotifs",
+    "oid": "1.3.6.1.4.1.9.9.637.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cscRdrCategoryStoppedDiscardingReportsTrap": {
+    "name": "cscRdrCategoryStoppedDiscardingReportsTrap",
+    "oid": "1.3.6.1.4.1.9.9.637.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryID"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrCategoryDiscardingReportsTrap": {
+    "name": "cscRdrCategoryDiscardingReportsTrap",
+    "oid": "1.3.6.1.4.1.9.9.637.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryID"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrNoActiveConnectionTrap": {
+    "name": "cscRdrNoActiveConnectionTrap",
+    "oid": "1.3.6.1.4.1.9.9.637.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrConnectionStatusDownTrap": {
+    "name": "cscRdrConnectionStatusDownTrap",
+    "oid": "1.3.6.1.4.1.9.9.637.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestStatus"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestInetAddress"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrActiveConnectionTrap": {
+    "name": "cscRdrActiveConnectionTrap",
+    "oid": "1.3.6.1.4.1.9.9.637.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestInetAddress"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrConnectionStatusUpTrap": {
+    "name": "cscRdrConnectionStatusUpTrap",
+    "oid": "1.3.6.1.4.1.9.9.637.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestStatus"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestInetAddress"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrMIBCompliances": {
+    "name": "cscRdrMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.637.2.1",
+    "class": "objectidentity"
+  },
+  "cscRdrMIBGroups": {
+    "name": "cscRdrMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.637.2.2",
+    "class": "objectidentity"
+  },
+  "cscRdrCompliance": {
+    "name": "cscRdrCompliance",
+    "oid": "1.3.6.1.4.1.9.9.637.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cscRdrObjectGroup",
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB"
+      },
+      {
+        "object": "cscRdrNotificationGroup",
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB"
+      },
+      {
+        "object": "cscRdrCounterDiscontinuityGroup",
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB"
+      },
+      {
+        "object": "cscRdrNotifsControlGroup",
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrObjectGroup": {
+    "name": "cscRdrObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.637.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterEnable"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterNumSentReports"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterNumDiscardedReports"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterReportRate"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterProtocol"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterForwardingMode"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestInetAddressType"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestInetAddress"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestPort"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestPriority"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestStatus"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestConnectionStatus"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestNumSentReports"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestNumDiscardedReports"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrDestReportRate"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryName"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryNumSentReports"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryNumDiscardedReports"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryReportRate"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryNumQueuedReports"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryDestPriority"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryDestStatus"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterReportRatePeak"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrFormatterReportRatePeakTime"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryID"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrNotificationGroup": {
+    "name": "cscRdrNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.637.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrActiveConnectionTrap"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryStoppedDiscardingReportsTrap"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCategoryDiscardingReportsTrap"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrNoActiveConnectionTrap"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrConnectionStatusDownTrap"
+      },
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrConnectionStatusUpTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrNotifsControlGroup": {
+    "name": "cscRdrNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.637.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrReportsEnableNotifs"
+      }
+    ],
+    "status": "current"
+  },
+  "cscRdrCounterDiscontinuityGroup": {
+    "name": "cscRdrCounterDiscontinuityGroup",
+    "oid": "1.3.6.1.4.1.9.9.637.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SERVICE-CONTROL-RDR-MIB",
+        "object": "cscRdrCounterDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SERVICE-CONTROL-RDR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SERVICE-CONTROL-RDR-MIB"
+  }
+}

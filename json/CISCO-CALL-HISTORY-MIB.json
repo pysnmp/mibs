@@ -1,0 +1,762 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCallHistoryMib": {
+    "name": "ciscoCallHistoryMib",
+    "oid": "1.3.6.1.4.1.9.9.27",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-08-15 00:00",
+        "description": "Fix typo which caused conflicting syntax."
+      },
+      {
+        "revision": "1995-07-20 00:00",
+        "description": "Add a new object ciscoCallHistoryDialReason to the call history table."
+      },
+      {
+        "revision": "1995-08-15 00:00",
+        "description": "Add new objects to the call history table to store the time of day, and transmitted/received packets/bytes."
+      },
+      {
+        "revision": "1996-11-19 00:00",
+        "description": "Add new objects to the call history table to store the advice of charge information for recorded units or currency type, amount and multipler."
+      }
+    ]
+  },
+  "ciscoCallHistoryMibObjects": {
+    "name": "ciscoCallHistoryMibObjects",
+    "oid": "1.3.6.1.4.1.9.9.27.1",
+    "class": "objectidentity"
+  },
+  "ciscoCallHistory": {
+    "name": "ciscoCallHistory",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoCallHistoryTableMaxLength": {
+    "name": "ciscoCallHistoryTableMaxLength",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoCallHistoryRetainTimer": {
+    "name": "ciscoCallHistoryRetainTimer",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoCallHistoryTable": {
+    "name": "ciscoCallHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoCallHistoryEntry": {
+    "name": "ciscoCallHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryStartTime",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCallHistoryStartTime": {
+    "name": "ciscoCallHistoryStartTime",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoCallHistoryIndex": {
+    "name": "ciscoCallHistoryIndex",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoCallHistoryCallingNumber": {
+    "name": "ciscoCallHistoryCallingNumber",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryCalledNumber": {
+    "name": "ciscoCallHistoryCalledNumber",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryInterfaceNumber": {
+    "name": "ciscoCallHistoryInterfaceNumber",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryDestinationAddress": {
+    "name": "ciscoCallHistoryDestinationAddress",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryDestinationHostName": {
+    "name": "ciscoCallHistoryDestinationHostName",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryCallDisconnectCause": {
+    "name": "ciscoCallHistoryCallDisconnectCause",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "normalDisconnectSent": 2,
+          "normalDisconnectReceived": 3,
+          "networkOutOfOrder": 4,
+          "callRejected": 5,
+          "userBusy": 6,
+          "noCircuitChannelAvailable": 7,
+          "interworkingError": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryCallConnectionTime": {
+    "name": "ciscoCallHistoryCallConnectionTime",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryCallDisconnectTime": {
+    "name": "ciscoCallHistoryCallDisconnectTime",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryDialReason": {
+    "name": "ciscoCallHistoryDialReason",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryConnectTimeOfDay": {
+    "name": "ciscoCallHistoryConnectTimeOfDay",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryDisconnectTimeOfDay": {
+    "name": "ciscoCallHistoryDisconnectTimeOfDay",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryTransmitPackets": {
+    "name": "ciscoCallHistoryTransmitPackets",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryTransmitBytes": {
+    "name": "ciscoCallHistoryTransmitBytes",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryReceivePackets": {
+    "name": "ciscoCallHistoryReceivePackets",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryReceiveBytes": {
+    "name": "ciscoCallHistoryReceiveBytes",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryRecordedUnits": {
+    "name": "ciscoCallHistoryRecordedUnits",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryCurrency": {
+    "name": "ciscoCallHistoryCurrency",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryCurrencyAmount": {
+    "name": "ciscoCallHistoryCurrencyAmount",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryMultiplier": {
+    "name": "ciscoCallHistoryMultiplier",
+    "oid": "1.3.6.1.4.1.9.9.27.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneThousandth": 0,
+          "oneHundreth": 1,
+          "oneTenth": 2,
+          "one": 3,
+          "ten": 4,
+          "hundred": 5,
+          "thousand": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCallHistoryMibConformance": {
+    "name": "ciscoCallHistoryMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.27.2",
+    "class": "objectidentity"
+  },
+  "ciscoCallHistoryMibCompliances": {
+    "name": "ciscoCallHistoryMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.27.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCallHistoryMibGroups": {
+    "name": "ciscoCallHistoryMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.27.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCallHistoryMibCompliance": {
+    "name": "ciscoCallHistoryMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.27.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCallHistoryMibGroup",
+        "module": "CISCO-CALL-HISTORY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCallHistoryMibComplianceRev1": {
+    "name": "ciscoCallHistoryMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.27.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCallHistoryMibGroupRev1",
+        "module": "CISCO-CALL-HISTORY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCallHistoryMibComplianceV11R01": {
+    "name": "ciscoCallHistoryMibComplianceV11R01",
+    "oid": "1.3.6.1.4.1.9.9.27.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCallHistoryMibGroupRev1",
+        "module": "CISCO-CALL-HISTORY-MIB"
+      },
+      {
+        "object": "ciscoCallHistoryMibGlobalsGroup",
+        "module": "CISCO-CALL-HISTORY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCallHistoryMibComplianceV11R02": {
+    "name": "ciscoCallHistoryMibComplianceV11R02",
+    "oid": "1.3.6.1.4.1.9.9.27.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCallHistoryMibGroupRev2",
+        "module": "CISCO-CALL-HISTORY-MIB"
+      },
+      {
+        "object": "ciscoCallHistoryMibGlobalsGroup",
+        "module": "CISCO-CALL-HISTORY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCallHistoryMibGroup": {
+    "name": "ciscoCallHistoryMibGroup",
+    "oid": "1.3.6.1.4.1.9.9.27.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallingNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCalledNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryInterfaceNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDestinationAddress"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDestinationHostName"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallDisconnectCause"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallConnectionTime"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallDisconnectTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCallHistoryMibGroupRev1": {
+    "name": "ciscoCallHistoryMibGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.27.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallingNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCalledNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryInterfaceNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDestinationAddress"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDestinationHostName"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallDisconnectCause"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallConnectionTime"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallDisconnectTime"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDialReason"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryConnectTimeOfDay"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDisconnectTimeOfDay"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryTransmitPackets"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryTransmitBytes"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryReceivePackets"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryReceiveBytes"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoCallHistoryMibGroupRev2": {
+    "name": "ciscoCallHistoryMibGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.27.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallingNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCalledNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryInterfaceNumber"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDestinationAddress"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDestinationHostName"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallDisconnectCause"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallConnectionTime"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCallDisconnectTime"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDialReason"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryConnectTimeOfDay"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryDisconnectTimeOfDay"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryTransmitPackets"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryTransmitBytes"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryReceivePackets"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryReceiveBytes"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryRecordedUnits"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCurrency"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryCurrencyAmount"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryMultiplier"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCallHistoryMibGlobalsGroup": {
+    "name": "ciscoCallHistoryMibGlobalsGroup",
+    "oid": "1.3.6.1.4.1.9.9.27.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryTableMaxLength"
+      },
+      {
+        "module": "CISCO-CALL-HISTORY-MIB",
+        "object": "ciscoCallHistoryRetainTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALL-HISTORY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CALL-HISTORY-MIB"
+  }
+}

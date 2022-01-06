@@ -1,0 +1,120 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-MIB": [
+      "adShared",
+      "adIdentityShared"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAOSMib": {
+    "name": "adGenAOSMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-09-10 00:00",
+        "description": "Added adGenAOSMef OID."
+      },
+      {
+        "revision": "2012-04-27 00:00",
+        "description": "Added adGenAOSApplications OID."
+      },
+      {
+        "revision": "2010-07-05 00:00",
+        "description": "Added adGenAOSPower OID."
+      },
+      {
+        "revision": "2004-10-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "adGenAOS": {
+    "name": "adGenAOS",
+    "oid": "1.3.6.1.4.1.664.5.53",
+    "class": "objectidentity"
+  },
+  "adGenAOSCommon": {
+    "name": "adGenAOSCommon",
+    "oid": "1.3.6.1.4.1.664.5.53.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSRouter": {
+    "name": "adGenAOSRouter",
+    "oid": "1.3.6.1.4.1.664.5.53.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSSecurity": {
+    "name": "adGenAOSSecurity",
+    "oid": "1.3.6.1.4.1.664.5.53.3",
+    "class": "objectidentity"
+  },
+  "adGenAOSSwitch": {
+    "name": "adGenAOSSwitch",
+    "oid": "1.3.6.1.4.1.664.5.53.4",
+    "class": "objectidentity"
+  },
+  "adGenAOSVoice": {
+    "name": "adGenAOSVoice",
+    "oid": "1.3.6.1.4.1.664.5.53.5",
+    "class": "objectidentity"
+  },
+  "adGenAOSWan": {
+    "name": "adGenAOSWan",
+    "oid": "1.3.6.1.4.1.664.5.53.6",
+    "class": "objectidentity"
+  },
+  "adGenAOSPower": {
+    "name": "adGenAOSPower",
+    "oid": "1.3.6.1.4.1.664.5.53.7",
+    "class": "objectidentity"
+  },
+  "adGenAOSConformance": {
+    "name": "adGenAOSConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99",
+    "class": "objectidentity"
+  },
+  "adGenAOSApplications": {
+    "name": "adGenAOSApplications",
+    "oid": "1.3.6.1.4.1.664.5.53.8",
+    "class": "objectidentity"
+  },
+  "adGenAOSMef": {
+    "name": "adGenAOSMef",
+    "oid": "1.3.6.1.4.1.664.5.53.9",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS"
+  }
+}

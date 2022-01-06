@@ -1,0 +1,320 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TCP-MIB": [
+      "tcpConnEntry"
+    ]
+  },
+  "ciscoTcpMIB": {
+    "name": "ciscoTcpMIB",
+    "oid": "1.3.6.1.4.1.9.9.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-11-12 00:00",
+        "description": "Added 3 new readonly MIB varaibles used for getting some vital per connection TCP statistics. They are : ciscoTcpConnRto ciscoTcpConnRetransPkts ciscoTcpConnFastRetransPkts"
+      },
+      {
+        "revision": "1996-12-03 00:00",
+        "description": "Import tcpConnEntry from TCP-MIB instead of RFC1213-MIB"
+      },
+      {
+        "revision": "1994-07-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoTcpMIBObjects": {
+    "name": "ciscoTcpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.6.1",
+    "class": "objectidentity"
+  },
+  "ciscoTcpConnTable": {
+    "name": "ciscoTcpConnTable",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoTcpConnEntry": {
+    "name": "ciscoTcpConnEntry",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoTcpConnEntry",
+      "module": "CISCO-TCP-MIB",
+      "object": "tcpConnEntry"
+    },
+    "status": "current"
+  },
+  "ciscoTcpConnInBytes": {
+    "name": "ciscoTcpConnInBytes",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnOutBytes": {
+    "name": "ciscoTcpConnOutBytes",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnInPkts": {
+    "name": "ciscoTcpConnInPkts",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnOutPkts": {
+    "name": "ciscoTcpConnOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnElapsed": {
+    "name": "ciscoTcpConnElapsed",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnSRTT": {
+    "name": "ciscoTcpConnSRTT",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnRetransPkts": {
+    "name": "ciscoTcpConnRetransPkts",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnFastRetransPkts": {
+    "name": "ciscoTcpConnFastRetransPkts",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpConnRto": {
+    "name": "ciscoTcpConnRto",
+    "oid": "1.3.6.1.4.1.9.9.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoTcpMIBTraps": {
+    "name": "ciscoTcpMIBTraps",
+    "oid": "1.3.6.1.4.1.9.9.6.2",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMIBConformance": {
+    "name": "ciscoTcpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.6.3",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMIBCompliances": {
+    "name": "ciscoTcpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.6.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMIBGroups": {
+    "name": "ciscoTcpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.6.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoTcpMIBCompliance": {
+    "name": "ciscoTcpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.6.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTcpMIBGroup",
+        "module": "CISCO-TCP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTcpMIBComplianceRev1": {
+    "name": "ciscoTcpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.6.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTcpMIBGroupRev1",
+        "module": "CISCO-TCP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTcpMIBGroup": {
+    "name": "ciscoTcpMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.6.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnInBytes"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnOutBytes"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnInPkts"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnOutPkts"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnElapsed"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnSRTT"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTcpMIBGroupRev1": {
+    "name": "ciscoTcpMIBGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.6.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnInBytes"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnOutBytes"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnInPkts"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnOutPkts"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnElapsed"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnSRTT"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnRto"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnRetransPkts"
+      },
+      {
+        "module": "CISCO-TCP-MIB",
+        "object": "ciscoTcpConnFastRetransPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TCP-MIB"
+  }
+}

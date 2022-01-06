@@ -1,0 +1,2740 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "enterprises",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netScaler": {
+    "name": "netScaler",
+    "oid": "1.3.6.1.4.1.5951",
+    "class": "moduleidentity"
+  },
+  "sdxRoot": {
+    "name": "sdxRoot",
+    "oid": "1.3.6.1.4.1.5951.6",
+    "class": "objectidentity"
+  },
+  "sdxEventGroup": {
+    "name": "sdxEventGroup",
+    "oid": "1.3.6.1.4.1.5951.6.1",
+    "class": "objectidentity"
+  },
+  "systemGroup": {
+    "name": "systemGroup",
+    "oid": "1.3.6.1.4.1.5951.6.2",
+    "class": "objectidentity"
+  },
+  "systemPlatform": {
+    "name": "systemPlatform",
+    "oid": "1.3.6.1.4.1.5951.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemProduct": {
+    "name": "systemProduct",
+    "oid": "1.3.6.1.4.1.5951.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemBuildNumber": {
+    "name": "systemBuildNumber",
+    "oid": "1.3.6.1.4.1.5951.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSvmIPAddressType": {
+    "name": "systemSvmIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSvmIPAddress": {
+    "name": "systemSvmIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemXenIPAddressType": {
+    "name": "systemXenIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemXenIPAddress": {
+    "name": "systemXenIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNetmaskType": {
+    "name": "systemNetmaskType",
+    "oid": "1.3.6.1.4.1.5951.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNetmask": {
+    "name": "systemNetmask",
+    "oid": "1.3.6.1.4.1.5951.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemGatewayType": {
+    "name": "systemGatewayType",
+    "oid": "1.3.6.1.4.1.5951.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemGateway": {
+    "name": "systemGateway",
+    "oid": "1.3.6.1.4.1.5951.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemNetworkInterface": {
+    "name": "systemNetworkInterface",
+    "oid": "1.3.6.1.4.1.5951.6.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemDns": {
+    "name": "systemDns",
+    "oid": "1.3.6.1.4.1.5951.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSysId": {
+    "name": "systemSysId",
+    "oid": "1.3.6.1.4.1.5951.6.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSerial": {
+    "name": "systemSerial",
+    "oid": "1.3.6.1.4.1.5951.6.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemCurrentTime": {
+    "name": "systemCurrentTime",
+    "oid": "1.3.6.1.4.1.5951.6.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemUptime": {
+    "name": "systemUptime",
+    "oid": "1.3.6.1.4.1.5951.6.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemBiosVersion": {
+    "name": "systemBiosVersion",
+    "oid": "1.3.6.1.4.1.5951.6.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemMaxThroughput": {
+    "name": "systemMaxThroughput",
+    "oid": "1.3.6.1.4.1.5951.6.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemAvailableThroughput": {
+    "name": "systemAvailableThroughput",
+    "oid": "1.3.6.1.4.1.5951.6.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemHostId": {
+    "name": "systemHostId",
+    "oid": "1.3.6.1.4.1.5951.6.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemCustomID": {
+    "name": "systemCustomID",
+    "oid": "1.3.6.1.4.1.5951.6.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHealthGroup": {
+    "name": "sysHealthGroup",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000",
+    "class": "objectidentity"
+  },
+  "hardwareResourceTable": {
+    "name": "hardwareResourceTable",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hardwareResourceEntry": {
+    "name": "hardwareResourceEntry",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "hardwareResourceName",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "hardwareResourceHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "hardwareResourceHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hardwareResourceName": {
+    "name": "hardwareResourceName",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareResourceHostIPAddressType": {
+    "name": "hardwareResourceHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareResourceHostIPAddress": {
+    "name": "hardwareResourceHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareResourceCurrentValue": {
+    "name": "hardwareResourceCurrentValue",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareResourceExpectedValue": {
+    "name": "hardwareResourceExpectedValue",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareResourceUnit": {
+    "name": "hardwareResourceUnit",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hardwareResourceStatus": {
+    "name": "hardwareResourceStatus",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareResourceTable": {
+    "name": "softwareResourceTable",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "softwareResourceEntry": {
+    "name": "softwareResourceEntry",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "softwareResourceName",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "softwareResourceHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "softwareResourceHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "softwareResourceName": {
+    "name": "softwareResourceName",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareResourceHostIPAddressType": {
+    "name": "softwareResourceHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareResourceHostIPAddress": {
+    "name": "softwareResourceHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareResourceCurrentValue": {
+    "name": "softwareResourceCurrentValue",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareResourceExpectedValue": {
+    "name": "softwareResourceExpectedValue",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareResourceUnit": {
+    "name": "softwareResourceUnit",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareResourceStatus": {
+    "name": "softwareResourceStatus",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTable": {
+    "name": "diskTable",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskEntry": {
+    "name": "diskEntry",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "diskName",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "diskHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "diskHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskName": {
+    "name": "diskName",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskHostIPAddressType": {
+    "name": "diskHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskHostIPAddress": {
+    "name": "diskHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTransactionRate": {
+    "name": "diskTransactionRate",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskBlockReadRate": {
+    "name": "diskBlockReadRate",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskBlockWriteRate": {
+    "name": "diskBlockWriteRate",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTotalBlocksRead": {
+    "name": "diskTotalBlocksRead",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTotalBlocksWritten": {
+    "name": "diskTotalBlocksWritten",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskUtilized": {
+    "name": "diskUtilized",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSize": {
+    "name": "diskSize",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskBayNumber": {
+    "name": "diskBayNumber",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srTable": {
+    "name": "srTable",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srEntry": {
+    "name": "srEntry",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "srName",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "srBayNumber",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "srHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "srHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srName": {
+    "name": "srName",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srBayNumber": {
+    "name": "srBayNumber",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srHostIPAddressType": {
+    "name": "srHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srHostIPAddress": {
+    "name": "srHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srUtilized": {
+    "name": "srUtilized",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srSize": {
+    "name": "srSize",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srStatus": {
+    "name": "srStatus",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTable": {
+    "name": "interfaceTable",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "interfaceEntry": {
+    "name": "interfaceEntry",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "interfaceMappedPort",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "interfaceHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "interfaceHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "interfacePort": {
+    "name": "interfacePort",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceHostIPAddressType": {
+    "name": "interfaceHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceHostIPAddress": {
+    "name": "interfaceHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceState": {
+    "name": "interfaceState",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceRxPackets": {
+    "name": "interfaceRxPackets",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTxPackets": {
+    "name": "interfaceTxPackets",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceRxBytes": {
+    "name": "interfaceRxBytes",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTxBytes": {
+    "name": "interfaceTxBytes",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceRxErrors": {
+    "name": "interfaceRxErrors",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceTxErrors": {
+    "name": "interfaceTxErrors",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceVfTotal": {
+    "name": "interfaceVfTotal",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceVfAssigned": {
+    "name": "interfaceVfAssigned",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "interfaceMappedPort": {
+    "name": "interfaceMappedPort",
+    "oid": "1.3.6.1.4.1.5951.6.2.1000.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceGroup": {
+    "name": "deviceGroup",
+    "oid": "1.3.6.1.4.1.5951.6.3",
+    "class": "objectidentity"
+  },
+  "xenTable": {
+    "name": "xenTable",
+    "oid": "1.3.6.1.4.1.5951.6.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xenEntry": {
+    "name": "xenEntry",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "xenIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "xenIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xenIpAddressType": {
+    "name": "xenIpAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenIpAddress": {
+    "name": "xenIpAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenHostname": {
+    "name": "xenHostname",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenDescription": {
+    "name": "xenDescription",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenVersion": {
+    "name": "xenVersion",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenUuid": {
+    "name": "xenUuid",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenNumberOfCPU": {
+    "name": "xenNumberOfCPU",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenCpuUsage": {
+    "name": "xenCpuUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenMemoryTotal": {
+    "name": "xenMemoryTotal",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenMemoryFree": {
+    "name": "xenMemoryFree",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenMemoryUsage": {
+    "name": "xenMemoryUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenTx": {
+    "name": "xenTx",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenRx": {
+    "name": "xenRx",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenUptime": {
+    "name": "xenUptime",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenSslCoresTotal": {
+    "name": "xenSslCoresTotal",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenIscsiIQN": {
+    "name": "xenIscsiIQN",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenEdition": {
+    "name": "xenEdition",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenExpiry": {
+    "name": "xenExpiry",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenProductCode": {
+    "name": "xenProductCode",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenSerialNumber": {
+    "name": "xenSerialNumber",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenVersionLong": {
+    "name": "xenVersionLong",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenVersionShort": {
+    "name": "xenVersionShort",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenBuildNumber": {
+    "name": "xenBuildNumber",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xenBuildDate": {
+    "name": "xenBuildDate",
+    "oid": "1.3.6.1.4.1.5951.6.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netscalerTable": {
+    "name": "netscalerTable",
+    "oid": "1.3.6.1.4.1.5951.6.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "netscalerEntry": {
+    "name": "netscalerEntry",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "nsIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "nsIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "nsHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "nsHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsIpAddressType": {
+    "name": "nsIpAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIpAddress": {
+    "name": "nsIpAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHostIPAddressType": {
+    "name": "nsHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHostIPAddress": {
+    "name": "nsHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsProfileName": {
+    "name": "nsProfileName",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsName": {
+    "name": "nsName",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNetmaskType": {
+    "name": "nsNetmaskType",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNetmask": {
+    "name": "nsNetmask",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsGatewayType": {
+    "name": "nsGatewayType",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsGateway": {
+    "name": "nsGateway",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHostname": {
+    "name": "nsHostname",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsDescription": {
+    "name": "nsDescription",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVersion": {
+    "name": "nsVersion",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsUuid": {
+    "name": "nsUuid",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsInstanceState": {
+    "name": "nsInstanceState",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVirtualFunctions": {
+    "name": "nsVirtualFunctions",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsSslVirtualFunctions": {
+    "name": "nsSslVirtualFunctions",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVmState": {
+    "name": "nsVmState",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNumberOfCPU": {
+    "name": "nsNumberOfCPU",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVmMemoryTotal": {
+    "name": "nsVmMemoryTotal",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsUptime": {
+    "name": "nsUptime",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNumberOfSSLCores": {
+    "name": "nsNumberOfSSLCores",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsCpuCoreMgmt": {
+    "name": "nsCpuCoreMgmt",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsCpuCorePE": {
+    "name": "nsCpuCorePE",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVmDescription": {
+    "name": "nsVmDescription",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsThroughput": {
+    "name": "nsThroughput",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNumberOfCores": {
+    "name": "nsNumberOfCores",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNsCPUUsage": {
+    "name": "nsNsCPUUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNsMemoryUsage": {
+    "name": "nsNsMemoryUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNsTx": {
+    "name": "nsNsTx",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNsRx": {
+    "name": "nsNsRx",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHttpReq": {
+    "name": "nsHttpReq",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsUpsince": {
+    "name": "nsUpsince",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsLicense": {
+    "name": "nsLicense",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHaMasterState": {
+    "name": "nsHaMasterState",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHaIPAddressType": {
+    "name": "nsHaIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHaIPAddress": {
+    "name": "nsHaIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNodeState": {
+    "name": "nsNodeState",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsHaSync": {
+    "name": "nsHaSync",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsPps": {
+    "name": "nsPps",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNumberOfSslCoresUp": {
+    "name": "nsNumberOfSslCoresUp",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIfOby1": {
+    "name": "nsIfOby1",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsIf0by2": {
+    "name": "nsIf0by2",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNsVLANId": {
+    "name": "nsNsVLANId",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsNsVLANTagged": {
+    "name": "nsNsVLANTagged",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVlanType": {
+    "name": "nsVlanType",
+    "oid": "1.3.6.1.4.1.5951.6.3.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cloudBridgeInstanceTable": {
+    "name": "cloudBridgeInstanceTable",
+    "oid": "1.3.6.1.4.1.5951.6.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cloudBridgeInstanceEntry": {
+    "name": "cloudBridgeInstanceEntry",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "cbIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "cbIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "cbHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "cbHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbIpAddressType": {
+    "name": "cbIpAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbIpAddress": {
+    "name": "cbIpAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbHostIPAddressType": {
+    "name": "cbHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbHostIPAddress": {
+    "name": "cbHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbProfileName": {
+    "name": "cbProfileName",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbName": {
+    "name": "cbName",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbNetmaskType": {
+    "name": "cbNetmaskType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbNetmask": {
+    "name": "cbNetmask",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbGatewayType": {
+    "name": "cbGatewayType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbGateway": {
+    "name": "cbGateway",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbHostname": {
+    "name": "cbHostname",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbDescription": {
+    "name": "cbDescription",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbVersion": {
+    "name": "cbVersion",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbInstanceState": {
+    "name": "cbInstanceState",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbUuid": {
+    "name": "cbUuid",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbVirtualFunctions": {
+    "name": "cbVirtualFunctions",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbVmState": {
+    "name": "cbVmState",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbNumberOfCPU": {
+    "name": "cbNumberOfCPU",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbVmCPUUsage": {
+    "name": "cbVmCPUUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbVmMemoryTotal": {
+    "name": "cbVmMemoryTotal",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbVmMemoryFree": {
+    "name": "cbVmMemoryFree",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbVmMemoryUsage": {
+    "name": "cbVmMemoryUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbUptime": {
+    "name": "cbUptime",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbDiskAllocation": {
+    "name": "cbDiskAllocation",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAPAIPADDRESSType": {
+    "name": "cbAPAIPADDRESSType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAPAIPADDRESS": {
+    "name": "cbAPAIPADDRESS",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAPANetMaskType": {
+    "name": "cbAPANetMaskType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAPANetMask": {
+    "name": "cbAPANetMask",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAPAGatewayType": {
+    "name": "cbAPAGatewayType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAPAGateway": {
+    "name": "cbAPAGateway",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbPluginIPADDRESSType": {
+    "name": "cbPluginIPADDRESSType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbPluginIPADDRESS": {
+    "name": "cbPluginIPADDRESS",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbMgmtIPAddressType": {
+    "name": "cbMgmtIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbMgmtIPAddress": {
+    "name": "cbMgmtIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.3.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cloudBridgeAcceleratorTable": {
+    "name": "cloudBridgeAcceleratorTable",
+    "oid": "1.3.6.1.4.1.5951.6.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cloudBridgeAcceleratorEntry": {
+    "name": "cloudBridgeAcceleratorEntry",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIB",
+        "object": "cbAcceleratorIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "cbAcceleratorIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "cbAcceleratorHostIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MIB",
+        "object": "cbAcceleratorHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbAcceleratorIpAddressType": {
+    "name": "cbAcceleratorIpAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorIpAddress": {
+    "name": "cbAcceleratorIpAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorHostIPAddressType": {
+    "name": "cbAcceleratorHostIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorHostIPAddress": {
+    "name": "cbAcceleratorHostIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorProfileName": {
+    "name": "cbAcceleratorProfileName",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorName": {
+    "name": "cbAcceleratorName",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorNetmaskType": {
+    "name": "cbAcceleratorNetmaskType",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorNetmask": {
+    "name": "cbAcceleratorNetmask",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorGatewayType": {
+    "name": "cbAcceleratorGatewayType",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorGateway": {
+    "name": "cbAcceleratorGateway",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorHostname": {
+    "name": "cbAcceleratorHostname",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorDescription": {
+    "name": "cbAcceleratorDescription",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorVersion": {
+    "name": "cbAcceleratorVersion",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorInstanceState": {
+    "name": "cbAcceleratorInstanceState",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorUuid": {
+    "name": "cbAcceleratorUuid",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorVmState": {
+    "name": "cbAcceleratorVmState",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorNumberOfCPU": {
+    "name": "cbAcceleratorNumberOfCPU",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorVmCPUUsage": {
+    "name": "cbAcceleratorVmCPUUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorVmMemoryTotal": {
+    "name": "cbAcceleratorVmMemoryTotal",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorVmMemoryFree": {
+    "name": "cbAcceleratorVmMemoryFree",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorVmMemoryUsage": {
+    "name": "cbAcceleratorVmMemoryUsage",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorUptime": {
+    "name": "cbAcceleratorUptime",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorIpList": {
+    "name": "cbAcceleratorIpList",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorMgmtIPAddressType": {
+    "name": "cbAcceleratorMgmtIPAddressType",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbAcceleratorMgmtIPAddress": {
+    "name": "cbAcceleratorMgmtIPAddress",
+    "oid": "1.3.6.1.4.1.5951.6.3.4.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/citrix/SDX-MIB-SMIV2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MIB"
+  }
+}

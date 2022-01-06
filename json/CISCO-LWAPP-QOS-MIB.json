@@ -1,0 +1,1710 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApName",
+      "cLApDot11IfEntry",
+      "cLApSysMacAddress",
+      "cLApDot11IfSlotId",
+      "cLApDot11IfType"
+    ],
+    "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcClientMacAddress"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex",
+      "cLWlanConfigEntry"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "TimeIntervalSec"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappQosMIB": {
+    "name": "ciscoLwappQosMIB",
+    "oid": "1.3.6.1.4.1.9.9.524",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-07-21 00:00",
+        "description": "Added the following groups: ciscoLwappQosMIBComplianceRev2, ciscoLwappQosDot11aConfigGroupSup2, ciscoLwappQosDot11bConfigGroupSup2, ciscoLwappQosDot11SipCacStatsGroup, ciscoLwappQosDot11SipConfigGroup, ciscoLwappQosDot11VoiceStatsGroup, ciscoLwappQosDot11VoiceConfigGroup, ciscoLwappQosConfigGroup, ciscoLwappQosDot11VoiceNotifGroup Deprecated ciscoLwappQosMIBComplianceRev1 and replaced it with ciscoLwappQosMIBComplianceRev2."
+      },
+      {
+        "revision": "2007-01-07 00:00",
+        "description": "Added ciscoLwappQosDot11aConfigGroupSup1 and ciscoLwappQosDot11bConfigGroupSup1 objects."
+      },
+      {
+        "revision": "2006-04-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappQosMIBNotifs": {
+    "name": "ciscoLwappQosMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.524.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappQosMIBObjects": {
+    "name": "ciscoLwappQosMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.524.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappQosMIBConform": {
+    "name": "ciscoLwappQosMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.524.2",
+    "class": "objectidentity"
+  },
+  "cLQd11aCACConfig": {
+    "name": "cLQd11aCACConfig",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1",
+    "class": "objectidentity"
+  },
+  "cLQd11bCACConfig": {
+    "name": "cLQd11bCACConfig",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2",
+    "class": "objectidentity"
+  },
+  "cLQd11GprConfig": {
+    "name": "cLQd11GprConfig",
+    "oid": "1.3.6.1.4.1.9.9.524.1.3",
+    "class": "objectidentity"
+  },
+  "cLQd11CACStats": {
+    "name": "cLQd11CACStats",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4",
+    "class": "objectidentity"
+  },
+  "cLQEntConfConfig": {
+    "name": "cLQEntConfConfig",
+    "oid": "1.3.6.1.4.1.9.9.524.1.5",
+    "class": "objectidentity"
+  },
+  "cLQd11VoiceStats": {
+    "name": "cLQd11VoiceStats",
+    "oid": "1.3.6.1.4.1.9.9.524.1.6",
+    "class": "objectidentity"
+  },
+  "cLQVoiceWlanConfig": {
+    "name": "cLQVoiceWlanConfig",
+    "oid": "1.3.6.1.4.1.9.9.524.1.7",
+    "class": "objectidentity"
+  },
+  "cLQVoiceClient": {
+    "name": "cLQVoiceClient",
+    "oid": "1.3.6.1.4.1.9.9.524.1.8",
+    "class": "objectidentity"
+  },
+  "cLQd11SipCacConfig": {
+    "name": "cLQd11SipCacConfig",
+    "oid": "1.3.6.1.4.1.9.9.524.1.9",
+    "class": "objectidentity"
+  },
+  "cLQConfigObjects": {
+    "name": "cLQConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.524.1.10",
+    "class": "objectidentity"
+  },
+  "cLQd11aVoiceAdmCtrlSupport": {
+    "name": "cLQd11aVoiceAdmCtrlSupport",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aVoiceMaxAdmBandwidth": {
+    "name": "cLQd11aVoiceMaxAdmBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aVoiceMaxRoamBandwidth": {
+    "name": "cLQd11aVoiceMaxRoamBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aVideoAdmCtrlSupport": {
+    "name": "cLQd11aVideoAdmCtrlSupport",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aVideoMaxAdmBandwidth": {
+    "name": "cLQd11aVideoMaxAdmBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aVideoMaxRoamBandwidth": {
+    "name": "cLQd11aVideoMaxRoamBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bVoiceAdmCtrlSupport": {
+    "name": "cLQd11bVoiceAdmCtrlSupport",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bVoiceMaxAdmBandwidth": {
+    "name": "cLQd11bVoiceMaxAdmBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bVoiceMaxRoamBandwidth": {
+    "name": "cLQd11bVoiceMaxRoamBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bVideoAdmCtrlSupport": {
+    "name": "cLQd11bVideoAdmCtrlSupport",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bVideoMaxAdmBandwidth": {
+    "name": "cLQd11bVideoMaxAdmBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bVideoMaxRoamBandwidth": {
+    "name": "cLQd11bVideoMaxRoamBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aGprProbeInterval": {
+    "name": "cLQd11aGprProbeInterval",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "TU",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aVoiceCtrl": {
+    "name": "cLQd11aVoiceCtrl",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loadBased": 1,
+          "static": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "loadBased",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aExpeditedBw": {
+    "name": "cLQd11aExpeditedBw",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aEdcaProfile": {
+    "name": "cLQd11aEdcaProfile",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wmmDefault": 1,
+          "svpVoice": 2,
+          "optimizedVoice": 3,
+          "optimizedVideoVoice": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aMacOptimization": {
+    "name": "cLQd11aMacOptimization",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11aMaxCallLimit": {
+    "name": "cLQd11aMaxCallLimit",
+    "oid": "1.3.6.1.4.1.9.9.524.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bGprProbeInterval": {
+    "name": "cLQd11bGprProbeInterval",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "TU",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bVoiceCtrl": {
+    "name": "cLQd11bVoiceCtrl",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loadBased": 1,
+          "static": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "loadBased",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bExpeditedBw": {
+    "name": "cLQd11bExpeditedBw",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bEdcaProfile": {
+    "name": "cLQd11bEdcaProfile",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wmmDefault": 1,
+          "svpVoice": 2,
+          "optimizedVoice": 3,
+          "optimizedVideoVoice": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bMacOptimization": {
+    "name": "cLQd11bMacOptimization",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11bMaxCallLimit": {
+    "name": "cLQd11bMaxCallLimit",
+    "oid": "1.3.6.1.4.1.9.9.524.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11GprTable": {
+    "name": "cLQd11GprTable",
+    "oid": "1.3.6.1.4.1.9.9.524.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLQd11GprEntry": {
+    "name": "cLQd11GprEntry",
+    "oid": "1.3.6.1.4.1.9.9.524.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cLQd11GprEntry",
+      "module": "CISCO-LWAPP-QOS-MIB",
+      "object": "cLWlanConfigEntry"
+    },
+    "status": "current"
+  },
+  "cLQd11GprSupport": {
+    "name": "cLQd11GprSupport",
+    "oid": "1.3.6.1.4.1.9.9.524.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11CACStatsTable": {
+    "name": "cLQd11CACStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLQd11CACStatsEntry": {
+    "name": "cLQd11CACStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cLQd11CACStatsEntry",
+      "module": "CISCO-LWAPP-QOS-MIB",
+      "object": "cLApDot11IfEntry"
+    },
+    "status": "current"
+  },
+  "cLQd11CacVoiceBwInUse": {
+    "name": "cLQd11CacVoiceBwInUse",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacVideoBwInUse": {
+    "name": "cLQd11CacVideoBwInUse",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacVoiceCallsInProgress": {
+    "name": "cLQd11CacVoiceCallsInProgress",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacRoamVoiceCallsInProg": {
+    "name": "cLQd11CacRoamVoiceCallsInProg",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacTotalVoiceCallsAP": {
+    "name": "cLQd11CacTotalVoiceCallsAP",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacTotalRoamCallsAP": {
+    "name": "cLQd11CacTotalRoamCallsAP",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacVoiceCallsRejectedAP": {
+    "name": "cLQd11CacVoiceCallsRejectedAP",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacRoamCallsRejectedAP": {
+    "name": "cLQd11CacRoamCallsRejectedAP",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacRejCallsInsufBw": {
+    "name": "cLQd11CacRejCallsInsufBw",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacRejCallsBadParams": {
+    "name": "cLQd11CacRejCallsBadParams",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacRejCallsPhyRate": {
+    "name": "cLQd11CacRejCallsPhyRate",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacRejCallsQosPolicy": {
+    "name": "cLQd11CacRejCallsQosPolicy",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacNonRoamCallsInProgress": {
+    "name": "cLQd11SipCacNonRoamCallsInProgress",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacRoamCallsInProg": {
+    "name": "cLQd11SipCacRoamCallsInProg",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacTotalNonRoamCallsAP": {
+    "name": "cLQd11SipCacTotalNonRoamCallsAP",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacTotalRoamCallsAP": {
+    "name": "cLQd11SipCacTotalRoamCallsAP",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacNonRoamCallsRejectedInSuffBw": {
+    "name": "cLQd11SipCacNonRoamCallsRejectedInSuffBw",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacRoamCallsRejectedInSuffBw": {
+    "name": "cLQd11SipCacRoamCallsRejectedInSuffBw",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacNonRoamCallsRejectedMaxLimit": {
+    "name": "cLQd11SipCacNonRoamCallsRejectedMaxLimit",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacRoamCallsRejectedMaxLimit": {
+    "name": "cLQd11SipCacRoamCallsRejectedMaxLimit",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacRejCallsQosPolicy": {
+    "name": "cLQd11SipCacRejCallsQosPolicy",
+    "oid": "1.3.6.1.4.1.9.9.524.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11VoiceStatsTable": {
+    "name": "cLQd11VoiceStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.524.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLQd11VoiceStatsEntry": {
+    "name": "cLQd11VoiceStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.524.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLQd11VoiceCallCounts": {
+    "name": "cLQd11VoiceCallCounts",
+    "oid": "1.3.6.1.4.1.9.9.524.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11CacVoiceCallTimePeriod": {
+    "name": "cLQd11CacVoiceCallTimePeriod",
+    "oid": "1.3.6.1.4.1.9.9.524.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQVoiceWlanConfigTable": {
+    "name": "cLQVoiceWlanConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.524.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLQVoiceWlanConfigEntry": {
+    "name": "cLQVoiceWlanConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.524.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLQVoiceWlanConfigDetectVoipCallFailure": {
+    "name": "cLQVoiceWlanConfigDetectVoipCallFailure",
+    "oid": "1.3.6.1.4.1.9.9.524.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQVoiceClientTable": {
+    "name": "cLQVoiceClientTable",
+    "oid": "1.3.6.1.4.1.9.9.524.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLQVoiceClientEntry": {
+    "name": "cLQVoiceClientEntry",
+    "oid": "1.3.6.1.4.1.9.9.524.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLQVoiceClientCallingNumber": {
+    "name": "cLQVoiceClientCallingNumber",
+    "oid": "1.3.6.1.4.1.9.9.524.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQVoiceClientLastCalledNumber": {
+    "name": "cLQVoiceClientLastCalledNumber",
+    "oid": "1.3.6.1.4.1.9.9.524.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQVoiceClientLastCallFailureReasonCode": {
+    "name": "cLQVoiceClientLastCallFailureReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.524.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "normalFailure": 2,
+          "roamFailure": 3,
+          "maxLimitExceeded": 4,
+          "badRequest": 400,
+          "unathorized": 401,
+          "paymentRequired": 402,
+          "forbidden": 403,
+          "notFound": 404,
+          "methodNotallowed": 405,
+          "notAcceptable": 406,
+          "proxyAuthenticationRequired": 407,
+          "requestTimeout": 408,
+          "conflict": 409,
+          "gone": 410,
+          "lengthRequired": 411,
+          "requestEntityTooLarge": 413,
+          "requestURITooLarge": 414,
+          "unsupportedMdediaType": 415,
+          "badExtension": 420,
+          "temporarilyNotAvailable": 480,
+          "callLegDoesNotExist": 481,
+          "loopDetected": 482,
+          "tooManyHops": 483,
+          "addressIncomplete": 484,
+          "ambiguous": 485,
+          "busy": 486,
+          "internalServerError": 500,
+          "notImplemented": 501,
+          "badGateway": 502,
+          "serviceUnavailable": 503,
+          "serverTimeout": 504,
+          "versionNotSupported": 505,
+          "busyEverywhere": 600,
+          "decline": 603,
+          "doesNotExistAnywhere": 604,
+          "sessionNotAcceptable": 606
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLQd11SipCacConfigTable": {
+    "name": "cLQd11SipCacConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.524.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLQd11SipCacConfigEntry": {
+    "name": "cLQd11SipCacConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.524.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLQd11SipCacConfigCodecType": {
+    "name": "cLQd11SipCacConfigCodecType",
+    "oid": "1.3.6.1.4.1.9.9.524.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userDefined": 1,
+          "g711": 2,
+          "g729": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "g711",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11SipCacConfigBw": {
+    "name": "cLQd11SipCacConfigBw",
+    "oid": "1.3.6.1.4.1.9.9.524.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLQd11SipCacConfigVoiceSampleSize": {
+    "name": "cLQd11SipCacConfigVoiceSampleSize",
+    "oid": "1.3.6.1.4.1.9.9.524.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappVoipCallFailureNotifEnabled": {
+    "name": "ciscoLwappVoipCallFailureNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.524.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappVoipCallFailureNotif": {
+    "name": "ciscoLwappVoipCallFailureNotif",
+    "oid": "1.3.6.1.4.1.9.9.524.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQVoiceClientLastCallFailureReasonCode"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQVoiceClientCallingNumber"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQVoiceClientLastCalledNumber"
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosMIBCompliances": {
+    "name": "ciscoLwappQosMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.524.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappQosMIBGroups": {
+    "name": "ciscoLwappQosMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappQosMIBCompliance": {
+    "name": "ciscoLwappQosMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.524.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappQosDot11aConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11bConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11WlanConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11CacStatsGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappQosMIBComplianceRev1": {
+    "name": "ciscoLwappQosMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.524.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappQosDot11aConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11bConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11WlanConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11CacStatsGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11aConfigGroupSup1",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11bConfigGroupSup1",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappQosMIBComplianceRev2": {
+    "name": "ciscoLwappQosMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.524.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappQosDot11aConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11bConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11WlanConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11CacStatsGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11aConfigGroupSup1",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11bConfigGroupSup1",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11aConfigGroupSup2",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11bConfigGroupSup2",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11SipCacStatsGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11SipConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11VoiceStatsGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11VoiceConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosDot11VoiceNotifGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      },
+      {
+        "object": "ciscoLwappQosConfigGroup",
+        "module": "CISCO-LWAPP-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11aConfigGroup": {
+    "name": "ciscoLwappQosDot11aConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aVoiceAdmCtrlSupport"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aVoiceMaxAdmBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aVoiceMaxRoamBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aVideoAdmCtrlSupport"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aVideoMaxAdmBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aVideoMaxRoamBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aGprProbeInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11bConfigGroup": {
+    "name": "ciscoLwappQosDot11bConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bVoiceAdmCtrlSupport"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bVoiceMaxAdmBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bVoiceMaxRoamBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bVideoAdmCtrlSupport"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bVideoMaxAdmBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bVideoMaxRoamBandwidth"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bGprProbeInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11WlanConfigGroup": {
+    "name": "ciscoLwappQosDot11WlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11GprSupport"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11CacStatsGroup": {
+    "name": "ciscoLwappQosDot11CacStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacVoiceBwInUse"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacVideoBwInUse"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacVoiceCallsInProgress"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacRoamVoiceCallsInProg"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacTotalVoiceCallsAP"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacTotalRoamCallsAP"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacVoiceCallsRejectedAP"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacRoamCallsRejectedAP"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacRejCallsInsufBw"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacRejCallsBadParams"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacRejCallsPhyRate"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacRejCallsQosPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11aConfigGroupSup1": {
+    "name": "ciscoLwappQosDot11aConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aVoiceCtrl"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aExpeditedBw"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11bConfigGroupSup1": {
+    "name": "ciscoLwappQosDot11bConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bVoiceCtrl"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bExpeditedBw"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11aConfigGroupSup2": {
+    "name": "ciscoLwappQosDot11aConfigGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aEdcaProfile"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aMacOptimization"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11aMaxCallLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11bConfigGroupSup2": {
+    "name": "ciscoLwappQosDot11bConfigGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bEdcaProfile"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bMacOptimization"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11bMaxCallLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11SipCacStatsGroup": {
+    "name": "ciscoLwappQosDot11SipCacStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacNonRoamCallsInProgress"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacRoamCallsInProg"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacTotalNonRoamCallsAP"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacTotalRoamCallsAP"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacNonRoamCallsRejectedInSuffBw"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacRoamCallsRejectedInSuffBw"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacNonRoamCallsRejectedMaxLimit"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacRoamCallsRejectedMaxLimit"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacRejCallsQosPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11SipConfigGroup": {
+    "name": "ciscoLwappQosDot11SipConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacConfigCodecType"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacConfigBw"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11SipCacConfigVoiceSampleSize"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11VoiceStatsGroup": {
+    "name": "ciscoLwappQosDot11VoiceStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11VoiceCallCounts"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQd11CacVoiceCallTimePeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11VoiceConfigGroup": {
+    "name": "ciscoLwappQosDot11VoiceConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQVoiceWlanConfigDetectVoipCallFailure"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQVoiceClientCallingNumber"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQVoiceClientLastCalledNumber"
+      },
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "cLQVoiceClientLastCallFailureReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosDot11VoiceNotifGroup": {
+    "name": "ciscoLwappQosDot11VoiceNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "ciscoLwappVoipCallFailureNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappQosConfigGroup": {
+    "name": "ciscoLwappQosConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.524.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-QOS-MIB",
+        "object": "ciscoLwappVoipCallFailureNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-QOS-MIB"
+  }
+}

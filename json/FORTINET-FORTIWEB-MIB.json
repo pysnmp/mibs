@@ -1,0 +1,1500 @@
+{
+  "imports": {
+    "class": "imports",
+    "FORTINET-CORE-MIB": [
+      "fortinet",
+      "fnSysSerial"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "fnFortiWebMib": {
+    "name": "fnFortiWebMib",
+    "oid": "1.3.6.1.4.1.12356.107",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-07-13 00:00",
+        "description": "add fwbDOCKER."
+      },
+      {
+        "revision": "2018-04-04 00:00",
+        "description": "add fwbVBOX."
+      },
+      {
+        "revision": "2018-03-21 00:00",
+        "description": "add fwbGCP."
+      },
+      {
+        "revision": "2017-11-17 00:00",
+        "description": "add fwbKVMPAYG."
+      },
+      {
+        "revision": "2017-02-13 00:00",
+        "description": "add fwb1000E."
+      },
+      {
+        "revision": "2016-12-13 00:00",
+        "description": "add fwbPAYG."
+      },
+      {
+        "revision": "2016-10-25 00:00",
+        "description": "add fwb2000E."
+      },
+      {
+        "revision": "2016-09-13 00:00",
+        "description": "add fwb600D."
+      },
+      {
+        "revision": "2016-07-01 00:00",
+        "description": "fix syntax error"
+      },
+      {
+        "revision": "2015-12-17 00:00",
+        "description": "add fwb3010E."
+      },
+      {
+        "revision": "2015-12-16 00:00",
+        "description": "add fwb400D."
+      },
+      {
+        "revision": "2015-12-03 00:00",
+        "description": "add fwbAZURE."
+      },
+      {
+        "revision": "2015-10-20 00:00",
+        "description": "Modify model name from fwzxxx to fwbxxx."
+      },
+      {
+        "revision": "2015-07-13 00:00",
+        "description": "Adjust MIB tree."
+      },
+      {
+        "revision": "2010-03-22 00:00",
+        "description": "Initial version of FORTINET-FORTIWEB-MIB."
+      }
+    ]
+  },
+  "FwOpMode": {
+    "name": "FwOpMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inline": 1,
+          "offline": 2,
+          "transparent": 3,
+          "wccp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FwHaMode": {
+    "name": "FwHaMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 1,
+          "master": 2,
+          "slave": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fwModel": {
+    "name": "fwModel",
+    "oid": "1.3.6.1.4.1.12356.107.1",
+    "class": "objectidentity"
+  },
+  "fwb400B": {
+    "name": "fwb400B",
+    "oid": "1.3.6.1.4.1.12356.107.1.4002",
+    "class": "objectidentity"
+  },
+  "fwb100D": {
+    "name": "fwb100D",
+    "oid": "1.3.6.1.4.1.12356.107.1.1004",
+    "class": "objectidentity"
+  },
+  "fwb400C": {
+    "name": "fwb400C",
+    "oid": "1.3.6.1.4.1.12356.107.1.4003",
+    "class": "objectidentity"
+  },
+  "fwb400D": {
+    "name": "fwb400D",
+    "oid": "1.3.6.1.4.1.12356.107.1.4004",
+    "class": "objectidentity"
+  },
+  "fwb600D": {
+    "name": "fwb600D",
+    "oid": "1.3.6.1.4.1.12356.107.1.6004",
+    "class": "objectidentity"
+  },
+  "fwb1000B": {
+    "name": "fwb1000B",
+    "oid": "1.3.6.1.4.1.12356.107.1.10002",
+    "class": "objectidentity"
+  },
+  "fwb1000C": {
+    "name": "fwb1000C",
+    "oid": "1.3.6.1.4.1.12356.107.1.10003",
+    "class": "objectidentity"
+  },
+  "fwb1000D": {
+    "name": "fwb1000D",
+    "oid": "1.3.6.1.4.1.12356.107.1.10004",
+    "class": "objectidentity"
+  },
+  "fwb2000E": {
+    "name": "fwb2000E",
+    "oid": "1.3.6.1.4.1.12356.107.1.10005",
+    "class": "objectidentity"
+  },
+  "fwb1000E": {
+    "name": "fwb1000E",
+    "oid": "1.3.6.1.4.1.12356.107.1.10006",
+    "class": "objectidentity"
+  },
+  "fwb3000C": {
+    "name": "fwb3000C",
+    "oid": "1.3.6.1.4.1.12356.107.1.30003",
+    "class": "objectidentity"
+  },
+  "fwb3000CFSX": {
+    "name": "fwb3000CFSX",
+    "oid": "1.3.6.1.4.1.12356.107.1.30004",
+    "class": "objectidentity"
+  },
+  "fwb3000D": {
+    "name": "fwb3000D",
+    "oid": "1.3.6.1.4.1.12356.107.1.30005",
+    "class": "objectidentity"
+  },
+  "fwb3000DFSX": {
+    "name": "fwb3000DFSX",
+    "oid": "1.3.6.1.4.1.12356.107.1.30006",
+    "class": "objectidentity"
+  },
+  "fwb3000E": {
+    "name": "fwb3000E",
+    "oid": "1.3.6.1.4.1.12356.107.1.30007",
+    "class": "objectidentity"
+  },
+  "fwb3010E": {
+    "name": "fwb3010E",
+    "oid": "1.3.6.1.4.1.12356.107.1.30008",
+    "class": "objectidentity"
+  },
+  "fwb4000C": {
+    "name": "fwb4000C",
+    "oid": "1.3.6.1.4.1.12356.107.1.40003",
+    "class": "objectidentity"
+  },
+  "fwb4000D": {
+    "name": "fwb4000D",
+    "oid": "1.3.6.1.4.1.12356.107.1.40004",
+    "class": "objectidentity"
+  },
+  "fwb4000E": {
+    "name": "fwb4000E",
+    "oid": "1.3.6.1.4.1.12356.107.1.40005",
+    "class": "objectidentity"
+  },
+  "fwbVM": {
+    "name": "fwbVM",
+    "oid": "1.3.6.1.4.1.12356.107.1.50001",
+    "class": "objectidentity"
+  },
+  "fwbXENOPEN": {
+    "name": "fwbXENOPEN",
+    "oid": "1.3.6.1.4.1.12356.107.1.50002",
+    "class": "objectidentity"
+  },
+  "fwbXENSERVER": {
+    "name": "fwbXENSERVER",
+    "oid": "1.3.6.1.4.1.12356.107.1.50003",
+    "class": "objectidentity"
+  },
+  "fwbXENAWS": {
+    "name": "fwbXENAWS",
+    "oid": "1.3.6.1.4.1.12356.107.1.50004",
+    "class": "objectidentity"
+  },
+  "fwbHYPERV": {
+    "name": "fwbHYPERV",
+    "oid": "1.3.6.1.4.1.12356.107.1.50005",
+    "class": "objectidentity"
+  },
+  "fwbKVM": {
+    "name": "fwbKVM",
+    "oid": "1.3.6.1.4.1.12356.107.1.50006",
+    "class": "objectidentity"
+  },
+  "fwbAZURE": {
+    "name": "fwbAZURE",
+    "oid": "1.3.6.1.4.1.12356.107.1.50007",
+    "class": "objectidentity"
+  },
+  "fwbVMPAYG": {
+    "name": "fwbVMPAYG",
+    "oid": "1.3.6.1.4.1.12356.107.1.50008",
+    "class": "objectidentity"
+  },
+  "fwbKVMPAYG": {
+    "name": "fwbKVMPAYG",
+    "oid": "1.3.6.1.4.1.12356.107.1.50009",
+    "class": "objectidentity"
+  },
+  "fwbGCP": {
+    "name": "fwbGCP",
+    "oid": "1.3.6.1.4.1.12356.107.1.50010",
+    "class": "objectidentity"
+  },
+  "fwbVBOX": {
+    "name": "fwbVBOX",
+    "oid": "1.3.6.1.4.1.12356.107.1.50011",
+    "class": "objectidentity"
+  },
+  "fwbDOCKER": {
+    "name": "fwbDOCKER",
+    "oid": "1.3.6.1.4.1.12356.107.1.50012",
+    "class": "objectidentity"
+  },
+  "fwSystem": {
+    "name": "fwSystem",
+    "oid": "1.3.6.1.4.1.12356.107.2",
+    "class": "objectidentity"
+  },
+  "fwSystemInfo": {
+    "name": "fwSystemInfo",
+    "oid": "1.3.6.1.4.1.12356.107.2.1",
+    "class": "objectidentity"
+  },
+  "fwSystemCPU": {
+    "name": "fwSystemCPU",
+    "oid": "1.3.6.1.4.1.12356.107.2.2",
+    "class": "objectidentity"
+  },
+  "cPUNumber": {
+    "name": "cPUNumber",
+    "oid": "1.3.6.1.4.1.12356.107.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPUTable": {
+    "name": "cPUTable",
+    "oid": "1.3.6.1.4.1.12356.107.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPUEntry": {
+    "name": "cPUEntry",
+    "oid": "1.3.6.1.4.1.12356.107.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "cPUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPUIndex": {
+    "name": "cPUIndex",
+    "oid": "1.3.6.1.4.1.12356.107.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPUusage": {
+    "name": "cPUusage",
+    "oid": "1.3.6.1.4.1.12356.107.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysModel": {
+    "name": "fwSysModel",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysVersion": {
+    "name": "fwSysVersion",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysHaMode": {
+    "name": "fwSysHaMode",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FwHaMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysOpMode": {
+    "name": "fwSysOpMode",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FwOpMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysCpuUsage": {
+    "name": "fwSysCpuUsage",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysCpuFreq": {
+    "name": "fwSysCpuFreq",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysMemUsage": {
+    "name": "fwSysMemUsage",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysMemCapacity": {
+    "name": "fwSysMemCapacity",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysDiskUsage": {
+    "name": "fwSysDiskUsage",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwSysDiskCapacity": {
+    "name": "fwSysDiskCapacity",
+    "oid": "1.3.6.1.4.1.12356.107.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwProxy": {
+    "name": "fwProxy",
+    "oid": "1.3.6.1.4.1.12356.107.3",
+    "class": "objectidentity"
+  },
+  "fwProxyNumber": {
+    "name": "fwProxyNumber",
+    "oid": "1.3.6.1.4.1.12356.107.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwPServerNumber": {
+    "name": "fwPServerNumber",
+    "oid": "1.3.6.1.4.1.12356.107.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwVServerNumber": {
+    "name": "fwVServerNumber",
+    "oid": "1.3.6.1.4.1.12356.107.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwMonitorNumber": {
+    "name": "fwMonitorNumber",
+    "oid": "1.3.6.1.4.1.12356.107.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwServiceNumber": {
+    "name": "fwServiceNumber",
+    "oid": "1.3.6.1.4.1.12356.107.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwPortSvrNumber": {
+    "name": "fwPortSvrNumber",
+    "oid": "1.3.6.1.4.1.12356.107.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwWAFProtection": {
+    "name": "fwWAFProtection",
+    "oid": "1.3.6.1.4.1.12356.107.4",
+    "class": "objectidentity"
+  },
+  "fwWAFInputRuleNumber": {
+    "name": "fwWAFInputRuleNumber",
+    "oid": "1.3.6.1.4.1.12356.107.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwWAFParameterNumber": {
+    "name": "fwWAFParameterNumber",
+    "oid": "1.3.6.1.4.1.12356.107.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwWAFAccessNumber": {
+    "name": "fwWAFAccessNumber",
+    "oid": "1.3.6.1.4.1.12356.107.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwWAFSvrPortNumber": {
+    "name": "fwWAFSvrPortNumber",
+    "oid": "1.3.6.1.4.1.12356.107.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwWAFStartPageNumber": {
+    "name": "fwWAFStartPageNumber",
+    "oid": "1.3.6.1.4.1.12356.107.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwWAFProfileNumber": {
+    "name": "fwWAFProfileNumber",
+    "oid": "1.3.6.1.4.1.12356.107.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwTraps": {
+    "name": "fwTraps",
+    "oid": "1.3.6.1.4.1.12356.107.10",
+    "class": "objectidentity"
+  },
+  "fwTrapPrefix": {
+    "name": "fwTrapPrefix",
+    "oid": "1.3.6.1.4.1.12356.107.10.0",
+    "class": "objectidentity"
+  },
+  "fnWafInfo": {
+    "name": "fnWafInfo",
+    "oid": "1.3.6.1.4.1.12356.107.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fnWafInfoDetail": {
+    "name": "fnWafInfoDetail",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fnWafIndex": {
+    "name": "fnWafIndex",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fnWafDate": {
+    "name": "fnWafDate",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnWafTime": {
+    "name": "fnWafTime",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnWafSrcIP": {
+    "name": "fnWafSrcIP",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnWafDstIP": {
+    "name": "fnWafDstIP",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnWafSrcPort": {
+    "name": "fnWafSrcPort",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnWafDstPort": {
+    "name": "fnWafDstPort",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnWafHost": {
+    "name": "fnWafHost",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnWafURL": {
+    "name": "fnWafURL",
+    "oid": "1.3.6.1.4.1.12356.107.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwTrapHaHBFail": {
+    "name": "fwTrapHaHBFail",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapModeChange": {
+    "name": "fwTrapModeChange",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapPolicyStart": {
+    "name": "fwTrapPolicyStart",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapPolicyStop": {
+    "name": "fwTrapPolicyStop",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapPServerFailed": {
+    "name": "fwTrapPServerFailed",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapXMLIntrusionAttack": {
+    "name": "fwTrapXMLIntrusionAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapXMLSchemaAttack": {
+    "name": "fwTrapXMLSchemaAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapXMLFilterAttack": {
+    "name": "fwTrapXMLFilterAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapXMLSigEncAttack": {
+    "name": "fwTrapXMLSigEncAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapXMLWSDLAttack": {
+    "name": "fwTrapXMLWSDLAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapXMLSqlAttack": {
+    "name": "fwTrapXMLSqlAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFAMethodAttack": {
+    "name": "fwTrapWAFAMethodAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFXSSAttack": {
+    "name": "fwTrapWAFXSSAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFSqlAttack": {
+    "name": "fwTrapWAFSqlAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFExploitAttack": {
+    "name": "fwTrapWAFExploitAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFDisclosureAttack": {
+    "name": "fwTrapWAFDisclosureAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFAccessAttack": {
+    "name": "fwTrapWAFAccessAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFSPageAttack": {
+    "name": "fwTrapWAFSPageAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFPValidAttack": {
+    "name": "fwTrapWAFPValidAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFBListAttack": {
+    "name": "fwTrapWAFBListAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFBLoginAttack": {
+    "name": "fwTrapWAFBLoginAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFRobotAttack": {
+    "name": "fwTrapWAFRobotAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFHideFieldAttack": {
+    "name": "fwTrapWAFHideFieldAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFUrlAccessAttack": {
+    "name": "fwTrapWAFUrlAccessAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFBadRobotAttack": {
+    "name": "fwTrapWAFBadRobotAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFSignatureAttack": {
+    "name": "fwTrapWAFSignatureAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwTrapWAFWListAttack": {
+    "name": "fwTrapWAFWListAttack",
+    "oid": "1.3.6.1.4.1.12356.107.10.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fnWafInfoDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "fwMibConformance": {
+    "name": "fwMibConformance",
+    "oid": "1.3.6.1.4.1.12356.107.100",
+    "class": "objectidentity"
+  },
+  "fwTrapGroup": {
+    "name": "fwTrapGroup",
+    "oid": "1.3.6.1.4.1.12356.107.100.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapHaHBFail"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapModeChange"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapPolicyStart"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapPolicyStop"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapPServerFailed"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapXMLIntrusionAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapXMLSchemaAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapXMLFilterAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapXMLSigEncAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapXMLWSDLAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapXMLSqlAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFAMethodAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFXSSAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFSqlAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFExploitAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFDisclosureAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFAccessAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFSPageAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFPValidAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFBListAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFWListAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFBLoginAttack"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwTrapWAFRobotAttack"
+      }
+    ],
+    "status": "current"
+  },
+  "fwSystemObjectGroup": {
+    "name": "fwSystemObjectGroup",
+    "oid": "1.3.6.1.4.1.12356.107.100.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysModel"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysVersion"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysHaMode"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysOpMode"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysCpuUsage"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysCpuFreq"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysMemUsage"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysMemCapacity"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysDiskUsage"
+      },
+      {
+        "module": "FORTINET-FORTIWEB-MIB",
+        "object": "fwSysDiskCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "fwMibCompliance": {
+    "name": "fwMibCompliance",
+    "oid": "1.3.6.1.4.1.12356.107.100.100",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fwTrapGroup",
+        "module": "FORTINET-FORTIWEB-MIB"
+      },
+      {
+        "object": "fwSystemObjectGroup",
+        "module": "FORTINET-FORTIWEB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIWEB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORTINET-FORTIWEB-MIB"
+  }
+}

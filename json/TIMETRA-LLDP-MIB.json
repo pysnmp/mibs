@@ -1,0 +1,1608 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "LLDP-MIB": [
+      "LldpPortIdSubtype",
+      "LldpSystemCapabilitiesMap",
+      "LldpChassisIdSubtype",
+      "LldpChassisId",
+      "LldpManAddress",
+      "LldpManAddrIfSubtype",
+      "LldpPortId"
+    ],
+    "RMON2-MIB": [
+      "TimeFilter",
+      "ZeroBasedCounter32"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TIMETRA-GLOBAL-MIB": [
+      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix",
+      "tmnxSRObjs",
+      "timetraSRMIBModules"
+    ],
+    "TIMETRA-TC-MIB": [
+      "TmnxEnabledDisabled",
+      "TmnxEnabledDisabledAdminState"
+    ]
+  },
+  "tmnxLldpMIBModule": {
+    "name": "tmnxLldpMIBModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.3.59",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-01 00:00",
+        "description": "Rev 13.0 1 Jan 2015 00:00 13.0 release of the TIMETRA-LLDP-MIB."
+      },
+      {
+        "revision": "2009-02-28 00:00",
+        "description": "Rev 7.0 28 Feb 2009 00:00 7.0 release of the TIMETRA-LLDP-MIB."
+      },
+      {
+        "revision": "2002-02-02 00:00",
+        "description": "Rev 0.1 26 May 2008 00:00 Initial version of the TIMETRA-LLDP-MIB."
+      }
+    ]
+  },
+  "TmnxLldpDestAddressTableIndex": {
+    "name": "TmnxLldpDestAddressTableIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxLldpManAddressIndex": {
+    "name": "TmnxLldpManAddressIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oob": 0,
+          "system": 1,
+          "systemIpv6": 2,
+          "oobIpv6": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tmnxLldpObjects": {
+    "name": "tmnxLldpObjects",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59",
+    "class": "objectidentity"
+  },
+  "tmnxLldpConfiguration": {
+    "name": "tmnxLldpConfiguration",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1",
+    "class": "objectidentity"
+  },
+  "tmnxLldpTxCreditMax": {
+    "name": "tmnxLldpTxCreditMax",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpMessageFastTx": {
+    "name": "tmnxLldpMessageFastTx",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpMessageFastTxInit": {
+    "name": "tmnxLldpMessageFastTxInit",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpAdminStatus": {
+    "name": "tmnxLldpAdminStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEnabledDisabledAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpPortConfigTable": {
+    "name": "tmnxLldpPortConfigTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpPortConfigEntry": {
+    "name": "tmnxLldpPortConfigEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgDestAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpPortCfgDestAddressIndex": {
+    "name": "tmnxLldpPortCfgDestAddressIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxLldpDestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgAdminStatus": {
+    "name": "tmnxLldpPortCfgAdminStatus",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txOnly": 1,
+          "rxOnly": 2,
+          "txAndRx": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgNotifyEnable": {
+    "name": "tmnxLldpPortCfgNotifyEnable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgTLVsTxEnable": {
+    "name": "tmnxLldpPortCfgTLVsTxEnable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "portDesc": 0,
+        "sysName": 1,
+        "sysDesc": 2,
+        "sysCap": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgTunnelNearestBrg": {
+    "name": "tmnxLldpPortCfgTunnelNearestBrg",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgPortIdSubtype": {
+    "name": "tmnxLldpPortCfgPortIdSubtype",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortIdSubtype",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpConfigManAddrPortsTable": {
+    "name": "tmnxLldpConfigManAddrPortsTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpConfigManAddrPortsEntry": {
+    "name": "tmnxLldpConfigManAddrPortsEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgDestAddressIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpPortCfgAddressIndex": {
+    "name": "tmnxLldpPortCfgAddressIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxLldpManAddressIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgManAddrTxEnabled": {
+    "name": "tmnxLldpPortCfgManAddrTxEnabled",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxEnabledDisabled",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgManAddrSubtype": {
+    "name": "tmnxLldpPortCfgManAddrSubtype",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpPortCfgManAddress": {
+    "name": "tmnxLldpPortCfgManAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpDestAddressTable": {
+    "name": "tmnxLldpDestAddressTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpDestAddressTableEntry": {
+    "name": "tmnxLldpDestAddressTableEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpAddressTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpAddressTableIndex": {
+    "name": "tmnxLldpAddressTableIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxLldpDestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpDestMacAddress": {
+    "name": "tmnxLldpDestMacAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatistics": {
+    "name": "tmnxLldpStatistics",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2",
+    "class": "objectidentity"
+  },
+  "tmnxLldpStatsTxPortTable": {
+    "name": "tmnxLldpStatsTxPortTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpStatsTxPortEntry": {
+    "name": "tmnxLldpStatsTxPortEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsTxDestMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpStatsTxDestMACAddress": {
+    "name": "tmnxLldpStatsTxDestMACAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxLldpDestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpStatsTxPortFrames": {
+    "name": "tmnxLldpStatsTxPortFrames",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatsTxLLDPDULengthErrs": {
+    "name": "tmnxLldpStatsTxLLDPDULengthErrs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortTable": {
+    "name": "tmnxLldpStatsRxPortTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortEntry": {
+    "name": "tmnxLldpStatsRxPortEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsRxDestMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpStatsRxDestMACAddress": {
+    "name": "tmnxLldpStatsRxDestMACAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxLldpDestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortFrameDiscard": {
+    "name": "tmnxLldpStatsRxPortFrameDiscard",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortFrameErrs": {
+    "name": "tmnxLldpStatsRxPortFrameErrs",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortFrames": {
+    "name": "tmnxLldpStatsRxPortFrames",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortTLVDiscard": {
+    "name": "tmnxLldpStatsRxPortTLVDiscard",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortTLVUnknown": {
+    "name": "tmnxLldpStatsRxPortTLVUnknown",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpStatsRxPortAgeouts": {
+    "name": "tmnxLldpStatsRxPortAgeouts",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpLocalSystemData": {
+    "name": "tmnxLldpLocalSystemData",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.3",
+    "class": "objectidentity"
+  },
+  "tmnxLldpLocPortTable": {
+    "name": "tmnxLldpLocPortTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpLocPortEntry": {
+    "name": "tmnxLldpLocPortEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpLocPortDestMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpLocPortDestMACAddress": {
+    "name": "tmnxLldpLocPortDestMACAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxLldpDestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpLocPortIdSubtype": {
+    "name": "tmnxLldpLocPortIdSubtype",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpLocPortId": {
+    "name": "tmnxLldpLocPortId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpLocPortDesc": {
+    "name": "tmnxLldpLocPortDesc",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemoteSystemsData": {
+    "name": "tmnxLldpRemoteSystemsData",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4",
+    "class": "objectidentity"
+  },
+  "tmnxLldpRemTable": {
+    "name": "tmnxLldpRemTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpRemEntry": {
+    "name": "tmnxLldpRemEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemTimeMark": {
+    "name": "tmnxLldpRemTimeMark",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpRemLocalDestMACAddress": {
+    "name": "tmnxLldpRemLocalDestMACAddress",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TmnxLldpDestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpRemIndex": {
+    "name": "tmnxLldpRemIndex",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpRemChassisIdSubtype": {
+    "name": "tmnxLldpRemChassisIdSubtype",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemChassisId": {
+    "name": "tmnxLldpRemChassisId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemPortIdSubtype": {
+    "name": "tmnxLldpRemPortIdSubtype",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemPortId": {
+    "name": "tmnxLldpRemPortId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemPortDesc": {
+    "name": "tmnxLldpRemPortDesc",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemSysName": {
+    "name": "tmnxLldpRemSysName",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemSysDesc": {
+    "name": "tmnxLldpRemSysDesc",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemSysCapSupported": {
+    "name": "tmnxLldpRemSysCapSupported",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpSystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemSysCapEnabled": {
+    "name": "tmnxLldpRemSysCapEnabled",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpSystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemSysAge": {
+    "name": "tmnxLldpRemSysAge",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrTable": {
+    "name": "tmnxLldpRemManAddrTable",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrEntry": {
+    "name": "tmnxLldpRemManAddrEntry",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrSubtype",
+        "implied": 0
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrSubtype": {
+    "name": "tmnxLldpRemManAddrSubtype",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpRemManAddr": {
+    "name": "tmnxLldpRemManAddr",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrIfSubtype": {
+    "name": "tmnxLldpRemManAddrIfSubtype",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpManAddrIfSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrIfId": {
+    "name": "tmnxLldpRemManAddrIfId",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrOID": {
+    "name": "tmnxLldpRemManAddrOID",
+    "oid": "1.3.6.1.4.1.6527.3.1.2.59.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tmnxLldpConformance": {
+    "name": "tmnxLldpConformance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59",
+    "class": "objectidentity"
+  },
+  "tmnxLldpCompliances": {
+    "name": "tmnxLldpCompliances",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.1",
+    "class": "objectidentity"
+  },
+  "tmnxLldpCompliance": {
+    "name": "tmnxLldpCompliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxLldpConfigGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpStatsRxGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpStatsTxGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpLocSysGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpRemSysGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpRemManAddrGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tmnxLldpV11v0Compliance": {
+    "name": "tmnxLldpV11v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxLldpConfigGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpConfigV11v0Group",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpStatsRxGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpStatsTxGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpLocSysGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpRemSysGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpRemManAddrGroup",
+        "module": "TIMETRA-LLDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpV13v0Compliance": {
+    "name": "tmnxLldpV13v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxLldpConfigV13v0Group",
+        "module": "TIMETRA-LLDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpV16v0Compliance": {
+    "name": "tmnxLldpV16v0Compliance",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tmnxLldpRemSysV16v0Group",
+        "module": "TIMETRA-LLDP-MIB"
+      },
+      {
+        "object": "tmnxLldpNotifV16v0Group",
+        "module": "TIMETRA-LLDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpGroups": {
+    "name": "tmnxLldpGroups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2",
+    "class": "objectidentity"
+  },
+  "tmnxLldpConfigGroup": {
+    "name": "tmnxLldpConfigGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpTxCreditMax"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpMessageFastTx"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpMessageFastTxInit"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpAdminStatus"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgAdminStatus"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgNotifyEnable"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgTLVsTxEnable"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgManAddrTxEnabled"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgManAddrSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgManAddress"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpDestMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpStatsRxGroup": {
+    "name": "tmnxLldpStatsRxGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsRxPortFrameDiscard"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsRxPortFrameErrs"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsRxPortFrames"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsRxPortTLVDiscard"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsRxPortTLVUnknown"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsRxPortAgeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpStatsTxGroup": {
+    "name": "tmnxLldpStatsTxGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsTxPortFrames"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpStatsTxLLDPDULengthErrs"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpLocSysGroup": {
+    "name": "tmnxLldpLocSysGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpLocPortIdSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpLocPortId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpLocPortDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemSysGroup": {
+    "name": "tmnxLldpRemSysGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisIdSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortIdSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortDesc"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysName"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysDesc"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysCapSupported"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysCapEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrGroup": {
+    "name": "tmnxLldpRemManAddrGroup",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrIfSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrIfId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrOID"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpV11v0Groups": {
+    "name": "tmnxLldpV11v0Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.11",
+    "class": "objectidentity"
+  },
+  "tmnxLldpConfigV11v0Group": {
+    "name": "tmnxLldpConfigV11v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.11.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgTunnelNearestBrg"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpV13v0Groups": {
+    "name": "tmnxLldpV13v0Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.12",
+    "class": "objectidentity"
+  },
+  "tmnxLldpConfigV13v0Group": {
+    "name": "tmnxLldpConfigV13v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.12.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpPortCfgPortIdSubtype"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpV16v0Groups": {
+    "name": "tmnxLldpV16v0Groups",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.13",
+    "class": "objectidentity"
+  },
+  "tmnxLldpRemSysV16v0Group": {
+    "name": "tmnxLldpRemSysV16v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.13.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysAge"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpNotifV16v0Group": {
+    "name": "tmnxLldpNotifV16v0Group",
+    "oid": "1.3.6.1.4.1.6527.3.1.1.59.2.13.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemEntryPeerAdded"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemEntryPeerUpdated"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemEntryPeerRemoved"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrEntryAdded"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrEntryRemoved"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpNotifications": {
+    "name": "tmnxLldpNotifications",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.59",
+    "class": "objectidentity"
+  },
+  "tmnxLldpNotifs": {
+    "name": "tmnxLldpNotifs",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.59.0",
+    "class": "objectidentity"
+  },
+  "tmnxLldpRemEntryPeerAdded": {
+    "name": "tmnxLldpRemEntryPeerAdded",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.59.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysName"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisIdSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortIdSubtype"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemEntryPeerUpdated": {
+    "name": "tmnxLldpRemEntryPeerUpdated",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.59.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysName"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisIdSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortIdSubtype"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemEntryPeerRemoved": {
+    "name": "tmnxLldpRemEntryPeerRemoved",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.59.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemSysName"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemChassisIdSubtype"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortId"
+      },
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemPortIdSubtype"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrEntryAdded": {
+    "name": "tmnxLldpRemManAddrEntryAdded",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.59.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrIfId"
+      }
+    ],
+    "status": "current"
+  },
+  "tmnxLldpRemManAddrEntryRemoved": {
+    "name": "tmnxLldpRemManAddrEntryRemoved",
+    "oid": "1.3.6.1.4.1.6527.3.1.3.59.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TIMETRA-LLDP-MIB",
+        "object": "tmnxLldpRemManAddrIfId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LLDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TIMETRA-LLDP-MIB"
+  }
+}

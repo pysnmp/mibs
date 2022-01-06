@@ -1,0 +1,291 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "snmpModules",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snmpFrameworkMIB": {
+    "name": "snmpFrameworkMIB",
+    "oid": "1.3.6.1.6.3.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-01-19 00:00",
+        "description": "Updated editors' addresses, fixed typos. Published as RFC2571. "
+      },
+      {
+        "revision": "1997-11-20 00:00",
+        "description": "The initial version, published in RFC 2271. "
+      }
+    ]
+  },
+  "SnmpEngineID": {
+    "name": "SnmpEngineID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SnmpSecurityModel": {
+    "name": "SnmpSecurityModel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SnmpMessageProcessingModel": {
+    "name": "SnmpMessageProcessingModel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SnmpSecurityLevel": {
+    "name": "SnmpSecurityLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthNoPriv": 1,
+          "authNoPriv": 2,
+          "authPriv": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SnmpAdminString": {
+    "name": "SnmpAdminString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "snmpFrameworkAdmin": {
+    "name": "snmpFrameworkAdmin",
+    "oid": "1.3.6.1.6.3.10.1",
+    "class": "objectidentity"
+  },
+  "snmpFrameworkMIBObjects": {
+    "name": "snmpFrameworkMIBObjects",
+    "oid": "1.3.6.1.6.3.10.2",
+    "class": "objectidentity"
+  },
+  "snmpFrameworkMIBConformance": {
+    "name": "snmpFrameworkMIBConformance",
+    "oid": "1.3.6.1.6.3.10.3",
+    "class": "objectidentity"
+  },
+  "snmpEngine": {
+    "name": "snmpEngine",
+    "oid": "1.3.6.1.6.3.10.2.1",
+    "class": "objectidentity"
+  },
+  "snmpEngineID": {
+    "name": "snmpEngineID",
+    "oid": "1.3.6.1.6.3.10.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpEngineBoots": {
+    "name": "snmpEngineBoots",
+    "oid": "1.3.6.1.6.3.10.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpEngineTime": {
+    "name": "snmpEngineTime",
+    "oid": "1.3.6.1.6.3.10.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpEngineMaxMessageSize": {
+    "name": "snmpEngineMaxMessageSize",
+    "oid": "1.3.6.1.6.3.10.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 484,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpAuthProtocols": {
+    "name": "snmpAuthProtocols",
+    "oid": "1.3.6.1.6.3.10.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "snmpPrivProtocols": {
+    "name": "snmpPrivProtocols",
+    "oid": "1.3.6.1.6.3.10.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "snmpFrameworkMIBCompliances": {
+    "name": "snmpFrameworkMIBCompliances",
+    "oid": "1.3.6.1.6.3.10.3.1",
+    "class": "objectidentity"
+  },
+  "snmpFrameworkMIBGroups": {
+    "name": "snmpFrameworkMIBGroups",
+    "oid": "1.3.6.1.6.3.10.3.2",
+    "class": "objectidentity"
+  },
+  "snmpFrameworkMIBCompliance": {
+    "name": "snmpFrameworkMIBCompliance",
+    "oid": "1.3.6.1.6.3.10.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpEngineGroup",
+        "module": "SNMP-FRAMEWORK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpEngineGroup": {
+    "name": "snmpEngineGroup",
+    "oid": "1.3.6.1.6.3.10.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "object": "snmpEngineID"
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "object": "snmpEngineBoots"
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "object": "snmpEngineTime"
+      },
+      {
+        "module": "SNMP-FRAMEWORK-MIB",
+        "object": "snmpEngineMaxMessageSize"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-FRAMEWORK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SNMP-FRAMEWORK-MIB"
+  }
+}

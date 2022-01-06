@@ -1,0 +1,396 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniLogSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniCliMIB": {
+    "name": "juniCliMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.30",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-12-10 13:25",
+        "description": "Added the juniCliConfigurationTable. A script file transferred using JUNIPER-FILE-XFER-MIB can be applied using this table."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2000-09-26 13:50",
+        "description": "Make it SMIv2 conformant."
+      },
+      {
+        "revision": "1999-12-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniCliTrap": {
+    "name": "juniCliTrap",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.0",
+    "class": "objectidentity"
+  },
+  "juniCliObjects": {
+    "name": "juniCliObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1",
+    "class": "objectidentity"
+  },
+  "juniCliConformance": {
+    "name": "juniCliConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2",
+    "class": "objectidentity"
+  },
+  "juniCliGeneral": {
+    "name": "juniCliGeneral",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.1",
+    "class": "objectidentity"
+  },
+  "juniCliSecurity": {
+    "name": "juniCliSecurity",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.2",
+    "class": "objectidentity"
+  },
+  "juniCliSecurityTrapEnable": {
+    "name": "juniCliSecurityTrapEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniCliConfigurationTable": {
+    "name": "juniCliConfigurationTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniCliConfigurationEntry": {
+    "name": "juniCliConfigurationEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliConfigurationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniCliConfigurationIndex": {
+    "name": "juniCliConfigurationIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniCliConfigurationFileName": {
+    "name": "juniCliConfigurationFileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniCliConfigurationApply": {
+    "name": "juniCliConfigurationApply",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "juniCliConfigurationReadyToApply": 0,
+          "juniCliConfigurationApplyNow": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "juniCliConfigurationReadyToApply",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniCliConfigurationOpStatus": {
+    "name": "juniCliConfigurationOpStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "juniCliConfigurationOpNoOp": 0,
+          "juniCliConfigurationOpSuccessful": 1,
+          "juniCliConfigurationOpInProgress": 2,
+          "juniCliConfigurationFileNotFound": 3,
+          "juniCliConfigurationFileIncompatible": 4,
+          "juniCliConfigurationOperationFailed": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "juniCliConfigurationOpNoOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniCliSecurityAlertPriority": {
+    "name": "juniCliSecurityAlertPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniLogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniCliSecurityAlertMessage": {
+    "name": "juniCliSecurityAlertMessage",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniCliSecurityAlertTime": {
+    "name": "juniCliSecurityAlertTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniCliSecurityAlert": {
+    "name": "juniCliSecurityAlert",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityAlertPriority"
+      },
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityAlertMessage"
+      },
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "juniCliCompliances": {
+    "name": "juniCliCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.1",
+    "class": "objectidentity"
+  },
+  "juniCliGroups": {
+    "name": "juniCliGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.2",
+    "class": "objectidentity"
+  },
+  "juniCliCompliance": {
+    "name": "juniCliCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniCliGroup",
+        "module": "Juniper-CLI-MIB"
+      },
+      {
+        "object": "juniCliSecurityAlertGroup",
+        "module": "Juniper-CLI-MIB"
+      },
+      {
+        "object": "juniCliSecurityTrapGroup",
+        "module": "Juniper-CLI-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniCliCompliance2": {
+    "name": "juniCliCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniCliGroup",
+        "module": "Juniper-CLI-MIB"
+      },
+      {
+        "object": "juniCliSecurityAlertGroup",
+        "module": "Juniper-CLI-MIB"
+      },
+      {
+        "object": "juniCliSecurityTrapGroup",
+        "module": "Juniper-CLI-MIB"
+      },
+      {
+        "object": "juniCliConfigurationGroup",
+        "module": "Juniper-CLI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniCliGroup": {
+    "name": "juniCliGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityTrapEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "juniCliSecurityAlertGroup": {
+    "name": "juniCliSecurityAlertGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityAlertPriority"
+      },
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityAlertMessage"
+      },
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "juniCliSecurityTrapGroup": {
+    "name": "juniCliSecurityTrapGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliSecurityAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "juniCliConfigurationGroup": {
+    "name": "juniCliConfigurationGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.30.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliConfigurationFileName"
+      },
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliConfigurationApply"
+      },
+      {
+        "module": "Juniper-CLI-MIB",
+        "object": "juniCliConfigurationOpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-CLI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-CLI-MIB"
+  }
+}

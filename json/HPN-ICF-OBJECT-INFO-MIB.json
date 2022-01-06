@@ -1,0 +1,195 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfObjectInfo": {
+    "name": "hpnicfObjectInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-12-27 00:00",
+        "description": " The initial revision of this MIB module. "
+      }
+    ]
+  },
+  "hpnicfObjectInformation": {
+    "name": "hpnicfObjectInformation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.1",
+    "class": "objectidentity"
+  },
+  "hpnicfObjectInfoTable": {
+    "name": "hpnicfObjectInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfObjectInfoEntry": {
+    "name": "hpnicfObjectInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-OBJECT-INFO-MIB",
+        "object": "hpnicfObjectInfoOID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-OBJECT-INFO-MIB",
+        "object": "hpnicfObjectInfoType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-OBJECT-INFO-MIB",
+        "object": "hpnicfObjectInfoTypeExtension",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfObjectInfoOID": {
+    "name": "hpnicfObjectInfoOID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfObjectInfoType": {
+    "name": "hpnicfObjectInfoType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "accessType": 2,
+          "dataType": 3,
+          "dataRange": 4,
+          "dataLength": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfObjectInfoTypeExtension": {
+    "name": "hpnicfObjectInfoTypeExtension",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfObjectInfoValue": {
+    "name": "hpnicfObjectInfoValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfObjectInfoMIBConformance": {
+    "name": "hpnicfObjectInfoMIBConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.2",
+    "class": "objectidentity"
+  },
+  "hpnicfObjectInfoMIBCompliances": {
+    "name": "hpnicfObjectInfoMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfObjectInfoMIBCompliance": {
+    "name": "hpnicfObjectInfoMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfObjectInfoTableGroup",
+        "module": "HPN-ICF-OBJECT-INFO-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfObjectInfoMIBGroups": {
+    "name": "hpnicfObjectInfoMIBGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.2.2",
+    "class": "objectidentity"
+  },
+  "hpnicfObjectInfoTableGroup": {
+    "name": "hpnicfObjectInfoTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.55.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-OBJECT-INFO-MIB",
+        "object": "hpnicfObjectInfoValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-OBJECT-INFO-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-OBJECT-INFO-MIB"
+  }
+}

@@ -1,0 +1,2916 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetPortNumber"
+    ],
+    "JUNIPER-MIMSTP-MIB": [
+      "EnabledStatus"
+    ],
+    "JUNIPER-MOBILE-GATEWAYS": [
+      "jnxMbgGwIndex",
+      "jnxMbgGwName"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMobileGatewayMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxMobileGatewayPgwAAAMib": {
+    "name": "jnxMobileGatewayPgwAAAMib",
+    "oid": "1.3.6.1.4.1.2636.3.66.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-03 12:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "jnxMbgAAANotifications": {
+    "name": "jnxMbgAAANotifications",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0",
+    "class": "objectidentity"
+  },
+  "jnxMbgAAAObjects": {
+    "name": "jnxMbgAAAObjects",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1",
+    "class": "objectidentity"
+  },
+  "jnxMbgAAAGlobalAuthStats": {
+    "name": "jnxMbgAAAGlobalAuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1",
+    "class": "objectidentity"
+  },
+  "jnxMbgAAAGlobalAcctStats": {
+    "name": "jnxMbgAAAGlobalAcctStats",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.2",
+    "class": "objectidentity"
+  },
+  "jnxMbgAAAGlobalDynAuthStats": {
+    "name": "jnxMbgAAAGlobalDynAuthStats",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3",
+    "class": "objectidentity"
+  },
+  "jnxMbgAAANotificationVars": {
+    "name": "jnxMbgAAANotificationVars",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.7",
+    "class": "objectidentity"
+  },
+  "JnxMbgAAAServerStatus": {
+    "name": "JnxMbgAAAServerStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "active": 1,
+          "dead": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxMbgQueueWaterMarkType": {
+    "name": "JnxMbgQueueWaterMarkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "high": 1,
+          "low": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxMbgAAAAuthStatsTable": {
+    "name": "jnxMbgAAAAuthStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgAAAAuthStatsEntry": {
+    "name": "jnxMbgAAAAuthStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgTtlAuthRequests": {
+    "name": "jnxMbgTtlAuthRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAuthAccepts": {
+    "name": "jnxMbgTtlAuthAccepts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAuthRejects": {
+    "name": "jnxMbgTtlAuthRejects",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAuthChallenges": {
+    "name": "jnxMbgTtlAuthChallenges",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAuthRequestTimeouts": {
+    "name": "jnxMbgTtlAuthRequestTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAuthRequestTxErrors": {
+    "name": "jnxMbgTtlAuthRequestTxErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAuthResponseErrors": {
+    "name": "jnxMbgTtlAuthResponseErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAuthPendingRequests": {
+    "name": "jnxMbgTtlAuthPendingRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgAAAAcctStatsTable": {
+    "name": "jnxMbgAAAAcctStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgAAAAcctStatsEntry": {
+    "name": "jnxMbgAAAAcctStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgTtlAcctRequests": {
+    "name": "jnxMbgTtlAcctRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAcctResp": {
+    "name": "jnxMbgTtlAcctResp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAcctRequestTimeouts": {
+    "name": "jnxMbgTtlAcctRequestTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAcctRequestTxErrors": {
+    "name": "jnxMbgTtlAcctRequestTxErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAcctResponseErrors": {
+    "name": "jnxMbgTtlAcctResponseErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlAcctPendingRequests": {
+    "name": "jnxMbgTtlAcctPendingRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgAAADynAuthStatsTable": {
+    "name": "jnxMbgAAADynAuthStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgAAADynAuthStatsEntry": {
+    "name": "jnxMbgAAADynAuthStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthReceived": {
+    "name": "jnxMbgTtlDynAuthReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthCoaReceived": {
+    "name": "jnxMbgTtlDynAuthCoaReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthDmReceived": {
+    "name": "jnxMbgTtlDynAuthDmReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthCoaAckSent": {
+    "name": "jnxMbgTtlDynAuthCoaAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthCoaNackSent": {
+    "name": "jnxMbgTtlDynAuthCoaNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthDmAckSent": {
+    "name": "jnxMbgTtlDynAuthDmAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthDmNackSent": {
+    "name": "jnxMbgTtlDynAuthDmNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthDropped": {
+    "name": "jnxMbgTtlDynAuthDropped",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthDuplicate": {
+    "name": "jnxMbgTtlDynAuthDuplicate",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthForwarded": {
+    "name": "jnxMbgTtlDynAuthForwarded",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthTimeouts": {
+    "name": "jnxMbgTtlDynAuthTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthDelivered": {
+    "name": "jnxMbgTtlDynAuthDelivered",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthErrors": {
+    "name": "jnxMbgTtlDynAuthErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthUnknownClnts": {
+    "name": "jnxMbgTtlDynAuthUnknownClnts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthInvalidCode": {
+    "name": "jnxMbgTtlDynAuthInvalidCode",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthInvalidAuth": {
+    "name": "jnxMbgTtlDynAuthInvalidAuth",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthInvalidChId": {
+    "name": "jnxMbgTtlDynAuthInvalidChId",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthMapErrors": {
+    "name": "jnxMbgTtlDynAuthMapErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTtlDynAuthInvalidTrId": {
+    "name": "jnxMbgTtlDynAuthInvalidTrId",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.10.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrTable": {
+    "name": "jnxMbgRadiusAuthSrvrTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrEntry": {
+    "name": "jnxMbgRadiusAuthSrvrEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgRadiusAuthSrvrName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrName": {
+    "name": "jnxMbgRadiusAuthSrvrName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrInetAddrType": {
+    "name": "jnxMbgRadiusAuthSrvrInetAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrInetAddress": {
+    "name": "jnxMbgRadiusAuthSrvrInetAddress",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrInetPort": {
+    "name": "jnxMbgRadiusAuthSrvrInetPort",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrRtngInstance": {
+    "name": "jnxMbgRadiusAuthSrvrRtngInstance",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrStatus": {
+    "name": "jnxMbgRadiusAuthSrvrStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxMbgAAAServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrRequests": {
+    "name": "jnxMbgRadiusAuthSrvrRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrRetrans": {
+    "name": "jnxMbgRadiusAuthSrvrRetrans",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrAccepts": {
+    "name": "jnxMbgRadiusAuthSrvrAccepts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrRejects": {
+    "name": "jnxMbgRadiusAuthSrvrRejects",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrChallenges": {
+    "name": "jnxMbgRadiusAuthSrvrChallenges",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrMalformResp": {
+    "name": "jnxMbgRadiusAuthSrvrMalformResp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrBadAuthen": {
+    "name": "jnxMbgRadiusAuthSrvrBadAuthen",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrPendingRqsts": {
+    "name": "jnxMbgRadiusAuthSrvrPendingRqsts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrTimeouts": {
+    "name": "jnxMbgRadiusAuthSrvrTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrUnknownTypes": {
+    "name": "jnxMbgRadiusAuthSrvrUnknownTypes",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrPacketsDrop": {
+    "name": "jnxMbgRadiusAuthSrvrPacketsDrop",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrRTTAvg": {
+    "name": "jnxMbgRadiusAuthSrvrRTTAvg",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrRTTMin": {
+    "name": "jnxMbgRadiusAuthSrvrRTTMin",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAuthSrvrRTTMax": {
+    "name": "jnxMbgRadiusAuthSrvrRTTMax",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrTable": {
+    "name": "jnxMbgRadiusAcctSrvrTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrEntry": {
+    "name": "jnxMbgRadiusAcctSrvrEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgRadiusAcctSrvrName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrName": {
+    "name": "jnxMbgRadiusAcctSrvrName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrInetAddrType": {
+    "name": "jnxMbgRadiusAcctSrvrInetAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrInetAddress": {
+    "name": "jnxMbgRadiusAcctSrvrInetAddress",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrInetPort": {
+    "name": "jnxMbgRadiusAcctSrvrInetPort",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrRtngInstance": {
+    "name": "jnxMbgRadiusAcctSrvrRtngInstance",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrStatus": {
+    "name": "jnxMbgRadiusAcctSrvrStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxMbgAAAServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrRequests": {
+    "name": "jnxMbgRadiusAcctSrvrRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrRetrans": {
+    "name": "jnxMbgRadiusAcctSrvrRetrans",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrResp": {
+    "name": "jnxMbgRadiusAcctSrvrResp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrMalformResp": {
+    "name": "jnxMbgRadiusAcctSrvrMalformResp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrBadAuthen": {
+    "name": "jnxMbgRadiusAcctSrvrBadAuthen",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrPendingRqsts": {
+    "name": "jnxMbgRadiusAcctSrvrPendingRqsts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrTimeouts": {
+    "name": "jnxMbgRadiusAcctSrvrTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrUnknownTypes": {
+    "name": "jnxMbgRadiusAcctSrvrUnknownTypes",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrPacketsDrop": {
+    "name": "jnxMbgRadiusAcctSrvrPacketsDrop",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrRTTAvg": {
+    "name": "jnxMbgRadiusAcctSrvrRTTAvg",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrRTTMin": {
+    "name": "jnxMbgRadiusAcctSrvrRTTMin",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgRadiusAcctSrvrRTTMax": {
+    "name": "jnxMbgRadiusAcctSrvrRTTMax",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntTable": {
+    "name": "jnxMbgDynAuthClntTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntEntry": {
+    "name": "jnxMbgDynAuthClntEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgDynAuthClntName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntName": {
+    "name": "jnxMbgDynAuthClntName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntInAddrType": {
+    "name": "jnxMbgDynAuthClntInAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntInetAddress": {
+    "name": "jnxMbgDynAuthClntInetAddress",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntCoaReceived": {
+    "name": "jnxMbgDynAuthClntCoaReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntDmReceived": {
+    "name": "jnxMbgDynAuthClntDmReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntCoaAckSent": {
+    "name": "jnxMbgDynAuthClntCoaAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntCoaNackSent": {
+    "name": "jnxMbgDynAuthClntCoaNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntDmAckSent": {
+    "name": "jnxMbgDynAuthClntDmAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntDmNackSent": {
+    "name": "jnxMbgDynAuthClntDmNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntDropped": {
+    "name": "jnxMbgDynAuthClntDropped",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntDuplicate": {
+    "name": "jnxMbgDynAuthClntDuplicate",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntForwarded": {
+    "name": "jnxMbgDynAuthClntForwarded",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntTimeouts": {
+    "name": "jnxMbgDynAuthClntTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntDelivered": {
+    "name": "jnxMbgDynAuthClntDelivered",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntErrors": {
+    "name": "jnxMbgDynAuthClntErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntInvalidAuth": {
+    "name": "jnxMbgDynAuthClntInvalidAuth",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntInvalidCode": {
+    "name": "jnxMbgDynAuthClntInvalidCode",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntInvalidChId": {
+    "name": "jnxMbgDynAuthClntInvalidChId",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgDynAuthClntMapErrors": {
+    "name": "jnxMbgDynAuthClntMapErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMbgTotalAuthRequests": {
+    "name": "jnxMbgTotalAuthRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAuthAccepts": {
+    "name": "jnxMbgTotalAuthAccepts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAuthRejects": {
+    "name": "jnxMbgTotalAuthRejects",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAuthChallenges": {
+    "name": "jnxMbgTotalAuthChallenges",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAuthRequestTimeouts": {
+    "name": "jnxMbgTotalAuthRequestTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAuthRequestTxErrors": {
+    "name": "jnxMbgTotalAuthRequestTxErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAuthResponseErrors": {
+    "name": "jnxMbgTotalAuthResponseErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAuthPendingRequests": {
+    "name": "jnxMbgTotalAuthPendingRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAcctRequests": {
+    "name": "jnxMbgTotalAcctRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAcctResponses": {
+    "name": "jnxMbgTotalAcctResponses",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAcctRequestTimeouts": {
+    "name": "jnxMbgTotalAcctRequestTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAcctRequestTxErrors": {
+    "name": "jnxMbgTotalAcctRequestTxErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAcctResponseErrors": {
+    "name": "jnxMbgTotalAcctResponseErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalAcctPendingRequests": {
+    "name": "jnxMbgTotalAcctPendingRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthReceived": {
+    "name": "jnxMbgTotalDynAuthReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthCoaReceived": {
+    "name": "jnxMbgTotalDynAuthCoaReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthDmReceived": {
+    "name": "jnxMbgTotalDynAuthDmReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthCoaAckSent": {
+    "name": "jnxMbgTotalDynAuthCoaAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthCoaNackSent": {
+    "name": "jnxMbgTotalDynAuthCoaNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthDmAckSent": {
+    "name": "jnxMbgTotalDynAuthDmAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthDmNackSent": {
+    "name": "jnxMbgTotalDynAuthDmNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthDropped": {
+    "name": "jnxMbgTotalDynAuthDropped",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthDuplicate": {
+    "name": "jnxMbgTotalDynAuthDuplicate",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthForwarded": {
+    "name": "jnxMbgTotalDynAuthForwarded",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthTimeouts": {
+    "name": "jnxMbgTotalDynAuthTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthDelivered": {
+    "name": "jnxMbgTotalDynAuthDelivered",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthErrors": {
+    "name": "jnxMbgTotalDynAuthErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthUnknownClnts": {
+    "name": "jnxMbgTotalDynAuthUnknownClnts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthInvalidCode": {
+    "name": "jnxMbgTotalDynAuthInvalidCode",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthInvalidAuth": {
+    "name": "jnxMbgTotalDynAuthInvalidAuth",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthInvalidChId": {
+    "name": "jnxMbgTotalDynAuthInvalidChId",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthMapErrors": {
+    "name": "jnxMbgTotalDynAuthMapErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgTotalDynAuthInvalidTrId": {
+    "name": "jnxMbgTotalDynAuthInvalidTrId",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerTable": {
+    "name": "jnxMbgRadiusAuthServerTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerEntry": {
+    "name": "jnxMbgRadiusAuthServerEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgRadiusAuthServerName",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerName": {
+    "name": "jnxMbgRadiusAuthServerName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerInetAddressType": {
+    "name": "jnxMbgRadiusAuthServerInetAddressType",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerInetAddress": {
+    "name": "jnxMbgRadiusAuthServerInetAddress",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerInetPort": {
+    "name": "jnxMbgRadiusAuthServerInetPort",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerRoutingInstance": {
+    "name": "jnxMbgRadiusAuthServerRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerStatus": {
+    "name": "jnxMbgRadiusAuthServerStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxMbgAAAServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerRequests": {
+    "name": "jnxMbgRadiusAuthServerRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServersRetransmissions": {
+    "name": "jnxMbgRadiusAuthServersRetransmissions",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerAccepts": {
+    "name": "jnxMbgRadiusAuthServerAccepts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerRejects": {
+    "name": "jnxMbgRadiusAuthServerRejects",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerChallenges": {
+    "name": "jnxMbgRadiusAuthServerChallenges",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerMalformedResponses": {
+    "name": "jnxMbgRadiusAuthServerMalformedResponses",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerBadAuthenticators": {
+    "name": "jnxMbgRadiusAuthServerBadAuthenticators",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerPendingRequests": {
+    "name": "jnxMbgRadiusAuthServerPendingRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerTimeouts": {
+    "name": "jnxMbgRadiusAuthServerTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerUnknownTypes": {
+    "name": "jnxMbgRadiusAuthServerUnknownTypes",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerPacketsDropped": {
+    "name": "jnxMbgRadiusAuthServerPacketsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerRTTAvg": {
+    "name": "jnxMbgRadiusAuthServerRTTAvg",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerRTTMin": {
+    "name": "jnxMbgRadiusAuthServerRTTMin",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAuthServerRTTMax": {
+    "name": "jnxMbgRadiusAuthServerRTTMax",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerTable": {
+    "name": "jnxMbgRadiusAcctServerTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerEntry": {
+    "name": "jnxMbgRadiusAcctServerEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgRadiusAcctServerName",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerName": {
+    "name": "jnxMbgRadiusAcctServerName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerInetAddressType": {
+    "name": "jnxMbgRadiusAcctServerInetAddressType",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerInetAddress": {
+    "name": "jnxMbgRadiusAcctServerInetAddress",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerInetPort": {
+    "name": "jnxMbgRadiusAcctServerInetPort",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerRoutingInstance": {
+    "name": "jnxMbgRadiusAcctServerRoutingInstance",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerStatus": {
+    "name": "jnxMbgRadiusAcctServerStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxMbgAAAServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerRequests": {
+    "name": "jnxMbgRadiusAcctServerRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServersRetransmissions": {
+    "name": "jnxMbgRadiusAcctServersRetransmissions",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerResponses": {
+    "name": "jnxMbgRadiusAcctServerResponses",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerMalformedResponses": {
+    "name": "jnxMbgRadiusAcctServerMalformedResponses",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerBadAuthenticators": {
+    "name": "jnxMbgRadiusAcctServerBadAuthenticators",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerPendingRequests": {
+    "name": "jnxMbgRadiusAcctServerPendingRequests",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerTimeouts": {
+    "name": "jnxMbgRadiusAcctServerTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerUnknownTypes": {
+    "name": "jnxMbgRadiusAcctServerUnknownTypes",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerPacketsDropped": {
+    "name": "jnxMbgRadiusAcctServerPacketsDropped",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerRTTAvg": {
+    "name": "jnxMbgRadiusAcctServerRTTAvg",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerRTTMin": {
+    "name": "jnxMbgRadiusAcctServerRTTMin",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgRadiusAcctServerRTTMax": {
+    "name": "jnxMbgRadiusAcctServerRTTMax",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientTable": {
+    "name": "jnxMbgDynAuthClientTable",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientEntry": {
+    "name": "jnxMbgDynAuthClientEntry",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgRadiusAcctServerName",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientName": {
+    "name": "jnxMbgDynAuthClientName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientInAddrType": {
+    "name": "jnxMbgDynAuthClientInAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientInetAddress": {
+    "name": "jnxMbgDynAuthClientInetAddress",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientCoaReceived": {
+    "name": "jnxMbgDynAuthClientCoaReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientDmReceived": {
+    "name": "jnxMbgDynAuthClientDmReceived",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientCoaAckSent": {
+    "name": "jnxMbgDynAuthClientCoaAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientCoaNackSent": {
+    "name": "jnxMbgDynAuthClientCoaNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientDmAckSent": {
+    "name": "jnxMbgDynAuthClientDmAckSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientDmNackSent": {
+    "name": "jnxMbgDynAuthClientDmNackSent",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientDropped": {
+    "name": "jnxMbgDynAuthClientDropped",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientDuplicate": {
+    "name": "jnxMbgDynAuthClientDuplicate",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientForwarded": {
+    "name": "jnxMbgDynAuthClientForwarded",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientTimeouts": {
+    "name": "jnxMbgDynAuthClientTimeouts",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientDelivered": {
+    "name": "jnxMbgDynAuthClientDelivered",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientErrors": {
+    "name": "jnxMbgDynAuthClientErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientInvalidAuth": {
+    "name": "jnxMbgDynAuthClientInvalidAuth",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientInvalidCode": {
+    "name": "jnxMbgDynAuthClientInvalidCode",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientInvalidChId": {
+    "name": "jnxMbgDynAuthClientInvalidChId",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgDynAuthClientMapErrors": {
+    "name": "jnxMbgDynAuthClientMapErrors",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "jnxMbgAAAServerName": {
+    "name": "jnxMbgAAAServerName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgSPIdentifier": {
+    "name": "jnxMbgSPIdentifier",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgAAANetworkElementName": {
+    "name": "jnxMbgAAANetworkElementName",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgPendQWaterMarkType": {
+    "name": "jnxMbgPendQWaterMarkType",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxMbgQueueWaterMarkType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgPendQWaterMarkValue": {
+    "name": "jnxMbgPendQWaterMarkValue",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgPendQLength": {
+    "name": "jnxMbgPendQLength",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxMbgAAAServerUp": {
+    "name": "jnxMbgAAAServerUp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAAServerName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgAAAServerDown": {
+    "name": "jnxMbgAAAServerDown",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAAServerName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgAAANetworkElementUp": {
+    "name": "jnxMbgAAANetworkElementUp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgAAANetworkElementDown": {
+    "name": "jnxMbgAAANetworkElementDown",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgAAANEPendAuthQStatus": {
+    "name": "jnxMbgAAANEPendAuthQStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkType"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkValue"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQLength"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgAAANEPendAcctQStatus": {
+    "name": "jnxMbgAAANEPendAcctQStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkType"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkValue"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQLength"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "jnxMbgAAARadiusServerUp": {
+    "name": "jnxMbgAAARadiusServerUp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAAServerName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgAAARadiusServerDown": {
+    "name": "jnxMbgAAARadiusServerDown",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAAServerName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgAAARadiusNetworkElementUp": {
+    "name": "jnxMbgAAARadiusNetworkElementUp",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgAAARadiusNetworkElementDown": {
+    "name": "jnxMbgAAARadiusNetworkElementDown",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgAAARadiusNEPendAuthQStatus": {
+    "name": "jnxMbgAAARadiusNEPendAuthQStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkType"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkValue"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQLength"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMbgAAARadiusNEPendAcctQStatus": {
+    "name": "jnxMbgAAARadiusNEPendAcctQStatus",
+    "oid": "1.3.6.1.4.1.2636.3.66.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwIndex"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAYS",
+        "object": "jnxMbgGwName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgAAANetworkElementName"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgSPIdentifier"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkType"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQWaterMarkValue"
+      },
+      {
+        "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+        "object": "jnxMbgPendQLength"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-MOBILE-GATEWAY-AAA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-MOBILE-GATEWAY-AAA-MIB"
+  }
+}

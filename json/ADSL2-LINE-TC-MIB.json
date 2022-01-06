@@ -1,0 +1,580 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "transmission",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adsl2TCMIB": {
+    "name": "adsl2TCMIB",
+    "oid": "1.3.6.1.2.1.10.238.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-10-04 00:00",
+        "description": "Initial version, published as RFC 4706."
+      }
+    ]
+  },
+  "Adsl2Unit": {
+    "name": "Adsl2Unit",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atuc": 1,
+          "atur": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2Direction": {
+    "name": "Adsl2Direction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upstream": 1,
+          "downstream": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2TransmissionModeType": {
+    "name": "Adsl2TransmissionModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ansit1413": 0,
+        "etsi": 1,
+        "g9921PotsNonOverlapped": 2,
+        "g9921PotsOverlapped": 3,
+        "g9921IsdnNonOverlapped": 4,
+        "g9921isdnOverlapped": 5,
+        "g9921tcmIsdnNonOverlapped": 6,
+        "g9921tcmIsdnOverlapped": 7,
+        "g9922potsNonOverlapped": 8,
+        "g9922potsOverlapped": 9,
+        "g9922tcmIsdnNonOverlapped": 10,
+        "g9922tcmIsdnOverlapped": 11,
+        "g9921tcmIsdnSymmetric": 12,
+        "reserved1": 13,
+        "reserved2": 14,
+        "reserved3": 15,
+        "reserved4": 16,
+        "reserved5": 17,
+        "g9923PotsNonOverlapped": 18,
+        "g9923PotsOverlapped": 19,
+        "g9923IsdnNonOverlapped": 20,
+        "g9923isdnOverlapped": 21,
+        "reserved6": 22,
+        "reserved7": 23,
+        "g9924potsNonOverlapped": 24,
+        "g9924potsOverlapped": 25,
+        "reserved8": 26,
+        "reserved9": 27,
+        "g9923AnnexIAllDigNonOverlapped": 28,
+        "g9923AnnexIAllDigOverlapped": 29,
+        "g9923AnnexJAllDigNonOverlapped": 30,
+        "g9923AnnexJAllDigOverlapped": 31,
+        "g9924AnnexIAllDigNonOverlapped": 32,
+        "g9924AnnexIAllDigOverlapped": 33,
+        "g9923AnnexLMode1NonOverlapped": 34,
+        "g9923AnnexLMode2NonOverlapped": 35,
+        "g9923AnnexLMode3Overlapped": 36,
+        "g9923AnnexLMode4Overlapped": 37,
+        "g9923AnnexMPotsNonOverlapped": 38,
+        "g9923AnnexMPotsOverlapped": 39,
+        "g9925PotsNonOverlapped": 40,
+        "g9925PotsOverlapped": 41,
+        "g9925IsdnNonOverlapped": 42,
+        "g9925isdnOverlapped": 43,
+        "reserved10": 44,
+        "reserved11": 45,
+        "g9925AnnexIAllDigNonOverlapped": 46,
+        "g9925AnnexIAllDigOverlapped": 47,
+        "g9925AnnexJAllDigNonOverlapped": 48,
+        "g9925AnnexJAllDigOverlapped": 49,
+        "g9925AnnexMPotsNonOverlapped": 50,
+        "g9925AnnexMPotsOverlapped": 51,
+        "reserved12": 52,
+        "reserved13": 53,
+        "reserved14": 54,
+        "reserved15": 55
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2RaMode": {
+    "name": "Adsl2RaMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "raInit": 2,
+          "dynamicRa": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2InitResult": {
+    "name": "Adsl2InitResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFail": 0,
+          "configError": 1,
+          "configNotFeasible": 2,
+          "commFail": 3,
+          "noPeerAtu": 4,
+          "otherCause": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2OperationModes": {
+    "name": "Adsl2OperationModes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "defMode": 1,
+          "adsl": 2,
+          "g9923PotsNonOverlapped": 8,
+          "g9923PotsOverlapped": 9,
+          "g9923IsdnNonOverlapped": 10,
+          "g9923isdnOverlapped": 11,
+          "g9924potsNonOverlapped": 14,
+          "g9924potsOverlapped": 15,
+          "g9923AnnexIAllDigNonOverlapped": 18,
+          "g9923AnnexIAllDigOverlapped": 19,
+          "g9923AnnexJAllDigNonOverlapped": 20,
+          "g9923AnnexJAllDigOverlapped": 21,
+          "g9924AnnexIAllDigNonOverlapped": 22,
+          "g9924AnnexIAllDigOverlapped": 23,
+          "g9923AnnexLMode1NonOverlapped": 24,
+          "g9923AnnexLMode2NonOverlapped": 25,
+          "g9923AnnexLMode3Overlapped": 26,
+          "g9923AnnexLMode4Overlapped": 27,
+          "g9923AnnexMPotsNonOverlapped": 28,
+          "g9923AnnexMPotsOverlapped": 29,
+          "g9925PotsNonOverlapped": 30,
+          "g9925PotsOverlapped": 31,
+          "g9925IsdnNonOverlapped": 32,
+          "g9925isdnOverlapped": 33,
+          "g9925AnnexIAllDigNonOverlapped": 36,
+          "g9925AnnexIAllDigOverlapped": 37,
+          "g9925AnnexJAllDigNonOverlapped": 38,
+          "g9925AnnexJAllDigOverlapped": 39,
+          "g9925AnnexMPotsNonOverlapped": 40,
+          "g9925AnnexMPotsOverlapped": 41
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2PowerMngState": {
+    "name": "Adsl2PowerMngState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l0": 1,
+          "l1": 2,
+          "l2": 3,
+          "l3": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2ConfPmsForce": {
+    "name": "Adsl2ConfPmsForce",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l3toL0": 0,
+          "l0toL2": 2,
+          "l0orL2toL3": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2LConfProfPmMode": {
+    "name": "Adsl2LConfProfPmMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "allowTransitionsToIdle": 0,
+        "allowTransitionsToLowPower": 1
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2LineLdsf": {
+    "name": "Adsl2LineLdsf",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inhibit": 0,
+          "force": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2LdsfResult": {
+    "name": "Adsl2LdsfResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "success": 2,
+          "inProgress": 3,
+          "unsupported": 4,
+          "cannotRun": 5,
+          "aborted": 6,
+          "failed": 7,
+          "illegalMode": 8,
+          "adminUp": 9,
+          "tableFull": 10,
+          "noResources": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2SymbolProtection": {
+    "name": "Adsl2SymbolProtection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noProtection": 1,
+          "halfSymbol": 2,
+          "singleSymbol": 3,
+          "twoSymbols": 4,
+          "threeSymbols": 5,
+          "fourSymbols": 6,
+          "fiveSymbols": 7,
+          "sixSymbols": 8,
+          "sevenSymbols": 9,
+          "eightSymbols": 10,
+          "nineSymbols": 11,
+          "tenSymbols": 12,
+          "elevenSymbols": 13,
+          "twelveSymbols": 14,
+          "thirteeSymbols": 15,
+          "fourteenSymbols": 16,
+          "fifteenSymbols": 17,
+          "sixteenSymbols": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2MaxBer": {
+    "name": "Adsl2MaxBer",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eminus3": 1,
+          "eminus5": 2,
+          "eminus7": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2ScMaskDs": {
+    "name": "Adsl2ScMaskDs",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2ScMaskUs": {
+    "name": "Adsl2ScMaskUs",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2RfiDs": {
+    "name": "Adsl2RfiDs",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2PsdMaskDs": {
+    "name": "Adsl2PsdMaskDs",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2PsdMaskUs": {
+    "name": "Adsl2PsdMaskUs",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2Tssi": {
+    "name": "Adsl2Tssi",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2LastTransmittedState": {
+    "name": "Adsl2LastTransmittedState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atucG9941": 0,
+          "atucQuiet1": 1,
+          "atucComb1": 2,
+          "atucQuiet2": 3,
+          "atucComb2": 4,
+          "atucIcomb1": 5,
+          "atucLineprob": 6,
+          "atucQuiet3": 7,
+          "atucComb3": 8,
+          "atucIComb2": 9,
+          "atucMsgfmt": 10,
+          "atucMsgpcb": 11,
+          "atucQuiet4": 12,
+          "atucReverb1": 13,
+          "atucTref1": 14,
+          "atucReverb2": 15,
+          "atucEct": 16,
+          "atucReverb3": 17,
+          "atucTref2": 18,
+          "atucReverb4": 19,
+          "atucSegue1": 20,
+          "atucMsg1": 21,
+          "atucReverb5": 22,
+          "atucSegue2": 23,
+          "atucMedley": 24,
+          "atucExchmarker": 25,
+          "atucMsg2": 26,
+          "atucReverb6": 27,
+          "atucSegue3": 28,
+          "atucParams": 29,
+          "atucReverb7": 30,
+          "atucSegue4": 31,
+          "atucShowtime": 32,
+          "aturG9941": 100,
+          "aturQuiet1": 101,
+          "aturComb1": 102,
+          "aturQuiet2": 103,
+          "aturComb2": 104,
+          "aturIcomb1": 105,
+          "aturLineprob": 106,
+          "aturQuiet3": 107,
+          "aturComb3": 108,
+          "aturIcomb2": 109,
+          "aturMsgfmt": 110,
+          "aturMsgpcb": 111,
+          "aturReverb1": 112,
+          "aturQuiet4": 113,
+          "aturReverb2": 114,
+          "aturQuiet5": 115,
+          "aturReverb3": 116,
+          "aturEct": 117,
+          "aturReverb4": 118,
+          "aturSegue1": 119,
+          "aturReverb5": 120,
+          "aturSegue2": 121,
+          "aturMsg1": 122,
+          "aturMedley": 123,
+          "aturExchmarker": 124,
+          "aturMsg2": 125,
+          "aturReverb6": 126,
+          "aturSegue3": 127,
+          "aturParams": 128,
+          "aturReverb7": 129,
+          "aturSegue4": 130,
+          "aturShowtime": 131
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2LineStatus": {
+    "name": "Adsl2LineStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "lossOfFrame": 1,
+        "lossOfSignal": 2,
+        "lossOfPower": 3,
+        "initFailure": 4
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2ChAtmStatus": {
+    "name": "Adsl2ChAtmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "noCellDelineation": 1,
+        "lossOfCellDelineation": 2
+      }
+    },
+    "status": "current"
+  },
+  "Adsl2ChPtmStatus": {
+    "name": "Adsl2ChPtmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "outOfSync": 1
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ADSL2-LINE-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADSL2-LINE-TC-MIB"
+  }
+}

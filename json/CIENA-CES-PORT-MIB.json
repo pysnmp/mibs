@@ -1,0 +1,2611 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-CES-CHASSIS-MIB": [
+      "cienaCesChassisSystemId"
+    ],
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesPortConfigMIB": {
+    "name": "cienaCesPortConfigMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-12-18 00:00",
+        "description": "Added cienaCesPortL2CftProfileId and cienaCesPortL2CftStatus objects and changed the name of cienaCesLogicalPortHoldOffState and cienaCesLogicalPortHoldOffTime to cienaCesPortHoldOffState and cienaCesPortHoldOffTime respectively to align with ../dev/5170-main branch. Currenty cienaCesPortL2CftProfileId and cienaCesPortL2CftStatus objects are not supported in 8.7"
+      },
+      {
+        "revision": "2018-11-12 00:00",
+        "description": "Modified the SIZE range of cienaCesPortMaxFrameSize from (1522..9216) to (1200..10222) to accommodate wider range available in some devices."
+      },
+      {
+        "revision": "2018-10-09 00:00",
+        "description": "Added cienaCesPortOperFecState to CienaCesLogicalPortConfigEntry MIB objects."
+      },
+      {
+        "revision": "2018-06-12 00:00",
+        "description": "Added cienaCesLogicalPortHoldOffState and cienaCesLogicalPortHoldOffTime to CienaCesLogicalPortConfigEntry MIB objects."
+      },
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2017-05-19 00:00",
+        "description": "Added y1731SytheticLoss as mode of signal degrade detection in object cienaCesLogicalPortConfigSignalDegradeDetection."
+      },
+      {
+        "revision": "2017-05-08 00:00",
+        "description": "Changed cienaCesLogicalPortSignalDegradeDetection to cienaCesLogicalPortConfigSignalDegradeDetection."
+      },
+      {
+        "revision": "2016-10-24 00:00",
+        "description": "Added cienaCesLogicalPortSignalDegradeDetection and cienaCesLogicalPortConfigSignalDegradeState. Added trap cienaCesPortNotificationPortSignalDegradeSet and cienaCesPortNotificationPortSignalDegradeClear"
+      },
+      {
+        "revision": "2015-07-03 00:00",
+        "description": "Added cienaCesChPortPgIdMappingTable. Added trap cienaCesChPortNotificationPortUp and cienaCesChPortNotificationPortDown"
+      },
+      {
+        "revision": "2015-06-23 00:00",
+        "description": " Added object cienaCesPortTerminalLoopbackState."
+      },
+      {
+        "revision": "2015-05-15 00:00",
+        "description": "Added odu4 to cienaCesLogicalPortConfigPortType, cienaCesLogicalPortConfigEttpType, and cienaCesEttpConfigEttpType."
+      },
+      {
+        "revision": "2015-05-05 00:00",
+        "description": " Added object cienaCesPortLearnLimit. Port learn limit count"
+      },
+      {
+        "revision": "2015-05-01 00:00",
+        "description": "Added twoPointFiveGigEthernet to cienaCesLogicalPortConfigPortType, cienaCesLogicalPortConfigEttpType, and cienaCesEttpConfigEttpType. Added twoPtFiveGig to cienaCesPortAdminSpeed, cienaCesPortOperSpeed, cienaCesEttpConfigAdminSpeed, and cienaCesEttpConfigOperSpeed."
+      },
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Added cienaCesPortAdministrativeSpeed. Port administrative speed in kbps."
+      },
+      {
+        "revision": "2014-11-28 00:00",
+        "description": " Added objects cienaCesPortOuterTpidList,cienaCesPortEgressOuterTpid and cienaCesPortOuterVtagTpid"
+      },
+      {
+        "revision": "2014-04-14 00:00",
+        "description": "Added objects cienaCesPortIngressRcosProfileId,cienaCesPortIngressRcosProfileName and cienaCesPortIngressRcosPolicy."
+      },
+      {
+        "revision": "2014-04-11 00:00",
+        "description": "Added cienaCesPortOperationalSpeed. Port operational speed in kbps."
+      },
+      {
+        "revision": "2014-04-01 00:00",
+        "description": "Add per-port inner + outer TPIDs"
+      },
+      {
+        "revision": "2013-08-22 00:00",
+        "description": "Added hundred gig ethernet support."
+      },
+      {
+        "revision": "2013-08-06 00:00",
+        "description": "Updated cienaCesLogicalPortConfigEntry and cienaCesEttpConfigEntry. Added cienaCesEttpConfigDuplex, cienaCesEttpConfigFlowCntl, cienaCesEttpConfigAutoNeg, cienaCesEttpConfigAdvertisedFlowCntl, cienaCesEttpConfigIfgDecr, cienaCesLogicalPortConfigIngMirrorPort, cienaCesLogicalPortConfigEgrMirrorPort, cienaCesLogicalPortConfigIngFloodContainer, cienaCesLogicalPortConfigPriorityTagMode to match Port, ETTP Configuration CLI."
+      },
+      {
+        "revision": "2013-07-31 00:00",
+        "description": " Updated cienaCesLogicalPortConfigEttpType under CienaCesLogicalPortConfigEntry. Added ETTP Port Type"
+      },
+      {
+        "revision": "2013-07-16 00:00",
+        "description": " Updated cienaCesLogicalPortConfigEttpId under CienaCesLogicalPortConfigEntry. Added ettpId"
+      },
+      {
+        "revision": "2013-07-15 00:00",
+        "description": " Added cienaCesEttpConfigTable. ETTPs for default-physical-ports and logical port mapping"
+      },
+      {
+        "revision": "2013-03-05 00:00",
+        "description": " Updated cienaCesLogicalPortConfigPortType, cienaCesPortAdminSpeed and cienaCesPortOperSpeed with support for 100GE, ODU and ODUFlex rate."
+      },
+      {
+        "revision": "2012-08-01 00:00",
+        "description": " Corrected the size of the cienaCesLogicalPortConfigPortDesc object from (0..31) to (0..128)."
+      },
+      {
+        "revision": "2011-06-01 00:00",
+        "description": " Added objects cienaCesPortAdminSpeed, cienaCesPortOperSpeed and cienaCesPortMaxFrameSize under cienaCesPortConfig."
+      },
+      {
+        "revision": "2010-03-28 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "EttpDuplexPolicy": {
+    "name": "EttpDuplexPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EttpAdvertisedFlowControlPolicy": {
+    "name": "EttpAdvertisedFlowControlPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "asym-tx": 2,
+          "sym": 3,
+          "sym-asym-rx": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EttpFlowControlPolicy": {
+    "name": "EttpFlowControlPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "asym-tx": 2,
+          "sym": 3,
+          "asym-rx": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EttpAutoNegPolicy": {
+    "name": "EttpAutoNegPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortPriorityTagPolicy": {
+    "name": "PortPriorityTagPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leave-tag": 1,
+          "strip-tag": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cienaCesPortConfigMIBObjects": {
+    "name": "cienaCesPortConfigMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesPortConfig": {
+    "name": "cienaCesPortConfig",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesPortPgIdMapping": {
+    "name": "cienaCesPortPgIdMapping",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesEttpConfig": {
+    "name": "cienaCesEttpConfig",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "cienaCesLogicalPortTpid": {
+    "name": "cienaCesLogicalPortTpid",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "cienaCesChPortPgIdMapping": {
+    "name": "cienaCesChPortPgIdMapping",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "cienaCesPortNotificationMIBNotificationPrefix": {
+    "name": "cienaCesPortNotificationMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.2",
+    "class": "objectidentity"
+  },
+  "cienaCesPortNotificationMIBNotifications": {
+    "name": "cienaCesPortNotificationMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "cienaCesPortMIBConformance": {
+    "name": "cienaCesPortMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesPortMIBCompliances": {
+    "name": "cienaCesPortMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesPortMIBGroups": {
+    "name": "cienaCesPortMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "cienaCesLogicalPortConfigTable": {
+    "name": "cienaCesLogicalPortConfigTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigEntry": {
+    "name": "cienaCesLogicalPortConfigEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPgId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPgId": {
+    "name": "cienaCesLogicalPortConfigPgId",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortAdminState": {
+    "name": "cienaCesLogicalPortConfigPortAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortOperState": {
+    "name": "cienaCesLogicalPortConfigPortOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "enabled": 2,
+          "disabled": 3,
+          "notAuthenticated": 4,
+          "loopbackTx": 5,
+          "loopbackRx": 6,
+          "unequipped": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortLinkUpDownTrapState": {
+    "name": "cienaCesLogicalPortConfigPortLinkUpDownTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortAllTrapState": {
+    "name": "cienaCesLogicalPortConfigPortAllTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortPortMacAddress": {
+    "name": "cienaCesLogicalPortConfigPortPortMacAddress",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortName": {
+    "name": "cienaCesLogicalPortConfigPortName",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortDesc": {
+    "name": "cienaCesLogicalPortConfigPortDesc",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortType": {
+    "name": "cienaCesLogicalPortConfigPortType",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ethernet": 2,
+          "fastEthernet": 3,
+          "hundredFx": 4,
+          "gigEthernet": 5,
+          "lagPort": 6,
+          "gigHundredFx": 7,
+          "tripleSpeed": 8,
+          "tenGigEthernet": 9,
+          "vmTripleSpeedTX": 10,
+          "sonetOc3": 11,
+          "sonetOc12": 12,
+          "sonetOc48": 13,
+          "sonetOc192": 14,
+          "fortyGigEthernet": 15,
+          "hundredGigEthernet": 16,
+          "odu": 17,
+          "ethLp": 18,
+          "twoPointFiveGigEthernet": 19,
+          "odu4": 20
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPortIfIndex": {
+    "name": "cienaCesLogicalPortConfigPortIfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortAdminSpeed": {
+    "name": "cienaCesPortAdminSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "tenMbps": 2,
+          "hundredMbps": 3,
+          "gig": 4,
+          "tenGig": 5,
+          "auto": 6,
+          "fortyGig": 7,
+          "hundredGig": 8,
+          "oduFlex": 9,
+          "twoPtFiveGig": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortOperSpeed": {
+    "name": "cienaCesPortOperSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "tenMbps": 2,
+          "hundredMbps": 3,
+          "gig": 4,
+          "tenGig": 5,
+          "fortyGig": 6,
+          "hundredGig": 7,
+          "oduFlex": 8,
+          "twoPtFiveGig": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortMaxFrameSize": {
+    "name": "cienaCesPortMaxFrameSize",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1200,
+            "max": 10222
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigEttpAid": {
+    "name": "cienaCesLogicalPortConfigEttpAid",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortLastDownReason1": {
+    "name": "cienaCesLogicalPortLastDownReason1",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortLastDownReason2": {
+    "name": "cienaCesLogicalPortLastDownReason2",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortLastDownReason3": {
+    "name": "cienaCesLogicalPortLastDownReason3",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortMaskedDownReason": {
+    "name": "cienaCesLogicalPortMaskedDownReason",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortFacilityLoopback": {
+    "name": "cienaCesLogicalPortFacilityLoopback",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortIngressRcosProfileId": {
+    "name": "cienaCesPortIngressRcosProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortIngressRcosProfileName": {
+    "name": "cienaCesPortIngressRcosProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortIngressRcosPolicy": {
+    "name": "cienaCesPortIngressRcosPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "fixed": 2,
+          "dot1dToRcosTag1": 3,
+          "dot1dToRcosTag2": 4,
+          "dscpToRcos": 5,
+          "mplsToRcos": 6,
+          "dscpMplsToRcos": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot1dToRcosTag1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigEttpId": {
+    "name": "cienaCesLogicalPortConfigEttpId",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigEttpType": {
+    "name": "cienaCesLogicalPortConfigEttpType",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ethernet": 2,
+          "fastEthernet": 3,
+          "hundredFx": 4,
+          "gigEthernet": 5,
+          "gigHundredFx": 7,
+          "tripleSpeed": 8,
+          "tenGigEthernet": 9,
+          "vmTripleSpeedTX": 10,
+          "sonetOc3": 11,
+          "sonetOc12": 12,
+          "sonetOc48": 13,
+          "sonetOc192": 14,
+          "fortyGigEthernet": 15,
+          "hundredGigEthernet": 16,
+          "twoPointFiveGigEthernet": 17,
+          "odu4": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigIngMirrorPort": {
+    "name": "cienaCesLogicalPortConfigIngMirrorPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigEgrMirrorPort": {
+    "name": "cienaCesLogicalPortConfigEgrMirrorPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigIngFloodContainer": {
+    "name": "cienaCesLogicalPortConfigIngFloodContainer",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigPriorityTagMode": {
+    "name": "cienaCesLogicalPortConfigPriorityTagMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortPriorityTagPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "strip-tag",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigVidTpidCount": {
+    "name": "cienaCesLogicalPortConfigVidTpidCount",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortOperationalSpeed": {
+    "name": "cienaCesPortOperationalSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortOuterTpidList": {
+    "name": "cienaCesPortOuterTpidList",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortEgressOuterTpid": {
+    "name": "cienaCesPortEgressOuterTpid",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortOuterVtagTpid": {
+    "name": "cienaCesPortOuterVtagTpid",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortAdministrativeSpeed": {
+    "name": "cienaCesPortAdministrativeSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortTerminalLoopbackState": {
+    "name": "cienaCesPortTerminalLoopbackState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortLearnLimit": {
+    "name": "cienaCesPortLearnLimit",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigSignalDegradeDetection": {
+    "name": "cienaCesLogicalPortConfigSignalDegradeDetection",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "otn": 2,
+          "y1731SyntheticLoss": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortConfigSignalDegradeState": {
+    "name": "cienaCesLogicalPortConfigSignalDegradeState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "degraded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortL2CftStatus": {
+    "name": "cienaCesPortL2CftStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortL2CftProfileId": {
+    "name": "cienaCesPortL2CftProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortConfigHoldOffState": {
+    "name": "cienaCesPortConfigHoldOffState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortConfigHoldOffTime": {
+    "name": "cienaCesPortConfigHoldOffTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortOperFecState": {
+    "name": "cienaCesPortOperFecState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingTable": {
+    "name": "cienaCesPortPgIdMappingTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingEntry": {
+    "name": "cienaCesPortPgIdMappingEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingShelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgidMappingPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingChassisIndex": {
+    "name": "cienaCesPortPgIdMappingChassisIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingShelfIndex": {
+    "name": "cienaCesPortPgIdMappingShelfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 992
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingSlotIndex": {
+    "name": "cienaCesPortPgIdMappingSlotIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesPortPgidMappingPortNumber": {
+    "name": "cienaCesPortPgidMappingPortNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingPgId": {
+    "name": "cienaCesPortPgIdMappingPgId",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingNotifChassisIndex": {
+    "name": "cienaCesPortPgIdMappingNotifChassisIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingNotifShelfIndex": {
+    "name": "cienaCesPortPgIdMappingNotifShelfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 992
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingNotifSlotIndex": {
+    "name": "cienaCesPortPgIdMappingNotifSlotIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesPortPgIdMappingNotifPortNumber": {
+    "name": "cienaCesPortPgIdMappingNotifPortNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingTable": {
+    "name": "cienaCesChPortPgIdMappingTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingEntry": {
+    "name": "cienaCesChPortPgIdMappingEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingChassisIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingShelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingChannelNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingChassisIndex": {
+    "name": "cienaCesChPortPgIdMappingChassisIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingShelfIndex": {
+    "name": "cienaCesChPortPgIdMappingShelfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 992
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingSlotIndex": {
+    "name": "cienaCesChPortPgIdMappingSlotIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingPortNumber": {
+    "name": "cienaCesChPortPgIdMappingPortNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingChannelNumber": {
+    "name": "cienaCesChPortPgIdMappingChannelNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingPgId": {
+    "name": "cienaCesChPortPgIdMappingPgId",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingNotifChassisIndex": {
+    "name": "cienaCesChPortPgIdMappingNotifChassisIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingNotifShelfIndex": {
+    "name": "cienaCesChPortPgIdMappingNotifShelfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 992
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingNotifSlotIndex": {
+    "name": "cienaCesChPortPgIdMappingNotifSlotIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 38
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingNotifPortNumber": {
+    "name": "cienaCesChPortPgIdMappingNotifPortNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesChPortPgIdMappingNotifChannelNumber": {
+    "name": "cienaCesChPortPgIdMappingNotifChannelNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesPortNotificationPortUp": {
+    "name": "cienaCesPortNotificationPortUp",
+    "oid": "1.3.6.1.4.1.1271.2.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAdminState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortOperState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortType"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortDesc"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CIENA-CES-CHASSIS-MIB",
+        "object": "cienaCesChassisSystemId"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigEttpAid"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPortNotificationPortDown": {
+    "name": "cienaCesPortNotificationPortDown",
+    "oid": "1.3.6.1.4.1.1271.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAdminState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortOperState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortType"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortDesc"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CIENA-CES-CHASSIS-MIB",
+        "object": "cienaCesChassisSystemId"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigEttpAid"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortLastDownReason1"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortLastDownReason2"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortLastDownReason3"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortMaskedDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesChPortNotificationPortUp": {
+    "name": "cienaCesChPortNotificationPortUp",
+    "oid": "1.3.6.1.4.1.1271.2.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifChannelNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAdminState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortOperState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortType"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortDesc"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CIENA-CES-CHASSIS-MIB",
+        "object": "cienaCesChassisSystemId"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigEttpAid"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesChPortNotificationPortDown": {
+    "name": "cienaCesChPortNotificationPortDown",
+    "oid": "1.3.6.1.4.1.1271.2.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifChannelNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAdminState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortOperState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortType"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortDesc"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CIENA-CES-CHASSIS-MIB",
+        "object": "cienaCesChassisSystemId"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigEttpAid"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortLastDownReason1"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortLastDownReason2"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortLastDownReason3"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortMaskedDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPortNotificationPortSignalDegradeSet": {
+    "name": "cienaCesPortNotificationPortSignalDegradeSet",
+    "oid": "1.3.6.1.4.1.1271.2.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifChannelNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAdminState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortOperState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortType"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortDesc"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CIENA-CES-CHASSIS-MIB",
+        "object": "cienaCesChassisSystemId"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigEttpAid"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigSignalDegradeDetection"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesPortNotificationPortSignalDegradeClear": {
+    "name": "cienaCesPortNotificationPortSignalDegradeClear",
+    "oid": "1.3.6.1.4.1.1271.2.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesChPortPgIdMappingNotifChannelNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAdminState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortOperState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortType"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortDesc"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CIENA-CES-CHASSIS-MIB",
+        "object": "cienaCesChassisSystemId"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigEttpAid"
+      }
+    ],
+    "status": "current"
+  },
+  "portConfigGroup": {
+    "name": "portConfigGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAdminState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortOperState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortLinkUpDownTrapState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortAllTrapState"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortPortMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortDesc"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortType"
+      }
+    ],
+    "status": "current"
+  },
+  "portNotifGroup": {
+    "name": "portNotifGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortNotificationPortDown"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortNotificationPortUp"
+      }
+    ],
+    "status": "current"
+  },
+  "portPgIdMappingGroup": {
+    "name": "portPgIdMappingGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgidMappingPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingPgId"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesEttpConfigTable": {
+    "name": "cienaCesEttpConfigTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesEttpConfigEntry": {
+    "name": "cienaCesEttpConfigEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesEttpConfigEttpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesEttpConfigEttpId": {
+    "name": "cienaCesEttpConfigEttpId",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesEttpConfigOperState": {
+    "name": "cienaCesEttpConfigOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "enabled": 2,
+          "disabled": 3,
+          "notAuthenticated": 4,
+          "loopbackTx": 5,
+          "loopbackRx": 6,
+          "unequipped": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigLinkUpDownTrapState": {
+    "name": "cienaCesEttpConfigLinkUpDownTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesEttpConfigAllTrapState": {
+    "name": "cienaCesEttpConfigAllTrapState",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cienaCesEttpConfigMacAddress": {
+    "name": "cienaCesEttpConfigMacAddress",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigName": {
+    "name": "cienaCesEttpConfigName",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigEttpType": {
+    "name": "cienaCesEttpConfigEttpType",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ethernet": 2,
+          "fastEthernet": 3,
+          "hundredFx": 4,
+          "gigEthernet": 5,
+          "gigHundredFx": 7,
+          "tripleSpeed": 8,
+          "tenGigEthernet": 9,
+          "vmTripleSpeedTX": 10,
+          "sonetOc3": 11,
+          "sonetOc12": 12,
+          "sonetOc48": 13,
+          "sonetOc192": 14,
+          "fortyGigEthernet": 15,
+          "hundredGigEthernet": 16,
+          "twoPointFiveGigEthernet": 17,
+          "odu4": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigAdminSpeed": {
+    "name": "cienaCesEttpConfigAdminSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "tenMbps": 2,
+          "hundredMbps": 3,
+          "gig": 4,
+          "tenGig": 5,
+          "auto": 6,
+          "fortyGig": 7,
+          "hundredGig": 8,
+          "twoPtFiveGig": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigOperSpeed": {
+    "name": "cienaCesEttpConfigOperSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "tenMbps": 2,
+          "hundredMbps": 3,
+          "gig": 4,
+          "tenGig": 5,
+          "fortyGig": 6,
+          "hundredGig": 7,
+          "twoPtFiveGig": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigEthLpPgid": {
+    "name": "cienaCesEttpConfigEthLpPgid",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigDuplex": {
+    "name": "cienaCesEttpConfigDuplex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EttpDuplexPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "full",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigFlowCntl": {
+    "name": "cienaCesEttpConfigFlowCntl",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EttpFlowControlPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigAutoNeg": {
+    "name": "cienaCesEttpConfigAutoNeg",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EttpAutoNegPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigAdvertisedFlowCntl": {
+    "name": "cienaCesEttpConfigAdvertisedFlowCntl",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EttpAdvertisedFlowControlPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigIfgDecr": {
+    "name": "cienaCesEttpConfigIfgDecr",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesEttpConfigXcvrFreq": {
+    "name": "cienaCesEttpConfigXcvrFreq",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 191100,
+            "max": 196150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortTpidTable": {
+    "name": "cienaCesLogicalPortTpidTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesLogicalPortTpidEntry": {
+    "name": "cienaCesLogicalPortTpidEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPgId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortTpidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesLogicalPortTpidIndex": {
+    "name": "cienaCesLogicalPortTpidIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesLogicalPortInnerVidTpid": {
+    "name": "cienaCesLogicalPortInnerVidTpid",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesLogicalPortOuterVidTpid": {
+    "name": "cienaCesLogicalPortOuterVidTpid",
+    "oid": "1.3.6.1.4.1.1271.2.1.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-PORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-PORT-MIB"
+  }
+}

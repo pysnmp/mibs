@@ -1,0 +1,141 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dell": {
+    "name": "dell",
+    "oid": "1.3.6.1.4.1.674",
+    "class": "objectidentity"
+  },
+  "storage": {
+    "name": "storage",
+    "oid": "1.3.6.1.4.1.674.10893",
+    "class": "objectidentity"
+  },
+  "sanRoot": {
+    "name": "sanRoot",
+    "oid": "1.3.6.1.4.1.674.10893.2",
+    "class": "objectidentity"
+  },
+  "sanAppliance": {
+    "name": "sanAppliance",
+    "oid": "1.3.6.1.4.1.674.10893.2.1",
+    "class": "objectidentity"
+  },
+  "sanApplGlobalStatus": {
+    "name": "sanApplGlobalStatus",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "warning": 2,
+          "normal": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sanApplEvts": {
+    "name": "sanApplEvts",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200",
+    "class": "objectidentity"
+  },
+  "sanApplName": {
+    "name": "sanApplName",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.200.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sanApplFailed": {
+    "name": "sanApplFailed",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.2000.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "sanApplNormal": {
+    "name": "sanApplNormal",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.2000.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "sanApplStarted": {
+    "name": "sanApplStarted",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.2000.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "sanApplStopped": {
+    "name": "sanApplStopped",
+    "oid": "1.3.6.1.4.1.674.10893.2.1.2000.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SanAppliance-MIB",
+        "object": "sanApplName"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/SanAppliance-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SanAppliance-MIB"
+  }
+}

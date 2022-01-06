@@ -1,0 +1,920 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "FcNameIdOrZero",
+      "fcmInstanceIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "mib-2",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
+      "AutonomousType"
+    ],
+    "T11-FC-FABRIC-ADDR-MGR-MIB": [
+      "t11FamLocalSwitchWwn"
+    ],
+    "T11-FC-SP-TC-MIB": [
+      "T11FcSpSignFunctions",
+      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpAuthRejectReasonCode",
+      "T11FcSpDhGroups",
+      "T11FcSpHashFunctions",
+      "T11FcSpLifetimeLeft",
+      "T11FcSpAuthRejReasonCodeExp"
+    ],
+    "T11-TC-MIB": [
+      "T11FabricIndex"
+    ]
+  },
+  "t11FcSpAuthenticationMIB": {
+    "name": "t11FcSpAuthenticationMIB",
+    "oid": "1.3.6.1.2.1.176",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-20 00:00",
+        "description": "Initial version of this MIB module, published as RFC 5324."
+      }
+    ]
+  },
+  "t11FcSpAuMIBNotifications": {
+    "name": "t11FcSpAuMIBNotifications",
+    "oid": "1.3.6.1.2.1.176.0",
+    "class": "objectidentity"
+  },
+  "t11FcSpAuMIBObjects": {
+    "name": "t11FcSpAuMIBObjects",
+    "oid": "1.3.6.1.2.1.176.1",
+    "class": "objectidentity"
+  },
+  "t11FcSpAuMIBConformance": {
+    "name": "t11FcSpAuMIBConformance",
+    "oid": "1.3.6.1.2.1.176.2",
+    "class": "objectidentity"
+  },
+  "t11FcSpAuMIBIdentities": {
+    "name": "t11FcSpAuMIBIdentities",
+    "oid": "1.3.6.1.2.1.176.3",
+    "class": "objectidentity"
+  },
+  "t11FcSpAuServerProtocolRadius": {
+    "name": "t11FcSpAuServerProtocolRadius",
+    "oid": "1.3.6.1.2.1.176.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuServerProtocolDiameter": {
+    "name": "t11FcSpAuServerProtocolDiameter",
+    "oid": "1.3.6.1.2.1.176.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuServerProtocolTacacs": {
+    "name": "t11FcSpAuServerProtocolTacacs",
+    "oid": "1.3.6.1.2.1.176.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuEntityTable": {
+    "name": "t11FcSpAuEntityTable",
+    "oid": "1.3.6.1.2.1.176.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuEntityEntry": {
+    "name": "t11FcSpAuEntityEntry",
+    "oid": "1.3.6.1.2.1.176.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuEntityName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuEntityName": {
+    "name": "t11FcSpAuEntityName",
+    "oid": "1.3.6.1.2.1.176.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuFabricIndex": {
+    "name": "t11FcSpAuFabricIndex",
+    "oid": "1.3.6.1.2.1.176.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuServerProtocol": {
+    "name": "t11FcSpAuServerProtocol",
+    "oid": "1.3.6.1.2.1.176.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuStorageType": {
+    "name": "t11FcSpAuStorageType",
+    "oid": "1.3.6.1.2.1.176.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpAuSendRejNotifyEnable": {
+    "name": "t11FcSpAuSendRejNotifyEnable",
+    "oid": "1.3.6.1.2.1.176.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpAuRcvRejNotifyEnable": {
+    "name": "t11FcSpAuRcvRejNotifyEnable",
+    "oid": "1.3.6.1.2.1.176.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpAuDefaultLifetime": {
+    "name": "t11FcSpAuDefaultLifetime",
+    "oid": "1.3.6.1.2.1.176.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpLifetimeLeft",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 28800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpAuDefaultLifetimeUnits": {
+    "name": "t11FcSpAuDefaultLifetimeUnits",
+    "oid": "1.3.6.1.2.1.176.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpLifetimeLeftUnits",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "seconds",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpAuRejectMaxRows": {
+    "name": "t11FcSpAuRejectMaxRows",
+    "oid": "1.3.6.1.2.1.176.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcSpAuDhChapHashFunctions": {
+    "name": "t11FcSpAuDhChapHashFunctions",
+    "oid": "1.3.6.1.2.1.176.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpHashFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuDhChapDhGroups": {
+    "name": "t11FcSpAuDhChapDhGroups",
+    "oid": "1.3.6.1.2.1.176.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpDhGroups",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuFcapHashFunctions": {
+    "name": "t11FcSpAuFcapHashFunctions",
+    "oid": "1.3.6.1.2.1.176.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpHashFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuFcapCertsSignFunctions": {
+    "name": "t11FcSpAuFcapCertsSignFunctions",
+    "oid": "1.3.6.1.2.1.176.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpSignFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuFcapDhGroups": {
+    "name": "t11FcSpAuFcapDhGroups",
+    "oid": "1.3.6.1.2.1.176.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpDhGroups",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuFcpapHashFunctions": {
+    "name": "t11FcSpAuFcpapHashFunctions",
+    "oid": "1.3.6.1.2.1.176.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpHashFunctions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuFcpapDhGroups": {
+    "name": "t11FcSpAuFcpapDhGroups",
+    "oid": "1.3.6.1.2.1.176.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpDhGroups",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatTable": {
+    "name": "t11FcSpAuIfStatTable",
+    "oid": "1.3.6.1.2.1.176.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatEntry": {
+    "name": "t11FcSpAuIfStatEntry",
+    "oid": "1.3.6.1.2.1.176.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuEntityName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuIfStatInterfaceIndex": {
+    "name": "t11FcSpAuIfStatInterfaceIndex",
+    "oid": "1.3.6.1.2.1.176.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatFabricIndex": {
+    "name": "t11FcSpAuIfStatFabricIndex",
+    "oid": "1.3.6.1.2.1.176.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatTimeouts": {
+    "name": "t11FcSpAuIfStatTimeouts",
+    "oid": "1.3.6.1.2.1.176.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatInAcceptedMsgs": {
+    "name": "t11FcSpAuIfStatInAcceptedMsgs",
+    "oid": "1.3.6.1.2.1.176.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatInLsSwRejectedMsgs": {
+    "name": "t11FcSpAuIfStatInLsSwRejectedMsgs",
+    "oid": "1.3.6.1.2.1.176.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatInAuthRejectedMsgs": {
+    "name": "t11FcSpAuIfStatInAuthRejectedMsgs",
+    "oid": "1.3.6.1.2.1.176.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatOutAcceptedMsgs": {
+    "name": "t11FcSpAuIfStatOutAcceptedMsgs",
+    "oid": "1.3.6.1.2.1.176.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatOutLsSwRejectedMsgs": {
+    "name": "t11FcSpAuIfStatOutLsSwRejectedMsgs",
+    "oid": "1.3.6.1.2.1.176.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuIfStatOutAuthRejectedMsgs": {
+    "name": "t11FcSpAuIfStatOutAuthRejectedMsgs",
+    "oid": "1.3.6.1.2.1.176.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuRejectTable": {
+    "name": "t11FcSpAuRejectTable",
+    "oid": "1.3.6.1.2.1.176.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuRejectEntry": {
+    "name": "t11FcSpAuRejectEntry",
+    "oid": "1.3.6.1.2.1.176.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuEntityName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejTimestamp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuRejInterfaceIndex": {
+    "name": "t11FcSpAuRejInterfaceIndex",
+    "oid": "1.3.6.1.2.1.176.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuRejFabricIndex": {
+    "name": "t11FcSpAuRejFabricIndex",
+    "oid": "1.3.6.1.2.1.176.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuRejTimestamp": {
+    "name": "t11FcSpAuRejTimestamp",
+    "oid": "1.3.6.1.2.1.176.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcSpAuRejDirection": {
+    "name": "t11FcSpAuRejDirection",
+    "oid": "1.3.6.1.2.1.176.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sent": 1,
+          "received": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuRejType": {
+    "name": "t11FcSpAuRejType",
+    "oid": "1.3.6.1.2.1.176.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authReject": 1,
+          "swRjt": 2,
+          "lsRjt": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuRejAuthMsgString": {
+    "name": "t11FcSpAuRejAuthMsgString",
+    "oid": "1.3.6.1.2.1.176.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuRejReasonCode": {
+    "name": "t11FcSpAuRejReasonCode",
+    "oid": "1.3.6.1.2.1.176.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAuthRejectReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuRejReasonCodeExp": {
+    "name": "t11FcSpAuRejReasonCodeExp",
+    "oid": "1.3.6.1.2.1.176.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcSpAuthRejReasonCodeExp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcSpAuRejectSentNotify": {
+    "name": "t11FcSpAuRejectSentNotify",
+    "oid": "1.3.6.1.2.1.176.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejAuthMsgString"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejType"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejReasonCode"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejReasonCodeExp"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuRejectReceivedNotify": {
+    "name": "t11FcSpAuRejectReceivedNotify",
+    "oid": "1.3.6.1.2.1.176.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejAuthMsgString"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejType"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejReasonCode"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejReasonCodeExp"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuMIBCompliances": {
+    "name": "t11FcSpAuMIBCompliances",
+    "oid": "1.3.6.1.2.1.176.2.1",
+    "class": "objectidentity"
+  },
+  "t11FcSpAuMIBGroups": {
+    "name": "t11FcSpAuMIBGroups",
+    "oid": "1.3.6.1.2.1.176.2.2",
+    "class": "objectidentity"
+  },
+  "t11FcSpAuMIBCompliance": {
+    "name": "t11FcSpAuMIBCompliance",
+    "oid": "1.3.6.1.2.1.176.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "t11FcSpAuGeneralGroup",
+        "module": "T11-FC-SP-AUTHENTICATION-MIB"
+      },
+      {
+        "object": "t11FcSpAuRejectedGroup",
+        "module": "T11-FC-SP-AUTHENTICATION-MIB"
+      },
+      {
+        "object": "t11FcSpAuNotificationGroup",
+        "module": "T11-FC-SP-AUTHENTICATION-MIB"
+      },
+      {
+        "object": "t11FcSpAuIfStatsGroup",
+        "module": "T11-FC-SP-AUTHENTICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuGeneralGroup": {
+    "name": "t11FcSpAuGeneralGroup",
+    "oid": "1.3.6.1.2.1.176.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuServerProtocol"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuStorageType"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuSendRejNotifyEnable"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRcvRejNotifyEnable"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuDefaultLifetime"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuDefaultLifetimeUnits"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejectMaxRows"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuDhChapHashFunctions"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuDhChapDhGroups"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuFcapHashFunctions"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuFcapCertsSignFunctions"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuFcapDhGroups"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuFcpapHashFunctions"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuFcpapDhGroups"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatTimeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuIfStatsGroup": {
+    "name": "t11FcSpAuIfStatsGroup",
+    "oid": "1.3.6.1.2.1.176.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatInAcceptedMsgs"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatInLsSwRejectedMsgs"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatInAuthRejectedMsgs"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatOutAcceptedMsgs"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatOutLsSwRejectedMsgs"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuIfStatOutAuthRejectedMsgs"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuRejectedGroup": {
+    "name": "t11FcSpAuRejectedGroup",
+    "oid": "1.3.6.1.2.1.176.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejDirection"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejType"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejAuthMsgString"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejReasonCode"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejReasonCodeExp"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcSpAuNotificationGroup": {
+    "name": "t11FcSpAuNotificationGroup",
+    "oid": "1.3.6.1.2.1.176.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejectSentNotify"
+      },
+      {
+        "module": "T11-FC-SP-AUTHENTICATION-MIB",
+        "object": "t11FcSpAuRejectReceivedNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-SP-AUTHENTICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-SP-AUTHENTICATION-MIB"
+  }
+}

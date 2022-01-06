@@ -1,0 +1,1202 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "FcDomainIdOrZero",
+      "FcNameIdOrZero",
+      "fcmSwitchIndex",
+      "fcmInstanceIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "T11-TC-MIB": [
+      "T11FabricIndex"
+    ]
+  },
+  "t11FcFabricAddrMgrMIB": {
+    "name": "t11FcFabricAddrMgrMIB",
+    "oid": "1.3.6.1.2.1.137",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-02 00:00",
+        "description": "Initial version of this MIB module, published as RFC 4439."
+      }
+    ]
+  },
+  "t11FamNotifications": {
+    "name": "t11FamNotifications",
+    "oid": "1.3.6.1.2.1.137.0",
+    "class": "objectidentity"
+  },
+  "t11FamMIBObjects": {
+    "name": "t11FamMIBObjects",
+    "oid": "1.3.6.1.2.1.137.1",
+    "class": "objectidentity"
+  },
+  "t11FamMIBConformance": {
+    "name": "t11FamMIBConformance",
+    "oid": "1.3.6.1.2.1.137.2",
+    "class": "objectidentity"
+  },
+  "t11FamConfiguration": {
+    "name": "t11FamConfiguration",
+    "oid": "1.3.6.1.2.1.137.1.1",
+    "class": "objectidentity"
+  },
+  "t11FamInfo": {
+    "name": "t11FamInfo",
+    "oid": "1.3.6.1.2.1.137.1.2",
+    "class": "objectidentity"
+  },
+  "t11FamNotifyControl": {
+    "name": "t11FamNotifyControl",
+    "oid": "1.3.6.1.2.1.137.1.3",
+    "class": "objectidentity"
+  },
+  "T11FamDomainPriority": {
+    "name": "T11FamDomainPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "T11FamDomainInterfaceRole": {
+    "name": "T11FamDomainInterfaceRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonPrincipal": 1,
+          "principalUpstream": 2,
+          "principalDownsteam": 3,
+          "isolated": 4,
+          "down": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FamState": {
+    "name": "T11FamState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "starting": 2,
+          "unconfigured": 3,
+          "principalSwitchSelection": 4,
+          "domainIdDistribution": 5,
+          "buildFabricPhase": 6,
+          "reconfigureFabricPhase": 7,
+          "stable": 8,
+          "stableWithNoEports": 9,
+          "noDomains": 10,
+          "disabled": 11,
+          "unknown": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "t11FamTable": {
+    "name": "t11FamTable",
+    "oid": "1.3.6.1.2.1.137.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamEntry": {
+    "name": "t11FamEntry",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamFabricIndex": {
+    "name": "t11FamFabricIndex",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamConfigDomainId": {
+    "name": "t11FamConfigDomainId",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamConfigDomainIdType": {
+    "name": "t11FamConfigDomainIdType",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preferred": 1,
+          "insistent": 2,
+          "static": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "preferred",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamAutoReconfigure": {
+    "name": "t11FamAutoReconfigure",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamContiguousAllocation": {
+    "name": "t11FamContiguousAllocation",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamPriority": {
+    "name": "t11FamPriority",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FamDomainPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamPrincipalSwitchWwn": {
+    "name": "t11FamPrincipalSwitchWwn",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamLocalSwitchWwn": {
+    "name": "t11FamLocalSwitchWwn",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamAssignedAreaIdList": {
+    "name": "t11FamAssignedAreaIdList",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamGrantedFcIds": {
+    "name": "t11FamGrantedFcIds",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamRecoveredFcIds": {
+    "name": "t11FamRecoveredFcIds",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamFreeFcIds": {
+    "name": "t11FamFreeFcIds",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamAssignedFcIds": {
+    "name": "t11FamAssignedFcIds",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamAvailableFcIds": {
+    "name": "t11FamAvailableFcIds",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamRunningPriority": {
+    "name": "t11FamRunningPriority",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FamDomainPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamPrincSwRunningPriority": {
+    "name": "t11FamPrincSwRunningPriority",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FamDomainPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamState": {
+    "name": "t11FamState",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FamState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamLocalPrincipalSwitchSlctns": {
+    "name": "t11FamLocalPrincipalSwitchSlctns",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamPrincipalSwitchSelections": {
+    "name": "t11FamPrincipalSwitchSelections",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamBuildFabrics": {
+    "name": "t11FamBuildFabrics",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamFabricReconfigures": {
+    "name": "t11FamFabricReconfigures",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamDomainId": {
+    "name": "t11FamDomainId",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamSticky": {
+    "name": "t11FamSticky",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamRestart": {
+    "name": "t11FamRestart",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonDisruptive": 1,
+          "disruptive": 2,
+          "noOp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamRcFabricNotifyEnable": {
+    "name": "t11FamRcFabricNotifyEnable",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamEnable": {
+    "name": "t11FamEnable",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamFabricName": {
+    "name": "t11FamFabricName",
+    "oid": "1.3.6.1.2.1.137.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FamIfTable": {
+    "name": "t11FamIfTable",
+    "oid": "1.3.6.1.2.1.137.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamIfEntry": {
+    "name": "t11FamIfEntry",
+    "oid": "1.3.6.1.2.1.137.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamIfRcfReject": {
+    "name": "t11FamIfRcfReject",
+    "oid": "1.3.6.1.2.1.137.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FamIfRole": {
+    "name": "t11FamIfRole",
+    "oid": "1.3.6.1.2.1.137.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FamDomainInterfaceRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamIfRowStatus": {
+    "name": "t11FamIfRowStatus",
+    "oid": "1.3.6.1.2.1.137.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "t11FamAreaTable": {
+    "name": "t11FamAreaTable",
+    "oid": "1.3.6.1.2.1.137.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamAreaEntry": {
+    "name": "t11FamAreaEntry",
+    "oid": "1.3.6.1.2.1.137.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamAreaAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamAreaAreaId": {
+    "name": "t11FamAreaAreaId",
+    "oid": "1.3.6.1.2.1.137.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamAreaAssignedPortIdList": {
+    "name": "t11FamAreaAssignedPortIdList",
+    "oid": "1.3.6.1.2.1.137.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamDatabaseTable": {
+    "name": "t11FamDatabaseTable",
+    "oid": "1.3.6.1.2.1.137.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamDatabaseEntry": {
+    "name": "t11FamDatabaseEntry",
+    "oid": "1.3.6.1.2.1.137.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamDatabaseDomainId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamDatabaseDomainId": {
+    "name": "t11FamDatabaseDomainId",
+    "oid": "1.3.6.1.2.1.137.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 239
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamDatabaseSwitchWwn": {
+    "name": "t11FamDatabaseSwitchWwn",
+    "oid": "1.3.6.1.2.1.137.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamMaxFcIdCacheSize": {
+    "name": "t11FamMaxFcIdCacheSize",
+    "oid": "1.3.6.1.2.1.137.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamFcIdCacheTable": {
+    "name": "t11FamFcIdCacheTable",
+    "oid": "1.3.6.1.2.1.137.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamFcIdCacheEntry": {
+    "name": "t11FamFcIdCacheEntry",
+    "oid": "1.3.6.1.2.1.137.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFcIdCacheWwn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamFcIdCacheWwn": {
+    "name": "t11FamFcIdCacheWwn",
+    "oid": "1.3.6.1.2.1.137.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FamFcIdCacheAreaIdPortId": {
+    "name": "t11FamFcIdCacheAreaIdPortId",
+    "oid": "1.3.6.1.2.1.137.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamFcIdCachePortIds": {
+    "name": "t11FamFcIdCachePortIds",
+    "oid": "1.3.6.1.2.1.137.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FamNotifyFabricIndex": {
+    "name": "t11FamNotifyFabricIndex",
+    "oid": "1.3.6.1.2.1.137.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "t11FamDomainIdNotAssignedNotify": {
+    "name": "t11FamDomainIdNotAssignedNotify",
+    "oid": "1.3.6.1.2.1.137.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamNotifyFabricIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamNewPrincipalSwitchNotify": {
+    "name": "t11FamNewPrincipalSwitchNotify",
+    "oid": "1.3.6.1.2.1.137.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamNotifyFabricIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamFabricChangeNotify": {
+    "name": "t11FamFabricChangeNotify",
+    "oid": "1.3.6.1.2.1.137.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamNotifyFabricIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamMIBCompliances": {
+    "name": "t11FamMIBCompliances",
+    "oid": "1.3.6.1.2.1.137.2.1",
+    "class": "objectidentity"
+  },
+  "t11FamMIBGroups": {
+    "name": "t11FamMIBGroups",
+    "oid": "1.3.6.1.2.1.137.2.2",
+    "class": "objectidentity"
+  },
+  "t11FamMIBCompliance": {
+    "name": "t11FamMIBCompliance",
+    "oid": "1.3.6.1.2.1.137.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "t11FamGroup",
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB"
+      },
+      {
+        "object": "t11FamDatabaseGroup",
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB"
+      },
+      {
+        "object": "t11FamAreaGroup",
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB"
+      },
+      {
+        "object": "t11FamNotificationGroup",
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamGroup": {
+    "name": "t11FamGroup",
+    "oid": "1.3.6.1.2.1.137.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamConfigDomainId"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamConfigDomainIdType"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamAutoReconfigure"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamContiguousAllocation"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamPriority"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamPrincipalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamAssignedAreaIdList"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamGrantedFcIds"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamRecoveredFcIds"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFreeFcIds"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamAssignedFcIds"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamAvailableFcIds"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamRunningPriority"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamPrincSwRunningPriority"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamState"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalPrincipalSwitchSlctns"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamPrincipalSwitchSelections"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamBuildFabrics"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricReconfigures"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamDomainId"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamSticky"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamRestart"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamRcFabricNotifyEnable"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamEnable"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricName"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamIfRcfReject"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamIfRole"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamIfRowStatus"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamNotifyFabricIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamCommandGroup": {
+    "name": "t11FamCommandGroup",
+    "oid": "1.3.6.1.2.1.137.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamRestart"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamDatabaseGroup": {
+    "name": "t11FamDatabaseGroup",
+    "oid": "1.3.6.1.2.1.137.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamDatabaseSwitchWwn"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamAreaGroup": {
+    "name": "t11FamAreaGroup",
+    "oid": "1.3.6.1.2.1.137.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamAreaAssignedPortIdList"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamCacheGroup": {
+    "name": "t11FamCacheGroup",
+    "oid": "1.3.6.1.2.1.137.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamMaxFcIdCacheSize"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFcIdCacheAreaIdPortId"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFcIdCachePortIds"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FamNotificationGroup": {
+    "name": "t11FamNotificationGroup",
+    "oid": "1.3.6.1.2.1.137.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamDomainIdNotAssignedNotify"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamNewPrincipalSwitchNotify"
+      },
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamFabricChangeNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-FABRIC-ADDR-MGR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-FABRIC-ADDR-MGR-MIB"
+  }
+}

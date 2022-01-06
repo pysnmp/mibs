@@ -1,0 +1,1647 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dmtf": {
+    "name": "dmtf",
+    "oid": "1.3.6.1.4.1.412",
+    "class": "objectidentity"
+  },
+  "dmiMIB": {
+    "name": "dmiMIB",
+    "oid": "1.3.6.1.4.1.412.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-07-13 20:00",
+        "description": "Draft proposed to DMTF as Remote DMI method, but not pursued further. (Bostock)"
+      },
+      {
+        "revision": "1997-10-22 18:00",
+        "description": "Resurrected to bridge the co-existance gap between SNMP and DMI management frameworks in enterprise environments. Updated to reflect DMI 2.0 changes; including: formal SNMP pragma statement, final DMI event generation template and indications, new DMTF standard MIFs, plus allowance for remote SNMP/DMI proxy support. Also revised to use SNMPv2 SMI. (O'Keefe)"
+      }
+    ]
+  },
+  "dmtfStdMifs": {
+    "name": "dmtfStdMifs",
+    "oid": "1.3.6.1.4.1.412.2",
+    "class": "objectidentity"
+  },
+  "dmtfDynOids": {
+    "name": "dmtfDynOids",
+    "oid": "1.3.6.1.4.1.412.3",
+    "class": "objectidentity"
+  },
+  "dmiMIBObjects": {
+    "name": "dmiMIBObjects",
+    "oid": "1.3.6.1.4.1.412.1.1",
+    "class": "objectidentity"
+  },
+  "dmiClasses": {
+    "name": "dmiClasses",
+    "oid": "1.3.6.1.4.1.412.1.1.1",
+    "class": "objectidentity"
+  },
+  "dmiComponents": {
+    "name": "dmiComponents",
+    "oid": "1.3.6.1.4.1.412.1.1.2",
+    "class": "objectidentity"
+  },
+  "dmiMappingAgent": {
+    "name": "dmiMappingAgent",
+    "oid": "1.3.6.1.4.1.412.1.1.3",
+    "class": "objectidentity"
+  },
+  "dmiNotifications": {
+    "name": "dmiNotifications",
+    "oid": "1.3.6.1.4.1.412.1.2",
+    "class": "objectidentity"
+  },
+  "dmiIndications": {
+    "name": "dmiIndications",
+    "oid": "1.3.6.1.4.1.412.1.2.0",
+    "class": "objectidentity"
+  },
+  "dmiEventVars": {
+    "name": "dmiEventVars",
+    "oid": "1.3.6.1.4.1.412.1.2.1",
+    "class": "objectidentity"
+  },
+  "dmiMIBConformance": {
+    "name": "dmiMIBConformance",
+    "oid": "1.3.6.1.4.1.412.1.3",
+    "class": "objectidentity"
+  },
+  "dmiMIBCompliances": {
+    "name": "dmiMIBCompliances",
+    "oid": "1.3.6.1.4.1.412.1.3.1",
+    "class": "objectidentity"
+  },
+  "dmiMIBGroups": {
+    "name": "dmiMIBGroups",
+    "oid": "1.3.6.1.4.1.412.1.3.2",
+    "class": "objectidentity"
+  },
+  "dmiNotificationGroups": {
+    "name": "dmiNotificationGroups",
+    "oid": "1.3.6.1.4.1.412.1.3.3",
+    "class": "objectidentity"
+  },
+  "DmiAccess": {
+    "name": "DmiAccess",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "readOnly": 2,
+          "readWrite": 3,
+          "writeOnly": 4,
+          "unsupported": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DmiDate": {
+    "name": "DmiDate",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 25,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DmiInteger64": {
+    "name": "DmiInteger64",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DmiString": {
+    "name": "DmiString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "DmiType": {
+    "name": "DmiType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "counter32": 2,
+          "counter64": 3,
+          "gauge32": 4,
+          "integer32": 5,
+          "integer64": 6,
+          "octetString": 7,
+          "displayString": 8,
+          "date": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DmiTDAddress": {
+    "name": "DmiTDAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "dmiClassTable": {
+    "name": "dmiClassTable",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiClassEntry": {
+    "name": "dmiClassEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiClassIndex": {
+    "name": "dmiClassIndex",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiClassString": {
+    "name": "dmiClassString",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiClassVersion": {
+    "name": "dmiClassVersion",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiClassName": {
+    "name": "dmiClassName",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiClassOID": {
+    "name": "dmiClassOID",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiClassKeyCount": {
+    "name": "dmiClassKeyCount",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiClassDescrLength": {
+    "name": "dmiClassDescrLength",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiClassPragma": {
+    "name": "dmiClassPragma",
+    "oid": "1.3.6.1.4.1.412.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiAttributeTable": {
+    "name": "dmiAttributeTable",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiAttributeEntry": {
+    "name": "dmiAttributeEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassIndex",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiAttrId": {
+    "name": "dmiAttrId",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiAttrName": {
+    "name": "dmiAttrName",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiAttrAccess": {
+    "name": "dmiAttrAccess",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiAttrType": {
+    "name": "dmiAttrType",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiAttrMaxSize": {
+    "name": "dmiAttrMaxSize",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiAttrEnumListCount": {
+    "name": "dmiAttrEnumListCount",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiAttrDescrLength": {
+    "name": "dmiAttrDescrLength",
+    "oid": "1.3.6.1.4.1.412.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiKeyTable": {
+    "name": "dmiKeyTable",
+    "oid": "1.3.6.1.4.1.412.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiKeyEntry": {
+    "name": "dmiKeyEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassIndex",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiKeyIndex": {
+    "name": "dmiKeyIndex",
+    "oid": "1.3.6.1.4.1.412.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiKeyType": {
+    "name": "dmiKeyType",
+    "oid": "1.3.6.1.4.1.412.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiKeyAttrId": {
+    "name": "dmiKeyAttrId",
+    "oid": "1.3.6.1.4.1.412.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiDescrTable": {
+    "name": "dmiDescrTable",
+    "oid": "1.3.6.1.4.1.412.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiDescrEntry": {
+    "name": "dmiDescrEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassIndex",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiDescrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiDescrIndex": {
+    "name": "dmiDescrIndex",
+    "oid": "1.3.6.1.4.1.412.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiDescrText": {
+    "name": "dmiDescrText",
+    "oid": "1.3.6.1.4.1.412.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiEnumTable": {
+    "name": "dmiEnumTable",
+    "oid": "1.3.6.1.4.1.412.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiEnumEntry": {
+    "name": "dmiEnumEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassIndex",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEnumId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiEnumId": {
+    "name": "dmiEnumId",
+    "oid": "1.3.6.1.4.1.412.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiEnumValue": {
+    "name": "dmiEnumValue",
+    "oid": "1.3.6.1.4.1.412.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiEnumString": {
+    "name": "dmiEnumString",
+    "oid": "1.3.6.1.4.1.412.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiComponentTable": {
+    "name": "dmiComponentTable",
+    "oid": "1.3.6.1.4.1.412.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiComponentEntry": {
+    "name": "dmiComponentEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiCompId": {
+    "name": "dmiCompId",
+    "oid": "1.3.6.1.4.1.412.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiCompName": {
+    "name": "dmiCompName",
+    "oid": "1.3.6.1.4.1.412.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiCompDescrLength": {
+    "name": "dmiCompDescrLength",
+    "oid": "1.3.6.1.4.1.412.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiCompGroupCount": {
+    "name": "dmiCompGroupCount",
+    "oid": "1.3.6.1.4.1.412.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiCompPragma": {
+    "name": "dmiCompPragma",
+    "oid": "1.3.6.1.4.1.412.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiCompDescrTable": {
+    "name": "dmiCompDescrTable",
+    "oid": "1.3.6.1.4.1.412.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiCompDescrEntry": {
+    "name": "dmiCompDescrEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompDescrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiCompDescrIndex": {
+    "name": "dmiCompDescrIndex",
+    "oid": "1.3.6.1.4.1.412.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiCompDescrText": {
+    "name": "dmiCompDescrText",
+    "oid": "1.3.6.1.4.1.412.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiGroupTable": {
+    "name": "dmiGroupTable",
+    "oid": "1.3.6.1.4.1.412.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiGroupEntry": {
+    "name": "dmiGroupEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmiGroupId": {
+    "name": "dmiGroupId",
+    "oid": "1.3.6.1.4.1.412.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiGroupClassString": {
+    "name": "dmiGroupClassString",
+    "oid": "1.3.6.1.4.1.412.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiGroupVersion": {
+    "name": "dmiGroupVersion",
+    "oid": "1.3.6.1.4.1.412.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiGroupClassIndex": {
+    "name": "dmiGroupClassIndex",
+    "oid": "1.3.6.1.4.1.412.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiLanguageTable": {
+    "name": "dmiLanguageTable",
+    "oid": "1.3.6.1.4.1.412.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmiLanguageEntry": {
+    "name": "dmiLanguageEntry",
+    "oid": "1.3.6.1.4.1.412.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiLanguage",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "dmiLanguage": {
+    "name": "dmiLanguage",
+    "oid": "1.3.6.1.4.1.412.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 14,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiMappingLevel": {
+    "name": "dmiMappingLevel",
+    "oid": "1.3.6.1.4.1.412.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiEventType": {
+    "name": "dmiEventType",
+    "oid": "1.3.6.1.4.1.412.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventSeverity": {
+    "name": "dmiEventSeverity",
+    "oid": "1.3.6.1.4.1.412.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monitor": 1,
+          "information": 2,
+          "ok": 4,
+          "nonCritical": 8,
+          "critical": 16,
+          "nonRecoverable": 32
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventStateKey": {
+    "name": "dmiEventStateKey",
+    "oid": "1.3.6.1.4.1.412.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventAssociatedGroup": {
+    "name": "dmiEventAssociatedGroup",
+    "oid": "1.3.6.1.4.1.412.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventSystem": {
+    "name": "dmiEventSystem",
+    "oid": "1.3.6.1.4.1.412.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventSubSystem": {
+    "name": "dmiEventSubSystem",
+    "oid": "1.3.6.1.4.1.412.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventSolution": {
+    "name": "dmiEventSolution",
+    "oid": "1.3.6.1.4.1.412.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventVendorMsg": {
+    "name": "dmiEventVendorMsg",
+    "oid": "1.3.6.1.4.1.412.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventVendorData": {
+    "name": "dmiEventVendorData",
+    "oid": "1.3.6.1.4.1.412.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventDateTime": {
+    "name": "dmiEventDateTime",
+    "oid": "1.3.6.1.4.1.412.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiDate",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventClassString": {
+    "name": "dmiEventClassString",
+    "oid": "1.3.6.1.4.1.412.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventSource": {
+    "name": "dmiEventSource",
+    "oid": "1.3.6.1.4.1.412.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiTDAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dmiEventIndication": {
+    "name": "dmiEventIndication",
+    "oid": "1.3.6.1.4.1.412.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventClassString"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventType"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventDateTime"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventSeverity"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventStateKey"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventAssociatedGroup"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventSystem"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventSubSystem"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiComponentAddedIndication": {
+    "name": "dmiComponentAddedIndication",
+    "oid": "1.3.6.1.4.1.412.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompName"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiComponentDeletedIndication": {
+    "name": "dmiComponentDeletedIndication",
+    "oid": "1.3.6.1.4.1.412.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiLanguageAddedIndication": {
+    "name": "dmiLanguageAddedIndication",
+    "oid": "1.3.6.1.4.1.412.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiLanguage"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiLanguageDeletedIndication": {
+    "name": "dmiLanguageDeletedIndication",
+    "oid": "1.3.6.1.4.1.412.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiLanguage"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiGroupAddedIndication": {
+    "name": "dmiGroupAddedIndication",
+    "oid": "1.3.6.1.4.1.412.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupClassString"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiGroupDeletedIndication": {
+    "name": "dmiGroupDeletedIndication",
+    "oid": "1.3.6.1.4.1.412.1.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupId"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiClassesGroup": {
+    "name": "dmiClassesGroup",
+    "oid": "1.3.6.1.4.1.412.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassIndex"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassString"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassVersion"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassName"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassOID"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassKeyCount"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassDescrLength"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiClassPragma"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrName"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrAccess"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrType"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrMaxSize"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrEnumListCount"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiAttrDescrLength"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiKeyIndex"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiKeyType"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiKeyAttrId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiDescrIndex"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiDescrText"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEnumId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEnumValue"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEnumString"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiComponentsGroup": {
+    "name": "dmiComponentsGroup",
+    "oid": "1.3.6.1.4.1.412.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompName"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompDescrLength"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompGroupCount"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompPragma"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompDescrIndex"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompDescrText"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupClassString"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupVersion"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupClassId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiLanguage"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiNotificationObjectGroup": {
+    "name": "dmiNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.412.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompName"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupClassString"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiLanguage"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiMappingAgentGroup": {
+    "name": "dmiMappingAgentGroup",
+    "oid": "1.3.6.1.4.1.412.1.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiMappingLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiNotificationsGroup": {
+    "name": "dmiNotificationsGroup",
+    "oid": "1.3.6.1.4.1.412.1.3.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiComponentAddedIndication"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiComponentDeletedIndication"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiLanguageAddedIndication"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiLanguageDeletedIndication"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupAddedIndication"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiGroupDeletedIndication"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiMIBCompliance": {
+    "name": "dmiMIBCompliance",
+    "oid": "1.3.6.1.4.1.412.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dmiMappingAgentGroup",
+        "module": "DMTF-DMI-MIB"
+      },
+      {
+        "object": "dmiClassesGroup",
+        "module": "DMTF-DMI-MIB"
+      },
+      {
+        "object": "dmiComponentsGroup",
+        "module": "DMTF-DMI-MIB"
+      },
+      {
+        "object": "dmiNotificationsGroup",
+        "module": "DMTF-DMI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dmiNotificationsOnlyCompliance": {
+    "name": "dmiNotificationsOnlyCompliance",
+    "oid": "1.3.6.1.4.1.412.1.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dmiMappingAgentGroup",
+        "module": "DMTF-DMI-MIB"
+      },
+      {
+        "object": "dmiNotificationObjectGroup",
+        "module": "DMTF-DMI-MIB"
+      },
+      {
+        "object": "dmiNotificationsGroup",
+        "module": "DMTF-DMI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DMTF-DMI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DMTF-DMI-MIB"
+  }
+}

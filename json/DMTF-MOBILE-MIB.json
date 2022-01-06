@@ -1,0 +1,1659 @@
+{
+  "imports": {
+    "class": "imports",
+    "DMTF-DMI-MIB": [
+      "dmiEventSeverity",
+      "DmiString",
+      "dmiEventStateKey",
+      "DmiDate",
+      "dmiEventSystem",
+      "dmiEventAssociatedGroup",
+      "dmiEventSubSystem",
+      "dmiCompId",
+      "dmiEventDateTime"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DmiCounter": {
+    "name": "DmiCounter",
+    "class": "type",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    }
+  },
+  "DmiCounter64": {
+    "name": "DmiCounter64",
+    "class": "type",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    }
+  },
+  "DmiGauge": {
+    "name": "DmiGauge",
+    "class": "type",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    }
+  },
+  "DmiInteger": {
+    "name": "DmiInteger",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    }
+  },
+  "DmiOctetstring": {
+    "name": "DmiOctetstring",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "DmiCompId": {
+    "name": "DmiCompId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "DmiGroupId": {
+    "name": "DmiGroupId",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "dmtf": {
+    "name": "dmtf",
+    "oid": "1.3.6.1.4.1.412",
+    "class": "objectidentity"
+  },
+  "dmtfStdMifs": {
+    "name": "dmtfStdMifs",
+    "oid": "1.3.6.1.4.1.412.2",
+    "class": "objectidentity"
+  },
+  "dmtfDynOids": {
+    "name": "dmtfDynOids",
+    "oid": "1.3.6.1.4.1.412.3",
+    "class": "objectidentity"
+  },
+  "dmtfMobileComputerMIF": {
+    "name": "dmtfMobileComputerMIF",
+    "oid": "1.3.6.1.4.1.412.2.8",
+    "class": "moduleidentity"
+  },
+  "dmtfDeviceBayTable": {
+    "name": "dmtfDeviceBayTable",
+    "oid": "1.3.6.1.4.1.412.2.8.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfDeviceBayEntry": {
+    "name": "dmtfDeviceBayEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "deviceBayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfDeviceBayState": {
+    "name": "dmtfDeviceBayState",
+    "oid": "1.3.6.1.4.1.412.2.8.9.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceBayIndex": {
+    "name": "deviceBayIndex",
+    "oid": "1.3.6.1.4.1.412.2.8.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceBayType": {
+    "name": "deviceBayType",
+    "oid": "1.3.6.1.4.1.412.2.8.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "proprietaryBay": 3,
+          "standardDesktopDeviceBay": 4,
+          "standardMobileDeviceBay": 5,
+          "standardUltraMobileDeviceBay": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceBayLocation": {
+    "name": "deviceBayLocation",
+    "oid": "1.3.6.1.4.1.412.2.8.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicesSupported": {
+    "name": "devicesSupported",
+    "oid": "1.3.6.1.4.1.412.2.8.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCurrentlyAttached": {
+    "name": "deviceCurrentlyAttached",
+    "oid": "1.3.6.1.4.1.412.2.8.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfDynamicStatesTable": {
+    "name": "dmtfDynamicStatesTable",
+    "oid": "1.3.6.1.4.1.412.2.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfDynamicStatesEntry": {
+    "name": "dmtfDynamicStatesEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aCLineStatus": {
+    "name": "aCLineStatus",
+    "oid": "1.3.6.1.4.1.412.2.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "offLine": 3,
+          "onLine": 4,
+          "onBackupPower": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dockingStatus": {
+    "name": "dockingStatus",
+    "oid": "1.3.6.1.4.1.412.2.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "docked": 3,
+          "notDocked": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfInfraredPortTable": {
+    "name": "dmtfInfraredPortTable",
+    "oid": "1.3.6.1.4.1.412.2.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfInfraredPortEntry": {
+    "name": "dmtfInfraredPortEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "iRIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfInfraredPortState": {
+    "name": "dmtfInfraredPortState",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iRIndex": {
+    "name": "iRIndex",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iRLocation": {
+    "name": "iRLocation",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iREnableState": {
+    "name": "iREnableState",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iRLimitSpeedEnable": {
+    "name": "iRLimitSpeedEnable",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iRSpeedLimit": {
+    "name": "iRSpeedLimit",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iRPhysicalPortName": {
+    "name": "iRPhysicalPortName",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iRVirtualCOMPortName": {
+    "name": "iRVirtualCOMPortName",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iRVirtualLPTPortName": {
+    "name": "iRVirtualLPTPortName",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iRProtocol": {
+    "name": "iRProtocol",
+    "oid": "1.3.6.1.4.1.412.2.8.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "sIR": 3,
+          "fIR": 4,
+          "mIR": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfPointingDeviceTable": {
+    "name": "dmtfPointingDeviceTable",
+    "oid": "1.3.6.1.4.1.412.2.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfPointingDeviceEntry": {
+    "name": "dmtfPointingDeviceEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pointingDeviceType": {
+    "name": "pointingDeviceType",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "mouse": 3,
+          "trackBall": 4,
+          "trackPoint": 5,
+          "glidePoint": 6,
+          "touchPad": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pointingDeviceInterface": {
+    "name": "pointingDeviceInterface",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "serial": 3,
+          "pS2": 4,
+          "infrared": 5,
+          "hPHIL": 6,
+          "busMouse": 7,
+          "aDB": 8,
+          "busMouseDB9": 160,
+          "busMouseMicroDIN": 161,
+          "uSB": 162
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pointingDeviceIRQ": {
+    "name": "pointingDeviceIRQ",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pointingDeviceButtons": {
+    "name": "pointingDeviceButtons",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pointingDevicePortName": {
+    "name": "pointingDevicePortName",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pointingDeviceDriverName": {
+    "name": "pointingDeviceDriverName",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pointingDeviceDriverVersion": {
+    "name": "pointingDeviceDriverVersion",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fRUGroupIndex": {
+    "name": "fRUGroupIndex",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "operationalGroupIndex": {
+    "name": "operationalGroupIndex",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "securitySettings": {
+    "name": "securitySettings",
+    "oid": "1.3.6.1.4.1.412.2.8.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "none": 3,
+          "externalInterfaceLockedOut": 4,
+          "externalInterfaceEnabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfPortableBatteryTable": {
+    "name": "dmtfPortableBatteryTable",
+    "oid": "1.3.6.1.4.1.412.2.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfPortableBatteryEntry": {
+    "name": "dmtfPortableBatteryEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "portableBatteryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfPortableBatteryState": {
+    "name": "dmtfPortableBatteryState",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portableBatteryIndex": {
+    "name": "portableBatteryIndex",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryLocation": {
+    "name": "portableBatteryLocation",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryManufacturer": {
+    "name": "portableBatteryManufacturer",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryManufactureDate": {
+    "name": "portableBatteryManufactureDate",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiDate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatterySerialNumber": {
+    "name": "portableBatterySerialNumber",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryDeviceName": {
+    "name": "portableBatteryDeviceName",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryDeviceChemistry": {
+    "name": "portableBatteryDeviceChemistry",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "leadAcid": 3,
+          "nickelCadmium": 4,
+          "nickelMetalHydride": 5,
+          "lithiumIon": 6,
+          "zincAir": 7,
+          "lithiumPolymer": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryDesignCapacity": {
+    "name": "portableBatteryDesignCapacity",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryDesignVoltage": {
+    "name": "portableBatteryDesignVoltage",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smartBatteryVersion": {
+    "name": "smartBatteryVersion",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fullChargeCapacity": {
+    "name": "fullChargeCapacity",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remainingCapacity": {
+    "name": "remainingCapacity",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maximumError": {
+    "name": "maximumError",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portableBatteryChargingStatus": {
+    "name": "portableBatteryChargingStatus",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "high": 3,
+          "low": 4,
+          "critical": 5,
+          "charging": 6,
+          "chargingAndHigh": 7,
+          "chargingAndLow": 8,
+          "chargingAndCritical": 9,
+          "noSystemBattery": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remainingBatteryTime": {
+    "name": "remainingBatteryTime",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remainingTimeToFullBattery": {
+    "name": "remainingTimeToFullBattery",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerUnitIndex": {
+    "name": "powerUnitIndex",
+    "oid": "1.3.6.1.4.1.412.2.8.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfPowerManagementBinaryAssociationTable": {
+    "name": "dmtfPowerManagementBinaryAssociationTable",
+    "oid": "1.3.6.1.4.1.412.2.8.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfPowerManagementBinaryAssociationEntry": {
+    "name": "dmtfPowerManagementBinaryAssociationEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfPowerManagementBinaryAssociationTableState": {
+    "name": "dmtfPowerManagementBinaryAssociationTableState",
+    "oid": "1.3.6.1.4.1.412.2.8.8.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "index": {
+    "name": "index",
+    "oid": "1.3.6.1.4.1.412.2.8.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "type": {
+    "name": "type",
+    "oid": "1.3.6.1.4.1.412.2.8.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ref1": {
+    "name": "ref1",
+    "oid": "1.3.6.1.4.1.412.2.8.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ref2": {
+    "name": "ref2",
+    "oid": "1.3.6.1.4.1.412.2.8.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfPowerManagementTable": {
+    "name": "dmtfPowerManagementTable",
+    "oid": "1.3.6.1.4.1.412.2.8.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfPowerManagementEntry": {
+    "name": "dmtfPowerManagementEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "PowerManagementEnabledDisabled",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfPowerManagementTableState": {
+    "name": "dmtfPowerManagementTableState",
+    "oid": "1.3.6.1.4.1.412.2.8.7.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "powerManagementEnabledDisabled": {
+    "name": "powerManagementEnabledDisabled",
+    "oid": "1.3.6.1.4.1.412.2.8.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentPowerManagementState": {
+    "name": "currentPowerManagementState",
+    "oid": "1.3.6.1.4.1.412.2.8.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "d0WorkingFullyON": 3,
+          "d1Sleeping": 4,
+          "d2NonVolatileSleepSoftOff": 5,
+          "d3OFF": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d1TimerValue": {
+    "name": "d1TimerValue",
+    "oid": "1.3.6.1.4.1.412.2.8.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d2TimerValue": {
+    "name": "d2TimerValue",
+    "oid": "1.3.6.1.4.1.412.2.8.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "d3TimerValue": {
+    "name": "d3TimerValue",
+    "oid": "1.3.6.1.4.1.412.2.8.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfSystemPowerManagementTable": {
+    "name": "dmtfSystemPowerManagementTable",
+    "oid": "1.3.6.1.4.1.412.2.8.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfSystemPowerManagementEntry": {
+    "name": "dmtfSystemPowerManagementEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "powerManagementCapabilities": {
+    "name": "powerManagementCapabilities",
+    "oid": "1.3.6.1.4.1.412.2.8.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "aPM11": 3,
+          "aPM12": 4,
+          "aCPI10": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reducedCPUClockSpeed": {
+    "name": "reducedCPUClockSpeed",
+    "oid": "1.3.6.1.4.1.412.2.8.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "overrideAC": {
+    "name": "overrideAC",
+    "oid": "1.3.6.1.4.1.412.2.8.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ringEventResume": {
+    "name": "ringEventResume",
+    "oid": "1.3.6.1.4.1.412.2.8.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmResume": {
+    "name": "alarmResume",
+    "oid": "1.3.6.1.4.1.412.2.8.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfVideoOutputDeviceTable": {
+    "name": "dmtfVideoOutputDeviceTable",
+    "oid": "1.3.6.1.4.1.412.2.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfVideoOutputDeviceEntry": {
+    "name": "dmtfVideoOutputDeviceEntry",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiCompId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "DmiGroupId",
+        "implied": 0
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfVideoOutputDeviceState": {
+    "name": "dmtfVideoOutputDeviceState",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.0",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "index2": {
+    "name": "index2",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "builtIn": {
+    "name": "builtIn",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "yes": 3,
+          "no": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "type2": {
+    "name": "type2",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "cRT": 3,
+          "tFT": 4,
+          "sTN": 5,
+          "dSTN": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colorSupport": {
+    "name": "colorSupport",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "yes": 3,
+          "no": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "brightness": {
+    "name": "brightness",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "contrast": {
+    "name": "contrast",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "videoGroupReference": {
+    "name": "videoGroupReference",
+    "oid": "1.3.6.1.4.1.412.2.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DmiString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmtfPortableBatteryTraps": {
+    "name": "dmtfPortableBatteryTraps",
+    "oid": "1.3.6.1.4.1.412.2.8.1.0",
+    "class": "objectidentity"
+  },
+  "dmtfPortableBatteryEvSys": {
+    "name": "dmtfPortableBatteryEvSys",
+    "oid": "1.3.6.1.4.1.412.2.8.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "system1": 3,
+          "system2": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfPortableBatteryEvSub": {
+    "name": "dmtfPortableBatteryEvSub",
+    "oid": "1.3.6.1.4.1.412.2.8.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "subsystem1": 3,
+          "subsystem2": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dmtfPortableBatteryLowCombinedBatterysCharge": {
+    "name": "dmtfPortableBatteryLowCombinedBatterysCharge",
+    "oid": "1.3.6.1.4.1.412.2.8.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventDateTime"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventSeverity"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventStateKey"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventAssociatedGroup"
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "dmtfPortableBatteryEvSys"
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "dmtfPortableBatteryEvSub"
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfPortableBatteryCriticalCombinedBatterysCharge": {
+    "name": "dmtfPortableBatteryCriticalCombinedBatterysCharge",
+    "oid": "1.3.6.1.4.1.412.2.8.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventDateTime"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventSeverity"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventStateKey"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventAssociatedGroup"
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "dmtfPortableBatteryEvSys"
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "dmtfPortableBatteryEvSub"
+      }
+    ],
+    "status": "current"
+  },
+  "dmtfPortableBatteryMaintenanceRequired": {
+    "name": "dmtfPortableBatteryMaintenanceRequired",
+    "oid": "1.3.6.1.4.1.412.2.8.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventDateTime"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiCompId"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventSeverity"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventStateKey"
+      },
+      {
+        "module": "DMTF-DMI-MIB",
+        "object": "dmiEventAssociatedGroup"
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "dmtfPortableBatteryEvSys"
+      },
+      {
+        "module": "DMTF-MOBILE-MIB",
+        "object": "dmtfPortableBatteryEvSub"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DMTF-MOBILE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DMTF-MOBILE-MIB"
+  }
+}

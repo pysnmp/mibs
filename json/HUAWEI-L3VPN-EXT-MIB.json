@@ -1,0 +1,1224 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "hwL3vpn": {
+    "name": "hwL3vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.150",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 15:56",
+        "description": "Modify description of MIB nodes"
+      },
+      {
+        "revision": "2017-06-22 09:28",
+        "description": "add 'hwL3vpnVrfV6VpnName' 'hwL3vpnVrfV6IfName' 'hwL3vpnVrfV6Up' 'hwL3vpnVrfV6Down'"
+      },
+      {
+        "revision": "2017-06-22 09:28",
+        "description": "Modify syntax ,include'hwL3vpnStatInTrafficRate' 'hwL3vpnStatOutTrafficRate' 'hwL3vpnStatInPacketsRate' 'hwL3vpnStatOutPacketsRate'"
+      },
+      {
+        "revision": "2017-01-13 14:45",
+        "description": "Add an enumeration value to a variable,include'HwL3vpnEnhancedStastic'"
+      }
+    ]
+  },
+  "hwL3vpnStatMibObjects": {
+    "name": "hwL3vpnStatMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1",
+    "class": "objectidentity"
+  },
+  "hwL3vpnStatisticsTable": {
+    "name": "hwL3vpnStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnStatisticsEntry": {
+    "name": "hwL3vpnStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnVrfIndex": {
+    "name": "hwL3vpnVrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnStatEnable": {
+    "name": "hwL3vpnStatEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL3vpnVrfName": {
+    "name": "hwL3vpnVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatInTrafficRate": {
+    "name": "hwL3vpnStatInTrafficRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatOutTrafficRate": {
+    "name": "hwL3vpnStatOutTrafficRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatInPacketsRate": {
+    "name": "hwL3vpnStatInPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatOutPacketsRate": {
+    "name": "hwL3vpnStatOutPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatInBytes": {
+    "name": "hwL3vpnStatInBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatOutBytes": {
+    "name": "hwL3vpnStatOutBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatInPackets": {
+    "name": "hwL3vpnStatInPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatOutPackets": {
+    "name": "hwL3vpnStatOutPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatInUnicastPackets": {
+    "name": "hwL3vpnStatInUnicastPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatOutUnicastPackets": {
+    "name": "hwL3vpnStatOutUnicastPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatInMulticastPackets": {
+    "name": "hwL3vpnStatInMulticastPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatOutMulticastPackets": {
+    "name": "hwL3vpnStatOutMulticastPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatInBroadcastPackets": {
+    "name": "hwL3vpnStatInBroadcastPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatOutBroadcastPackets": {
+    "name": "hwL3vpnStatOutBroadcastPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatResetTime": {
+    "name": "hwL3vpnStatResetTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatResetStatistic": {
+    "name": "hwL3vpnStatResetStatistic",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetstatistic": 0,
+          "resetStatistic": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL3vpnQosStatisticsTable": {
+    "name": "hwL3vpnQosStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnQosStatisticsEntry": {
+    "name": "hwL3vpnQosStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatVrfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatQueueID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnQosStatVrfIndex": {
+    "name": "hwL3vpnQosStatVrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnQosStatQueueID": {
+    "name": "hwL3vpnQosStatQueueID",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 1,
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "ef": 6,
+          "cs6": 7,
+          "cs7": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnQosStatPassPackets": {
+    "name": "hwL3vpnQosStatPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnQosStatPassBytes": {
+    "name": "hwL3vpnQosStatPassBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnQosStatDiscardPackets": {
+    "name": "hwL3vpnQosStatDiscardPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnQosStatDiscardBytes": {
+    "name": "hwL3vpnQosStatDiscardBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnQosStatPassPacketsRate": {
+    "name": "hwL3vpnQosStatPassPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnQosStatPassBytesRate": {
+    "name": "hwL3vpnQosStatPassBytesRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnQosStatDiscardPacketsRate": {
+    "name": "hwL3vpnQosStatDiscardPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnQosStatDiscardBytesRate": {
+    "name": "hwL3vpnQosStatDiscardBytesRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatisticsTable": {
+    "name": "hwL3vpnPeerStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatisticsEntry": {
+    "name": "hwL3vpnPeerStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerVrfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatPeerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnPeerVrfIndex": {
+    "name": "hwL3vpnPeerVrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatPeerAddress": {
+    "name": "hwL3vpnPeerStatPeerAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatEnable": {
+    "name": "hwL3vpnPeerStatEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatResetStatistic": {
+    "name": "hwL3vpnPeerStatResetStatistic",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetStatistic": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL3vpnPeerVrfName": {
+    "name": "hwL3vpnPeerVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatResetTime": {
+    "name": "hwL3vpnPeerStatResetTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatQosPacketsRate": {
+    "name": "hwL3vpnPeerStatQosPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatQosBytesRate": {
+    "name": "hwL3vpnPeerStatQosBytesRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatQosPackets": {
+    "name": "hwL3vpnPeerStatQosPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatQosBytes": {
+    "name": "hwL3vpnPeerStatQosBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatisticsTable": {
+    "name": "hwL3vpnPeerQosStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatisticsEntry": {
+    "name": "hwL3vpnPeerQosStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatVrfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPeerAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatQueueID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatVrfIndex": {
+    "name": "hwL3vpnPeerQosStatVrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatPeerAddress": {
+    "name": "hwL3vpnPeerQosStatPeerAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatQueueID": {
+    "name": "hwL3vpnPeerQosStatQueueID",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 1,
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "ef": 6,
+          "cs6": 7,
+          "cs7": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatPassPackets": {
+    "name": "hwL3vpnPeerQosStatPassPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatPassBytes": {
+    "name": "hwL3vpnPeerQosStatPassBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatDiscardPackets": {
+    "name": "hwL3vpnPeerQosStatDiscardPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatDiscardBytes": {
+    "name": "hwL3vpnPeerQosStatDiscardBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatPassPacketsRate": {
+    "name": "hwL3vpnPeerQosStatPassPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatPassBytesRate": {
+    "name": "hwL3vpnPeerQosStatPassBytesRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatDiscardPacketsRate": {
+    "name": "hwL3vpnPeerQosStatDiscardPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatDiscardBytesRate": {
+    "name": "hwL3vpnPeerQosStatDiscardBytesRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnStatMapTable": {
+    "name": "hwL3vpnStatMapTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnStatMapEntry": {
+    "name": "hwL3vpnStatMapEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatMapVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnStatMapVrfName": {
+    "name": "hwL3vpnStatMapVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL3vpnStatMapVrfIndex": {
+    "name": "hwL3vpnStatMapVrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL3vpnConformance": {
+    "name": "hwL3vpnConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2",
+    "class": "objectidentity"
+  },
+  "hwL3vpnGroups": {
+    "name": "hwL3vpnGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1",
+    "class": "objectidentity"
+  },
+  "hwL3vpnStatisticsGroup": {
+    "name": "hwL3vpnStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatEnable"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfName"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInTrafficRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutTrafficRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInUnicastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutUnicastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInMulticastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutMulticastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInBroadcastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutBroadcastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatResetTime"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatResetStatistic"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnQosStatisticsGroup": {
+    "name": "hwL3vpnQosStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassBytesRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardBytesRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnPeerStatisticsGroup": {
+    "name": "hwL3vpnPeerStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatEnable"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatResetStatistic"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerVrfName"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatResetTime"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosBytesRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatisticsGroup": {
+    "name": "hwL3vpnPeerQosStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassBytesRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardBytesRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnStatMapGroup": {
+    "name": "hwL3vpnStatMapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatMapVrfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnCompliances": {
+    "name": "hwL3vpnCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.2",
+    "class": "objectidentity"
+  },
+  "hwL3vpnCompliance": {
+    "name": "hwL3vpnCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwL3vpnStatisticsGroup",
+        "module": "HUAWEI-L3VPN-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnNotificationsObjects": {
+    "name": "hwL3vpnNotificationsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.5",
+    "class": "objectidentity"
+  },
+  "hwL3vpnVrfV6VpnName": {
+    "name": "hwL3vpnVrfV6VpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL3vpnVrfV6IfName": {
+    "name": "hwL3vpnVrfV6IfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL3vpnNotifications": {
+    "name": "hwL3vpnNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.6",
+    "class": "objectidentity"
+  },
+  "hwL3vpnVrfV6Up": {
+    "name": "hwL3vpnVrfV6Up",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfV6VpnName"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfV6IfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnVrfV6Down": {
+    "name": "hwL3vpnVrfV6Down",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.6.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfV6VpnName"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfV6IfName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L3VPN-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-L3VPN-EXT-MIB"
+  }
+}

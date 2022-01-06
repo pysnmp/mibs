@@ -1,0 +1,3461 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "experimental",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TestAndIncr"
+    ]
+  },
+  "isisMIB": {
+    "name": "isisMIB",
+    "oid": "1.3.6.1.3.37",
+    "class": "moduleidentity"
+  },
+  "isisObjects": {
+    "name": "isisObjects",
+    "oid": "1.3.6.1.3.37.1",
+    "class": "objectidentity"
+  },
+  "isisNotifications": {
+    "name": "isisNotifications",
+    "oid": "1.3.6.1.3.37.2",
+    "class": "objectidentity"
+  },
+  "isisConformance": {
+    "name": "isisConformance",
+    "oid": "1.3.6.1.3.37.3",
+    "class": "objectidentity"
+  },
+  "isisSystem": {
+    "name": "isisSystem",
+    "oid": "1.3.6.1.3.37.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "isisCirc": {
+    "name": "isisCirc",
+    "oid": "1.3.6.1.3.37.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "isisCircLevelValues": {
+    "name": "isisCircLevelValues",
+    "oid": "1.3.6.1.3.37.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "isisCircPDUCounters": {
+    "name": "isisCircPDUCounters",
+    "oid": "1.3.6.1.3.37.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "isisISAdj": {
+    "name": "isisISAdj",
+    "oid": "1.3.6.1.3.37.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "isisReachAddr": {
+    "name": "isisReachAddr",
+    "oid": "1.3.6.1.3.37.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "isisIPReachAddr": {
+    "name": "isisIPReachAddr",
+    "oid": "1.3.6.1.3.37.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "OSINSAddress": {
+    "name": "OSINSAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "SNPAAddress": {
+    "name": "SNPAAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "NSAPPrefix": {
+    "name": "NSAPPrefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "SNPAPrefix": {
+    "name": "SNPAPrefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "SystemID": {
+    "name": "SystemID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "AdminState": {
+    "name": "AdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UpTime": {
+    "name": "UpTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "LSPBuffSize": {
+    "name": "LSPBuffSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 1492
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "LevelState": {
+    "name": "LevelState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "waiting": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SupportedProtocol": {
+    "name": "SupportedProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iso8473": 129,
+          "ip": 204,
+          "ipV6": 205
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DefaultMetric": {
+    "name": "DefaultMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MetricType": {
+    "name": "MetricType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CircuitID": {
+    "name": "CircuitID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "ISPriority": {
+    "name": "ISPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "isisSysTable": {
+    "name": "isisSysTable",
+    "oid": "1.3.6.1.3.37.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSysEntry": {
+    "name": "isisSysEntry",
+    "oid": "1.3.6.1.3.37.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisSysInstance": {
+    "name": "isisSysInstance",
+    "oid": "1.3.6.1.3.37.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSysVersion": {
+    "name": "isisSysVersion",
+    "oid": "1.3.6.1.3.37.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysType": {
+    "name": "isisSysType",
+    "oid": "1.3.6.1.3.37.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2,
+          "level1L2IS": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysID": {
+    "name": "isisSysID",
+    "oid": "1.3.6.1.3.37.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysMaxPathSplits": {
+    "name": "isisSysMaxPathSplits",
+    "oid": "1.3.6.1.3.37.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysMaxLSPGenInt": {
+    "name": "isisSysMaxLSPGenInt",
+    "oid": "1.3.6.1.3.37.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysOrigL1LSPBuffSize": {
+    "name": "isisSysOrigL1LSPBuffSize",
+    "oid": "1.3.6.1.3.37.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LSPBuffSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1492,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysMaxAreaAddresses": {
+    "name": "isisSysMaxAreaAddresses",
+    "oid": "1.3.6.1.3.37.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysMinL1LSPGenInt": {
+    "name": "isisSysMinL1LSPGenInt",
+    "oid": "1.3.6.1.3.37.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysMinL2LSPGenInt": {
+    "name": "isisSysMinL2LSPGenInt",
+    "oid": "1.3.6.1.3.37.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysPollESHelloRate": {
+    "name": "isisSysPollESHelloRate",
+    "oid": "1.3.6.1.3.37.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysWaitTime": {
+    "name": "isisSysWaitTime",
+    "oid": "1.3.6.1.3.37.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysAdminState": {
+    "name": "isisSysAdminState",
+    "oid": "1.3.6.1.3.37.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysL1State": {
+    "name": "isisSysL1State",
+    "oid": "1.3.6.1.3.37.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LevelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysCorrLSPs": {
+    "name": "isisSysCorrLSPs",
+    "oid": "1.3.6.1.3.37.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysLSPL1DbaseOloads": {
+    "name": "isisSysLSPL1DbaseOloads",
+    "oid": "1.3.6.1.3.37.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysManAddrDropFromAreas": {
+    "name": "isisSysManAddrDropFromAreas",
+    "oid": "1.3.6.1.3.37.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysAttmptToExMaxSeqNums": {
+    "name": "isisSysAttmptToExMaxSeqNums",
+    "oid": "1.3.6.1.3.37.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysSeqNumSkips": {
+    "name": "isisSysSeqNumSkips",
+    "oid": "1.3.6.1.3.37.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysOwnLSPPurges": {
+    "name": "isisSysOwnLSPPurges",
+    "oid": "1.3.6.1.3.37.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysIDFieldLenMismatches": {
+    "name": "isisSysIDFieldLenMismatches",
+    "oid": "1.3.6.1.3.37.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysMaxAreaAddrMismatches": {
+    "name": "isisSysMaxAreaAddrMismatches",
+    "oid": "1.3.6.1.3.37.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysOrigL2LSPBuffSize": {
+    "name": "isisSysOrigL2LSPBuffSize",
+    "oid": "1.3.6.1.3.37.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LSPBuffSize",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1492,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysL2State": {
+    "name": "isisSysL2State",
+    "oid": "1.3.6.1.3.37.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LevelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysLSPL2DbaseOloads": {
+    "name": "isisSysLSPL2DbaseOloads",
+    "oid": "1.3.6.1.3.37.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysAuthFails": {
+    "name": "isisSysAuthFails",
+    "oid": "1.3.6.1.3.37.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysLSPIgnoreErrors": {
+    "name": "isisSysLSPIgnoreErrors",
+    "oid": "1.3.6.1.3.37.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysLogAdjacencyChanges": {
+    "name": "isisSysLogAdjacencyChanges",
+    "oid": "1.3.6.1.3.37.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysPartChanges": {
+    "name": "isisSysPartChanges",
+    "oid": "1.3.6.1.3.37.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysMaxAreaCheck": {
+    "name": "isisSysMaxAreaCheck",
+    "oid": "1.3.6.1.3.37.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysNextCircIndex": {
+    "name": "isisSysNextCircIndex",
+    "oid": "1.3.6.1.3.37.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysExistState": {
+    "name": "isisSysExistState",
+    "oid": "1.3.6.1.3.37.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysL2toL1Leaking": {
+    "name": "isisSysL2toL1Leaking",
+    "oid": "1.3.6.1.3.37.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSysSetOverload": {
+    "name": "isisSysSetOverload",
+    "oid": "1.3.6.1.3.37.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setL1Overload": 1,
+          "setL2Overload": 2,
+          "setL1L2Overload": 3,
+          "overloadClear": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "overloadClear",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisManAreaAddrTable": {
+    "name": "isisManAreaAddrTable",
+    "oid": "1.3.6.1.3.37.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisManAreaAddrEntry": {
+    "name": "isisManAreaAddrEntry",
+    "oid": "1.3.6.1.3.37.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisManAreaAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisManAreaAddr": {
+    "name": "isisManAreaAddr",
+    "oid": "1.3.6.1.3.37.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisManAreaAddrExistState": {
+    "name": "isisManAreaAddrExistState",
+    "oid": "1.3.6.1.3.37.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisAreaAddrTable": {
+    "name": "isisAreaAddrTable",
+    "oid": "1.3.6.1.3.37.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisAreaAddrEntry": {
+    "name": "isisAreaAddrEntry",
+    "oid": "1.3.6.1.3.37.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisAreaAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisAreaAddr": {
+    "name": "isisAreaAddr",
+    "oid": "1.3.6.1.3.37.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisSysProtSuppTable": {
+    "name": "isisSysProtSuppTable",
+    "oid": "1.3.6.1.3.37.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSysProtSuppEntry": {
+    "name": "isisSysProtSuppEntry",
+    "oid": "1.3.6.1.3.37.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysProtSuppProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisSysProtSuppProtocol": {
+    "name": "isisSysProtSuppProtocol",
+    "oid": "1.3.6.1.3.37.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SupportedProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSysProtSuppExistState": {
+    "name": "isisSysProtSuppExistState",
+    "oid": "1.3.6.1.3.37.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSummAddrTable": {
+    "name": "isisSummAddrTable",
+    "oid": "1.3.6.1.3.37.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSummAddrEntry": {
+    "name": "isisSummAddrEntry",
+    "oid": "1.3.6.1.3.37.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSummAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSummAddress",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSummAddrPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisSummAddressType": {
+    "name": "isisSummAddressType",
+    "oid": "1.3.6.1.3.37.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSummAddress": {
+    "name": "isisSummAddress",
+    "oid": "1.3.6.1.3.37.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSummAddrPrefixLen": {
+    "name": "isisSummAddrPrefixLen",
+    "oid": "1.3.6.1.3.37.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisSummAddrExistState": {
+    "name": "isisSummAddrExistState",
+    "oid": "1.3.6.1.3.37.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSummAddrAdminState": {
+    "name": "isisSummAddrAdminState",
+    "oid": "1.3.6.1.3.37.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "summaryL1": 1,
+          "summaryL2": 2,
+          "summaryL1L2": 3,
+          "summaryOff": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "summaryOff",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisSummAddrDefaultMetric": {
+    "name": "isisSummAddrDefaultMetric",
+    "oid": "1.3.6.1.3.37.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircTable": {
+    "name": "isisCircTable",
+    "oid": "1.3.6.1.3.37.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisCircEntry": {
+    "name": "isisCircEntry",
+    "oid": "1.3.6.1.3.37.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisCircIndex": {
+    "name": "isisCircIndex",
+    "oid": "1.3.6.1.3.37.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisCircIfIndex": {
+    "name": "isisCircIfIndex",
+    "oid": "1.3.6.1.3.37.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircIfSubIndex": {
+    "name": "isisCircIfSubIndex",
+    "oid": "1.3.6.1.3.37.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLocalID": {
+    "name": "isisCircLocalID",
+    "oid": "1.3.6.1.3.37.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircAdminState": {
+    "name": "isisCircAdminState",
+    "oid": "1.3.6.1.3.37.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircExistState": {
+    "name": "isisCircExistState",
+    "oid": "1.3.6.1.3.37.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircType": {
+    "name": "isisCircType",
+    "oid": "1.3.6.1.3.37.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "ptToPt": 2,
+          "staticIn": 3,
+          "staticOut": 4,
+          "dA": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircExtDomain": {
+    "name": "isisCircExtDomain",
+    "oid": "1.3.6.1.3.37.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircAdjChanges": {
+    "name": "isisCircAdjChanges",
+    "oid": "1.3.6.1.3.37.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircInitFails": {
+    "name": "isisCircInitFails",
+    "oid": "1.3.6.1.3.37.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircRejAdjs": {
+    "name": "isisCircRejAdjs",
+    "oid": "1.3.6.1.3.37.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircOutCtrlPDUs": {
+    "name": "isisCircOutCtrlPDUs",
+    "oid": "1.3.6.1.3.37.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircInCtrlPDUs": {
+    "name": "isisCircInCtrlPDUs",
+    "oid": "1.3.6.1.3.37.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircIDFieldLenMismatches": {
+    "name": "isisCircIDFieldLenMismatches",
+    "oid": "1.3.6.1.3.37.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircLevel": {
+    "name": "isisCircLevel",
+    "oid": "1.3.6.1.3.37.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2,
+          "level1L2": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "level1L2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircMCAddr": {
+    "name": "isisCircMCAddr",
+    "oid": "1.3.6.1.3.37.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "group": 1,
+          "functional": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "group",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircPtToPtCircID": {
+    "name": "isisCircPtToPtCircID",
+    "oid": "1.3.6.1.3.37.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CircuitID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircPassiveCircuit": {
+    "name": "isisCircPassiveCircuit",
+    "oid": "1.3.6.1.3.37.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircMeshGroupEnabled": {
+    "name": "isisCircMeshGroupEnabled",
+    "oid": "1.3.6.1.3.37.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "blocked": 2,
+          "set": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircMeshGroup": {
+    "name": "isisCircMeshGroup",
+    "oid": "1.3.6.1.3.37.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircSmallHellos": {
+    "name": "isisCircSmallHellos",
+    "oid": "1.3.6.1.3.37.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircUpTime": {
+    "name": "isisCircUpTime",
+    "oid": "1.3.6.1.3.37.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircLevelTable": {
+    "name": "isisCircLevelTable",
+    "oid": "1.3.6.1.3.37.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisCircLevelEntry": {
+    "name": "isisCircLevelEntry",
+    "oid": "1.3.6.1.3.37.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisCircLevelIndex": {
+    "name": "isisCircLevelIndex",
+    "oid": "1.3.6.1.3.37.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisCircLevelDefaultMetric": {
+    "name": "isisCircLevelDefaultMetric",
+    "oid": "1.3.6.1.3.37.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelISPriority": {
+    "name": "isisCircLevelISPriority",
+    "oid": "1.3.6.1.3.37.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ISPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelCircID": {
+    "name": "isisCircLevelCircID",
+    "oid": "1.3.6.1.3.37.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CircuitID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircLevelDesIS": {
+    "name": "isisCircLevelDesIS",
+    "oid": "1.3.6.1.3.37.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SystemID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircLevelLANDesISChanges": {
+    "name": "isisCircLevelLANDesISChanges",
+    "oid": "1.3.6.1.3.37.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisCircLevelHelloMultiplier": {
+    "name": "isisCircLevelHelloMultiplier",
+    "oid": "1.3.6.1.3.37.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelHelloTimer": {
+    "name": "isisCircLevelHelloTimer",
+    "oid": "1.3.6.1.3.37.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelDRHelloTimer": {
+    "name": "isisCircLevelDRHelloTimer",
+    "oid": "1.3.6.1.3.37.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 120000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelLSPThrottle": {
+    "name": "isisCircLevelLSPThrottle",
+    "oid": "1.3.6.1.3.37.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelMinLSPRetransInt": {
+    "name": "isisCircLevelMinLSPRetransInt",
+    "oid": "1.3.6.1.3.37.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelCSNPInterval": {
+    "name": "isisCircLevelCSNPInterval",
+    "oid": "1.3.6.1.3.37.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisCircLevelPartSNPInterval": {
+    "name": "isisCircLevelPartSNPInterval",
+    "oid": "1.3.6.1.3.37.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisPacketCountTable": {
+    "name": "isisPacketCountTable",
+    "oid": "1.3.6.1.3.37.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisPacketCountEntry": {
+    "name": "isisPacketCountEntry",
+    "oid": "1.3.6.1.3.37.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPacketCountLevel",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPacketCountDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisPacketCountLevel": {
+    "name": "isisPacketCountLevel",
+    "oid": "1.3.6.1.3.37.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisPacketCountDirection": {
+    "name": "isisPacketCountDirection",
+    "oid": "1.3.6.1.3.37.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sending": 1,
+          "receiving": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisPacketCountHello": {
+    "name": "isisPacketCountHello",
+    "oid": "1.3.6.1.3.37.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisPacketCountLSP": {
+    "name": "isisPacketCountLSP",
+    "oid": "1.3.6.1.3.37.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisPacketCountCSNP": {
+    "name": "isisPacketCountCSNP",
+    "oid": "1.3.6.1.3.37.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisPacketCountPSNP": {
+    "name": "isisPacketCountPSNP",
+    "oid": "1.3.6.1.3.37.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjTable": {
+    "name": "isisISAdjTable",
+    "oid": "1.3.6.1.3.37.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjEntry": {
+    "name": "isisISAdjEntry",
+    "oid": "1.3.6.1.3.37.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisISAdjIndex": {
+    "name": "isisISAdjIndex",
+    "oid": "1.3.6.1.3.37.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjState": {
+    "name": "isisISAdjState",
+    "oid": "1.3.6.1.3.37.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "up": 2,
+          "failed": 3,
+          "down": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjNeighSNPAAddress": {
+    "name": "isisISAdjNeighSNPAAddress",
+    "oid": "1.3.6.1.3.37.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SNPAAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjNeighSysType": {
+    "name": "isisISAdjNeighSysType",
+    "oid": "1.3.6.1.3.37.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l1IntermediateSystem": 1,
+          "l2IntermediateSystem": 2,
+          "l1L2IntermediateSystem": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjNeighSysID": {
+    "name": "isisISAdjNeighSysID",
+    "oid": "1.3.6.1.3.37.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjUsage": {
+    "name": "isisISAdjUsage",
+    "oid": "1.3.6.1.3.37.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "level1": 2,
+          "level2": 3,
+          "level1and2": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjHoldTimer": {
+    "name": "isisISAdjHoldTimer",
+    "oid": "1.3.6.1.3.37.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjNeighPriority": {
+    "name": "isisISAdjNeighPriority",
+    "oid": "1.3.6.1.3.37.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ISPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjUpTime": {
+    "name": "isisISAdjUpTime",
+    "oid": "1.3.6.1.3.37.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjAreaAddrTable": {
+    "name": "isisISAdjAreaAddrTable",
+    "oid": "1.3.6.1.3.37.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjAreaAddrEntry": {
+    "name": "isisISAdjAreaAddrEntry",
+    "oid": "1.3.6.1.3.37.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjAreaAddrAdjIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjAreaAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisISAdjAreaAddrAdjIndex": {
+    "name": "isisISAdjAreaAddrAdjIndex",
+    "oid": "1.3.6.1.3.37.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjAreaAddress": {
+    "name": "isisISAdjAreaAddress",
+    "oid": "1.3.6.1.3.37.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OSINSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjIPAddrTable": {
+    "name": "isisISAdjIPAddrTable",
+    "oid": "1.3.6.1.3.37.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjIPAddrEntry": {
+    "name": "isisISAdjIPAddrEntry",
+    "oid": "1.3.6.1.3.37.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjIPAddrAdjIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisISAdjIPAddrAdjIndex": {
+    "name": "isisISAdjIPAddrAdjIndex",
+    "oid": "1.3.6.1.3.37.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjIPAddressType": {
+    "name": "isisISAdjIPAddressType",
+    "oid": "1.3.6.1.3.37.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjIPAddress": {
+    "name": "isisISAdjIPAddress",
+    "oid": "1.3.6.1.3.37.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisISAdjProtSuppTable": {
+    "name": "isisISAdjProtSuppTable",
+    "oid": "1.3.6.1.3.37.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjProtSuppEntry": {
+    "name": "isisISAdjProtSuppEntry",
+    "oid": "1.3.6.1.3.37.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjProtSuppAdjIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjProtSuppProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisISAdjProtSuppAdjIndex": {
+    "name": "isisISAdjProtSuppAdjIndex",
+    "oid": "1.3.6.1.3.37.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisISAdjProtSuppProtocol": {
+    "name": "isisISAdjProtSuppProtocol",
+    "oid": "1.3.6.1.3.37.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SupportedProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isisRATable": {
+    "name": "isisRATable",
+    "oid": "1.3.6.1.3.37.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisRAEntry": {
+    "name": "isisRAEntry",
+    "oid": "1.3.6.1.3.37.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisRAIndex": {
+    "name": "isisRAIndex",
+    "oid": "1.3.6.1.3.37.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisRAExistState": {
+    "name": "isisRAExistState",
+    "oid": "1.3.6.1.3.37.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRAAdminState": {
+    "name": "isisRAAdminState",
+    "oid": "1.3.6.1.3.37.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRAAddrPrefix": {
+    "name": "isisRAAddrPrefix",
+    "oid": "1.3.6.1.3.37.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NSAPPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRAMapType": {
+    "name": "isisRAMapType",
+    "oid": "1.3.6.1.3.37.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "explicit": 2,
+          "extractIDI": 3,
+          "extractDSP": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRADefMetric": {
+    "name": "isisRADefMetric",
+    "oid": "1.3.6.1.3.37.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRADefMetricType": {
+    "name": "isisRADefMetricType",
+    "oid": "1.3.6.1.3.37.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MetricType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRASNPAAddress": {
+    "name": "isisRASNPAAddress",
+    "oid": "1.3.6.1.3.37.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SNPAAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRASNPAMask": {
+    "name": "isisRASNPAMask",
+    "oid": "1.3.6.1.3.37.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SNPAPrefix",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRASNPAPrefix": {
+    "name": "isisRASNPAPrefix",
+    "oid": "1.3.6.1.3.37.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SNPAPrefix",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisRAType": {
+    "name": "isisRAType",
+    "oid": "1.3.6.1.3.37.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "automatic": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "manual",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRATable": {
+    "name": "isisIPRATable",
+    "oid": "1.3.6.1.3.37.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisIPRAEntry": {
+    "name": "isisIPRAEntry",
+    "oid": "1.3.6.1.3.37.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIndex",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRAType",
+        "implied": 0
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isisIPRAIndex": {
+    "name": "isisIPRAIndex",
+    "oid": "1.3.6.1.3.37.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisIPRAType": {
+    "name": "isisIPRAType",
+    "oid": "1.3.6.1.3.37.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "automatic": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isisIPRADestType": {
+    "name": "isisIPRADestType",
+    "oid": "1.3.6.1.3.37.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRADest": {
+    "name": "isisIPRADest",
+    "oid": "1.3.6.1.3.37.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRADestPrefixLen": {
+    "name": "isisIPRADestPrefixLen",
+    "oid": "1.3.6.1.3.37.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRAExistState": {
+    "name": "isisIPRAExistState",
+    "oid": "1.3.6.1.3.37.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRAAdminState": {
+    "name": "isisIPRAAdminState",
+    "oid": "1.3.6.1.3.37.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRADefMetric": {
+    "name": "isisIPRADefMetric",
+    "oid": "1.3.6.1.3.37.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DefaultMetric",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRADefMetricType": {
+    "name": "isisIPRADefMetricType",
+    "oid": "1.3.6.1.3.37.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MetricType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisIPRASNPAAddress": {
+    "name": "isisIPRASNPAAddress",
+    "oid": "1.3.6.1.3.37.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SNPAAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "isisGroups": {
+    "name": "isisGroups",
+    "oid": "1.3.6.1.3.37.3.1",
+    "class": "objectidentity"
+  },
+  "isisCompliances": {
+    "name": "isisCompliances",
+    "oid": "1.3.6.1.3.37.3.2",
+    "class": "objectidentity"
+  },
+  "isisCompliance": {
+    "name": "isisCompliance",
+    "oid": "1.3.6.1.3.37.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "isisSystemGroup",
+        "module": "ISIS-MIB"
+      },
+      {
+        "object": "isisCircuitGroup",
+        "module": "ISIS-MIB"
+      },
+      {
+        "object": "isisISAdjGroup",
+        "module": "ISIS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "isisSystemGroup": {
+    "name": "isisSystemGroup",
+    "oid": "1.3.6.1.3.37.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysVersion"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysID"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysMaxPathSplits"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysMaxLSPGenInt"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysOrigL1LSPBuffSize"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysMaxAreaAddresses"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysMinL1LSPGenInt"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysMinL2LSPGenInt"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysPollESHelloRate"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysWaitTime"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysAdminState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysL1State"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysCorrLSPs"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLSPL1DbaseOloads"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysManAddrDropFromAreas"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysAttmptToExMaxSeqNums"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysSeqNumSkips"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysOwnLSPPurges"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysIDFieldLenMismatches"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysMaxAreaAddrMismatches"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysOrigL2LSPBuffSize"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysL2State"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLSPL2DbaseOloads"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysAuthFails"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLSPIgnoreErrors"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLogAdjacencyChanges"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysPartChanges"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysMaxAreaCheck"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysNextCircIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysExistState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysL2toL1Leaking"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysSetOverload"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisManAreaAddrExistState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisAreaAddr"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysProtSuppExistState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSummAddrExistState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSummAddrAdminState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSummAddrDefaultMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "isisCircuitGroup": {
+    "name": "isisCircuitGroup",
+    "oid": "1.3.6.1.3.37.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIfSubIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLocalID"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircAdminState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircExistState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircExtDomain"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircAdjChanges"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircInitFails"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircRejAdjs"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircOutCtrlPDUs"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircInCtrlPDUs"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIDFieldLenMismatches"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevel"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircMCAddr"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircPtToPtCircID"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircPassiveCircuit"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircMeshGroupEnabled"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircMeshGroup"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircSmallHellos"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircUpTime"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIfIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelDefaultMetric"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelISPriority"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelCircID"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelDesIS"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelLANDesISChanges"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelHelloMultiplier"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelHelloTimer"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelDRHelloTimer"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelLSPThrottle"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelMinLSPRetransInt"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelCSNPInterval"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircLevelPartSNPInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "isisISAdjGroup": {
+    "name": "isisISAdjGroup",
+    "oid": "1.3.6.1.3.37.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjNeighSNPAAddress"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjNeighSysType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjNeighSysID"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjUsage"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjHoldTimer"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjNeighPriority"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjUpTime"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjAreaAddress"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjIPAddressType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjIPAddress"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisISAdjProtSuppProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "isisISPDUCounterGroup": {
+    "name": "isisISPDUCounterGroup",
+    "oid": "1.3.6.1.3.37.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPacketCountHello"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPacketCountLSP"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPacketCountCSNP"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPacketCountPSNP"
+      }
+    ],
+    "status": "current"
+  },
+  "isisRATableGroup": {
+    "name": "isisRATableGroup",
+    "oid": "1.3.6.1.3.37.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRAExistState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRAAdminState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRAAddrPrefix"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRAMapType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRADefMetric"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRADefMetricType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRASNPAAddress"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRASNPAMask"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRASNPAPrefix"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisRAType"
+      }
+    ],
+    "status": "current"
+  },
+  "isisISIPRADestGroup": {
+    "name": "isisISIPRADestGroup",
+    "oid": "1.3.6.1.3.37.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRADestType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRADest"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRADestPrefixLen"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRAExistState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRAAdminState"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRADefMetric"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRADefMetricType"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisIPRASNPAAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ISIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ISIS-MIB"
+  }
+}

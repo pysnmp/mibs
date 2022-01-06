@@ -1,0 +1,3207 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscosrpMIB": {
+    "name": "ciscosrpMIB",
+    "oid": "1.3.6.1.4.1.9.10.60",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-19 00:00",
+        "description": "Updated the mib to import, Unsigned32 from SNMPv2-SMI instead of CISCO-TC and ifIndex from IF-MIB instead of RFC1213-MIB. Modified the PerfCurrentCount64 and PerfIntervalCount64 as per the HCPerfCurrentCount and HCPerfIntervalCount TCs in RFC3705. Replaced the use of CounterBasedGauge64 with PerfCurrentCount64 or PerfIntervalCount64. Added a new compliance including all the groups."
+      },
+      {
+        "revision": "2001-03-28 00:00",
+        "description": "Second version of this MIB module. srpErrorsCountersCurrentTable and srpErrorsCountersIntervalTable have been deprecated and replaced with srpErrCntCurrentTable and srpErrCntIntervalTable. The srpMACCountersTable has been deprecated."
+      },
+      {
+        "revision": "2000-04-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "InterfaceSide": {
+    "name": "InterfaceSide",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sideA": 1,
+          "sideB": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpsMode": {
+    "name": "IpsMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRequest": 1,
+          "waitToRestore": 2,
+          "manualSwitch": 3,
+          "signalDegrade": 4,
+          "signalFail": 5,
+          "forcedSwitch": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PerfCurrentCount64": {
+    "name": "PerfCurrentCount64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PerfIntervalCount64": {
+    "name": "PerfIntervalCount64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "srpMAC": {
+    "name": "srpMAC",
+    "oid": "1.3.6.1.4.1.9.10.60.1",
+    "class": "objectidentity"
+  },
+  "srpRingCounters": {
+    "name": "srpRingCounters",
+    "oid": "1.3.6.1.4.1.9.10.60.2",
+    "class": "objectidentity"
+  },
+  "srpHostCounters": {
+    "name": "srpHostCounters",
+    "oid": "1.3.6.1.4.1.9.10.60.3",
+    "class": "objectidentity"
+  },
+  "srpErrorsCounters": {
+    "name": "srpErrorsCounters",
+    "oid": "1.3.6.1.4.1.9.10.60.4",
+    "class": "objectidentity"
+  },
+  "srpTrapsNotificationsPrefix": {
+    "name": "srpTrapsNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.10.60.5",
+    "class": "objectidentity"
+  },
+  "srpTrapsNotifications": {
+    "name": "srpTrapsNotifications",
+    "oid": "1.3.6.1.4.1.9.10.60.5.0",
+    "class": "objectidentity"
+  },
+  "srpConformance": {
+    "name": "srpConformance",
+    "oid": "1.3.6.1.4.1.9.10.60.6",
+    "class": "objectidentity"
+  },
+  "srpGroups": {
+    "name": "srpGroups",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1",
+    "class": "objectidentity"
+  },
+  "srpCompliances": {
+    "name": "srpCompliances",
+    "oid": "1.3.6.1.4.1.9.10.60.6.2",
+    "class": "objectidentity"
+  },
+  "srpIfTable": {
+    "name": "srpIfTable",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpIfEntry": {
+    "name": "srpIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpMACAddress": {
+    "name": "srpMACAddress",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpPriorityThreshold": {
+    "name": "srpPriorityThreshold",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srpNodesOnTheRing": {
+    "name": "srpNodesOnTheRing",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpIpsState": {
+    "name": "srpIpsState",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "passThrough": 2,
+          "wrapped": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpIpsLockedOut": {
+    "name": "srpIpsLockedOut",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srpIpsWaitToRestoreTimer": {
+    "name": "srpIpsWaitToRestoreTimer",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srpIfTimeElapsed": {
+    "name": "srpIfTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpIfValidIntervals": {
+    "name": "srpIfValidIntervals",
+    "oid": "1.3.6.1.4.1.9.10.60.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACSideTable": {
+    "name": "srpMACSideTable",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpMACSideEntry": {
+    "name": "srpMACSideEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACInterfaceSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpMACInterfaceSide": {
+    "name": "srpMACInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpMACNeighborAddress": {
+    "name": "srpMACNeighborAddress",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACSideWrapped": {
+    "name": "srpMACSideWrapped",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACIpsMgmtRequestedMode": {
+    "name": "srpMACIpsMgmtRequestedMode",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srpMACIpsAutoDetectMode": {
+    "name": "srpMACIpsAutoDetectMode",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACIpsRemoteMode": {
+    "name": "srpMACIpsRemoteMode",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACIpsRemoteType": {
+    "name": "srpMACIpsRemoteType",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shortPath": 1,
+          "longPath": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACIpsActiveMode": {
+    "name": "srpMACIpsActiveMode",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACIpsWrapCounter": {
+    "name": "srpMACIpsWrapCounter",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACIpsLastWrapTimeStamp": {
+    "name": "srpMACIpsLastWrapTimeStamp",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACIpsLastUnWrapTimeStamp": {
+    "name": "srpMACIpsLastUnWrapTimeStamp",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACClockSourceMode": {
+    "name": "srpMACClockSourceMode",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "line": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srpMACTopologyTimer": {
+    "name": "srpMACTopologyTimer",
+    "oid": "1.3.6.1.4.1.9.10.60.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "srpRingTopologyMapTable": {
+    "name": "srpRingTopologyMapTable",
+    "oid": "1.3.6.1.4.1.9.10.60.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpRingTopologyMapEntry": {
+    "name": "srpRingTopologyMapEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpNodeHopsNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpNodeHopsNumber": {
+    "name": "srpNodeHopsNumber",
+    "oid": "1.3.6.1.4.1.9.10.60.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpNodeMACAddress": {
+    "name": "srpNodeMACAddress",
+    "oid": "1.3.6.1.4.1.9.10.60.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpNodeWrapped": {
+    "name": "srpNodeWrapped",
+    "oid": "1.3.6.1.4.1.9.10.60.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpNodeName": {
+    "name": "srpNodeName",
+    "oid": "1.3.6.1.4.1.9.10.60.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpMACCountersTable": {
+    "name": "srpMACCountersTable",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "srpMACCountersEntry": {
+    "name": "srpMACCountersEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "srpMACCountPktsBySourceFlag": {
+    "name": "srpMACCountPktsBySourceFlag",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpMACCountPktsBySourceAddress": {
+    "name": "srpMACCountPktsBySourceAddress",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpMACSourceDiscontTimeStamp": {
+    "name": "srpMACSourceDiscontTimeStamp",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpMACCountPktsBySource": {
+    "name": "srpMACCountPktsBySource",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpMACCountPktsByDestinationFlag": {
+    "name": "srpMACCountPktsByDestinationFlag",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpMACCountPktsByDestAddress": {
+    "name": "srpMACCountPktsByDestAddress",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpMACDestDiscontTimeStamp": {
+    "name": "srpMACDestDiscontTimeStamp",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpMACCountPktsByDest": {
+    "name": "srpMACCountPktsByDest",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpMACRejectPktsBySourceFlag": {
+    "name": "srpMACRejectPktsBySourceFlag",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpMACRejectPktsBySourceAddress": {
+    "name": "srpMACRejectPktsBySourceAddress",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpMACRejectPktsByDestFlag": {
+    "name": "srpMACRejectPktsByDestFlag",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpMACRejectPktsByDestAddress": {
+    "name": "srpMACRejectPktsByDestAddress",
+    "oid": "1.3.6.1.4.1.9.10.60.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "srpRingCountersCurrentTable": {
+    "name": "srpRingCountersCurrentTable",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpRingCountersCurrentEntry": {
+    "name": "srpRingCountersCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingInterfaceSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpRingInterfaceSide": {
+    "name": "srpRingInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpRingCurUcastLowPriPktsIn": {
+    "name": "srpRingCurUcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurUcastLowPriOctetsIn": {
+    "name": "srpRingCurUcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastLowPriPktsIn": {
+    "name": "srpRingCurMcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastLowPriOctetsIn": {
+    "name": "srpRingCurMcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurUcastHighPriPktsIn": {
+    "name": "srpRingCurUcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurUcastHighPriOctetsIn": {
+    "name": "srpRingCurUcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastHighPriPktsIn": {
+    "name": "srpRingCurMcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastHighPriOctetsIn": {
+    "name": "srpRingCurMcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurUcastLowPriPktsOut": {
+    "name": "srpRingCurUcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurUcastLowPriOctetsOut": {
+    "name": "srpRingCurUcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastLowPriPktsOut": {
+    "name": "srpRingCurMcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastLowPriOctetsOut": {
+    "name": "srpRingCurMcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurUcastHighPriPktsOut": {
+    "name": "srpRingCurUcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurUcastHighPriOctetsOut": {
+    "name": "srpRingCurUcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastHighPriPktsOut": {
+    "name": "srpRingCurMcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCurMcastHighPriOctetsOut": {
+    "name": "srpRingCurMcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingCountersIntervalTable": {
+    "name": "srpRingCountersIntervalTable",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpRingCountersIntervalEntry": {
+    "name": "srpRingCountersIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntInterfaceSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpRingIntInterfaceSide": {
+    "name": "srpRingIntInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpRingIntNumber": {
+    "name": "srpRingIntNumber",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpRingIntWrapCounter": {
+    "name": "srpRingIntWrapCounter",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastLowPriPktsIn": {
+    "name": "srpRingIntUcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastLowPriOctetsIn": {
+    "name": "srpRingIntUcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastLowPriPktsIn": {
+    "name": "srpRingIntMcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastLowPriOctetsIn": {
+    "name": "srpRingIntMcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastHighPriPktsIn": {
+    "name": "srpRingIntUcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastHighPriOctetsIn": {
+    "name": "srpRingIntUcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastHighPriPktsIn": {
+    "name": "srpRingIntMcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastHighPriOctetsIn": {
+    "name": "srpRingIntMcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastLowPriPktsOut": {
+    "name": "srpRingIntUcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastLowPriOctetsOut": {
+    "name": "srpRingIntUcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastLowPriPktsOut": {
+    "name": "srpRingIntMcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastLowPriOctetsOut": {
+    "name": "srpRingIntMcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastHighPriPktsOut": {
+    "name": "srpRingIntUcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntUcastHighPriOctetsOut": {
+    "name": "srpRingIntUcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastHighPriPktsOut": {
+    "name": "srpRingIntMcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpRingIntMcastHighPriOctetsOut": {
+    "name": "srpRingIntMcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCountersCurrentTable": {
+    "name": "srpHostCountersCurrentTable",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpHostCountersCurrentEntry": {
+    "name": "srpHostCountersCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostInterfaceSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpHostInterfaceSide": {
+    "name": "srpHostInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpHostCurUcastLowPriPktsIn": {
+    "name": "srpHostCurUcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurUcastLowPriOctetsIn": {
+    "name": "srpHostCurUcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastLowPriPktsIn": {
+    "name": "srpHostCurMcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastLowPriOctetsIn": {
+    "name": "srpHostCurMcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurUcastHighPriPktsIn": {
+    "name": "srpHostCurUcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurUcastHighPriOctetsIn": {
+    "name": "srpHostCurUcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastHighPriPktsIn": {
+    "name": "srpHostCurMcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastHighPriOctetsIn": {
+    "name": "srpHostCurMcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurUcastLowPriPktsOut": {
+    "name": "srpHostCurUcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurUcastLowPriOctetsOut": {
+    "name": "srpHostCurUcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastLowPriPktsOut": {
+    "name": "srpHostCurMcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastLowPriOctetsOut": {
+    "name": "srpHostCurMcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurUcastHighPriPktsOut": {
+    "name": "srpHostCurUcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurUcastHighPriOctetsOut": {
+    "name": "srpHostCurUcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastHighPriPktsOut": {
+    "name": "srpHostCurMcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCurMcastHighPriOctetsOut": {
+    "name": "srpHostCurMcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostCountersIntervalTable": {
+    "name": "srpHostCountersIntervalTable",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpHostCountersIntervalEntry": {
+    "name": "srpHostCountersIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntInterfaceSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpHostIntInterfaceSide": {
+    "name": "srpHostIntInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpHostIntNumber": {
+    "name": "srpHostIntNumber",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpHostIntUcastLowPriPktsIn": {
+    "name": "srpHostIntUcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntUcastLowPriOctetsIn": {
+    "name": "srpHostIntUcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastLowPriPktsIn": {
+    "name": "srpHostIntMcastLowPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastLowPriOctetsIn": {
+    "name": "srpHostIntMcastLowPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntUcastHighPriPktsIn": {
+    "name": "srpHostIntUcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntUcastHighPriOctetsIn": {
+    "name": "srpHostIntUcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastHighPriPktsIn": {
+    "name": "srpHostIntMcastHighPriPktsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastHighPriOctetsIn": {
+    "name": "srpHostIntMcastHighPriOctetsIn",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntUcastLowPriPktsOut": {
+    "name": "srpHostIntUcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntUcastLowPriOctetsOut": {
+    "name": "srpHostIntUcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastLowPriPktsOut": {
+    "name": "srpHostIntMcastLowPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastLowPriOctetsOut": {
+    "name": "srpHostIntMcastLowPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntUcastHighPriPktsOut": {
+    "name": "srpHostIntUcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntUcastHighPriOctetsOut": {
+    "name": "srpHostIntUcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastHighPriPktsOut": {
+    "name": "srpHostIntMcastHighPriPktsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpHostIntMcastHighPriOctetsOut": {
+    "name": "srpHostIntMcastHighPriOctetsOut",
+    "oid": "1.3.6.1.4.1.9.10.60.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrorsCountersCurrentTable": {
+    "name": "srpErrorsCountersCurrentTable",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "srpErrorsCountersCurrentEntry": {
+    "name": "srpErrorsCountersCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrorsInterfaceSide",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "srpErrorsInterfaceSide": {
+    "name": "srpErrorsInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "srpRingCurRxErrorsDataParity": {
+    "name": "srpRingCurRxErrorsDataParity",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingCurRxErrorsShortPackets": {
+    "name": "srpRingCurRxErrorsShortPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingCurRxErrorsGiantPackets": {
+    "name": "srpRingCurRxErrorsGiantPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingCurRxErrorsSideBadPackets": {
+    "name": "srpRingCurRxErrorsSideBadPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingCurRxErrorsCRC": {
+    "name": "srpRingCurRxErrorsCRC",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostCurRxErrorsDataParity": {
+    "name": "srpHostCurRxErrorsDataParity",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostCurRxErrorsShortPackets": {
+    "name": "srpHostCurRxErrorsShortPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostCurRxErrorsGiantPackets": {
+    "name": "srpHostCurRxErrorsGiantPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostCurRxErrorsSideBadPackets": {
+    "name": "srpHostCurRxErrorsSideBadPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpErrorsCountersIntervalTable": {
+    "name": "srpErrorsCountersIntervalTable",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "srpErrorsCountersIntervalEntry": {
+    "name": "srpErrorsCountersIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrorsIntervalInterfaceSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrorsIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "srpErrorsIntervalInterfaceSide": {
+    "name": "srpErrorsIntervalInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "srpErrorsIntervalNumber": {
+    "name": "srpErrorsIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "srpRingIntRxErrorsDataParity": {
+    "name": "srpRingIntRxErrorsDataParity",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingIntRxErrorsShortPackets": {
+    "name": "srpRingIntRxErrorsShortPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingIntRxErrorsGiantPackets": {
+    "name": "srpRingIntRxErrorsGiantPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingIntRxErrorsSideBadPackets": {
+    "name": "srpRingIntRxErrorsSideBadPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpRingIntRxErrorsCRC": {
+    "name": "srpRingIntRxErrorsCRC",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostIntRxErrorsDataParity": {
+    "name": "srpHostIntRxErrorsDataParity",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostIntRxErrorsShortPackets": {
+    "name": "srpHostIntRxErrorsShortPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostIntRxErrorsGiantPackets": {
+    "name": "srpHostIntRxErrorsGiantPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpHostIntRxErrorsSideBadPackets": {
+    "name": "srpHostIntRxErrorsSideBadPackets",
+    "oid": "1.3.6.1.4.1.9.10.60.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "srpErrCntCurrTable": {
+    "name": "srpErrCntCurrTable",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpErrCntCurrEntry": {
+    "name": "srpErrCntCurrEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrInterfaceSide",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpErrCntCurrInterfaceSide": {
+    "name": "srpErrCntCurrInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpErrCntCurrRingRxTtlExpPkts": {
+    "name": "srpErrCntCurrRingRxTtlExpPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntCurrRingRxShortPkts": {
+    "name": "srpErrCntCurrRingRxShortPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntCurrRingRxGiantPkts": {
+    "name": "srpErrCntCurrRingRxGiantPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntCurrRingRxAbortPkts": {
+    "name": "srpErrCntCurrRingRxAbortPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntCurrRingRxCRC": {
+    "name": "srpErrCntCurrRingRxCRC",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntCurrHostRxDiscardPkts": {
+    "name": "srpErrCntCurrHostRxDiscardPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntCurrHostRxShortPkts": {
+    "name": "srpErrCntCurrHostRxShortPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntCurrHostRxGiantPkts": {
+    "name": "srpErrCntCurrHostRxGiantPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntTable": {
+    "name": "srpErrCntIntTable",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpErrCntIntEntry": {
+    "name": "srpErrCntIntEntry",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntInterfaceSide",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srpErrCntIntInterfaceSide": {
+    "name": "srpErrCntIntInterfaceSide",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceSide",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpErrCntIntNumber": {
+    "name": "srpErrCntIntNumber",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "srpErrCntIntRingRxTtlExpPkts": {
+    "name": "srpErrCntIntRingRxTtlExpPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntRingRxShortPkts": {
+    "name": "srpErrCntIntRingRxShortPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntRingRxGiantPkts": {
+    "name": "srpErrCntIntRingRxGiantPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntRingRxAbortPkts": {
+    "name": "srpErrCntIntRingRxAbortPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntRingRxCRC": {
+    "name": "srpErrCntIntRingRxCRC",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntHostRxDiscardPkts": {
+    "name": "srpErrCntIntHostRxDiscardPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntHostRxShortPkts": {
+    "name": "srpErrCntIntHostRxShortPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpErrCntIntHostRxGiantPkts": {
+    "name": "srpErrCntIntHostRxGiantPkts",
+    "oid": "1.3.6.1.4.1.9.10.60.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "srpTrapRingWrapped": {
+    "name": "srpTrapRingWrapped",
+    "oid": "1.3.6.1.4.1.9.10.60.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpIpsState"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsAutoDetectMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsRemoteMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsRemoteType"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsActiveMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsWrapCounter"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsLastWrapTimeStamp"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsLastUnWrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "srpTrapRingRestored": {
+    "name": "srpTrapRingRestored",
+    "oid": "1.3.6.1.4.1.9.10.60.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpIpsState"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsAutoDetectMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsRemoteMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsRemoteType"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsActiveMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsWrapCounter"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsLastWrapTimeStamp"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsLastUnWrapTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "srpIfGroup": {
+    "name": "srpIfGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACAddress"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpPriorityThreshold"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpNodesOnTheRing"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpIpsState"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpIpsLockedOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpIpsWaitToRestoreTimer"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpIfTimeElapsed"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpIfValidIntervals"
+      }
+    ],
+    "status": "current"
+  },
+  "srpMACSideGroup": {
+    "name": "srpMACSideGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACNeighborAddress"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACSideWrapped"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsMgmtRequestedMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsAutoDetectMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsRemoteMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsRemoteType"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsActiveMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsWrapCounter"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsLastWrapTimeStamp"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACIpsLastUnWrapTimeStamp"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACClockSourceMode"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACTopologyTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "srpRingTopologyMapGroup": {
+    "name": "srpRingTopologyMapGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpNodeMACAddress"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpNodeWrapped"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "srpMACCountersGroup": {
+    "name": "srpMACCountersGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACCountPktsBySourceFlag"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACCountPktsBySourceAddress"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACSourceDiscontTimeStamp"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACCountPktsBySource"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACCountPktsByDestinationFlag"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACCountPktsByDestAddress"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACDestDiscontTimeStamp"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACCountPktsByDest"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACRejectPktsBySourceFlag"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACRejectPktsBySourceAddress"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACRejectPktsByDestFlag"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpMACRejectPktsByDestAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "srpRingCountersCurrentGroup": {
+    "name": "srpRingCountersCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurUcastHighPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurMcastHighPriOctetsOut"
+      }
+    ],
+    "status": "current"
+  },
+  "srpRingCountersIntervalGroup": {
+    "name": "srpRingCountersIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntWrapCounter"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntUcastHighPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntMcastHighPriOctetsOut"
+      }
+    ],
+    "status": "current"
+  },
+  "srpHostCountersCurrentGroup": {
+    "name": "srpHostCountersCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurUcastHighPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurMcastHighPriOctetsOut"
+      }
+    ],
+    "status": "current"
+  },
+  "srpHostCountersIntervalGroup": {
+    "name": "srpHostCountersIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastLowPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastLowPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastHighPriPktsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastHighPriOctetsIn"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastLowPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastLowPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntUcastHighPriOctetsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastHighPriPktsOut"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntMcastHighPriOctetsOut"
+      }
+    ],
+    "status": "current"
+  },
+  "srpErrorsCountersCurrentGroup": {
+    "name": "srpErrorsCountersCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurRxErrorsDataParity"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurRxErrorsShortPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurRxErrorsGiantPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurRxErrorsSideBadPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingCurRxErrorsCRC"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurRxErrorsDataParity"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurRxErrorsShortPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurRxErrorsGiantPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostCurRxErrorsSideBadPackets"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "srpErrorsCountersIntervalGroup": {
+    "name": "srpErrorsCountersIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntRxErrorsDataParity"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntRxErrorsShortPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntRxErrorsGiantPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntRxErrorsSideBadPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpRingIntRxErrorsCRC"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntRxErrorsDataParity"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntRxErrorsShortPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntRxErrorsGiantPackets"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpHostIntRxErrorsSideBadPackets"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "srpErrCntCurrGroup": {
+    "name": "srpErrCntCurrGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrRingRxTtlExpPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrRingRxShortPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrRingRxGiantPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrRingRxAbortPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrRingRxCRC"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrHostRxDiscardPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrHostRxShortPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntCurrHostRxGiantPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "srpErrCntIntGroup": {
+    "name": "srpErrCntIntGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntRingRxTtlExpPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntRingRxShortPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntRingRxGiantPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntRingRxAbortPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntRingRxCRC"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntHostRxDiscardPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntHostRxShortPkts"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpErrCntIntHostRxGiantPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "srpNotificationsGroup": {
+    "name": "srpNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.60.6.1.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpTrapRingWrapped"
+      },
+      {
+        "module": "CISCO-SRP-MIB",
+        "object": "srpTrapRingRestored"
+      }
+    ],
+    "status": "current"
+  },
+  "srpCompliance": {
+    "name": "srpCompliance",
+    "oid": "1.3.6.1.4.1.9.10.60.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "srpIfGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpMACSideGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpRingTopologyMapGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpRingCountersCurrentGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpRingCountersIntervalGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpHostCountersCurrentGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpHostCountersIntervalGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpErrCntCurrGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpErrCntIntGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpNotificationsGroup",
+        "module": "CISCO-SRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "srpComplianceOld": {
+    "name": "srpComplianceOld",
+    "oid": "1.3.6.1.4.1.9.10.60.6.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "srpMACCountersGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpErrorsCountersCurrentGroup",
+        "module": "CISCO-SRP-MIB"
+      },
+      {
+        "object": "srpErrorsCountersIntervalGroup",
+        "module": "CISCO-SRP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SRP-MIB"
+  }
+}

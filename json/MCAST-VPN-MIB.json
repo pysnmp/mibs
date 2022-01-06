@@ -1,0 +1,1287 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "IPMROUTE-STD-MIB": [
+      "ipMRouteEntry"
+    ],
+    "JUNIPER-EXPERIMENT-MIB": [
+      "jnxMvpnExperiment"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs"
+    ],
+    "L2L3-VPN-MCAST-MIB": [
+      "JnxL2L3VpnMcastProviderTunnelType"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsLabel"
+    ],
+    "MPLS-VPN-MIB": [
+      "MplsVpnRouteDistinguisher",
+      "mplsVpnVrfName"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue",
+      "TimeInterval",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxMvpnMIB": {
+    "name": "jnxMvpnMIB",
+    "oid": "1.3.6.1.4.1.2636.5.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-07 12:00",
+        "description": "Initial version of the draft."
+      }
+    ]
+  },
+  "jnxMvpnNotifications": {
+    "name": "jnxMvpnNotifications",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.0",
+    "class": "objectidentity"
+  },
+  "jnxMvpnObjects": {
+    "name": "jnxMvpnObjects",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1",
+    "class": "objectidentity"
+  },
+  "jnxMvpnScalars": {
+    "name": "jnxMvpnScalars",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1",
+    "class": "objectidentity"
+  },
+  "jnxMvpnGeneral": {
+    "name": "jnxMvpnGeneral",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2",
+    "class": "objectidentity"
+  },
+  "jnxMvpnConfig": {
+    "name": "jnxMvpnConfig",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3",
+    "class": "objectidentity"
+  },
+  "jnxMvpnStates": {
+    "name": "jnxMvpnStates",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4",
+    "class": "objectidentity"
+  },
+  "jnxMvpnMvrfNumber": {
+    "name": "jnxMvpnMvrfNumber",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfNumberV4": {
+    "name": "jnxMvpnMvrfNumberV4",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfNumberV6": {
+    "name": "jnxMvpnMvrfNumberV6",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfNumberPimV4": {
+    "name": "jnxMvpnMvrfNumberPimV4",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfNumberPimV6": {
+    "name": "jnxMvpnMvrfNumberPimV6",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfNumberBgpV4": {
+    "name": "jnxMvpnMvrfNumberBgpV4",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfNumberBgpV6": {
+    "name": "jnxMvpnMvrfNumberBgpV6",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfNumberMldp": {
+    "name": "jnxMvpnMvrfNumberMldp",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnNotificationEnable": {
+    "name": "jnxMvpnNotificationEnable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGeneralTable": {
+    "name": "jnxMvpnGeneralTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnGeneralEntry": {
+    "name": "jnxMvpnGeneralEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMvpnGenOperStatusChange": {
+    "name": "jnxMvpnGenOperStatusChange",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createdMvrf": 1,
+          "deletedMvrf": 2,
+          "modifiedMvrfIpmsiConfig": 3,
+          "modifiedMvrfSpmsiConfig": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "createdMvrf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenOperChangeTime": {
+    "name": "jnxMvpnGenOperChangeTime",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenCmcastRouteProtocolV4": {
+    "name": "jnxMvpnGenCmcastRouteProtocolV4",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pim": 1,
+          "bgp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenCmcastRouteProtocolV6": {
+    "name": "jnxMvpnGenCmcastRouteProtocolV6",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pim": 1,
+          "bgp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenIpmsiConfigV4": {
+    "name": "jnxMvpnGenIpmsiConfigV4",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenIpmsiConfigV6": {
+    "name": "jnxMvpnGenIpmsiConfigV6",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenInterAsPmsiConfigV4": {
+    "name": "jnxMvpnGenInterAsPmsiConfigV4",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenInterAsPmsiConfigV6": {
+    "name": "jnxMvpnGenInterAsPmsiConfigV6",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnGenRowStatus": {
+    "name": "jnxMvpnGenRowStatus",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnBgpGeneralTable": {
+    "name": "jnxMvpnBgpGeneralTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnBgpGeneralEntry": {
+    "name": "jnxMvpnBgpGeneralEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxMvpnBgpGeneralEntry",
+      "module": "MCAST-VPN-MIB",
+      "object": "jnxMvpnGeneralEntry"
+    },
+    "status": "current"
+  },
+  "jnxMvpnBgpGenMode": {
+    "name": "jnxMvpnBgpGenMode",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rpt-spt": 1,
+          "spt-only": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnBgpGenUmhSelection": {
+    "name": "jnxMvpnBgpGenUmhSelection",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highest-pe-address": 1,
+          "c-root-group-hashing": 2,
+          "ucast-umh-route": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnBgpGenSiteType": {
+    "name": "jnxMvpnBgpGenSiteType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sender-receiver": 1,
+          "receiver-only": 2,
+          "sender-only": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnBgpGenCmcastImportRt": {
+    "name": "jnxMvpnBgpGenCmcastImportRt",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnBgpGenSrcAs": {
+    "name": "jnxMvpnBgpGenSrcAs",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnBgpGenSptnlLimit": {
+    "name": "jnxMvpnBgpGenSptnlLimit",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigTable": {
+    "name": "jnxMvpnPmsiConfigTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigEntry": {
+    "name": "jnxMvpnPmsiConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnPmsiConfigTunnelType",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnPmsiConfigTunnelAuxInfo",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnPmsiConfigTunnelPimGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnPmsiConfigTunnelPimGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnPmsiConfigTunnelOrTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigTunnelType": {
+    "name": "jnxMvpnPmsiConfigTunnelType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxL2L3VpnMcastProviderTunnelType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigTunnelAuxInfo": {
+    "name": "jnxMvpnPmsiConfigTunnelAuxInfo",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigTunnelPimGroupAddressType": {
+    "name": "jnxMvpnPmsiConfigTunnelPimGroupAddressType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigTunnelPimGroupAddress": {
+    "name": "jnxMvpnPmsiConfigTunnelPimGroupAddress",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigTunnelOrTemplateName": {
+    "name": "jnxMvpnPmsiConfigTunnelOrTemplateName",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigEncapsType": {
+    "name": "jnxMvpnPmsiConfigEncapsType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "greIp": 1,
+          "ipIp": 2,
+          "mpls": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnPmsiConfigRowStatus": {
+    "name": "jnxMvpnPmsiConfigRowStatus",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigTable": {
+    "name": "jnxMvpnSpmsiConfigTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigEntry": {
+    "name": "jnxMvpnSpmsiConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiConfigCmcastAddressType",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiConfigCmcastGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiConfigCmcastGroupPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiConfigCmcastSourceAddress",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiConfigCmcastSourcePrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigCmcastAddressType": {
+    "name": "jnxMvpnSpmsiConfigCmcastAddressType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigCmcastGroupAddress": {
+    "name": "jnxMvpnSpmsiConfigCmcastGroupAddress",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigCmcastGroupPrefixLen": {
+    "name": "jnxMvpnSpmsiConfigCmcastGroupPrefixLen",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigCmcastSourceAddress": {
+    "name": "jnxMvpnSpmsiConfigCmcastSourceAddress",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigCmcastSourcePrefixLen": {
+    "name": "jnxMvpnSpmsiConfigCmcastSourcePrefixLen",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigThreshold": {
+    "name": "jnxMvpnSpmsiConfigThreshold",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigPmsiPointer": {
+    "name": "jnxMvpnSpmsiConfigPmsiPointer",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiConfigRowStatus": {
+    "name": "jnxMvpnSpmsiConfigRowStatus",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnIpmsiTable": {
+    "name": "jnxMvpnIpmsiTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnIpmsiEntry": {
+    "name": "jnxMvpnIpmsiEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnIpmsiAfi",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnIpmsiRD",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnIpmsiOrigAddrType",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnIpmsiOrigAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMvpnIpmsiAfi": {
+    "name": "jnxMvpnIpmsiAfi",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnIpmsiRD": {
+    "name": "jnxMvpnIpmsiRD",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnIpmsiOrigAddrType": {
+    "name": "jnxMvpnIpmsiOrigAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnIpmsiOrigAddress": {
+    "name": "jnxMvpnIpmsiOrigAddress",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnIpmsiUpTime": {
+    "name": "jnxMvpnIpmsiUpTime",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnIpmsiAttribute": {
+    "name": "jnxMvpnIpmsiAttribute",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnInterasIpmsiTable": {
+    "name": "jnxMvpnInterasIpmsiTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnInterasIpmsiEntry": {
+    "name": "jnxMvpnInterasIpmsiEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnInterasIpmsiAfi",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnInterasIpmsiRD",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnInterasIpmsiSrcAs",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMvpnInterasIpmsiAfi": {
+    "name": "jnxMvpnInterasIpmsiAfi",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnInterasIpmsiRD": {
+    "name": "jnxMvpnInterasIpmsiRD",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsVpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnInterasIpmsiSrcAs": {
+    "name": "jnxMvpnInterasIpmsiSrcAs",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnInterasIpmsiAttribute": {
+    "name": "jnxMvpnInterasIpmsiAttribute",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiTable": {
+    "name": "jnxMvpnSpmsiTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiEntry": {
+    "name": "jnxMvpnSpmsiEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiOrigAddrType",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiOrigAddress",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiCmcastAddrType",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiCmcastGroup",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiCmcastGroupPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiCmcastSource",
+        "implied": 0
+      },
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnSpmsiCmcastSourcePrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxMvpnSpmsiOrigAddrType": {
+    "name": "jnxMvpnSpmsiOrigAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiOrigAddress": {
+    "name": "jnxMvpnSpmsiOrigAddress",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiCmcastAddrType": {
+    "name": "jnxMvpnSpmsiCmcastAddrType",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiCmcastGroup": {
+    "name": "jnxMvpnSpmsiCmcastGroup",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiCmcastGroupPrefixLen": {
+    "name": "jnxMvpnSpmsiCmcastGroupPrefixLen",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiCmcastSource": {
+    "name": "jnxMvpnSpmsiCmcastSource",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiCmcastSourcePrefixLen": {
+    "name": "jnxMvpnSpmsiCmcastSourcePrefixLen",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiTunnelAttribute": {
+    "name": "jnxMvpnSpmsiTunnelAttribute",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiUpTime": {
+    "name": "jnxMvpnSpmsiUpTime",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiExpTime": {
+    "name": "jnxMvpnSpmsiExpTime",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnSpmsiRefCnt": {
+    "name": "jnxMvpnSpmsiRefCnt",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMrouteTable": {
+    "name": "jnxMvpnMrouteTable",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxMvpnMrouteEntry": {
+    "name": "jnxMvpnMrouteEntry",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxMvpnMrouteEntry",
+      "module": "MCAST-VPN-MIB",
+      "object": "ipMRouteEntry"
+    },
+    "status": "current"
+  },
+  "jnxMvpnMroutePmsiPointer": {
+    "name": "jnxMvpnMroutePmsiPointer",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMrouteNumberOfLocalReplication": {
+    "name": "jnxMvpnMrouteNumberOfLocalReplication",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMrouteNumberOfRemoteReplication": {
+    "name": "jnxMvpnMrouteNumberOfRemoteReplication",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMrouteDataRate": {
+    "name": "jnxMvpnMrouteDataRate",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxMvpnMvrfChange": {
+    "name": "jnxMvpnMvrfChange",
+    "oid": "1.3.6.1.4.1.2636.5.12.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MCAST-VPN-MIB",
+        "object": "jnxMvpnGenOperStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/MCAST-VPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MCAST-VPN-MIB"
+  }
+}

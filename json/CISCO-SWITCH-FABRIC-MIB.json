@@ -1,0 +1,470 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoSwitchFabricMIB": {
+    "name": "ciscoSwitchFabricMIB",
+    "oid": "1.3.6.1.4.1.9.9.803",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Added the following OBJECT-GROUP - csfFabricCrcErrorNotifsControlGroup - csfFabricCrcErrorNotifsInfoGroup - csfFabricCrcErrorNotifsGroup. Added new compliance csfSwitchFabricMIBCompliance1."
+      },
+      {
+        "revision": "2012-06-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSwitchFabricMIBNotifs": {
+    "name": "ciscoSwitchFabricMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.803.0",
+    "class": "objectidentity"
+  },
+  "ciscoSwitchFabricMIBObjects": {
+    "name": "ciscoSwitchFabricMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.803.1",
+    "class": "objectidentity"
+  },
+  "ciscoSwitchFabricMIBConform": {
+    "name": "ciscoSwitchFabricMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.803.2",
+    "class": "objectidentity"
+  },
+  "csfFabricStatistics": {
+    "name": "csfFabricStatistics",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1",
+    "class": "objectidentity"
+  },
+  "csfNotifsControl": {
+    "name": "csfNotifsControl",
+    "oid": "1.3.6.1.4.1.9.9.803.1.2",
+    "class": "objectidentity"
+  },
+  "csfNotifsOnlyInfo": {
+    "name": "csfNotifsOnlyInfo",
+    "oid": "1.3.6.1.4.1.9.9.803.1.3",
+    "class": "objectidentity"
+  },
+  "CsfFabricLinkType": {
+    "name": "CsfFabricLinkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "qEngineFacingLcXbarLink": 2,
+          "fabricXbarLink": 3,
+          "fabricFacingLcXbarLink": 4,
+          "lcXbarInterLink": 5,
+          "fabricXbarInterLink": 6,
+          "centralXbarLink": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CsfPercentOrMinusOne": {
+    "name": "CsfPercentOrMinusOne",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "csfFabricUtilTable": {
+    "name": "csfFabricUtilTable",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csfFabricUtilEntry": {
+    "name": "csfFabricUtilEntry",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilLinkType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csfFabricUtilLinkType": {
+    "name": "csfFabricUtilLinkType",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsfFabricLinkType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csfFabricUtilIndex": {
+    "name": "csfFabricUtilIndex",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csfFabricUtilDescr": {
+    "name": "csfFabricUtilDescr",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricUtilBandwidth": {
+    "name": "csfFabricUtilBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "gigabits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricUtilIn": {
+    "name": "csfFabricUtilIn",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsfPercentOrMinusOne",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricUtilInPeak": {
+    "name": "csfFabricUtilInPeak",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsfPercentOrMinusOne",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricUtilInPeakTime": {
+    "name": "csfFabricUtilInPeakTime",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricUtilOut": {
+    "name": "csfFabricUtilOut",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsfPercentOrMinusOne",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricUtilOutPeak": {
+    "name": "csfFabricUtilOutPeak",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CsfPercentOrMinusOne",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricUtilOutPeakTime": {
+    "name": "csfFabricUtilOutPeakTime",
+    "oid": "1.3.6.1.4.1.9.9.803.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csfFabricCrcErrorNotifEnable": {
+    "name": "csfFabricCrcErrorNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.803.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csfFabricCrcErrorEntPhysicalIndex": {
+    "name": "csfFabricCrcErrorEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.803.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csfFabricCrcErrorDescr": {
+    "name": "csfFabricCrcErrorDescr",
+    "oid": "1.3.6.1.4.1.9.9.803.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "csfFabricCrcErrorNotif": {
+    "name": "csfFabricCrcErrorNotif",
+    "oid": "1.3.6.1.4.1.9.9.803.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricCrcErrorEntPhysicalIndex"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricCrcErrorDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "csfSwitchFabricMIBCompliances": {
+    "name": "csfSwitchFabricMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.803.2.1",
+    "class": "objectidentity"
+  },
+  "csfSwitchFabricMIBGroups": {
+    "name": "csfSwitchFabricMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.803.2.2",
+    "class": "objectidentity"
+  },
+  "csfSwitchFabricMIBCompliance": {
+    "name": "csfSwitchFabricMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.803.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csfFabricUtilGroup",
+        "module": "CISCO-SWITCH-FABRIC-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "csfSwitchFabricMIBCompliance1": {
+    "name": "csfSwitchFabricMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.803.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csfFabricUtilGroup",
+        "module": "CISCO-SWITCH-FABRIC-MIB"
+      },
+      {
+        "object": "csfFabricCrcErrorNotifsControlGroup",
+        "module": "CISCO-SWITCH-FABRIC-MIB"
+      },
+      {
+        "object": "csfFabricCrcErrorNotifsInfoGroup",
+        "module": "CISCO-SWITCH-FABRIC-MIB"
+      },
+      {
+        "object": "csfFabricCrcErrorNotifsGroup",
+        "module": "CISCO-SWITCH-FABRIC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csfFabricUtilGroup": {
+    "name": "csfFabricUtilGroup",
+    "oid": "1.3.6.1.4.1.9.9.803.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilDescr"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilBandwidth"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilIn"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilInPeak"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilInPeakTime"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilOut"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilOutPeak"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricUtilOutPeakTime"
+      }
+    ],
+    "status": "current"
+  },
+  "csfFabricCrcErrorNotifsControlGroup": {
+    "name": "csfFabricCrcErrorNotifsControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.803.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricCrcErrorNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "csfFabricCrcErrorNotifsInfoGroup": {
+    "name": "csfFabricCrcErrorNotifsInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.803.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricCrcErrorEntPhysicalIndex"
+      },
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricCrcErrorDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "csfFabricCrcErrorNotifsGroup": {
+    "name": "csfFabricCrcErrorNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.803.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-FABRIC-MIB",
+        "object": "csfFabricCrcErrorNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-FABRIC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SWITCH-FABRIC-MIB"
+  }
+}

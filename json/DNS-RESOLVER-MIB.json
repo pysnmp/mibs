@@ -1,0 +1,1449 @@
+{
+  "imports": {
+    "class": "imports",
+    "DNS-SERVER-MIB": [
+      "DnsNameAsIndex",
+      "DnsTime",
+      "DnsQClass",
+      "DnsType",
+      "DnsOpCode",
+      "dns",
+      "DnsQType",
+      "DnsRespCode",
+      "DnsName",
+      "DnsClass"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dnsResMIB": {
+    "name": "dnsResMIB",
+    "oid": "1.3.6.1.2.1.32.2",
+    "class": "moduleidentity"
+  },
+  "dnsResMIBObjects": {
+    "name": "dnsResMIBObjects",
+    "oid": "1.3.6.1.2.1.32.2.1",
+    "class": "objectidentity"
+  },
+  "dnsResConfig": {
+    "name": "dnsResConfig",
+    "oid": "1.3.6.1.2.1.32.2.1.1",
+    "class": "objectidentity"
+  },
+  "dnsResCounter": {
+    "name": "dnsResCounter",
+    "oid": "1.3.6.1.2.1.32.2.1.2",
+    "class": "objectidentity"
+  },
+  "dnsResLameDelegation": {
+    "name": "dnsResLameDelegation",
+    "oid": "1.3.6.1.2.1.32.2.1.3",
+    "class": "objectidentity"
+  },
+  "dnsResCache": {
+    "name": "dnsResCache",
+    "oid": "1.3.6.1.2.1.32.2.1.4",
+    "class": "objectidentity"
+  },
+  "dnsResNCache": {
+    "name": "dnsResNCache",
+    "oid": "1.3.6.1.2.1.32.2.1.5",
+    "class": "objectidentity"
+  },
+  "dnsResOptCounter": {
+    "name": "dnsResOptCounter",
+    "oid": "1.3.6.1.2.1.32.2.1.6",
+    "class": "objectidentity"
+  },
+  "dnsResConfigImplementIdent": {
+    "name": "dnsResConfigImplementIdent",
+    "oid": "1.3.6.1.2.1.32.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResConfigService": {
+    "name": "dnsResConfigService",
+    "oid": "1.3.6.1.2.1.32.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "recursiveOnly": 1,
+          "iterativeOnly": 2,
+          "recursiveAndIterative": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResConfigMaxCnames": {
+    "name": "dnsResConfigMaxCnames",
+    "oid": "1.3.6.1.2.1.32.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResConfigSbeltTable": {
+    "name": "dnsResConfigSbeltTable",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResConfigSbeltEntry": {
+    "name": "dnsResConfigSbeltEntry",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltAddr",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltSubTree",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResConfigSbeltAddr": {
+    "name": "dnsResConfigSbeltAddr",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResConfigSbeltName": {
+    "name": "dnsResConfigSbeltName",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnsResConfigSbeltRecursion": {
+    "name": "dnsResConfigSbeltRecursion",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iterative": 1,
+          "recursive": 2,
+          "recursiveAndIterative": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnsResConfigSbeltPref": {
+    "name": "dnsResConfigSbeltPref",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnsResConfigSbeltSubTree": {
+    "name": "dnsResConfigSbeltSubTree",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsNameAsIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResConfigSbeltClass": {
+    "name": "dnsResConfigSbeltClass",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResConfigSbeltStatus": {
+    "name": "dnsResConfigSbeltStatus",
+    "oid": "1.3.6.1.2.1.32.2.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnsResConfigUpTime": {
+    "name": "dnsResConfigUpTime",
+    "oid": "1.3.6.1.2.1.32.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResConfigResetTime": {
+    "name": "dnsResConfigResetTime",
+    "oid": "1.3.6.1.2.1.32.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResConfigReset": {
+    "name": "dnsResConfigReset",
+    "oid": "1.3.6.1.2.1.32.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2,
+          "initializing": 3,
+          "running": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResCounterByOpcodeTable": {
+    "name": "dnsResCounterByOpcodeTable",
+    "oid": "1.3.6.1.2.1.32.2.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCounterByOpcodeEntry": {
+    "name": "dnsResCounterByOpcodeEntry",
+    "oid": "1.3.6.1.2.1.32.2.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterByOpcodeCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResCounterByOpcodeCode": {
+    "name": "dnsResCounterByOpcodeCode",
+    "oid": "1.3.6.1.2.1.32.2.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsOpCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCounterByOpcodeQueries": {
+    "name": "dnsResCounterByOpcodeQueries",
+    "oid": "1.3.6.1.2.1.32.2.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterByOpcodeResponses": {
+    "name": "dnsResCounterByOpcodeResponses",
+    "oid": "1.3.6.1.2.1.32.2.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterByRcodeTable": {
+    "name": "dnsResCounterByRcodeTable",
+    "oid": "1.3.6.1.2.1.32.2.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCounterByRcodeEntry": {
+    "name": "dnsResCounterByRcodeEntry",
+    "oid": "1.3.6.1.2.1.32.2.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterByRcodeCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResCounterByRcodeCode": {
+    "name": "dnsResCounterByRcodeCode",
+    "oid": "1.3.6.1.2.1.32.2.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsRespCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCounterByRcodeResponses": {
+    "name": "dnsResCounterByRcodeResponses",
+    "oid": "1.3.6.1.2.1.32.2.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterNonAuthDataResps": {
+    "name": "dnsResCounterNonAuthDataResps",
+    "oid": "1.3.6.1.2.1.32.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterNonAuthNoDataResps": {
+    "name": "dnsResCounterNonAuthNoDataResps",
+    "oid": "1.3.6.1.2.1.32.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterMartians": {
+    "name": "dnsResCounterMartians",
+    "oid": "1.3.6.1.2.1.32.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterRecdResponses": {
+    "name": "dnsResCounterRecdResponses",
+    "oid": "1.3.6.1.2.1.32.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterUnparseResps": {
+    "name": "dnsResCounterUnparseResps",
+    "oid": "1.3.6.1.2.1.32.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCounterFallbacks": {
+    "name": "dnsResCounterFallbacks",
+    "oid": "1.3.6.1.2.1.32.2.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResLameDelegationOverflows": {
+    "name": "dnsResLameDelegationOverflows",
+    "oid": "1.3.6.1.2.1.32.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResLameDelegationTable": {
+    "name": "dnsResLameDelegationTable",
+    "oid": "1.3.6.1.2.1.32.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResLameDelegationEntry": {
+    "name": "dnsResLameDelegationEntry",
+    "oid": "1.3.6.1.2.1.32.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationSource",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationName",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResLameDelegationSource": {
+    "name": "dnsResLameDelegationSource",
+    "oid": "1.3.6.1.2.1.32.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResLameDelegationName": {
+    "name": "dnsResLameDelegationName",
+    "oid": "1.3.6.1.2.1.32.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsNameAsIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResLameDelegationClass": {
+    "name": "dnsResLameDelegationClass",
+    "oid": "1.3.6.1.2.1.32.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResLameDelegationCounts": {
+    "name": "dnsResLameDelegationCounts",
+    "oid": "1.3.6.1.2.1.32.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResLameDelegationStatus": {
+    "name": "dnsResLameDelegationStatus",
+    "oid": "1.3.6.1.2.1.32.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResCacheStatus": {
+    "name": "dnsResCacheStatus",
+    "oid": "1.3.6.1.2.1.32.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "clear": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResCacheMaxTTL": {
+    "name": "dnsResCacheMaxTTL",
+    "oid": "1.3.6.1.2.1.32.2.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResCacheGoodCaches": {
+    "name": "dnsResCacheGoodCaches",
+    "oid": "1.3.6.1.2.1.32.2.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCacheBadCaches": {
+    "name": "dnsResCacheBadCaches",
+    "oid": "1.3.6.1.2.1.32.2.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCacheRRTable": {
+    "name": "dnsResCacheRRTable",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCacheRREntry": {
+    "name": "dnsResCacheRREntry",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRName",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRClass",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRType",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResCacheRRName": {
+    "name": "dnsResCacheRRName",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsNameAsIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCacheRRClass": {
+    "name": "dnsResCacheRRClass",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCacheRRType": {
+    "name": "dnsResCacheRRType",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCacheRRTTL": {
+    "name": "dnsResCacheRRTTL",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCacheRRElapsedTTL": {
+    "name": "dnsResCacheRRElapsedTTL",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCacheRRSource": {
+    "name": "dnsResCacheRRSource",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCacheRRData": {
+    "name": "dnsResCacheRRData",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResCacheRRStatus": {
+    "name": "dnsResCacheRRStatus",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResCacheRRIndex": {
+    "name": "dnsResCacheRRIndex",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResCacheRRPrettyName": {
+    "name": "dnsResCacheRRPrettyName",
+    "oid": "1.3.6.1.2.1.32.2.1.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheStatus": {
+    "name": "dnsResNCacheStatus",
+    "oid": "1.3.6.1.2.1.32.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "clear": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResNCacheMaxTTL": {
+    "name": "dnsResNCacheMaxTTL",
+    "oid": "1.3.6.1.2.1.32.2.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResNCacheGoodNCaches": {
+    "name": "dnsResNCacheGoodNCaches",
+    "oid": "1.3.6.1.2.1.32.2.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheBadNCaches": {
+    "name": "dnsResNCacheBadNCaches",
+    "oid": "1.3.6.1.2.1.32.2.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheErrTable": {
+    "name": "dnsResNCacheErrTable",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResNCacheErrEntry": {
+    "name": "dnsResNCacheErrEntry",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrQName",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrQClass",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrQType",
+        "implied": 0
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResNCacheErrQName": {
+    "name": "dnsResNCacheErrQName",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsNameAsIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResNCacheErrQClass": {
+    "name": "dnsResNCacheErrQClass",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsQClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResNCacheErrQType": {
+    "name": "dnsResNCacheErrQType",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsQType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsResNCacheErrTTL": {
+    "name": "dnsResNCacheErrTTL",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheErrElapsedTTL": {
+    "name": "dnsResNCacheErrElapsedTTL",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheErrSource": {
+    "name": "dnsResNCacheErrSource",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheErrCode": {
+    "name": "dnsResNCacheErrCode",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonexistantName": 1,
+          "noData": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheErrStatus": {
+    "name": "dnsResNCacheErrStatus",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsResNCacheErrIndex": {
+    "name": "dnsResNCacheErrIndex",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResNCacheErrPrettyName": {
+    "name": "dnsResNCacheErrPrettyName",
+    "oid": "1.3.6.1.2.1.32.2.1.5.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResOptCounterReferals": {
+    "name": "dnsResOptCounterReferals",
+    "oid": "1.3.6.1.2.1.32.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResOptCounterRetrans": {
+    "name": "dnsResOptCounterRetrans",
+    "oid": "1.3.6.1.2.1.32.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResOptCounterNoResponses": {
+    "name": "dnsResOptCounterNoResponses",
+    "oid": "1.3.6.1.2.1.32.2.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResOptCounterRootRetrans": {
+    "name": "dnsResOptCounterRootRetrans",
+    "oid": "1.3.6.1.2.1.32.2.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResOptCounterInternals": {
+    "name": "dnsResOptCounterInternals",
+    "oid": "1.3.6.1.2.1.32.2.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResOptCounterInternalTimeOuts": {
+    "name": "dnsResOptCounterInternalTimeOuts",
+    "oid": "1.3.6.1.2.1.32.2.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsResMIBGroups": {
+    "name": "dnsResMIBGroups",
+    "oid": "1.3.6.1.2.1.32.2.2",
+    "class": "objectidentity"
+  },
+  "dnsResConfigGroup": {
+    "name": "dnsResConfigGroup",
+    "oid": "1.3.6.1.2.1.32.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigImplementIdent"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigService"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigMaxCnames"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltAddr"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltName"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltRecursion"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltPref"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltSubTree"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltClass"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigSbeltStatus"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigUpTime"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResConfigResetTime"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResCounterGroup": {
+    "name": "dnsResCounterGroup",
+    "oid": "1.3.6.1.2.1.32.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterByOpcodeCode"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterByOpcodeQueries"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterByOpcodeResponses"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterByRcodeCode"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterByRcodeResponses"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterNonAuthDataResps"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterNonAuthNoDataResps"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterMartians"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterRecdResponses"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterUnparseResps"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCounterFallbacks"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResLameDelegationGroup": {
+    "name": "dnsResLameDelegationGroup",
+    "oid": "1.3.6.1.2.1.32.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationOverflows"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationSource"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationName"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationClass"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationCounts"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResLameDelegationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResCacheGroup": {
+    "name": "dnsResCacheGroup",
+    "oid": "1.3.6.1.2.1.32.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheStatus"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheMaxTTL"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheGoodCaches"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheBadCaches"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRName"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRClass"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRType"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRTTL"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRElapsedTTL"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRSource"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRData"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRStatus"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRIndex"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResCacheRRPrettyName"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResNCacheGroup": {
+    "name": "dnsResNCacheGroup",
+    "oid": "1.3.6.1.2.1.32.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheStatus"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheMaxTTL"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheGoodNCaches"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheBadNCaches"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrQName"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrQClass"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrQType"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrTTL"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrElapsedTTL"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrSource"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrCode"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrStatus"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrIndex"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResNCacheErrPrettyName"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResOptCounterGroup": {
+    "name": "dnsResOptCounterGroup",
+    "oid": "1.3.6.1.2.1.32.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResOptCounterReferals"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResOptCounterRetrans"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResOptCounterNoResponses"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResOptCounterRootRetrans"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResOptCounterInternals"
+      },
+      {
+        "module": "DNS-RESOLVER-MIB",
+        "object": "dnsResOptCounterInternalTimeOuts"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsResMIBCompliances": {
+    "name": "dnsResMIBCompliances",
+    "oid": "1.3.6.1.2.1.32.2.3",
+    "class": "objectidentity"
+  },
+  "dnsResMIBCompliance": {
+    "name": "dnsResMIBCompliance",
+    "oid": "1.3.6.1.2.1.32.2.3.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dnsResConfigGroup",
+        "module": "DNS-RESOLVER-MIB"
+      },
+      {
+        "object": "dnsResCounterGroup",
+        "module": "DNS-RESOLVER-MIB"
+      },
+      {
+        "object": "dnsResCacheGroup",
+        "module": "DNS-RESOLVER-MIB"
+      },
+      {
+        "object": "dnsResNCacheGroup",
+        "module": "DNS-RESOLVER-MIB"
+      },
+      {
+        "object": "dnsResLameDelegationGroup",
+        "module": "DNS-RESOLVER-MIB"
+      },
+      {
+        "object": "dnsResOptCounterGroup",
+        "module": "DNS-RESOLVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DNS-RESOLVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DNS-RESOLVER-MIB"
+  }
+}

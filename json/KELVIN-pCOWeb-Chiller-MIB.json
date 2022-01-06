@@ -1,0 +1,6386 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName",
+      "sysLocation",
+      "sysContact"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "kelvin_pCOWebMIB_Chiller": {
+    "name": "kelvin_pCOWebMIB_Chiller",
+    "oid": "1.3.6.1.4.1.9839.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-13 16:02",
+        "description": "New MIB Chiller"
+      }
+    ]
+  },
+  "carel": {
+    "name": "carel",
+    "oid": "1.3.6.1.4.1.9839",
+    "class": "objectidentity"
+  },
+  "systm": {
+    "name": "systm",
+    "oid": "1.3.6.1.4.1.9839.1",
+    "class": "objectidentity"
+  },
+  "agentRelease": {
+    "name": "agentRelease",
+    "oid": "1.3.6.1.4.1.9839.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentCode": {
+    "name": "agentCode",
+    "oid": "1.3.6.1.4.1.9839.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "instruments": {
+    "name": "instruments",
+    "oid": "1.3.6.1.4.1.9839.2",
+    "class": "objectidentity"
+  },
+  "pCOWebInfo": {
+    "name": "pCOWebInfo",
+    "oid": "1.3.6.1.4.1.9839.2.0",
+    "class": "objectidentity"
+  },
+  "pCOStatusgroup": {
+    "name": "pCOStatusgroup",
+    "oid": "1.3.6.1.4.1.9839.2.0.10",
+    "class": "objectidentity"
+  },
+  "pCOId1_Status": {
+    "name": "pCOId1_Status",
+    "oid": "1.3.6.1.4.1.9839.2.0.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pCOErrorsNumbergroup": {
+    "name": "pCOErrorsNumbergroup",
+    "oid": "1.3.6.1.4.1.9839.2.0.11",
+    "class": "objectidentity"
+  },
+  "pCOId1_ErrorsNumber": {
+    "name": "pCOId1_ErrorsNumber",
+    "oid": "1.3.6.1.4.1.9839.2.0.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "digitalObjects": {
+    "name": "digitalObjects",
+    "oid": "1.3.6.1.4.1.9839.2.1.1",
+    "class": "objectidentity"
+  },
+  "analogObjects": {
+    "name": "analogObjects",
+    "oid": "1.3.6.1.4.1.9839.2.1.2",
+    "class": "objectidentity"
+  },
+  "integerObjects": {
+    "name": "integerObjects",
+    "oid": "1.3.6.1.4.1.9839.2.1.3",
+    "class": "objectidentity"
+  },
+  "al_pa1": {
+    "name": "al_pa1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_pa2": {
+    "name": "al_pa2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_pb1": {
+    "name": "al_pb1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_pb2": {
+    "name": "al_pb2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_le": {
+    "name": "al_le",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idrofrigo_fl1": {
+    "name": "al_idrofrigo_fl1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "static_press_alarm": {
+    "name": "static_press_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "w_static_press_alarm": {
+    "name": "w_static_press_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flow_value_alarm": {
+    "name": "flow_value_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_comp1": {
+    "name": "al_q_comp1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_comp2": {
+    "name": "al_q_comp2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_comp3": {
+    "name": "al_q_comp3",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_comp4": {
+    "name": "al_q_comp4",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_comp5": {
+    "name": "al_q_comp5",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_comp6": {
+    "name": "al_q_comp6",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan_1": {
+    "name": "al_q_fan_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan_2": {
+    "name": "al_q_fan_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan11": {
+    "name": "al_q_fan11",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan12": {
+    "name": "al_q_fan12",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan13": {
+    "name": "al_q_fan13",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan14": {
+    "name": "al_q_fan14",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan21": {
+    "name": "al_q_fan21",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan22": {
+    "name": "al_q_fan22",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan_23": {
+    "name": "al_q_fan_23",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fan24": {
+    "name": "al_q_fan24",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idrofrigo_pump1": {
+    "name": "al_idrofrigo_pump1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idrofrigo_pump2": {
+    "name": "al_idrofrigo_pump2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_phase_cont": {
+    "name": "al_phase_cont",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_door_sw": {
+    "name": "al_door_sw",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressor_FlowRate": {
+    "name": "compressor_FlowRate",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "setpoint_inv_pumps": {
+    "name": "setpoint_inv_pumps",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_pumps_redundance": {
+    "name": "enable_pumps_redundance",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_chiller_redundance": {
+    "name": "enable_chiller_redundance",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "status_in_alarm": {
+    "name": "status_in_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compressor_recovery": {
+    "name": "compressor_recovery",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_thermal_redundance": {
+    "name": "enable_thermal_redundance",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_multi_pumps_function": {
+    "name": "enable_multi_pumps_function",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_pumps_offline": {
+    "name": "enable_pumps_offline",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_3way_valve": {
+    "name": "enable_3way_valve",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_speed_up_FCM": {
+    "name": "enable_speed_up_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_soft_start_FCM": {
+    "name": "enable_soft_start_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_freecooling": {
+    "name": "enable_freecooling",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_rot_FIFO_FC": {
+    "name": "enable_rot_FIFO_FC",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_HT_function": {
+    "name": "enable_HT_function",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_PID_Fc_valve": {
+    "name": "enable_PID_Fc_valve",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_Fc_Thermal_Exclusion": {
+    "name": "enable_Fc_Thermal_Exclusion",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manual_Reset_Ext_Drycooler_Alarm": {
+    "name": "manual_Reset_Ext_Drycooler_Alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_static_press_Alarm": {
+    "name": "enable_static_press_Alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manual_reset_static_press_Alarm": {
+    "name": "manual_reset_static_press_Alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_static_press_Warning": {
+    "name": "enable_static_press_Warning",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manual_reset_static_press_Warning": {
+    "name": "manual_reset_static_press_Warning",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_diff_press_Alarm": {
+    "name": "enable_diff_press_Alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manual_reset_diff_press_Alarm": {
+    "name": "manual_reset_diff_press_Alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_pressure_recovery": {
+    "name": "enable_pressure_recovery",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_Flow_Rate_Alarm": {
+    "name": "enable_Flow_Rate_Alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manual_reset_Flow_Rate_Alarm": {
+    "name": "manual_reset_Flow_Rate_Alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_Flow_Rate_recovery": {
+    "name": "enable_Flow_Rate_recovery",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enable_pCOWeb": {
+    "name": "enable_pCOWeb",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fc_single_chiller": {
+    "name": "fc_single_chiller",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "al_idrofrigo_pump_c_1": {
+    "name": "al_idrofrigo_pump_c_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idrofrigo_pump_c_2": {
+    "name": "al_idrofrigo_pump_c_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idrofrigo_fl_C": {
+    "name": "al_idrofrigo_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c11_on": {
+    "name": "c11_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c12_on": {
+    "name": "c12_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c13_on": {
+    "name": "c13_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c21_on": {
+    "name": "c21_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c22_on": {
+    "name": "c22_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "c23_on": {
+    "name": "c23_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pump1_on": {
+    "name": "pump1_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pump2_on": {
+    "name": "pump2_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "on_fan_gr1": {
+    "name": "on_fan_gr1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "on_fan_gr2": {
+    "name": "on_fan_gr2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fc_on": {
+    "name": "fc_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "en_on_off_rem": {
+    "name": "en_on_off_rem",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.130",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unit_on": {
+    "name": "unit_on",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.131",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "disch_alarm_scw_1": {
+    "name": "disch_alarm_scw_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.148",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "disch_alarm_scw_2": {
+    "name": "disch_alarm_scw_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.149",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_probe_inlet": {
+    "name": "al_probe_inlet",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.150",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_probe_amb": {
+    "name": "al_probe_amb",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.151",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_frigo_fl1": {
+    "name": "al_frigo_fl1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.152",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idro_pump1": {
+    "name": "al_idro_pump1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.153",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idro_pump2": {
+    "name": "al_idro_pump2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.154",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idro_fl1": {
+    "name": "al_idro_fl1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.155",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_warning_fl1": {
+    "name": "al_warning_fl1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.156",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_hi_water_temp": {
+    "name": "al_hi_water_temp",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.157",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_lo_water_temp": {
+    "name": "al_lo_water_temp",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.158",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_ta_probe1": {
+    "name": "al_ta_probe1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.159",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_hi_press": {
+    "name": "al_hi_press",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.160",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_lo_press": {
+    "name": "al_lo_press",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.161",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_probe_evap_1": {
+    "name": "al_probe_evap_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.162",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_probe_evap_2": {
+    "name": "al_probe_evap_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.163",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_hi_press_1": {
+    "name": "al_hi_press_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.164",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_hi_press_2": {
+    "name": "al_hi_press_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.165",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_lo_press_1": {
+    "name": "al_lo_press_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.166",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_lo_press_2": {
+    "name": "al_lo_press_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.167",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_probe_tank": {
+    "name": "al_probe_tank",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.168",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_1": {
+    "name": "off_line_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.169",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_2": {
+    "name": "off_line_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.170",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_3": {
+    "name": "off_line_3",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.171",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_4": {
+    "name": "off_line_4",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.172",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_5": {
+    "name": "off_line_5",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.173",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_6": {
+    "name": "off_line_6",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.174",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_7": {
+    "name": "off_line_7",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.175",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "off_line_8": {
+    "name": "off_line_8",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.176",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_ta_probe2": {
+    "name": "al_ta_probe2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.177",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_sms": {
+    "name": "al_sms",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.178",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_modem": {
+    "name": "al_modem",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.179",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sms_coda_alarm": {
+    "name": "sms_coda_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.180",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_probe_fc": {
+    "name": "al_probe_fc",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.181",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_maint_pw1": {
+    "name": "al_maint_pw1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.182",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_maint_pw2": {
+    "name": "al_maint_pw2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.183",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_hi_temp_rid": {
+    "name": "al_hi_temp_rid",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.184",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_q_fc_sep": {
+    "name": "al_q_fc_sep",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.185",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_p_wat2": {
+    "name": "al_p_wat2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.186",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_p_wat1": {
+    "name": "al_p_wat1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.187",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_foult_flow_p1": {
+    "name": "al_foult_flow_p1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.188",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_foult_flow_p2": {
+    "name": "al_foult_flow_p2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.189",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_foult_fl1_p1": {
+    "name": "al_foult_fl1_p1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.190",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_foult_fl1_p2": {
+    "name": "al_foult_fl1_p2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.191",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_warning_le": {
+    "name": "al_warning_le",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.192",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_frigo_fl_C": {
+    "name": "al_frigo_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.193",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idro_pump_c_1": {
+    "name": "al_idro_pump_c_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.194",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idro_pump_c_2": {
+    "name": "al_idro_pump_c_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.195",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_idro_fl_C": {
+    "name": "al_idro_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.196",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_warning_fl_C": {
+    "name": "al_warning_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.197",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_foul_fl_C_p1": {
+    "name": "al_foul_fl_C_p1",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.198",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "al_foul_fl_C_p2": {
+    "name": "al_foul_fl_C_p2",
+    "oid": "1.3.6.1.4.1.9839.2.1.1.199",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setpoint_antifreeze1": {
+    "name": "setpoint_antifreeze1",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "setpoint_antifreeze2": {
+    "name": "setpoint_antifreeze2",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "setpoint_Compensation": {
+    "name": "setpoint_Compensation",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_Compensation": {
+    "name": "hysteresis_Compensation",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_Compensation": {
+    "name": "max_Compensation",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "setpoint_Differential": {
+    "name": "setpoint_Differential",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "high_Limit": {
+    "name": "high_Limit",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "low_Limit": {
+    "name": "low_Limit",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_Setpoint_Differential": {
+    "name": "max_Setpoint_Differential",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_Setpoint_Differential": {
+    "name": "min_Setpoint_Differential",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "setpoint_ASB_Inverter_pumps": {
+    "name": "setpoint_ASB_Inverter_pumps",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "setpoint_DIFF_Inverter_pumps": {
+    "name": "setpoint_DIFF_Inverter_pumps",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pressure_Out": {
+    "name": "pressure_Out",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "proportional_Band_Inverter_Pumps_PID": {
+    "name": "proportional_Band_Inverter_Pumps_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integral_Time_Inverter_Pumps_PID": {
+    "name": "integral_Time_Inverter_Pumps_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "derivative_Time_Inverter_Pumps_PID": {
+    "name": "derivative_Time_Inverter_Pumps_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_Thermal_redundance": {
+    "name": "hysteresis_Thermal_redundance",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_Opening_3Way_Valve_Hydraulic": {
+    "name": "min_Opening_3Way_Valve_Hydraulic",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_Opening_3Way_Valve_Hydraulic": {
+    "name": "max_Opening_3Way_Valve_Hydraulic",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "proportional_Band_3Way_Valve_Hydrauli_PID": {
+    "name": "proportional_Band_3Way_Valve_Hydrauli_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "setpoint_FCM": {
+    "name": "setpoint_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_FCM": {
+    "name": "hysteresis_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_Out_Speed_FCM": {
+    "name": "max_Out_Speed_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_Out_Speed_FCM": {
+    "name": "min_Out_Speed_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_Cut_off_FCM": {
+    "name": "hysteresis_Cut_off_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_Pressure_Alarm_FCM": {
+    "name": "max_Pressure_Alarm_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_Max_Pressure_Alarm_FCM": {
+    "name": "hysteresis_Max_Pressure_Alarm_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_Out_FCM": {
+    "name": "max_Out_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_Pressure_Alarm_FCM": {
+    "name": "min_Pressure_Alarm_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_Min_Pressure_Alarm_FCM": {
+    "name": "hysteresis_Min_Pressure_Alarm_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_Out_FCM": {
+    "name": "min_Out_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "delta_Freecooling": {
+    "name": "delta_Freecooling",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_Freecooling": {
+    "name": "hysteresis_Freecooling",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "proportional_Band_Freecooling_PID": {
+    "name": "proportional_Band_Freecooling_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "offset_Freecooling_PID": {
+    "name": "offset_Freecooling_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperature_Overlap_Freecooling": {
+    "name": "temperature_Overlap_Freecooling",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_out_freecooling": {
+    "name": "min_out_freecooling",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neutral_zone_K_costant": {
+    "name": "neutral_zone_K_costant",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neutral_zone_V_variable": {
+    "name": "neutral_zone_V_variable",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "proportional_Band_freecooling_Valve_PID": {
+    "name": "proportional_Band_freecooling_Valve_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "offset_Freecooling_Valve_PID": {
+    "name": "offset_Freecooling_Valve_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperature_A_B": {
+    "name": "temperature_A_B",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "delta_Thermal_Excusion_Freecoling": {
+    "name": "delta_Thermal_Excusion_Freecoling",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hysteresis_Thermal_Excusion_Freecoling": {
+    "name": "hysteresis_Thermal_Excusion_Freecoling",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarm_Setpoint_Static_Pressure_Hydraulic_circuit": {
+    "name": "alarm_Setpoint_Static_Pressure_Hydraulic_circuit",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "warnig_Setpoint_Static_Pressure_Hydraulic_circuit": {
+    "name": "warnig_Setpoint_Static_Pressure_Hydraulic_circuit",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarm_Setpoint_Differential_Pressure_Hydraulic_circuit": {
+    "name": "alarm_Setpoint_Differential_Pressure_Hydraulic_circuit",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarm_Setpoint_Flow_Rate_Hydraulic_circuit": {
+    "name": "alarm_Setpoint_Flow_Rate_Hydraulic_circuit",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tempertaure_Cut_off_FCM": {
+    "name": "tempertaure_Cut_off_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "set_effective": {
+    "name": "set_effective",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "set_fc": {
+    "name": "set_fc",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "setpoint_a_us": {
+    "name": "setpoint_a_us",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_setpoint": {
+    "name": "max_setpoint",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_setpoint": {
+    "name": "min_setpoint",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "diff": {
+    "name": "diff",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "max_diff": {
+    "name": "max_diff",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "min_diff": {
+    "name": "min_diff",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcs_out": {
+    "name": "fcs_out",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "water_temp": {
+    "name": "water_temp",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temp_inlet": {
+    "name": "temp_inlet",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temp_outlet": {
+    "name": "temp_outlet",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flow_value": {
+    "name": "flow_value",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -9999,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "amp_value": {
+    "name": "amp_value",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -9999,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ta_probe_temp_1": {
+    "name": "ta_probe_temp_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ta_probe_temp_2": {
+    "name": "ta_probe_temp_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pressione1": {
+    "name": "pressione1",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pressione2": {
+    "name": "pressione2",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pump_sp_press": {
+    "name": "pump_sp_press",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "p_wat2": {
+    "name": "p_wat2",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temp_amb": {
+    "name": "temp_amb",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temp_fc": {
+    "name": "temp_fc",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -999,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pp1": {
+    "name": "pp1",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.90",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pp2": {
+    "name": "pp2",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.91",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cooling_capacity": {
+    "name": "cooling_capacity",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "freecooling_capacity": {
+    "name": "freecooling_capacity",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "total_capacity": {
+    "name": "total_capacity",
+    "oid": "1.3.6.1.4.1.9839.2.1.2.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address1": {
+    "name": "ip_Address1",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address2": {
+    "name": "ip_Address2",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address3": {
+    "name": "ip_Address3",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address4": {
+    "name": "ip_Address4",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netMask": {
+    "name": "netMask",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gateway1": {
+    "name": "gateway1",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gateway2": {
+    "name": "gateway2",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gateway3": {
+    "name": "gateway3",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gateway4": {
+    "name": "gateway4",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns1_1": {
+    "name": "dns1_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns1_2": {
+    "name": "dns1_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns1_3": {
+    "name": "dns1_3",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns1_4": {
+    "name": "dns1_4",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns2_1": {
+    "name": "dns2_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns2_2": {
+    "name": "dns2_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns2_3": {
+    "name": "dns2_3",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dns2_4": {
+    "name": "dns2_4",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address1_Out": {
+    "name": "ip_Address1_Out",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address2_Out": {
+    "name": "ip_Address2_Out",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address3_Out": {
+    "name": "ip_Address3_Out",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip_Address4_Out": {
+    "name": "ip_Address4_Out",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "starting_delay_Second_Pump": {
+    "name": "starting_delay_Second_Pump",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "starting_delay_btw_Pump_Compressor": {
+    "name": "starting_delay_btw_Pump_Compressor",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "overlap_time_Pumps": {
+    "name": "overlap_time_Pumps",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "working_time_Pumps": {
+    "name": "working_time_Pumps",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "running_time_Chillers": {
+    "name": "running_time_Chillers",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "overlap_time_Chillers": {
+    "name": "overlap_time_Chillers",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_chillers_Max": {
+    "name": "n_chillers_Max",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_chillers_ON": {
+    "name": "n_chillers_ON",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_pumps_ON": {
+    "name": "n_pumps_ON",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Enable_Pumps_Chiller_Offline": {
+    "name": "time_Enable_Pumps_Chiller_Offline",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Running_Pumps_Chiller_Offline": {
+    "name": "time_Running_Pumps_Chiller_Offline",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integral_Time_3Way_Valve_Hydraulic_PID": {
+    "name": "integral_Time_3Way_Valve_Hydraulic_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "derivative_Time_3Way_Valve_Hydraulic_PID": {
+    "name": "derivative_Time_3Way_Valve_Hydraulic_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "output_Address_3Way_Valve_Hydraulic": {
+    "name": "output_Address_3Way_Valve_Hydraulic",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Speed_Up_FCM": {
+    "name": "time_Speed_Up_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Soft_Start_FCM": {
+    "name": "time_Soft_Start_FCM",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "delay_Freecooling": {
+    "name": "delay_Freecooling",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integral_Time_Freeccoling_PID": {
+    "name": "integral_Time_Freeccoling_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "derivative_Time_Freeccoling_PID": {
+    "name": "derivative_Time_Freeccoling_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Min_On_Freecooling_Chiller_timing": {
+    "name": "time_Min_On_Freecooling_Chiller_timing",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Min_Off_Freecooling_Chiller_timing": {
+    "name": "time_Min_Off_Freecooling_Chiller_timing",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Min_Different_Freecooling_Chiller_timing": {
+    "name": "time_Min_Different_Freecooling_Chiller_timing",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "time_Min_Same_Freecooling_Chiller_timing": {
+    "name": "time_Min_Same_Freecooling_Chiller_timing",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integral_Time_Freeccoling_Valve_PID": {
+    "name": "integral_Time_Freeccoling_Valve_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "derivative_Time_Freeccoling_Valve_PID": {
+    "name": "derivative_Time_Freeccoling_Valve_PID",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "output_Address_Valve_Freecooling": {
+    "name": "output_Address_Valve_Freecooling",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "delay_Freecooling_Thermal_Exclusion": {
+    "name": "delay_Freecooling_Thermal_Exclusion",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_of_alarm_External_Dry_Cooler": {
+    "name": "n_of_alarm_External_Dry_Cooler",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "delay_Alarm_Static_Pressure": {
+    "name": "delay_Alarm_Static_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_of_Alarm_Static_Pressure": {
+    "name": "n_of_Alarm_Static_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "delay_Warning_Static_Pressure": {
+    "name": "delay_Warning_Static_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_of_Warning_Static_Pressure": {
+    "name": "n_of_Warning_Static_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_of_Alarm_Differential_Pressure": {
+    "name": "n_of_Alarm_Differential_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "priming_Time_Hydraulic_Pressure": {
+    "name": "priming_Time_Hydraulic_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "delay_priming_Time_Hydraulic_Pressure": {
+    "name": "delay_priming_Time_Hydraulic_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "output_Address_Alarm_Static_Pressure": {
+    "name": "output_Address_Alarm_Static_Pressure",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "n_of_Alarm_Flow_Rate": {
+    "name": "n_of_Alarm_Flow_Rate",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "priming_Time_Flow_Rate": {
+    "name": "priming_Time_Flow_Rate",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "delay_priming_Time_Flow_Rate": {
+    "name": "delay_priming_Time_Flow_Rate",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bms_address_IDENT": {
+    "name": "bms_address_IDENT",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chiller_name0": {
+    "name": "chiller_name0",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chiller_name1": {
+    "name": "chiller_name1",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "current_day": {
+    "name": "current_day",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.123",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "current_month": {
+    "name": "current_month",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.124",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "current_year": {
+    "name": "current_year",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.125",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "current_hour": {
+    "name": "current_hour",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.126",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "current_minute": {
+    "name": "current_minute",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.127",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chiller_mode_operation": {
+    "name": "chiller_mode_operation",
+    "oid": "1.3.6.1.4.1.9839.2.1.3.150",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "units": "N/A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapObjects": {
+    "name": "trapObjects",
+    "oid": "1.3.6.1.4.1.9839.2.1.100",
+    "class": "objectidentity"
+  },
+  "high_pressure_switch_1_alarm": {
+    "name": "high_pressure_switch_1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "high_pressure_switch_2_alarm": {
+    "name": "high_pressure_switch_2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "low_pressure_switch_1_alarm": {
+    "name": "low_pressure_switch_1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "low_pressure_switch_2_alarm": {
+    "name": "low_pressure_switch_2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "water_level_alarm": {
+    "name": "water_level_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "flow_switch_alarm": {
+    "name": "flow_switch_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "water_static_pressure_alarm": {
+    "name": "water_static_pressure_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "water_static_pressure_warning": {
+    "name": "water_static_pressure_warning",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "flow_rate_alarm": {
+    "name": "flow_rate_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_compressor1_circuit1_alarm": {
+    "name": "overload_compressor1_circuit1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_compressor2_circuit1_alarm": {
+    "name": "overload_compressor2_circuit1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_compressor3_circuit1_alarm": {
+    "name": "overload_compressor3_circuit1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.14",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_compressor1_circuit2_alarm": {
+    "name": "overload_compressor1_circuit2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.15",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_compressor2_circuit2_alarm": {
+    "name": "overload_compressor2_circuit2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.16",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_compressor3_circuit2_alarm": {
+    "name": "overload_compressor3_circuit2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.17",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fans_circuit1": {
+    "name": "overload_fans_circuit1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.18",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fans_circuit2": {
+    "name": "overload_fans_circuit2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.19",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan1_circuit1_alarm": {
+    "name": "overload_fan1_circuit1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.20",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan2_circuit1_alarm": {
+    "name": "overload_fan2_circuit1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.21",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan3_circuit1_alarm": {
+    "name": "overload_fan3_circuit1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.22",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan4_circuit1_alarm": {
+    "name": "overload_fan4_circuit1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.23",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan1_circuit_2_alarm": {
+    "name": "overload_fan1_circuit_2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.24",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan2_circuit2_alarm": {
+    "name": "overload_fan2_circuit2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.25",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan3_circuit2_alarm": {
+    "name": "overload_fan3_circuit2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.26",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_fan4_circuit2_alarm": {
+    "name": "overload_fan4_circuit2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.27",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_pump1_alarm": {
+    "name": "overload_pump1_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.28",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "overload_pump2_alarm": {
+    "name": "overload_pump2_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.29",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "wrong_phase_rotation_alarm": {
+    "name": "wrong_phase_rotation_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.30",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "back_Door_open_alarm": {
+    "name": "back_Door_open_alarm",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.31",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idrofrigo_pump_c_1": {
+    "name": "alarm_idrofrigo_pump_c_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.75",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idrofrigo_pump_c_2": {
+    "name": "alarm_idrofrigo_pump_c_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.76",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idrofrigo_fl_C": {
+    "name": "alarm_idrofrigo_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.80",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "remote_on_off": {
+    "name": "remote_on_off",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.130",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "chiller_ON_OFF": {
+    "name": "chiller_ON_OFF",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.131",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_disch_scw_1": {
+    "name": "alarm_disch_scw_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.148",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_disch_scw_2": {
+    "name": "alarm_disch_scw_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.149",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_probe_inlet": {
+    "name": "alarm_probe_inlet",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.150",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_probe_amb": {
+    "name": "alarm_probe_amb",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.151",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_frigo_fl1": {
+    "name": "alarm_frigo_fl1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.152",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idro_pump1": {
+    "name": "alarm_idro_pump1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.153",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idro_pump2": {
+    "name": "alarm_idro_pump2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.154",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idro_fl1": {
+    "name": "alarm_idro_fl1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.155",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_warning_fl1": {
+    "name": "alarm_warning_fl1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.156",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_hi_water_temp": {
+    "name": "alarm_hi_water_temp",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.157",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_lo_water_temp": {
+    "name": "alarm_lo_water_temp",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.158",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_ta_probe1": {
+    "name": "alarm_ta_probe1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.159",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_hi_press": {
+    "name": "alarm_hi_press",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.160",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_lo_press": {
+    "name": "alarm_lo_press",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.161",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_probe_evap_1": {
+    "name": "alarm_probe_evap_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.162",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_probe_evap_2": {
+    "name": "alarm_probe_evap_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.163",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_hi_press_1": {
+    "name": "alarm_hi_press_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.164",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_hi_press_2": {
+    "name": "alarm_hi_press_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.165",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_lo_press_1": {
+    "name": "alarm_lo_press_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.166",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_lo_press_2": {
+    "name": "alarm_lo_press_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.167",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_probe_tank": {
+    "name": "alarm_probe_tank",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.168",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_1": {
+    "name": "alarm_off_line_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.169",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_2": {
+    "name": "alarm_off_line_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.170",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_3": {
+    "name": "alarm_off_line_3",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.171",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_4": {
+    "name": "alarm_off_line_4",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.172",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_5": {
+    "name": "alarm_off_line_5",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.173",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_6": {
+    "name": "alarm_off_line_6",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.174",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_7": {
+    "name": "alarm_off_line_7",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.175",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_off_line_8": {
+    "name": "alarm_off_line_8",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.176",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_ta_probe2": {
+    "name": "alarm_ta_probe2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.177",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_sms": {
+    "name": "alarm_sms",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.178",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_modem": {
+    "name": "alarm_modem",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.179",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_sms_coda": {
+    "name": "alarm_sms_coda",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.180",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_probe_fc": {
+    "name": "alarm_probe_fc",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.181",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_maint_pw1": {
+    "name": "alarm_maint_pw1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.182",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_maint_pw2": {
+    "name": "alarm_maint_pw2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.183",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_hi_temp_rid": {
+    "name": "alarm_hi_temp_rid",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.184",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_q_fc_sep": {
+    "name": "alarm_q_fc_sep",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.185",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_p_wat2": {
+    "name": "alarm_p_wat2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.186",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_p_wat1": {
+    "name": "alarm_p_wat1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.187",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_foult_flow_p1": {
+    "name": "alarm_foult_flow_p1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.188",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_foult_flow_p2": {
+    "name": "alarm_foult_flow_p2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.189",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_foult_fl1_p1": {
+    "name": "alarm_foult_fl1_p1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.190",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_foult_fl1_p2": {
+    "name": "alarm_foult_fl1_p2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.191",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_warning_le": {
+    "name": "alarm_warning_le",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.192",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_frigo_fl_C": {
+    "name": "alarm_frigo_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.193",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idro_pump_c_1": {
+    "name": "alarm_idro_pump_c_1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.194",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idro_pump_c_2": {
+    "name": "alarm_idro_pump_c_2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.195",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_idro_fl_C": {
+    "name": "alarm_idro_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.196",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_warning_fl_C": {
+    "name": "alarm_warning_fl_C",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.197",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_foul_fl_C_p1": {
+    "name": "alarm_foul_fl_C_p1",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.198",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alarm_foul_fl_C_p2": {
+    "name": "alarm_foul_fl_C_p2",
+    "oid": "1.3.6.1.4.1.9839.2.1.100.199",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/KELVIN-pCOWeb-Chiller-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:50 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "KELVIN-pCOWeb-Chiller-MIB"
+  }
+}

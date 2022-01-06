@@ -1,0 +1,2351 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WAYSTREAM-SMI": [
+      "wsMgmt"
+    ]
+  },
+  "wsRpm": {
+    "name": "wsRpm",
+    "oid": "1.3.6.1.4.1.9303.4.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-02-10 11:00",
+        "description": "Company name change: In October 2015 PacketFront Network Products was renamed Waystream. In this update all PacketFront were changed to Waystream and all pf* to ws*."
+      },
+      {
+        "revision": "2011-01-11 17:59",
+        "description": "Updated company name"
+      },
+      {
+        "revision": "2010-01-27 05:41",
+        "description": "Add RPM event-error-check related nodes, this allow to config the detecting period/threshold of 4 type of multicast MPEG stream quality error, and receive the trap from the corresponding trap node."
+      },
+      {
+        "revision": "2009-04-29 13:52",
+        "description": "Move pfRpm from pfExperimental to pfMgmt. Corrected spelling of pfRpmTSMpegMisalignments object, added descriptions for audio elementary stream objects."
+      },
+      {
+        "revision": "2009-03-27 12:13",
+        "description": "Add total-error-num for each RPM table, this shows total number of error packet per type, src/dest IP address, src/dest port tuple."
+      },
+      {
+        "revision": "2009-03-23 10:56",
+        "description": "Update telephone information in contact-info"
+      },
+      {
+        "revision": "2008-04-30 13:40",
+        "description": "Initial implementation of RPM from PACKETFRONT-MIB"
+      }
+    ]
+  },
+  "wsRpmGrp": {
+    "name": "wsRpmGrp",
+    "oid": "1.3.6.1.4.1.9303.4.14.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmGrpRtp": {
+    "name": "wsRpmGrpRtp",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmGrpRtpTable": {
+    "name": "wsRpmGrpRtpTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpEntry": {
+    "name": "wsRpmGrpRtpEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpDestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmGrpRtpSrcAddr": {
+    "name": "wsRpmGrpRtpSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpDestAddr": {
+    "name": "wsRpmGrpRtpDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpSrcPort": {
+    "name": "wsRpmGrpRtpSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpDestPort": {
+    "name": "wsRpmGrpRtpDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpBps": {
+    "name": "wsRpmGrpRtpBps",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpAge": {
+    "name": "wsRpmGrpRtpAge",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpBytes": {
+    "name": "wsRpmGrpRtpBytes",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpUnknownVersion": {
+    "name": "wsRpmGrpRtpUnknownVersion",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpIpFragments": {
+    "name": "wsRpmGrpRtpIpFragments",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpSeqErrors": {
+    "name": "wsRpmGrpRtpSeqErrors",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpJitter": {
+    "name": "wsRpmGrpRtpJitter",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpErrSum": {
+    "name": "wsRpmGrpRtpErrSum",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpPeriodSeqErrors": {
+    "name": "wsRpmGrpRtpPeriodSeqErrors",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpPeriodMaxJitter": {
+    "name": "wsRpmGrpRtpPeriodMaxJitter",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiTable": {
+    "name": "wsRpmGrpRtpMdiTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiEntry": {
+    "name": "wsRpmGrpRtpMdiEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpMdiSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpMdiDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpMdiSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpMdiDestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiSrcAddr": {
+    "name": "wsRpmGrpRtpMdiSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiDestAddr": {
+    "name": "wsRpmGrpRtpMdiDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiSrcPort": {
+    "name": "wsRpmGrpRtpMdiSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiDestPort": {
+    "name": "wsRpmGrpRtpMdiDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiDLFactor": {
+    "name": "wsRpmGrpRtpMdiDLFactor",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiMLRFactor": {
+    "name": "wsRpmGrpRtpMdiMLRFactor",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiDFThreshold": {
+    "name": "wsRpmGrpRtpMdiDFThreshold",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiMLRThreshold": {
+    "name": "wsRpmGrpRtpMdiMLRThreshold",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiDFErrorIntervals": {
+    "name": "wsRpmGrpRtpMdiDFErrorIntervals",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmGrpRtpMdiMLRErrorIntervals": {
+    "name": "wsRpmGrpRtpMdiMLRErrorIntervals",
+    "oid": "1.3.6.1.4.1.9303.4.14.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTS": {
+    "name": "wsRpmTS",
+    "oid": "1.3.6.1.4.1.9303.4.14.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmTSMpeg": {
+    "name": "wsRpmTSMpeg",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmTSMpegTable": {
+    "name": "wsRpmTSMpegTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmTSMpegEntry": {
+    "name": "wsRpmTSMpegEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegDestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmTSMpegSrcAddr": {
+    "name": "wsRpmTSMpegSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmTSMpegDestAddr": {
+    "name": "wsRpmTSMpegDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmTSMpegSrcPort": {
+    "name": "wsRpmTSMpegSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmTSMpegDestPort": {
+    "name": "wsRpmTSMpegDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmTSMpegBps": {
+    "name": "wsRpmTSMpegBps",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegAge": {
+    "name": "wsRpmTSMpegAge",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegBytes": {
+    "name": "wsRpmTSMpegBytes",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegMissingSync": {
+    "name": "wsRpmTSMpegMissingSync",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegIpFragments": {
+    "name": "wsRpmTSMpegIpFragments",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegMisalignments": {
+    "name": "wsRpmTSMpegMisalignments",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegFlowAge": {
+    "name": "wsRpmTSMpegFlowAge",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegIngressIf": {
+    "name": "wsRpmTSMpegIngressIf",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegErrSum": {
+    "name": "wsRpmTSMpegErrSum",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegPeriodMissingSync": {
+    "name": "wsRpmTSMpegPeriodMissingSync",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmTSMpegPeriodMisalignments": {
+    "name": "wsRpmTSMpegPeriodMisalignments",
+    "oid": "1.3.6.1.4.1.9303.4.14.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmES": {
+    "name": "wsRpmES",
+    "oid": "1.3.6.1.4.1.9303.4.14.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmESPat": {
+    "name": "wsRpmESPat",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmESPatTable": {
+    "name": "wsRpmESPatTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatEntry": {
+    "name": "wsRpmESPatEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatDestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmESPatSrcAddr": {
+    "name": "wsRpmESPatSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatDestAddr": {
+    "name": "wsRpmESPatDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatSrcPort": {
+    "name": "wsRpmESPatSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatDestPort": {
+    "name": "wsRpmESPatDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatBps": {
+    "name": "wsRpmESPatBps",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPatAge": {
+    "name": "wsRpmESPatAge",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPatBytes": {
+    "name": "wsRpmESPatBytes",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPatInterCcErr": {
+    "name": "wsRpmESPatInterCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPatIntraCcErr": {
+    "name": "wsRpmESPatIntraCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPatCcErrSum": {
+    "name": "wsRpmESPatCcErrSum",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPatTr290Table": {
+    "name": "wsRpmESPatTr290Table",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatTr290Entry": {
+    "name": "wsRpmESPatTr290Entry",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatTr290SrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatTr290DestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatTr290SrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPatTr290DestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmESPatTr290SrcAddr": {
+    "name": "wsRpmESPatTr290SrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatTr290DestAddr": {
+    "name": "wsRpmESPatTr290DestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatTr290SrcPort": {
+    "name": "wsRpmESPatTr290SrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatTr290DestPort": {
+    "name": "wsRpmESPatTr290DestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPatTr290PatErr": {
+    "name": "wsRpmESPatTr290PatErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPatTr290CrcErr": {
+    "name": "wsRpmESPatTr290CrcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmt": {
+    "name": "wsRpmESPmt",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmESPmtTable": {
+    "name": "wsRpmESPmtTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtEntry": {
+    "name": "wsRpmESPmtEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtDestPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtPid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmESPmtSrcAddr": {
+    "name": "wsRpmESPmtSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtDestAddr": {
+    "name": "wsRpmESPmtDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtSrcPort": {
+    "name": "wsRpmESPmtSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtDestPort": {
+    "name": "wsRpmESPmtDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtPid": {
+    "name": "wsRpmESPmtPid",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtBps": {
+    "name": "wsRpmESPmtBps",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmtAge": {
+    "name": "wsRpmESPmtAge",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmtBytes": {
+    "name": "wsRpmESPmtBytes",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmtInterCcErr": {
+    "name": "wsRpmESPmtInterCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmtIntraCcErr": {
+    "name": "wsRpmESPmtIntraCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmtCcErrSum": {
+    "name": "wsRpmESPmtCcErrSum",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290Table": {
+    "name": "wsRpmESPmtTr290Table",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290Entry": {
+    "name": "wsRpmESPmtTr290Entry",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtTr290SrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtTr290DestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtTr290SrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtTr290DestPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESPmtTr290Pid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmESPmtTr290SrcAddr": {
+    "name": "wsRpmESPmtTr290SrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290DestAddr": {
+    "name": "wsRpmESPmtTr290DestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290SrcPort": {
+    "name": "wsRpmESPmtTr290SrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290DestPort": {
+    "name": "wsRpmESPmtTr290DestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290Pid": {
+    "name": "wsRpmESPmtTr290Pid",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290PmtErr": {
+    "name": "wsRpmESPmtTr290PmtErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESPmtTr290CrcErr": {
+    "name": "wsRpmESPmtTr290CrcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideo": {
+    "name": "wsRpmESVideo",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmESVideoTable": {
+    "name": "wsRpmESVideoTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoEntry": {
+    "name": "wsRpmESVideoEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoDestPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoPid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmESVideoSrcAddr": {
+    "name": "wsRpmESVideoSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoDestAddr": {
+    "name": "wsRpmESVideoDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoSrcPort": {
+    "name": "wsRpmESVideoSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoDestPort": {
+    "name": "wsRpmESVideoDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoPid": {
+    "name": "wsRpmESVideoPid",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoBps": {
+    "name": "wsRpmESVideoBps",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoAge": {
+    "name": "wsRpmESVideoAge",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoBytes": {
+    "name": "wsRpmESVideoBytes",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoInterCcErr": {
+    "name": "wsRpmESVideoInterCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoIntraCcErr": {
+    "name": "wsRpmESVideoIntraCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPCRJitter": {
+    "name": "wsRpmESVideoPCRJitter",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoCcErrSum": {
+    "name": "wsRpmESVideoCcErrSum",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicTable": {
+    "name": "wsRpmESVideoPicTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoPicEntry": {
+    "name": "wsRpmESVideoPicEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoPicSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoPicDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoPicSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoPicDestPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESVideoPicPid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmESVideoPicSrcAddr": {
+    "name": "wsRpmESVideoPicSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoPicDestAddr": {
+    "name": "wsRpmESVideoPicDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoPicSrcPort": {
+    "name": "wsRpmESVideoPicSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoPicDestPort": {
+    "name": "wsRpmESVideoPicDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoPicPid": {
+    "name": "wsRpmESVideoPicPid",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESVideoPicTsLossInIframe": {
+    "name": "wsRpmESVideoPicTsLossInIframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicImpairedIframe": {
+    "name": "wsRpmESVideoPicImpairedIframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicGoodIframe": {
+    "name": "wsRpmESVideoPicGoodIframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicTsLossInPframe": {
+    "name": "wsRpmESVideoPicTsLossInPframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicImpairedPframe": {
+    "name": "wsRpmESVideoPicImpairedPframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicGoodPframe": {
+    "name": "wsRpmESVideoPicGoodPframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicTsLossInBframe": {
+    "name": "wsRpmESVideoPicTsLossInBframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicImpairedBframe": {
+    "name": "wsRpmESVideoPicImpairedBframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESVideoPicGoodBframe": {
+    "name": "wsRpmESVideoPicGoodBframe",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESAudio": {
+    "name": "wsRpmESAudio",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wsRpmESAudioTable": {
+    "name": "wsRpmESAudioTable",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESAudioEntry": {
+    "name": "wsRpmESAudioEntry",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESAudioSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESAudioDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESAudioSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESAudioDestPort",
+        "implied": 0
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmESAudioPid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "wsRpmESAudioSrcAddr": {
+    "name": "wsRpmESAudioSrcAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESAudioDestAddr": {
+    "name": "wsRpmESAudioDestAddr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESAudioSrcPort": {
+    "name": "wsRpmESAudioSrcPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESAudioDestPort": {
+    "name": "wsRpmESAudioDestPort",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESAudioPid": {
+    "name": "wsRpmESAudioPid",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wsRpmESAudioBps": {
+    "name": "wsRpmESAudioBps",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESAudioAge": {
+    "name": "wsRpmESAudioAge",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESAudioBytes": {
+    "name": "wsRpmESAudioBytes",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESAudioInterCcErr": {
+    "name": "wsRpmESAudioInterCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESAudioIntraCcErr": {
+    "name": "wsRpmESAudioIntraCcErr",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmESAudioCcErrSum": {
+    "name": "wsRpmESAudioCcErrSum",
+    "oid": "1.3.6.1.4.1.9303.4.14.4.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wsRpmConfig": {
+    "name": "wsRpmConfig",
+    "oid": "1.3.6.1.4.1.9303.4.14.5",
+    "class": "objectidentity"
+  },
+  "wsRpmTrapEnable": {
+    "name": "wsRpmTrapEnable",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmLogEnable": {
+    "name": "wsRpmLogEnable",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmThresholdConfig": {
+    "name": "wsRpmThresholdConfig",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.3",
+    "class": "objectidentity"
+  },
+  "wsRpmRtpSeqErrThreshold": {
+    "name": "wsRpmRtpSeqErrThreshold",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmRtpJitterThreshold": {
+    "name": "wsRpmRtpJitterThreshold",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmTSMpegMissSyncThreshold": {
+    "name": "wsRpmTSMpegMissSyncThreshold",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmTSMpegMisalignThreshold": {
+    "name": "wsRpmTSMpegMisalignThreshold",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmPeriodConfig": {
+    "name": "wsRpmPeriodConfig",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.4",
+    "class": "objectidentity"
+  },
+  "wsRpmRtpSeqErrPeriod": {
+    "name": "wsRpmRtpSeqErrPeriod",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmRtpJitterPeriod": {
+    "name": "wsRpmRtpJitterPeriod",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmTSMpegMissSyncPeriod": {
+    "name": "wsRpmTSMpegMissSyncPeriod",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmTSMpegMisalignPeriod": {
+    "name": "wsRpmTSMpegMisalignPeriod",
+    "oid": "1.3.6.1.4.1.9303.4.14.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "wsRpmNotifications": {
+    "name": "wsRpmNotifications",
+    "oid": "1.3.6.1.4.1.9303.4.14.0",
+    "class": "objectidentity"
+  },
+  "notifyWsRpmRtpSeqError": {
+    "name": "notifyWsRpmRtpSeqError",
+    "oid": "1.3.6.1.4.1.9303.4.14.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpPeriodSeqErrors"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmRtpSeqErrThreshold"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmRtpSeqErrPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyWsRpmRtpJitter": {
+    "name": "notifyWsRpmRtpJitter",
+    "oid": "1.3.6.1.4.1.9303.4.14.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmGrpRtpPeriodMaxJitter"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmRtpJitterThreshold"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmRtpJitterPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyWsRpmTSMpegMissSync": {
+    "name": "notifyWsRpmTSMpegMissSync",
+    "oid": "1.3.6.1.4.1.9303.4.14.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegPeriodMissingSync"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegMissSyncThreshold"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegMissSyncPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyWsRpmTSMpegMisalign": {
+    "name": "notifyWsRpmTSMpegMisalign",
+    "oid": "1.3.6.1.4.1.9303.4.14.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegPeriodMisalignments"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegMisalignThreshold"
+      },
+      {
+        "module": "WAYSTREAM-RPM-MIB",
+        "object": "wsRpmTSMpegMisalignPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-RPM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WAYSTREAM-RPM-MIB"
+  }
+}

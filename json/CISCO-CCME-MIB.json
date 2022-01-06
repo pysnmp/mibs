@@ -1,0 +1,5158 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCcmeMIB": {
+    "name": "ciscoCcmeMIB",
+    "oid": "1.3.6.1.4.1.9.9.439",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-13 00:00",
+        "description": "1. Added ccmeEphonePrimaryDn in ccmeEphoneConfTable. 2. Deprecated ciscoCcmeMIBComplianceRev1 and added ciscoCcmeMIBComplianceRev2 MODULE-COMPLIANCE. 3. Added ccmeActiveStatsGroupEM."
+      },
+      {
+        "revision": "2010-04-01 00:00",
+        "description": "1. Add ccmeEphonePrimaryDn in ccmeEphoneConfTable. 2. Deprecated ciscoCcmeMIBCompliance and added ciscoCcmeMIBComplianceRev1 MODULE-COMPLIANCE. 3. Added ccmeConfigGroup1."
+      },
+      {
+        "revision": "2005-05-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCcmeMIBNotifs": {
+    "name": "ciscoCcmeMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.439.0",
+    "class": "objectidentity"
+  },
+  "ciscoCcmeMIBObjects": {
+    "name": "ciscoCcmeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.439.1",
+    "class": "objectidentity"
+  },
+  "ciscoCcmeMIBConform": {
+    "name": "ciscoCcmeMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.439.2",
+    "class": "objectidentity"
+  },
+  "ccmeConfig": {
+    "name": "ccmeConfig",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1",
+    "class": "objectidentity"
+  },
+  "ccmeActiveStats": {
+    "name": "ccmeActiveStats",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2",
+    "class": "objectidentity"
+  },
+  "ccmeHistoryStats": {
+    "name": "ccmeHistoryStats",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3",
+    "class": "objectidentity"
+  },
+  "CcmeDigitPatternString": {
+    "name": "CcmeDigitPatternString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CcmeNightServiceCodeString": {
+    "name": "CcmeNightServiceCodeString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ccmeEnabled": {
+    "name": "ccmeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeVersion": {
+    "name": "ccmeVersion",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeIPAddressType": {
+    "name": "ccmeIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeIPAddress": {
+    "name": "ccmeIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmePortNumber": {
+    "name": "ccmePortNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMaxEphones": {
+    "name": "ccmeMaxEphones",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMaxDirectoryNumber": {
+    "name": "ccmeMaxDirectoryNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 288
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMaxConferences": {
+    "name": "ccmeMaxConferences",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMaxRedirect": {
+    "name": "ccmeMaxRedirect",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeScriptName": {
+    "name": "ccmeScriptName",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeVoiceMailNumber": {
+    "name": "ccmeVoiceMailNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMwiRelay": {
+    "name": "ccmeMwiRelay",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMwiExpires": {
+    "name": "ccmeMwiExpires",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeTransferSystem": {
+    "name": "ccmeTransferSystem",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blind": 1,
+          "localConsult": 2,
+          "fullBlind": 3,
+          "fullConsult": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeTimeFormat": {
+    "name": "ccmeTimeFormat",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twelve": 1,
+          "twentyfour": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeDateFormat": {
+    "name": "ccmeDateFormat",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mmddyy": 1,
+          "ddmmyy": 2,
+          "yymmdd": 3,
+          "yyddmm": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mmddyy",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeUrlforServicesBtn": {
+    "name": "ccmeUrlforServicesBtn",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeUrlforDirectoriesBtn": {
+    "name": "ccmeUrlforDirectoriesBtn",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohFlashFile": {
+    "name": "ccmeMohFlashFile",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohMulticastFromFlashEnabled": {
+    "name": "ccmeMohMulticastFromFlashEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohFlashMulticastIPAddrType": {
+    "name": "ccmeMohFlashMulticastIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohFlashMulticastIPAddr": {
+    "name": "ccmeMohFlashMulticastIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohFlashMulticastPortNum": {
+    "name": "ccmeMohFlashMulticastPortNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmePhoneFirmwareTable": {
+    "name": "ccmePhoneFirmwareTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmePhoneFirmwareEntry": {
+    "name": "ccmePhoneFirmwareEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmePhoneFirmwareIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmePhoneFirmwareIndex": {
+    "name": "ccmePhoneFirmwareIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmePhoneType": {
+    "name": "ccmePhoneType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmePhoneFirmwareRev": {
+    "name": "ccmePhoneFirmwareRev",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeTransferPatternTable": {
+    "name": "ccmeTransferPatternTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeTransferPatternEntry": {
+    "name": "ccmeTransferPatternEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeTransferPatternIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeTransferPatternIndex": {
+    "name": "ccmeTransferPatternIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeTransferPattern": {
+    "name": "ccmeTransferPattern",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeTransferPatternType": {
+    "name": "ccmeTransferPatternType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blind": 1,
+          "h4502": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeWebGUIEditEnabled": {
+    "name": "ccmeWebGUIEditEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeWebGUITimeEnabled": {
+    "name": "ccmeWebGUITimeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockPatternTable": {
+    "name": "ccmeAfterHrsBlockPatternTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockPatternEntry": {
+    "name": "ccmeAfterHrsBlockPatternEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockPatternTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockPatternTag": {
+    "name": "ccmeAfterHrsBlockPatternTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockPattern": {
+    "name": "ccmeAfterHrsBlockPattern",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockPatternAllTime": {
+    "name": "ccmeAfterHrsBlockPatternAllTime",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateTable": {
+    "name": "ccmeAfterHrsBlockDateTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateEntry": {
+    "name": "ccmeAfterHrsBlockDateEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateIndex": {
+    "name": "ccmeAfterHrsBlockDateIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateMonth": {
+    "name": "ccmeAfterHrsBlockDateMonth",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jan": 1,
+          "feb": 2,
+          "mar": 3,
+          "apr": 4,
+          "may": 5,
+          "jun": 6,
+          "jul": 7,
+          "aug": 8,
+          "sep": 9,
+          "oct": 10,
+          "nov": 11,
+          "dec": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDate": {
+    "name": "ccmeAfterHrsBlockDate",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateStartHour": {
+    "name": "ccmeAfterHrsBlockDateStartHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateStartMin": {
+    "name": "ccmeAfterHrsBlockDateStartMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateStopHour": {
+    "name": "ccmeAfterHrsBlockDateStopHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDateStopMin": {
+    "name": "ccmeAfterHrsBlockDateStopMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDayTable": {
+    "name": "ccmeAfterHrsBlockDayTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDayEntry": {
+    "name": "ccmeAfterHrsBlockDayEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDayIndex": {
+    "name": "ccmeAfterHrsBlockDayIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDay": {
+    "name": "ccmeAfterHrsBlockDay",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sun": 1,
+          "mon": 2,
+          "tue": 3,
+          "wed": 4,
+          "thu": 5,
+          "fri": 6,
+          "sat": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDayStartHour": {
+    "name": "ccmeAfterHrsBlockDayStartHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDayStartMin": {
+    "name": "ccmeAfterHrsBlockDayStartMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDayStopHour": {
+    "name": "ccmeAfterHrsBlockDayStopHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAfterHrsBlockDayStopMin": {
+    "name": "ccmeAfterHrsBlockDayStopMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceCode": {
+    "name": "ccmeNightServiceCode",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeNightServiceCodeString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDateTable": {
+    "name": "ccmeNightServiceDateTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeNightServiceDateEntry": {
+    "name": "ccmeNightServiceDateEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeNightServiceDateIndex": {
+    "name": "ccmeNightServiceDateIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeNightServiceDateMonth": {
+    "name": "ccmeNightServiceDateMonth",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jan": 1,
+          "feb": 2,
+          "mar": 3,
+          "apr": 4,
+          "may": 5,
+          "jun": 6,
+          "jul": 7,
+          "aug": 8,
+          "sep": 9,
+          "oct": 10,
+          "nov": 11,
+          "dec": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDate": {
+    "name": "ccmeNightServiceDate",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDateStartHour": {
+    "name": "ccmeNightServiceDateStartHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDateStartMin": {
+    "name": "ccmeNightServiceDateStartMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDateStopHour": {
+    "name": "ccmeNightServiceDateStopHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDateStopMin": {
+    "name": "ccmeNightServiceDateStopMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDayTable": {
+    "name": "ccmeNightServiceDayTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeNightServiceDayEntry": {
+    "name": "ccmeNightServiceDayEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeNightServiceDayIndex": {
+    "name": "ccmeNightServiceDayIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeNightServiceDay": {
+    "name": "ccmeNightServiceDay",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sun": 1,
+          "mon": 2,
+          "tue": 3,
+          "wed": 4,
+          "thu": 5,
+          "fri": 6,
+          "sat": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDayStartHour": {
+    "name": "ccmeNightServiceDayStartHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDayStartMin": {
+    "name": "ccmeNightServiceDayStartMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDayStopHour": {
+    "name": "ccmeNightServiceDayStopHour",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceDayStopMin": {
+    "name": "ccmeNightServiceDayStopMin",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.32.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeFXOHookFlashEnabled": {
+    "name": "ccmeFXOHookFlashEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeSecondaryDialTonePrefix": {
+    "name": "ccmeSecondaryDialTonePrefix",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeWebAdminSystemUser": {
+    "name": "ccmeWebAdminSystemUser",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeWebAdminCustomerUser": {
+    "name": "ccmeWebAdminCustomerUser",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeSystemMessage": {
+    "name": "ccmeSystemMessage",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeDialplanPatternTable": {
+    "name": "ccmeDialplanPatternTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeDialplanPatternEntry": {
+    "name": "ccmeDialplanPatternEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeDialplanPatternIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeDialplanPatternIndex": {
+    "name": "ccmeDialplanPatternIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeDialplanPatternTag": {
+    "name": "ccmeDialplanPatternTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeDialplanExtLength": {
+    "name": "ccmeDialplanExtLength",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeDialplanPattern": {
+    "name": "ccmeDialplanPattern",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeDialplanExtPattern": {
+    "name": "ccmeDialplanExtPattern",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeDialplanAllowRegiEnabled": {
+    "name": "ccmeDialplanAllowRegiEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.38.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeKeepAliveTimeout": {
+    "name": "ccmeKeepAliveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeInterDigitTimeout": {
+    "name": "ccmeInterDigitTimeout",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeBusyTimeout": {
+    "name": "ccmeBusyTimeout",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeAlertTimeout": {
+    "name": "ccmeAlertTimeout",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneConfTable": {
+    "name": "ccmeEphoneConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneConfEntry": {
+    "name": "ccmeEphoneConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneTag": {
+    "name": "ccmeEphoneTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneIpAddressType": {
+    "name": "ccmeEphoneIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneIpAddress": {
+    "name": "ccmeEphoneIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneMacAddress": {
+    "name": "ccmeEphoneMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneModel": {
+    "name": "ccmeEphoneModel",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneUsername": {
+    "name": "ccmeEphoneUsername",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneKeepAlive": {
+    "name": "ccmeEphoneKeepAlive",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneAutoLineOut": {
+    "name": "ccmeEphoneAutoLineOut",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 34
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphonePagingDn": {
+    "name": "ccmeEphonePagingDn",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 208
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneAddon": {
+    "name": "ccmeEphoneAddon",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneTemplate": {
+    "name": "ccmeEphoneTemplate",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphonePagingPolicy": {
+    "name": "ccmeEphonePagingPolicy",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneKeyPhone": {
+    "name": "ccmeEphoneKeyPhone",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneAutoLineInEnabled": {
+    "name": "ccmeEphoneAutoLineInEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneAftHrsBlkExmptEnabled": {
+    "name": "ccmeEphoneAftHrsBlkExmptEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneNightBellSvcEnabled": {
+    "name": "ccmeEphoneNightBellSvcEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneKeepConfEnabled": {
+    "name": "ccmeEphoneKeepConfEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphonePrimaryDn": {
+    "name": "ccmeEphonePrimaryDn",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 208
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMUserProfileTag": {
+    "name": "ccmeEMUserProfileTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMLogOutProfileTag": {
+    "name": "ccmeEMLogOutProfileTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.43.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneSpeedDialConfTable": {
+    "name": "ccmeEphoneSpeedDialConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.44",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneSpeedDialConfEntry": {
+    "name": "ccmeEphoneSpeedDialConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.44.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneSpeedDialTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneSpeedDialTableIndex": {
+    "name": "ccmeEphoneSpeedDialTableIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.44.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 34
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneSpeedDialTag": {
+    "name": "ccmeEphoneSpeedDialTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.44.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 34
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneSpeedDialNumber": {
+    "name": "ccmeEphoneSpeedDialNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.44.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneSpeedDialLabel": {
+    "name": "ccmeEphoneSpeedDialLabel",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.44.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneFastDialConfTable": {
+    "name": "ccmeEphoneFastDialConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.45",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneFastDialConfEntry": {
+    "name": "ccmeEphoneFastDialConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.45.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneFastDialTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneFastDialTableIndex": {
+    "name": "ccmeEphoneFastDialTableIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.45.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneFastDialNumber": {
+    "name": "ccmeEphoneFastDialNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.45.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneFastDialName": {
+    "name": "ccmeEphoneFastDialName",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.45.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneBtnDNAssocConfTable": {
+    "name": "ccmeEphoneBtnDNAssocConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.46",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneBtnDNAssocConfEntry": {
+    "name": "ccmeEphoneBtnDNAssocConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.46.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneButtonNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneButtonNumber": {
+    "name": "ccmeEphoneButtonNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.46.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneOverlayDN": {
+    "name": "ccmeEphoneOverlayDN",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.46.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnConfigTable": {
+    "name": "ccmeEphoneDnConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneDnConfigEntry": {
+    "name": "ccmeEphoneDnConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneDnTag": {
+    "name": "ccmeEphoneDnTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 288
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneDnType": {
+    "name": "ccmeEphoneDnType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extension": 1,
+          "intercom": 2,
+          "paging": 3,
+          "moh": 4,
+          "mwi": 5,
+          "parkslot": 6,
+          "loopback": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnMode": {
+    "name": "ccmeEphoneDnMode",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "dual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnPriNum": {
+    "name": "ccmeEphoneDnPriNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnSecNum": {
+    "name": "ccmeEphoneDnSecNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnName": {
+    "name": "ccmeEphoneDnName",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnLabel": {
+    "name": "ccmeEphoneDnLabel",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnPriPref": {
+    "name": "ccmeEphoneDnPriPref",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnSecPref": {
+    "name": "ccmeEphoneDnSecPref",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnCFBusyNum": {
+    "name": "ccmeEphoneDnCFBusyNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnCFAllNum": {
+    "name": "ccmeEphoneDnCFAllNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnCFNoAnNum": {
+    "name": "ccmeEphoneDnCFNoAnNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnCFNoAnTo": {
+    "name": "ccmeEphoneDnCFNoAnTo",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnMwiCapability": {
+    "name": "ccmeEphoneDnMwiCapability",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mwiOn": 1,
+          "mwiOff": 2,
+          "mwiOnoff": 3,
+          "mwiDisabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnHuntstop": {
+    "name": "ccmeEphoneDnHuntstop",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnHuntstopCh": {
+    "name": "ccmeEphoneDnHuntstopCh",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnHoldAltTo": {
+    "name": "ccmeEphoneDnHoldAltTo",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnHoldAltType": {
+    "name": "ccmeEphoneDnHoldAltType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "originator": 2,
+          "shared": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnMwiSipSubscrEnabled": {
+    "name": "ccmeEphoneDnMwiSipSubscrEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnScriptName": {
+    "name": "ccmeEphoneDnScriptName",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.47.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNotificationEnable": {
+    "name": "ccmeNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmeSysTrapSeverity": {
+    "name": "ccmeSysTrapSeverity",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "minor": 2,
+          "major": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeSysNotificationReason": {
+    "name": "ccmeSysNotificationReason",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneUnRegThreshold": {
+    "name": "ccmeEphoneUnRegThreshold",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmeEphoneTrapReason": {
+    "name": "ccmeEphoneTrapReason",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeUserAutoLogoutTo": {
+    "name": "ccmeUserAutoLogoutTo",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeUserLoginDeactivateTime": {
+    "name": "ccmeUserLoginDeactivateTime",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMwiSipServerIpAddress": {
+    "name": "ccmeMwiSipServerIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMwiSipServerTransportType": {
+    "name": "ccmeMwiSipServerTransportType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMwiSipServerPortNumber": {
+    "name": "ccmeMwiSipServerPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5060,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMwiSipServerRegE164Enabled": {
+    "name": "ccmeMwiSipServerRegE164Enabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMwiSipSvrUnsolicitedEnabled": {
+    "name": "ccmeMwiSipSvrUnsolicitedEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorConfTable": {
+    "name": "ccmeCorConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeCorConfEntry": {
+    "name": "ccmeCorConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeCorTableIndex": {
+    "name": "ccmeCorTableIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeCorTag": {
+    "name": "ccmeCorTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorListName": {
+    "name": "ccmeCorListName",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorScope": {
+    "name": "ccmeCorScope",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccme": 1,
+          "srstSccp": 2,
+          "srstSip": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorDirection": {
+    "name": "ccmeCorDirection",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "incoming": 1,
+          "outgoing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorStartingNumber": {
+    "name": "ccmeCorStartingNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorEndingNumber": {
+    "name": "ccmeCorEndingNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorVoiceRegPoolNumber": {
+    "name": "ccmeCorVoiceRegPoolNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeCorListDefaultEnabled": {
+    "name": "ccmeCorListDefaultEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.60.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeLoopbackDnConfTable": {
+    "name": "ccmeLoopbackDnConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeLoopbackDnConfEntry": {
+    "name": "ccmeLoopbackDnConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeLoopbackDnTag": {
+    "name": "ccmeLoopbackDnTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeLoopbackDnforward": {
+    "name": "ccmeLoopbackDnforward",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeLoopbackDnStrip": {
+    "name": "ccmeLoopbackDnStrip",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeLoopbackDnPrefix": {
+    "name": "ccmeLoopbackDnPrefix",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeLoopbackDnSuffix": {
+    "name": "ccmeLoopbackDnSuffix",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeLoopbackDnRetryTo": {
+    "name": "ccmeLoopbackDnRetryTo",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeLoopbackDnAutoCon": {
+    "name": "ccmeLoopbackDnAutoCon",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeLoopbackDnCodec": {
+    "name": "ccmeLoopbackDnCodec",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.61.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g711alaw": 1,
+          "g711ulaw": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeIntercomDnConfTable": {
+    "name": "ccmeIntercomDnConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.62",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeIntercomDnConfEntry": {
+    "name": "ccmeIntercomDnConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.62.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeIntercomDnTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeIntercomDnTag": {
+    "name": "ccmeIntercomDnTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.62.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeIntercomDnExtensionNum": {
+    "name": "ccmeIntercomDnExtensionNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.62.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeIntercomDnBargeInEnabled": {
+    "name": "ccmeIntercomDnBargeInEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.62.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeIntercomDnAutoAnsEnabled": {
+    "name": "ccmeIntercomDnAutoAnsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.62.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeIntercomDnLabel": {
+    "name": "ccmeIntercomDnLabel",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.62.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohMulticastIpAddressType": {
+    "name": "ccmeMohMulticastIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohMulticastIpAddress": {
+    "name": "ccmeMohMulticastIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohMulticastPortNumber": {
+    "name": "ccmeMohMulticastPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohMulticastRoute": {
+    "name": "ccmeMohMulticastRoute",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMUserDirNumConfTable": {
+    "name": "ccmeEMUserDirNumConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.68",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEMUserDirNumConfEntry": {
+    "name": "ccmeEMUserDirNumConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.68.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmEMUserProfileDirNumIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMUserDirNumTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmEMUserProfileDirNumIndex": {
+    "name": "ccmEMUserProfileDirNumIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.68.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEMUserDirNumTag": {
+    "name": "ccmeEMUserDirNumTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.68.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEMUserDirNum": {
+    "name": "ccmeEMUserDirNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.68.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMUserDirNumOverlay": {
+    "name": "ccmeEMUserDirNumOverlay",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.68.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMLogoutDirNumConfTable": {
+    "name": "ccmeEMLogoutDirNumConfTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.69",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEMLogoutDirNumConfEntry": {
+    "name": "ccmeEMLogoutDirNumConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.69.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmEMLogOutProfileDirNumIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMLogoutDirNumTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmEMLogOutProfileDirNumIndex": {
+    "name": "ccmEMLogOutProfileDirNumIndex",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.69.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEMLogoutDirNumTag": {
+    "name": "ccmeEMLogoutDirNumTag",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.69.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEMLogoutDirNum": {
+    "name": "ccmeEMLogoutDirNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.69.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcmeDigitPatternString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMLogoutDirNumOverlay": {
+    "name": "ccmeEMLogoutDirNumOverlay",
+    "oid": "1.3.6.1.4.1.9.9.439.1.1.69.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneCallLegs": {
+    "name": "ccmeEphoneCallLegs",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneTot": {
+    "name": "ccmeEphoneTot",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneTotRegistered": {
+    "name": "ccmeEphoneTotRegistered",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneTotKeyPhConfigured": {
+    "name": "ccmeEphoneTotKeyPhConfigured",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneTotKeyPhRegistered": {
+    "name": "ccmeEphoneTotKeyPhRegistered",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneActTable": {
+    "name": "ccmeEphoneActTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneActEntry": {
+    "name": "ccmeEphoneActEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneDeviceName": {
+    "name": "ccmeEphoneDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneRegState": {
+    "name": "ccmeEphoneRegState",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "registered": 1,
+          "unregistered": 2,
+          "deceased": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneActiveDN": {
+    "name": "ccmeEphoneActiveDN",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneActivityStatus": {
+    "name": "ccmeEphoneActivityStatus",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onhook": 1,
+          "offhook": 2,
+          "ringing": 3,
+          "paging": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneKeepAliveCnt": {
+    "name": "ccmeEphoneKeepAliveCnt",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphonePendingReset": {
+    "name": "ccmeEphonePendingReset",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneRegTime": {
+    "name": "ccmeEphoneRegTime",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneCurrentFirmwareRev": {
+    "name": "ccmeEphoneCurrentFirmwareRev",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphonePreviousFirmwareRev": {
+    "name": "ccmeEphonePreviousFirmwareRev",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneLastError": {
+    "name": "ccmeEphoneLastError",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneObservedType": {
+    "name": "ccmeEphoneObservedType",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneLoginStatus": {
+    "name": "ccmeEphoneLoginStatus",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnDStatus": {
+    "name": "ccmeEphoneDnDStatus",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDebugStatus": {
+    "name": "ccmeEphoneDebugStatus",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneMediaActive": {
+    "name": "ccmeEphoneMediaActive",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneTAPIClient": {
+    "name": "ccmeEphoneTAPIClient",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneMediaCapability": {
+    "name": "ccmeEphoneMediaCapability",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "audioOnly": 1,
+          "audioVideo": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneRemote": {
+    "name": "ccmeEphoneRemote",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMohSource": {
+    "name": "ccmeMohSource",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flash": 1,
+          "liveFeed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeNightServiceEnabled": {
+    "name": "ccmeNightServiceEnabled",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMphoneTot": {
+    "name": "ccmeEMphoneTot",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEMphoneTotRegistered": {
+    "name": "ccmeEMphoneTotRegistered",
+    "oid": "1.3.6.1.4.1.9.9.439.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChStatsHistoryTable": {
+    "name": "ccmeEphoneDnChStatsHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneDnChStatsHistoryEntry": {
+    "name": "ccmeEphoneDnChStatsHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneDnChNum": {
+    "name": "ccmeEphoneDnChNum",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmeEphoneDnChIncoming": {
+    "name": "ccmeEphoneDnChIncoming",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChInAnswered": {
+    "name": "ccmeEphoneDnChInAnswered",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChOutbound": {
+    "name": "ccmeEphoneDnChOutbound",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChOutAnswered": {
+    "name": "ccmeEphoneDnChOutAnswered",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChOutBusy": {
+    "name": "ccmeEphoneDnChOutBusy",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChDiscAtConn": {
+    "name": "ccmeEphoneDnChDiscAtConn",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChDiscAtAlert": {
+    "name": "ccmeEphoneDnChDiscAtAlert",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChDiscAtHold": {
+    "name": "ccmeEphoneDnChDiscAtHold",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChDiscAtRing": {
+    "name": "ccmeEphoneDnChDiscAtRing",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChDiscCauseNearEnd": {
+    "name": "ccmeEphoneDnChDiscCauseNearEnd",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeEphoneDnChDiscCauseFarEnd": {
+    "name": "ccmeEphoneDnChDiscCauseFarEnd",
+    "oid": "1.3.6.1.4.1.9.9.439.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmeMIBNotifications": {
+    "name": "ccmeMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0",
+    "class": "objectidentity"
+  },
+  "ccmeStatusChangeNotif": {
+    "name": "ccmeStatusChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeSysTrapSeverity"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeSysNotificationReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneUnRegThresholdExceed": {
+    "name": "ccmeEphoneUnRegThresholdExceed",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneUnRegThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEPhoneDeceased": {
+    "name": "ccmeEPhoneDeceased",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneIpAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneRegState"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEPhoneRegFailed": {
+    "name": "ccmeEPhoneRegFailed",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneIpAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeEphoneLoginFailed": {
+    "name": "ccmeEphoneLoginFailed",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneIpAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeNightServiceChangeNotif": {
+    "name": "ccmeNightServiceChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeLivefeedMohFailedNotif": {
+    "name": "ccmeLivefeedMohFailedNotif",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeMaxConferenceNotif": {
+    "name": "ccmeMaxConferenceNotif",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeKeyEphoneRegChangeNotif": {
+    "name": "ccmeKeyEphoneRegChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.439.0.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneIpAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneRegState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCcmeMIBCompliances": {
+    "name": "ciscoCcmeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.439.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCcmeMIBGroups": {
+    "name": "ciscoCcmeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCcmeMIBCompliance": {
+    "name": "ciscoCcmeMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.439.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmeConfigGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeActiveStatsGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeHistoryStatsGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeNotifGroup",
+        "module": "CISCO-CCME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCcmeMIBComplianceRev1": {
+    "name": "ciscoCcmeMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.439.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmeActiveStatsGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeHistoryStatsGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeNotifGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeConfigGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeConfigGroup1",
+        "module": "CISCO-CCME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCcmeMIBComplianceRev2": {
+    "name": "ciscoCcmeMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.439.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmeConfigGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeActiveStatsGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeHistoryStatsGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeNotifGroup",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeConfigGroup1",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeConfigGroupEM",
+        "module": "CISCO-CCME-MIB"
+      },
+      {
+        "object": "ccmeActiveStatsGroupEM",
+        "module": "CISCO-CCME-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeConfigGroup": {
+    "name": "ccmeConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeVersion"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeIPAddressType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeIPAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmePortNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMaxEphones"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMaxDirectoryNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMaxConferences"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMaxRedirect"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeScriptName"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeVoiceMailNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMwiRelay"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMwiExpires"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeTransferSystem"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeTimeFormat"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeDateFormat"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeUrlforServicesBtn"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeUrlforDirectoriesBtn"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohFlashFile"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohMulticastFromFlashEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohFlashMulticastIPAddrType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohFlashMulticastIPAddr"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohFlashMulticastPortNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmePhoneType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmePhoneFirmwareRev"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeTransferPattern"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeTransferPatternType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeWebGUIEditEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeWebGUITimeEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockPattern"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockPatternAllTime"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDateMonth"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDate"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDateStartHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDateStartMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDateStopHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDateStopMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDay"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDayStartHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDayStartMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDayStopHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAfterHrsBlockDayStopMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceCode"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDateMonth"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDate"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDateStartHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDateStartMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDateStopHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDateStopMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDay"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDayStartHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDayStartMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDayStopHour"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceDayStopMin"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeFXOHookFlashEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeSecondaryDialTonePrefix"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeWebAdminSystemUser"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeWebAdminCustomerUser"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeSystemMessage"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeDialplanPatternTag"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeDialplanPattern"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeDialplanExtLength"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeDialplanExtPattern"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeDialplanAllowRegiEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeKeepAliveTimeout"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeInterDigitTimeout"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeBusyTimeout"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeAlertTimeout"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneIpAddressType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneIpAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneMacAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneModel"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnMode"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnPriNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnSecNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnName"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnLabel"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnPriPref"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnSecPref"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnCFBusyNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnCFAllNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnCFNoAnNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnCFNoAnTo"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnMwiCapability"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnHuntstop"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnHuntstopCh"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnHoldAltTo"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnHoldAltType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnMwiSipSubscrEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnScriptName"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneUsername"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNotificationEnable"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeSysTrapSeverity"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeSysNotificationReason"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneUnRegThreshold"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneKeyPhone"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneKeepAlive"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneAutoLineInEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneAutoLineOut"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphonePagingDn"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphonePagingPolicy"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTemplate"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneAftHrsBlkExmptEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneNightBellSvcEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneAddon"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneKeepConfEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTrapReason"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeUserAutoLogoutTo"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeUserLoginDeactivateTime"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMwiSipServerIpAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMwiSipServerTransportType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMwiSipServerPortNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMwiSipServerRegE164Enabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMwiSipSvrUnsolicitedEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorTag"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorListName"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorScope"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorDirection"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorStartingNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorEndingNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorVoiceRegPoolNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeCorListDefaultEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnforward"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnStrip"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnPrefix"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnSuffix"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnRetryTo"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnAutoCon"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLoopbackDnCodec"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeIntercomDnExtensionNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeIntercomDnBargeInEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeIntercomDnAutoAnsEnabled"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeIntercomDnLabel"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneSpeedDialTag"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneSpeedDialNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneSpeedDialLabel"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneFastDialNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneFastDialName"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneOverlayDN"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohMulticastIpAddressType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohMulticastIpAddress"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohMulticastPortNumber"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohMulticastRoute"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeActiveStatsGroup": {
+    "name": "ccmeActiveStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneCallLegs"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTot"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTotRegistered"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTotKeyPhConfigured"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTotKeyPhRegistered"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDeviceName"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneRegState"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneActiveDN"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneActivityStatus"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneKeepAliveCnt"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphonePendingReset"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneRegTime"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneCurrentFirmwareRev"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphonePreviousFirmwareRev"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneLastError"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneObservedType"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneLoginStatus"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnDStatus"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDebugStatus"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneMediaActive"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneTAPIClient"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneMediaCapability"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneRemote"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMohSource"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeHistoryStatsGroup": {
+    "name": "ccmeHistoryStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChIncoming"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChInAnswered"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChOutbound"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChOutAnswered"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChOutBusy"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChDiscAtConn"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChDiscAtAlert"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChDiscAtHold"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChDiscAtRing"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChDiscCauseNearEnd"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneDnChDiscCauseFarEnd"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeNotifGroup": {
+    "name": "ccmeNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeStatusChangeNotif"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneUnRegThresholdExceed"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEPhoneDeceased"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEPhoneRegFailed"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphoneLoginFailed"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeNightServiceChangeNotif"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeLivefeedMohFailedNotif"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeMaxConferenceNotif"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeKeyEphoneRegChangeNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeConfigGroup1": {
+    "name": "ccmeConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEphonePrimaryDn"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeConfigGroupEM": {
+    "name": "ccmeConfigGroupEM",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMUserProfileTag"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMLogOutProfileTag"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMUserDirNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMUserDirNumOverlay"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMLogoutDirNum"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMLogoutDirNumOverlay"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmeActiveStatsGroupEM": {
+    "name": "ccmeActiveStatsGroupEM",
+    "oid": "1.3.6.1.4.1.9.9.439.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMphoneTot"
+      },
+      {
+        "module": "CISCO-CCME-MIB",
+        "object": "ccmeEMphoneTotRegistered"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CCME-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CCME-MIB"
+  }
+}

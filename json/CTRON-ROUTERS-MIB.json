@@ -1,0 +1,1306 @@
+{
+  "imports": {
+    "class": "imports",
+    "ROUTER-OIDS": [
+      "nwRtrHighLevelView",
+      "nwRtrMibs",
+      "nwRtrProtoSuites",
+      "nwRouter"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nwRtrMibRevision": {
+    "name": "nwRtrMibRevision",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "nwRtrStandardMibs": {
+    "name": "nwRtrStandardMibs",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "nwRtrApplicationView": {
+    "name": "nwRtrApplicationView",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "nwRtrRoutingView": {
+    "name": "nwRtrRoutingView",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "nwRtrComponentView": {
+    "name": "nwRtrComponentView",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3",
+    "class": "objectidentity"
+  },
+  "nwRtrCountersView": {
+    "name": "nwRtrCountersView",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4",
+    "class": "objectidentity"
+  },
+  "nwRtrApplicationSystem": {
+    "name": "nwRtrApplicationSystem",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "nwRtrApplicationInterfaces": {
+    "name": "nwRtrApplicationInterfaces",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "nwRtrRoutingSystem": {
+    "name": "nwRtrRoutingSystem",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "nwRtrRoutingInterfaces": {
+    "name": "nwRtrRoutingInterfaces",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "nwRtrComponentSystem": {
+    "name": "nwRtrComponentSystem",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1",
+    "class": "objectidentity"
+  },
+  "nwRtrComponentInterfaces": {
+    "name": "nwRtrComponentInterfaces",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2",
+    "class": "objectidentity"
+  },
+  "nwRtrCountersControl": {
+    "name": "nwRtrCountersControl",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.1",
+    "class": "objectidentity"
+  },
+  "nwRtrInterfaceCounters": {
+    "name": "nwRtrInterfaceCounters",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2",
+    "class": "objectidentity"
+  },
+  "nwRtrMibRevText": {
+    "name": "nwRtrMibRevText",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrStdMibTable": {
+    "name": "nwRtrStdMibTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwRtrStdMibEntry": {
+    "name": "nwRtrStdMibEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRtrStdMibIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwRtrStdMibIndex": {
+    "name": "nwRtrStdMibIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrStdMibIdentifier": {
+    "name": "nwRtrStdMibIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrAdminChanges": {
+    "name": "nwRtrAdminChanges",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterSystemTable": {
+    "name": "nwRouterSystemTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwRouterEntry": {
+    "name": "nwRouterEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRouterInstance",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwRouterInstance": {
+    "name": "nwRouterInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterAdminStatus": {
+    "name": "nwRouterAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterOperStatus": {
+    "name": "nwRouterOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterOperationalTime": {
+    "name": "nwRouterOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterEntMibGroup": {
+    "name": "nwRouterEntMibGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterName": {
+    "name": "nwRouterName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterVersion": {
+    "name": "nwRouterVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterIdentifier": {
+    "name": "nwRouterIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrVersion": {
+    "name": "nwRtrVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterIfTable": {
+    "name": "nwRouterIfTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwRouterIfEntry": {
+    "name": "nwRouterIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRouterIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRouterIfInstance",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwRouterIfIndex": {
+    "name": "nwRouterIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterIfInstance": {
+    "name": "nwRouterIfInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterIfAdminStatus": {
+    "name": "nwRouterIfAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterIfOperStatus": {
+    "name": "nwRouterIfOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterIfOperationalTime": {
+    "name": "nwRouterIfOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRouterIfName": {
+    "name": "nwRouterIfName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolTable": {
+    "name": "nwRtgProtocolTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolEntry": {
+    "name": "nwRtgProtocolEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRtgProtocolRtrInstance",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRtgProtocolInstance",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwRtgProtocolRtrInstance": {
+    "name": "nwRtgProtocolRtrInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolInstance": {
+    "name": "nwRtgProtocolInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolAdminStatus": {
+    "name": "nwRtgProtocolAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolOperStatus": {
+    "name": "nwRtgProtocolOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolOperationalTime": {
+    "name": "nwRtgProtocolOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolEntMibGroup": {
+    "name": "nwRtgProtocolEntMibGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolName": {
+    "name": "nwRtgProtocolName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolVersion": {
+    "name": "nwRtgProtocolVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIdentifier": {
+    "name": "nwRtgProtocolIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfTable": {
+    "name": "nwRtgProtocolIfTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfEntry": {
+    "name": "nwRtgProtocolIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRtgProtocolIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRtgProtocolIfRtrInstance",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRtgProtocolIfInstance",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfIndex": {
+    "name": "nwRtgProtocolIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfRtrInstance": {
+    "name": "nwRtgProtocolIfRtrInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfInstance": {
+    "name": "nwRtgProtocolIfInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfAdminStatus": {
+    "name": "nwRtgProtocolIfAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfOperStatus": {
+    "name": "nwRtgProtocolIfOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfOperationalTime": {
+    "name": "nwRtgProtocolIfOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtgProtocolIfName": {
+    "name": "nwRtgProtocolIfName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentTable": {
+    "name": "nwComponentTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwComponentEntry": {
+    "name": "nwComponentEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwComponentRtrInstance",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwComponentInstance",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwComponentRtrInstance": {
+    "name": "nwComponentRtrInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentInstance": {
+    "name": "nwComponentInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentAdminStatus": {
+    "name": "nwComponentAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentOperStatus": {
+    "name": "nwComponentOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentOperationalTime": {
+    "name": "nwComponentOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentEntMibGroup": {
+    "name": "nwComponentEntMibGroup",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentName": {
+    "name": "nwComponentName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentVersion": {
+    "name": "nwComponentVersion",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIdentifier": {
+    "name": "nwComponentIdentifier",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIfTable": {
+    "name": "nwComponentIfTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwComponentIfEntry": {
+    "name": "nwComponentIfEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwComponentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwComponentIfRtrInstance",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwComponentIfInstance",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwComponentIfIndex": {
+    "name": "nwComponentIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIfRtrInstance": {
+    "name": "nwComponentIfRtrInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIfInstance": {
+    "name": "nwComponentIfInstance",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIfAdminStatus": {
+    "name": "nwComponentIfAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIfOperStatus": {
+    "name": "nwComponentIfOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "pending-disable": 4,
+          "pending-enable": 5,
+          "invalid-config": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIfOperationalTime": {
+    "name": "nwComponentIfOperationalTime",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwComponentIfName": {
+    "name": "nwComponentIfName",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrTable": {
+    "name": "nwRtrIfFwdCtrTable",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrEntry": {
+    "name": "nwRtrIfFwdCtrEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ROUTERS-MIB",
+        "object": "nwRtrIfFwdCtrIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrIfIndex": {
+    "name": "nwRtrIfFwdCtrIfIndex",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrOperStatus": {
+    "name": "nwRtrIfFwdCtrOperStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrInPkts": {
+    "name": "nwRtrIfFwdCtrInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrOutPkts": {
+    "name": "nwRtrIfFwdCtrOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrFwdPkts": {
+    "name": "nwRtrIfFwdCtrFwdPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrFilteredPkts": {
+    "name": "nwRtrIfFwdCtrFilteredPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrDiscardPkts": {
+    "name": "nwRtrIfFwdCtrDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrAddrErrPkts": {
+    "name": "nwRtrIfFwdCtrAddrErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrLenErrPkts": {
+    "name": "nwRtrIfFwdCtrLenErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrHdrErrPkts": {
+    "name": "nwRtrIfFwdCtrHdrErrPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrInBytes": {
+    "name": "nwRtrIfFwdCtrInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrOutBytes": {
+    "name": "nwRtrIfFwdCtrOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrFwdBytes": {
+    "name": "nwRtrIfFwdCtrFwdBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrFilteredBytes": {
+    "name": "nwRtrIfFwdCtrFilteredBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrDiscardBytes": {
+    "name": "nwRtrIfFwdCtrDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrHostInPkts": {
+    "name": "nwRtrIfFwdCtrHostInPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrHostOutPkts": {
+    "name": "nwRtrIfFwdCtrHostOutPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrHostDiscardPkts": {
+    "name": "nwRtrIfFwdCtrHostDiscardPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrHostInBytes": {
+    "name": "nwRtrIfFwdCtrHostInBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrHostOutBytes": {
+    "name": "nwRtrIfFwdCtrHostOutBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nwRtrIfFwdCtrHostDiscardBytes": {
+    "name": "nwRtrIfFwdCtrHostDiscardBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.2.2.2.4.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ROUTERS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-ROUTERS-MIB"
+  }
+}

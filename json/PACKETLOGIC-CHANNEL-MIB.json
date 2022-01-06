@@ -1,0 +1,1073 @@
+{
+  "imports": {
+    "class": "imports",
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "PACKETLOGIC-MIB": [
+      "packetlogic2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "channelstats": {
+    "name": "channelstats",
+    "oid": "1.3.6.1.4.1.15397.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-12 15:00",
+        "description": " Latest version at the revision date for version GET VERSION HERE"
+      }
+    ]
+  },
+  "channelCfg": {
+    "name": "channelCfg",
+    "oid": "1.3.6.1.4.1.15397.2.2.8",
+    "class": "objectidentity"
+  },
+  "channelInfoTable": {
+    "name": "channelInfoTable",
+    "oid": "1.3.6.1.4.1.15397.2.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelInfoEntry": {
+    "name": "channelInfoEntry",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PACKETLOGIC-CHANNEL-MIB",
+        "object": "channelInfoEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "channelInfoEntryIndex": {
+    "name": "channelInfoEntryIndex",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.999",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "netDeviceTable": {
+    "name": "netDeviceTable",
+    "oid": "1.3.6.1.4.1.15397.2.2.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "netDeviceEntry": {
+    "name": "netDeviceEntry",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PACKETLOGIC-CHANNEL-MIB",
+        "object": "netDeviceEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "netDeviceEntryIndex": {
+    "name": "netDeviceEntryIndex",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.999",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxPackets": {
+    "name": "channelRxPackets",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelTxPackets": {
+    "name": "channelTxPackets",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxBytes": {
+    "name": "channelRxBytes",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelTxBytes": {
+    "name": "channelTxBytes",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxErrors": {
+    "name": "channelRxErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelTxErrors": {
+    "name": "channelTxErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxDrops": {
+    "name": "channelRxDrops",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelTxDrops": {
+    "name": "channelTxDrops",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelCollisions": {
+    "name": "channelCollisions",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelMulticast": {
+    "name": "channelMulticast",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxLengthErrors": {
+    "name": "channelRxLengthErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxCrcErrors": {
+    "name": "channelRxCrcErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxFrameErrors": {
+    "name": "channelRxFrameErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxFifoErrors": {
+    "name": "channelRxFifoErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelRxMissedErrors": {
+    "name": "channelRxMissedErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelTxAborted": {
+    "name": "channelTxAborted",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelTxWindowErrors": {
+    "name": "channelTxWindowErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelTxCarrierErrors": {
+    "name": "channelTxCarrierErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "channelNumber": {
+    "name": "channelNumber",
+    "oid": "1.3.6.1.4.1.15397.2.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalMedia": {
+    "name": "channelInternalMedia",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "hd-10": 1,
+          "fd-10": 2,
+          "hd-100": 3,
+          "fd-100": 4,
+          "fd-1000": 5,
+          "fd-10000": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalMedia": {
+    "name": "channelExternalMedia",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "hd-10": 1,
+          "fd-10": 2,
+          "hd-100": 3,
+          "fd-100": 4,
+          "fd-1000": 5,
+          "fd-10000": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalNegotiatedMedia": {
+    "name": "channelInternalNegotiatedMedia",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 0,
+          "hd10": 1,
+          "fd10": 2,
+          "hd100": 3,
+          "fd100": 4,
+          "fd1000": 5,
+          "fd10000": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalNegotiatedMedia": {
+    "name": "channelExternalNegotiatedMedia",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 0,
+          "hd10": 1,
+          "fd10": 2,
+          "hd100": 3,
+          "fd100": 4,
+          "fd1000": 5,
+          "fd10000": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelActive": {
+    "name": "channelActive",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelName": {
+    "name": "channelName",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalNegotiatedMediaTime": {
+    "name": "channelInternalNegotiatedMediaTime",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalNegotiatedMediaTime": {
+    "name": "channelExternalNegotiatedMediaTime",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTransceiverVendor": {
+    "name": "channelInternalTransceiverVendor",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTransceiverPartNumber": {
+    "name": "channelInternalTransceiverPartNumber",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTransceiverSerial": {
+    "name": "channelInternalTransceiverSerial",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTransceiverType": {
+    "name": "channelInternalTransceiverType",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTransceiverWavelength": {
+    "name": "channelInternalTransceiverWavelength",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTransceiverVendor": {
+    "name": "channelExternalTransceiverVendor",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTransceiverPartNumber": {
+    "name": "channelExternalTransceiverPartNumber",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTransceiverSerial": {
+    "name": "channelExternalTransceiverSerial",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTransceiverType": {
+    "name": "channelExternalTransceiverType",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTransceiverWavelength": {
+    "name": "channelExternalTransceiverWavelength",
+    "oid": "1.3.6.1.4.1.15397.2.2.17.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxPackets": {
+    "name": "channelInternalRxPackets",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxPackets": {
+    "name": "channelExternalRxPackets",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTxPackets": {
+    "name": "channelInternalTxPackets",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTxPackets": {
+    "name": "channelExternalTxPackets",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxBytes": {
+    "name": "channelInternalRxBytes",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxBytes": {
+    "name": "channelExternalRxBytes",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTxBytes": {
+    "name": "channelInternalTxBytes",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTxBytes": {
+    "name": "channelExternalTxBytes",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxErrors": {
+    "name": "channelInternalRxErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxErrors": {
+    "name": "channelExternalRxErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTxErrors": {
+    "name": "channelInternalTxErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTxErrors": {
+    "name": "channelExternalTxErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxDrops": {
+    "name": "channelInternalRxDrops",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxDrops": {
+    "name": "channelExternalRxDrops",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTxDrops": {
+    "name": "channelInternalTxDrops",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTxDrops": {
+    "name": "channelExternalTxDrops",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalCollisions": {
+    "name": "channelInternalCollisions",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalCollisions": {
+    "name": "channelExternalCollisions",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalMulticast": {
+    "name": "channelInternalMulticast",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalMulticast": {
+    "name": "channelExternalMulticast",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxLengthErrors": {
+    "name": "channelInternalRxLengthErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxLengthErrors": {
+    "name": "channelExternalRxLengthErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxCrcErrors": {
+    "name": "channelInternalRxCrcErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxCrcErrors": {
+    "name": "channelExternalRxCrcErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxFrameErrors": {
+    "name": "channelInternalRxFrameErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxFrameErrors": {
+    "name": "channelExternalRxFrameErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelINternalRxFifoErrors": {
+    "name": "channelINternalRxFifoErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxFifoErrors": {
+    "name": "channelExternalRxFifoErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalRxMissedErrors": {
+    "name": "channelInternalRxMissedErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalRxMissedErrors": {
+    "name": "channelExternalRxMissedErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTxAborted": {
+    "name": "channelInternalTxAborted",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTxAborted": {
+    "name": "channelExternalTxAborted",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTxWindowErrors": {
+    "name": "channelInternalTxWindowErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTxWindowErrors": {
+    "name": "channelExternalTxWindowErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelInternalTxCarrierErrors": {
+    "name": "channelInternalTxCarrierErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelExternalTxCarrierErrors": {
+    "name": "channelExternalTxCarrierErrors",
+    "oid": "1.3.6.1.4.1.15397.2.2.25.1.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-CHANNEL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:47:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PACKETLOGIC-CHANNEL-MIB"
+  }
+}

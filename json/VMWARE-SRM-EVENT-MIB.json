@@ -1,0 +1,807 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwSRM"
+    ]
+  },
+  "vmwSRMMIB": {
+    "name": "vmwSRMMIB",
+    "oid": "1.3.6.1.4.1.6876.51.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-07 00:00",
+        "description": "This is the first revision in SMIv2 format. Prior version was published as SMIv1. Notifications were formerly in the VMWARE-SRM-TRAPS-1-0.MIB."
+      }
+    ]
+  },
+  "vmwSrmNotification": {
+    "name": "vmwSrmNotification",
+    "oid": "1.3.6.1.4.1.6876.51.1",
+    "class": "objectidentity"
+  },
+  "vmwSRMevents": {
+    "name": "vmwSRMevents",
+    "oid": "1.3.6.1.4.1.6876.51.0",
+    "class": "objectidentity"
+  },
+  "vmwSrmVmName": {
+    "name": "vmwSrmVmName",
+    "oid": "1.3.6.1.4.1.6876.51.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmRecoveryName": {
+    "name": "vmwSrmRecoveryName",
+    "oid": "1.3.6.1.4.1.6876.51.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmPromptString": {
+    "name": "vmwSrmPromptString",
+    "oid": "1.3.6.1.4.1.6876.51.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmRecoveryType": {
+    "name": "vmwSrmRecoveryType",
+    "oid": "1.3.6.1.4.1.6876.51.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "test": 1,
+          "recovery": 2,
+          "reprotect": 3,
+          "cleanup": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmRecoveryState": {
+    "name": "vmwSrmRecoveryState",
+    "oid": "1.3.6.1.4.1.6876.51.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uninitialized": 1,
+          "running": 2,
+          "paused": 3,
+          "cancelled": 4,
+          "completed": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmSiteString": {
+    "name": "vmwSrmSiteString",
+    "oid": "1.3.6.1.4.1.6876.51.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmVmUuid": {
+    "name": "vmwSrmVmUuid",
+    "oid": "1.3.6.1.4.1.6876.51.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmResult": {
+    "name": "vmwSrmResult",
+    "oid": "1.3.6.1.4.1.6876.51.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "failure": 2,
+          "warning": 3,
+          "cancelled": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwSrmCommandName": {
+    "name": "vmwSrmCommandName",
+    "oid": "1.3.6.1.4.1.6876.51.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanExecuteTestBeginTrap": {
+    "name": "vmwareSrmRecoveryPlanExecuteTestBeginTrap",
+    "oid": "1.3.6.1.4.1.6876.51.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanExecuteTestEndEvent": {
+    "name": "vmwareSrmRecoveryPlanExecuteTestEndEvent",
+    "oid": "1.3.6.1.4.1.6876.51.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanExecuteBeginEvent": {
+    "name": "vmwareSrmRecoveryPlanExecuteBeginEvent",
+    "oid": "1.3.6.1.4.1.6876.51.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareVmwSrmRecoveryPlanExecuteEndEvent": {
+    "name": "vmwareVmwSrmRecoveryPlanExecuteEndEvent",
+    "oid": "1.3.6.1.4.1.6876.51.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareVmwSrmRecoveryVmBeginEvent": {
+    "name": "vmwareVmwSrmRecoveryVmBeginEvent",
+    "oid": "1.3.6.1.4.1.6876.51.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryVmEndEvent": {
+    "name": "vmwareSrmRecoveryVmEndEvent",
+    "oid": "1.3.6.1.4.1.6876.51.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmUuid"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanPromptDisplay": {
+    "name": "vmwareSrmRecoveryPlanPromptDisplay",
+    "oid": "1.3.6.1.4.1.6876.51.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmPromptString"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanPromptResponse": {
+    "name": "vmwareSrmRecoveryPlanPromptResponse",
+    "oid": "1.3.6.1.4.1.6876.51.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareVmwSrmRecoveryPlanServerCommandBegin": {
+    "name": "vmwareVmwSrmRecoveryPlanServerCommandBegin",
+    "oid": "1.3.6.1.4.1.6876.51.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmCommandName"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanServerCommandEnd": {
+    "name": "vmwareSrmRecoveryPlanServerCommandEnd",
+    "oid": "1.3.6.1.4.1.6876.51.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmCommandName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanVmCommandBegin": {
+    "name": "vmwareSrmRecoveryPlanVmCommandBegin",
+    "oid": "1.3.6.1.4.1.6876.51.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmCommandName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanVmCommandEnd": {
+    "name": "vmwareSrmRecoveryPlanVmCommandEnd",
+    "oid": "1.3.6.1.4.1.6876.51.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmCommandName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmUuid"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanExecuteReprotectBegin": {
+    "name": "vmwareSrmRecoveryPlanExecuteReprotectBegin",
+    "oid": "1.3.6.1.4.1.6876.51.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareSrmRecoveryPlanExecuteReprotectEnd": {
+    "name": "vmwareSrmRecoveryPlanExecuteReprotectEnd",
+    "oid": "1.3.6.1.4.1.6876.51.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwareVmwSrmRecoveryPlanExecuteCleanupBegin": {
+    "name": "vmwareVmwSrmRecoveryPlanExecuteCleanupBegin",
+    "oid": "1.3.6.1.4.1.6876.51.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwSrmRecoveryPlanExecuteCleanupEnd": {
+    "name": "vmwSrmRecoveryPlanExecuteCleanupEnd",
+    "oid": "1.3.6.1.4.1.6876.51.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwSRMMIBConformance": {
+    "name": "vmwSRMMIBConformance",
+    "oid": "1.3.6.1.4.1.6876.51.10.2",
+    "class": "objectidentity"
+  },
+  "vmwSRMMIBCompliances": {
+    "name": "vmwSRMMIBCompliances",
+    "oid": "1.3.6.1.4.1.6876.51.10.2.1",
+    "class": "objectidentity"
+  },
+  "vmwSRMMIBGroups": {
+    "name": "vmwSRMMIBGroups",
+    "oid": "1.3.6.1.4.1.6876.51.10.2.2",
+    "class": "objectidentity"
+  },
+  "vmwSRMMIBBasicCompliance": {
+    "name": "vmwSRMMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.6876.51.10.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwSRMNotificationInfoGroup",
+        "module": "VMWARE-SRM-EVENT-MIB"
+      },
+      {
+        "object": "vmwSRMNotificationGroup",
+        "module": "VMWARE-SRM-EVENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwSRMNotificationInfoGroup": {
+    "name": "vmwSRMNotificationInfoGroup",
+    "oid": "1.3.6.1.4.1.6876.51.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryName"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmPromptString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryType"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryState"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmSiteString"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmVmUuid"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmResult"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmCommandName"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwSRMNotificationGroup": {
+    "name": "vmwSRMNotificationGroup",
+    "oid": "1.3.6.1.4.1.6876.51.10.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanExecuteTestBeginTrap"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanExecuteTestEndEvent"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanExecuteBeginEvent"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareVmwSrmRecoveryPlanExecuteEndEvent"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareVmwSrmRecoveryVmBeginEvent"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryVmEndEvent"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanPromptDisplay"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanPromptResponse"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareVmwSrmRecoveryPlanServerCommandBegin"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanServerCommandEnd"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanVmCommandBegin"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanVmCommandEnd"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanExecuteReprotectBegin"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareSrmRecoveryPlanExecuteReprotectEnd"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwareVmwSrmRecoveryPlanExecuteCleanupBegin"
+      },
+      {
+        "module": "VMWARE-SRM-EVENT-MIB",
+        "object": "vmwSrmRecoveryPlanExecuteCleanupEnd"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-SRM-EVENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VMWARE-SRM-EVENT-MIB"
+  }
+}

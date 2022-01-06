@@ -1,0 +1,274 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "routingIND1Ospf3"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1OSPF3MIB": {
+    "name": "alcatelIND1OSPF3MIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "alcatelIND1OSPF3MIBObjects": {
+    "name": "alcatelIND1OSPF3MIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1",
+    "class": "objectidentity"
+  },
+  "alaProtocolOspf3": {
+    "name": "alaProtocolOspf3",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaOspf3OrigRouteTag": {
+    "name": "alaOspf3OrigRouteTag",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3TimerSpfDelay": {
+    "name": "alaOspf3TimerSpfDelay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3TimerSpfHold": {
+    "name": "alaOspf3TimerSpfHold",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3RestartHelperSupport": {
+    "name": "alaOspf3RestartHelperSupport",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3RestartStrictLsaChecking": {
+    "name": "alaOspf3RestartStrictLsaChecking",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3RestartInitiate": {
+    "name": "alaOspf3RestartInitiate",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3MTUCheck": {
+    "name": "alaOspf3MTUCheck",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1OSPF3MIBConformance": {
+    "name": "alcatelIND1OSPF3MIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1OSPF3MIBCompliances": {
+    "name": "alcatelIND1OSPF3MIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1OSPF3MIBGroups": {
+    "name": "alcatelIND1OSPF3MIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1OSPF3MIBCompliance": {
+    "name": "alcatelIND1OSPF3MIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaOSPF3ConfigMIBGroup",
+        "module": "ALCATEL-IND1-OSPF3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaOSPF3ConfigMIBGroup": {
+    "name": "alaOSPF3ConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3OrigRouteTag"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3TimerSpfDelay"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3TimerSpfHold"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RestartHelperSupport"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RestartStrictLsaChecking"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RestartInitiate"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3MTUCheck"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-OSPF3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-OSPF3-MIB"
+  }
+}

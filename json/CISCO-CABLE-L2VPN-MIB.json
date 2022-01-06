@@ -1,0 +1,441 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IETF-PW-TC-MIB": [
+      "CpwVcType",
+      "CpwVcIDType"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCableL2vpnMIB": {
+    "name": "ciscoCableL2vpnMIB",
+    "oid": "1.3.6.1.4.1.9.9.700",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CiscoCableL2vpnIndex": {
+    "name": "CiscoCableL2vpnIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoCableL2vpnMIBNotifs": {
+    "name": "ciscoCableL2vpnMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.700.0",
+    "class": "objectidentity"
+  },
+  "ciscoCableL2vpnMIBObjects": {
+    "name": "ciscoCableL2vpnMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.700.1",
+    "class": "objectidentity"
+  },
+  "ciscoCableL2vpnMIBConform": {
+    "name": "ciscoCableL2vpnMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.700.2",
+    "class": "objectidentity"
+  },
+  "ccl2vpnMacVpnIdL2vpnIndexTable": {
+    "name": "ccl2vpnMacVpnIdL2vpnIndexTable",
+    "oid": "1.3.6.1.4.1.9.9.700.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnMacVpnIdL2vpnIndexEntry": {
+    "name": "ccl2vpnMacVpnIdL2vpnIndexEntry",
+    "oid": "1.3.6.1.4.1.9.9.700.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnMac",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnVpnId",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccl2vpnMac": {
+    "name": "ccl2vpnMac",
+    "oid": "1.3.6.1.4.1.9.9.700.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnVpnId": {
+    "name": "ccl2vpnVpnId",
+    "oid": "1.3.6.1.4.1.9.9.700.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnMacVpnIdToL2vpnIndex": {
+    "name": "ccl2vpnMacVpnIdToL2vpnIndex",
+    "oid": "1.3.6.1.4.1.9.9.700.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCableL2vpnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnPWL2vpnIndexTable": {
+    "name": "ccl2vpnPWL2vpnIndexTable",
+    "oid": "1.3.6.1.4.1.9.9.700.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnPWL2vpnIndexEntry": {
+    "name": "ccl2vpnPWL2vpnIndexEntry",
+    "oid": "1.3.6.1.4.1.9.9.700.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPseudoWireType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPeerIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPeerIPAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnVCID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccl2vpnPseudoWireType": {
+    "name": "ccl2vpnPseudoWireType",
+    "oid": "1.3.6.1.4.1.9.9.700.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnPeerIPAddressType": {
+    "name": "ccl2vpnPeerIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.700.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnPeerIPAddress": {
+    "name": "ccl2vpnPeerIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.700.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnVCID": {
+    "name": "ccl2vpnVCID",
+    "oid": "1.3.6.1.4.1.9.9.700.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnPWToL2vpnIndex": {
+    "name": "ccl2vpnPWToL2vpnIndex",
+    "oid": "1.3.6.1.4.1.9.9.700.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCableL2vpnIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnL2vpnIndexPWTable": {
+    "name": "ccl2vpnL2vpnIndexPWTable",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnL2vpnIndexPWEntry": {
+    "name": "ccl2vpnL2vpnIndexPWEntry",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnL2vpnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccl2vpnL2vpnIndex": {
+    "name": "ccl2vpnL2vpnIndex",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCableL2vpnIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccl2vpnPWMAC": {
+    "name": "ccl2vpnPWMAC",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnPWVpnId": {
+    "name": "ccl2vpnPWVpnId",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnPWPeerIPAddressType": {
+    "name": "ccl2vpnPWPeerIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnPWPeerIPAddress": {
+    "name": "ccl2vpnPWPeerIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnPWType": {
+    "name": "ccl2vpnPWType",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnPWVCID": {
+    "name": "ccl2vpnPWVCID",
+    "oid": "1.3.6.1.4.1.9.9.700.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIDType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccl2vpnMIBCompliances": {
+    "name": "ccl2vpnMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.700.2.1",
+    "class": "objectidentity"
+  },
+  "ccl2vpnMIBGroups": {
+    "name": "ccl2vpnMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.700.2.2",
+    "class": "objectidentity"
+  },
+  "ccl2vpnMIBCompliance": {
+    "name": "ccl2vpnMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.700.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccl2vpnPWMappingGroup",
+        "module": "CISCO-CABLE-L2VPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccl2vpnPWMappingGroup": {
+    "name": "ccl2vpnPWMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.700.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPWMAC"
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPWVpnId"
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPWPeerIPAddressType"
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPWPeerIPAddress"
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPWType"
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPWVCID"
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnMacVpnIdToL2vpnIndex"
+      },
+      {
+        "module": "CISCO-CABLE-L2VPN-MIB",
+        "object": "ccl2vpnPWToL2vpnIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-L2VPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CABLE-L2VPN-MIB"
+  }
+}

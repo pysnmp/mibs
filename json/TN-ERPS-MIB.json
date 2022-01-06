@@ -1,0 +1,1045 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-CFM-MIB": [
+      "Dot1agCfmMepId"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TN-PROTECTION-MIB": [
+      "tnProtectionMIB"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnERPSMIB": {
+    "name": "tnERPSMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3",
+    "class": "objectidentity"
+  },
+  "tnERPSMIBNotifications": {
+    "name": "tnERPSMIBNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.1",
+    "class": "objectidentity"
+  },
+  "tnERPSMgmtObjects": {
+    "name": "tnERPSMgmtObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2",
+    "class": "objectidentity"
+  },
+  "tnERPSMIBConformance": {
+    "name": "tnERPSMIBConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.3",
+    "class": "objectidentity"
+  },
+  "tnErpsAlarmDown": {
+    "name": "tnErpsAlarmDown",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSState"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort0"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort1"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStateRPLUnBlocked"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStateNoApsReceived"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort0Blockstatus"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort1Blockstatus"
+      }
+    ],
+    "status": "current"
+  },
+  "tnErpsAlarmUp": {
+    "name": "tnErpsAlarmUp",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSState"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort0"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort1"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStateRPLUnBlocked"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStateNoApsReceived"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort0Blockstatus"
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSStatePort1Blockstatus"
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSTable": {
+    "name": "tnERPSTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSEntry": {
+    "name": "tnERPSEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSinstance": {
+    "name": "tnERPSinstance",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSPort0": {
+    "name": "tnERPSPort0",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSPort1": {
+    "name": "tnERPSPort1",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSPort0ApsMep": {
+    "name": "tnERPSPort0ApsMep",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSPort1ApsMep": {
+    "name": "tnERPSPort1ApsMep",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSPort0SfMep": {
+    "name": "tnERPSPort0SfMep",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSPort1SfMep": {
+    "name": "tnERPSPort1SfMep",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSRingType": {
+    "name": "tnERPSRingType",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "major": 1,
+          "sub": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSInterconnectednode": {
+    "name": "tnERPSInterconnectednode",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSVirtualChannel": {
+    "name": "tnERPSVirtualChannel",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSMajorRingID": {
+    "name": "tnERPSMajorRingID",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSAlarm": {
+    "name": "tnERPSAlarm",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notActive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSRowStatus": {
+    "name": "tnERPSRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnERPSConfigTable": {
+    "name": "tnERPSConfigTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSConfigEntry": {
+    "name": "tnERPSConfigEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSConfigStatus": {
+    "name": "tnERPSConfigStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSConfigGuardTime": {
+    "name": "tnERPSConfigGuardTime",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSConfigWtrTime": {
+    "name": "tnERPSConfigWtrTime",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t1min": 1,
+          "t2min": 2,
+          "t3min": 3,
+          "t4min": 4,
+          "t5min": 5,
+          "t6min": 6,
+          "t7min": 7,
+          "t8min": 8,
+          "t9min": 9,
+          "t10min": 10,
+          "t11min": 11,
+          "t12min": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSConfigHoldOffTime": {
+    "name": "tnERPSConfigHoldOffTime",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSConfigVersion": {
+    "name": "tnERPSConfigVersion",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSConfigRevertive": {
+    "name": "tnERPSConfigRevertive",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSVlanTable": {
+    "name": "tnERPSVlanTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSVlanEntry": {
+    "name": "tnERPSVlanEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      },
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSVlanInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSVlanInstance": {
+    "name": "tnERPSVlanInstance",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSVlanId": {
+    "name": "tnERPSVlanId",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSVlanRowStatus": {
+    "name": "tnERPSVlanRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSRPLTable": {
+    "name": "tnERPSRPLTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSRPLEntry": {
+    "name": "tnERPSRPLEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSRPLRole": {
+    "name": "tnERPSRPLRole",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "owner": 2,
+          "neighbour": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSRPLPort": {
+    "name": "tnERPSRPLPort",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "port0": 2,
+          "port1": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSRPLClear": {
+    "name": "tnERPSRPLClear",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSCommandTable": {
+    "name": "tnERPSCommandTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSCommandEntry": {
+    "name": "tnERPSCommandEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSCommand": {
+    "name": "tnERPSCommand",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "manual": 2,
+          "forced": 3,
+          "clear": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSCommandPort": {
+    "name": "tnERPSCommandPort",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "port0": 2,
+          "port1": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSStateTable": {
+    "name": "tnERPSStateTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSStateEntry": {
+    "name": "tnERPSStateEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSState": {
+    "name": "tnERPSState",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "protected": 2,
+          "manual": 3,
+          "forced": 4,
+          "pending": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStatePort0": {
+    "name": "tnERPSStatePort0",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "sf": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStatePort1": {
+    "name": "tnERPSStatePort1",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "sf": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStateTxAps": {
+    "name": "tnERPSStateTxAps",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStatePort0RxAps": {
+    "name": "tnERPSStatePort0RxAps",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStatePort1RxAps": {
+    "name": "tnERPSStatePort1RxAps",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStateWtrRemaining": {
+    "name": "tnERPSStateWtrRemaining",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStateRPLUnBlocked": {
+    "name": "tnERPSStateRPLUnBlocked",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 0,
+          "unblock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStateNoApsReceived": {
+    "name": "tnERPSStateNoApsReceived",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noapsReceived": 0,
+          "apsReceived": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStatePort0Blockstatus": {
+    "name": "tnERPSStatePort0Blockstatus",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 0,
+          "unblock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStatePort1Blockstatus": {
+    "name": "tnERPSStatePort1Blockstatus",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 0,
+          "unblock": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSStateFopAlarm": {
+    "name": "tnERPSStateFopAlarm",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSSubRingCfgTable": {
+    "name": "tnERPSSubRingCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSSubRingCfgEntry": {
+    "name": "tnERPSSubRingCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSSubRingType": {
+    "name": "tnERPSSubRingType",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSSubRingTopologyChange": {
+    "name": "tnERPSSubRingTopologyChange",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnERPSStatisticsTable": {
+    "name": "tnERPSStatisticsTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnERPSStatisticsEntry": {
+    "name": "tnERPSStatisticsEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ERPS-MIB",
+        "object": "tnERPSinstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnERPSRAPSPDUReceived": {
+    "name": "tnERPSRAPSPDUReceived",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSRAPSPDUDropped": {
+    "name": "tnERPSRAPSPDUDropped",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSLocalSFOccurred": {
+    "name": "tnERPSLocalSFOccurred",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSLocalSFCleared": {
+    "name": "tnERPSLocalSFCleared",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSRemoteSFReceived": {
+    "name": "tnERPSRemoteSFReceived",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSRemoteFSReceived": {
+    "name": "tnERPSRemoteFSReceived",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnERPSNRMessageSent": {
+    "name": "tnERPSNRMessageSent",
+    "oid": "1.3.6.1.4.1.868.2.5.109.3.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-ERPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-ERPS-MIB"
+  }
+}

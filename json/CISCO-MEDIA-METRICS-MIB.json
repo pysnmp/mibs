@@ -1,0 +1,605 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FLOW-MONITOR-MIB": [
+      "cfmFlowMetricsIntNumber",
+      "cfmFlowId",
+      "cfmFlowMonitorId"
+    ],
+    "CISCO-FLOW-MONITOR-TC-MIB": [
+      "FlowBitRateUnits"
+    ],
+    "CISCO-REPORT-INTERVAL-TC-MIB": [
+      "ReportIntervalCount"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoMediaMetricsMIB": {
+    "name": "ciscoMediaMetricsMIB",
+    "oid": "1.3.6.1.4.1.9.9.771",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-23 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMediaMetricsMIBNotifs": {
+    "name": "ciscoMediaMetricsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.771.0",
+    "class": "objectidentity"
+  },
+  "ciscoMediaMetricsMIBObjects": {
+    "name": "ciscoMediaMetricsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.771.1",
+    "class": "objectidentity"
+  },
+  "ciscoMediaMetricsMIBConform": {
+    "name": "ciscoMediaMetricsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.771.2",
+    "class": "objectidentity"
+  },
+  "ciscoMediaMetricsMIBIds": {
+    "name": "ciscoMediaMetricsMIBIds",
+    "oid": "1.3.6.1.4.1.9.9.771.3",
+    "class": "objectidentity"
+  },
+  "ciscoMediaMetricsMIBCompliances": {
+    "name": "ciscoMediaMetricsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.771.2.1",
+    "class": "objectidentity"
+  },
+  "cfmMediaMetrics": {
+    "name": "cfmMediaMetrics",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1",
+    "class": "objectidentity"
+  },
+  "cfmMediaMetricsTable": {
+    "name": "cfmMediaMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMediaMetricsEntry": {
+    "name": "cfmMediaMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMediaMetricsValid": {
+    "name": "cfmMediaMetricsValid",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pkts": 0,
+        "octets": 1,
+        "bitRate": 2,
+        "pktRate": 3,
+        "streamBitRate": 4,
+        "streamBitRateMax": 5,
+        "streamBitRateMin": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsPkts": {
+    "name": "cfmMediaMetricsPkts",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsOctets": {
+    "name": "cfmMediaMetricsOctets",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsBitRateUnits": {
+    "name": "cfmMediaMetricsBitRateUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsBitRate": {
+    "name": "cfmMediaMetricsBitRate",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsPktRate": {
+    "name": "cfmMediaMetricsPktRate",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsStreamBitRateUnits": {
+    "name": "cfmMediaMetricsStreamBitRateUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsStreamBitRate": {
+    "name": "cfmMediaMetricsStreamBitRate",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsStreamBitRateMaxUnits": {
+    "name": "cfmMediaMetricsStreamBitRateMaxUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsStreamBitRateMax": {
+    "name": "cfmMediaMetricsStreamBitRateMax",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsStreamBitRateMinUnits": {
+    "name": "cfmMediaMetricsStreamBitRateMinUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsStreamBitRateMin": {
+    "name": "cfmMediaMetricsStreamBitRateMin",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsTableChanged": {
+    "name": "cfmMediaMetricsTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntTable": {
+    "name": "cfmMediaMetricsIntTable",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntEntry": {
+    "name": "cfmMediaMetricsIntEntry",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMediaMetricsIntValid": {
+    "name": "cfmMediaMetricsIntValid",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pkts": 0,
+        "octets": 1,
+        "bitRate": 2,
+        "pktRate": 3,
+        "streamBitRate": 4,
+        "streamBitRateMax": 5,
+        "streamBitRateMin": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntPkts": {
+    "name": "cfmMediaMetricsIntPkts",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntOctets": {
+    "name": "cfmMediaMetricsIntOctets",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntBitRateUnits": {
+    "name": "cfmMediaMetricsIntBitRateUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntBitRate": {
+    "name": "cfmMediaMetricsIntBitRate",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntPktRate": {
+    "name": "cfmMediaMetricsIntPktRate",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntStreamBitRateUnits": {
+    "name": "cfmMediaMetricsIntStreamBitRateUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntStreamBitRate": {
+    "name": "cfmMediaMetricsIntStreamBitRate",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntStreamBitRateMaxUnits": {
+    "name": "cfmMediaMetricsIntStreamBitRateMaxUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntStreamBitRateMax": {
+    "name": "cfmMediaMetricsIntStreamBitRateMax",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntStreamBitRateMinUnits": {
+    "name": "cfmMediaMetricsIntStreamBitRateMinUnits",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmMediaMetricsIntStreamBitRateMin": {
+    "name": "cfmMediaMetricsIntStreamBitRateMin",
+    "oid": "1.3.6.1.4.1.9.9.771.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMediaMetricsMIBGroups": {
+    "name": "ciscoMediaMetricsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.771.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoMediaMetricsMIBCompliance01": {
+    "name": "ciscoMediaMetricsMIBCompliance01",
+    "oid": "1.3.6.1.4.1.9.9.771.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMediaMetricsGroup",
+        "module": "CISCO-MEDIA-METRICS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMediaMetricsGroup": {
+    "name": "ciscoMediaMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.771.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsValid"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsPkts"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsOctets"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsBitRateUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsBitRate"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsPktRate"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsStreamBitRateUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsStreamBitRate"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsStreamBitRateMaxUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsStreamBitRateMax"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsStreamBitRateMinUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsStreamBitRateMin"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsTableChanged"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntValid"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntPkts"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntOctets"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntBitRateUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntBitRate"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntPktRate"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntStreamBitRateUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntStreamBitRate"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntStreamBitRateMaxUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntStreamBitRateMax"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntStreamBitRateMinUnits"
+      },
+      {
+        "module": "CISCO-MEDIA-METRICS-MIB",
+        "object": "cfmMediaMetricsIntStreamBitRateMin"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEDIA-METRICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MEDIA-METRICS-MIB"
+  }
+}

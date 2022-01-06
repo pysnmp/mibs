@@ -1,0 +1,1089 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "DLINKSW-TC-MIB": [
+      "Dlink2kVlanList"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwDhcpSnpMIB": {
+    "name": "dlinkSwDhcpSnpMIB",
+    "oid": "1.3.6.1.4.1.171.14.131",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-19 00:00",
+        "description": "This is the first version of the MIB file for 'DHCP snooping' functionality."
+      },
+      {
+        "revision": "2013-09-09 00:00",
+        "description": "1.Update dDhcpSnpIfRateLimit and dDhcpSnpIfBindingsLimit value length(Note:follow UIS)."
+      }
+    ]
+  },
+  "dDhcpSnpMIBNotifications": {
+    "name": "dDhcpSnpMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.131.0",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpMIBObjects": {
+    "name": "dDhcpSnpMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.131.1",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpMIBConformance": {
+    "name": "dDhcpSnpMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.131.2",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpGlobalObjects": {
+    "name": "dDhcpSnpGlobalObjects",
+    "oid": "1.3.6.1.4.1.171.14.131.1.1",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpGlobalEnabled": {
+    "name": "dDhcpSnpGlobalEnabled",
+    "oid": "1.3.6.1.4.1.171.14.131.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpVerifyMacAddressEnabled": {
+    "name": "dDhcpSnpVerifyMacAddressEnabled",
+    "oid": "1.3.6.1.4.1.171.14.131.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpStationMoveDenyEnabled": {
+    "name": "dDhcpSnpStationMoveDenyEnabled",
+    "oid": "1.3.6.1.4.1.171.14.131.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpOption82AllowUntrust": {
+    "name": "dDhcpSnpOption82AllowUntrust",
+    "oid": "1.3.6.1.4.1.171.14.131.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpBootpBindEnabled": {
+    "name": "dDhcpSnpBootpBindEnabled",
+    "oid": "1.3.6.1.4.1.171.14.131.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpDatabaseObjects": {
+    "name": "dDhcpSnpDatabaseObjects",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpDatabaseUrl": {
+    "name": "dDhcpSnpDatabaseUrl",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpDatabaseUpdateInterval": {
+    "name": "dDhcpSnpDatabaseUpdateInterval",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpRenewDatabaseUrl": {
+    "name": "dDhcpSnpRenewDatabaseUrl",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpRenewValidateDbEnabled": {
+    "name": "dDhcpSnpRenewValidateDbEnabled",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpRenewDatabase": {
+    "name": "dDhcpSnpRenewDatabase",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "renew": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpDbLastSucceeded": {
+    "name": "dDhcpSnpDbLastSucceeded",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpDbLastFailed": {
+    "name": "dDhcpSnpDbLastFailed",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpClearDatabaseStatistics": {
+    "name": "dDhcpSnpClearDatabaseStatistics",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpDbLastIgnoredCounters": {
+    "name": "dDhcpSnpDbLastIgnoredCounters",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.9",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpStatBindingCollision": {
+    "name": "dDhcpSnpStatBindingCollision",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpStatExpiredLease": {
+    "name": "dDhcpSnpStatExpiredLease",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpStatInvalidInterfaces": {
+    "name": "dDhcpSnpStatInvalidInterfaces",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpStatUnsupportedVlans": {
+    "name": "dDhcpSnpStatUnsupportedVlans",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpStatParsingFailures": {
+    "name": "dDhcpSnpStatParsingFailures",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpStatChecksumErrors": {
+    "name": "dDhcpSnpStatChecksumErrors",
+    "oid": "1.3.6.1.4.1.171.14.131.1.2.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dDhcpSnpVlanObjects": {
+    "name": "dDhcpSnpVlanObjects",
+    "oid": "1.3.6.1.4.1.171.14.131.1.3",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpVlanCrlFirst2K": {
+    "name": "dDhcpSnpVlanCrlFirst2K",
+    "oid": "1.3.6.1.4.1.171.14.131.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpVlanCrlSecond2K": {
+    "name": "dDhcpSnpVlanCrlSecond2K",
+    "oid": "1.3.6.1.4.1.171.14.131.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dlink2kVlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpIfObjects": {
+    "name": "dDhcpSnpIfObjects",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpIfTrustTable": {
+    "name": "dDhcpSnpIfTrustTable",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpIfTrustEntry": {
+    "name": "dDhcpSnpIfTrustEntry",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpIfTrustEnabled": {
+    "name": "dDhcpSnpIfTrustEnabled",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpIfRateLimitTable": {
+    "name": "dDhcpSnpIfRateLimitTable",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpIfRateLimitEntry": {
+    "name": "dDhcpSnpIfRateLimitEntry",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpIfRateLimit": {
+    "name": "dDhcpSnpIfRateLimit",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "packets per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpIfBindingsLimitTable": {
+    "name": "dDhcpSnpIfBindingsLimitTable",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpIfBindingsLimitEntry": {
+    "name": "dDhcpSnpIfBindingsLimitEntry",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpIfBindingsLimit": {
+    "name": "dDhcpSnpIfBindingsLimit",
+    "oid": "1.3.6.1.4.1.171.14.131.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "units": "bindings per port",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsObjects": {
+    "name": "dDhcpSnpBindingsObjects",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpBindingsTable": {
+    "name": "dDhcpSnpBindingsTable",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsEntry": {
+    "name": "dDhcpSnpBindingsEntry",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsVlan",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpBindingsMacAddress": {
+    "name": "dDhcpSnpBindingsMacAddress",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsVlan": {
+    "name": "dDhcpSnpBindingsVlan",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsIpAddress": {
+    "name": "dDhcpSnpBindingsIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsInterface": {
+    "name": "dDhcpSnpBindingsInterface",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsLeasedTime": {
+    "name": "dDhcpSnpBindingsLeasedTime",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsStatus": {
+    "name": "dDhcpSnpBindingsStatus",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearTable": {
+    "name": "dDhcpSnpBindingsClearTable",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearEntry": {
+    "name": "dDhcpSnpBindingsClearEntry",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsClearIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearIndex": {
+    "name": "dDhcpSnpBindingsClearIndex",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearByMacAddr": {
+    "name": "dDhcpSnpBindingsClearByMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearByVlan": {
+    "name": "dDhcpSnpBindingsClearByVlan",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearByIpAddress": {
+    "name": "dDhcpSnpBindingsClearByIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearByInterface": {
+    "name": "dDhcpSnpBindingsClearByInterface",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearStatus": {
+    "name": "dDhcpSnpBindingsClearStatus",
+    "oid": "1.3.6.1.4.1.171.14.131.1.5.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dDhcpSnpCompliances": {
+    "name": "dDhcpSnpCompliances",
+    "oid": "1.3.6.1.4.1.171.14.131.2.1",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpGroups": {
+    "name": "dDhcpSnpGroups",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2",
+    "class": "objectidentity"
+  },
+  "dDhcpSnpCompliance": {
+    "name": "dDhcpSnpCompliance",
+    "oid": "1.3.6.1.4.1.171.14.131.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dDhcpSnpGlobalEnableGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpVlanEnableGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpIfTrustGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpBindingsGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpBindingsClearGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpVerifyMacAddressGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpStationMoveGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpBootpBindGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpRelayAgentInfoAllowGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpDatabaseGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpIfRateLimitGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      },
+      {
+        "object": "dDhcpSnpIfBindingsLimitGroup",
+        "module": "DLINKSW-DHCP-SNOOPING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpGlobalEnableGroup": {
+    "name": "dDhcpSnpGlobalEnableGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpGlobalEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpVlanEnableGroup": {
+    "name": "dDhcpSnpVlanEnableGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpVlanCrlFirst2K"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpVlanCrlSecond2K"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpIfTrustGroup": {
+    "name": "dDhcpSnpIfTrustGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpIfTrustEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpBindingsGroup": {
+    "name": "dDhcpSnpBindingsGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsLeasedTime"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpBindingsClearGroup": {
+    "name": "dDhcpSnpBindingsClearGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsClearStatus"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsClearByMacAddr"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsClearByVlan"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsClearByIpAddress"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBindingsClearByInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpVerifyMacAddressGroup": {
+    "name": "dDhcpSnpVerifyMacAddressGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpVerifyMacAddressEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpStationMoveGroup": {
+    "name": "dDhcpSnpStationMoveGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpStationMoveDenyEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpBootpBindGroup": {
+    "name": "dDhcpSnpBootpBindGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpBootpBindEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpRelayAgentInfoAllowGroup": {
+    "name": "dDhcpSnpRelayAgentInfoAllowGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpOption82AllowUntrust"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpDatabaseGroup": {
+    "name": "dDhcpSnpDatabaseGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpDatabaseUrl"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpDatabaseUpdateInterval"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpRenewDatabaseUrl"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpRenewValidateDbEnabled"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpRenewDatabase"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpDbLastSucceeded"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpDbLastFailed"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpClearDatabaseStatistics"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpStatBindingCollision"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpStatExpiredLease"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpStatInvalidInterfaces"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpStatUnsupportedVlans"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpStatParsingFailures"
+      },
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpStatChecksumErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpIfRateLimitGroup": {
+    "name": "dDhcpSnpIfRateLimitGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpIfRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "dDhcpSnpIfBindingsLimitGroup": {
+    "name": "dDhcpSnpIfBindingsLimitGroup",
+    "oid": "1.3.6.1.4.1.171.14.131.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-DHCP-SNOOPING-MIB",
+        "object": "dDhcpSnpIfBindingsLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP-SNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-DHCP-SNOOPING-MIB"
+  }
+}

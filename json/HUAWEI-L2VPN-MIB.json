@@ -1,0 +1,610 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwL2VpnAttribute": {
+    "name": "hwL2VpnAttribute",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-07-13 17:00",
+        "description": "Add L2vpnIfTable to hwL2VpnAttribute."
+      },
+      {
+        "revision": "2015-03-16 17:50",
+        "description": "Add 1 leaf nodes to hwL2VpnAttribute."
+      },
+      {
+        "revision": "2014-06-18 10:00",
+        "description": "Add 11 leaf nodes to hwL2VpnAttribute."
+      }
+    ]
+  },
+  "hwL2Vpn": {
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119",
+    "class": "objectidentity"
+  },
+  "hwL2VpnEnable": {
+    "name": "hwL2VpnEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2VpnWorkingMode": {
+    "name": "hwL2VpnWorkingMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pwe3": 1,
+          "martini": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwL2VpnLocalCCCNumber": {
+    "name": "hwL2VpnLocalCCCNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnRemoteCCCNumber": {
+    "name": "hwL2VpnRemoteCCCNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnSvcNumber": {
+    "name": "hwL2VpnSvcNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnLdpVcNumber": {
+    "name": "hwL2VpnLdpVcNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnBgpVcNumber": {
+    "name": "hwL2VpnBgpVcNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnVsiNumber": {
+    "name": "hwL2VpnVsiNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnBgpVsiNumber": {
+    "name": "hwL2VpnBgpVsiNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnVsiVcNumber": {
+    "name": "hwL2VpnVsiVcNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVplsVcNumberMaxNum": {
+    "name": "hwVplsVcNumberMaxNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVplsVcNumberUpperThreshold": {
+    "name": "hwVplsVcNumberUpperThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL2VpnVcLimitClass": {
+    "name": "hwL2VpnVcLimitClass",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vll": 1,
+          "vpls": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL2VpnSwitchVcNumber": {
+    "name": "hwL2VpnSwitchVcNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfTable": {
+    "name": "hwL2vpnAcIfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwL2vpnAcIfEntry": {
+    "name": "hwL2vpnAcIfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2vpnAcIfIndex": {
+    "name": "hwL2vpnAcIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfPhyType": {
+    "name": "hwL2vpnAcIfPhyType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfLinkType": {
+    "name": "hwL2vpnAcIfLinkType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfEncap": {
+    "name": "hwL2vpnAcIfEncap",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfMinEncapNum": {
+    "name": "hwL2vpnAcIfMinEncapNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfMaxEncapNum": {
+    "name": "hwL2vpnAcIfMaxEncapNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfEncapStep": {
+    "name": "hwL2vpnAcIfEncapStep",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfMinJitterBuffer": {
+    "name": "hwL2vpnAcIfMinJitterBuffer",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfMaxJitterBuffer": {
+    "name": "hwL2vpnAcIfMaxJitterBuffer",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfJitterBufferStep": {
+    "name": "hwL2vpnAcIfJitterBufferStep",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfCfgTtpHeader": {
+    "name": "hwL2vpnAcIfCfgTtpHeader",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfMinIdleCode": {
+    "name": "hwL2vpnAcIfMinIdleCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2vpnAcIfMaxIdleCode": {
+    "name": "hwL2vpnAcIfMaxIdleCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwL2VpnMIBConformance": {
+    "name": "hwL2VpnMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.3",
+    "class": "objectidentity"
+  },
+  "hwL2VpnMIBCompliances": {
+    "name": "hwL2VpnMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.3.1",
+    "class": "objectidentity"
+  },
+  "hwL2VpnMIBCompliance": {
+    "name": "hwL2VpnMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwL2VpnMIBGroup",
+        "module": "HUAWEI-L2VPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2VpnMIBGroups": {
+    "name": "hwL2VpnMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.3.2",
+    "class": "objectidentity"
+  },
+  "hwL2VpnMIBGroup": {
+    "name": "hwL2VpnMIBGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnEnable"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnWorkingMode"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnLocalCCCNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnRemoteCCCNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnSvcNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnLdpVcNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnBgpVcNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnVsiNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnBgpVsiNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnVsiVcNumber"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwVplsVcNumberMaxNum"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwVplsVcNumberUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnVcLimitClass"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnSwitchVcNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2vpnAcIfGroup": {
+    "name": "hwL2vpnAcIfGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.8.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfPhyType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfLinkType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfEncap"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinEncapNum"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxEncapNum"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfEncapStep"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinJitterBuffer"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxJitterBuffer"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfJitterBufferStep"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfCfgTtpHeader"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinIdleCode"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxIdleCode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L2VPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-L2VPN-MIB"
+  }
+}

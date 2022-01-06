@@ -1,0 +1,390 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-MAIN-MIB": [
+      "slMain"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "slChassis": {
+    "name": "slChassis",
+    "oid": "1.3.6.1.4.1.4515.1.3.18",
+    "class": "moduleidentity"
+  },
+  "slChassisInfo": {
+    "name": "slChassisInfo",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.1",
+    "class": "objectidentity"
+  },
+  "slChassisSlot": {
+    "name": "slChassisSlot",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2",
+    "class": "objectidentity"
+  },
+  "slChassisInfoNodeSlotId": {
+    "name": "slChassisInfoNodeSlotId",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slChassisInfoNodeRole": {
+    "name": "slChassisInfoNodeRole",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gneNode": 1,
+          "internalSlotNode": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slChassisInfoLanVrrpIp": {
+    "name": "slChassisInfoLanVrrpIp",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slChassisInfoOscVrrpIp": {
+    "name": "slChassisInfoOscVrrpIp",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slChassisInfoTopology": {
+    "name": "slChassisInfoTopology",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "osc": 1,
+          "lan": 2,
+          "simple": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slChassisInfoVrrpEnable": {
+    "name": "slChassisInfoVrrpEnable",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slChassisSlotTable": {
+    "name": "slChassisSlotTable",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slChassisSlotEntry": {
+    "name": "slChassisSlotEntry",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-CHASSIS-MIB",
+        "object": "slChassisSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slChassisSlotId": {
+    "name": "slChassisSlotId",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotRole": {
+    "name": "slChassisSlotRole",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gneNode": 1,
+          "internalNode": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotInternalIp": {
+    "name": "slChassisSlotInternalIp",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotProductType": {
+    "name": "slChassisSlotProductType",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotSysName": {
+    "name": "slChassisSlotSysName",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotSnmp161Port": {
+    "name": "slChassisSlotSnmp161Port",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotSnmp162MinPort": {
+    "name": "slChassisSlotSnmp162MinPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotSnmp162MaxPort": {
+    "name": "slChassisSlotSnmp162MaxPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotHttpPort": {
+    "name": "slChassisSlotHttpPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotTelnetPort": {
+    "name": "slChassisSlotTelnetPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotFtpPort": {
+    "name": "slChassisSlotFtpPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotTL1Port": {
+    "name": "slChassisSlotTL1Port",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotPingIdentifier": {
+    "name": "slChassisSlotPingIdentifier",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotHttpsPort": {
+    "name": "slChassisSlotHttpsPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotSshPort": {
+    "name": "slChassisSlotSshPort",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slChassisSlotSTL1Port": {
+    "name": "slChassisSlotSTL1Port",
+    "oid": "1.3.6.1.4.1.4515.1.3.18.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-CHASSIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-CHASSIS-MIB"
+  }
+}

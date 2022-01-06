@@ -1,0 +1,1961 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "RADIUS-ACC-CLIENT-MIB": [
+      "radiusAccServerAddress",
+      "radiusAccClientServerPortNumber",
+      "radiusAccServerIndex"
+    ],
+    "RADIUS-AUTH-CLIENT-MIB": [
+      "radiusAuthClientServerPortNumber",
+      "radiusAuthServerIndex",
+      "radiusAuthServerAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfRadius": {
+    "name": "hpnicfRadius",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13",
+    "class": "moduleidentity"
+  },
+  "hpnicfRdObjects": {
+    "name": "hpnicfRdObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1",
+    "class": "objectidentity"
+  },
+  "hpnicfRdInfoTable": {
+    "name": "hpnicfRdInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdInfoEntry": {
+    "name": "hpnicfRdInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRdGroupName": {
+    "name": "hpnicfRdGroupName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdPrimAuthIp": {
+    "name": "hpnicfRdPrimAuthIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hpnicfRdPrimUdpPort": {
+    "name": "hpnicfRdPrimUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimState": {
+    "name": "hpnicfRdPrimState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAuthIp": {
+    "name": "hpnicfRdSecAuthIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hpnicfRdSecUdpPort": {
+    "name": "hpnicfRdSecUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecState": {
+    "name": "hpnicfRdSecState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdKey": {
+    "name": "hpnicfRdKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdRetry": {
+    "name": "hpnicfRdRetry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdTimeout": {
+    "name": "hpnicfRdTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimAuthIpAddrType": {
+    "name": "hpnicfRdPrimAuthIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimAuthIpAddr": {
+    "name": "hpnicfRdPrimAuthIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAuthIpAddrType": {
+    "name": "hpnicfRdSecAuthIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAuthIpAddr": {
+    "name": "hpnicfRdSecAuthIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdServerType": {
+    "name": "hpnicfRdServerType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "iphotel": 2,
+          "portal": 3,
+          "extended": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdQuietTime": {
+    "name": "hpnicfRdQuietTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdUserNameFormat": {
+    "name": "hpnicfRdUserNameFormat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withoutdomain": 1,
+          "withdomain": 2,
+          "keeporignal": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdRowStatus": {
+    "name": "hpnicfRdRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecKey": {
+    "name": "hpnicfRdSecKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimVpnName": {
+    "name": "hpnicfRdPrimVpnName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecVpnName": {
+    "name": "hpnicfRdSecVpnName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAuthNasIpAddrType": {
+    "name": "hpnicfRdAuthNasIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAuthNasIpAddr": {
+    "name": "hpnicfRdAuthNasIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAuthNasIpv6Addr": {
+    "name": "hpnicfRdAuthNasIpv6Addr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccInfoTable": {
+    "name": "hpnicfRdAccInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdAccInfoEntry": {
+    "name": "hpnicfRdAccInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdAccGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRdAccGroupName": {
+    "name": "hpnicfRdAccGroupName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdPrimAccIpAddrType": {
+    "name": "hpnicfRdPrimAccIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimAccIpAddr": {
+    "name": "hpnicfRdPrimAccIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimAccUdpPort": {
+    "name": "hpnicfRdPrimAccUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimAccState": {
+    "name": "hpnicfRdPrimAccState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAccIpAddrType": {
+    "name": "hpnicfRdSecAccIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAccIpAddr": {
+    "name": "hpnicfRdSecAccIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAccUdpPort": {
+    "name": "hpnicfRdSecAccUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAccState": {
+    "name": "hpnicfRdSecAccState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccKey": {
+    "name": "hpnicfRdAccKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccRetry": {
+    "name": "hpnicfRdAccRetry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccTimeout": {
+    "name": "hpnicfRdAccTimeout",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccServerType": {
+    "name": "hpnicfRdAccServerType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "iphotel": 2,
+          "portal": 3,
+          "extended": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccQuietTime": {
+    "name": "hpnicfRdAccQuietTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccFailureAction": {
+    "name": "hpnicfRdAccFailureAction",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "reject": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccRealTime": {
+    "name": "hpnicfRdAccRealTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccRealTimeRetry": {
+    "name": "hpnicfRdAccRealTimeRetry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccSaveStopPktEnable": {
+    "name": "hpnicfRdAccSaveStopPktEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccStopRetry": {
+    "name": "hpnicfRdAccStopRetry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccDataFlowUnit": {
+    "name": "hpnicfRdAccDataFlowUnit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byte": 1,
+          "kiloByte": 2,
+          "megaByte": 3,
+          "gigaByte": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccPacketUnit": {
+    "name": "hpnicfRdAccPacketUnit",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePacket": 1,
+          "kiloPacket": 2,
+          "megaPacket": 3,
+          "gigaPacket": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccRowStatus": {
+    "name": "hpnicfRdAccRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAcctOnEnable": {
+    "name": "hpnicfRdAcctOnEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAcctOnSendTimes": {
+    "name": "hpnicfRdAcctOnSendTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAcctOnSendInterval": {
+    "name": "hpnicfRdAcctOnSendInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAccKey": {
+    "name": "hpnicfRdSecAccKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdPrimAccVpnName": {
+    "name": "hpnicfRdPrimAccVpnName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecAccVpnName": {
+    "name": "hpnicfRdSecAccVpnName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccNasIpAddrType": {
+    "name": "hpnicfRdAccNasIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccNasIpAddr": {
+    "name": "hpnicfRdAccNasIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdAccNasIpv6Addr": {
+    "name": "hpnicfRdAccNasIpv6Addr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusGlobalConfig": {
+    "name": "hpnicfRadiusGlobalConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusAuthErrThreshold": {
+    "name": "hpnicfRadiusAuthErrThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthServerTable": {
+    "name": "hpnicfRdSecondaryAuthServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthServerEntry": {
+    "name": "hpnicfRdSecondaryAuthServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAuthIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAuthIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAuthVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAuthUdpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthIpAddrType": {
+    "name": "hpnicfRdSecondaryAuthIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthIpAddr": {
+    "name": "hpnicfRdSecondaryAuthIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthVpnName": {
+    "name": "hpnicfRdSecondaryAuthVpnName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthUdpPort": {
+    "name": "hpnicfRdSecondaryAuthUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthState": {
+    "name": "hpnicfRdSecondaryAuthState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthKey": {
+    "name": "hpnicfRdSecondaryAuthKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAuthRowStatus": {
+    "name": "hpnicfRdSecondaryAuthRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccServerTable": {
+    "name": "hpnicfRdSecondaryAccServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccServerEntry": {
+    "name": "hpnicfRdSecondaryAccServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdAccGroupName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAccIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAccIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAccVpnName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRdSecondaryAccUdpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccIpAddrType": {
+    "name": "hpnicfRdSecondaryAccIpAddrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccIpAddr": {
+    "name": "hpnicfRdSecondaryAccIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccVpnName": {
+    "name": "hpnicfRdSecondaryAccVpnName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccUdpPort": {
+    "name": "hpnicfRdSecondaryAccUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccState": {
+    "name": "hpnicfRdSecondaryAccState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccKey": {
+    "name": "hpnicfRdSecondaryAccKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRdSecondaryAccRowStatus": {
+    "name": "hpnicfRdSecondaryAccRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusAccounting": {
+    "name": "hpnicfRadiusAccounting",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusAccClient": {
+    "name": "hpnicfRadiusAccClient",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusAccServerTable": {
+    "name": "hpnicfRadiusAccServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRadiusAccServerEntry": {
+    "name": "hpnicfRadiusAccServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADIUS-ACC-CLIENT-MIB",
+        "object": "radiusAccServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusAccClientStartRequests": {
+    "name": "hpnicfRadiusAccClientStartRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusAccClientStartResponses": {
+    "name": "hpnicfRadiusAccClientStartResponses",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusAccClientInterimRequests": {
+    "name": "hpnicfRadiusAccClientInterimRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusAccClientInterimResponses": {
+    "name": "hpnicfRadiusAccClientInterimResponses",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusAccClientStopRequests": {
+    "name": "hpnicfRadiusAccClientStopRequests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusAccClientStopResponses": {
+    "name": "hpnicfRadiusAccClientStopResponses",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusServerTrap": {
+    "name": "hpnicfRadiusServerTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.3",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusAuthServerDownTrap": {
+    "name": "hpnicfRadiusAuthServerDownTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthServerAddress"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientServerPortNumber"
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRadiusServerFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusAccServerDownTrap": {
+    "name": "hpnicfRadiusAccServerDownTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RADIUS-ACC-CLIENT-MIB",
+        "object": "radiusAccServerAddress"
+      },
+      {
+        "module": "RADIUS-ACC-CLIENT-MIB",
+        "object": "radiusAccClientServerPortNumber"
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRadiusServerFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusServerTrapPrefix": {
+    "name": "hpnicfRadiusServerTrapPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusAuthServerUpTrap": {
+    "name": "hpnicfRadiusAuthServerUpTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthServerAddress"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientServerPortNumber"
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRadiusServerFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusAccServerUpTrap": {
+    "name": "hpnicfRadiusAccServerUpTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RADIUS-ACC-CLIENT-MIB",
+        "object": "radiusAccServerAddress"
+      },
+      {
+        "module": "RADIUS-ACC-CLIENT-MIB",
+        "object": "radiusAccClientServerPortNumber"
+      },
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRadiusServerFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusAuthErrTrap": {
+    "name": "hpnicfRadiusAuthErrTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthServerAddress"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientServerPortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusAuthenticating": {
+    "name": "hpnicfRadiusAuthenticating",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.4",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusAuthClient": {
+    "name": "hpnicfRadiusAuthClient",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.4.1",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusAuthServerTable": {
+    "name": "hpnicfRadiusAuthServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRadiusAuthServerEntry": {
+    "name": "hpnicfRadiusAuthServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusAuthFailureTimes": {
+    "name": "hpnicfRadiusAuthFailureTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusAuthTimeoutTimes": {
+    "name": "hpnicfRadiusAuthTimeoutTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusAuthRejectTimes": {
+    "name": "hpnicfRadiusAuthRejectTimes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusExtend": {
+    "name": "hpnicfRadiusExtend",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusExtendObjects": {
+    "name": "hpnicfRadiusExtendObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.1",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusExtendTables": {
+    "name": "hpnicfRadiusExtendTables",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusExtendTraps": {
+    "name": "hpnicfRadiusExtendTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.3",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusSchAuthTable": {
+    "name": "hpnicfRadiusSchAuthTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthEntry": {
+    "name": "hpnicfRadiusSchAuthEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRadiusSchAuthGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthGroupName": {
+    "name": "hpnicfRadiusSchAuthGroupName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthPrimIpAddr": {
+    "name": "hpnicfRadiusSchAuthPrimIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthPrimUdpPort": {
+    "name": "hpnicfRadiusSchAuthPrimUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1812,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthPrimKey": {
+    "name": "hpnicfRadiusSchAuthPrimKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthSecIpAddr": {
+    "name": "hpnicfRadiusSchAuthSecIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthSecUdpPort": {
+    "name": "hpnicfRadiusSchAuthSecUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1812,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthSecKey": {
+    "name": "hpnicfRadiusSchAuthSecKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAuthRowStatus": {
+    "name": "hpnicfRadiusSchAuthRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccTable": {
+    "name": "hpnicfRadiusSchAccTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccEntry": {
+    "name": "hpnicfRadiusSchAccEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-RADIUS-MIB",
+        "object": "hpnicfRadiusSchAccGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccGroupName": {
+    "name": "hpnicfRadiusSchAccGroupName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccPrimIpAddr": {
+    "name": "hpnicfRadiusSchAccPrimIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccPrimUdpPort": {
+    "name": "hpnicfRadiusSchAccPrimUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1813,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccPrimKey": {
+    "name": "hpnicfRadiusSchAccPrimKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccSecIpAddr": {
+    "name": "hpnicfRadiusSchAccSecIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccSecUdpPort": {
+    "name": "hpnicfRadiusSchAccSecUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1813,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccSecKey": {
+    "name": "hpnicfRadiusSchAccSecKey",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusSchAccRowStatus": {
+    "name": "hpnicfRadiusSchAccRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.5.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfRadiusStatistic": {
+    "name": "hpnicfRadiusStatistic",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.6",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusStatAccReq": {
+    "name": "hpnicfRadiusStatAccReq",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusStatAccAck": {
+    "name": "hpnicfRadiusStatAccAck",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusStatLogoutReq": {
+    "name": "hpnicfRadiusStatLogoutReq",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusStatLogoutAck": {
+    "name": "hpnicfRadiusStatLogoutAck",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfRadiusServerTrapVarObjects": {
+    "name": "hpnicfRadiusServerTrapVarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.7",
+    "class": "objectidentity"
+  },
+  "hpnicfRadiusServerFirstTrapTime": {
+    "name": "hpnicfRadiusServerFirstTrapTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.13.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-RADIUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-RADIUS-MIB"
+  }
+}

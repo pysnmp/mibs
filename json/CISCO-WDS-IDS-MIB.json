@@ -1,0 +1,259 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWdsIdsMIB": {
+    "name": "ciscoWdsIdsMIB",
+    "oid": "1.3.6.1.4.1.9.9.457",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-10-17 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoWdsIdsMIBObjects": {
+    "name": "ciscoWdsIdsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.457.1",
+    "class": "objectidentity"
+  },
+  "ciscoWdsIdsMacSpoofing": {
+    "name": "ciscoWdsIdsMacSpoofing",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoWdsIdsMaxMacAddresses": {
+    "name": "ciscoWdsIdsMaxMacAddresses",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoWdsIdsMaxEntriesPerMac": {
+    "name": "ciscoWdsIdsMaxEntriesPerMac",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofTable": {
+    "name": "ciscoWdsIdsMacSpoofTable",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofEntry": {
+    "name": "ciscoWdsIdsMacSpoofEntry",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WDS-IDS-MIB",
+        "object": "ciscoWdsIdsMacSpoofStaMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WDS-IDS-MIB",
+        "object": "ciscoWdsIdsMacSpoofIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofStaMacAddress": {
+    "name": "ciscoWdsIdsMacSpoofStaMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofIndex": {
+    "name": "ciscoWdsIdsMacSpoofIndex",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofClient": {
+    "name": "ciscoWdsIdsMacSpoofClient",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofUserId": {
+    "name": "ciscoWdsIdsMacSpoofUserId",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofDetectTime": {
+    "name": "ciscoWdsIdsMacSpoofDetectTime",
+    "oid": "1.3.6.1.4.1.9.9.457.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoWdsIdsMIBConform": {
+    "name": "ciscoWdsIdsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.457.2",
+    "class": "objectidentity"
+  },
+  "ciscoWdsIdsMIBCompliances": {
+    "name": "ciscoWdsIdsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.457.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWdsIdsMIBGroups": {
+    "name": "ciscoWdsIdsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.457.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWdsIdsMIBCompliance": {
+    "name": "ciscoWdsIdsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.457.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWdsIdsMacSpoofingGroup",
+        "module": "CISCO-WDS-IDS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWdsIdsMacSpoofingGroup": {
+    "name": "ciscoWdsIdsMacSpoofingGroup",
+    "oid": "1.3.6.1.4.1.9.9.457.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WDS-IDS-MIB",
+        "object": "ciscoWdsIdsMaxMacAddresses"
+      },
+      {
+        "module": "CISCO-WDS-IDS-MIB",
+        "object": "ciscoWdsIdsMaxEntriesPerMac"
+      },
+      {
+        "module": "CISCO-WDS-IDS-MIB",
+        "object": "ciscoWdsIdsMacSpoofClient"
+      },
+      {
+        "module": "CISCO-WDS-IDS-MIB",
+        "object": "ciscoWdsIdsMacSpoofUserId"
+      },
+      {
+        "module": "CISCO-WDS-IDS-MIB",
+        "object": "ciscoWdsIdsMacSpoofDetectTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WDS-IDS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WDS-IDS-MIB"
+  }
+}

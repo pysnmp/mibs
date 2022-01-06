@@ -1,0 +1,104 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "enterprises",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nms": {
+    "name": "nms",
+    "oid": "1.3.6.1.4.1.3320",
+    "class": "moduleidentity"
+  },
+  "nmsProducts": {
+    "name": "nmsProducts",
+    "oid": "1.3.6.1.4.1.3320.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmslocal": {
+    "name": "nmslocal",
+    "oid": "1.3.6.1.4.1.3320.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmstemporary": {
+    "name": "nmstemporary",
+    "oid": "1.3.6.1.4.1.3320.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsMgmt": {
+    "name": "nmsMgmt",
+    "oid": "1.3.6.1.4.1.3320.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsModules": {
+    "name": "nmsModules",
+    "oid": "1.3.6.1.4.1.3320.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsPolicyAuto": {
+    "name": "nmsPolicyAuto",
+    "oid": "1.3.6.1.4.1.3320.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsPibToMib": {
+    "name": "nmsPibToMib",
+    "oid": "1.3.6.1.4.1.3320.18.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsWorkGroup": {
+    "name": "nmsWorkGroup",
+    "oid": "1.3.6.1.4.1.3320.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsEPONGroup": {
+    "name": "nmsEPONGroup",
+    "oid": "1.3.6.1.4.1.3320.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nmsPTNGroup": {
+    "name": "nmsPTNGroup",
+    "oid": "1.3.6.1.4.1.3320.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/NMS-SMI",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NMS-SMI"
+  }
+}

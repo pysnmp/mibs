@@ -1,0 +1,92 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "enterprises",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "trpzRootMib": {
+    "name": "trpzRootMib",
+    "oid": "1.3.6.1.4.1.14525",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-05-22 00:08",
+        "description": "v3.1.1: Changed IMPORT of enterprises from RFC1155-SMI to SNMPv2-SMI (this will be published in 7.0 release)"
+      },
+      {
+        "revision": "2007-11-28 00:07",
+        "description": "v3.0.0: Added subtree for wireless Management Applications specific MIBs (this will be published in 7.0 release)"
+      },
+      {
+        "revision": "2006-04-14 00:06",
+        "description": "v2.0.5: Revised for 4.1 release"
+      },
+      {
+        "revision": "2005-01-01 00:00",
+        "description": "v1: initial version, as for 4.0 and older releases"
+      }
+    ]
+  },
+  "trpzProducts": {
+    "name": "trpzProducts",
+    "oid": "1.3.6.1.4.1.14525.1",
+    "class": "objectidentity"
+  },
+  "trpzTemporary": {
+    "name": "trpzTemporary",
+    "oid": "1.3.6.1.4.1.14525.2",
+    "class": "objectidentity"
+  },
+  "trpzRegistration": {
+    "name": "trpzRegistration",
+    "oid": "1.3.6.1.4.1.14525.3",
+    "class": "objectidentity"
+  },
+  "trpzMibs": {
+    "name": "trpzMibs",
+    "oid": "1.3.6.1.4.1.14525.4",
+    "class": "objectidentity"
+  },
+  "trpzTraps": {
+    "name": "trpzTraps",
+    "oid": "1.3.6.1.4.1.14525.5",
+    "class": "objectidentity"
+  },
+  "trpzMgmtAppMibs": {
+    "name": "trpzMgmtAppMibs",
+    "oid": "1.3.6.1.4.1.14525.6",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/TRAPEZE-NETWORKS-ROOT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:43 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TRAPEZE-NETWORKS-ROOT-MIB"
+  }
+}

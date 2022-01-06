@@ -1,0 +1,495 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ifotec": {
+    "name": "ifotec",
+    "oid": "1.3.6.1.4.1.21362",
+    "class": "moduleidentity"
+  },
+  "IfotecDataStatus": {
+    "name": "IfotecDataStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noData": 1,
+          "ok": 2,
+          "warning": 3,
+          "warningLowThreshold": 4,
+          "warningHighThreshold": 5,
+          "error": 6,
+          "errorLowThreshold": 7,
+          "errorHighThreshold": 8,
+          "errorWrongData": 9,
+          "errorLowDataOverflow": 10,
+          "errorHighDataOverflow": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ifotecGeneral": {
+    "name": "ifotecGeneral",
+    "oid": "1.3.6.1.4.1.21362.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ifotecSystem": {
+    "name": "ifotecSystem",
+    "oid": "1.3.6.1.4.1.21362.101.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ifoSysProductIndex": {
+    "name": "ifoSysProductIndex",
+    "oid": "1.3.6.1.4.1.21362.101.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysTable": {
+    "name": "ifoSysTable",
+    "oid": "1.3.6.1.4.1.21362.101.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoSysEntry": {
+    "name": "ifoSysEntry",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IFOTEC-SMI",
+        "object": "ifoSysIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifoSysIndex": {
+    "name": "ifoSysIndex",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoSysRef": {
+    "name": "ifoSysRef",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysInfo": {
+    "name": "ifoSysInfo",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysFamilly": {
+    "name": "ifoSysFamilly",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysSerialNumber": {
+    "name": "ifoSysSerialNumber",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysDateCode": {
+    "name": "ifoSysDateCode",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysFirmware": {
+    "name": "ifoSysFirmware",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysBootloader": {
+    "name": "ifoSysBootloader",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysDescr": {
+    "name": "ifoSysDescr",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysLocation": {
+    "name": "ifoSysLocation",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysContact": {
+    "name": "ifoSysContact",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysUpTime": {
+    "name": "ifoSysUpTime",
+    "oid": "1.3.6.1.4.1.21362.101.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysMibTable": {
+    "name": "ifoSysMibTable",
+    "oid": "1.3.6.1.4.1.21362.101.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoSysMibEntry": {
+    "name": "ifoSysMibEntry",
+    "oid": "1.3.6.1.4.1.21362.101.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IFOTEC-SMI",
+        "object": "ifoSysORIfoSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "IFOTEC-SMI",
+        "object": "ifoSysORIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifoSysORIfoSysIndex": {
+    "name": "ifoSysORIfoSysIndex",
+    "oid": "1.3.6.1.4.1.21362.101.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoSysORIndex": {
+    "name": "ifoSysORIndex",
+    "oid": "1.3.6.1.4.1.21362.101.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoSysORID": {
+    "name": "ifoSysORID",
+    "oid": "1.3.6.1.4.1.21362.101.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoSysORDescr": {
+    "name": "ifoSysORDescr",
+    "oid": "1.3.6.1.4.1.21362.101.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifotecTemperatures": {
+    "name": "ifotecTemperatures",
+    "oid": "1.3.6.1.4.1.21362.101.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ifoTemperatureTable": {
+    "name": "ifoTemperatureTable",
+    "oid": "1.3.6.1.4.1.21362.101.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoTemperatureEntry": {
+    "name": "ifoTemperatureEntry",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IFOTEC-SMI",
+        "object": "ifoTempIfoSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "IFOTEC-SMI",
+        "object": "ifoTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ifoTempIfoSysIndex": {
+    "name": "ifoTempIfoSysIndex",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoTempIndex": {
+    "name": "ifoTempIndex",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifoTempName": {
+    "name": "ifoTempName",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoTempDescr": {
+    "name": "ifoTempDescr",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoTempValue": {
+    "name": "ifoTempValue",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoTempAlarmStatus": {
+    "name": "ifoTempAlarmStatus",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfotecDataStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoTempLowThldAlarm": {
+    "name": "ifoTempLowThldAlarm",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoTempHighThldAlarm": {
+    "name": "ifoTempHighThldAlarm",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoTempLowThldWarning": {
+    "name": "ifoTempLowThldWarning",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifoTempHighThldWarning": {
+    "name": "ifoTempHighThldWarning",
+    "oid": "1.3.6.1.4.1.21362.101.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifotecModules": {
+    "name": "ifotecModules",
+    "oid": "1.3.6.1.4.1.21362.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ifotec/IFOTEC-SMI",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:39 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IFOTEC-SMI"
+  }
+}

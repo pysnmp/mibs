@@ -1,0 +1,728 @@
+{
+  "imports": {
+    "class": "imports",
+    "NSCRTV-EPONEOC-EPON-MIB": [
+      "EponDeviceIndex",
+      "EponCardIndex",
+      "EponStats24HourRecordType",
+      "TAddress",
+      "EponStatsThresholdType",
+      "eponTrapObjectGroup",
+      "AutoNegotiationTechAbility",
+      "EponPortIndex",
+      "eponManagementObjGroup",
+      "EponSeverityType",
+      "eponAlarmObjGroup",
+      "EponStats15MinRecordType",
+      "eponAlarmTree",
+      "EponAlarmCode",
+      "EponAlarmInstance"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "eponNotifications": {
+    "name": "eponNotifications",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.1",
+    "class": "objectidentity"
+  },
+  "eponAlarmNotification": {
+    "name": "eponAlarmNotification",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapSequenceNumber"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapOccurTime"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapCode"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapInstance"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapSeverity"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapCorrelationId"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapAdditionalText"
+      }
+    ],
+    "status": "current"
+  },
+  "eponEventNotification": {
+    "name": "eponEventNotification",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapSequenceNumber"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapOccurTime"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapCode"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapInstance"
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponTrapAdditionalText"
+      }
+    ],
+    "status": "current"
+  },
+  "eponTrapObjects": {
+    "name": "eponTrapObjects",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2",
+    "class": "objectidentity"
+  },
+  "eponTrapInstance": {
+    "name": "eponTrapInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eponTrapCorrelationId": {
+    "name": "eponTrapCorrelationId",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eponTrapAdditionalText": {
+    "name": "eponTrapAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eponTrapCode": {
+    "name": "eponTrapCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eponTrapSeverity": {
+    "name": "eponTrapSeverity",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eponTrapOccurTime": {
+    "name": "eponTrapOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eponTrapSequenceNumber": {
+    "name": "eponTrapSequenceNumber",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "activeAlarmTable": {
+    "name": "activeAlarmTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "activeAlarmEntry": {
+    "name": "activeAlarmEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "activeAlarmSeqNum",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "activeAlarmRaisingNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "activeAlarmSeqNum": {
+    "name": "activeAlarmSeqNum",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "activeAlarmCode": {
+    "name": "activeAlarmCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmInstance": {
+    "name": "activeAlarmInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmSeverity": {
+    "name": "activeAlarmSeverity",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmRaisingNumber": {
+    "name": "activeAlarmRaisingNumber",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "activeAlarmFirstOccurTime": {
+    "name": "activeAlarmFirstOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmLastOccurTime": {
+    "name": "activeAlarmLastOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmRepeats": {
+    "name": "activeAlarmRepeats",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeAlarmConfirm": {
+    "name": "activeAlarmConfirm",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "activeAlarmAdditionalText": {
+    "name": "activeAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmTable": {
+    "name": "historyAlarmTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyAlarmEntry": {
+    "name": "historyAlarmEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "historyAlarmSeqNum",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "historyAlarmRaisingNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "historyAlarmSeqNum": {
+    "name": "historyAlarmSeqNum",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyAlarmCode": {
+    "name": "historyAlarmCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmInstance": {
+    "name": "historyAlarmInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmSeverity": {
+    "name": "historyAlarmSeverity",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmRaisingNumber": {
+    "name": "historyAlarmRaisingNumber",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "historyAlarmFirstOccurTime": {
+    "name": "historyAlarmFirstOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmLastOccurTime": {
+    "name": "historyAlarmLastOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmRepeats": {
+    "name": "historyAlarmRepeats",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmCorrelationId": {
+    "name": "historyAlarmCorrelationId",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmAdditionalText": {
+    "name": "historyAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "historyAlarmClearTime": {
+    "name": "historyAlarmClearTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventLogTable": {
+    "name": "eventLogTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventLogEntry": {
+    "name": "eventLogEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eventSeqNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eventSeqNum": {
+    "name": "eventSeqNum",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eventCode": {
+    "name": "eventCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventInstance": {
+    "name": "eventInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventOccurTime": {
+    "name": "eventOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventAdditionalText": {
+    "name": "eventAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponManagementAddrTable": {
+    "name": "eponManagementAddrTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponManagementAddrEntry": {
+    "name": "eponManagementAddrEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-ALARM-MGM-MIB",
+        "object": "eponManagementAddrName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponManagementAddrName": {
+    "name": "eponManagementAddrName",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponManagementAddrTAddress": {
+    "name": "eponManagementAddrTAddress",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponManagementAddrCommunity": {
+    "name": "eponManagementAddrCommunity",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponManagementAddrRowStatus": {
+    "name": "eponManagementAddrRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/NSCRTV-EPON-ALARM-MGM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:31:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NSCRTV-EPON-ALARM-MGM-MIB"
+  }
+}

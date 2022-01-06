@@ -1,0 +1,2243 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwDCTrapMIB": {
+    "name": "hwDCTrapMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.37",
+    "class": "moduleidentity"
+  },
+  "hwDCTrapControl": {
+    "name": "hwDCTrapControl",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.1",
+    "class": "objectidentity"
+  },
+  "hwDCCtrlTrap": {
+    "name": "hwDCCtrlTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwTunnelGroupID": {
+    "name": "hwTunnelGroupID",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDCTrapReason": {
+    "name": "hwDCTrapReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDCTraps": {
+    "name": "hwDCTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2",
+    "class": "objectidentity"
+  },
+  "hwMPUSynClkFaulty": {
+    "name": "hwMPUSynClkFaulty",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMPUSynClkFaultyResume": {
+    "name": "hwMPUSynClkFaultyResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSlaveMPUNoResp": {
+    "name": "hwSlaveMPUNoResp",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSlaveMPUNoRespResume": {
+    "name": "hwSlaveMPUNoRespResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdChannelFaulty": {
+    "name": "hwBrdChannelFaulty",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdChannelFaultyResume": {
+    "name": "hwBrdChannelFaultyResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdNofullin": {
+    "name": "hwBrdNofullin",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdNofullinResume": {
+    "name": "hwBrdNofullinResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdTypeNoMatchReset": {
+    "name": "hwBrdTypeNoMatchReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdAutoSwtFail": {
+    "name": "hwBrdAutoSwtFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdAutoSwt": {
+    "name": "hwBrdAutoSwt",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdClkLockERR": {
+    "name": "hwBrdClkLockERR",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdClkLockERRResume": {
+    "name": "hwBrdClkLockERRResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdRemoved": {
+    "name": "hwBrdRemoved",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdInserted": {
+    "name": "hwBrdInserted",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBrdUp": {
+    "name": "hwBrdUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClkSrcMiss": {
+    "name": "hwClkSrcMiss",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClkAllSrcLost": {
+    "name": "hwClkAllSrcLost",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClkAllSrcLostResume": {
+    "name": "hwClkAllSrcLostResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClkFail": {
+    "name": "hwClkFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClkFailResume": {
+    "name": "hwClkFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClkNoHeartbeat": {
+    "name": "hwClkNoHeartbeat",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwClkNoHeartbeatResume": {
+    "name": "hwClkNoHeartbeatResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLPULostSynAlarm": {
+    "name": "hwLPULostSynAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLPUOpenChannelError": {
+    "name": "hwLPUOpenChannelError",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLPUSlfTstErr": {
+    "name": "hwLPUSlfTstErr",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLPU3ClkSwitch": {
+    "name": "hwLPU3ClkSwitch",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSFULostHrtReset": {
+    "name": "hwSFULostHrtReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSFULinkLostReset": {
+    "name": "hwSFULinkLostReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSFUChannelLinkLost": {
+    "name": "hwSFUChannelLinkLost",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSFUInChannelOpenFail": {
+    "name": "hwSFUInChannelOpenFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltSensorFail": {
+    "name": "hwVoltSensorFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltSensorFailResume": {
+    "name": "hwVoltSensorFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltBtmC": {
+    "name": "hwVoltBtmC",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltBtmCResume": {
+    "name": "hwVoltBtmCResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltSprC": {
+    "name": "hwVoltSprC",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltSprCResume": {
+    "name": "hwVoltSprCResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltBtmM": {
+    "name": "hwVoltBtmM",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltBtmMResume": {
+    "name": "hwVoltBtmMResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltSprM": {
+    "name": "hwVoltSprM",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVoltSprMResume": {
+    "name": "hwVoltSprMResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempSensorFail": {
+    "name": "hwTempSensorFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempSensorFailResume": {
+    "name": "hwTempSensorFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempMnr": {
+    "name": "hwTempMnr",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempMnrResume": {
+    "name": "hwTempMnrResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempMjr": {
+    "name": "hwTempMjr",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempMjrResume": {
+    "name": "hwTempMjrResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempCtl": {
+    "name": "hwTempCtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempCtlResume": {
+    "name": "hwTempCtlResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanHFail": {
+    "name": "hwFanHFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanFail": {
+    "name": "hwFanFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanFailResume": {
+    "name": "hwFanFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanAbsent": {
+    "name": "hwFanAbsent",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanAbsentResume": {
+    "name": "hwFanAbsentResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanCabUN": {
+    "name": "hwFanCabUN",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFanCabUNResume": {
+    "name": "hwFanCabUNResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwrFail": {
+    "name": "hwPwrFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwrFailResume": {
+    "name": "hwPwrFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwrAbsent": {
+    "name": "hwPwrAbsent",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwrAbsentResume": {
+    "name": "hwPwrAbsentResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwrCabUN": {
+    "name": "hwPwrCabUN",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwrCabUNResume": {
+    "name": "hwPwrCabUNResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLCDHFail": {
+    "name": "hwLCDHFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLCDFail": {
+    "name": "hwLCDFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLCDAbsent": {
+    "name": "hwLCDAbsent",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLCDAbsentResume": {
+    "name": "hwLCDAbsentResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLCDCabUN": {
+    "name": "hwLCDCabUN",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLCDCabUNResume": {
+    "name": "hwLCDCabUNResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.68",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwROMFail": {
+    "name": "hwROMFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.69",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMonitorBUSFail": {
+    "name": "hwMonitorBUSFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMonitorBUSFailResume": {
+    "name": "hwMonitorBUSFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBoardOfflineChange": {
+    "name": "hwBoardOfflineChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.72",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwWriteFlashError": {
+    "name": "hwWriteFlashError",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBoardReset": {
+    "name": "hwBoardReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBoardResetSuccess": {
+    "name": "hwBoardResetSuccess",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSlaveMPUReset": {
+    "name": "hwSlaveMPUReset",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMasterSlaveSwap": {
+    "name": "hwMasterSlaveSwap",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRTCFail": {
+    "name": "hwRTCFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwExchangeChipFail": {
+    "name": "hwExchangeChipFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTempResume": {
+    "name": "hwTempResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.107",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalModuleInsert": {
+    "name": "hwOpticalModuleInsert",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.108",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwOpticalModuleRemove": {
+    "name": "hwOpticalModuleRemove",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.109",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFPGAAbnormal": {
+    "name": "hwFPGAAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.110",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMTunnelDownAlarm": {
+    "name": "hwMinMTunnelDownAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.111",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTunnelGroupID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMinMTunnelUpAlarm": {
+    "name": "hwMinMTunnelUpAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.112",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTunnelGroupID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInterfacePhysicalDown": {
+    "name": "hwInterfacePhysicalDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.113",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwInterfacePhysicalUp": {
+    "name": "hwInterfacePhysicalUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.114",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBStartupFileNameDifferent": {
+    "name": "hwBTBStartupFileNameDifferent",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.119",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBChassisRunningModeConflict": {
+    "name": "hwBTBChassisRunningModeConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.120",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBCtrlChannelFail": {
+    "name": "hwBTBCtrlChannelFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.121",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBCtrlChannelFailResume": {
+    "name": "hwBTBCtrlChannelFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.122",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBDataChannelFail": {
+    "name": "hwBTBDataChannelFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.123",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBDataChannelFailResume": {
+    "name": "hwBTBDataChannelFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.124",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBClkChannelFail": {
+    "name": "hwBTBClkChannelFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.125",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBClkChannelFailResume": {
+    "name": "hwBTBClkChannelFailResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.126",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBSFUOpticInterfaceError": {
+    "name": "hwBTBSFUOpticInterfaceError",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.127",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBSFUOpticInterfaceErrorResume": {
+    "name": "hwBTBSFUOpticInterfaceErrorResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.128",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBVSRInterfaceInvalid": {
+    "name": "hwBTBVSRInterfaceInvalid",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.129",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBVSRInterfaceInvalidResume": {
+    "name": "hwBTBVSRInterfaceInvalidResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBSlaveChassisNoHeart": {
+    "name": "hwBTBSlaveChassisNoHeart",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBNoSlaveChassis": {
+    "name": "hwBTBNoSlaveChassis",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.132",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBSlaveChassisRegisted": {
+    "name": "hwBTBSlaveChassisRegisted",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.133",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBSlaveChassisRegisteFail": {
+    "name": "hwBTBSlaveChassisRegisteFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.134",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBTBChassisTypeConflict": {
+    "name": "hwBTBChassisTypeConflict",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.135",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSuperChangeSuccesful": {
+    "name": "hwSuperChangeSuccesful",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.136",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwSuperChangeFailure": {
+    "name": "hwSuperChangeFailure",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.137",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwOpticaPowerAbnormal": {
+    "name": "hwOpticaPowerAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.138",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEpldAbnormal": {
+    "name": "hwEpldAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.139",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPhyChipAbnormal": {
+    "name": "hwPhyChipAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.140",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSerdesAbnormal": {
+    "name": "hwSerdesAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.141",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBoardAbnormal": {
+    "name": "hwBoardAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.142",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFeChannelAbnormal": {
+    "name": "hwFeChannelAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.143",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwParityCheckAbnormal": {
+    "name": "hwParityCheckAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.144",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPhyClockAbnormal": {
+    "name": "hwPhyClockAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.145",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortAutoNegotiateFail": {
+    "name": "hwPortAutoNegotiateFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.146",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPortSemiduplex": {
+    "name": "hwPortSemiduplex",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.147",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwScuStartModeSetFail": {
+    "name": "hwScuStartModeSetFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.148",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwMemoryExhaust": {
+    "name": "hwMemoryExhaust",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.149",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwMemoryExhaustClear": {
+    "name": "hwMemoryExhaustClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.150",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwMethAbnormal": {
+    "name": "hwMethAbnormal",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.151",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLpuNotTight": {
+    "name": "hwLpuNotTight",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.152",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLicenseFail": {
+    "name": "hwLicenseFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.153",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwHaBatchBegin": {
+    "name": "hwHaBatchBegin",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.154",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwHaBatchEnd": {
+    "name": "hwHaBatchEnd",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.155",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwHaSmoothBegin": {
+    "name": "hwHaSmoothBegin",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.156",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwHaSmoothEnd": {
+    "name": "hwHaSmoothEnd",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.2.157",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDCTrapConformance": {
+    "name": "hwDCTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.3",
+    "class": "objectidentity"
+  },
+  "hwDCTrapGroups": {
+    "name": "hwDCTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.3.1",
+    "class": "objectidentity"
+  },
+  "hwDCTrapControlGroup": {
+    "name": "hwDCTrapControlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCCtrlTrap"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTunnelGroupID"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwDCTrapReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDCNotificationGroup": {
+    "name": "hwDCNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMPUSynClkFaulty"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMPUSynClkFaultyResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSlaveMPUNoResp"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSlaveMPUNoRespResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdChannelFaulty"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdChannelFaultyResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdNofullin"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdNofullinResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdTypeNoMatchReset"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdAutoSwtFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdAutoSwt"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdClkLockERR"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdClkLockERRResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdRemoved"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdUp"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwClkSrcMiss"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwClkAllSrcLost"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwClkAllSrcLostResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwClkFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwClkFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwClkNoHeartbeat"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwClkNoHeartbeatResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLPULostSynAlarm"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLPUOpenChannelError"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLPUSlfTstErr"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLPU3ClkSwitch"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSFULostHrtReset"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSFULinkLostReset"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSFUChannelLinkLost"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSFUInChannelOpenFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltSensorFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltSensorFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltBtmC"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltBtmCResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltSprC"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltSprCResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltBtmM"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltBtmMResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltSprM"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwVoltSprMResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempSensorFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempSensorFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempMnr"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempMnrResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempMjr"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempMjrResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempCtl"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempCtlResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFanHFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFanFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFanFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFanAbsent"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFanAbsentResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFanCabUN"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFanCabUNResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPwrFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPwrFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPwrAbsent"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPwrAbsentResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPwrCabUN"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPwrCabUNResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLCDHFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLCDFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLCDAbsent"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLCDAbsentResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLCDCabUN"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLCDCabUNResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwROMFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMonitorBUSFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMonitorBUSFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwWriteFlashError"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBoardReset"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBoardResetSuccess"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSlaveMPUReset"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMasterSlaveSwap"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwRTCFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwExchangeChipFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwTempResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwOpticalModuleInsert"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwOpticalModuleRemove"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBoardOfflineChange"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwInterfacePhysicalDown"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwInterfacePhysicalUp"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBStartupFileNameDifferent"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBChassisRunningModeConflict"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBCtrlChannelFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBCtrlChannelFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBDataChannelFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBDataChannelFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBClkChannelFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBClkChannelFailResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBSFUOpticInterfaceError"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBSFUOpticInterfaceErrorResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBVSRInterfaceInvalid"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBVSRInterfaceInvalidResume"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBSlaveChassisNoHeart"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBNoSlaveChassis"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBSlaveChassisRegisted"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBSlaveChassisRegisteFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBTBChassisTypeConflict"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwOpticaPowerAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFPGAAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBrdInserted"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMinMTunnelDownAlarm"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMinMTunnelUpAlarm"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSuperChangeSuccesful"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSuperChangeFailure"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwEpldAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPhyChipAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwSerdesAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwBoardAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwFeChannelAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwParityCheckAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPhyClockAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPortAutoNegotiateFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwPortSemiduplex"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwScuStartModeSetFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMemoryExhaust"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMemoryExhaustClear"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwMethAbnormal"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLpuNotTight"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwLicenseFail"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwHaBatchBegin"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwHaBatchEnd"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwHaSmoothBegin"
+      },
+      {
+        "module": "HUAWEI-DC-TRAP-MIB",
+        "object": "hwHaSmoothEnd"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDCTrapCompliances": {
+    "name": "hwDCTrapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.3.2",
+    "class": "objectidentity"
+  },
+  "hwDCTrapCompliance": {
+    "name": "hwDCTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.37.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwDCTrapControlGroup",
+        "module": "HUAWEI-DC-TRAP-MIB"
+      },
+      {
+        "object": "hwDCNotificationGroup",
+        "module": "HUAWEI-DC-TRAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DC-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-DC-TRAP-MIB"
+  }
+}

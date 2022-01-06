@@ -1,0 +1,340 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-FORUM-TC-MIB": [
+      "AtmAddress"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "LAN-EMULATION-CLIENT-MIB": [
+      "VciInteger",
+      "VpiInteger"
+    ],
+    "MPOA-MIB": [
+      "mpcIndex",
+      "mpsIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoMpoaExtMIB": {
+    "name": "ciscoMpoaExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.99999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-01-10 12:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoMpoaExtMIBObjects": {
+    "name": "ciscoMpoaExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.99999.1",
+    "class": "objectidentity"
+  },
+  "cMpcExtShortcutVCC": {
+    "name": "cMpcExtShortcutVCC",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1",
+    "class": "objectidentity"
+  },
+  "cMpcExtShortcutVCCTable": {
+    "name": "cMpcExtShortcutVCCTable",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMpcExtShortcutVCCEntry": {
+    "name": "cMpcExtShortcutVCCEntry",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPOA-MIB",
+        "object": "mpcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MPOA-EXT-MIB",
+        "object": "cmpcSCVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MPOA-EXT-MIB",
+        "object": "cmpcSCVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmpcSCVpi": {
+    "name": "cmpcSCVpi",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpcSCVci": {
+    "name": "cmpcSCVci",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VciInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmpcDestAtmAddr": {
+    "name": "cmpcDestAtmAddr",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cMpcInterface": {
+    "name": "cMpcInterface",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2",
+    "class": "objectidentity"
+  },
+  "cMpcInterfaceMappingTable": {
+    "name": "cMpcInterfaceMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMpcInterfaceMappingEntry": {
+    "name": "cMpcInterfaceMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPOA-MIB",
+        "object": "mpcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMpcInterfaceMappingIndex": {
+    "name": "cMpcInterfaceMappingIndex",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMpcInterfaceMappingRowStatus": {
+    "name": "cMpcInterfaceMappingRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMpsInterface": {
+    "name": "cMpsInterface",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.3",
+    "class": "objectidentity"
+  },
+  "cMpsInterfaceMappingTable": {
+    "name": "cMpsInterfaceMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cMpsInterfaceMappingEntry": {
+    "name": "cMpsInterfaceMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPOA-MIB",
+        "object": "mpsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cMpsInterfaceMappingIndex": {
+    "name": "cMpsInterfaceMappingIndex",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cMpsInterfaceMappingRowStatus": {
+    "name": "cMpsInterfaceMappingRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.99999.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoMpoaExtMIBNotificationPrefix": {
+    "name": "ciscoMpoaExtMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.99999.2",
+    "class": "objectidentity"
+  },
+  "ciscoMpoaExtMIBNotifications": {
+    "name": "ciscoMpoaExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.99999.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoMpoaExtMIBConformance": {
+    "name": "ciscoMpoaExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.99999.3",
+    "class": "objectidentity"
+  },
+  "ciscoMpoaExtMIBCompliances": {
+    "name": "ciscoMpoaExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoMpoaExtMIBGroups": {
+    "name": "ciscoMpoaExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoMpoaExtMIBCompliance": {
+    "name": "ciscoMpoaExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMpoaExtShorcutVCCMIBGroup",
+        "module": "CISCO-MPOA-EXT-MIB"
+      },
+      {
+        "object": "ciscoMpoaExtMpcInterfaceMappingGroup",
+        "module": "CISCO-MPOA-EXT-MIB"
+      },
+      {
+        "object": "ciscoMpoaExtMpsInterfaceMappingGroup",
+        "module": "CISCO-MPOA-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMpoaExtShorcutVCCMIBGroup": {
+    "name": "ciscoMpoaExtShorcutVCCMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MPOA-EXT-MIB",
+        "object": "cmpcDestAtmAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMpoaExtMpcInterfaceMappingGroup": {
+    "name": "ciscoMpoaExtMpcInterfaceMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MPOA-EXT-MIB",
+        "object": "cMpcInterfaceMappingIndex"
+      },
+      {
+        "module": "CISCO-MPOA-EXT-MIB",
+        "object": "cMpcInterfaceMappingRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMpoaExtMpsInterfaceMappingGroup": {
+    "name": "ciscoMpoaExtMpsInterfaceMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.99999.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MPOA-EXT-MIB",
+        "object": "cMpsInterfaceMappingIndex"
+      },
+      {
+        "module": "CISCO-MPOA-EXT-MIB",
+        "object": "cMpsInterfaceMappingRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MPOA-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MPOA-EXT-MIB"
+  }
+}

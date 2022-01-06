@@ -1,0 +1,1476 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACCEDIAN-SMI": [
+      "acdMibs"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "acdPolicy": {
+    "name": "acdPolicy",
+    "oid": "1.3.6.1.4.1.22420.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-10-10 01:00",
+        "description": "Add acdPolicyTableLastChangeTid."
+      },
+      {
+        "revision": "2011-02-28 01:00",
+        "description": "Add acdPolicyListTable and acdPolicyPortTable tables."
+      },
+      {
+        "revision": "2010-11-10 01:00",
+        "description": "Add compliance section."
+      },
+      {
+        "revision": "2008-06-15 01:00",
+        "description": "Add new service mapping values."
+      },
+      {
+        "revision": "2008-05-01 01:00",
+        "description": "Add service mapping support."
+      },
+      {
+        "revision": "2008-02-06 01:00",
+        "description": "Add support for history table."
+      },
+      {
+        "revision": "2007-05-15 01:00",
+        "description": "Add bad packets counters."
+      },
+      {
+        "revision": "2007-03-28 01:00",
+        "description": "Add Regulator functionalities."
+      },
+      {
+        "revision": "2006-08-06 01:00",
+        "description": "Initial version of MIB module ACD-POLICY-MIB."
+      }
+    ]
+  },
+  "acdPolicyNotifications": {
+    "name": "acdPolicyNotifications",
+    "oid": "1.3.6.1.4.1.22420.2.3.4",
+    "class": "objectidentity"
+  },
+  "acdPolicyMIBObjects": {
+    "name": "acdPolicyMIBObjects",
+    "oid": "1.3.6.1.4.1.22420.2.3.5",
+    "class": "objectidentity"
+  },
+  "acdPolicyConformance": {
+    "name": "acdPolicyConformance",
+    "oid": "1.3.6.1.4.1.22420.2.3.6",
+    "class": "objectidentity"
+  },
+  "acdPolicyList": {
+    "name": "acdPolicyList",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.1",
+    "class": "objectidentity"
+  },
+  "acdPolicyPort": {
+    "name": "acdPolicyPort",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.2",
+    "class": "objectidentity"
+  },
+  "acdPolicyTableTid": {
+    "name": "acdPolicyTableTid",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.3",
+    "class": "objectidentity"
+  },
+  "acdPolicyTable": {
+    "name": "acdPolicyTable",
+    "oid": "1.3.6.1.4.1.22420.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyEntry": {
+    "name": "acdPolicyEntry",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyID": {
+    "name": "acdPolicyID",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyListID": {
+    "name": "acdPolicyListID",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyEntryID": {
+    "name": "acdPolicyEntryID",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyEnable": {
+    "name": "acdPolicyEnable",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyFilterType": {
+    "name": "acdPolicyFilterType",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layer2filter": 0,
+          "ipv4filter": 1,
+          "ipv6filter": 2,
+          "vlist": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyFilterIndex": {
+    "name": "acdPolicyFilterIndex",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyDropEnable": {
+    "name": "acdPolicyDropEnable",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "acdPolicyMonitorEnable": {
+    "name": "acdPolicyMonitorEnable",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyMonitorIndex": {
+    "name": "acdPolicyMonitorIndex",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monitor1": 1,
+          "monitor2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyRegulatorEnable": {
+    "name": "acdPolicyRegulatorEnable",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyRegulatorIndex": {
+    "name": "acdPolicyRegulatorIndex",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyRegulatorMarking": {
+    "name": "acdPolicyRegulatorMarking",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2,
+          "red": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyAction": {
+    "name": "acdPolicyAction",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "permit": 2,
+          "mgmtOAM": 3,
+          "mgmtOAMandDrop": 4,
+          "mgmtOAMandForward": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyEvcMappingEncaps": {
+    "name": "acdPolicyEvcMappingEncaps",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "push": 2,
+          "pop": 3,
+          "replace": 4,
+          "popAndReplace": 5,
+          "pushAndPreserve": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyEvcMappingEtype": {
+    "name": "acdPolicyEvcMappingEtype",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cvlan": 1,
+          "svlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyEvcMappingVlanId": {
+    "name": "acdPolicyEvcMappingVlanId",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingPcpAction": {
+    "name": "acdPolicyCosMappingPcpAction",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preserve": 1,
+          "direct": 2,
+          "map": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice1En": {
+    "name": "acdPolicyCosMappingChoice1En",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice1Type": {
+    "name": "acdPolicyCosMappingChoice1Type",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcpVlan": 1,
+          "pcpVlanInVlan": 2,
+          "pre": 3,
+          "dscp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice1Profile": {
+    "name": "acdPolicyCosMappingChoice1Profile",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice1RegSet": {
+    "name": "acdPolicyCosMappingChoice1RegSet",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice2En": {
+    "name": "acdPolicyCosMappingChoice2En",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice2Type": {
+    "name": "acdPolicyCosMappingChoice2Type",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pcpVlan": 1,
+          "pcpVlanInVlan": 2,
+          "pre": 3,
+          "dscp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice2Profile": {
+    "name": "acdPolicyCosMappingChoice2Profile",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyCosMappingChoice2RegSet": {
+    "name": "acdPolicyCosMappingChoice2RegSet",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyDefaultMappingGreenCfi": {
+    "name": "acdPolicyDefaultMappingGreenCfi",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyDefaultMappingGreenPrior": {
+    "name": "acdPolicyDefaultMappingGreenPrior",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyDefaultMappingYellowCfi": {
+    "name": "acdPolicyDefaultMappingYellowCfi",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyDefaultMappingYellowPrior": {
+    "name": "acdPolicyDefaultMappingYellowPrior",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyOutgoingPort": {
+    "name": "acdPolicyOutgoingPort",
+    "oid": "1.3.6.1.4.1.22420.2.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "acdPolicyStatsTable": {
+    "name": "acdPolicyStatsTable",
+    "oid": "1.3.6.1.4.1.22420.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyStatsEntry": {
+    "name": "acdPolicyStatsEntry",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyStatsID": {
+    "name": "acdPolicyStatsID",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyStatsListID": {
+    "name": "acdPolicyStatsListID",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsEntryID": {
+    "name": "acdPolicyStatsEntryID",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInPkts": {
+    "name": "acdPolicyStatsInPkts",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInOverflowPkts": {
+    "name": "acdPolicyStatsInOverflowPkts",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInHCPkts": {
+    "name": "acdPolicyStatsInHCPkts",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInOctets": {
+    "name": "acdPolicyStatsInOctets",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInOverflowOctets": {
+    "name": "acdPolicyStatsInOverflowOctets",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInHCOctets": {
+    "name": "acdPolicyStatsInHCOctets",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInPktsErr": {
+    "name": "acdPolicyStatsInPktsErr",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInOverflowPktsErr": {
+    "name": "acdPolicyStatsInOverflowPktsErr",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyStatsInHCPktsErr": {
+    "name": "acdPolicyStatsInHCPktsErr",
+    "oid": "1.3.6.1.4.1.22420.2.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsTable": {
+    "name": "acdPolicyHistStatsTable",
+    "oid": "1.3.6.1.4.1.22420.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyHistStatsEntry": {
+    "name": "acdPolicyHistStatsEntry",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsID",
+        "implied": 0
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsSampleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyHistStatsID": {
+    "name": "acdPolicyHistStatsID",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyHistStatsListID": {
+    "name": "acdPolicyHistStatsListID",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsEntryID": {
+    "name": "acdPolicyHistStatsEntryID",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsSampleIndex": {
+    "name": "acdPolicyHistStatsSampleIndex",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyHistStatsStatus": {
+    "name": "acdPolicyHistStatsStatus",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsDuration": {
+    "name": "acdPolicyHistStatsDuration",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsIntervalEnd": {
+    "name": "acdPolicyHistStatsIntervalEnd",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInPkts": {
+    "name": "acdPolicyHistStatsInPkts",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInOverflowPkts": {
+    "name": "acdPolicyHistStatsInOverflowPkts",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInHCPkts": {
+    "name": "acdPolicyHistStatsInHCPkts",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInOctets": {
+    "name": "acdPolicyHistStatsInOctets",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInOverflowOctets": {
+    "name": "acdPolicyHistStatsInOverflowOctets",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInHCOctets": {
+    "name": "acdPolicyHistStatsInHCOctets",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInPktsErr": {
+    "name": "acdPolicyHistStatsInPktsErr",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInOverflowPktsErr": {
+    "name": "acdPolicyHistStatsInOverflowPktsErr",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyHistStatsInHCPktsErr": {
+    "name": "acdPolicyHistStatsInHCPktsErr",
+    "oid": "1.3.6.1.4.1.22420.2.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyListTable": {
+    "name": "acdPolicyListTable",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyListEntry": {
+    "name": "acdPolicyListEntry",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyListEntryID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyListEntryID": {
+    "name": "acdPolicyListEntryID",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyListName": {
+    "name": "acdPolicyListName",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyListNbrEntries": {
+    "name": "acdPolicyListNbrEntries",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyPortTable": {
+    "name": "acdPolicyPortTable",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyPortEntry": {
+    "name": "acdPolicyPortEntry",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyPortEntryID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyPortEntryID": {
+    "name": "acdPolicyPortEntryID",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "acdPolicyPortListID": {
+    "name": "acdPolicyPortListID",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyTableLastChangeTid": {
+    "name": "acdPolicyTableLastChangeTid",
+    "oid": "1.3.6.1.4.1.22420.2.3.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acdPolicyCompliances": {
+    "name": "acdPolicyCompliances",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.1",
+    "class": "objectidentity"
+  },
+  "acdPolicyGroups": {
+    "name": "acdPolicyGroups",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2",
+    "class": "objectidentity"
+  },
+  "acdPolicyGroup": {
+    "name": "acdPolicyGroup",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyListID"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyEntryID"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyEnable"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyFilterType"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyFilterIndex"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyMonitorEnable"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyMonitorIndex"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyRegulatorEnable"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyRegulatorIndex"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyRegulatorMarking"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyAction"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyEvcMappingEncaps"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyEvcMappingEtype"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyEvcMappingVlanId"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingPcpAction"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice1En"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice1Type"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice1Profile"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice1RegSet"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice2En"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice2Type"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice2Profile"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyCosMappingChoice2RegSet"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyDefaultMappingGreenCfi"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyDefaultMappingGreenPrior"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyDefaultMappingYellowCfi"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyDefaultMappingYellowPrior"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyOutgoingPort"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyStatsGroup": {
+    "name": "acdPolicyStatsGroup",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsListID"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsEntryID"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInPkts"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInOverflowPkts"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInHCPkts"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInOctets"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInOverflowOctets"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInHCOctets"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInPktsErr"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInOverflowPktsErr"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyStatsInHCPktsErr"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyHistStatsGroup": {
+    "name": "acdPolicyHistStatsGroup",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsListID"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsEntryID"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsStatus"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsDuration"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsIntervalEnd"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInPkts"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInOverflowPkts"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInHCPkts"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInOctets"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInOverflowOctets"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInHCOctets"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInPktsErr"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInOverflowPktsErr"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyHistStatsInHCPktsErr"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyDeprecatedGroup": {
+    "name": "acdPolicyDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyDropEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "acdPolicyListGroup": {
+    "name": "acdPolicyListGroup",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyListName"
+      },
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyListNbrEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyPortGroup": {
+    "name": "acdPolicyPortGroup",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyPortListID"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyTidGroup": {
+    "name": "acdPolicyTidGroup",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACD-POLICY-MIB",
+        "object": "acdPolicyTableLastChangeTid"
+      }
+    ],
+    "status": "current"
+  },
+  "acdPolicyCompliance": {
+    "name": "acdPolicyCompliance",
+    "oid": "1.3.6.1.4.1.22420.2.3.6.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "acdPolicyGroup",
+        "module": "ACD-POLICY-MIB"
+      },
+      {
+        "object": "acdPolicyStatsGroup",
+        "module": "ACD-POLICY-MIB"
+      },
+      {
+        "object": "acdPolicyHistStatsGroup",
+        "module": "ACD-POLICY-MIB"
+      },
+      {
+        "object": "acdPolicyListGroup",
+        "module": "ACD-POLICY-MIB"
+      },
+      {
+        "object": "acdPolicyPortGroup",
+        "module": "ACD-POLICY-MIB"
+      },
+      {
+        "object": "acdPolicyTidGroup",
+        "module": "ACD-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:03 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACD-POLICY-MIB"
+  }
+}

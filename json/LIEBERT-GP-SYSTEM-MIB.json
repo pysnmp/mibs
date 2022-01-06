@@ -1,0 +1,448 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-AGENT-MIB": [
+      "lgpAgentDeviceIndex",
+      "lgpAgentConnectedDeviceCount"
+    ],
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "lgpSystem",
+      "liebertSystemModuleReg"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "liebertSystemModule": {
+    "name": "liebertSystemModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.8.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-17 00:00",
+        "description": "Added support for NXL unit."
+      },
+      {
+        "revision": "2008-07-02 00:00",
+        "description": "Added missing items to the IMPORT statement"
+      },
+      {
+        "revision": "2008-01-10 00:00",
+        "description": "Add system notifications sub-tree and modified contact email address."
+      },
+      {
+        "revision": "2007-05-29 00:00",
+        "description": "Added support for XDF Unit."
+      },
+      {
+        "revision": "2006-02-22 00:00",
+        "description": "Added support for Liebert DS Unit."
+      }
+    ]
+  },
+  "lgpSysStatistics": {
+    "name": "lgpSysStatistics",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysStatus": {
+    "name": "lgpSysStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysSettings": {
+    "name": "lgpSysSettings",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysControl": {
+    "name": "lgpSysControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysTime": {
+    "name": "lgpSysTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysMaintenance": {
+    "name": "lgpSysMaintenance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysEventDescription": {
+    "name": "lgpSysEventDescription",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysEventNotifications": {
+    "name": "lgpSysEventNotifications",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysDeviceComponentGroup": {
+    "name": "lgpSysDeviceComponentGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysDeviceComponentTable": {
+    "name": "lgpSysDeviceComponentTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpSysDeviceComponentEntry": {
+    "name": "lgpSysDeviceComponentEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-AGENT-MIB",
+        "object": "lgpAgentDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "LIEBERT-GP-SYSTEM-MIB",
+        "object": "lgpSysDeviceComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpSysDeviceComponentIndex": {
+    "name": "lgpSysDeviceComponentIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpSysDeviceComponentDescr": {
+    "name": "lgpSysDeviceComponentDescr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysDeviceComponentSerialNum": {
+    "name": "lgpSysDeviceComponentSerialNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysDeviceComponentModelNum": {
+    "name": "lgpSysDeviceComponentModelNum",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysDeviceComponentWellknown": {
+    "name": "lgpSysDeviceComponentWellknown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysDeviceBatCabinet": {
+    "name": "lgpSysDeviceBatCabinet",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysDeviceParallelCabinet": {
+    "name": "lgpSysDeviceParallelCabinet",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysDeviceMaintBypass": {
+    "name": "lgpSysDeviceMaintBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.9.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpSysNotification": {
+    "name": "lgpSysNotification",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.8.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "LIEBERT-GP-SYSTEM-MIB",
+        "object": "lgpSysEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "lgpSysNormal": {
+    "name": "lgpSysNormal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.8.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "LIEBERT-GP-AGENT-MIB",
+        "object": "lgpAgentConnectedDeviceCount"
+      }
+    ],
+    "status": "current"
+  },
+  "lgpSysStatisticsRunHrs": {
+    "name": "lgpSysStatisticsRunHrs",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hours",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysSelfTestResult": {
+    "name": "lgpSysSelfTestResult",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "passed": 2,
+          "failed": 3,
+          "inProgress": 4,
+          "sysFailure": 5,
+          "inhibited": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysState": {
+    "name": "lgpSysState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalOperation": 1,
+          "startUp": 2,
+          "normalWithWarning": 3,
+          "normalWithAlarm": 4,
+          "abnormalOperation": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysAudibleAlarm": {
+    "name": "lgpSysAudibleAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSysSelfTest": {
+    "name": "lgpSysSelfTest",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSysControlOperationOnOff": {
+    "name": "lgpSysControlOperationOnOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSysTimeEpoch": {
+    "name": "lgpSysTimeEpoch",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpSysMaintenanceCapacity": {
+    "name": "lgpSysMaintenanceCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysMaintenanceYear": {
+    "name": "lgpSysMaintenanceYear",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "year",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpSysMaintenanceMonth": {
+    "name": "lgpSysMaintenanceMonth",
+    "oid": "1.3.6.1.4.1.476.1.42.3.7.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "month",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LIEBERT-GP-SYSTEM-MIB"
+  }
+}

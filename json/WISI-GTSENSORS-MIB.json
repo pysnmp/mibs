@@ -1,0 +1,900 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "WISI-GTMODULES-MIB": [
+      "gtModule"
+    ],
+    "WISI-TANGRAM-MIB": [
+      "gtUnit"
+    ]
+  },
+  "gtSensorsMIB": {
+    "name": "gtSensorsMIB",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-08 00:00",
+        "description": "Made the fan control object read-only. Update contact information and module description."
+      },
+      {
+        "revision": "2013-07-01 14:00",
+        "description": "Trap for PSU failure added."
+      },
+      {
+        "revision": "2013-06-27 14:00",
+        "description": "Descriptions added."
+      },
+      {
+        "revision": "2013-06-26 14:00",
+        "description": "Clear Traps added."
+      },
+      {
+        "revision": "2012-12-12 13:20",
+        "description": "Updated contact details."
+      },
+      {
+        "revision": "2011-12-15 12:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "gtSensorsNotifications": {
+    "name": "gtSensorsNotifications",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0",
+    "class": "objectidentity"
+  },
+  "gtSensorsObjects": {
+    "name": "gtSensorsObjects",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1",
+    "class": "objectidentity"
+  },
+  "gtSensorsConformance": {
+    "name": "gtSensorsConformance",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2",
+    "class": "objectidentity"
+  },
+  "gtSensorsCompliances": {
+    "name": "gtSensorsCompliances",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "gtSensorsGroups": {
+    "name": "gtSensorsGroups",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "gtSensorsNotifyFanPlugin": {
+    "name": "gtSensorsNotifyFanPlugin",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyFanPlugout": {
+    "name": "gtSensorsNotifyFanPlugout",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUPlugin": {
+    "name": "gtSensorsNotifyPSUPlugin",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUPlugout": {
+    "name": "gtSensorsNotifyPSUPlugout",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyTemperature": {
+    "name": "gtSensorsNotifyTemperature",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyFanSpeed": {
+    "name": "gtSensorsNotifyFanSpeed",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUCurrent": {
+    "name": "gtSensorsNotifyPSUCurrent",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUVoltage": {
+    "name": "gtSensorsNotifyPSUVoltage",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.8",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUTemperature": {
+    "name": "gtSensorsNotifyPSUTemperature",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUTemperatureClear": {
+    "name": "gtSensorsNotifyPSUTemperatureClear",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.10",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyBOARDTemperatureClear": {
+    "name": "gtSensorsNotifyBOARDTemperatureClear",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUFailure": {
+    "name": "gtSensorsNotifyPSUFailure",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.12",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtSensorsNotifyPSUFailureClear": {
+    "name": "gtSensorsNotifyPSUFailureClear",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.0.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "gtNumTemps": {
+    "name": "gtNumTemps",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTempsTable": {
+    "name": "gtTempsTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtTempsEntry": {
+    "name": "gtTempsEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTMODULES-MIB",
+        "object": "gtModule",
+        "implied": 0
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtTemp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtTemp": {
+    "name": "gtTemp",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtTempName": {
+    "name": "gtTempName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtTempValue": {
+    "name": "gtTempValue",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 195
+          }
+        ]
+      }
+    },
+    "units": "'C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtNumFans": {
+    "name": "gtNumFans",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtFansTable": {
+    "name": "gtFansTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtFansEntry": {
+    "name": "gtFansEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtFan": {
+    "name": "gtFan",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtFanName": {
+    "name": "gtFanName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtFanControl": {
+    "name": "gtFanControl",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "units": "rpm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtFanSpeed": {
+    "name": "gtFanSpeed",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "units": "rpm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtFanUptime": {
+    "name": "gtFanUptime",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtFanLifetime": {
+    "name": "gtFanLifetime",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtNumPSUs": {
+    "name": "gtNumPSUs",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPSUsTable": {
+    "name": "gtPSUsTable",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtPSUsEntry": {
+    "name": "gtPSUsEntry",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSU",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gtPSU": {
+    "name": "gtPSU",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gtPSUName": {
+    "name": "gtPSUName",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPSUPower": {
+    "name": "gtPSUPower",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300000
+          }
+        ]
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPSUCurrent": {
+    "name": "gtPSUCurrent",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25000
+          }
+        ]
+      }
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPSUVoltageInt": {
+    "name": "gtPSUVoltageInt",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPSUVoltageOR": {
+    "name": "gtPSUVoltageOR",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPSUVoltageExt": {
+    "name": "gtPSUVoltageExt",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000
+          }
+        ]
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtPSUTemperature": {
+    "name": "gtPSUTemperature",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -60,
+            "max": 195
+          }
+        ]
+      }
+    },
+    "units": "'C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gtSensorsMIBCompliance": {
+    "name": "gtSensorsMIBCompliance",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "gtSensorsV1Group",
+        "module": "WISI-GTSENSORS-MIB"
+      },
+      {
+        "object": "gtSensorsSystemGroup",
+        "module": "WISI-GTSENSORS-MIB"
+      },
+      {
+        "object": "gtSensorsStatsGroup",
+        "module": "WISI-GTSENSORS-MIB"
+      },
+      {
+        "object": "gtSensorsTrapGroup",
+        "module": "WISI-GTSENSORS-MIB"
+      },
+      {
+        "object": "gtSensorsSetGroup",
+        "module": "WISI-GTSENSORS-MIB"
+      },
+      {
+        "object": "gtSensorsBasicNotificationsGroup",
+        "module": "WISI-GTSENSORS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSensorsV1Group": {
+    "name": "gtSensorsV1Group",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtTempName"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtTempValue"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanName"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanControl"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanSpeed"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUName"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUPower"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUCurrent"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUVoltageInt"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUVoltageOR"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUVoltageExt"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSensorsSystemGroup": {
+    "name": "gtSensorsSystemGroup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtTempName"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtTempValue"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanName"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanSpeed"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUName"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUPower"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUCurrent"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUVoltageInt"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUVoltageOR"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUVoltageExt"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSensorsStatsGroup": {
+    "name": "gtSensorsStatsGroup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtNumTemps"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtNumFans"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanUptime"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanLifetime"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtNumPSUs"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSensorsTrapGroup": {
+    "name": "gtSensorsTrapGroup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtTempValue"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanControl"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanSpeed"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUCurrent"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtPSUVoltageInt"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSensorsSetGroup": {
+    "name": "gtSensorsSetGroup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtFanControl"
+      }
+    ],
+    "status": "current"
+  },
+  "gtSensorsBasicNotificationsGroup": {
+    "name": "gtSensorsBasicNotificationsGroup",
+    "oid": "1.3.6.1.4.1.7465.20.2.9.1.3.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyFanPlugin"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyFanPlugout"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyPSUPlugin"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyPSUPlugout"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyTemperature"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyFanSpeed"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyPSUCurrent"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyPSUVoltage"
+      },
+      {
+        "module": "WISI-GTSENSORS-MIB",
+        "object": "gtSensorsNotifyPSUTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-GTSENSORS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WISI-GTSENSORS-MIB"
+  }
+}

@@ -1,0 +1,4879 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressPrefixLength"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwAclMIB": {
+    "name": "dlinkSwAclMIB",
+    "oid": "1.3.6.1.4.1.171.14.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-26 00:00",
+        "description": "Add DEFVAL for nodes dAclIpAccessRuleSrcPort,dAclIpAccessRuleQosPrecedence etc. And correct description of node dAclReSeqIncrement."
+      },
+      {
+        "revision": "2015-07-10 00:00",
+        "description": "Add nodes to support vlan range, traffic class, l4 port mask operator, and mask for some nodes."
+      },
+      {
+        "revision": "2014-01-21 00:00",
+        "description": "Obsolete nodes dAclMacAccessRuleLlcDSAP, dAclMacAccessRuleLlcSSAP and dAclMacAccessRuleLlcCntl."
+      },
+      {
+        "revision": "2013-11-13 00:00",
+        "description": "Add 'deny-cpu'option for DlinkAclRuleType."
+      },
+      {
+        "revision": "2013-08-20 00:00",
+        "description": "Add nodes for counter function, access list remark, access list id, and some rule items."
+      },
+      {
+        "revision": "2013-02-08 00:00",
+        "description": "This is the first version of the MIB file for 'ACL' functionality."
+      }
+    ]
+  },
+  "DlinkAclRuleType": {
+    "name": "DlinkAclRuleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2,
+          "deny-cpu": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DlinkAclPortOperatorType": {
+    "name": "DlinkAclPortOperatorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "eq": 2,
+          "gt": 3,
+          "lt": 4,
+          "neq": 5,
+          "range": 6,
+          "mask": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TcpFlag": {
+    "name": "TcpFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "urgent": 0,
+        "acknowledge": 1,
+        "push": 2,
+        "reset": 3,
+        "synchronize": 4,
+        "finish": 5
+      }
+    },
+    "status": "current"
+  },
+  "dAclMIBNotifications": {
+    "name": "dAclMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.28.0",
+    "class": "objectidentity"
+  },
+  "dAclMIBObjects": {
+    "name": "dAclMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.28.1",
+    "class": "objectidentity"
+  },
+  "dAclMIBConformance": {
+    "name": "dAclMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.28.2",
+    "class": "objectidentity"
+  },
+  "dAclGeneral": {
+    "name": "dAclGeneral",
+    "oid": "1.3.6.1.4.1.171.14.28.1.1",
+    "class": "objectidentity"
+  },
+  "dAclReSeqTable": {
+    "name": "dAclReSeqTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclReSeqEntry": {
+    "name": "dAclReSeqEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclReSeqAccessListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclReSeqAccessListName": {
+    "name": "dAclReSeqAccessListName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclReSeqStartingNumber": {
+    "name": "dAclReSeqStartingNumber",
+    "oid": "1.3.6.1.4.1.171.14.28.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dAclReSeqIncrement": {
+    "name": "dAclReSeqIncrement",
+    "oid": "1.3.6.1.4.1.171.14.28.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dAclMac": {
+    "name": "dAclMac",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2",
+    "class": "objectidentity"
+  },
+  "dAclMacAccessListNumber": {
+    "name": "dAclMacAccessListNumber",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dAclMacAccessListTable": {
+    "name": "dAclMacAccessListTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclMacAccessListEntry": {
+    "name": "dAclMacAccessListEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclMacAccessListName": {
+    "name": "dAclMacAccessListName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclMacAccessListRowStatus": {
+    "name": "dAclMacAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessListId": {
+    "name": "dAclMacAccessListId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessListCounterEnabled": {
+    "name": "dAclMacAccessListCounterEnabled",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessListClearStatAction": {
+    "name": "dAclMacAccessListClearStatAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessListRemark": {
+    "name": "dAclMacAccessListRemark",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleTable": {
+    "name": "dAclMacAccessRuleTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclMacAccessRuleEntry": {
+    "name": "dAclMacAccessRuleEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleSn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclMacAccessRuleSn": {
+    "name": "dAclMacAccessRuleSn",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclMacAccessRuleRowStatus": {
+    "name": "dAclMacAccessRuleRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleAction": {
+    "name": "dAclMacAccessRuleAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclRuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleSrcMacAddr": {
+    "name": "dAclMacAccessRuleSrcMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleSrcMacWildcard": {
+    "name": "dAclMacAccessRuleSrcMacWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleDstMacAddr": {
+    "name": "dAclMacAccessRuleDstMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleDstMacWildcard": {
+    "name": "dAclMacAccessRuleDstMacWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRulePacketType": {
+    "name": "dAclMacAccessRulePacketType",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ethernet": 2,
+          "llc": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleEthernetType": {
+    "name": "dAclMacAccessRuleEthernetType",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleLlcDSAP": {
+    "name": "dAclMacAccessRuleLlcDSAP",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "dAclMacAccessRuleLlcSSAP": {
+    "name": "dAclMacAccessRuleLlcSSAP",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "dAclMacAccessRuleLlcCntl": {
+    "name": "dAclMacAccessRuleLlcCntl",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "dAclMacAccessRuleDot1p": {
+    "name": "dAclMacAccessRuleDot1p",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleInnerDot1p": {
+    "name": "dAclMacAccessRuleInnerDot1p",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleVlanID": {
+    "name": "dAclMacAccessRuleVlanID",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleInnerVlanID": {
+    "name": "dAclMacAccessRuleInnerVlanID",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleTimeName": {
+    "name": "dAclMacAccessRuleTimeName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleEthernetTypeMask": {
+    "name": "dAclMacAccessRuleEthernetTypeMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleDot1pMask": {
+    "name": "dAclMacAccessRuleDot1pMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleInnerDot1pMask": {
+    "name": "dAclMacAccessRuleInnerDot1pMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleVlanIDMask": {
+    "name": "dAclMacAccessRuleVlanIDMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleInnerVlanIDMask": {
+    "name": "dAclMacAccessRuleInnerVlanIDMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleVlanRangeMin": {
+    "name": "dAclMacAccessRuleVlanRangeMin",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessRuleVlanRangeMax": {
+    "name": "dAclMacAccessRuleVlanRangeMax",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessGroupTable": {
+    "name": "dAclMacAccessGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclMacAccessGroupEntry": {
+    "name": "dAclMacAccessGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessGroupApplyDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclMacAccessGroupIfIndex": {
+    "name": "dAclMacAccessGroupIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclMacAccessGroupApplyDirection": {
+    "name": "dAclMacAccessGroupApplyDirection",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclMacAccessGroupRowStatus": {
+    "name": "dAclMacAccessGroupRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessGroupAclName": {
+    "name": "dAclMacAccessGroupAclName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclMacAccessGroupAclId": {
+    "name": "dAclMacAccessGroupAclId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIp": {
+    "name": "dAclIp",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3",
+    "class": "objectidentity"
+  },
+  "dAclIpAccessListNumber": {
+    "name": "dAclIpAccessListNumber",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dAclIpAccessListTable": {
+    "name": "dAclIpAccessListTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpAccessListEntry": {
+    "name": "dAclIpAccessListEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIpAccessListName": {
+    "name": "dAclIpAccessListName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpAccessListRowStatus": {
+    "name": "dAclIpAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessExtended": {
+    "name": "dAclIpAccessExtended",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessListId": {
+    "name": "dAclIpAccessListId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessListCounterEnabled": {
+    "name": "dAclIpAccessListCounterEnabled",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessListClearStatAction": {
+    "name": "dAclIpAccessListClearStatAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessListRemark": {
+    "name": "dAclIpAccessListRemark",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleTable": {
+    "name": "dAclIpAccessRuleTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpAccessRuleEntry": {
+    "name": "dAclIpAccessRuleEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleSn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIpAccessRuleSn": {
+    "name": "dAclIpAccessRuleSn",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpAccessRuleRowStatus": {
+    "name": "dAclIpAccessRuleRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleAction": {
+    "name": "dAclIpAccessRuleAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclRuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleProtocol": {
+    "name": "dAclIpAccessRuleProtocol",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "userDefine": 1,
+          "tcp": 2,
+          "udp": 3,
+          "icmp": 4,
+          "gre": 5,
+          "esp": 6,
+          "eigrp": 7,
+          "igmp": 8,
+          "ospf": 9,
+          "pim": 10,
+          "vrrp": 11,
+          "ipinip": 12,
+          "pcp": 13
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleUserDefProtocol": {
+    "name": "dAclIpAccessRuleUserDefProtocol",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleSrcAddr": {
+    "name": "dAclIpAccessRuleSrcAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleSrcWildcard": {
+    "name": "dAclIpAccessRuleSrcWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleDstAddr": {
+    "name": "dAclIpAccessRuleDstAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleDstWildcard": {
+    "name": "dAclIpAccessRuleDstWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleSrcOperator": {
+    "name": "dAclIpAccessRuleSrcOperator",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclPortOperatorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleSrcPort": {
+    "name": "dAclIpAccessRuleSrcPort",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleSrcPortRange": {
+    "name": "dAclIpAccessRuleSrcPortRange",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleDstOperator": {
+    "name": "dAclIpAccessRuleDstOperator",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclPortOperatorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleDstPort": {
+    "name": "dAclIpAccessRuleDstPort",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleDstPortRange": {
+    "name": "dAclIpAccessRuleDstPortRange",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleQosPrecedence": {
+    "name": "dAclIpAccessRuleQosPrecedence",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleQosTos": {
+    "name": "dAclIpAccessRuleQosTos",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleQosDscp": {
+    "name": "dAclIpAccessRuleQosDscp",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleIcmpType": {
+    "name": "dAclIpAccessRuleIcmpType",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleIcmpCode": {
+    "name": "dAclIpAccessRuleIcmpCode",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessRuleTimeName": {
+    "name": "dAclIpAccessRuleTimeName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleTcpFlag": {
+    "name": "dAclIpAccRuleTcpFlag",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcpFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleFragments": {
+    "name": "dAclIpAccRuleFragments",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleUserDefProtocolMask": {
+    "name": "dAclIpAccRuleUserDefProtocolMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleSrcPortMask": {
+    "name": "dAclIpAccRuleSrcPortMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleDstPortMask": {
+    "name": "dAclIpAccRuleDstPortMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleQosPrecedenceMask": {
+    "name": "dAclIpAccRuleQosPrecedenceMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleQosTosMask": {
+    "name": "dAclIpAccRuleQosTosMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccRuleQosDscpMask": {
+    "name": "dAclIpAccRuleQosDscpMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessGroupTable": {
+    "name": "dAclIpAccessGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpAccessGroupEntry": {
+    "name": "dAclIpAccessGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessGroupApplyDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIpAccessGroupIfIndex": {
+    "name": "dAclIpAccessGroupIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpAccessGroupApplyDirection": {
+    "name": "dAclIpAccessGroupApplyDirection",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpAccessGroupStatus": {
+    "name": "dAclIpAccessGroupStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessGroupAclName": {
+    "name": "dAclIpAccessGroupAclName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIpAccessGroupAclId": {
+    "name": "dAclIpAccessGroupAclId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6": {
+    "name": "dAclIPv6",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4",
+    "class": "objectidentity"
+  },
+  "dAclIPv6AccessListNumber": {
+    "name": "dAclIPv6AccessListNumber",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dAclIPv6AccessListTable": {
+    "name": "dAclIPv6AccessListTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIPv6AccessListEntry": {
+    "name": "dAclIPv6AccessListEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIPv6AccessListName": {
+    "name": "dAclIPv6AccessListName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIPv6AccessListRowStatus": {
+    "name": "dAclIPv6AccessListRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessExtended": {
+    "name": "dAclIPv6AccessExtended",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessListId": {
+    "name": "dAclIPv6AccessListId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessListCounterEnabled": {
+    "name": "dAclIPv6AccessListCounterEnabled",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessListClearStatAction": {
+    "name": "dAclIPv6AccessListClearStatAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessListRemark": {
+    "name": "dAclIPv6AccessListRemark",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleTable": {
+    "name": "dAclIPv6AccessRuleTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleEntry": {
+    "name": "dAclIPv6AccessRuleEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleSn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleSn": {
+    "name": "dAclIPv6AccessRuleSn",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleRowStatus": {
+    "name": "dAclIPv6AccessRuleRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleAction": {
+    "name": "dAclIPv6AccessRuleAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclRuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleProtocol": {
+    "name": "dAclIPv6AccessRuleProtocol",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "userDefine": 1,
+          "tcp": 2,
+          "udp": 3,
+          "icmp": 4,
+          "esp": 5,
+          "pcp": 6,
+          "sctp": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleUserDefProtocol": {
+    "name": "dAclIPv6AccessRuleUserDefProtocol",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleSrcAddr": {
+    "name": "dAclIPv6AccessRuleSrcAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleSrcPrefixLen": {
+    "name": "dAclIPv6AccessRuleSrcPrefixLen",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleDstAddr": {
+    "name": "dAclIPv6AccessRuleDstAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleDstPrefixLen": {
+    "name": "dAclIPv6AccessRuleDstPrefixLen",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleSrcOperator": {
+    "name": "dAclIPv6AccessRuleSrcOperator",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclPortOperatorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleSrcPort": {
+    "name": "dAclIPv6AccessRuleSrcPort",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleSrcPortRange": {
+    "name": "dAclIPv6AccessRuleSrcPortRange",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleDstOperator": {
+    "name": "dAclIPv6AccessRuleDstOperator",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclPortOperatorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleDstPort": {
+    "name": "dAclIPv6AccessRuleDstPort",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleDstPortRange": {
+    "name": "dAclIPv6AccessRuleDstPortRange",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleDscp": {
+    "name": "dAclIPv6AccessRuleDscp",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleIcmpType": {
+    "name": "dAclIPv6AccessRuleIcmpType",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleIcmpCode": {
+    "name": "dAclIPv6AccessRuleIcmpCode",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessRuleTimeName": {
+    "name": "dAclIPv6AccessRuleTimeName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleTcpFlag": {
+    "name": "dAclIPv6AccRuleTcpFlag",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcpFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleFragments": {
+    "name": "dAclIPv6AccRuleFragments",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleFlowLabel": {
+    "name": "dAclIPv6AccRuleFlowLabel",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleTrafficClass": {
+    "name": "dAclIPv6AccRuleTrafficClass",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleUserDefProtocolMask": {
+    "name": "dAclIPv6AccRuleUserDefProtocolMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleSrcPortMask": {
+    "name": "dAclIPv6AccRuleSrcPortMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleDstPortMask": {
+    "name": "dAclIPv6AccRuleDstPortMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleDscpMask": {
+    "name": "dAclIPv6AccRuleDscpMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleFlowLabelMask": {
+    "name": "dAclIPv6AccRuleFlowLabelMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccRuleTrafficClassMask": {
+    "name": "dAclIPv6AccRuleTrafficClassMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessGroupTable": {
+    "name": "dAclIPv6AccessGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIPv6AccessGroupEntry": {
+    "name": "dAclIPv6AccessGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpv6AccessGroupApplyDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIPv6AccessGroupIfIndex": {
+    "name": "dAclIPv6AccessGroupIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIpv6AccessGroupApplyDirection": {
+    "name": "dAclIpv6AccessGroupApplyDirection",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclIPv6AccessGroupStatus": {
+    "name": "dAclIPv6AccessGroupStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessGroupAclName": {
+    "name": "dAclIPv6AccessGroupAclName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclIPv6AccessGroupAclId": {
+    "name": "dAclIPv6AccessGroupAclId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpert": {
+    "name": "dAclExpert",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5",
+    "class": "objectidentity"
+  },
+  "dAclExpertAccessListNumber": {
+    "name": "dAclExpertAccessListNumber",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dAclExpertAccessListTable": {
+    "name": "dAclExpertAccessListTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclExpertAccessListEntry": {
+    "name": "dAclExpertAccessListEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclExpertAccessListName": {
+    "name": "dAclExpertAccessListName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclExpertAccessListRowStatus": {
+    "name": "dAclExpertAccessListRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessListId": {
+    "name": "dAclExpertAccessListId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessListCounterEnabled": {
+    "name": "dAclExpertAccessListCounterEnabled",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessListClearStatAction": {
+    "name": "dAclExpertAccessListClearStatAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessListRemark": {
+    "name": "dAclExpertAccessListRemark",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessRuleTable": {
+    "name": "dAclExpertAccessRuleTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclExpertAccessRuleEntry": {
+    "name": "dAclExpertAccessRuleEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclExpertAccRuleSn": {
+    "name": "dAclExpertAccRuleSn",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclExpertAccRuleRowStatus": {
+    "name": "dAclExpertAccRuleRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleAction": {
+    "name": "dAclExpertAccRuleAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclRuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleProtocol": {
+    "name": "dAclExpertAccRuleProtocol",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "userDefine": 1,
+          "tcp": 2,
+          "udp": 3,
+          "icmp": 4,
+          "gre": 5,
+          "esp": 6,
+          "eigrp": 7,
+          "igmp": 8,
+          "ospf": 9,
+          "pim": 10,
+          "vrrp": 11,
+          "ipinip": 12,
+          "pcp": 13
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleUserDefProtocol": {
+    "name": "dAclExpertAccRuleUserDefProtocol",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcIpAddr": {
+    "name": "dAclExpertAccRuleSrcIpAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcIpWildcard": {
+    "name": "dAclExpertAccRuleSrcIpWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcMacAddr": {
+    "name": "dAclExpertAccRuleSrcMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcMacWildcard": {
+    "name": "dAclExpertAccRuleSrcMacWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcOperator": {
+    "name": "dAclExpertAccRuleSrcOperator",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclPortOperatorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcPort": {
+    "name": "dAclExpertAccRuleSrcPort",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcPortRange": {
+    "name": "dAclExpertAccRuleSrcPortRange",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstIpAddr": {
+    "name": "dAclExpertAccRuleDstIpAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstIpWildcard": {
+    "name": "dAclExpertAccRuleDstIpWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstMacAddr": {
+    "name": "dAclExpertAccRuleDstMacAddr",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstMacWildcard": {
+    "name": "dAclExpertAccRuleDstMacWildcard",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstOperator": {
+    "name": "dAclExpertAccRuleDstOperator",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlinkAclPortOperatorType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstPort": {
+    "name": "dAclExpertAccRuleDstPort",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstPortRange": {
+    "name": "dAclExpertAccRuleDstPortRange",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleVlanID": {
+    "name": "dAclExpertAccRuleVlanID",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleInnerVlanID": {
+    "name": "dAclExpertAccRuleInnerVlanID",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleQosPrecedence": {
+    "name": "dAclExpertAccRuleQosPrecedence",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleQosTos": {
+    "name": "dAclExpertAccRuleQosTos",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleQosDscp": {
+    "name": "dAclExpertAccRuleQosDscp",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleIcmpType": {
+    "name": "dAclExpertAccRuleIcmpType",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleIcmpCode": {
+    "name": "dAclExpertAccRuleIcmpCode",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleTimeName": {
+    "name": "dAclExpertAccRuleTimeName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleTcpFlag": {
+    "name": "dAclExpertAccRuleTcpFlag",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcpFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleFragments": {
+    "name": "dAclExpertAccRuleFragments",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleOuterCos": {
+    "name": "dAclExpertAccRuleOuterCos",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleInnerCos": {
+    "name": "dAclExpertAccRuleInnerCos",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleUserDefProtocolMask": {
+    "name": "dAclExpertAccRuleUserDefProtocolMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleSrcPortMask": {
+    "name": "dAclExpertAccRuleSrcPortMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleDstPortMask": {
+    "name": "dAclExpertAccRuleDstPortMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleVlanIDMask": {
+    "name": "dAclExpertAccRuleVlanIDMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleInnerVlanIDMask": {
+    "name": "dAclExpertAccRuleInnerVlanIDMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleQosPrecedenceMask": {
+    "name": "dAclExpertAccRuleQosPrecedenceMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleQosTosMask": {
+    "name": "dAclExpertAccRuleQosTosMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleQosDscpMask": {
+    "name": "dAclExpertAccRuleQosDscpMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleOuterCosMask": {
+    "name": "dAclExpertAccRuleOuterCosMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleInnerCosMask": {
+    "name": "dAclExpertAccRuleInnerCosMask",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleVlanRangeMin": {
+    "name": "dAclExpertAccRuleVlanRangeMin",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccRuleVlanRangeMax": {
+    "name": "dAclExpertAccRuleVlanRangeMax",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessGroupTable": {
+    "name": "dAclExpertAccessGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclExpertAccessGroupEntry": {
+    "name": "dAclExpertAccessGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessGroupApplyDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclExpertAccessGroupIfIndex": {
+    "name": "dAclExpertAccessGroupIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclExpertAccessGroupApplyDirection": {
+    "name": "dAclExpertAccessGroupApplyDirection",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclExpertAccessGroupRowStatus": {
+    "name": "dAclExpertAccessGroupRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessGroupAclName": {
+    "name": "dAclExpertAccessGroupAclName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclExpertAccessGroupAclId": {
+    "name": "dAclExpertAccessGroupAclId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlan": {
+    "name": "dAclVlan",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6",
+    "class": "objectidentity"
+  },
+  "dAclVlanSubMapTable": {
+    "name": "dAclVlanSubMapTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanSubMapEntry": {
+    "name": "dAclVlanSubMapEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccMapName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccSubMapSeq",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclVlanAccMapName": {
+    "name": "dAclVlanAccMapName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanAccSubMapSeq": {
+    "name": "dAclVlanAccSubMapSeq",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanAccSubMapRowStatus": {
+    "name": "dAclVlanAccSubMapRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlanAccSubMapMatchAclName": {
+    "name": "dAclVlanAccSubMapMatchAclName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlanAccessSubMapAction": {
+    "name": "dAclVlanAccessSubMapAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "forward": 2,
+          "drop": 3,
+          "redirect": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlanAccSubMapRedirectIfIndex": {
+    "name": "dAclVlanAccSubMapRedirectIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlanAccSubMapMatchAclId": {
+    "name": "dAclVlanAccSubMapMatchAclId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlanFilterTable": {
+    "name": "dAclVlanFilterTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanFilterEntry": {
+    "name": "dAclVlanFilterEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanFilterVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclVlanFilterVlanId": {
+    "name": "dAclVlanFilterVlanId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanFilterRowStatus": {
+    "name": "dAclVlanFilterRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlanFilterVlanAccMapName": {
+    "name": "dAclVlanFilterVlanAccMapName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclVlanAccessMapTable": {
+    "name": "dAclVlanAccessMapTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanAccessMapEntry": {
+    "name": "dAclVlanAccessMapEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclVlanAccessMapCounterEnabled": {
+    "name": "dAclVlanAccessMapCounterEnabled",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dAclVlanAccessMapClearStatAction": {
+    "name": "dAclVlanAccessMapClearStatAction",
+    "oid": "1.3.6.1.4.1.171.14.28.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dAclCounter": {
+    "name": "dAclCounter",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7",
+    "class": "objectidentity"
+  },
+  "dAclAccessGroupCounterTable": {
+    "name": "dAclAccessGroupCounterTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclAccessGroupCounterEntry": {
+    "name": "dAclAccessGroupCounterEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclAccessGroupCounterAccListId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclAccessGroupCounterAccRuleSn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclAccessGroupCounterAccListId": {
+    "name": "dAclAccessGroupCounterAccListId",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclAccessGroupCounterAccRuleSn": {
+    "name": "dAclAccessGroupCounterAccRuleSn",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclAccessGroupCounterIngressStat": {
+    "name": "dAclAccessGroupCounterIngressStat",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dAclAccessGroupCounterEgressStat": {
+    "name": "dAclAccessGroupCounterEgressStat",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dAclVlanFilterCounterTable": {
+    "name": "dAclVlanFilterCounterTable",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanFilterCounterEntry": {
+    "name": "dAclVlanFilterCounterEntry",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanFilterCounterAccMapName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanFilterCounterSubMapSeq",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dAclVlanFilterCounterAccMapName": {
+    "name": "dAclVlanFilterCounterAccMapName",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanFilterCounterSubMapSeq": {
+    "name": "dAclVlanFilterCounterSubMapSeq",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dAclVlanFilterCounterStatistics": {
+    "name": "dAclVlanFilterCounterStatistics",
+    "oid": "1.3.6.1.4.1.171.14.28.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dAclCompliances": {
+    "name": "dAclCompliances",
+    "oid": "1.3.6.1.4.1.171.14.28.2.1",
+    "class": "objectidentity"
+  },
+  "dAclCompliance": {
+    "name": "dAclCompliance",
+    "oid": "1.3.6.1.4.1.171.14.28.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dAclGenGroup",
+        "module": "DLINKSW-ACL-MIB"
+      },
+      {
+        "object": "dAclMacGroup",
+        "module": "DLINKSW-ACL-MIB"
+      },
+      {
+        "object": "dAclIpGroup",
+        "module": "DLINKSW-ACL-MIB"
+      },
+      {
+        "object": "dAclIPv6Group",
+        "module": "DLINKSW-ACL-MIB"
+      },
+      {
+        "object": "dAclExpertGroup",
+        "module": "DLINKSW-ACL-MIB"
+      },
+      {
+        "object": "dAclVlanFilterGroup",
+        "module": "DLINKSW-ACL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dAclGroups": {
+    "name": "dAclGroups",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2",
+    "class": "objectidentity"
+  },
+  "dAclGenGroup": {
+    "name": "dAclGenGroup",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclReSeqStartingNumber"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclReSeqIncrement"
+      }
+    ],
+    "status": "current"
+  },
+  "dAclMacGroup": {
+    "name": "dAclMacGroup",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListNumber"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListId"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListCounterEnabled"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListClearStatAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessListRemark"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleSrcMacAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleSrcMacWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleDstMacAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleDstMacWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRulePacketType"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleEthernetType"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleLlcDSAP"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleLlcSSAP"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleLlcCntl"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleDot1p"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleInnerDot1p"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleVlanID"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleInnerVlanID"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessRuleTimeName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessGroupRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessGroupAclName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclMacAccessGroupAclId"
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIpGroup": {
+    "name": "dAclIpGroup",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListNumber"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessExtended"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListId"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListCounterEnabled"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListClearStatAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessListRemark"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleProtocol"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleUserDefProtocol"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleSrcAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleSrcWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleDstAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleDstWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleSrcOperator"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleSrcPort"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleSrcPortRange"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleDstOperator"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleDstPort"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleDstPortRange"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleQosPrecedence"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleQosTos"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleQosDscp"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleIcmpType"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleIcmpCode"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessRuleTimeName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccRuleTcpFlag"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccRuleFragments"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessGroupStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessGroupAclName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIpAccessGroupAclId"
+      }
+    ],
+    "status": "current"
+  },
+  "dAclIPv6Group": {
+    "name": "dAclIPv6Group",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListNumber"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessExtended"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListId"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListCounterEnabled"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListClearStatAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessListRemark"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleProtocol"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleUserDefProtocol"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleSrcAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleSrcPrefixLen"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleDstAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleDstPrefixLen"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleSrcOperator"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleSrcPort"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleSrcPortRange"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleDstOperator"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleDstPort"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleDstPortRange"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleDscp"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleIcmpType"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleIcmpCode"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessRuleTimeName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessGroupStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessGroupAclName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccessGroupAclId"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccRuleTcpFlag"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccRuleFragments"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclIPv6AccRuleFlowLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "dAclExpertGroup": {
+    "name": "dAclExpertGroup",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListNumber"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListId"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListCounterEnabled"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListClearStatAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessListRemark"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleProtocol"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleUserDefProtocol"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSrcIpAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSrcIpWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSrcMacAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSrcMacWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSrcOperator"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSrcPort"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleSrcPortRange"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleDstIpAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleDstIpWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleDstMacAddr"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleDstMacWildcard"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleDstOperator"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleDstPort"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleDstPortRange"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleVlanID"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleInnerVlanID"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleQosPrecedence"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleQosTos"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleQosDscp"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleIcmpType"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleIcmpCode"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleTimeName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessGroupRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessGroupAclName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccessGroupAclId"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleTcpFlag"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleFragments"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleOuterCos"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclExpertAccRuleInnerCos"
+      }
+    ],
+    "status": "current"
+  },
+  "dAclVlanFilterGroup": {
+    "name": "dAclVlanFilterGroup",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccSubMapRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccSubMapMatchAclName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccessSubMapAction"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccSubMapRedirectIfIndex"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanFilterRowStatus"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanFilterVlanAccMapName"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccSubMapMatchAclId"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccessMapCounterEnabled"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanAccessMapClearStatAction"
+      }
+    ],
+    "status": "current"
+  },
+  "dAclCounterGroup": {
+    "name": "dAclCounterGroup",
+    "oid": "1.3.6.1.4.1.171.14.28.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclAccessGroupCounterIngressStat"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclAccessGroupCounterEgressStat"
+      },
+      {
+        "module": "DLINKSW-ACL-MIB",
+        "object": "dAclVlanFilterCounterStatistics"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-ACL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-ACL-MIB"
+  }
+}

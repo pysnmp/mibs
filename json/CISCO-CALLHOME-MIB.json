@@ -1,0 +1,5458 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-SYSLOG-MIB": [
+      "SyslogSeverity"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero",
+      "CiscoVrfName",
+      "CiscoURLString"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoCallHomeMIB": {
+    "name": "ciscoCallHomeMIB",
+    "oid": "1.3.6.1.4.1.9.9.300",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-27 00:00",
+        "description": "Added following enum to callHomeAlertGroupCapability: - periodicHourly(6) - periodicMinutes(7) Added following enum to ccmPeriodicAlertGroupInterval: - hourly(4) - minutes(5) Added following OBJECT-GROUP: - ccmCallHomePeriodicMinutesGroup - ccmOnDemandCliMsgGroup - ccmCallHomeDiagSignatureGroup - ccmCallHomeSecurityLevelGroup - ccmCallHomeAnonymousReportingGroup - ccmCallHomeAaaGroup Added new compliance - chMIBCompliance9."
+      },
+      {
+        "revision": "2010-11-08 00:00",
+        "description": "chSingleSmtpServerGroup is deprecated and replaced by the following new group: - ccmSingleSmtpServerGroup Added following objects in ccmSmtpServersTable - ccmSmtpServersUseVrf Added following OBJECT-GROUP - ccmSmtpServersVrfGroup - ccmHttpProxyServerGroup - ccmHttpTransportVrfGroup - ccmMessageSourceGroup Added following objects - ccmHttpProxyServerAddrType - ccmHttpProxyServerAddr - ccmHttpProxyServerPort - ccmHttpProxyServerUseEnable - ccmHttpTransportUseVrf - callHomeSmtpServerUseVrf and Added new compliance - chMIBCompliance8."
+      },
+      {
+        "revision": "2009-05-04 00:00",
+        "description": "Added ccmCallHomeVrfGroup."
+      },
+      {
+        "revision": "2009-04-09 00:00",
+        "description": "Added the following notification objects : - ccmEventDescription - ccmEventTime - ccmEventUrgencyLevel Added new notification - ccmEventNotif Added new Group - ccmEventNotifGroup and Added new compliance - chMIBCompliance6."
+      },
+      {
+        "revision": "2008-07-01 00:00",
+        "description": "Added support for ccmOnDemandMsgSendControlGroup, ccmOnDemandMsgStatusGroup, ccmSmartCallHomeGroup and ccmEventStatsGroup. Modified callHomeAlertGroupCapability to include the following two enum values: onDemand(4), onDemandPerEntity(5)"
+      },
+      {
+        "revision": "2007-12-19 00:00",
+        "description": "Refined the DESCRIPTION clauses for the objects callHomeDestProfileAlertGroups and callHomeAlertGroupCapability."
+      },
+      {
+        "revision": "2007-03-29 00:00",
+        "description": "chConfigurationGroup2 is deprecated and replaced by the following new groups: - ccmConfigurationGroup3 - ccmAlertActionGroup - ccmProfileMessageLevelGroup - ccmProfileAlertGroupsGroup - ccmThrottleConfigurationGroup chSystemInformationGroup is deprecated and replaced by the following two new groups: - chSystemInformationGroup1, - chSystemServicePriorityGroup. Add the following groups for the new objects: - ccmPeriodicSwInventoryInfoGroup1, - ccmProfileTestGroup, - ccmProfileActivationGroup, - ccmProfileAlertGroupControlGroup, - ccmSmtpServersPriorityGroup, - ccmAlertGroupCapabilityGroup, - ccmHttpCfgGroup, - ccmSeverityAlertGroupCfgGroup, - ccmPeriodicAlertGroupCfgGroup, - ccmPatternAlertGroupCfgGroup, - ccmEventAlertGroupCfgGroup, - ccmSmtpMsgSendFailNotifCtrlGroup, - ccmSmtpMsgSendFailNotifGroup, - ccmAlertHCStatisticsGroup, - ccmAlertRateLimitGroup, - ccmSmtpServerStatusGroup, - ccmProfileHiMessageSizeGroup, - chSystemInformationGroup1, - chSystemServicePriorityGroup."
+      },
+      {
+        "revision": "2006-03-30 00:00",
+        "description": "Add ccmUserDefCmdGroup."
+      },
+      {
+        "revision": "2004-08-02 00:00",
+        "description": "Added new compliance section 'chMIBCompliance3'."
+      },
+      {
+        "revision": "2004-02-11 00:00",
+        "description": "New Table 'callHomeSwInventoryTable' has been added to provide the Call Home inventory information about the software services. New objects 'ccmPeriodicSwInventoryMsgEnable', 'ccmPeriodicSwInventoryTimeFrame' and 'ccmMsgThrottlingEnable' has been added."
+      },
+      {
+        "revision": "2004-02-09 00:00",
+        "description": "Max size of 'callHomeDestProfileName' has been changed to 31 chars."
+      },
+      {
+        "revision": "2003-10-30 00:00",
+        "description": "New object 'callHomeDestProfileAlertGroups' has been added to the callHomeDestProfileTable. Row creation support has been added in the callHomeDestProfileTable. New Table 'callHomeAlertGroupTypeTable' has been added."
+      },
+      {
+        "revision": "2003-05-20 00:00",
+        "description": "New object 'callHomeDestProfileMsgLevel' has been added to the callHomeDestProfileTable."
+      },
+      {
+        "revision": "2002-10-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ccmCallHomeNotifications": {
+    "name": "ccmCallHomeNotifications",
+    "oid": "1.3.6.1.4.1.9.9.300.0",
+    "class": "objectidentity"
+  },
+  "ciscoCallHomeMIBObjects": {
+    "name": "ciscoCallHomeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.300.1",
+    "class": "objectidentity"
+  },
+  "chMIBConformance": {
+    "name": "chMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.300.2",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeConfiguration": {
+    "name": "ccmCallHomeConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeStats": {
+    "name": "ccmCallHomeStats",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeStatus": {
+    "name": "ccmCallHomeStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeOnDemandActions": {
+    "name": "ccmCallHomeOnDemandActions",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4",
+    "class": "objectidentity"
+  },
+  "ccmSmartCallHomeActions": {
+    "name": "ccmSmartCallHomeActions",
+    "oid": "1.3.6.1.4.1.9.9.300.1.5",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeVrf": {
+    "name": "ccmCallHomeVrf",
+    "oid": "1.3.6.1.4.1.9.9.300.1.6",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeMessageSource": {
+    "name": "ccmCallHomeMessageSource",
+    "oid": "1.3.6.1.4.1.9.9.300.1.7",
+    "class": "objectidentity"
+  },
+  "ccmCallhomeEvents": {
+    "name": "ccmCallhomeEvents",
+    "oid": "1.3.6.1.4.1.9.9.300.1.8",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeDiagSignature": {
+    "name": "ccmCallHomeDiagSignature",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeSecurity": {
+    "name": "ccmCallHomeSecurity",
+    "oid": "1.3.6.1.4.1.9.9.300.1.10",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeReporting": {
+    "name": "ccmCallHomeReporting",
+    "oid": "1.3.6.1.4.1.9.9.300.1.11",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeHttpProxy": {
+    "name": "ccmCallHomeHttpProxy",
+    "oid": "1.3.6.1.4.1.9.9.300.1.12",
+    "class": "objectidentity"
+  },
+  "ccmCallHomeAaa": {
+    "name": "ccmCallHomeAaa",
+    "oid": "1.3.6.1.4.1.9.9.300.1.13",
+    "class": "objectidentity"
+  },
+  "CallHomeAlert": {
+    "name": "CallHomeAlert",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "test": 2,
+          "inventory": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CallHomeMsgFormat": {
+    "name": "CallHomeMsgFormat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "xml": 1,
+          "fullText": 2,
+          "shortText": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CallHomeTransportMethod": {
+    "name": "CallHomeTransportMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "email": 1,
+          "ftp": 2,
+          "http": 3,
+          "emailAndHttp": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CallHomeMsgLevel": {
+    "name": "CallHomeMsgLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "debug": 1,
+          "normal": 2,
+          "notification": 3,
+          "warning": 4,
+          "minor": 5,
+          "major": 6,
+          "critical": 7,
+          "fatal": 8,
+          "disaster": 9,
+          "catastrophic": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlertGroupList": {
+    "name": "AlertGroupList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "callHomeEnable": {
+    "name": "callHomeEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysContactPhoneNumber": {
+    "name": "sysContactPhoneNumber",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 12,
+            "max": 12
+          },
+          {
+            "min": 13,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysContactEmailAddress": {
+    "name": "sysContactEmailAddress",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysStreetAddress": {
+    "name": "sysStreetAddress",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeCustomerId": {
+    "name": "callHomeCustomerId",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeContractId": {
+    "name": "callHomeContractId",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeSiteId": {
+    "name": "callHomeSiteId",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeDeviceServicePriority": {
+    "name": "callHomeDeviceServicePriority",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "debug",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeAlertAction": {
+    "name": "callHomeAlertAction",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeAlert",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeAlertActionStatus": {
+    "name": "callHomeAlertActionStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "successful": 2,
+          "inprogress": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeAlertActionFailureCause": {
+    "name": "callHomeAlertActionFailureCause",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeDestProfileTable": {
+    "name": "callHomeDestProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeDestProfileEntry": {
+    "name": "callHomeDestProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "callHomeDestProfileName": {
+    "name": "callHomeDestProfileName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeDestProfileMsgFormat": {
+    "name": "callHomeDestProfileMsgFormat",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeMsgFormat",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "xml",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestProfileMaxMsgSize": {
+    "name": "callHomeDestProfileMaxMsgSize",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestProfileTrnsprtMthd": {
+    "name": "callHomeDestProfileTrnsprtMthd",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeTransportMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "email",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestProfileStatus": {
+    "name": "callHomeDestProfileStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestProfileMsgLevel": {
+    "name": "callHomeDestProfileMsgLevel",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeMsgLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "debug",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestProfileAlertGroups": {
+    "name": "callHomeDestProfileAlertGroups",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlertGroupList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestProfileActive": {
+    "name": "callHomeDestProfileActive",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestProfileHiMaxMsgSize": {
+    "name": "callHomeDestProfileHiMaxMsgSize",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeEmailAddrTblMaxEntries": {
+    "name": "callHomeEmailAddrTblMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeDestEmailAddressTable": {
+    "name": "callHomeDestEmailAddressTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeDestEmailAddressEntry": {
+    "name": "callHomeDestEmailAddressEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "callHomeDestEmailAddressIndex": {
+    "name": "callHomeDestEmailAddressIndex",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeDestEmailAddress": {
+    "name": "callHomeDestEmailAddress",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestEmailAddressStatus": {
+    "name": "callHomeDestEmailAddressStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestType": {
+    "name": "callHomeDestType",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "email": 1,
+          "http": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "email",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeDestHttpUrl": {
+    "name": "callHomeDestHttpUrl",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeEmailFrom": {
+    "name": "callHomeEmailFrom",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeEmailReplyTo": {
+    "name": "callHomeEmailReplyTo",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeEmailMsgDispNotification": {
+    "name": "callHomeEmailMsgDispNotification",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeSmtpServerAddrType": {
+    "name": "callHomeSmtpServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeSmtpServerAddr": {
+    "name": "callHomeSmtpServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeSmtpServerPort": {
+    "name": "callHomeSmtpServerPort",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmtpServersTblMaxEntries": {
+    "name": "ccmSmtpServersTblMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmSmtpServersTable": {
+    "name": "ccmSmtpServersTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmSmtpServersEntry": {
+    "name": "ccmSmtpServersEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpServersAddrType": {
+    "name": "ccmSmtpServersAddrType",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmSmtpServersAddr": {
+    "name": "ccmSmtpServersAddr",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmSmtpServersPort": {
+    "name": "ccmSmtpServersPort",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmSmtpServersStatus": {
+    "name": "ccmSmtpServersStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmSmtpServersPriority": {
+    "name": "ccmSmtpServersPriority",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmSmtpServersUseVrf": {
+    "name": "ccmSmtpServersUseVrf",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeLastAlertSent": {
+    "name": "callHomeLastAlertSent",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeAlerts": {
+    "name": "callHomeAlerts",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeHCAlerts": {
+    "name": "callHomeHCAlerts",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmAlertsDropped": {
+    "name": "ccmAlertsDropped",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsTable": {
+    "name": "ccmEventStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmEventStatsEntry": {
+    "name": "ccmEventStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsMsgTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmEventStatsTypeIndex": {
+    "name": "ccmEventStatsTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "successful": 1,
+          "inQueue": 2,
+          "dropped": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmEventStatsMsgTypeIndex": {
+    "name": "ccmEventStatsMsgTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "total": 1,
+          "email": 2,
+          "http": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmEventStatsTotal": {
+    "name": "ccmEventStatsTotal",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsConfiguration": {
+    "name": "ccmEventStatsConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsDiagnostic": {
+    "name": "ccmEventStatsDiagnostic",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsEnvironment": {
+    "name": "ccmEventStatsEnvironment",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsInventory": {
+    "name": "ccmEventStatsInventory",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsSystemLog": {
+    "name": "ccmEventStatsSystemLog",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsTest": {
+    "name": "ccmEventStatsTest",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsRequest": {
+    "name": "ccmEventStatsRequest",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventStatsSendCliOutput": {
+    "name": "ccmEventStatsSendCliOutput",
+    "oid": "1.3.6.1.4.1.9.9.300.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmSmtpServerStatusTimeStamp": {
+    "name": "ccmSmtpServerStatusTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmSmtpServerStatusInitiate": {
+    "name": "ccmSmtpServerStatusInitiate",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmtpServerStatusResult": {
+    "name": "ccmSmtpServerStatusResult",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "successful": 2,
+          "inprogress": 3,
+          "failed": 4,
+          "noSmtpServerConfigured": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmSmtpServerStatusTable": {
+    "name": "ccmSmtpServerStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmSmtpServerStatusEntry": {
+    "name": "ccmSmtpServerStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpServerStatusAvailability": {
+    "name": "ccmSmtpServerStatusAvailability",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "notAvailable": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmOnDemandMsgServAvailable": {
+    "name": "ccmOnDemandMsgServAvailable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmSysLogSeverity": {
+    "name": "ccmSysLogSeverity",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmEnableSmtpServerNotif": {
+    "name": "ccmEnableSmtpServerNotif",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeAlertGroupTypeTable": {
+    "name": "callHomeAlertGroupTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeAlertGroupTypeEntry": {
+    "name": "callHomeAlertGroupTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "callHomeAlertGroupTypeIndex": {
+    "name": "callHomeAlertGroupTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeAlertGroupName": {
+    "name": "callHomeAlertGroupName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeAlertGroupEnable": {
+    "name": "callHomeAlertGroupEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeAlertGroupCapability": {
+    "name": "callHomeAlertGroupCapability",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "callHomeMessageSeverity": 0,
+        "periodic": 1,
+        "regularExpression": 2,
+        "event": 3,
+        "onDemand": 4,
+        "onDemandPerEntity": 5,
+        "periodicHourly": 6,
+        "periodicMinutes": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeSwInventoryTable": {
+    "name": "callHomeSwInventoryTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeSwInventoryEntry": {
+    "name": "callHomeSwInventoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSwServiceName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeInventoryNVPairIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "callHomeSwServiceName": {
+    "name": "callHomeSwServiceName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeInventoryNVPairIndex": {
+    "name": "callHomeInventoryNVPairIndex",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeInventoryInfoName": {
+    "name": "callHomeInventoryInfoName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHomeInventoryInfoValue": {
+    "name": "callHomeInventoryInfoValue",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmPeriodicSwInventoryMsgEnable": {
+    "name": "ccmPeriodicSwInventoryMsgEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicSwInventoryTimeFrame": {
+    "name": "ccmPeriodicSwInventoryTimeFrame",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmMsgThrottlingEnable": {
+    "name": "ccmMsgThrottlingEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmCallHomeAlertGroupCfg": {
+    "name": "ccmCallHomeAlertGroupCfg",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30",
+    "class": "objectidentity"
+  },
+  "ccmSeverityAlertGroupTable": {
+    "name": "ccmSeverityAlertGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmSeverityAlertGroupEntry": {
+    "name": "ccmSeverityAlertGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertGroupSeverity": {
+    "name": "ccmAlertGroupSeverity",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeMsgLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "debug",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupTable": {
+    "name": "ccmPeriodicAlertGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupEntry": {
+    "name": "ccmPeriodicAlertGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupInterval": {
+    "name": "ccmPeriodicAlertGroupInterval",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daily": 1,
+          "weekly": 2,
+          "monthly": 3,
+          "hourly": 4,
+          "minutes": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "daily",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupDayOfWeek": {
+    "name": "ccmPeriodicAlertGroupDayOfWeek",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 1,
+          "monday": 2,
+          "tuesday": 3,
+          "wednesday": 4,
+          "thursday": 5,
+          "friday": 6,
+          "saturday": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sunday",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupDayOfMonth": {
+    "name": "ccmPeriodicAlertGroupDayOfMonth",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupHour": {
+    "name": "ccmPeriodicAlertGroupHour",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupMinute": {
+    "name": "ccmPeriodicAlertGroupMinute",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupEnable": {
+    "name": "ccmPeriodicAlertGroupEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupIntervalMinutes": {
+    "name": "ccmPeriodicAlertGroupIntervalMinutes",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmMaxSyslogAlertGroupPatterns": {
+    "name": "ccmMaxSyslogAlertGroupPatterns",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmPatternAlertGroupTable": {
+    "name": "ccmPatternAlertGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmPatternAlertGroupEntry": {
+    "name": "ccmPatternAlertGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAlertGroupPattern",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertGroupPattern": {
+    "name": "ccmAlertGroupPattern",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmPatternAlertGroupSeverity": {
+    "name": "ccmPatternAlertGroupSeverity",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeMsgLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "debug",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmPatternAlertGroupStorage": {
+    "name": "ccmPatternAlertGroupStorage",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmPatternAlertGroupStatus": {
+    "name": "ccmPatternAlertGroupStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeUserDefMaxCmds": {
+    "name": "callHomeUserDefMaxCmds",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmEventDescription": {
+    "name": "ccmEventDescription",
+    "oid": "1.3.6.1.4.1.9.9.300.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccmEventTime": {
+    "name": "ccmEventTime",
+    "oid": "1.3.6.1.4.1.9.9.300.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccmEventUrgencyLevel": {
+    "name": "ccmEventUrgencyLevel",
+    "oid": "1.3.6.1.4.1.9.9.300.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeMsgLevel",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "callHomeUserDefCmdTable": {
+    "name": "callHomeUserDefCmdTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeUserDefCmdEntry": {
+    "name": "callHomeUserDefCmdEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeUserDefCmdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "callHomeUserDefCmdIndex": {
+    "name": "callHomeUserDefCmdIndex",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHomeUserDefCmdName": {
+    "name": "callHomeUserDefCmdName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "callHomeUserDefCmdRowStatus": {
+    "name": "callHomeUserDefCmdRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccmEventAlertGroupTable": {
+    "name": "ccmEventAlertGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmEventAlertGroupEntry": {
+    "name": "ccmEventAlertGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmEventAlertGroupEnable": {
+    "name": "ccmEventAlertGroupEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmEventAlertGroupOperSeverity": {
+    "name": "ccmEventAlertGroupOperSeverity",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.30.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeMsgLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeProfileTestControl": {
+    "name": "ccmCallHomeProfileTestControl",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.31",
+    "class": "objectidentity"
+  },
+  "ccmDestProfileTestTable": {
+    "name": "ccmDestProfileTestTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.31.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmDestProfileTestEntry": {
+    "name": "ccmDestProfileTestEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.31.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccmDestProfileTestTrigger": {
+    "name": "ccmDestProfileTestTrigger",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.31.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmDestProfileTestMessage": {
+    "name": "ccmDestProfileTestMessage",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.31.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmDestProfileTestStatus": {
+    "name": "ccmDestProfileTestStatus",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.31.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "successful": 2,
+          "inprogress": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmDestProfileTestFailureCause": {
+    "name": "ccmDestProfileTestFailureCause",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.31.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeNotifConfig": {
+    "name": "ccmCallHomeNotifConfig",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.32",
+    "class": "objectidentity"
+  },
+  "ccmSmtpMsgSendFailNotifEnable": {
+    "name": "ccmSmtpMsgSendFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.32.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmPeriodicSwInventoryCfg": {
+    "name": "ccmPeriodicSwInventoryCfg",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.33",
+    "class": "objectidentity"
+  },
+  "ccmPeriodicSwInventoryTimeOfDay": {
+    "name": "ccmPeriodicSwInventoryTimeOfDay",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.33.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "08:00",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmAlertRateLimit": {
+    "name": "ccmAlertRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "alerts per minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmHttpProxyServerAddrType": {
+    "name": "ccmHttpProxyServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmHttpProxyServerAddr": {
+    "name": "ccmHttpProxyServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmHttpProxyServerPort": {
+    "name": "ccmHttpProxyServerPort",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmHttpProxyServerUseEnable": {
+    "name": "ccmHttpProxyServerUseEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHomeSmtpServerUseVrf": {
+    "name": "callHomeSmtpServerUseVrf",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmHttpTransportUseVrf": {
+    "name": "ccmHttpTransportUseVrf",
+    "oid": "1.3.6.1.4.1.9.9.300.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandMsgSendControl": {
+    "name": "ccmOnDemandMsgSendControl",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.1",
+    "class": "objectidentity"
+  },
+  "ccmOnDemandMsgSendAlertGroup": {
+    "name": "ccmOnDemandMsgSendAlertGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandMsgSendProfile": {
+    "name": "ccmOnDemandMsgSendProfile",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandMsgSendEntPhyIndex": {
+    "name": "ccmOnDemandMsgSendEntPhyIndex",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandMsgSendTrigger": {
+    "name": "ccmOnDemandMsgSendTrigger",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandCliMsgControl": {
+    "name": "ccmOnDemandCliMsgControl",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.2",
+    "class": "objectidentity"
+  },
+  "ccmOnDemandCliMsgCliList": {
+    "name": "ccmOnDemandCliMsgCliList",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandCliMsgTransport": {
+    "name": "ccmOnDemandCliMsgTransport",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "email": 1,
+          "http": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandCliMsgEmail": {
+    "name": "ccmOnDemandCliMsgEmail",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandCliMsgFormat": {
+    "name": "ccmOnDemandCliMsgFormat",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallHomeMsgFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandCliMsgTacServiceReqId": {
+    "name": "ccmOnDemandCliMsgTacServiceReqId",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmOnDemandCliMsgTrigger": {
+    "name": "ccmOnDemandCliMsgTrigger",
+    "oid": "1.3.6.1.4.1.9.9.300.1.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmartCallHomeProfile": {
+    "name": "ccmSmartCallHomeProfile",
+    "oid": "1.3.6.1.4.1.9.9.300.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmartCallHomeServiceType": {
+    "name": "ccmSmartCallHomeServiceType",
+    "oid": "1.3.6.1.4.1.9.9.300.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commandReference": 1,
+          "configSanity": 2,
+          "bugsList": 3,
+          "outputAnalysis": 4,
+          "productAdvisory": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmartCallHomeAnalysisCmd": {
+    "name": "ccmSmartCallHomeAnalysisCmd",
+    "oid": "1.3.6.1.4.1.9.9.300.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmartCallHomeCcoId": {
+    "name": "ccmSmartCallHomeCcoId",
+    "oid": "1.3.6.1.4.1.9.9.300.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmartCallHomeTrigger": {
+    "name": "ccmSmartCallHomeTrigger",
+    "oid": "1.3.6.1.4.1.9.9.300.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmCallHomeVrfName": {
+    "name": "ccmCallHomeVrfName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmMsgSourceIpAddrType": {
+    "name": "ccmMsgSourceIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.300.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmMsgSourceIpAddr": {
+    "name": "ccmMsgSourceIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.300.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmMsgSourceInterface": {
+    "name": "ccmMsgSourceInterface",
+    "oid": "1.3.6.1.4.1.9.9.300.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmDiagSignatureActive": {
+    "name": "ccmDiagSignatureActive",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmDiagSignatureProfileName": {
+    "name": "ccmDiagSignatureProfileName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureInfoTable": {
+    "name": "ccmCallHomeDiagSignatureInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureInfoEntry": {
+    "name": "ccmCallHomeDiagSignatureInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureName": {
+    "name": "ccmCallHomeDiagSignatureName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureType": {
+    "name": "ccmCallHomeDiagSignatureType",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "meta": 1,
+          "tcl": 2,
+          "applet": 3,
+          "mixed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureFuncDescr": {
+    "name": "ccmCallHomeDiagSignatureFuncDescr",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureRev": {
+    "name": "ccmCallHomeDiagSignatureRev",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureSigner": {
+    "name": "ccmCallHomeDiagSignatureSigner",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cisco": 1,
+          "partner": 2,
+          "thirdParty": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureTriggerCount": {
+    "name": "ccmCallHomeDiagSignatureTriggerCount",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureAvgRuntime": {
+    "name": "ccmCallHomeDiagSignatureAvgRuntime",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milli seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureMaxRuntime": {
+    "name": "ccmCallHomeDiagSignatureMaxRuntime",
+    "oid": "1.3.6.1.4.1.9.9.300.1.9.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milli seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccmCallHomeSecurityLevel": {
+    "name": "ccmCallHomeSecurityLevel",
+    "oid": "1.3.6.1.4.1.9.9.300.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "high": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmAnonymousReportingEnable": {
+    "name": "ccmAnonymousReportingEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmAaaAuthEnable": {
+    "name": "ccmAaaAuthEnable",
+    "oid": "1.3.6.1.4.1.9.9.300.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmAaaAuthUserName": {
+    "name": "ccmAaaAuthUserName",
+    "oid": "1.3.6.1.4.1.9.9.300.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccmSmtpServerFailNotif": {
+    "name": "ccmSmtpServerFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.300.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertGroupTypeAddedNotif": {
+    "name": "ccmAlertGroupTypeAddedNotif",
+    "oid": "1.3.6.1.4.1.9.9.300.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertGroupTypeDeletedNotif": {
+    "name": "ccmAlertGroupTypeDeletedNotif",
+    "oid": "1.3.6.1.4.1.9.9.300.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpMsgSendFailNotif": {
+    "name": "ccmSmtpMsgSendFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.300.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "ccmEventNotif": {
+    "name": "ccmEventNotif",
+    "oid": "1.3.6.1.4.1.9.9.300.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventDescription"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventTime"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventUrgencyLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "chMIBCompliances": {
+    "name": "chMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1",
+    "class": "objectidentity"
+  },
+  "chMIBGroups": {
+    "name": "chMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2",
+    "class": "objectidentity"
+  },
+  "chMIBCompliance": {
+    "name": "chMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "chConfigurationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance1": {
+    "name": "chMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "chConfigurationGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance2": {
+    "name": "chMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "chConfigurationGroup2",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance3": {
+    "name": "chMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "chConfigurationGroup2",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chPeriodicSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance4": {
+    "name": "chMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmConfigurationGroup3",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemServicePriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertActionGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileMessageLevelGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileActivationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileTestGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmThrottleConfigurationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chPeriodicSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersPriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSeverityAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPatternAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertGroupCapabilityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmUserDefCmdGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifCtrlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertHCStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertRateLimitGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServerStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileHiMessageSizeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance5": {
+    "name": "chMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmConfigurationGroup3",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemServicePriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertActionGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileMessageLevelGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileActivationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileTestGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmThrottleConfigurationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chPeriodicSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersPriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSeverityAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPatternAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertGroupCapabilityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmUserDefCmdGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifCtrlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertHCStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertRateLimitGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServerStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileHiMessageSizeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgSendControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmartCallHomeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventStatsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance6": {
+    "name": "chMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmConfigurationGroup3",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemServicePriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertActionGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileMessageLevelGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileActivationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileTestGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmThrottleConfigurationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chPeriodicSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersPriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSeverityAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPatternAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertGroupCapabilityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmUserDefCmdGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifCtrlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertHCStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertRateLimitGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServerStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileHiMessageSizeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgSendControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmartCallHomeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventStatsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallhomeEventsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance7": {
+    "name": "chMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmConfigurationGroup3",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemServicePriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertActionGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileMessageLevelGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileActivationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileTestGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmThrottleConfigurationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chPeriodicSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersPriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSeverityAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPatternAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertGroupCapabilityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmUserDefCmdGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifCtrlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertHCStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertRateLimitGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServerStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileHiMessageSizeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgSendControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmartCallHomeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventStatsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallhomeEventsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomeVrfGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance8": {
+    "name": "chMIBCompliance8",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmConfigurationGroup3",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemServicePriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertActionGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileMessageLevelGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileActivationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileTestGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmThrottleConfigurationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chPeriodicSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersPriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSeverityAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPatternAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertGroupCapabilityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmUserDefCmdGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifCtrlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertHCStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertRateLimitGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServerStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileHiMessageSizeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgSendControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmartCallHomeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventStatsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallhomeEventsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpProxyServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpTransportVrfGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomeVrfGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersVrfGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMessageSourceGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMIBCompliance9": {
+    "name": "chMIBCompliance9",
+    "oid": "1.3.6.1.4.1.9.9.300.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccmConfigurationGroup3",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemInformationGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSystemServicePriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chEmailMsgDispGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertActionGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileMessageLevelGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileActivationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileTestGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileAlertGroupControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmThrottleConfigurationGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chPeriodicSwInventoryInfoGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicSwInventoryInfoGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "chMultipleSmtpServersGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersPriorityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSysLogSeverityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsConfigGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMIBNotificationsGroup1",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSeverityAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPeriodicAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmPatternAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventAlertGroupCfgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertGroupCapabilityGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmUserDefCmdGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifCtrlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpMsgSendFailNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertHCStatisticsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmAlertRateLimitGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServerStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmProfileHiMessageSizeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgSendControlGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandMsgStatusGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmartCallHomeGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventStatsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmEventNotifGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallhomeEventsGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpProxyServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmHttpTransportVrfGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomeVrfGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSmtpServersVrfGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmSingleSmtpServerGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmMessageSourceGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomePeriodicMinutesGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmOnDemandCliMsgGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomeDiagSignatureGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomeSecurityLevelGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomeAnonymousReportingGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      },
+      {
+        "object": "ccmCallHomeAaaGroup",
+        "module": "CISCO-CALLHOME-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "chSystemInformationGroup": {
+    "name": "chSystemInformationGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "sysContactPhoneNumber"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "sysContactEmailAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "sysStreetAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeCustomerId"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeContractId"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSiteId"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDeviceServicePriority"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chConfigurationGroup": {
+    "name": "chConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertAction"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionFailureCause"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMsgFormat"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMaxMsgSize"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileTrnsprtMthd"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailAddrTblMaxEntries"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddressStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailFrom"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailReplyTo"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chEmailMsgDispGroup": {
+    "name": "chEmailMsgDispGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailMsgDispNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "chSingleSmtpServerGroup": {
+    "name": "chSingleSmtpServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSmtpServerAddrType"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSmtpServerAddr"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSmtpServerPort"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chMultipleSmtpServersGroup": {
+    "name": "chMultipleSmtpServersGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersTblMaxEntries"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersPort"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "chStatisticsGroup": {
+    "name": "chStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeLastAlertSent"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlerts"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSysLogSeverityGroup": {
+    "name": "ccmSysLogSeverityGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSysLogSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmMIBNotificationsConfigGroup": {
+    "name": "ccmMIBNotificationsConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEnableSmtpServerNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmMIBNotificationsGroup": {
+    "name": "ccmMIBNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServerFailNotif"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chConfigurationGroup1": {
+    "name": "chConfigurationGroup1",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertAction"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionFailureCause"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMsgFormat"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMaxMsgSize"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileTrnsprtMthd"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMsgLevel"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileAlertGroups"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailAddrTblMaxEntries"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddressStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailFrom"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailReplyTo"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccmMIBNotificationsGroup1": {
+    "name": "ccmMIBNotificationsGroup1",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServerFailNotif"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAlertGroupTypeAddedNotif"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAlertGroupTypeDeletedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "chConfigurationGroup2": {
+    "name": "chConfigurationGroup2",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertAction"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionFailureCause"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMsgFormat"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMaxMsgSize"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileTrnsprtMthd"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMsgLevel"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileAlertGroups"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailAddrTblMaxEntries"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddressStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailFrom"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailReplyTo"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupName"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmMsgThrottlingEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chSwInventoryInfoGroup": {
+    "name": "chSwInventoryInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeInventoryInfoName"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeInventoryInfoValue"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicSwInventoryMsgEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicSwInventoryTimeFrame"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "chPeriodicSwInventoryInfoGroup": {
+    "name": "chPeriodicSwInventoryInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicSwInventoryMsgEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicSwInventoryTimeFrame"
+      }
+    ],
+    "status": "current"
+  },
+  "chSwInventoryInfoGroup1": {
+    "name": "chSwInventoryInfoGroup1",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeInventoryInfoName"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeInventoryInfoValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmUserDefCmdGroup": {
+    "name": "ccmUserDefCmdGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeUserDefMaxCmds"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeUserDefCmdName"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeUserDefCmdRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmPeriodicSwInventoryInfoGroup1": {
+    "name": "ccmPeriodicSwInventoryInfoGroup1",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicSwInventoryTimeOfDay"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmConfigurationGroup3": {
+    "name": "ccmConfigurationGroup3",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMsgFormat"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileTrnsprtMthd"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMaxMsgSize"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailAddrTblMaxEntries"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestEmailAddressStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailFrom"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeEmailReplyTo"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertActionGroup": {
+    "name": "ccmAlertActionGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertAction"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertActionFailureCause"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmProfileMessageLevelGroup": {
+    "name": "ccmProfileMessageLevelGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileMsgLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmProfileActivationGroup": {
+    "name": "ccmProfileActivationGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileActive"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmProfileTestGroup": {
+    "name": "ccmProfileTestGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmDestProfileTestTrigger"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmDestProfileTestMessage"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmDestProfileTestStatus"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmDestProfileTestFailureCause"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmProfileAlertGroupsGroup": {
+    "name": "ccmProfileAlertGroupsGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileAlertGroups"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmProfileAlertGroupControlGroup": {
+    "name": "ccmProfileAlertGroupControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmThrottleConfigurationGroup": {
+    "name": "ccmThrottleConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmMsgThrottlingEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpServersPriorityGroup": {
+    "name": "ccmSmtpServersPriorityGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertGroupCapabilityGroup": {
+    "name": "ccmAlertGroupCapabilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeAlertGroupCapability"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmHttpCfgGroup": {
+    "name": "ccmHttpCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestType"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestHttpUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSeverityAlertGroupCfgGroup": {
+    "name": "ccmSeverityAlertGroupCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAlertGroupSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmPeriodicAlertGroupCfgGroup": {
+    "name": "ccmPeriodicAlertGroupCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicAlertGroupInterval"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicAlertGroupDayOfWeek"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicAlertGroupDayOfMonth"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicAlertGroupHour"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicAlertGroupMinute"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicAlertGroupEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmPatternAlertGroupCfgGroup": {
+    "name": "ccmPatternAlertGroupCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmMaxSyslogAlertGroupPatterns"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPatternAlertGroupSeverity"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPatternAlertGroupStorage"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPatternAlertGroupStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmEventAlertGroupCfgGroup": {
+    "name": "ccmEventAlertGroupCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventAlertGroupEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventAlertGroupOperSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpMsgSendFailNotifCtrlGroup": {
+    "name": "ccmSmtpMsgSendFailNotifCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpMsgSendFailNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpMsgSendFailNotifGroup": {
+    "name": "ccmSmtpMsgSendFailNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.34",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpMsgSendFailNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertHCStatisticsGroup": {
+    "name": "ccmAlertHCStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeHCAlerts"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmAlertRateLimitGroup": {
+    "name": "ccmAlertRateLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAlertsDropped"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAlertRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpServerStatusGroup": {
+    "name": "ccmSmtpServerStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServerStatusTimeStamp"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServerStatusInitiate"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServerStatusResult"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServerStatusAvailability"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmProfileHiMessageSizeGroup": {
+    "name": "ccmProfileHiMessageSizeGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDestProfileHiMaxMsgSize"
+      }
+    ],
+    "status": "current"
+  },
+  "chSystemInformationGroup1": {
+    "name": "chSystemInformationGroup1",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "sysContactPhoneNumber"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "sysContactEmailAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "sysStreetAddress"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeCustomerId"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeContractId"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSiteId"
+      }
+    ],
+    "status": "current"
+  },
+  "chSystemServicePriorityGroup": {
+    "name": "chSystemServicePriorityGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeDeviceServicePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmOnDemandMsgSendControlGroup": {
+    "name": "ccmOnDemandMsgSendControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandMsgSendAlertGroup"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandMsgSendProfile"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandMsgSendEntPhyIndex"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandMsgSendTrigger"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmOnDemandMsgStatusGroup": {
+    "name": "ccmOnDemandMsgStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandMsgServAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmartCallHomeGroup": {
+    "name": "ccmSmartCallHomeGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.43",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmartCallHomeProfile"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmartCallHomeServiceType"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmartCallHomeAnalysisCmd"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmartCallHomeCcoId"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmartCallHomeTrigger"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmEventStatsGroup": {
+    "name": "ccmEventStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.44",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsTotal"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsConfiguration"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsDiagnostic"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsEnvironment"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsInventory"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsSystemLog"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsTest"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsRequest"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventStatsSendCliOutput"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmEventNotifGroup": {
+    "name": "ccmEventNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.45",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallhomeEventsGroup": {
+    "name": "ccmCallhomeEventsGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.46",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventDescription"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventTime"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmEventUrgencyLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallHomeVrfGroup": {
+    "name": "ccmCallHomeVrfGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.47",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSmtpServersVrfGroup": {
+    "name": "ccmSmtpServersVrfGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.48",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmSmtpServersUseVrf"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmHttpProxyServerGroup": {
+    "name": "ccmHttpProxyServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.49",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmHttpProxyServerAddrType"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmHttpProxyServerAddr"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmHttpProxyServerPort"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmHttpProxyServerUseEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmHttpTransportVrfGroup": {
+    "name": "ccmHttpTransportVrfGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.50",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmHttpTransportUseVrf"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmSingleSmtpServerGroup": {
+    "name": "ccmSingleSmtpServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.51",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSmtpServerAddrType"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSmtpServerAddr"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSmtpServerPort"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "callHomeSmtpServerUseVrf"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmMessageSourceGroup": {
+    "name": "ccmMessageSourceGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.52",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmMsgSourceIpAddrType"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmMsgSourceIpAddr"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmMsgSourceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallHomePeriodicMinutesGroup": {
+    "name": "ccmCallHomePeriodicMinutesGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.53",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmPeriodicAlertGroupIntervalMinutes"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmOnDemandCliMsgGroup": {
+    "name": "ccmOnDemandCliMsgGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.54",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandCliMsgCliList"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandCliMsgTransport"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandCliMsgEmail"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandCliMsgFormat"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandCliMsgTacServiceReqId"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmOnDemandCliMsgTrigger"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallHomeDiagSignatureGroup": {
+    "name": "ccmCallHomeDiagSignatureGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.55",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmDiagSignatureActive"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmDiagSignatureProfileName"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureType"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureFuncDescr"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureRev"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureSigner"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureTriggerCount"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureAvgRuntime"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeDiagSignatureMaxRuntime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallHomeSecurityLevelGroup": {
+    "name": "ccmCallHomeSecurityLevelGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.56",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmCallHomeSecurityLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallHomeAnonymousReportingGroup": {
+    "name": "ccmCallHomeAnonymousReportingGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.57",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAnonymousReportingEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ccmCallHomeAaaGroup": {
+    "name": "ccmCallHomeAaaGroup",
+    "oid": "1.3.6.1.4.1.9.9.300.2.2.58",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAaaAuthEnable"
+      },
+      {
+        "module": "CISCO-CALLHOME-MIB",
+        "object": "ccmAaaAuthUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALLHOME-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CALLHOME-MIB"
+  }
+}

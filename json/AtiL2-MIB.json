@@ -1,0 +1,3186 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "Timeout": {
+    "name": "Timeout",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "alliedTelesyn": {
+    "name": "alliedTelesyn",
+    "oid": "1.3.6.1.4.1.207",
+    "class": "objectidentity"
+  },
+  "atiProduct": {
+    "name": "atiProduct",
+    "oid": "1.3.6.1.4.1.207.1",
+    "class": "objectidentity"
+  },
+  "swhub": {
+    "name": "swhub",
+    "oid": "1.3.6.1.4.1.207.1.4",
+    "class": "objectidentity"
+  },
+  "at_8324": {
+    "name": "at_8324",
+    "oid": "1.3.6.1.4.1.207.1.4.37",
+    "class": "objectidentity"
+  },
+  "at_8124XL_V2": {
+    "name": "at_8124XL_V2",
+    "oid": "1.3.6.1.4.1.207.1.4.52",
+    "class": "objectidentity"
+  },
+  "at_8326GB": {
+    "name": "at_8326GB",
+    "oid": "1.3.6.1.4.1.207.1.4.72",
+    "class": "objectidentity"
+  },
+  "at_9410GB": {
+    "name": "at_9410GB",
+    "oid": "1.3.6.1.4.1.207.1.4.73",
+    "class": "objectidentity"
+  },
+  "at_8350GB": {
+    "name": "at_8350GB",
+    "oid": "1.3.6.1.4.1.207.1.4.74",
+    "class": "objectidentity"
+  },
+  "at_8316F": {
+    "name": "at_8316F",
+    "oid": "1.3.6.1.4.1.207.1.4.77",
+    "class": "objectidentity"
+  },
+  "mibObject": {
+    "name": "mibObject",
+    "oid": "1.3.6.1.4.1.207.8",
+    "class": "objectidentity"
+  },
+  "atiL2Mib": {
+    "name": "atiL2Mib",
+    "oid": "1.3.6.1.4.1.207.8.33",
+    "class": "objectidentity"
+  },
+  "atiL2GlobalGroup": {
+    "name": "atiL2GlobalGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.1",
+    "class": "objectidentity"
+  },
+  "atiL2IpGroup": {
+    "name": "atiL2IpGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.2",
+    "class": "objectidentity"
+  },
+  "atiL2NMGroup": {
+    "name": "atiL2NMGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.3",
+    "class": "objectidentity"
+  },
+  "atiL2DHCPGroup": {
+    "name": "atiL2DHCPGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.4",
+    "class": "objectidentity"
+  },
+  "atiL2DeviceGroup": {
+    "name": "atiL2DeviceGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.5",
+    "class": "objectidentity"
+  },
+  "atiL2EthernetStatsGroup": {
+    "name": "atiL2EthernetStatsGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.6",
+    "class": "objectidentity"
+  },
+  "atiL2DevicePortConfigGroup": {
+    "name": "atiL2DevicePortConfigGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.7",
+    "class": "objectidentity"
+  },
+  "atiL2VlanConfigGroup": {
+    "name": "atiL2VlanConfigGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.8",
+    "class": "objectidentity"
+  },
+  "atiL2IfExt": {
+    "name": "atiL2IfExt",
+    "oid": "1.3.6.1.4.1.207.8.33.9",
+    "class": "objectidentity"
+  },
+  "atiL2BridgeMib": {
+    "name": "atiL2BridgeMib",
+    "oid": "1.3.6.1.4.1.207.8.33.10",
+    "class": "objectidentity"
+  },
+  "atiL2BrBase": {
+    "name": "atiL2BrBase",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1",
+    "class": "objectidentity"
+  },
+  "atiL2BrStp": {
+    "name": "atiL2BrStp",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2",
+    "class": "objectidentity"
+  },
+  "atiL2BrTp": {
+    "name": "atiL2BrTp",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3",
+    "class": "objectidentity"
+  },
+  "atiL2TrapAttrGroup": {
+    "name": "atiL2TrapAttrGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.11",
+    "class": "objectidentity"
+  },
+  "atiL2QOSConfigGroup": {
+    "name": "atiL2QOSConfigGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.12",
+    "class": "objectidentity"
+  },
+  "atiL2SwProduct": {
+    "name": "atiL2SwProduct",
+    "oid": "1.3.6.1.4.1.207.8.33.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2SwVersion": {
+    "name": "atiL2SwVersion",
+    "oid": "1.3.6.1.4.1.207.8.33.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2Reset": {
+    "name": "atiL2Reset",
+    "oid": "1.3.6.1.4.1.207.8.33.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch-no-reset": 1,
+          "switch-reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2MirroringSourceModule": {
+    "name": "atiL2MirroringSourceModule",
+    "oid": "1.3.6.1.4.1.207.8.33.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2MirroringSourcePort": {
+    "name": "atiL2MirroringSourcePort",
+    "oid": "1.3.6.1.4.1.207.8.33.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2MirroringDestinationModule": {
+    "name": "atiL2MirroringDestinationModule",
+    "oid": "1.3.6.1.4.1.207.8.33.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2MirroringDestinationPort": {
+    "name": "atiL2MirroringDestinationPort",
+    "oid": "1.3.6.1.4.1.207.8.33.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2MirrorState": {
+    "name": "atiL2MirrorState",
+    "oid": "1.3.6.1.4.1.207.8.33.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "receive-and-transmit": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2IGMPState": {
+    "name": "atiL2IGMPState",
+    "oid": "1.3.6.1.4.1.207.8.33.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DeviceNumber": {
+    "name": "atiL2DeviceNumber",
+    "oid": "1.3.6.1.4.1.207.8.33.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2CurrentIpAddress": {
+    "name": "atiL2CurrentIpAddress",
+    "oid": "1.3.6.1.4.1.207.8.33.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2ConfiguredIpAddress": {
+    "name": "atiL2ConfiguredIpAddress",
+    "oid": "1.3.6.1.4.1.207.8.33.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2ConfiguredSubnetMask": {
+    "name": "atiL2ConfiguredSubnetMask",
+    "oid": "1.3.6.1.4.1.207.8.33.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2ConfiguredRouter": {
+    "name": "atiL2ConfiguredRouter",
+    "oid": "1.3.6.1.4.1.207.8.33.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2IPAddressStatus": {
+    "name": "atiL2IPAddressStatus",
+    "oid": "1.3.6.1.4.1.207.8.33.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "from-dhcp": 1,
+          "from-bootp": 2,
+          "from-psuedoip": 3,
+          "from-Omega": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DNServer": {
+    "name": "atiL2DNServer",
+    "oid": "1.3.6.1.4.1.207.8.33.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DefaultDomainName": {
+    "name": "atiL2DefaultDomainName",
+    "oid": "1.3.6.1.4.1.207.8.33.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2NwMgrTable": {
+    "name": "atiL2NwMgrTable",
+    "oid": "1.3.6.1.4.1.207.8.33.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2NwMgrEntry": {
+    "name": "atiL2NwMgrEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2NwMgrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2NwMgrIndex": {
+    "name": "atiL2NwMgrIndex",
+    "oid": "1.3.6.1.4.1.207.8.33.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2NwMgrIpAddr": {
+    "name": "atiL2NwMgrIpAddr",
+    "oid": "1.3.6.1.4.1.207.8.33.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DHCPSysGroup": {
+    "name": "atiL2DHCPSysGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.4.1",
+    "class": "objectidentity"
+  },
+  "atiL2DHCPTimerGroup": {
+    "name": "atiL2DHCPTimerGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.4.2",
+    "class": "objectidentity"
+  },
+  "atiL2DHCPCurrentDHCPClientAddress": {
+    "name": "atiL2DHCPCurrentDHCPClientAddress",
+    "oid": "1.3.6.1.4.1.207.8.33.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DHCPSubnetMask": {
+    "name": "atiL2DHCPSubnetMask",
+    "oid": "1.3.6.1.4.1.207.8.33.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DHCPCurrentRelayAgentAddress": {
+    "name": "atiL2DHCPCurrentRelayAgentAddress",
+    "oid": "1.3.6.1.4.1.207.8.33.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DHCPNextDHCPServerAddress": {
+    "name": "atiL2DHCPNextDHCPServerAddress",
+    "oid": "1.3.6.1.4.1.207.8.33.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DHCPLeaseTimer": {
+    "name": "atiL2DHCPLeaseTimer",
+    "oid": "1.3.6.1.4.1.207.8.33.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DHCPReacquisitionTimer": {
+    "name": "atiL2DHCPReacquisitionTimer",
+    "oid": "1.3.6.1.4.1.207.8.33.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DHCPExpirationTimer": {
+    "name": "atiL2DHCPExpirationTimer",
+    "oid": "1.3.6.1.4.1.207.8.33.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2deviceTable": {
+    "name": "atiL2deviceTable",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2deviceEntry": {
+    "name": "atiL2deviceEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2deviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2deviceIndex": {
+    "name": "atiL2deviceIndex",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2deviceDescr": {
+    "name": "atiL2deviceDescr",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2deviceProductType": {
+    "name": "atiL2deviceProductType",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "at-8324": 1,
+          "at-8316F": 2,
+          "at-8124XL-V2": 3,
+          "at-8326GB": 4,
+          "at-9410GB": 5,
+          "at-8350GB": 6,
+          "other": 20
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2devicePortCount": {
+    "name": "atiL2devicePortCount",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2deviceSecurityConfig": {
+    "name": "atiL2deviceSecurityConfig",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled-with-learning-locked": 2,
+          "limited-enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2deviceSecurityAction": {
+    "name": "atiL2deviceSecurityAction",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "send-trap-only": 1,
+          "disable-port-only": 2,
+          "disable-port-and-send-trap": 3,
+          "do-nothing": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2deviceDebugAvailableBytes": {
+    "name": "atiL2deviceDebugAvailableBytes",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2deviceMDA1Type": {
+    "name": "atiL2deviceMDA1Type",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ten-100rj45-mii": 1,
+          "hundredfiber-mii": 2,
+          "oneGb-rj45": 3,
+          "oneGb-Fiber": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2deviceMDA2Type": {
+    "name": "atiL2deviceMDA2Type",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ten-100rj45-mii": 1,
+          "hundredfiber-mii": 2,
+          "oneGb-rj45": 3,
+          "oneGb-Fiber": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2deviceReset": {
+    "name": "atiL2deviceReset",
+    "oid": "1.3.6.1.4.1.207.8.33.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch-no-reset": 1,
+          "switch-reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2EthMonStatsGroup": {
+    "name": "atiL2EthMonStatsGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1",
+    "class": "objectidentity"
+  },
+  "atiL2EthErrStatsGroup": {
+    "name": "atiL2EthErrStatsGroup",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2",
+    "class": "objectidentity"
+  },
+  "atiL2EthMonStatsTable": {
+    "name": "atiL2EthMonStatsTable",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2EthMonStatsEntry": {
+    "name": "atiL2EthMonStatsEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2EthMonModuleId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2EthMonModuleId": {
+    "name": "atiL2EthMonModuleId",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthMonRxGoodFrames": {
+    "name": "atiL2EthMonRxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthMonTxGoodFrames": {
+    "name": "atiL2EthMonTxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthMonTxTotalBytes": {
+    "name": "atiL2EthMonTxTotalBytes",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthMonTxDeferred": {
+    "name": "atiL2EthMonTxDeferred",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "atiL2EthMonTxCollisions": {
+    "name": "atiL2EthMonTxCollisions",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthMonTxBroadcastFrames": {
+    "name": "atiL2EthMonTxBroadcastFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthMonTxMulticastFrames": {
+    "name": "atiL2EthMonTxMulticastFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthMonRxOverruns": {
+    "name": "atiL2EthMonRxOverruns",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonStatsTable": {
+    "name": "atiL2EthPortMonStatsTable",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonStatsEntry": {
+    "name": "atiL2EthPortMonStatsEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2EthPortMonModuleId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2EthPortMonPortId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonModuleId": {
+    "name": "atiL2EthPortMonModuleId",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonPortId": {
+    "name": "atiL2EthPortMonPortId",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonRxGoodFrames": {
+    "name": "atiL2EthPortMonRxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonTxGoodFrames": {
+    "name": "atiL2EthPortMonTxGoodFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonTxTotalBytes": {
+    "name": "atiL2EthPortMonTxTotalBytes",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonTxDeferred": {
+    "name": "atiL2EthPortMonTxDeferred",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "atiL2EthPortMonTxCollisions": {
+    "name": "atiL2EthPortMonTxCollisions",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonTxBroadcastFrames": {
+    "name": "atiL2EthPortMonTxBroadcastFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonTxMulticastFrames": {
+    "name": "atiL2EthPortMonTxMulticastFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortMonRxOverruns": {
+    "name": "atiL2EthPortMonRxOverruns",
+    "oid": "1.3.6.1.4.1.207.8.33.6.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthErrStatsTable": {
+    "name": "atiL2EthErrStatsTable",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2EthErrorStatsEntry": {
+    "name": "atiL2EthErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2EthErrModuleId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2EthErrModuleId": {
+    "name": "atiL2EthErrModuleId",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthErrorCRC": {
+    "name": "atiL2EthErrorCRC",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthErrorAlignment": {
+    "name": "atiL2EthErrorAlignment",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthErrorRxBadFrames": {
+    "name": "atiL2EthErrorRxBadFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthErrorLateCollisions": {
+    "name": "atiL2EthErrorLateCollisions",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthErrorTxTotal": {
+    "name": "atiL2EthErrorTxTotal",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrStatsTable": {
+    "name": "atiL2EthPortErrStatsTable",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrorStatsEntry": {
+    "name": "atiL2EthPortErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2EthPortErrModuleId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2EthPortErrPortId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrModuleId": {
+    "name": "atiL2EthPortErrModuleId",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrPortId": {
+    "name": "atiL2EthPortErrPortId",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrorCRC": {
+    "name": "atiL2EthPortErrorCRC",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrorAlignment": {
+    "name": "atiL2EthPortErrorAlignment",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrorRxBadFrames": {
+    "name": "atiL2EthPortErrorRxBadFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrorLateCollisions": {
+    "name": "atiL2EthPortErrorLateCollisions",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2EthPortErrorTxTotal": {
+    "name": "atiL2EthPortErrorTxTotal",
+    "oid": "1.3.6.1.4.1.207.8.33.6.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortTable": {
+    "name": "atiL2DevicePortTable",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortEntry": {
+    "name": "atiL2DevicePortEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2DeviceId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2DevicePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2DeviceId": {
+    "name": "atiL2DeviceId",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortNumber": {
+    "name": "atiL2DevicePortNumber",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortName": {
+    "name": "atiL2DevicePortName",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortAutosenseOrHalfDuplex": {
+    "name": "atiL2DevicePortAutosenseOrHalfDuplex",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portAutoSense": 1,
+          "forceHalfDuplex-10M": 2,
+          "forceHalfDuplex-100M": 3,
+          "forceFullDuplex-10M": 4,
+          "forceFullDuplex-100M": 5,
+          "forceHalfDuplex-1G": 6,
+          "forceFullDuplex-1G": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortLinkState": {
+    "name": "atiL2DevicePortLinkState",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortDuplexStatus": {
+    "name": "atiL2DevicePortDuplexStatus",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2,
+          "autosense": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortSpeed": {
+    "name": "atiL2DevicePortSpeed",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenMBits": 1,
+          "hundredMBits": 2,
+          "gigaBits": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortState": {
+    "name": "atiL2DevicePortState",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "blocking": 3,
+          "listening": 4,
+          "learning": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortTransmitPacingConfig": {
+    "name": "atiL2DevicePortTransmitPacingConfig",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortSTPConfig": {
+    "name": "atiL2DevicePortSTPConfig",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortBridgeid": {
+    "name": "atiL2DevicePortBridgeid",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortSTPCost": {
+    "name": "atiL2DevicePortSTPCost",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortSTPPriority": {
+    "name": "atiL2DevicePortSTPPriority",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2DevicePortFlowControlEnable": {
+    "name": "atiL2DevicePortFlowControlEnable",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "atiL2DevicePortBackPressureEnable": {
+    "name": "atiL2DevicePortBackPressureEnable",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "atiL2DevicePortVlanTagPriorityConfig": {
+    "name": "atiL2DevicePortVlanTagPriorityConfig",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "use-vlan-priority": 1,
+          "override-vlan-priority": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "atiL2DevicePortQOSPriorityConfig": {
+    "name": "atiL2DevicePortQOSPriorityConfig",
+    "oid": "1.3.6.1.4.1.207.8.33.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high-priority": 1,
+          "normal-priority": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "atiL2BasicVlanTable": {
+    "name": "atiL2BasicVlanTable",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BasicVlanEntry": {
+    "name": "atiL2BasicVlanEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BeVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BeVlanIndex": {
+    "name": "atiL2BeVlanIndex",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanName": {
+    "name": "atiL2BeVlanName",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanTagId": {
+    "name": "atiL2BeVlanTagId",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule1UntaggedPorts": {
+    "name": "atiL2BeVlanModule1UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule1TaggedPorts": {
+    "name": "atiL2BeVlanModule1TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule2UntaggedPorts": {
+    "name": "atiL2BeVlanModule2UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule2TaggedPorts": {
+    "name": "atiL2BeVlanModule2TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule3UntaggedPorts": {
+    "name": "atiL2BeVlanModule3UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule3TaggedPorts": {
+    "name": "atiL2BeVlanModule3TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule4UntaggedPorts": {
+    "name": "atiL2BeVlanModule4UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule4TaggedPorts": {
+    "name": "atiL2BeVlanModule4TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule5UntaggedPorts": {
+    "name": "atiL2BeVlanModule5UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule5TaggedPorts": {
+    "name": "atiL2BeVlanModule5TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule6UntaggedPorts": {
+    "name": "atiL2BeVlanModule6UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule6TaggedPorts": {
+    "name": "atiL2BeVlanModule6TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule7UntaggedPorts": {
+    "name": "atiL2BeVlanModule7UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule7TaggedPorts": {
+    "name": "atiL2BeVlanModule7TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule8UntaggedPorts": {
+    "name": "atiL2BeVlanModule8UntaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanModule8TaggedPorts": {
+    "name": "atiL2BeVlanModule8TaggedPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BeVlanRowStatus": {
+    "name": "atiL2BeVlanRowStatus",
+    "oid": "1.3.6.1.4.1.207.8.33.8.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "operational": 2,
+          "under-construction": 3,
+          "not-operational": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2Port2VlanTable": {
+    "name": "atiL2Port2VlanTable",
+    "oid": "1.3.6.1.4.1.207.8.33.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2Port2VlanEntry": {
+    "name": "atiL2Port2VlanEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2PvModuleId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2PvPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2PvModuleId": {
+    "name": "atiL2PvModuleId",
+    "oid": "1.3.6.1.4.1.207.8.33.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2PvPortNumber": {
+    "name": "atiL2PvPortNumber",
+    "oid": "1.3.6.1.4.1.207.8.33.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2PvVlanName": {
+    "name": "atiL2PvVlanName",
+    "oid": "1.3.6.1.4.1.207.8.33.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2IfExtensions": {
+    "name": "atiL2IfExtensions",
+    "oid": "1.3.6.1.4.1.207.8.33.9.1",
+    "class": "objectidentity"
+  },
+  "atiIfExtnTable": {
+    "name": "atiIfExtnTable",
+    "oid": "1.3.6.1.4.1.207.8.33.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiIfExtnEntry": {
+    "name": "atiIfExtnEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiIfExtnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiIfExtnIndex": {
+    "name": "atiIfExtnIndex",
+    "oid": "1.3.6.1.4.1.207.8.33.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiIfExtnModuleId": {
+    "name": "atiIfExtnModuleId",
+    "oid": "1.3.6.1.4.1.207.8.33.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiIfExtnPort": {
+    "name": "atiIfExtnPort",
+    "oid": "1.3.6.1.4.1.207.8.33.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBaseTable": {
+    "name": "atiL2BrBaseTable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BrBaseEntry": {
+    "name": "atiL2BrBaseEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrBaseLanId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BrBaseLanId": {
+    "name": "atiL2BrBaseLanId",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBaseBridgeAddress": {
+    "name": "atiL2BrBaseBridgeAddress",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBaseNumPorts": {
+    "name": "atiL2BrBaseNumPorts",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBaseType": {
+    "name": "atiL2BrBaseType",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "transparent-only": 2,
+          "sourceroute-only": 3,
+          "srt": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBasePortTable": {
+    "name": "atiL2BrBasePortTable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BrBasePortEntry": {
+    "name": "atiL2BrBasePortEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrBasePortLanId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BrBasePortLanId": {
+    "name": "atiL2BrBasePortLanId",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBasePort": {
+    "name": "atiL2BrBasePort",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBasePortIfIndex": {
+    "name": "atiL2BrBasePortIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBasePortCircuit": {
+    "name": "atiL2BrBasePortCircuit",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBasePortDelayExceededDiscards": {
+    "name": "atiL2BrBasePortDelayExceededDiscards",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrBasePortMtuExceededDiscards": {
+    "name": "atiL2BrBasePortMtuExceededDiscards",
+    "oid": "1.3.6.1.4.1.207.8.33.10.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpTable": {
+    "name": "atiL2BrStpTable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BrStpEntry": {
+    "name": "atiL2BrStpEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrStpLanId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BrStpLanId": {
+    "name": "atiL2BrStpLanId",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpProtocolSpecification": {
+    "name": "atiL2BrStpProtocolSpecification",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "decLb100": 2,
+          "ieee8021d": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPriority": {
+    "name": "atiL2BrStpPriority",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrStpTimeSinceTopologyChange": {
+    "name": "atiL2BrStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpTopChanges": {
+    "name": "atiL2BrStpTopChanges",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpDesignatedRoot": {
+    "name": "atiL2BrStpDesignatedRoot",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpRootCost": {
+    "name": "atiL2BrStpRootCost",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpRootPort": {
+    "name": "atiL2BrStpRootPort",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpMaxAge": {
+    "name": "atiL2BrStpMaxAge",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpHelloTime": {
+    "name": "atiL2BrStpHelloTime",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpHoldTime": {
+    "name": "atiL2BrStpHoldTime",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpForwardDelay": {
+    "name": "atiL2BrStpForwardDelay",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpBridgeMaxAge": {
+    "name": "atiL2BrStpBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrStpBridgeHelloTime": {
+    "name": "atiL2BrStpBridgeHelloTime",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrStpBridgeForwardDelay": {
+    "name": "atiL2BrStpBridgeForwardDelay",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortTable": {
+    "name": "atiL2BrStpPortTable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortEntry": {
+    "name": "atiL2BrStpPortEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrStpPortLanId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrStpPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortLanId": {
+    "name": "atiL2BrStpPortLanId",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPort": {
+    "name": "atiL2BrStpPort",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortPriority": {
+    "name": "atiL2BrStpPortPriority",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortState": {
+    "name": "atiL2BrStpPortState",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortEnable": {
+    "name": "atiL2BrStpPortEnable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortPathCost": {
+    "name": "atiL2BrStpPortPathCost",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortDesignatedRoot": {
+    "name": "atiL2BrStpPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortDesignatedCost": {
+    "name": "atiL2BrStpPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortDesignatedBridge": {
+    "name": "atiL2BrStpPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortDesignatedPort": {
+    "name": "atiL2BrStpPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrStpPortForwardTransitions": {
+    "name": "atiL2BrStpPortForwardTransitions",
+    "oid": "1.3.6.1.4.1.207.8.33.10.2.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpTable": {
+    "name": "atiL2BrTpTable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BrTpEntry": {
+    "name": "atiL2BrTpEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrTpLanId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BrTpLanId": {
+    "name": "atiL2BrTpLanId",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpLearnedEntryDiscards": {
+    "name": "atiL2BrTpLearnedEntryDiscards",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpAgingTime": {
+    "name": "atiL2BrTpAgingTime",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2BrTpFdbTable": {
+    "name": "atiL2BrTpFdbTable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BrTpFdbEntry": {
+    "name": "atiL2BrTpFdbEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrTpFdbLanId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrTpFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BrTpFdbLanId": {
+    "name": "atiL2BrTpFdbLanId",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpFdbAddress": {
+    "name": "atiL2BrTpFdbAddress",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpFdbPort": {
+    "name": "atiL2BrTpFdbPort",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpFdbStatus": {
+    "name": "atiL2BrTpFdbStatus",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpPortTable": {
+    "name": "atiL2BrTpPortTable",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2BrTpPortEntry": {
+    "name": "atiL2BrTpPortEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrTpPortLanId",
+        "implied": 0
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2BrTpPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2BrTpPortLanId": {
+    "name": "atiL2BrTpPortLanId",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpPort": {
+    "name": "atiL2BrTpPort",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpPortMaxInfo": {
+    "name": "atiL2BrTpPortMaxInfo",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpPortInFrames": {
+    "name": "atiL2BrTpPortInFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpPortOutFrames": {
+    "name": "atiL2BrTpPortOutFrames",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2BrTpPortInDiscards": {
+    "name": "atiL2BrTpPortInDiscards",
+    "oid": "1.3.6.1.4.1.207.8.33.10.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2TrapAttrModuleId": {
+    "name": "atiL2TrapAttrModuleId",
+    "oid": "1.3.6.1.4.1.207.8.33.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2TrapAttrPortId": {
+    "name": "atiL2TrapAttrPortId",
+    "oid": "1.3.6.1.4.1.207.8.33.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "newRoot": {
+    "name": "newRoot",
+    "oid": "1.3.6.1.4.1.2070.101",
+    "class": "notificationtype"
+  },
+  "topologyChange": {
+    "name": "topologyChange",
+    "oid": "1.3.6.1.4.1.2070.102",
+    "class": "notificationtype"
+  },
+  "atiL2FanStopTrap": {
+    "name": "atiL2FanStopTrap",
+    "oid": "1.3.6.1.4.1.2070.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2TrapAttrModuleId"
+      }
+    ]
+  },
+  "atiL2TemperatureAbnormalTrap": {
+    "name": "atiL2TemperatureAbnormalTrap",
+    "oid": "1.3.6.1.4.1.2070.104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2TrapAttrModuleId"
+      }
+    ]
+  },
+  "atiL2PowerSupplyOutage": {
+    "name": "atiL2PowerSupplyOutage",
+    "oid": "1.3.6.1.4.1.2070.105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2TrapAttrModuleId"
+      }
+    ]
+  },
+  "atiL2IntruderAlert": {
+    "name": "atiL2IntruderAlert",
+    "oid": "1.3.6.1.4.1.2070.106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2TrapAttrModuleId"
+      },
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2TrapAttrPortId"
+      }
+    ]
+  },
+  "atiL2QOSStatus": {
+    "name": "atiL2QOSStatus",
+    "oid": "1.3.6.1.4.1.207.8.33.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atiL2TrafficMappingTable": {
+    "name": "atiL2TrafficMappingTable",
+    "oid": "1.3.6.1.4.1.207.8.33.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atiL2TrafficMappingEntry": {
+    "name": "atiL2TrafficMappingEntry",
+    "oid": "1.3.6.1.4.1.207.8.33.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AtiL2-MIB",
+        "object": "atiL2TrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atiL2TrafficClassIndex": {
+    "name": "atiL2TrafficClassIndex",
+    "oid": "1.3.6.1.4.1.207.8.33.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atiL2PriorityQueue": {
+    "name": "atiL2PriorityQueue",
+    "oid": "1.3.6.1.4.1.207.8.33.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highest": 0,
+          "lowest": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AtiL2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AtiL2-MIB"
+  }
+}

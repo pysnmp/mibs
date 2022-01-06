@@ -1,0 +1,2915 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "ciscoTelesend": {
+    "name": "ciscoTelesend",
+    "oid": "1.3.6.1.4.1.1570",
+    "class": "objectidentity"
+  },
+  "frMux": {
+    "name": "frMux",
+    "oid": "1.3.6.1.4.1.1570.1",
+    "class": "objectidentity"
+  },
+  "frxSys": {
+    "name": "frxSys",
+    "oid": "1.3.6.1.4.1.1570.1.1",
+    "class": "objectidentity"
+  },
+  "frxDefault": {
+    "name": "frxDefault",
+    "oid": "1.3.6.1.4.1.1570.1.2",
+    "class": "objectidentity"
+  },
+  "frxBank": {
+    "name": "frxBank",
+    "oid": "1.3.6.1.4.1.1570.1.3",
+    "class": "objectidentity"
+  },
+  "frxChUnit": {
+    "name": "frxChUnit",
+    "oid": "1.3.6.1.4.1.1570.1.4",
+    "class": "objectidentity"
+  },
+  "frxMgt": {
+    "name": "frxMgt",
+    "oid": "1.3.6.1.4.1.1570.1.5",
+    "class": "objectidentity"
+  },
+  "frxPort": {
+    "name": "frxPort",
+    "oid": "1.3.6.1.4.1.1570.1.6",
+    "class": "objectidentity"
+  },
+  "frxSysDescr": {
+    "name": "frxSysDescr",
+    "oid": "1.3.6.1.4.1.1570.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxClockHour": {
+    "name": "frxClockHour",
+    "oid": "1.3.6.1.4.1.1570.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxClockMin": {
+    "name": "frxClockMin",
+    "oid": "1.3.6.1.4.1.1570.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxClockSec": {
+    "name": "frxClockSec",
+    "oid": "1.3.6.1.4.1.1570.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxUpTime": {
+    "name": "frxUpTime",
+    "oid": "1.3.6.1.4.1.1570.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxAdminContact": {
+    "name": "frxAdminContact",
+    "oid": "1.3.6.1.4.1.1570.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxSysName": {
+    "name": "frxSysName",
+    "oid": "1.3.6.1.4.1.1570.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxSysLoc": {
+    "name": "frxSysLoc",
+    "oid": "1.3.6.1.4.1.1570.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxSysVersion": {
+    "name": "frxSysVersion",
+    "oid": "1.3.6.1.4.1.1570.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxUPerfTrapEnable": {
+    "name": "frxUPerfTrapEnable",
+    "oid": "1.3.6.1.4.1.1570.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableUPerfTrap": 1,
+          "disableUPerfTrap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxAgtLinkErrors": {
+    "name": "frxAgtLinkErrors",
+    "oid": "1.3.6.1.4.1.1570.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxAgtProtErrors": {
+    "name": "frxAgtProtErrors",
+    "oid": "1.3.6.1.4.1.1570.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxAgtChInactive": {
+    "name": "frxAgtChInactive",
+    "oid": "1.3.6.1.4.1.1570.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxAgtChStatus": {
+    "name": "frxAgtChStatus",
+    "oid": "1.3.6.1.4.1.1570.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDefaultEnable": {
+    "name": "frxDefaultEnable",
+    "oid": "1.3.6.1.4.1.1570.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableAutoLoad": 1,
+          "disableAutoLoad": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDefaultTrap": {
+    "name": "frxDefaultTrap",
+    "oid": "1.3.6.1.4.1.1570.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableConfigureTrap": 1,
+          "disableConfigureTrap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDConfigSrc": {
+    "name": "frxDConfigSrc",
+    "oid": "1.3.6.1.4.1.1570.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "annexD": 1,
+          "snmp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDMgtT391": {
+    "name": "frxDMgtT391",
+    "oid": "1.3.6.1.4.1.1570.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDMgtT392": {
+    "name": "frxDMgtT392",
+    "oid": "1.3.6.1.4.1.1570.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDMgtN391": {
+    "name": "frxDMgtN391",
+    "oid": "1.3.6.1.4.1.1570.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDMgtN392": {
+    "name": "frxDMgtN392",
+    "oid": "1.3.6.1.4.1.1570.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDMgtN393": {
+    "name": "frxDMgtN393",
+    "oid": "1.3.6.1.4.1.1570.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDPortSpeed": {
+    "name": "frxDPortSpeed",
+    "oid": "1.3.6.1.4.1.1570.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "use56kbps": 1,
+          "use64kbps": 2,
+          "use128kbps": 3,
+          "use144kbps": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDPortProtocol": {
+    "name": "frxDPortProtocol",
+    "oid": "1.3.6.1.4.1.1570.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameRelay": 1,
+          "ppp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDCktCIR": {
+    "name": "frxDCktCIR",
+    "oid": "1.3.6.1.4.1.1570.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDCktBc": {
+    "name": "frxDCktBc",
+    "oid": "1.3.6.1.4.1.1570.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDCktBe": {
+    "name": "frxDCktBe",
+    "oid": "1.3.6.1.4.1.1570.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777212
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxBankTable": {
+    "name": "frxBankTable",
+    "oid": "1.3.6.1.4.1.1570.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxBankEntry": {
+    "name": "frxBankEntry",
+    "oid": "1.3.6.1.4.1.1570.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxBankIndex": {
+    "name": "frxBankIndex",
+    "oid": "1.3.6.1.4.1.1570.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1007
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxBankType": {
+    "name": "frxBankType",
+    "oid": "1.3.6.1.4.1.1570.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "d4": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxChUTable": {
+    "name": "frxChUTable",
+    "oid": "1.3.6.1.4.1.1570.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxChUEntry": {
+    "name": "frxChUEntry",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxChUIndex": {
+    "name": "frxChUIndex",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChUType": {
+    "name": "frxChUType",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cisco90i": 100
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChUVersion": {
+    "name": "frxChUVersion",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxSigProtocol": {
+    "name": "frxSigProtocol",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "annexD": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxConfigSrc": {
+    "name": "frxConfigSrc",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "annexD": 1,
+          "snmp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDLCIAdLen": {
+    "name": "frxDLCIAdLen",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoOctetDlci": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetInOctets": {
+    "name": "frxNetInOctets",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetOutOctets": {
+    "name": "frxNetOutOctets",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetBadFrames": {
+    "name": "frxNetBadFrames",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetHDLCEs": {
+    "name": "frxNetHDLCEs",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetCRCEs": {
+    "name": "frxNetCRCEs",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetLinkEs": {
+    "name": "frxNetLinkEs",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetFrShEs": {
+    "name": "frxNetFrShEs",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetFrLgEs": {
+    "name": "frxNetFrLgEs",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetPPPEs": {
+    "name": "frxNetPPPEs",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetBufEs": {
+    "name": "frxNetBufEs",
+    "oid": "1.3.6.1.4.1.1570.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxMgtTable": {
+    "name": "frxMgtTable",
+    "oid": "1.3.6.1.4.1.1570.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxMgtEntry": {
+    "name": "frxMgtEntry",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxPortsInSvc": {
+    "name": "frxPortsInSvc",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxMgtT391": {
+    "name": "frxMgtT391",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxMgtT392": {
+    "name": "frxMgtT392",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxMgtN391": {
+    "name": "frxMgtN391",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxMgtN392": {
+    "name": "frxMgtN392",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxMgtN393": {
+    "name": "frxMgtN393",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxNetLinkErrors": {
+    "name": "frxNetLinkErrors",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetProtErrors": {
+    "name": "frxNetProtErrors",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetChInactive": {
+    "name": "frxNetChInactive",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxNetChStatus": {
+    "name": "frxNetChStatus",
+    "oid": "1.3.6.1.4.1.1570.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxMgtPortTable": {
+    "name": "frxMgtPortTable",
+    "oid": "1.3.6.1.4.1.1570.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxMgtPortEntry": {
+    "name": "frxMgtPortEntry",
+    "oid": "1.3.6.1.4.1.1570.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxPortIndex": {
+    "name": "frxPortIndex",
+    "oid": "1.3.6.1.4.1.1570.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPortLinkErrors": {
+    "name": "frxPortLinkErrors",
+    "oid": "1.3.6.1.4.1.1570.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPortProtErrors": {
+    "name": "frxPortProtErrors",
+    "oid": "1.3.6.1.4.1.1570.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPortChInactive": {
+    "name": "frxPortChInactive",
+    "oid": "1.3.6.1.4.1.1570.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPortTable": {
+    "name": "frxPortTable",
+    "oid": "1.3.6.1.4.1.1570.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxPortEntry": {
+    "name": "frxPortEntry",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxPortSpeed": {
+    "name": "frxPortSpeed",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "use56kbps": 1,
+          "use64kbps": 2,
+          "use128kbps": 3,
+          "use144kbps": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxPortProtocol": {
+    "name": "frxPortProtocol",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameRelay": 1,
+          "ppp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxDSLStatus": {
+    "name": "frxDSLStatus",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopDown": 1,
+          "dslSyncOnly": 2,
+          "loopUpInactive": 3,
+          "loopUp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPVCAssigned": {
+    "name": "frxPVCAssigned",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxLastChange": {
+    "name": "frxLastChange",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxBrite": {
+    "name": "frxBrite",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLInOctets": {
+    "name": "frxDSLInOctets",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLOutOctets": {
+    "name": "frxDSLOutOctets",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxT1InOctets": {
+    "name": "frxT1InOctets",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxT1OutOctets": {
+    "name": "frxT1OutOctets",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLBadFrames": {
+    "name": "frxDSLBadFrames",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLHDLCEs": {
+    "name": "frxDSLHDLCEs",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLCRCEs": {
+    "name": "frxDSLCRCEs",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLLinkEs": {
+    "name": "frxDSLLinkEs",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLFrShEs": {
+    "name": "frxDSLFrShEs",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLFrLgEs": {
+    "name": "frxDSLFrLgEs",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDSLDLCIEs": {
+    "name": "frxDSLDLCIEs",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxTxBuf": {
+    "name": "frxTxBuf",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxRxBuf": {
+    "name": "frxRxBuf",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPortNetEs": {
+    "name": "frxPortNetEs",
+    "oid": "1.3.6.1.4.1.1570.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCircuitTable": {
+    "name": "frxCircuitTable",
+    "oid": "1.3.6.1.4.1.1570.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxCircuitEntry": {
+    "name": "frxCircuitEntry",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPvcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxPvcIndex": {
+    "name": "frxPvcIndex",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCktCIR": {
+    "name": "frxCktCIR",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxCktBc": {
+    "name": "frxCktBc",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxCktBe": {
+    "name": "frxCktBe",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxFarEndOpStat": {
+    "name": "frxFarEndOpStat",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCktInOctets": {
+    "name": "frxCktInOctets",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCktOutOctets": {
+    "name": "frxCktOutOctets",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCktInFrames": {
+    "name": "frxCktInFrames",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCktOutFrames": {
+    "name": "frxCktOutFrames",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCktDiscards": {
+    "name": "frxCktDiscards",
+    "oid": "1.3.6.1.4.1.1570.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxUEocTable": {
+    "name": "frxUEocTable",
+    "oid": "1.3.6.1.4.1.1570.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxUEocEntry": {
+    "name": "frxUEocEntry",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxTestPort": {
+    "name": "frxTestPort",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxTestType": {
+    "name": "frxTestType",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopbackAndBert": 1,
+          "bertOnly": 2,
+          "sendCorruptCRC": 3,
+          "loopbackOnly": 4,
+          "localLoopAllPorts": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxLoopLoc": {
+    "name": "frxLoopLoc",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localFrx": 7,
+          "briteCard1": 1,
+          "briteCard2": 2,
+          "briteCard3": 3,
+          "briteCard4": 4,
+          "briteCard5": 5,
+          "briteCard6": 6,
+          "nt1": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxLoopCh": {
+    "name": "frxLoopCh",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "b1only": 1,
+          "b2only": 2,
+          "all": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxStartTest": {
+    "name": "frxStartTest",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stopTest": 1,
+          "startTest": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxBertRst": {
+    "name": "frxBertRst",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "resetBert": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxBertBE": {
+    "name": "frxBertBE",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxBertTestTime": {
+    "name": "frxBertTestTime",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxTestInProg": {
+    "name": "frxTestInProg",
+    "oid": "1.3.6.1.4.1.1570.1.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testInProgress": 1,
+          "normalOperation": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxUThrTable": {
+    "name": "frxUThrTable",
+    "oid": "1.3.6.1.4.1.1570.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxUThrEntry": {
+    "name": "frxUThrEntry",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxPAddrIndex": {
+    "name": "frxPAddrIndex",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localFrx": 7,
+          "briteCard1": 1,
+          "briteCard2": 2,
+          "briteCard3": 3,
+          "briteCard4": 4,
+          "briteCard5": 5,
+          "briteCard6": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChEsTh": {
+    "name": "frxChEsTh",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxCdEsTh": {
+    "name": "frxCdEsTh",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxChSesTh": {
+    "name": "frxChSesTh",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxCdSesTh": {
+    "name": "frxCdSesTh",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxAlertMask": {
+    "name": "frxAlertMask",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxThCond": {
+    "name": "frxThCond",
+    "oid": "1.3.6.1.4.1.1570.1.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxUPerfTable": {
+    "name": "frxUPerfTable",
+    "oid": "1.3.6.1.4.1.1570.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "frxUPerfEntry": {
+    "name": "frxUPerfEntry",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxPAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "frxResetPM": {
+    "name": "frxResetPM",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "resetPM": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "frxPMtype": {
+    "name": "frxPMtype",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "segmentedPM": 1,
+          "pathPM": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChEsTx": {
+    "name": "frxChEsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChEsRx": {
+    "name": "frxChEsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPhEsTx": {
+    "name": "frxPhEsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPhEsRx": {
+    "name": "frxPhEsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH2EsTx": {
+    "name": "frxH2EsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH2EsRx": {
+    "name": "frxH2EsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH3EsTx": {
+    "name": "frxH3EsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH3EsRx": {
+    "name": "frxH3EsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH4EsTx": {
+    "name": "frxH4EsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH4EsRx": {
+    "name": "frxH4EsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH5EsTx": {
+    "name": "frxH5EsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH5EsRx": {
+    "name": "frxH5EsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH6EsTx": {
+    "name": "frxH6EsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH6EsRx": {
+    "name": "frxH6EsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH7EsTx": {
+    "name": "frxH7EsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH7EsRx": {
+    "name": "frxH7EsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH8EsTx": {
+    "name": "frxH8EsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxH8EsRx": {
+    "name": "frxH8EsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCdEsTx": {
+    "name": "frxCdEsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCdEsRx": {
+    "name": "frxCdEsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPdEsTx": {
+    "name": "frxPdEsTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPdEsRx": {
+    "name": "frxPdEsRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChSesTx": {
+    "name": "frxChSesTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChSesRx": {
+    "name": "frxChSesRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPhSesTx": {
+    "name": "frxPhSesTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPhSesRx": {
+    "name": "frxPhSesRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCdSesTx": {
+    "name": "frxCdSesTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxCdSesRx": {
+    "name": "frxCdSesRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPdSesTx": {
+    "name": "frxPdSesTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPdSesRx": {
+    "name": "frxPdSesRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChBeTx": {
+    "name": "frxChBeTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxChBeRx": {
+    "name": "frxChBeRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPhBeTx": {
+    "name": "frxPhBeTx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxPhBeRx": {
+    "name": "frxPhBeRx",
+    "oid": "1.3.6.1.4.1.1570.1.6.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "frxDownloadTrap": {
+    "name": "frxDownloadTrap",
+    "oid": "1.3.6.1.4.1.1570.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex"
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex"
+      }
+    ]
+  },
+  "frxUPerfTrap": {
+    "name": "frxUPerfTrap",
+    "oid": "1.3.6.1.4.1.1570.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex"
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex"
+      }
+    ]
+  },
+  "frxInsertChUTrap": {
+    "name": "frxInsertChUTrap",
+    "oid": "1.3.6.1.4.1.1570.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex"
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex"
+      }
+    ]
+  },
+  "frxRemoveChUTrap": {
+    "name": "frxRemoveChUTrap",
+    "oid": "1.3.6.1.4.1.1570.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex"
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex"
+      }
+    ]
+  },
+  "frxDConfigFailed": {
+    "name": "frxDConfigFailed",
+    "oid": "1.3.6.1.4.1.1570.10.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxBankIndex"
+      },
+      {
+        "module": "Cisco90Series-MIB",
+        "object": "frxChUIndex"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/Cisco90Series-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Cisco90Series-MIB"
+  }
+}

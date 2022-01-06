@@ -1,0 +1,3539 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "RAPID-CITY": [
+      "rcVlan",
+      "PortSet",
+      "rcSvlan",
+      "IdList",
+      "EnableValue",
+      "LPortSet",
+      "RcVlanIdOrNone"
+    ],
+    "RC-VRF-MIB": [
+      "VrfIdentifier"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "RowStatus"
+    ]
+  },
+  "rcVlanMib": {
+    "name": "rcVlanMib",
+    "oid": "1.3.6.1.4.1.2272.1.3.0",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-10-11 00:00",
+        "description": "Version 62: Corrected syntax definitions. Added types to IMPORTS."
+      },
+      {
+        "revision": "2013-03-18 00:00",
+        "description": "Version 61: Added enum value - none, changed normal to trunk and changed DEFVAL to none under rcVlanPortPrivateVlanPortType"
+      },
+      {
+        "revision": "2012-12-19 00:00",
+        "description": "Version 60: Added rcVlanSecondaryVlanId and rcVlanSecondaryIsid under rcVlanTable. Added enumeration private(13) under rcVlanType. Added rcVlanPortPrivateVlanPortType under rcVlanPortTable"
+      },
+      {
+        "revision": "2012-08-02 00:00",
+        "description": "Version 59: Added rcVlanSpbMcast."
+      },
+      {
+        "revision": "2012-07-23 00:00",
+        "description": "Version 58: Added rcVlanRspanEnabled."
+      },
+      {
+        "revision": "2012-06-21 00:00",
+        "description": "Version 57: Added enum value spbm-switchedUni for rcVlanType. Changed description of spbm-bvlan from PLSB to SPBM."
+      },
+      {
+        "revision": "2012-02-21 00:00",
+        "description": "Version 56: Added the flushWlanFdb to rcVlanAction"
+      },
+      {
+        "revision": "2012-02-13 00:00",
+        "description": "Version 55: Moved TEXTUAL CONVENTION LPortSet to rapidcity.mib"
+      },
+      {
+        "revision": "2011-12-01 00:00",
+        "description": "Version 54: Added the flushIpRsmltEdgePeer to rcVlanAction"
+      },
+      {
+        "revision": "2011-09-12 00:00",
+        "description": "Version 53: Added the LPortSet textual convention. Also added the following mib objects - rcVlanLPortMembers, rcVlanLPortActiveMembers, rcVlanLPortStaticMembers, rcVlanLPortNotAllowToJoin."
+      },
+      {
+        "revision": "2011-05-26 00:00",
+        "description": "Version 52: Added rcVlanRmonEnable and rcVlanIpsecEnable."
+      },
+      {
+        "revision": "2011-04-22 00:00",
+        "description": "Version 51: Changed rcVlanVrfId and rcVlanVrfName to read-create."
+      },
+      {
+        "revision": "2011-03-02 00:00",
+        "description": "Version 50: Added rcVlanVoiceEnabled."
+      },
+      {
+        "revision": "2011-01-13 00:00",
+        "description": "Version 49: Added enum value spbm-bvlan for rcVlanType. and changed the size of rcVlanVrfName and added rcVlanPlsbIsid under rcVlanTable."
+      },
+      {
+        "revision": "2010-09-22 00:00",
+        "description": "Version 48: Added rcVlanPortClassificationSubnet, rcVlanPortClassificationProtocol, rcVlanPortClassificationPrec, rcVlanPortVlanIdList, and rcVlanPortClassificationSourceMac to SEQUENCE of RcVlanPortEntry."
+      },
+      {
+        "revision": "2010-09-13 00:00",
+        "description": "Version 47: Added rcVlanPortClassificationSubnet, rcVlanPortClassificationProtocol, rcVlanPortClassificationPrec, rcVlanPortVlanIdList, and rcVlanPortClassificationSourceMac."
+      },
+      {
+        "revision": "2009-09-16 00:00",
+        "description": "Version 46: Added rcVlanClearMacRecordTable."
+      },
+      {
+        "revision": "2009-06-03 00:00",
+        "description": "Version 45: Added rcVlanIpMultinettingEnable and rcVlanAssociatedIpMultinettingVlan"
+      },
+      {
+        "revision": "2009-03-31 00:00",
+        "description": "Version 44: Added rcVlanDhcpOption82Enabled."
+      },
+      {
+        "revision": "2009-03-30 00:00",
+        "description": "Version 43: Added rcVlanPortRemarking."
+      },
+      {
+        "revision": "2009-03-10 00:00",
+        "description": "Version 42: added rcVlanNodalMepList, rcVlanNumOfNodalMep, rcVlanNodalMipLevelList, rcVlanNumOfNodalMipLevel under RcVlanEntry"
+      },
+      {
+        "revision": "2008-08-15 00:00",
+        "description": "Version 41: Added rcVlanSource. Fixed some SMIv2 compliance issues."
+      },
+      {
+        "revision": "2008-08-04 00:00",
+        "description": "Version 40: Add rcVlanPortSpoofDetectTable."
+      },
+      {
+        "revision": "2008-07-23 00:00",
+        "description": "Version 39: Modified rcVlanId"
+      },
+      {
+        "revision": "2008-06-03 00:00",
+        "description": "Version 38: Add byPortDefault to rcVlanType."
+      },
+      {
+        "revision": "2008-05-09 00:00",
+        "description": "Version 37: Fixed smilint errors."
+      },
+      {
+        "revision": "2008-03-14 00:00",
+        "description": "Version 36: Added rcVlanMmrp to rcVlanEntry, rcVlan 15, Modified rcVlanId, rcVlanColor, rcVlanStgId, rcVlanAgingTime, rcVlanIgmpSnoopRobustness, rcVlanIgmpSnoopQueryInterval, rcVlanTosValue, rcVlanFdbAging, rcVlanFirewallClusterId"
+      },
+      {
+        "revision": "2008-03-05 00:00",
+        "description": "Version 35: Changed module name to 'RC-VRF-MIB' from 'RC-VIRTUAL-ROUTING-MIB'"
+      },
+      {
+        "revision": "2008-02-25 00:00",
+        "description": "Version 34: Change 'rcVrfIdentifier' to 'VrfIdentifier'"
+      },
+      {
+        "revision": "2007-11-21 00:00",
+        "description": "Version 33: Added byPortIp and byPortEvpn to rcVlanType."
+      },
+      {
+        "revision": "2007-10-18 00:00",
+        "description": "Version 32: Added rcMgmtVlan, rcVlanApplyBtagEthertype."
+      },
+      {
+        "revision": "2007-10-10 00:00",
+        "description": "Version 31: Add arp(18) to rcVlanProtocolId attribute."
+      },
+      {
+        "revision": "2007-04-06 00:00",
+        "description": "Version 30: Add rcVrfIdentifier to the IMPORTS section."
+      },
+      {
+        "revision": "2007-03-08 00:00",
+        "description": "Version 29: Add rcVlanVrfId and rcVlanVrfName."
+      },
+      {
+        "revision": "2007-01-31 00:00",
+        "description": "Version 28: Change rcVlanNlbMode and add rcVlanOperNlbMode."
+      },
+      {
+        "revision": "2006-12-06 00:00",
+        "description": "Version 27: Added rcVlanPortCfmMepTable and rcVlanPortCfmMipTable."
+      },
+      {
+        "revision": "2006-05-31 00:00",
+        "description": "Version 26: Added rcVlanNlbMode to rcVlanEntry."
+      },
+      {
+        "revision": "2006-02-09 00:00",
+        "description": "Version 25: Added rcVlanUnkDstMacDiscard."
+      },
+      {
+        "revision": "2005-11-22 00:00",
+        "description": "Version 24: Updated rcVlanPortPerformTagging to match existing implementations. Restored lost revision history."
+      },
+      {
+        "revision": "2005-08-15 00:00",
+        "description": "Version 23: Added rcVlanOspfPassivePortMember to rcVlanEntry."
+      },
+      {
+        "revision": "2005-08-10 00:00",
+        "description": "Version 22: Added rcVlanUnkDstMacDiscard to rcVlanTable."
+      },
+      {
+        "revision": "2005-04-27 00:00",
+        "description": "Version 21: Allow rcVlanIgmpSnoopQuerierPort to have value 0."
+      },
+      {
+        "revision": "2005-03-14 00:00",
+        "description": "Version 20: Added rcVlanPortSpoofDetect"
+      },
+      {
+        "revision": "2005-02-04 00:00",
+        "description": "Version 19: changed ranges of rcVlanAgingTime, rcVlanPortVlanIds"
+      },
+      {
+        "revision": "2005-01-04 00:00",
+        "description": "Version 18: added new mib rcVlanPortArpDetect"
+      },
+      {
+        "revision": "2004-12-03 00:00",
+        "description": "Version 17: increased the range of rcVlanName to (0..64) characters"
+      },
+      {
+        "revision": "2004-11-29 00:00",
+        "description": "Version 16: Cleaned up REVISION info."
+      },
+      {
+        "revision": "2004-11-24 00:00",
+        "description": "Version 15: removed rcVlanNewName & changed the range for rcVlanName."
+      },
+      {
+        "revision": "2004-11-20 00:00",
+        "description": "Version 14: added new mib rcVlanNewName & made rcVlanName obsolete."
+      },
+      {
+        "revision": "2004-10-04 00:00",
+        "description": "Version 13: add the range for rcVlanNewLoopDetectedVlanId."
+      },
+      {
+        "revision": "2004-09-28 00:00",
+        "description": "Version 12: Increase the range for rvVlanFirwallClusterId."
+      },
+      {
+        "revision": "2004-09-23 00:00",
+        "description": "Version 11: Add range for mib rcVlanPortIndex, rcVlanMacVlanId, rcVlanLoopDetectedPortIndex, rcVlanLoopDetectedVlanId."
+      },
+      {
+        "revision": "2004-09-21 00:00",
+        "description": "Version 10: Remove range for mib rcVlanPortIndex, rcVlanMacVlanId, rcVlanLoopDetectedPortIndex, rcVlanLoopDetectedVlanId."
+      },
+      {
+        "revision": "2004-09-08 00:00",
+        "description": "Version 9: Added rcVlanNewLoopDetectedTable. Changed rcVlanPortLoopDetectAction."
+      },
+      {
+        "revision": "2004-08-25 00:00",
+        "description": "Version 8: Added rcVlanFirewallClusterId in rcVlanTable"
+      },
+      {
+        "revision": "2004-07-13 00:00",
+        "description": "Version 7: Added rcVlanTlsIpmc"
+      },
+      {
+        "revision": "2004-06-22 00:00",
+        "description": "Version 6: Added rcVlanPortLoopDetectAction"
+      },
+      {
+        "revision": "2004-06-16 00:00",
+        "description": "Version 5: Added rcVlanIgmpVer1SnoopMRouterPorts and rcVlanIgmpVer2SnoopMRouterPorts"
+      }
+    ]
+  },
+  "rcVlanNumVlans": {
+    "name": "rcVlanNumVlans",
+    "oid": "1.3.6.1.4.1.2272.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanTable": {
+    "name": "rcVlanTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanEntry": {
+    "name": "rcVlanEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanId": {
+    "name": "rcVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanName": {
+    "name": "rcVlanName",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanColor": {
+    "name": "rcVlanColor",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanHighPriority": {
+    "name": "rcVlanHighPriority",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanRoutingEnable": {
+    "name": "rcVlanRoutingEnable",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIfIndex": {
+    "name": "rcVlanIfIndex",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanAction": {
+    "name": "rcVlanAction",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "flushMacFdb": 2,
+          "flushArp": 3,
+          "flushIp": 4,
+          "flushDynMemb": 5,
+          "all": 6,
+          "flushSnoopMemb": 7,
+          "triggerRipUpdate": 8,
+          "flushSnoopMRtr": 9,
+          "flushIpRsmltEdgePeer": 10,
+          "flushWlanFdb": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanResult": {
+    "name": "rcVlanResult",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "inProgress": 2,
+          "success": 3,
+          "fail": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanStgId": {
+    "name": "rcVlanStgId",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanType": {
+    "name": "rcVlanType",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byPort": 1,
+          "byIpSubnet": 2,
+          "byProtocolId": 3,
+          "bySrcMac": 4,
+          "byDstMcast": 5,
+          "bySvlan": 6,
+          "byIds": 7,
+          "byPortIp": 8,
+          "byPortEvpn": 9,
+          "byPortDefault": 10,
+          "spbm-bvlan": 11,
+          "spbm-switchedUni": 12,
+          "private": 13
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanPortMembers": {
+    "name": "rcVlanPortMembers",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanActiveMembers": {
+    "name": "rcVlanActiveMembers",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanStaticMembers": {
+    "name": "rcVlanStaticMembers",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanNotAllowToJoin": {
+    "name": "rcVlanNotAllowToJoin",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanProtocolId": {
+    "name": "rcVlanProtocolId",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ip": 1,
+          "ipx802dot3": 2,
+          "ipx802dot2": 3,
+          "ipxSnap": 4,
+          "ipxEthernet2": 5,
+          "appleTalk": 6,
+          "decLat": 7,
+          "decOther": 8,
+          "sna802dot2": 9,
+          "snaEthernet2": 10,
+          "netBios": 11,
+          "xns": 12,
+          "vines": 13,
+          "ipV6": 14,
+          "usrDefined": 15,
+          "rarp": 16,
+          "pPPoE": 17,
+          "arp": 18
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanSubnetAddr": {
+    "name": "rcVlanSubnetAddr",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanSubnetMask": {
+    "name": "rcVlanSubnetMask",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanAgingTime": {
+    "name": "rcVlanAgingTime",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanMacAddress": {
+    "name": "rcVlanMacAddress",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanRowStatus": {
+    "name": "rcVlanRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanIgmpSnoopEnable": {
+    "name": "rcVlanIgmpSnoopEnable",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopReportProxyEnable": {
+    "name": "rcVlanIgmpSnoopReportProxyEnable",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopRobustness": {
+    "name": "rcVlanIgmpSnoopRobustness",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopQueryInterval": {
+    "name": "rcVlanIgmpSnoopQueryInterval",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 125,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopMRouterPorts": {
+    "name": "rcVlanIgmpSnoopMRouterPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanUserDefinedPid": {
+    "name": "rcVlanUserDefinedPid",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanIgmpSnoopActiveMRouterPorts": {
+    "name": "rcVlanIgmpSnoopActiveMRouterPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanProtocolIds": {
+    "name": "rcVlanProtocolIds",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanIgmpSnoopActiveQuerier": {
+    "name": "rcVlanIgmpSnoopActiveQuerier",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopMRouterExpiration": {
+    "name": "rcVlanIgmpSnoopMRouterExpiration",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopQuerierPort": {
+    "name": "rcVlanIgmpSnoopQuerierPort",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanUserPriority": {
+    "name": "rcVlanUserPriority",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanQosLevel": {
+    "name": "rcVlanQosLevel",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "level1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanTosValue": {
+    "name": "rcVlanTosValue",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanEncap": {
+    "name": "rcVlanEncap",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet2": 1,
+          "llc": 2,
+          "snap": 3,
+          "all": 4,
+          "notapplicable": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notapplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanFirewallVlanType": {
+    "name": "rcVlanFirewallVlanType",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "naap": 2,
+          "enforceable": 3,
+          "peering": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanFdbAging": {
+    "name": "rcVlanFdbAging",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanUpdateDynamicMacQosLevel": {
+    "name": "rcVlanUpdateDynamicMacQosLevel",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanUserDefinedPidList": {
+    "name": "rcVlanUserDefinedPidList",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanIgmpVer1SnoopMRouterPorts": {
+    "name": "rcVlanIgmpVer1SnoopMRouterPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanIgmpVer2SnoopMRouterPorts": {
+    "name": "rcVlanIgmpVer2SnoopMRouterPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanTlsIpmc": {
+    "name": "rcVlanTlsIpmc",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanFirewallClusterId": {
+    "name": "rcVlanFirewallClusterId",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanOspfPassivePortMember": {
+    "name": "rcVlanOspfPassivePortMember",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanUnkDstMacDiscard": {
+    "name": "rcVlanUnkDstMacDiscard",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanNlbMode": {
+    "name": "rcVlanNlbMode",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nlbAdminDisable": 0,
+          "nlbAdminIgmpMcast": 1,
+          "nlbAdminMulticast": 2,
+          "nlbAdminUnicast": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nlbAdminDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanOperNlbMode": {
+    "name": "rcVlanOperNlbMode",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nlbOperDisable": 0,
+          "nlbOperIgmpMcast": 1,
+          "nlbOperMulticast": 2,
+          "nlbOperUnicast": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanVrfId": {
+    "name": "rcVlanVrfId",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanVrfName": {
+    "name": "rcVlanVrfName",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanMgmtVlan": {
+    "name": "rcVlanMgmtVlan",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanApplyBtagEthertype": {
+    "name": "rcVlanApplyBtagEthertype",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanMmrp": {
+    "name": "rcVlanMmrp",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanSource": {
+    "name": "rcVlanSource",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamicMvmp": 2,
+          "dynamicGvrp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanNodalMepList": {
+    "name": "rcVlanNodalMepList",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 408
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanNumOfNodalMep": {
+    "name": "rcVlanNumOfNodalMep",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanNodalMipLevelList": {
+    "name": "rcVlanNodalMipLevelList",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanNumOfNodalMipLevel": {
+    "name": "rcVlanNumOfNodalMipLevel",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanDhcpOption82Enabled": {
+    "name": "rcVlanDhcpOption82Enabled",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanIpMultinettingEnable": {
+    "name": "rcVlanIpMultinettingEnable",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanAssociatedIpMultinettingVlan": {
+    "name": "rcVlanAssociatedIpMultinettingVlan",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPlsbIsid": {
+    "name": "rcVlanPlsbIsid",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanVoiceEnabled": {
+    "name": "rcVlanVoiceEnabled",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanRmonEnable": {
+    "name": "rcVlanRmonEnable",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanIpsecEnable": {
+    "name": "rcVlanIpsecEnable",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanLPortMembers": {
+    "name": "rcVlanLPortMembers",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LPortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanLPortActiveMembers": {
+    "name": "rcVlanLPortActiveMembers",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LPortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanLPortStaticMembers": {
+    "name": "rcVlanLPortStaticMembers",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LPortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanLPortNotAllowToJoin": {
+    "name": "rcVlanLPortNotAllowToJoin",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LPortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanRspanEnabled": {
+    "name": "rcVlanRspanEnabled",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanSpbMcast": {
+    "name": "rcVlanSpbMcast",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanSecondaryVlanId": {
+    "name": "rcVlanSecondaryVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RcVlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanSecondaryIsid": {
+    "name": "rcVlanSecondaryIsid",
+    "oid": "1.3.6.1.4.1.2272.1.3.2.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortTable": {
+    "name": "rcVlanPortTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortEntry": {
+    "name": "rcVlanPortEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanPortIndex": {
+    "name": "rcVlanPortIndex",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortNumVlanIds": {
+    "name": "rcVlanPortNumVlanIds",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortVlanIds": {
+    "name": "rcVlanPortVlanIds",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IdList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortType": {
+    "name": "rcVlanPortType",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "access": 1,
+          "trunk": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "access",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortDiscardTaggedFrames": {
+    "name": "rcVlanPortDiscardTaggedFrames",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortDiscardUntaggedFrames": {
+    "name": "rcVlanPortDiscardUntaggedFrames",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortDefaultVlanId": {
+    "name": "rcVlanPortDefaultVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortPerformTagging": {
+    "name": "rcVlanPortPerformTagging",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "tagPvidOnly": 3,
+          "untagPvidOnly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortSVlanPortType": {
+    "name": "rcVlanPortSVlanPortType",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "uni": 2,
+          "nni": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortLoopDetect": {
+    "name": "rcVlanPortLoopDetect",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortFirstPortInOpid": {
+    "name": "rcVlanPortFirstPortInOpid",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortLastPortInOpid": {
+    "name": "rcVlanPortLastPortInOpid",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortUntagDefaultVlan": {
+    "name": "rcVlanPortUntagDefaultVlan",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortLoopDetectAction": {
+    "name": "rcVlanPortLoopDetectAction",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portDown": 1,
+          "vlanBlock": 2,
+          "macDiscard": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "portDown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortArpDetect": {
+    "name": "rcVlanPortArpDetect",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetect": {
+    "name": "rcVlanPortSpoofDetect",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortRemarking": {
+    "name": "rcVlanPortRemarking",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortClassificationSubnet": {
+    "name": "rcVlanPortClassificationSubnet",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortClassificationProtocol": {
+    "name": "rcVlanPortClassificationProtocol",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortClassificationPrec": {
+    "name": "rcVlanPortClassificationPrec",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sourceMac": 1,
+          "subnet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sourceMac",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortVlanIdList": {
+    "name": "rcVlanPortVlanIdList",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortClassificationSourceMac": {
+    "name": "rcVlanPortClassificationSourceMac",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortPrivateVlanPortType": {
+    "name": "rcVlanPortPrivateVlanPortType",
+    "oid": "1.3.6.1.4.1.2272.1.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trunk": 1,
+          "isolated": 2,
+          "promiscuous": 3,
+          "none": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanMacTable": {
+    "name": "rcVlanMacTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanMacEntry": {
+    "name": "rcVlanMacEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanMacVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanMacVlanId": {
+    "name": "rcVlanMacVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanMacAddr": {
+    "name": "rcVlanMacAddr",
+    "oid": "1.3.6.1.4.1.2272.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanMacRowStatus": {
+    "name": "rcVlanMacRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanIgmpSnoopNumGroups": {
+    "name": "rcVlanIgmpSnoopNumGroups",
+    "oid": "1.3.6.1.4.1.2272.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanIgmpSnoopTable": {
+    "name": "rcVlanIgmpSnoopTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopEntry": {
+    "name": "rcVlanIgmpSnoopEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopMember",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopVlanId": {
+    "name": "rcVlanIgmpSnoopVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopIpAddress": {
+    "name": "rcVlanIgmpSnoopIpAddress",
+    "oid": "1.3.6.1.4.1.2272.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopIfIndex": {
+    "name": "rcVlanIgmpSnoopIfIndex",
+    "oid": "1.3.6.1.4.1.2272.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopMember": {
+    "name": "rcVlanIgmpSnoopMember",
+    "oid": "1.3.6.1.4.1.2272.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopExpiration": {
+    "name": "rcVlanIgmpSnoopExpiration",
+    "oid": "1.3.6.1.4.1.2272.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopType": {
+    "name": "rcVlanIgmpSnoopType",
+    "oid": "1.3.6.1.4.1.2272.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2,
+          "blocked": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopStaticTable": {
+    "name": "rcVlanIgmpSnoopStaticTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopStaticEntry": {
+    "name": "rcVlanIgmpSnoopStaticEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopStaticVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopStaticIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopStaticVlanId": {
+    "name": "rcVlanIgmpSnoopStaticVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopStaticIpAddress": {
+    "name": "rcVlanIgmpSnoopStaticIpAddress",
+    "oid": "1.3.6.1.4.1.2272.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopStaticMemberPorts": {
+    "name": "rcVlanIgmpSnoopStaticMemberPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopStaticRowStatus": {
+    "name": "rcVlanIgmpSnoopStaticRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopStaticNotAllowedToJoin": {
+    "name": "rcVlanIgmpSnoopStaticNotAllowedToJoin",
+    "oid": "1.3.6.1.4.1.2272.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessTable": {
+    "name": "rcVlanIgmpSnoopAccessTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessEntry": {
+    "name": "rcVlanIgmpSnoopAccessEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopAccessVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopAccessGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopAccessHostAddr",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopAccessHostMask",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessVlanId": {
+    "name": "rcVlanIgmpSnoopAccessVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessGrpAddr": {
+    "name": "rcVlanIgmpSnoopAccessGrpAddr",
+    "oid": "1.3.6.1.4.1.2272.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessHostAddr": {
+    "name": "rcVlanIgmpSnoopAccessHostAddr",
+    "oid": "1.3.6.1.4.1.2272.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessHostMask": {
+    "name": "rcVlanIgmpSnoopAccessHostMask",
+    "oid": "1.3.6.1.4.1.2272.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessMode": {
+    "name": "rcVlanIgmpSnoopAccessMode",
+    "oid": "1.3.6.1.4.1.2272.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "denyTx": 1,
+          "denyRx": 2,
+          "denyBoth": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopAccessRowStatus": {
+    "name": "rcVlanIgmpSnoopAccessRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopSenderTable": {
+    "name": "rcVlanIgmpSnoopSenderTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopSenderEntry": {
+    "name": "rcVlanIgmpSnoopSenderEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopSenderVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopSenderIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopSenderIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanIgmpSnoopSenderMember",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopSenderVlanId": {
+    "name": "rcVlanIgmpSnoopSenderVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopSenderIpAddress": {
+    "name": "rcVlanIgmpSnoopSenderIpAddress",
+    "oid": "1.3.6.1.4.1.2272.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopSenderIfIndex": {
+    "name": "rcVlanIgmpSnoopSenderIfIndex",
+    "oid": "1.3.6.1.4.1.2272.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopSenderMember": {
+    "name": "rcVlanIgmpSnoopSenderMember",
+    "oid": "1.3.6.1.4.1.2272.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "rcVlanIgmpSnoopSenderAction": {
+    "name": "rcVlanIgmpSnoopSenderAction",
+    "oid": "1.3.6.1.4.1.2272.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "flushEntry": 1,
+          "flushGrp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "rcVlanLoopDetectedTable": {
+    "name": "rcVlanLoopDetectedTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanLoopDetectedEntry": {
+    "name": "rcVlanLoopDetectedEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanLoopDetectedPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanLoopDetectedVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanLoopDetectedPortIndex": {
+    "name": "rcVlanLoopDetectedPortIndex",
+    "oid": "1.3.6.1.4.1.2272.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanLoopDetectedVlanId": {
+    "name": "rcVlanLoopDetectedVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanLoopDetectedValue": {
+    "name": "rcVlanLoopDetectedValue",
+    "oid": "1.3.6.1.4.1.2272.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanDsapSsapTable": {
+    "name": "rcVlanDsapSsapTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanDsapSsapEntry": {
+    "name": "rcVlanDsapSsapEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanDsapSsapVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanDsapSsapPid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanDsapSsapVlanId": {
+    "name": "rcVlanDsapSsapVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanDsapSsapPid": {
+    "name": "rcVlanDsapSsapPid",
+    "oid": "1.3.6.1.4.1.2272.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanDsapSsapRowStatus": {
+    "name": "rcVlanDsapSsapRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanNewLoopDetectedTable": {
+    "name": "rcVlanNewLoopDetectedTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanNewLoopDetectedEntry": {
+    "name": "rcVlanNewLoopDetectedEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanNewLoopDetectedPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanNewLoopDetectedVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanNewLoopDetectedMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanNewLoopDetectedPortIndex": {
+    "name": "rcVlanNewLoopDetectedPortIndex",
+    "oid": "1.3.6.1.4.1.2272.1.3.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanNewLoopDetectedVlanId": {
+    "name": "rcVlanNewLoopDetectedVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanNewLoopDetectedMac": {
+    "name": "rcVlanNewLoopDetectedMac",
+    "oid": "1.3.6.1.4.1.2272.1.3.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanNewLoopDetectedAction": {
+    "name": "rcVlanNewLoopDetectedAction",
+    "oid": "1.3.6.1.4.1.2272.1.3.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portDown": 1,
+          "vlanBlock": 2,
+          "macDiscard": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "portDown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanNewLoopDetectedSmltRemote": {
+    "name": "rcVlanNewLoopDetectedSmltRemote",
+    "oid": "1.3.6.1.4.1.2272.1.3.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanClearMacRecordTable": {
+    "name": "rcVlanClearMacRecordTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanClearMacRecordEntry": {
+    "name": "rcVlanClearMacRecordEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanClearMacRecordAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanClearMacRecordAddr": {
+    "name": "rcVlanClearMacRecordAddr",
+    "oid": "1.3.6.1.4.1.2272.1.3.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanClearMacRecordVlanId": {
+    "name": "rcVlanClearMacRecordVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanClearMacRecordAllVlanIds": {
+    "name": "rcVlanClearMacRecordAllVlanIds",
+    "oid": "1.3.6.1.4.1.2272.1.3.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanClearMacRecordForceDelete": {
+    "name": "rcVlanClearMacRecordForceDelete",
+    "oid": "1.3.6.1.4.1.2272.1.3.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanClearMacRecordLCForceDelete": {
+    "name": "rcVlanClearMacRecordLCForceDelete",
+    "oid": "1.3.6.1.4.1.2272.1.3.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortCfmMepTable": {
+    "name": "rcVlanPortCfmMepTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortCfmMepEntry": {
+    "name": "rcVlanPortCfmMepEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanPortCfmMepVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanPortCfmMepPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanPortCfmMepVlanId": {
+    "name": "rcVlanPortCfmMepVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortCfmMepPort": {
+    "name": "rcVlanPortCfmMepPort",
+    "oid": "1.3.6.1.4.1.2272.1.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortCfmMepMepList": {
+    "name": "rcVlanPortCfmMepMepList",
+    "oid": "1.3.6.1.4.1.2272.1.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanPortCfmMepNumOfMep": {
+    "name": "rcVlanPortCfmMepNumOfMep",
+    "oid": "1.3.6.1.4.1.2272.1.3.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortCfmMepRowStatus": {
+    "name": "rcVlanPortCfmMepRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.3.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanPortCfmMipTable": {
+    "name": "rcVlanPortCfmMipTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortCfmMipEntry": {
+    "name": "rcVlanPortCfmMipEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanPortCfmMipVlanId",
+        "implied": 0
+      },
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanPortCfmMipPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanPortCfmMipVlanId": {
+    "name": "rcVlanPortCfmMipVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortCfmMipPort": {
+    "name": "rcVlanPortCfmMipPort",
+    "oid": "1.3.6.1.4.1.2272.1.3.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortCfmMipMipList": {
+    "name": "rcVlanPortCfmMipMipList",
+    "oid": "1.3.6.1.4.1.2272.1.3.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanPortCfmMipNumOfMip": {
+    "name": "rcVlanPortCfmMipNumOfMip",
+    "oid": "1.3.6.1.4.1.2272.1.3.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortCfmMipRowStatus": {
+    "name": "rcVlanPortCfmMipRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.3.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVlanExtFilterSvcTable": {
+    "name": "rcVlanExtFilterSvcTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanExtFilterSvcEntry": {
+    "name": "rcVlanExtFilterSvcEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanExtFilterSvcVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanExtFilterSvcVlanId": {
+    "name": "rcVlanExtFilterSvcVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanExtFilterSvcFwdAllPorts": {
+    "name": "rcVlanExtFilterSvcFwdAllPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanExtFilterSvcFwdUnregPorts": {
+    "name": "rcVlanExtFilterSvcFwdUnregPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanExtFilterSvcFilterUnregPorts": {
+    "name": "rcVlanExtFilterSvcFilterUnregPorts",
+    "oid": "1.3.6.1.4.1.2272.1.3.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSet",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcSvlanGlobal": {
+    "name": "rcSvlanGlobal",
+    "oid": "1.3.6.1.4.1.2272.1.35.1",
+    "class": "objectidentity"
+  },
+  "rcSvlanActiveLevel": {
+    "name": "rcSvlanActiveLevel",
+    "oid": "1.3.6.1.4.1.2272.1.35.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcSvlanTable": {
+    "name": "rcSvlanTable",
+    "oid": "1.3.6.1.4.1.2272.1.35.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcSvlanEntry": {
+    "name": "rcSvlanEntry",
+    "oid": "1.3.6.1.4.1.2272.1.35.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcSvlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcSvlanId": {
+    "name": "rcSvlanId",
+    "oid": "1.3.6.1.4.1.2272.1.35.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcSvlanLevel": {
+    "name": "rcSvlanLevel",
+    "oid": "1.3.6.1.4.1.2272.1.35.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcSvlanEtherType": {
+    "name": "rcSvlanEtherType",
+    "oid": "1.3.6.1.4.1.2272.1.35.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectTable": {
+    "name": "rcVlanPortSpoofDetectTable",
+    "oid": "1.3.6.1.4.1.2272.1.3.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectEntry": {
+    "name": "rcVlanPortSpoofDetectEntry",
+    "oid": "1.3.6.1.4.1.2272.1.3.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VLAN-MIB",
+        "object": "rcVlanPortSpoofDetectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectIndex": {
+    "name": "rcVlanPortSpoofDetectIndex",
+    "oid": "1.3.6.1.4.1.2272.1.3.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectSpoofedIpAddressType": {
+    "name": "rcVlanPortSpoofDetectSpoofedIpAddressType",
+    "oid": "1.3.6.1.4.1.2272.1.3.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectSpoofedIpAddress": {
+    "name": "rcVlanPortSpoofDetectSpoofedIpAddress",
+    "oid": "1.3.6.1.4.1.2272.1.3.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectSpoofedMacAddress": {
+    "name": "rcVlanPortSpoofDetectSpoofedMacAddress",
+    "oid": "1.3.6.1.4.1.2272.1.3.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectPort": {
+    "name": "rcVlanPortSpoofDetectPort",
+    "oid": "1.3.6.1.4.1.2272.1.3.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVlanPortSpoofDetectVlanId": {
+    "name": "rcVlanPortSpoofDetectVlanId",
+    "oid": "1.3.6.1.4.1.2272.1.3.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RC-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RC-VLAN-MIB"
+  }
+}

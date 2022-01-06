@@ -1,0 +1,671 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSyslogMIB": {
+    "name": "ciscoSyslogMIB",
+    "oid": "1.3.6.1.4.1.9.9.41",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-03 00:00",
+        "description": "Removed UNITS clause for clogOriginIDType as UNITS clause is not applicable."
+      },
+      {
+        "revision": "2005-08-11 00:00",
+        "description": "Added following objects: clogOriginIDType clogOriginID"
+      },
+      {
+        "revision": "2005-06-01 00:00",
+        "description": "Added clogServerGroup."
+      },
+      {
+        "revision": "1995-08-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSyslogMIBObjects": {
+    "name": "ciscoSyslogMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.41.1",
+    "class": "objectidentity"
+  },
+  "clogBasic": {
+    "name": "clogBasic",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1",
+    "class": "objectidentity"
+  },
+  "clogHistory": {
+    "name": "clogHistory",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2",
+    "class": "objectidentity"
+  },
+  "clogServer": {
+    "name": "clogServer",
+    "oid": "1.3.6.1.4.1.9.9.41.1.3",
+    "class": "objectidentity"
+  },
+  "SyslogSeverity": {
+    "name": "SyslogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "alert": 2,
+          "critical": 3,
+          "error": 4,
+          "warning": 5,
+          "notice": 6,
+          "info": 7,
+          "debug": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "clogNotificationsSent": {
+    "name": "clogNotificationsSent",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogNotificationsEnabled": {
+    "name": "clogNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clogMaxSeverity": {
+    "name": "clogMaxSeverity",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warning",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clogMsgIgnores": {
+    "name": "clogMsgIgnores",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogMsgDrops": {
+    "name": "clogMsgDrops",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogOriginIDType": {
+    "name": "clogOriginIDType",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "hostName": 3,
+          "ipv4Address": 4,
+          "contextName": 5,
+          "userDefined": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clogOriginID": {
+    "name": "clogOriginID",
+    "oid": "1.3.6.1.4.1.9.9.41.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clogHistTableMaxLength": {
+    "name": "clogHistTableMaxLength",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "entries",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clogHistMsgsFlushed": {
+    "name": "clogHistMsgsFlushed",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogHistoryTable": {
+    "name": "clogHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clogHistoryEntry": {
+    "name": "clogHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clogHistIndex": {
+    "name": "clogHistIndex",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clogHistFacility": {
+    "name": "clogHistFacility",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogHistSeverity": {
+    "name": "clogHistSeverity",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogHistMsgName": {
+    "name": "clogHistMsgName",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogHistMsgText": {
+    "name": "clogHistMsgText",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogHistTimestamp": {
+    "name": "clogHistTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.41.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogMaxServers": {
+    "name": "clogMaxServers",
+    "oid": "1.3.6.1.4.1.9.9.41.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clogServerConfigTable": {
+    "name": "clogServerConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.41.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clogServerConfigEntry": {
+    "name": "clogServerConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.41.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogServerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clogServerAddrType": {
+    "name": "clogServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.41.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clogServerAddr": {
+    "name": "clogServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.41.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clogServerStatus": {
+    "name": "clogServerStatus",
+    "oid": "1.3.6.1.4.1.9.9.41.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoSyslogMIBNotificationPrefix": {
+    "name": "ciscoSyslogMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.41.2",
+    "class": "objectidentity"
+  },
+  "ciscoSyslogMIBNotifications": {
+    "name": "ciscoSyslogMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.41.2.0",
+    "class": "objectidentity"
+  },
+  "clogMessageGenerated": {
+    "name": "clogMessageGenerated",
+    "oid": "1.3.6.1.4.1.9.9.41.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistFacility"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistSeverity"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistMsgName"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistMsgText"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSyslogMIBConformance": {
+    "name": "ciscoSyslogMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.41.3",
+    "class": "objectidentity"
+  },
+  "ciscoSyslogMIBCompliances": {
+    "name": "ciscoSyslogMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.41.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSyslogMIBGroups": {
+    "name": "ciscoSyslogMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.41.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSyslogMIBCompliance": {
+    "name": "ciscoSyslogMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.41.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSyslogMIBGroup",
+        "module": "CISCO-SYSLOG-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSyslogMIBComplianceRev1": {
+    "name": "ciscoSyslogMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.41.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSyslogMIBGroup",
+        "module": "CISCO-SYSLOG-MIB"
+      },
+      {
+        "object": "clogServerGroup",
+        "module": "CISCO-SYSLOG-MIB"
+      },
+      {
+        "object": "clogOriginIDGroup",
+        "module": "CISCO-SYSLOG-MIB"
+      },
+      {
+        "object": "clogNotificationsGroup",
+        "module": "CISCO-SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSyslogMIBGroup": {
+    "name": "ciscoSyslogMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.41.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogNotificationsSent"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogNotificationsEnabled"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogMaxSeverity"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogMsgIgnores"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogMsgDrops"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistTableMaxLength"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistMsgsFlushed"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistFacility"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistSeverity"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistMsgName"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistMsgText"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogHistTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "clogNotificationsGroup": {
+    "name": "clogNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.41.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogMessageGenerated"
+      }
+    ],
+    "status": "current"
+  },
+  "clogServerGroup": {
+    "name": "clogServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.41.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogMaxServers"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "clogOriginIDGroup": {
+    "name": "clogOriginIDGroup",
+    "oid": "1.3.6.1.4.1.9.9.41.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogOriginIDType"
+      },
+      {
+        "module": "CISCO-SYSLOG-MIB",
+        "object": "clogOriginID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SYSLOG-MIB"
+  }
+}

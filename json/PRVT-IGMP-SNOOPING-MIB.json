@@ -1,0 +1,1780 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtIgmpSnoopingMIB": {
+    "name": "prvtIgmpSnoopingMIB",
+    "oid": "1.3.6.1.4.1.738.1.5.135",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-03 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtIgmpSnoopMIBObjects": {
+    "name": "prvtIgmpSnoopMIBObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1",
+    "class": "objectidentity"
+  },
+  "prvtIgmpSnoopObjects": {
+    "name": "prvtIgmpSnoopObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1",
+    "class": "objectidentity"
+  },
+  "prvtIgmpSnoopCfgTable": {
+    "name": "prvtIgmpSnoopCfgTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgEntry": {
+    "name": "prvtIgmpSnoopCfgEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgSvcType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgSvcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgSvcType": {
+    "name": "prvtIgmpSnoopCfgSvcType",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "vpls": 2,
+          "dot1q": 3,
+          "tls": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgSvcId": {
+    "name": "prvtIgmpSnoopCfgSvcId",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgRowStatus": {
+    "name": "prvtIgmpSnoopCfgRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgEnable": {
+    "name": "prvtIgmpSnoopCfgEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgRouterAlertCheck": {
+    "name": "prvtIgmpSnoopCfgRouterAlertCheck",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIpTosCheck": {
+    "name": "prvtIgmpSnoopCfgIpTosCheck",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgFloodOnFlush": {
+    "name": "prvtIgmpSnoopCfgFloodOnFlush",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgTmrRobustness": {
+    "name": "prvtIgmpSnoopCfgTmrRobustness",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgTmrQIntvl": {
+    "name": "prvtIgmpSnoopCfgTmrQIntvl",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgTmrQRespIntvl": {
+    "name": "prvtIgmpSnoopCfgTmrQRespIntvl",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgTmrLastMbrQIntvl": {
+    "name": "prvtIgmpSnoopCfgTmrLastMbrQIntvl",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgMode": {
+    "name": "prvtIgmpSnoopCfgMode",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparent": 0,
+          "report-suppression": 1,
+          "proxy": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgSourceAddr": {
+    "name": "prvtIgmpSnoopCfgSourceAddr",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfTable": {
+    "name": "prvtIgmpSnoopCfgIfTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfEntry": {
+    "name": "prvtIgmpSnoopCfgIfEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgSvcType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgSvcId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfType": {
+    "name": "prvtIgmpSnoopCfgIfType",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "sap": 2,
+          "spoke-sdp": 3,
+          "mesh-sdp": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfName": {
+    "name": "prvtIgmpSnoopCfgIfName",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfRowStatus": {
+    "name": "prvtIgmpSnoopCfgIfRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfMaxGroups": {
+    "name": "prvtIgmpSnoopCfgIfMaxGroups",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfMRouter": {
+    "name": "prvtIgmpSnoopCfgIfMRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfMRouterBlock": {
+    "name": "prvtIgmpSnoopCfgIfMRouterBlock",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfExplctTracking": {
+    "name": "prvtIgmpSnoopCfgIfExplctTracking",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfFastLeave": {
+    "name": "prvtIgmpSnoopCfgIfFastLeave",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfReportBlock": {
+    "name": "prvtIgmpSnoopCfgIfReportBlock",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfForceFwd": {
+    "name": "prvtIgmpSnoopCfgIfForceFwd",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfMrtAllowRprts": {
+    "name": "prvtIgmpSnoopCfgIfMrtAllowRprts",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCfgIfQuerier": {
+    "name": "prvtIgmpSnoopCfgIfQuerier",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpTable": {
+    "name": "prvtIgmpSnoopDbGrpTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpEntry": {
+    "name": "prvtIgmpSnoopDbGrpEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpStatsVlanId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpIpAddr": {
+    "name": "prvtIgmpSnoopDbGrpIpAddr",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpBitFlags": {
+    "name": "prvtIgmpSnoopDbGrpBitFlags",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpFilterMode": {
+    "name": "prvtIgmpSnoopDbGrpFilterMode",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2,
+          "toInclude": 3,
+          "toExclude": 4,
+          "allow": 5,
+          "block": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpExpireTime": {
+    "name": "prvtIgmpSnoopDbGrpExpireTime",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpHostTable": {
+    "name": "prvtIgmpSnoopDbGrpHostTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpHostEntry": {
+    "name": "prvtIgmpSnoopDbGrpHostEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpStatsVlanId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpHostSourceIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpHostSourceIp": {
+    "name": "prvtIgmpSnoopDbGrpHostSourceIp",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpHostExpireTime": {
+    "name": "prvtIgmpSnoopDbGrpHostExpireTime",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcTable": {
+    "name": "prvtIgmpSnoopDbGrpSrcTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcEntry": {
+    "name": "prvtIgmpSnoopDbGrpSrcEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpStatsVlanId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpSrcIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcIpAddr": {
+    "name": "prvtIgmpSnoopDbGrpSrcIpAddr",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcExpTime": {
+    "name": "prvtIgmpSnoopDbGrpSrcExpTime",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcHostTable": {
+    "name": "prvtIgmpSnoopDbGrpSrcHostTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcHostEntry": {
+    "name": "prvtIgmpSnoopDbGrpSrcHostEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpStatsVlanId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpSrcIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpSrcHostIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcHostIp": {
+    "name": "prvtIgmpSnoopDbGrpSrcHostIp",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpSrcHostExpTime": {
+    "name": "prvtIgmpSnoopDbGrpSrcHostExpTime",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbMrtrTable": {
+    "name": "prvtIgmpSnoopDbMrtrTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbMrtrEntry": {
+    "name": "prvtIgmpSnoopDbMrtrEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpStatsVlanId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbMrtrSrcIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbMrtrSrcIp": {
+    "name": "prvtIgmpSnoopDbMrtrSrcIp",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbMrtrFlags": {
+    "name": "prvtIgmpSnoopDbMrtrFlags",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbMrtrExpTime": {
+    "name": "prvtIgmpSnoopDbMrtrExpTime",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpStatsTable": {
+    "name": "prvtIgmpSnoopDbGrpStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpStatsEntry": {
+    "name": "prvtIgmpSnoopDbGrpStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpStatsVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpStatsVlanId": {
+    "name": "prvtIgmpSnoopDbGrpStatsVlanId",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpStatsDscPkt": {
+    "name": "prvtIgmpSnoopDbGrpStatsDscPkt",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpStatsDscPktTtl": {
+    "name": "prvtIgmpSnoopDbGrpStatsDscPktTtl",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpStatsDscPktChk": {
+    "name": "prvtIgmpSnoopDbGrpStatsDscPktChk",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbGrpStatsDscPktRA": {
+    "name": "prvtIgmpSnoopDbGrpStatsDscPktRA",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsTable": {
+    "name": "prvtIgmpSnoopDbIfStatsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsEntry": {
+    "name": "prvtIgmpSnoopDbIfStatsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbGrpStatsVlanId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopDbIfStatsIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsIfName": {
+    "name": "prvtIgmpSnoopDbIfStatsIfName",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsV2Reports": {
+    "name": "prvtIgmpSnoopDbIfStatsV2Reports",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsV2Leaves": {
+    "name": "prvtIgmpSnoopDbIfStatsV2Leaves",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsV3Reports": {
+    "name": "prvtIgmpSnoopDbIfStatsV3Reports",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsGenQueries": {
+    "name": "prvtIgmpSnoopDbIfStatsGenQueries",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsGrpQueries": {
+    "name": "prvtIgmpSnoopDbIfStatsGrpQueries",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDbIfStatsSrcQueries": {
+    "name": "prvtIgmpSnoopDbIfStatsSrcQueries",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryTable": {
+    "name": "prvtIgmpSnoopMemoryTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryEntry": {
+    "name": "prvtIgmpSnoopMemoryEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopMemoryPoolId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryPoolId": {
+    "name": "prvtIgmpSnoopMemoryPoolId",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryPoolName": {
+    "name": "prvtIgmpSnoopMemoryPoolName",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryTaken": {
+    "name": "prvtIgmpSnoopMemoryTaken",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryFree": {
+    "name": "prvtIgmpSnoopMemoryFree",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryToAllocate": {
+    "name": "prvtIgmpSnoopMemoryToAllocate",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryInitCount": {
+    "name": "prvtIgmpSnoopMemoryInitCount",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemorySize": {
+    "name": "prvtIgmpSnoopMemorySize",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMemoryAllAllocated": {
+    "name": "prvtIgmpSnoopMemoryAllAllocated",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopApplStatsObjects": {
+    "name": "prvtIgmpSnoopApplStatsObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11",
+    "class": "objectidentity"
+  },
+  "prvtIgmpSnoopCapturedPckts": {
+    "name": "prvtIgmpSnoopCapturedPckts",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopCapturedReports": {
+    "name": "prvtIgmpSnoopCapturedReports",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopUniqueSources": {
+    "name": "prvtIgmpSnoopUniqueSources",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopUniqueGroupRecords": {
+    "name": "prvtIgmpSnoopUniqueGroupRecords",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDuplicateSources": {
+    "name": "prvtIgmpSnoopDuplicateSources",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDuplicateGrpRecs": {
+    "name": "prvtIgmpSnoopDuplicateGrpRecs",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopUniqueMacs": {
+    "name": "prvtIgmpSnoopUniqueMacs",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDuplicateMacs": {
+    "name": "prvtIgmpSnoopDuplicateMacs",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopUniqueHsis": {
+    "name": "prvtIgmpSnoopUniqueHsis",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopDuplicateHsis": {
+    "name": "prvtIgmpSnoopDuplicateHsis",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.1.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrObjects": {
+    "name": "prvtIgmpSnoopMvrObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3",
+    "class": "objectidentity"
+  },
+  "prvtIgmpSnoopMvrShutdown": {
+    "name": "prvtIgmpSnoopMvrShutdown",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrMode": {
+    "name": "prvtIgmpSnoopMvrMode",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrVlan": {
+    "name": "prvtIgmpSnoopMvrVlan",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4092
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrSrcIp": {
+    "name": "prvtIgmpSnoopMvrSrcIp",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpTable": {
+    "name": "prvtIgmpSnoopMvrGrpTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpEntry": {
+    "name": "prvtIgmpSnoopMvrGrpEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopMvrGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpName": {
+    "name": "prvtIgmpSnoopMvrGrpName",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpRowStatus": {
+    "name": "prvtIgmpSnoopMvrGrpRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpAsmTable": {
+    "name": "prvtIgmpSnoopMvrGrpAsmTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpAsmEntry": {
+    "name": "prvtIgmpSnoopMvrGrpAsmEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopMvrGrpName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopMvrGrpAsmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpAsmIndex": {
+    "name": "prvtIgmpSnoopMvrGrpAsmIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpAsmRowStatus": {
+    "name": "prvtIgmpSnoopMvrGrpAsmRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpAsmAddr": {
+    "name": "prvtIgmpSnoopMvrGrpAsmAddr",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpAsmCount": {
+    "name": "prvtIgmpSnoopMvrGrpAsmCount",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpSsmTable": {
+    "name": "prvtIgmpSnoopMvrGrpSsmTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpSsmEntry": {
+    "name": "prvtIgmpSnoopMvrGrpSsmEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopMvrGrpName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopMvrGrpSsmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpSsmIndex": {
+    "name": "prvtIgmpSnoopMvrGrpSsmIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpSsmRowStatus": {
+    "name": "prvtIgmpSnoopMvrGrpSsmRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpSsmAddr": {
+    "name": "prvtIgmpSnoopMvrGrpSsmAddr",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpSsmSrcList": {
+    "name": "prvtIgmpSnoopMvrGrpSsmSrcList",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrGrpSsmMode": {
+    "name": "prvtIgmpSnoopMvrGrpSsmMode",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortTable": {
+    "name": "prvtIgmpSnoopMvrPortTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortEntry": {
+    "name": "prvtIgmpSnoopMvrPortEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortRowStatus": {
+    "name": "prvtIgmpSnoopMvrPortRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortType": {
+    "name": "prvtIgmpSnoopMvrPortType",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source": 1,
+          "receiver": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortExpTrack": {
+    "name": "prvtIgmpSnoopMvrPortExpTrack",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortFastLeave": {
+    "name": "prvtIgmpSnoopMvrPortFastLeave",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortMcGrpTable": {
+    "name": "prvtIgmpSnoopMvrPortMcGrpTable",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortMcGrpEntry": {
+    "name": "prvtIgmpSnoopMvrPortMcGrpEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopCfgIfName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-IGMP-SNOOPING-MIB",
+        "object": "prvtIgmpSnoopMvrGrpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtIgmpSnoopMvrPortMcGrpRStatus": {
+    "name": "prvtIgmpSnoopMvrPortMcGrpRStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.135.1.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-IGMP-SNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-IGMP-SNOOPING-MIB"
+  }
+}

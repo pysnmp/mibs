@@ -1,0 +1,1720 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "BulkConfigResult",
+      "ConfigIterator"
+    ],
+    "CISCO-VOICE-AALX-PROFILE-MIB": [
+      "CiscoAal2ProfileNumber",
+      "CiscoAal2ProfileType"
+    ],
+    "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
+      "CvcCoderTypeRate",
+      "CvcSpeechCoderRate"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "RMON-MIB": [
+      "OwnerString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoAtmTrunkMIB": {
+    "name": "ciscoAtmTrunkMIB",
+    "oid": "1.3.6.1.4.1.9.9.351",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-07-18 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "cAtmTrunkMIBNotifications": {
+    "name": "cAtmTrunkMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.351.0",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkMIBObjects": {
+    "name": "cAtmTrunkMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.351.1",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkCidConfig": {
+    "name": "cAtmTrunkCidConfig",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkCidConnStats": {
+    "name": "cAtmTrunkCidConnStats",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkAal1Config": {
+    "name": "cAtmTrunkAal1Config",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkAal1ConnStats": {
+    "name": "cAtmTrunkAal1ConnStats",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkAal5Config": {
+    "name": "cAtmTrunkAal5Config",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkAal5ConnStats": {
+    "name": "cAtmTrunkAal5ConnStats",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6",
+    "class": "objectidentity"
+  },
+  "Counter32SinceReset": {
+    "name": "Counter32SinceReset",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "catmtCidTable": {
+    "name": "catmtCidTable",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtCidEntry": {
+    "name": "catmtCidEntry",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidVci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmtCidVpi": {
+    "name": "catmtCidVpi",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtCidVci": {
+    "name": "catmtCidVci",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtCid": {
+    "name": "catmtCid",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtCidDs1": {
+    "name": "catmtCidDs1",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidDs0GroupIndex": {
+    "name": "catmtCidDs0GroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidProfileType": {
+    "name": "catmtCidProfileType",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAal2ProfileType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidProfileNumber": {
+    "name": "catmtCidProfileNumber",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAal2ProfileNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidVoiceCodec": {
+    "name": "catmtCidVoiceCodec",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcSpeechCoderRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidVBDCodec": {
+    "name": "catmtCidVBDCodec",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcCoderTypeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidNx64Enable": {
+    "name": "catmtCidNx64Enable",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidNx64Profile": {
+    "name": "catmtCidNx64Profile",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidStateBitMap": {
+    "name": "catmtCidStateBitMap",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "pvcAdminDown": 0,
+        "pvcFailure": 1,
+        "extAIS": 2,
+        "extRAI": 3,
+        "aal2ConnAIS": 4,
+        "aal2ConnRDI": 5,
+        "lineAlarm": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidRepetition": {
+    "name": "catmtCidRepetition",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigIterator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidRepetitionOwner": {
+    "name": "catmtCidRepetitionOwner",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidRepetitionResult": {
+    "name": "catmtCidRepetitionResult",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BulkConfigResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidRowStatus": {
+    "name": "catmtCidRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.351.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtCidStatsTable": {
+    "name": "catmtCidStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtCidStatsEntry": {
+    "name": "catmtCidStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidVci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmtCidSentPackets": {
+    "name": "catmtCidSentPackets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidRcvdPackets": {
+    "name": "catmtCidRcvdPackets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidSentOctets": {
+    "name": "catmtCidSentOctets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidRcvdOctets": {
+    "name": "catmtCidRcvdOctets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidLostPackets": {
+    "name": "catmtCidLostPackets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidJitter": {
+    "name": "catmtCidJitter",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidExtAISCnts": {
+    "name": "catmtCidExtAISCnts",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidExtRAICnts": {
+    "name": "catmtCidExtRAICnts",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidConnAISCnts": {
+    "name": "catmtCidConnAISCnts",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidConnRDICnts": {
+    "name": "catmtCidConnRDICnts",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64FramesTxToTDM": {
+    "name": "catmtCidNx64FramesTxToTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64FramesRxFromTDM": {
+    "name": "catmtCidNx64FramesRxFromTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64EncBytesTxToTDM": {
+    "name": "catmtCidNx64EncBytesTxToTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64EncBytesRxFromTDM": {
+    "name": "catmtCidNx64EncBytesRxFromTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64InvalidFCSFrames": {
+    "name": "catmtCidNx64InvalidFCSFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64AbortSeqFrames": {
+    "name": "catmtCidNx64AbortSeqFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64InvalidShortFrames": {
+    "name": "catmtCidNx64InvalidShortFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64InvalidLongFrames": {
+    "name": "catmtCidNx64InvalidLongFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64NoByteAlignErrorFrames": {
+    "name": "catmtCidNx64NoByteAlignErrorFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidNx64RASTimeOutFrames": {
+    "name": "catmtCidNx64RASTimeOutFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidLastResetTime": {
+    "name": "catmtCidLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtCidCounterClear": {
+    "name": "catmtCidCounterClear",
+    "oid": "1.3.6.1.4.1.9.9.351.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "catmtAal1Table": {
+    "name": "catmtAal1Table",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal1Entry": {
+    "name": "catmtAal1Entry",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Vpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Vci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmtAal1Vpi": {
+    "name": "catmtAal1Vpi",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal1Vci": {
+    "name": "catmtAal1Vci",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal1Ds1": {
+    "name": "catmtAal1Ds1",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal1Ds0GroupIndex": {
+    "name": "catmtAal1Ds0GroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal1Nx64Profile": {
+    "name": "catmtAal1Nx64Profile",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal1RowStatus": {
+    "name": "catmtAal1RowStatus",
+    "oid": "1.3.6.1.4.1.9.9.351.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal1StatsTable": {
+    "name": "catmtAal1StatsTable",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal1StatsEntry": {
+    "name": "catmtAal1StatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Vpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Vci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmtAal1TxCells": {
+    "name": "catmtAal1TxCells",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal1RxCells": {
+    "name": "catmtAal1RxCells",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal1TxPayloadBytes": {
+    "name": "catmtAal1TxPayloadBytes",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal1RxPayloadBytes": {
+    "name": "catmtAal1RxPayloadBytes",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal1Jitter": {
+    "name": "catmtAal1Jitter",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal1LastResetTime": {
+    "name": "catmtAal1LastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal1CounterClear": {
+    "name": "catmtAal1CounterClear",
+    "oid": "1.3.6.1.4.1.9.9.351.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "catmtAal5Table": {
+    "name": "catmtAal5Table",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal5Entry": {
+    "name": "catmtAal5Entry",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5Vpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5Vci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmtAal5Vpi": {
+    "name": "catmtAal5Vpi",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal5Vci": {
+    "name": "catmtAal5Vci",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal5Ds1": {
+    "name": "catmtAal5Ds1",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal5Ds0GroupIndex": {
+    "name": "catmtAal5Ds0GroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal5Nx64Profile": {
+    "name": "catmtAal5Nx64Profile",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal5RowStatus": {
+    "name": "catmtAal5RowStatus",
+    "oid": "1.3.6.1.4.1.9.9.351.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "catmtAal5StatsTable": {
+    "name": "catmtAal5StatsTable",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmtAal5StatsEntry": {
+    "name": "catmtAal5StatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5Vpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5Vci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmtAal5SentPackets": {
+    "name": "catmtAal5SentPackets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5RcvdPackets": {
+    "name": "catmtAal5RcvdPackets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5SentOctets": {
+    "name": "catmtAal5SentOctets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5RcvdOctets": {
+    "name": "catmtAal5RcvdOctets",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5FramesTxToTDM": {
+    "name": "catmtAal5FramesTxToTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5FramesRxFromTDM": {
+    "name": "catmtAal5FramesRxFromTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5EncBytesTxToTDM": {
+    "name": "catmtAal5EncBytesTxToTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5EncBytesRxFromTDM": {
+    "name": "catmtAal5EncBytesRxFromTDM",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5InvalidFCSFrames": {
+    "name": "catmtAal5InvalidFCSFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5AbortSeqFrames": {
+    "name": "catmtAal5AbortSeqFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5InvalidShortFrames": {
+    "name": "catmtAal5InvalidShortFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5InvalidLongFrames": {
+    "name": "catmtAal5InvalidLongFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5NoByteAlignErrorFrames": {
+    "name": "catmtAal5NoByteAlignErrorFrames",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32SinceReset",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5LastResetTime": {
+    "name": "catmtAal5LastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmtAal5CounterClear": {
+    "name": "catmtAal5CounterClear",
+    "oid": "1.3.6.1.4.1.9.9.351.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cAtmTrunkMIBConformance": {
+    "name": "cAtmTrunkMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.351.2",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkMIBCompliances": {
+    "name": "cAtmTrunkMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.351.2.1",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkMIBGroups": {
+    "name": "cAtmTrunkMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.351.2.2",
+    "class": "objectidentity"
+  },
+  "cAtmTrunkMIBCompliance": {
+    "name": "cAtmTrunkMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.351.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cAtmTrunkCidMIBGroup",
+        "module": "CISCO-ATM-TRUNK-MIB"
+      },
+      {
+        "object": "cAtmTrunkAal1MIBGroup",
+        "module": "CISCO-ATM-TRUNK-MIB"
+      },
+      {
+        "object": "cAtmTrunkAal5MIBGroup",
+        "module": "CISCO-ATM-TRUNK-MIB"
+      },
+      {
+        "object": "cAtmTrunkCidConnStatsMIBGroup",
+        "module": "CISCO-ATM-TRUNK-MIB"
+      },
+      {
+        "object": "cAtmTrunkAal1ConnStatsMIBGroup",
+        "module": "CISCO-ATM-TRUNK-MIB"
+      },
+      {
+        "object": "cAtmTrunkAal5ConnStatsMIBGroup",
+        "module": "CISCO-ATM-TRUNK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cAtmTrunkCidMIBGroup": {
+    "name": "cAtmTrunkCidMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.351.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidDs1"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidDs0GroupIndex"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidProfileType"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidProfileNumber"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidVoiceCodec"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidVBDCodec"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64Enable"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64Profile"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidStateBitMap"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidRepetition"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidRepetitionOwner"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidRepetitionResult"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cAtmTrunkAal1MIBGroup": {
+    "name": "cAtmTrunkAal1MIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.351.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Ds1"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Ds0GroupIndex"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Nx64Profile"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1RowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cAtmTrunkAal5MIBGroup": {
+    "name": "cAtmTrunkAal5MIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.351.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5Ds1"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5Ds0GroupIndex"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5Nx64Profile"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5RowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cAtmTrunkCidConnStatsMIBGroup": {
+    "name": "cAtmTrunkCidConnStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.351.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidSentPackets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidRcvdPackets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidSentOctets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidRcvdOctets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidLostPackets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidJitter"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidExtAISCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidExtRAICnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidConnAISCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidConnRDICnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64FramesTxToTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64FramesRxFromTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64EncBytesTxToTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64EncBytesRxFromTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64InvalidFCSFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64AbortSeqFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64InvalidShortFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64InvalidLongFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64NoByteAlignErrorFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidNx64RASTimeOutFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidLastResetTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtCidCounterClear"
+      }
+    ],
+    "status": "current"
+  },
+  "cAtmTrunkAal1ConnStatsMIBGroup": {
+    "name": "cAtmTrunkAal1ConnStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.351.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1TxCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1RxCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1TxPayloadBytes"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1RxPayloadBytes"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1Jitter"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1LastResetTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal1CounterClear"
+      }
+    ],
+    "status": "current"
+  },
+  "cAtmTrunkAal5ConnStatsMIBGroup": {
+    "name": "cAtmTrunkAal5ConnStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.351.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5SentPackets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5RcvdPackets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5SentOctets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5RcvdOctets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5FramesTxToTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5FramesRxFromTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5EncBytesTxToTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5EncBytesRxFromTDM"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5InvalidFCSFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5AbortSeqFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5InvalidShortFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5InvalidLongFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5NoByteAlignErrorFrames"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5LastResetTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-MIB",
+        "object": "catmtAal5CounterClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-TRUNK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-TRUNK-MIB"
+  }
+}

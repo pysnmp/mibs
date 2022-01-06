@@ -1,0 +1,2081 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "FcAddressIdOrZero",
+      "fcmInstanceIndex",
+      "FcNameIdOrZero",
+      "FcDomainIdOrZero",
+      "fcmSwitchIndex",
+      "FcPortType"
+    ],
+    "NETWORK-SERVICES-MIB": [
+      "URLString"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "T11-FC-FABRIC-ADDR-MGR-MIB": [
+      "t11FamLocalSwitchWwn"
+    ],
+    "T11-FC-NAME-SERVER-MIB": [
+      "T11NsGs4RejectReasonCode"
+    ],
+    "T11-TC-MIB": [
+      "T11FabricIndex"
+    ]
+  },
+  "t11FcFabricConfigServerMIB": {
+    "name": "t11FcFabricConfigServerMIB",
+    "oid": "1.3.6.1.2.1.162",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-27 00:00",
+        "description": "Initial version of this MIB module, published as RFC 4935."
+      }
+    ]
+  },
+  "t11FcsMIBObjects": {
+    "name": "t11FcsMIBObjects",
+    "oid": "1.3.6.1.2.1.162.1",
+    "class": "objectidentity"
+  },
+  "t11FcsMIBConformance": {
+    "name": "t11FcsMIBConformance",
+    "oid": "1.3.6.1.2.1.162.2",
+    "class": "objectidentity"
+  },
+  "t11FcsNotifications": {
+    "name": "t11FcsNotifications",
+    "oid": "1.3.6.1.2.1.162.0",
+    "class": "objectidentity"
+  },
+  "t11FcsDiscovery": {
+    "name": "t11FcsDiscovery",
+    "oid": "1.3.6.1.2.1.162.1.1",
+    "class": "objectidentity"
+  },
+  "t11FcsDiscoveredConfig": {
+    "name": "t11FcsDiscoveredConfig",
+    "oid": "1.3.6.1.2.1.162.1.2",
+    "class": "objectidentity"
+  },
+  "t11FcsStats": {
+    "name": "t11FcsStats",
+    "oid": "1.3.6.1.2.1.162.1.3",
+    "class": "objectidentity"
+  },
+  "t11FcsNotificationInfo": {
+    "name": "t11FcsNotificationInfo",
+    "oid": "1.3.6.1.2.1.162.1.4",
+    "class": "objectidentity"
+  },
+  "T11FcListIndex": {
+    "name": "T11FcListIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "T11FcListIndexPointerOrZero": {
+    "name": "T11FcListIndexPointerOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "T11FcIeType": {
+    "name": "T11FcIeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "switch": 3,
+          "hub": 4,
+          "bridge": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcPortState": {
+    "name": "T11FcPortState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "online": 3,
+          "offline": 4,
+          "testing": 5,
+          "fault": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcPortTxType": {
+    "name": "T11FcPortTxType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "shortwave850nm": 3,
+          "longwave1550nm": 4,
+          "longwave1310nm": 5,
+          "electrical": 6,
+          "tenGbaseSr850": 7,
+          "tenGbaseLr1310": 8,
+          "tenGbaseEr1550": 9,
+          "tenGbaseLx1300": 10,
+          "tenGbaseSw850": 11,
+          "tenGbaseLw1310": 12,
+          "tenGbaseEw1550": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcsRejectReasonExplanation": {
+    "name": "T11FcsRejectReasonExplanation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAdditionalExplanation": 1,
+          "invNameIdForIEOrPort": 2,
+          "ieListNotAvailable": 3,
+          "ieTypeNotAvailable": 4,
+          "domainIdNotAvailable": 5,
+          "mgmtIdNotAvailable": 6,
+          "fabNameNotAvailable": 7,
+          "ielogNameNotAvailable": 8,
+          "mgmtAddrListNotAvailable": 9,
+          "ieInfoListNotAvailable": 10,
+          "portListNotAvailable": 11,
+          "portTypeNotAvailable": 12,
+          "phyPortNumNotAvailable": 13,
+          "attPortNameListNotAvailable": 14,
+          "portStateNotAvailable": 15,
+          "unableToRegIELogName": 16,
+          "platformNameNoExist": 17,
+          "platformNameAlreadyExists": 18,
+          "platformNodeNameNoExists": 19,
+          "platformNodeNameAlreadyExists": 20,
+          "resourceUnavailable": 21,
+          "noEntriesInLunMap": 22,
+          "invalidDeviceNameLength": 23,
+          "multipleAttributes": 24,
+          "invalidAttribBlockLength": 25,
+          "attributesMissing": 26
+        }
+      }
+    },
+    "status": "current"
+  },
+  "t11FcsFabricDiscoveryTable": {
+    "name": "t11FcsFabricDiscoveryTable",
+    "oid": "1.3.6.1.2.1.162.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsFabricDiscoveryEntry": {
+    "name": "t11FcsFabricDiscoveryEntry",
+    "oid": "1.3.6.1.2.1.162.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsFabricDiscoveryRangeLow": {
+    "name": "t11FcsFabricDiscoveryRangeLow",
+    "oid": "1.3.6.1.2.1.162.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsFabricDiscoveryRangeHigh": {
+    "name": "t11FcsFabricDiscoveryRangeHigh",
+    "oid": "1.3.6.1.2.1.162.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsFabricDiscoveryStart": {
+    "name": "t11FcsFabricDiscoveryStart",
+    "oid": "1.3.6.1.2.1.162.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsFabricDiscoveryTimeOut": {
+    "name": "t11FcsFabricDiscoveryTimeOut",
+    "oid": "1.3.6.1.2.1.162.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsDiscoveryStateTable": {
+    "name": "t11FcsDiscoveryStateTable",
+    "oid": "1.3.6.1.2.1.162.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsDiscoveryStateEntry": {
+    "name": "t11FcsDiscoveryStateEntry",
+    "oid": "1.3.6.1.2.1.162.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsFabricIndex": {
+    "name": "t11FcsFabricIndex",
+    "oid": "1.3.6.1.2.1.162.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsDiscoveryStatus": {
+    "name": "t11FcsDiscoveryStatus",
+    "oid": "1.3.6.1.2.1.162.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "completed": 2,
+          "localOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsDiscoveryCompleteTime": {
+    "name": "t11FcsDiscoveryCompleteTime",
+    "oid": "1.3.6.1.2.1.162.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsIeTable": {
+    "name": "t11FcsIeTable",
+    "oid": "1.3.6.1.2.1.162.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsIeEntry": {
+    "name": "t11FcsIeEntry",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsIeName": {
+    "name": "t11FcsIeName",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsIeType": {
+    "name": "t11FcsIeType",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcIeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsIeDomainId": {
+    "name": "t11FcsIeDomainId",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcDomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsIeMgmtId": {
+    "name": "t11FcsIeMgmtId",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsIeFabricName": {
+    "name": "t11FcsIeFabricName",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsIeLogicalName": {
+    "name": "t11FcsIeLogicalName",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsIeMgmtAddrListIndex": {
+    "name": "t11FcsIeMgmtAddrListIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndexPointerOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsIeInfoList": {
+    "name": "t11FcsIeInfoList",
+    "oid": "1.3.6.1.2.1.162.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsMgmtAddrListTable": {
+    "name": "t11FcsMgmtAddrListTable",
+    "oid": "1.3.6.1.2.1.162.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsMgmtAddrListEntry": {
+    "name": "t11FcsMgmtAddrListEntry",
+    "oid": "1.3.6.1.2.1.162.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrListIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsMgmtAddrListIndex": {
+    "name": "t11FcsMgmtAddrListIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsMgmtAddrIndex": {
+    "name": "t11FcsMgmtAddrIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsMgmtAddr": {
+    "name": "t11FcsMgmtAddr",
+    "oid": "1.3.6.1.2.1.162.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "URLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortTable": {
+    "name": "t11FcsPortTable",
+    "oid": "1.3.6.1.2.1.162.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsPortEntry": {
+    "name": "t11FcsPortEntry",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeName",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsPortName": {
+    "name": "t11FcsPortName",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsPortType": {
+    "name": "t11FcsPortType",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortTxType": {
+    "name": "t11FcsPortTxType",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcPortTxType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortModuleType": {
+    "name": "t11FcsPortModuleType",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortPhyPortNum": {
+    "name": "t11FcsPortPhyPortNum",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortAttachPortNameIndex": {
+    "name": "t11FcsPortAttachPortNameIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndexPointerOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortState": {
+    "name": "t11FcsPortState",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcPortState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortSpeedCapab": {
+    "name": "t11FcsPortSpeedCapab",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortOperSpeed": {
+    "name": "t11FcsPortOperSpeed",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPortZoningEnfStatus": {
+    "name": "t11FcsPortZoningEnfStatus",
+    "oid": "1.3.6.1.2.1.162.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsAttachPortNameListTable": {
+    "name": "t11FcsAttachPortNameListTable",
+    "oid": "1.3.6.1.2.1.162.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsAttachPortNameListEntry": {
+    "name": "t11FcsAttachPortNameListEntry",
+    "oid": "1.3.6.1.2.1.162.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsAttachPortNameListIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsAttachPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsAttachPortNameListIndex": {
+    "name": "t11FcsAttachPortNameListIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsAttachPortName": {
+    "name": "t11FcsAttachPortName",
+    "oid": "1.3.6.1.2.1.162.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformTable": {
+    "name": "t11FcsPlatformTable",
+    "oid": "1.3.6.1.2.1.162.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsPlatformEntry": {
+    "name": "t11FcsPlatformEntry",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsPlatformIndex": {
+    "name": "t11FcsPlatformIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsPlatformName": {
+    "name": "t11FcsPlatformName",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformType": {
+    "name": "t11FcsPlatformType",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformNodeNameListIndex": {
+    "name": "t11FcsPlatformNodeNameListIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndexPointerOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformMgmtAddrListIndex": {
+    "name": "t11FcsPlatformMgmtAddrListIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndexPointerOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformVendorId": {
+    "name": "t11FcsPlatformVendorId",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformProductId": {
+    "name": "t11FcsPlatformProductId",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformProductRevLevel": {
+    "name": "t11FcsPlatformProductRevLevel",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformDescription": {
+    "name": "t11FcsPlatformDescription",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformLabel": {
+    "name": "t11FcsPlatformLabel",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformLocation": {
+    "name": "t11FcsPlatformLocation",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformSystemID": {
+    "name": "t11FcsPlatformSystemID",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformSysMgmtAddr": {
+    "name": "t11FcsPlatformSysMgmtAddr",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndexPointerOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformClusterId": {
+    "name": "t11FcsPlatformClusterId",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformClusterMgmtAddr": {
+    "name": "t11FcsPlatformClusterMgmtAddr",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndexPointerOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsPlatformFC4Types": {
+    "name": "t11FcsPlatformFC4Types",
+    "oid": "1.3.6.1.2.1.162.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsNodeNameListTable": {
+    "name": "t11FcsNodeNameListTable",
+    "oid": "1.3.6.1.2.1.162.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsNodeNameListEntry": {
+    "name": "t11FcsNodeNameListEntry",
+    "oid": "1.3.6.1.2.1.162.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsNodeNameListIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsNodeNameListIndex": {
+    "name": "t11FcsNodeNameListIndex",
+    "oid": "1.3.6.1.2.1.162.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcListIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsNodeName": {
+    "name": "t11FcsNodeName",
+    "oid": "1.3.6.1.2.1.162.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsStatsTable": {
+    "name": "t11FcsStatsTable",
+    "oid": "1.3.6.1.2.1.162.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsStatsEntry": {
+    "name": "t11FcsStatsEntry",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsInGetReqs": {
+    "name": "t11FcsInGetReqs",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsOutGetReqs": {
+    "name": "t11FcsOutGetReqs",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsInRegReqs": {
+    "name": "t11FcsInRegReqs",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsOutRegReqs": {
+    "name": "t11FcsOutRegReqs",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsInDeregReqs": {
+    "name": "t11FcsInDeregReqs",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsOutDeregReqs": {
+    "name": "t11FcsOutDeregReqs",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsRejects": {
+    "name": "t11FcsRejects",
+    "oid": "1.3.6.1.2.1.162.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsNotifyControlTable": {
+    "name": "t11FcsNotifyControlTable",
+    "oid": "1.3.6.1.2.1.162.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcsNotifyControlEntry": {
+    "name": "t11FcsNotifyControlEntry",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsReqRejectNotifyEnable": {
+    "name": "t11FcsReqRejectNotifyEnable",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsDiscoveryCompNotifyEnable": {
+    "name": "t11FcsDiscoveryCompNotifyEnable",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsMgmtAddrChangeNotifyEnable": {
+    "name": "t11FcsMgmtAddrChangeNotifyEnable",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcsRejectCtCommandString": {
+    "name": "t11FcsRejectCtCommandString",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsRejectRequestSource": {
+    "name": "t11FcsRejectRequestSource",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsRejectReasonCode": {
+    "name": "t11FcsRejectReasonCode",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11NsGs4RejectReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsRejectReasonCodeExp": {
+    "name": "t11FcsRejectReasonCodeExp",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FcsRejectReasonExplanation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsRejectReasonVendorCode": {
+    "name": "t11FcsRejectReasonVendorCode",
+    "oid": "1.3.6.1.2.1.162.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcsRqRejectNotification": {
+    "name": "t11FcsRqRejectNotification",
+    "oid": "1.3.6.1.2.1.162.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-ADDR-MGR-MIB",
+        "object": "t11FamLocalSwitchWwn"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectReasonCode"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectReasonVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsDiscoveryCompleteNotify": {
+    "name": "t11FcsDiscoveryCompleteNotify",
+    "oid": "1.3.6.1.2.1.162.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricDiscoveryRangeLow"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsMgmtAddrChangeNotify": {
+    "name": "t11FcsMgmtAddrChangeNotify",
+    "oid": "1.3.6.1.2.1.162.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrChangeFabricIndex"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrChangeIeName"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsMgmtAddrChangeFabricIndex": {
+    "name": "t11FcsMgmtAddrChangeFabricIndex",
+    "oid": "1.3.6.1.2.1.162.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "t11FcsMgmtAddrChangeIeName": {
+    "name": "t11FcsMgmtAddrChangeIeName",
+    "oid": "1.3.6.1.2.1.162.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "t11FcsMIBCompliances": {
+    "name": "t11FcsMIBCompliances",
+    "oid": "1.3.6.1.2.1.162.2.1",
+    "class": "objectidentity"
+  },
+  "t11FcsMIBGroups": {
+    "name": "t11FcsMIBGroups",
+    "oid": "1.3.6.1.2.1.162.2.2",
+    "class": "objectidentity"
+  },
+  "t11FcsMIBCompliance": {
+    "name": "t11FcsMIBCompliance",
+    "oid": "1.3.6.1.2.1.162.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "t11FcsDiscoveredConfigGroup",
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
+      },
+      {
+        "object": "t11FcsDiscoveryStatusGroup",
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
+      },
+      {
+        "object": "t11FcsNotificationInfoGroup",
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
+      },
+      {
+        "object": "t11FcsNotificationGroup",
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
+      },
+      {
+        "object": "t11FcsDiscoveryControlGroup",
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
+      },
+      {
+        "object": "t11FcsStatisticsGroup",
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsDiscoveryControlGroup": {
+    "name": "t11FcsDiscoveryControlGroup",
+    "oid": "1.3.6.1.2.1.162.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricDiscoveryRangeLow"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricDiscoveryRangeHigh"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricDiscoveryStart"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsFabricDiscoveryTimeOut"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsDiscoveryStatusGroup": {
+    "name": "t11FcsDiscoveryStatusGroup",
+    "oid": "1.3.6.1.2.1.162.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsDiscoveryStatus"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsDiscoveryCompleteTime"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsDiscoveredConfigGroup": {
+    "name": "t11FcsDiscoveredConfigGroup",
+    "oid": "1.3.6.1.2.1.162.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeType"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeDomainId"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeMgmtId"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeFabricName"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeLogicalName"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeMgmtAddrListIndex"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsIeInfoList"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddr"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortType"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortTxType"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortModuleType"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortPhyPortNum"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortAttachPortNameIndex"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortState"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortSpeedCapab"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortOperSpeed"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPortZoningEnfStatus"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsAttachPortName"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformName"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformType"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformNodeNameListIndex"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformMgmtAddrListIndex"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformVendorId"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformProductId"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformProductRevLevel"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformDescription"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformLabel"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformLocation"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformSystemID"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformSysMgmtAddr"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformClusterId"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformClusterMgmtAddr"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsPlatformFC4Types"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsNodeName"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsStatisticsGroup": {
+    "name": "t11FcsStatisticsGroup",
+    "oid": "1.3.6.1.2.1.162.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsInGetReqs"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsOutGetReqs"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsInRegReqs"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsOutRegReqs"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsInDeregReqs"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsOutDeregReqs"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejects"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsNotificationInfoGroup": {
+    "name": "t11FcsNotificationInfoGroup",
+    "oid": "1.3.6.1.2.1.162.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsReqRejectNotifyEnable"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsDiscoveryCompNotifyEnable"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrChangeNotifyEnable"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectCtCommandString"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectRequestSource"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectReasonCode"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRejectReasonVendorCode"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrChangeFabricIndex"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrChangeIeName"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcsNotificationGroup": {
+    "name": "t11FcsNotificationGroup",
+    "oid": "1.3.6.1.2.1.162.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsRqRejectNotification"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsDiscoveryCompleteNotify"
+      },
+      {
+        "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB",
+        "object": "t11FcsMgmtAddrChangeNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-FABRIC-CONFIG-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
+  }
+}

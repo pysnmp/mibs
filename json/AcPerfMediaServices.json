@@ -1,0 +1,563 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "audioCodes": {
+    "name": "audioCodes",
+    "oid": "1.3.6.1.4.1.5003",
+    "class": "objectidentity"
+  },
+  "acRegistrations": {
+    "name": "acRegistrations",
+    "oid": "1.3.6.1.4.1.5003.7",
+    "class": "objectidentity"
+  },
+  "acGeneric": {
+    "name": "acGeneric",
+    "oid": "1.3.6.1.4.1.5003.8",
+    "class": "objectidentity"
+  },
+  "acProducts": {
+    "name": "acProducts",
+    "oid": "1.3.6.1.4.1.5003.9",
+    "class": "objectidentity"
+  },
+  "acPerformance": {
+    "name": "acPerformance",
+    "oid": "1.3.6.1.4.1.5003.10",
+    "class": "objectidentity"
+  },
+  "acPerfMediaServices": {
+    "name": "acPerfMediaServices",
+    "oid": "1.3.6.1.4.1.5003.10.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-11-20 00:00",
+        "description": "Version 4.4. November 20, 2003. Made these changes: o Initial revision"
+      }
+    ]
+  },
+  "acPerfIvr": {
+    "name": "acPerfIvr",
+    "oid": "1.3.6.1.4.1.5003.10.2.1",
+    "class": "objectidentity"
+  },
+  "acPerfIvrPlayRequests": {
+    "name": "acPerfIvrPlayRequests",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlaySuccessful": {
+    "name": "acPerfIvrPlaySuccessful",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayFailedDueToLackOfResources": {
+    "name": "acPerfIvrPlayFailedDueToLackOfResources",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayInProgress": {
+    "name": "acPerfIvrPlayInProgress",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayDuration": {
+    "name": "acPerfIvrPlayDuration",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayFailedDueToProvMismatch": {
+    "name": "acPerfIvrPlayFailedDueToProvMismatch",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayCollectRequests": {
+    "name": "acPerfIvrPlayCollectRequests",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayCollectSuccessful": {
+    "name": "acPerfIvrPlayCollectSuccessful",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayCollectFailedDueToLackOfResources": {
+    "name": "acPerfIvrPlayCollectFailedDueToLackOfResources",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayCollectFailedDueToProvMismatch": {
+    "name": "acPerfIvrPlayCollectFailedDueToProvMismatch",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayCollectInProgress": {
+    "name": "acPerfIvrPlayCollectInProgress",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrPlayCollectDuration": {
+    "name": "acPerfIvrPlayCollectDuration",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrContDigitCollectRequests": {
+    "name": "acPerfIvrContDigitCollectRequests",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrContDigitCollectSuccessful": {
+    "name": "acPerfIvrContDigitCollectSuccessful",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrContDigitCollectFailedDueToLackOfResources": {
+    "name": "acPerfIvrContDigitCollectFailedDueToLackOfResources",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrContDigitCollectInProgress": {
+    "name": "acPerfIvrContDigitCollectInProgress",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfIvrContDigitCollectDuration": {
+    "name": "acPerfIvrContDigitCollectDuration",
+    "oid": "1.3.6.1.4.1.5003.10.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfBct": {
+    "name": "acPerfBct",
+    "oid": "1.3.6.1.4.1.5003.10.2.2",
+    "class": "objectidentity"
+  },
+  "acPerfBctRequests": {
+    "name": "acPerfBctRequests",
+    "oid": "1.3.6.1.4.1.5003.10.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfBctSuccessful": {
+    "name": "acPerfBctSuccessful",
+    "oid": "1.3.6.1.4.1.5003.10.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfBctFailedDueToLackOfResources": {
+    "name": "acPerfBctFailedDueToLackOfResources",
+    "oid": "1.3.6.1.4.1.5003.10.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfBctInProgress": {
+    "name": "acPerfBctInProgress",
+    "oid": "1.3.6.1.4.1.5003.10.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfBctDuration": {
+    "name": "acPerfBctDuration",
+    "oid": "1.3.6.1.4.1.5003.10.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfBctTotalParticipants": {
+    "name": "acPerfBctTotalParticipants",
+    "oid": "1.3.6.1.4.1.5003.10.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfBctCurrentNumberOfParticipants": {
+    "name": "acPerfBctCurrentNumberOfParticipants",
+    "oid": "1.3.6.1.4.1.5003.10.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConf": {
+    "name": "acPerfConf",
+    "oid": "1.3.6.1.4.1.5003.10.2.3",
+    "class": "objectidentity"
+  },
+  "acPerfConfRequests": {
+    "name": "acPerfConfRequests",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfSuccessful": {
+    "name": "acPerfConfSuccessful",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfInProgress": {
+    "name": "acPerfConfInProgress",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfDuration": {
+    "name": "acPerfConfDuration",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfFailedDueToLackOfResources": {
+    "name": "acPerfConfFailedDueToLackOfResources",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfAddRequests": {
+    "name": "acPerfConfAddRequests",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfAddSuccessful": {
+    "name": "acPerfConfAddSuccessful",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfAddFailedDueToLackOfResources": {
+    "name": "acPerfConfAddFailedDueToLackOfResources",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfPortsUsed": {
+    "name": "acPerfConfPortsUsed",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfConfPortsReserved": {
+    "name": "acPerfConfPortsReserved",
+    "oid": "1.3.6.1.4.1.5003.10.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfTt": {
+    "name": "acPerfTt",
+    "oid": "1.3.6.1.4.1.5003.10.2.4",
+    "class": "objectidentity"
+  },
+  "acPerfTtRequests": {
+    "name": "acPerfTtRequests",
+    "oid": "1.3.6.1.4.1.5003.10.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfTtSuccessful": {
+    "name": "acPerfTtSuccessful",
+    "oid": "1.3.6.1.4.1.5003.10.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfTtInProgress": {
+    "name": "acPerfTtInProgress",
+    "oid": "1.3.6.1.4.1.5003.10.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfTtDuration": {
+    "name": "acPerfTtDuration",
+    "oid": "1.3.6.1.4.1.5003.10.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "acPerfTtFailedDueToLackOfResources": {
+    "name": "acPerfTtFailedDueToLackOfResources",
+    "oid": "1.3.6.1.4.1.5003.10.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AcPerfMediaServices",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:49 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AcPerfMediaServices"
+  }
+}

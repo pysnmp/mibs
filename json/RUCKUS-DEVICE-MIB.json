@@ -1,0 +1,516 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RUCKUS-ROOT-MIB": [
+      "ruckusCommonDeviceModule"
+    ],
+    "RUCKUS-TC-MIB": [
+      "RuckusCountryCode"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruckusDeviceMIB": {
+    "name": "ruckusDeviceMIB",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1",
+    "class": "moduleidentity"
+  },
+  "ruckusDeviceObjects": {
+    "name": "ruckusDeviceObjects",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusDeviceInfo": {
+    "name": "ruckusDeviceInfo",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusDeviceTrapInfo": {
+    "name": "ruckusDeviceTrapInfo",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.2",
+    "class": "objectidentity"
+  },
+  "ruckusDeviceIPInfo": {
+    "name": "ruckusDeviceIPInfo",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.3",
+    "class": "objectidentity"
+  },
+  "ruckusDeviceWanInfo": {
+    "name": "ruckusDeviceWanInfo",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4",
+    "class": "objectidentity"
+  },
+  "ruckusDeviceEvents": {
+    "name": "ruckusDeviceEvents",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ruckusDeviceName": {
+    "name": "ruckusDeviceName",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceReboot": {
+    "name": "ruckusDeviceReboot",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceRebootWithDefaults": {
+    "name": "ruckusDeviceRebootWithDefaults",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceCountryCode": {
+    "name": "ruckusDeviceCountryCode",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuckusCountryCode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceGPS": {
+    "name": "ruckusDeviceGPS",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceNEId": {
+    "name": "ruckusDeviceNEId",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceLocation": {
+    "name": "ruckusDeviceLocation",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceTrapDestination": {
+    "name": "ruckusDeviceTrapDestination",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceTrapDestination2": {
+    "name": "ruckusDeviceTrapDestination2",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDevicePrimaryDNS": {
+    "name": "ruckusDevicePrimaryDNS",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceSecondaryDNS": {
+    "name": "ruckusDeviceSecondaryDNS",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDevicePrimaryDNSIPV6": {
+    "name": "ruckusDevicePrimaryDNSIPV6",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceSecondaryDNSIPV6": {
+    "name": "ruckusDeviceSecondaryDNSIPV6",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanTable": {
+    "name": "ruckusDeviceWanTable",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusDeviceWanEntry": {
+    "name": "ruckusDeviceWanEntry",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusDeviceWanIPAddrMode": {
+    "name": "ruckusDeviceWanIPAddrMode",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "static": 2,
+          "dhcp": 3,
+          "pppoe": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanIPAddr": {
+    "name": "ruckusDeviceWanIPAddr",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanName": {
+    "name": "ruckusDeviceWanName",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusDeviceWanNetmask": {
+    "name": "ruckusDeviceWanNetmask",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanGateway": {
+    "name": "ruckusDeviceWanGateway",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanIPVersion": {
+    "name": "ruckusDeviceWanIPVersion",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "dualstack": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ipv6",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanIPV6AddrMode": {
+    "name": "ruckusDeviceWanIPV6AddrMode",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-configuration": 1,
+          "static": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto-configuration",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanIPV6Addr": {
+    "name": "ruckusDeviceWanIPV6Addr",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanIPV6PrefixLen": {
+    "name": "ruckusDeviceWanIPV6PrefixLen",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ruckusDeviceWanIPV6Gateway": {
+    "name": "ruckusDeviceWanIPV6Gateway",
+    "oid": "1.3.6.1.4.1.25053.1.1.4.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-DEVICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-DEVICE-MIB"
+  }
+}

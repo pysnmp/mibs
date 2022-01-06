@@ -1,0 +1,5044 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwBFDMIB": {
+    "name": "hwBFDMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-01-08 00:00",
+        "description": "V1.55, add hwBfdSessConfbImpactFlag and hwBfdSessConfbImpactFlag."
+      },
+      {
+        "revision": "2016-01-08 00:00",
+        "description": "V1.54, add hwBfdSessFsmDiscordant and hwBfdSessFsmAccordant."
+      },
+      {
+        "revision": "2015-11-08 00:00",
+        "description": "V1.53, add hwBfdPWSessDownTrap and hwBfdPWSessUpTrap for Pw Bfd session."
+      },
+      {
+        "revision": "2015-10-23 00:00",
+        "description": "V1.52, add hwBfdSessApOperFailed for virtual access."
+      },
+      {
+        "revision": "2015-08-04 00:00",
+        "description": "V1.51, add hwBfdSessFaultDown and hwBfdSessResume."
+      },
+      {
+        "revision": "2015-07-29 00:00",
+        "description": "V1.50, modify the DESCRIPTION of hwBfdSessGlobalDefaultIpAddr."
+      },
+      {
+        "revision": "2015-07-14 00:00",
+        "description": "V1.49, move hwBfdSessCfgRemoteFailType from hwBfdAlarmTraps to hwBfdNotifications."
+      },
+      {
+        "revision": "2015-07-03 00:00",
+        "description": "V1.48, add hwBfdSessCfgRemoteFailType and hwBfdSessCfgRemoteFail for virtual access."
+      },
+      {
+        "revision": "2014-09-04 00:00",
+        "description": "V1.47, modified the revision history."
+      },
+      {
+        "revision": "2014-09-01 00:00",
+        "description": "V1.46, modified the date of copyright."
+      },
+      {
+        "revision": "2014-06-30 00:00",
+        "description": "V1.45, add hwBfdDynamicSessionTos for dynamic session tos in hwBfdScalarsObjects, add hwBfdv6MultiHopSessUpTrap,hwBfdv6MultiHopSessDownTrap for IPv6 MultiHop. Add hwBfdSessPeerAddr,hwBfdSessBindType,hwBfdSessVrfIndex for hwBfdSessUpTrap and hwBfdSessDownTrap, add hwBfdv6SingleHopSessUpTrap,hwBfdv6SingleHopSessDownTrap for IPv6 SingleHop. Add hwBfdDynamicSessionTos for dynamic session tos."
+      },
+      {
+        "revision": "2014-05-23 00:00",
+        "description": "V1.44, modified the scope of hwBfdIfConfName ."
+      },
+      {
+        "revision": "2014-01-22 00:00",
+        "description": "V1.43, modified the description of hwBfdSessBindAppTypeMask for VTE/VPW/FRP/BGPLSP."
+      },
+      {
+        "revision": "2013-09-22 00:00",
+        "description": "V1.42, modified the value and the description of hwBfdSessConfBindType for new bfd type bgpTunnel, modified the value and the description of hwBfdSessBindType for new bfd type bgpTunnel."
+      },
+      {
+        "revision": "2013-08-16 00:00",
+        "description": "V1.41, modified the value and the description of hwBfdSessConfBindType for new bfd type ldpTunnel, modified the value and the description of hwBfdSessBindType for new bfd type ldpTunnel."
+      },
+      {
+        "revision": "2012-11-23 00:00",
+        "description": "V1.40, add hwBfdStaticSessionTos for static session tos. Add hwBfdDynamicSessionTosEx for extend hwBfdDynamicSessionTos. Add hwBfdSessConfTOSEx for extend hwBfdSessConfTOS. Add hwBfdSessDscp to display dscp value when it is enable in a bfd session."
+      },
+      {
+        "revision": "2011-08-17 00:00",
+        "description": "V1.25, add hwBfdSessBindAppTypeMask."
+      },
+      {
+        "revision": "2011-07-14 00:00",
+        "description": "V1.24, add hwBfdDynamicSessionTos for dynamic session tos."
+      },
+      {
+        "revision": "2011-05-11 00:00",
+        "description": "V1.23, modified BfdInterval to Integer32."
+      },
+      {
+        "revision": "2011-04-27 00:00",
+        "description": "V1.22, removed the range of hwBfdSessActualRxInterval, hwBfdSessActualTxInterval, added the default value of hwBfdAdminStatus, hwBfdSessConfWTRInterval, hwBfdSessDetectMult, hwBfdSessDiscrAuto, hwBfdSessDynamicNumber, hwBfdSessInterfaceLimitNumber, hwBfdSessLimitNumber, hwBfdSessStaticNumber, hwBfdVersionNumber."
+      },
+      {
+        "revision": "2011-04-13 00:00",
+        "description": "V1.21, modified the description of hwBfdIfConfEnable, hwBfdSessConfWTRInterval, hwBfdSessConfPSTFlag."
+      },
+      {
+        "revision": "2011-01-12 00:00",
+        "description": "V1.20, modified for bfd mib standardization."
+      },
+      {
+        "revision": "2010-10-20 00:00",
+        "description": "V1.19, updated the description and format."
+      },
+      {
+        "revision": "2010-08-25 00:00",
+        "description": "V1.18, modified the trap nodes of hwBfdSessGroupUpTrap and hwBfdSessGroupDownTrap. Updated the description and format."
+      },
+      {
+        "revision": "2010-08-02 00:00",
+        "description": "V1.17, modified BfdInterval to Unsigned32."
+      },
+      {
+        "revision": "2010-08-02 00:00",
+        "description": "V1.16, modified hwBfdSessConfRemoteDiscr and hwBfdSessRemoteDiscr's range from 1...16384 to 0...4294967295."
+      },
+      {
+        "revision": "2010-07-22 00:00",
+        "description": "V1.15, modified the description and format."
+      },
+      {
+        "revision": "2010-05-19 00:00",
+        "description": "V1.14, modified syntax of hwBfdSessPerfLastSessDownTime and hwBfdSessionPerStartTime."
+      },
+      {
+        "revision": "2010-04-25 00:00",
+        "description": "V1.13, modified description of all leaves."
+      },
+      {
+        "revision": "2010-04-12 00:00",
+        "description": "V1.12, updated the description and format."
+      },
+      {
+        "revision": "2010-02-12 00:00",
+        "description": "V1.11, modified syntax of hwBfdSessPerfLastSessDownTime and hwBfdSessionPerStartTime."
+      },
+      {
+        "revision": "2010-01-13 00:00",
+        "description": "V1.10, added four trap nodes of hwBfdSessUpTrap, hwBfdSessDownTrap, hwBfdSessGroupUpTrap and hwBfdSessGroupDownTrap."
+      },
+      {
+        "revision": "2009-12-24 00:00",
+        "description": "V1.09, changed the range of leaves hwBfdSessConfDesiredMinRxInterval and hwBfdSessConfDesiredMinRxInterval."
+      },
+      {
+        "revision": "2009-11-27 00:00",
+        "description": "V1.08, changed the range of leaf hwBfdSessRemoteDiscr as 0-4294967295."
+      },
+      {
+        "revision": "2009-03-04 00:00",
+        "description": "V1.07, added flagNoPW, entireDynamic, staticAuto enum."
+      },
+      {
+        "revision": "2008-06-06 00:00",
+        "description": "V1.06, added leaf hwBfdSessConfVlanID in table hwBfdSessionTable and changed the attribute of leaf hwBfdSessConfBindIfIndex as read-create."
+      },
+      {
+        "revision": "2006-04-27 00:00",
+        "description": "V1.00, initial version."
+      }
+    ]
+  },
+  "BfdInterval": {
+    "name": "BfdInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "BfdDiag": {
+    "name": "BfdDiag",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hwBfdScalarsObjects": {
+    "name": "hwBfdScalarsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1",
+    "class": "objectidentity"
+  },
+  "hwBfdVersionNumber": {
+    "name": "hwBfdVersionNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdAdminStatus": {
+    "name": "hwBfdAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdSessLimitNumber": {
+    "name": "hwBfdSessLimitNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessInterfaceLimitNumber": {
+    "name": "hwBfdSessInterfaceLimitNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessStaticNumber": {
+    "name": "hwBfdSessStaticNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessDynamicNumber": {
+    "name": "hwBfdSessDynamicNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessGlobalDefaultIpAddr": {
+    "name": "hwBfdSessGlobalDefaultIpAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdEchoPassiveStatus": {
+    "name": "hwBfdEchoPassiveStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdEchoAclNum": {
+    "name": "hwBfdEchoAclNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2000,
+            "max": 2999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdSessDynamicPingInterval": {
+    "name": "hwBfdSessDynamicPingInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdSessDynamicSupportPassive": {
+    "name": "hwBfdSessDynamicSupportPassive",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdSessDelayUpTime": {
+    "name": "hwBfdSessDelayUpTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdSessMultiDstPort": {
+    "name": "hwBfdSessMultiDstPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3784,
+            "max": 3784
+          },
+          {
+            "min": 4784,
+            "max": 4784
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdTrapSendInterval": {
+    "name": "hwBfdTrapSendInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdLimitDeviceName": {
+    "name": "hwBfdLimitDeviceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdDynamicSessionTos": {
+    "name": "hwBfdDynamicSessionTos",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdStaticSessionTos": {
+    "name": "hwBfdStaticSessionTos",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdDynamicSessionTosEx": {
+    "name": "hwBfdDynamicSessionTosEx",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBfdSessCfgRemoteFailType": {
+    "name": "hwBfdSessCfgRemoteFailType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localDiscriminatorNonsupport": 101,
+          "localDiscriminatorConflict": 102
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdObjects": {
+    "name": "hwBfdObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2",
+    "class": "objectidentity"
+  },
+  "hwBfdIfConfTable": {
+    "name": "hwBfdIfConfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdIfConfEntry": {
+    "name": "hwBfdIfConfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdIfConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdIfConfIndex": {
+    "name": "hwBfdIfConfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdIfConfName": {
+    "name": "hwBfdIfConfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdIfConfEnable": {
+    "name": "hwBfdIfConfEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdIfConfDeleting": {
+    "name": "hwBfdIfConfDeleting",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdIfConfAvailable": {
+    "name": "hwBfdIfConfAvailable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdIfConfSessCnt": {
+    "name": "hwBfdIfConfSessCnt",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdIfConfRowStatus": {
+    "name": "hwBfdIfConfRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessionConfTable": {
+    "name": "hwBfdSessionConfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdSessionConfEntry": {
+    "name": "hwBfdSessionConfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessConfName": {
+    "name": "hwBfdSessConfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdSessConfMIndex": {
+    "name": "hwBfdSessConfMIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessConfLocalDiscr": {
+    "name": "hwBfdSessConfLocalDiscr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfRemoteDiscr": {
+    "name": "hwBfdSessConfRemoteDiscr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPeerAddr": {
+    "name": "hwBfdSessConfPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfBindIfIndex": {
+    "name": "hwBfdSessConfBindIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessConfBindIfName": {
+    "name": "hwBfdSessConfBindIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfDemandEnable": {
+    "name": "hwBfdSessConfDemandEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfDemandTimerInterval": {
+    "name": "hwBfdSessConfDemandTimerInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 500,
+            "max": 300000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfDetectMult": {
+    "name": "hwBfdSessConfDetectMult",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfDesiredMinRxInterval": {
+    "name": "hwBfdSessConfDesiredMinRxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfDesiredMinTxInterval": {
+    "name": "hwBfdSessConfDesiredMinTxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfWTRInterval": {
+    "name": "hwBfdSessConfWTRInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfTOS": {
+    "name": "hwBfdSessConfTOS",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPSTFlag": {
+    "name": "hwBfdSessConfPSTFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfCommitFlag": {
+    "name": "hwBfdSessConfCommitFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfAdminStatus": {
+    "name": "hwBfdSessConfAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfRowStatus": {
+    "name": "hwBfdSessConfRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfSourceAddr": {
+    "name": "hwBfdSessConfSourceAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfVrfIndex": {
+    "name": "hwBfdSessConfVrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessConfVPNName": {
+    "name": "hwBfdSessConfVPNName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfDefaultIp": {
+    "name": "hwBfdSessConfDefaultIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPISFlag": {
+    "name": "hwBfdSessConfPISFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2,
+          "subif": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfBindType": {
+    "name": "hwBfdSessConfBindType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceIp": 1,
+          "peerIp": 2,
+          "sourceIp": 3,
+          "ifAndSourceIp": 4,
+          "fec": 5,
+          "tunnelIf": 6,
+          "ospf": 7,
+          "isis": 8,
+          "ldpLsp": 9,
+          "staticLsp": 10,
+          "teLsp": 11,
+          "teTunnel": 12,
+          "pw": 13,
+          "vsiPw": 15,
+          "ldpTunnel": 21,
+          "bgpTunnel": 22
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfNextHop": {
+    "name": "hwBfdSessConfNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfStaticLspName": {
+    "name": "hwBfdSessConfStaticLspName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPWSecondaryFlag": {
+    "name": "hwBfdSessConfPWSecondaryFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flagMasterPW": 1,
+          "flagSecondaryPW": 2,
+          "flagNoPW": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfTunnelDetectType": {
+    "name": "hwBfdSessConfTunnelDetectType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flagBothDown": 1,
+          "flagNeighborDown": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfVcId": {
+    "name": "hwBfdSessConfVcId",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfVsiName": {
+    "name": "hwBfdSessConfVsiName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfVsiPeerAddr": {
+    "name": "hwBfdSessConfVsiPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfDiscrAuto": {
+    "name": "hwBfdSessConfDiscrAuto",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPeerIpv6Addr": {
+    "name": "hwBfdSessConfPeerIpv6Addr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfSourceIpv6Addr": {
+    "name": "hwBfdSessConfSourceIpv6Addr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfIpv6NextHop": {
+    "name": "hwBfdSessConfIpv6NextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessConfIsIpv6Addr": {
+    "name": "hwBfdSessConfIsIpv6Addr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfKeychainName": {
+    "name": "hwBfdSessConfKeychainName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfMeticulous": {
+    "name": "hwBfdSessConfMeticulous",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfLooseAuthentication": {
+    "name": "hwBfdSessConfLooseAuthentication",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfOneArmEcho": {
+    "name": "hwBfdSessConfOneArmEcho",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfMinEchoRxInterval": {
+    "name": "hwBfdSessConfMinEchoRxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPWTtlMode": {
+    "name": "hwBfdSessConfPWTtlMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config": 1,
+          "auto": 2,
+          "default": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPWTtl": {
+    "name": "hwBfdSessConfPWTtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfRemotePeerIpType": {
+    "name": "hwBfdSessConfRemotePeerIpType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfRemotePeerIp": {
+    "name": "hwBfdSessConfRemotePeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfSelectBoard": {
+    "name": "hwBfdSessConfSelectBoard",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPWSPE": {
+    "name": "hwBfdSessConfPWSPE",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upe": 1,
+          "spe": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPWTrackIfName": {
+    "name": "hwBfdSessConfPWTrackIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfIsPWTrackIf": {
+    "name": "hwBfdSessConfIsPWTrackIf",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfEncapsulationType": {
+    "name": "hwBfdSessConfEncapsulationType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfPEVid": {
+    "name": "hwBfdSessConfPEVid",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfCEVid": {
+    "name": "hwBfdSessConfCEVid",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfTOSEx": {
+    "name": "hwBfdSessConfTOSEx",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessConfbImpactFlag": {
+    "name": "hwBfdSessConfbImpactFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSessionTable": {
+    "name": "hwBfdSessionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdSessionEntry": {
+    "name": "hwBfdSessionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessIndex": {
+    "name": "hwBfdSessIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdSessMIndex": {
+    "name": "hwBfdSessMIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessBindVRRP": {
+    "name": "hwBfdSessBindVRRP",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessCfgName": {
+    "name": "hwBfdSessCfgName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPeerAddr": {
+    "name": "hwBfdSessPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessBindIfIndex": {
+    "name": "hwBfdSessBindIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessBindIfName": {
+    "name": "hwBfdSessBindIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessLocalDiscr": {
+    "name": "hwBfdSessLocalDiscr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessRemoteDiscr": {
+    "name": "hwBfdSessRemoteDiscr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessOperMode": {
+    "name": "hwBfdSessOperMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessDetectMult": {
+    "name": "hwBfdSessDetectMult",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessDemandTimerInterval": {
+    "name": "hwBfdSessDemandTimerInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessActualRxInterval": {
+    "name": "hwBfdSessActualRxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessActualTxInterval": {
+    "name": "hwBfdSessActualTxInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessWTRInterval": {
+    "name": "hwBfdSessWTRInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessTOS": {
+    "name": "hwBfdSessTOS",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessState": {
+    "name": "hwBfdSessState",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessDiag": {
+    "name": "hwBfdSessDiag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessSourceAddr": {
+    "name": "hwBfdSessSourceAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessVrfIndex": {
+    "name": "hwBfdSessVrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessVPNName": {
+    "name": "hwBfdSessVPNName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessType": {
+    "name": "hwBfdSessType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "entireDynamic": 3,
+          "auto": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessBindAppType": {
+    "name": "hwBfdSessBindAppType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noApplication": 1,
+          "vrrp": 2,
+          "ifnet": 3,
+          "vrrpAndIfnet": 4,
+          "bgp": 5,
+          "ospf": 6,
+          "bgpAndOspf": 7,
+          "oamLspmL2vpn": 8,
+          "oamTnlL2vpn": 9,
+          "lspmL2vpnTnlps": 10,
+          "oamMplsfwL2vpn": 11,
+          "isis": 12,
+          "vsiPw": 13,
+          "vrrpOamLspmL2vpn": 14,
+          "vrrpOamTnlL2vpn": 15,
+          "vrrpLspmL2vpnTnlps": 16,
+          "vrrpOamMplsfwL2vpn": 17,
+          "pim": 18,
+          "bgpIsis": 19,
+          "bgpPim": 20,
+          "ospfIsis": 21,
+          "ospfPim": 22,
+          "isisPim": 23,
+          "bgpOspfIsis": 24,
+          "bgpOspfPim": 25,
+          "bgpIsisPim": 26,
+          "ospfIsisPim": 27,
+          "bgpOspfIsisPim": 28,
+          "bgp6": 29,
+          "ospfv3": 30,
+          "isis6": 31,
+          "pim6": 32,
+          "bgp6Ospfv3": 33,
+          "bgp6Isis6": 34,
+          "bgp6Pim6": 35,
+          "ospfv3Isis6": 36,
+          "ospfv3Pim6": 37,
+          "isis6Pim6": 38,
+          "bgp6Ospfv3Isis6": 39,
+          "bgp6Ospfv3Pim6": 40,
+          "bgp6Isis6Pim6": 41,
+          "ospfv3Isis6Pim6": 42,
+          "bgp6Ospfv3Isis6Pim6": 43,
+          "auto": 44,
+          "autoIsis": 45,
+          "autoOspf": 46,
+          "autoBgp": 47,
+          "autoPim": 48,
+          "autoIsisOspf": 49,
+          "autoIsisBgp": 50,
+          "autoIsisPim": 51,
+          "autoOspfBgp": 52,
+          "autoOspfPim": 53,
+          "autoBgpPim": 54,
+          "autoIsisOspfBgp": 55,
+          "autoIsisOspfBgpPim": 56,
+          "autoIsis6": 57,
+          "autoOspfv3": 58,
+          "autoBgp6": 59,
+          "autoPim6": 60,
+          "autoIsis6Ospfv3": 61,
+          "autoIsis6Bgp6": 62,
+          "autoIsis6Pim6": 63,
+          "autoOspfv3Bgp6": 64,
+          "autoOspfv3Pim6": 65,
+          "autoBgp6Pim6": 66,
+          "autoIsis6Ospfv3Bgp6": 67,
+          "autoIsis6Ospfv3Bgp6Pim6": 68,
+          "etrunk": 69,
+          "etrunkIfnet": 70,
+          "etrunkVrrp": 71,
+          "etrunkVrrpIfnet": 72,
+          "etrunkOamLspmL2vpn": 73,
+          "etrunkOamTnlL2vpn": 74,
+          "etrunkLspmL2vpnTnlps": 75,
+          "etrunkOamMplsfwL2vpn": 76,
+          "etrunkvsiPw": 77,
+          "etrunkOamLspmL2vpnVrrp": 78,
+          "etrunkOamTnlL2vpnVrrp": 79,
+          "etrunkLspmL2vpnTnlpsVrrp": 80,
+          "etrunkOamMplsfwL2vpnVrrp": 81,
+          "rip": 82,
+          "bgpRip": 83,
+          "ospfRip": 84,
+          "isisRip": 85,
+          "pimRip": 86,
+          "bgpOspfRip": 87,
+          "bgpIsisRip": 88,
+          "bgpPimRip": 89,
+          "ospfIsisRip": 90,
+          "ospfPimRip": 91,
+          "isisPimRip": 92,
+          "bgpOspfIsisRip": 93,
+          "bgpOspfPimRip": 94,
+          "ospfIsisPimRip": 95,
+          "autoRip": 96,
+          "autoBgpRip": 97,
+          "autoOspfRip": 98,
+          "autoIsisRip": 99,
+          "autoPimRip": 100,
+          "autoBgpOspfRip": 101,
+          "autoBgpIsisRip": 102,
+          "autoBgpPimRip": 103,
+          "autoOspfIsisRip": 104,
+          "autoOspfPimRip": 105,
+          "autoIsisPimRip": 106,
+          "autoBgpOspfIsisRip": 107,
+          "autoBgpOspfPimRip": 108,
+          "autoOspfIsisPimRip": 109,
+          "autoIsisOspfBgpPimVrrp": 110,
+          "autoIsisOspfPimVrrp": 111,
+          "autoIsisOspfBgpVrrp": 112,
+          "autoIsisBgpPimVrrp": 113,
+          "autoOspfBgpPimVrrp": 114,
+          "autoIsisOspfVrrp": 115,
+          "autoIsisBgpVrrp": 116,
+          "autoOspfBgpVrrp": 117,
+          "autoIsisPimVrrp": 118,
+          "autoOspfPimVrrp": 119,
+          "autoBgpPimVrrp": 120,
+          "autoIsisVrrp": 121,
+          "autoOspfVrrp": 122,
+          "autoBgpVrrp": 123,
+          "autoPimVrrp": 124,
+          "autoVrrp": 125,
+          "autoVrrpBgp6": 126,
+          "autoOspfv3Isis6Pim6": 127,
+          "autoOspfBgpPim": 128,
+          "autoIsisOspfPim": 129,
+          "autoIsisPimBgp": 130,
+          "bgpOspfIsisPimRip": 131,
+          "autoBgpOspfIsisPimRip": 132,
+          "bgpRsvp": 133,
+          "ospfRsvp": 134,
+          "isisRsvp": 135,
+          "pimRsvp": 136,
+          "ripRsvp": 137,
+          "bgpOspfRsvp": 138,
+          "bgpIsisRsvp": 139,
+          "bgpPimRsvp": 140,
+          "bgpRipRsvp": 141,
+          "ospfIsisRsvp": 142,
+          "ospfPimRsvp": 143,
+          "ospfRipRsvp": 144,
+          "isisPimRsvp": 145,
+          "isisRipRsvp": 146,
+          "pimRipRsvp": 147,
+          "bgpOspfIsisRsvp": 148,
+          "bgpOspfPimRsvp": 149,
+          "bgpOspfRipRsvp": 150,
+          "bgpIsisPimRsvp": 151,
+          "bgpIsisRipRsvp": 152,
+          "bgpPimRipRsvp": 153,
+          "ospfIsisPimRsvp": 154,
+          "ospfIsisRipRsvp": 155,
+          "isisPimRipRsvp": 156,
+          "bgpOspfIsisPimRsvp": 157,
+          "bgpOspfIsisRipRSvp": 158,
+          "bgpOspfPimRipRsvp": 159,
+          "bgpIsisPimRipRsvp": 160,
+          "ospfIsisPimRipRsvp": 161,
+          "bgpOspfIsisPimRipRsvp": 162,
+          "autoRsvp": 163,
+          "autoBgpRsvp": 164,
+          "autoOspfRsvp": 165,
+          "autoIsisRsvp": 166,
+          "autoPimRsvp": 167,
+          "autoRipRsvp": 168,
+          "autoBgpOspfRsvp": 169,
+          "autoBgpIsisRsvp": 170,
+          "autoBgpPimRsvp": 171,
+          "autoBgpRipRsvp": 172,
+          "autoOspfIsisRsvp": 173,
+          "autoOspfPimRsvp": 174,
+          "autoOspfRipRsvp": 175,
+          "autoIsisPimRsvp": 176,
+          "autoIsisRipRsvp": 177,
+          "autoPimRipRsvp": 178,
+          "autoBgpOspfIsisRsvp": 179,
+          "autoBgpOspfPimRsvp": 180,
+          "autoBgpOspfRipRsvp": 181,
+          "autoOspfIsisPimRsvp": 182,
+          "autoOspfIsisRipRsvp": 183,
+          "autoIsisPimRipRsvp": 184,
+          "autoBgpOspfIsisPimRsvp": 185,
+          "autoBgpOspfIsisRipRsvp": 186,
+          "autoOspfIsisPimRipRsvp": 187,
+          "rsvp": 188
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessDefaultIp": {
+    "name": "hwBfdSessDefaultIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPISFlag": {
+    "name": "hwBfdSessPISFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2,
+          "subif": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessBindType": {
+    "name": "hwBfdSessBindType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceIp": 1,
+          "peerIp": 2,
+          "sourceIp": 3,
+          "ifAndSourceIp": 4,
+          "fec": 5,
+          "tunnelIf": 6,
+          "ospf": 7,
+          "isis": 8,
+          "ldpLsp": 9,
+          "staticLsp": 10,
+          "teLsp": 11,
+          "teTunnel": 12,
+          "pw": 13,
+          "vsiPw": 15,
+          "ldpTunnel": 21,
+          "bgpTunnel": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessNextHop": {
+    "name": "hwBfdSessNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessStaticLspName": {
+    "name": "hwBfdSessStaticLspName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessLspIndex": {
+    "name": "hwBfdSessLspIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPWSecondaryFlag": {
+    "name": "hwBfdSessPWSecondaryFlag",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flagMasterPW": 1,
+          "flagSecondaryPW": 2,
+          "flagNoPW": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessTunnelDetectType": {
+    "name": "hwBfdSessTunnelDetectType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flagBothDown": 1,
+          "flagNeighborDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessVcId": {
+    "name": "hwBfdSessVcId",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessVsiName": {
+    "name": "hwBfdSessVsiName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessVsiPeerAddr": {
+    "name": "hwBfdSessVsiPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessDiscrAuto": {
+    "name": "hwBfdSessDiscrAuto",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPeerIpv6Addr": {
+    "name": "hwBfdSessPeerIpv6Addr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessSourceIpv6Addr": {
+    "name": "hwBfdSessSourceIpv6Addr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessIpv6NextHop": {
+    "name": "hwBfdSessIpv6NextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessIsIPv6Addr": {
+    "name": "hwBfdSessIsIPv6Addr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessMeticulous": {
+    "name": "hwBfdSessMeticulous",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessLooseAuthentication": {
+    "name": "hwBfdSessLooseAuthentication",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessAuthenticationStatus": {
+    "name": "hwBfdSessAuthenticationStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessOneArmEcho": {
+    "name": "hwBfdSessOneArmEcho",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPWTtlMode": {
+    "name": "hwBfdSessPWTtlMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config": 1,
+          "auto": 2,
+          "default": 3,
+          "nottl": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPWTtl": {
+    "name": "hwBfdSessPWTtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessRemotePeerIpType": {
+    "name": "hwBfdSessRemotePeerIpType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessRemotePeerIp": {
+    "name": "hwBfdSessRemotePeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessSelectBoard": {
+    "name": "hwBfdSessSelectBoard",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPWSPE": {
+    "name": "hwBfdSessPWSPE",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upe": 1,
+          "spe": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPWTrackIfName": {
+    "name": "hwBfdSessPWTrackIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessIsPWTrackIf": {
+    "name": "hwBfdSessIsPWTrackIf",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessEncapsulationType": {
+    "name": "hwBfdSessEncapsulationType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPEVid": {
+    "name": "hwBfdSessPEVid",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessCEVid": {
+    "name": "hwBfdSessCEVid",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPeerInetAddrType": {
+    "name": "hwBfdSessPeerInetAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPeerInetAddr": {
+    "name": "hwBfdSessPeerInetAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessInetNextHopType": {
+    "name": "hwBfdSessInetNextHopType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessInetNextHop": {
+    "name": "hwBfdSessInetNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessBindAppTypeMask": {
+    "name": "hwBfdSessBindAppTypeMask",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessDscp": {
+    "name": "hwBfdSessDscp",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPWId": {
+    "name": "hwBfdSessPWId",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessionPerTable": {
+    "name": "hwBfdSessionPerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdSessionPerEntry": {
+    "name": "hwBfdSessionPerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessPerIndex": {
+    "name": "hwBfdSessPerIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdSessPerfPktIn": {
+    "name": "hwBfdSessPerfPktIn",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfPktInHC": {
+    "name": "hwBfdSessPerfPktInHC",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfPktOut": {
+    "name": "hwBfdSessPerfPktOut",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfPktOutHC": {
+    "name": "hwBfdSessPerfPktOutHC",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfBadIn": {
+    "name": "hwBfdSessPerfBadIn",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfBadInHC": {
+    "name": "hwBfdSessPerfBadInHC",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfBadOut": {
+    "name": "hwBfdSessPerfBadOut",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfBadOutHC": {
+    "name": "hwBfdSessPerfBadOutHC",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfLastSessDownTime": {
+    "name": "hwBfdSessPerfLastSessDownTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfSessDownCount": {
+    "name": "hwBfdSessPerfSessDownCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessPerfSessShortBreakCount": {
+    "name": "hwBfdSessPerfSessShortBreakCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSessionPerStartTime": {
+    "name": "hwBfdSessionPerStartTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSlotTable": {
+    "name": "hwBfdSlotTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdSlotEntry": {
+    "name": "hwBfdSlotEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSlotID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSlotID": {
+    "name": "hwBfdSlotID",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdSlotReserveOneHopSessNum": {
+    "name": "hwBfdSlotReserveOneHopSessNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdSlotOneHopSessNum": {
+    "name": "hwBfdSlotOneHopSessNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hwBfdSlotCurrentSessNum": {
+    "name": "hwBfdSlotCurrentSessNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdSlotRowStatus": {
+    "name": "hwBfdSlotRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdTtlConfTable": {
+    "name": "hwBfdTtlConfTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdTtlConfEntry": {
+    "name": "hwBfdTtlConfEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdTtlConfAddr",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdTtlConfMaskLen",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdTtlConfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdTtlConfAddr": {
+    "name": "hwBfdTtlConfAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdTtlConfMaskLen": {
+    "name": "hwBfdTtlConfMaskLen",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdTtlConfType": {
+    "name": "hwBfdTtlConfType",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleHop": 1,
+          "multiHop": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdTtlConfValue": {
+    "name": "hwBfdTtlConfValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdTtlConfRowStatus": {
+    "name": "hwBfdTtlConfRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.6.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdPassiveAuthTable": {
+    "name": "hwBfdPassiveAuthTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBfdPassiveAuthEntry": {
+    "name": "hwBfdPassiveAuthEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthPeerAddr",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdPassiveAuthPeerAddr": {
+    "name": "hwBfdPassiveAuthPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdPassiveAuthProtocol": {
+    "name": "hwBfdPassiveAuthProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdPassiveAuthKeychainName": {
+    "name": "hwBfdPassiveAuthKeychainName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdPassiveAuthMeticulous": {
+    "name": "hwBfdPassiveAuthMeticulous",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdPassiveAuthLoose": {
+    "name": "hwBfdPassiveAuthLoose",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBfdPassiveAuthRowStatus": {
+    "name": "hwBfdPassiveAuthRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.2.7.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwBfdNotifications": {
+    "name": "hwBfdNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3",
+    "class": "objectidentity"
+  },
+  "hwBfdSessDown": {
+    "name": "hwBfdSessDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVrfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVPNName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDefaultIp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessStaticLspName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWSecondaryFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessNextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVcId"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiscrAuto"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIpv6NextHop"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessUp": {
+    "name": "hwBfdSessUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVrfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVPNName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDefaultIp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessStaticLspName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWSecondaryFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessNextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVcId"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiscrAuto"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIpv6NextHop"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessReachLimit": {
+    "name": "hwBfdSessReachLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLimitNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessReachLimitBindIf": {
+    "name": "hwBfdSessReachLimitBindIf",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfBindIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessInterfaceLimitNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessReachLimitResume": {
+    "name": "hwBfdSessReachLimitResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLimitNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessReachLimitBindIfResume": {
+    "name": "hwBfdSessReachLimitBindIfResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfBindIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessInterfaceLimitNumber"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdLimitDeviceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessCfgRemoteFail": {
+    "name": "hwBfdSessCfgRemoteFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgRemoteFailType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessFaultDown": {
+    "name": "hwBfdSessFaultDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessResume": {
+    "name": "hwBfdSessResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessApOperFailed": {
+    "name": "hwBfdSessApOperFailed",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdCfgApUserName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdCfgApIPAddress"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdCfgApID"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdCfgApOperation"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdCfgApReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessFsmDiscordant": {
+    "name": "hwBfdSessFsmDiscordant",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessFsmAccordant": {
+    "name": "hwBfdSessFsmAccordant",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdConformance": {
+    "name": "hwBfdConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4",
+    "class": "objectidentity"
+  },
+  "hwBfdCompliances": {
+    "name": "hwBfdCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4.1",
+    "class": "objectidentity"
+  },
+  "hwBfdFullCompliance": {
+    "name": "hwBfdFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwBfdGroup",
+        "module": "HUAWEI-BFD-MIB"
+      },
+      {
+        "object": "hwBfdSessGroup",
+        "module": "HUAWEI-BFD-MIB"
+      },
+      {
+        "object": "hwBfdObsoleteGroup",
+        "module": "HUAWEI-BFD-MIB"
+      },
+      {
+        "object": "hwBfdNotificationGroup",
+        "module": "HUAWEI-BFD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdGroups": {
+    "name": "hwBfdGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4.2",
+    "class": "objectidentity"
+  },
+  "hwBfdGroup": {
+    "name": "hwBfdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdVersionNumber"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdAdminStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLimitNumber"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessInterfaceLimitNumber"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessStaticNumber"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDynamicNumber"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessGlobalDefaultIpAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdEchoPassiveStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdEchoAclNum"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDynamicPingInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDynamicSupportPassive"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDelayUpTime"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessMultiDstPort"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdTrapSendInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdIfConfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdIfConfDeleting"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdIfConfAvailable"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdIfConfSessCnt"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdIfConfRowStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSlotReserveOneHopSessNum"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSlotCurrentSessNum"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSlotRowStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdLimitDeviceName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdDynamicSessionTos"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdStaticSessionTos"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdDynamicSessionTosEx"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessGroup": {
+    "name": "hwBfdSessGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfMIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfRemoteDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfBindIfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfBindIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfDemandEnable"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfDemandTimerInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfDetectMult"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfDesiredMinRxInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfDesiredMinTxInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfWTRInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfTOS"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPSTFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfCommitFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfAdminStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfRowStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfSourceAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfVrfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfVPNName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfDefaultIp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPISFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfNextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfStaticLspName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPWSecondaryFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfTunnelDetectType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfVcId"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfVsiName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfVsiPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfDiscrAuto"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPeerIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfSourceIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfIpv6NextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfIsIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfKeychainName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfMeticulous"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfLooseAuthentication"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPWTtlMode"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPWTtl"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfRemotePeerIp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfRemotePeerIpType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPWSPE"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPWTrackIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfIsPWTrackIf"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfEncapsulationType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfPEVid"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfCEVid"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfTOSEx"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessConfbImpactFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessMIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindVRRP"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessRemoteDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessOperMode"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDetectMult"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDemandTimerInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessActualRxInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessActualTxInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessWTRInterval"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessTOS"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessState"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVrfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVPNName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindAppType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDefaultIp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPISFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessNextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessStaticLspName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLspIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWSecondaryFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessTunnelDetectType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVcId"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiscrAuto"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIpv6NextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIsIPv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessMeticulous"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLooseAuthentication"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessAuthenticationStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWTtlMode"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWTtl"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessRemotePeerIp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessRemotePeerIpType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSelectBoard"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWSPE"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWTrackIfName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIsPWTrackIf"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessEncapsulationType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPEVid"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCEVid"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerInetAddrType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerInetAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessInetNextHopType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessInetNextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindAppTypeMask"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDscp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfPktIn"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfPktInHC"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfPktOut"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfPktOutHC"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfBadIn"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfBadInHC"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfBadOut"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfBadOutHC"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfLastSessDownTime"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfSessDownCount"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPerfSessShortBreakCount"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessionPerStartTime"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdTtlConfValue"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdTtlConfRowStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthProtocol"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthKeychainName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthMeticulous"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthLoose"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdPassiveAuthRowStatus"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdObsoleteGroup": {
+    "name": "hwBfdObsoleteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdIfConfEnable"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSlotOneHopSessNum"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "hwBfdNotificationGroup": {
+    "name": "hwBfdNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.4.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDown"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessUp"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessReachLimit"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessReachLimitResume"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessReachLimitBindIf"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessReachLimitBindIfResume"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgRemoteFail"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdTrapsVbOids": {
+    "name": "hwBfdTrapsVbOids",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.5",
+    "class": "objectidentity"
+  },
+  "hwBfdSessVlanID": {
+    "name": "hwBfdSessVlanID",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdCfgApUserName": {
+    "name": "hwBfdCfgApUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdCfgApIPAddress": {
+    "name": "hwBfdCfgApIPAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdCfgApID": {
+    "name": "hwBfdCfgApID",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdCfgApOperation": {
+    "name": "hwBfdCfgApOperation",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdCfgApReason": {
+    "name": "hwBfdCfgApReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBfdTraps": {
+    "name": "hwBfdTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6",
+    "class": "objectidentity"
+  },
+  "hwBfdCommonTraps": {
+    "name": "hwBfdCommonTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.1",
+    "class": "objectidentity"
+  },
+  "hwBfdAlarmTraps": {
+    "name": "hwBfdAlarmTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2",
+    "class": "objectidentity"
+  },
+  "hwBfdAlarmTrapsPrefix": {
+    "name": "hwBfdAlarmTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0",
+    "class": "objectidentity"
+  },
+  "hwBfdSessUpTrap": {
+    "name": "hwBfdSessUpTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVlanID"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessNextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVrfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdSessDownTrap": {
+    "name": "hwBfdSessDownTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVlanID"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessNextHop"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerAddr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVrfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdv6SingleHopSessUpTrap": {
+    "name": "hwBfdv6SingleHopSessUpTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVlanID"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerIpv6Addr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdv6SingleHopSessDownTrap": {
+    "name": "hwBfdv6SingleHopSessDownTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVlanID"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerIpv6Addr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdv6MultiHopSessUpTrap": {
+    "name": "hwBfdv6MultiHopSessUpTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVrfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerIpv6Addr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdv6MultiHopSessDownTrap": {
+    "name": "hwBfdv6MultiHopSessDownTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVrfIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessSourceIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPeerIpv6Addr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdPWSessUp": {
+    "name": "hwBfdPWSessUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWSecondaryFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWId"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBfdPWSessDown": {
+    "name": "hwBfdPWSessDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.38.6.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessIndex"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessCfgName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessLocalDiscr"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessDiag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessBindType"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWSecondaryFlag"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessPWId"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiName"
+      },
+      {
+        "module": "HUAWEI-BFD-MIB",
+        "object": "hwBfdSessVsiPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BFD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BFD-MIB"
+  }
+}

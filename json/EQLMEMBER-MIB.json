@@ -1,0 +1,4935 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQLGROUP-MIB": [
+      "eqlStorageGroupAdminAccountIndex",
+      "UTFString",
+      "eqlGroupId"
+    ],
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "eqlmemberModule": {
+    "name": "eqlmemberModule",
+    "oid": "1.3.6.1.4.1.12740.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-22 00:00",
+        "description": "Add eqlTaggedHeatProfileInfoTable, eqlTaggedHeatProfileBinTable."
+      },
+      {
+        "revision": "2012-08-15 00:00",
+        "description": "Add eqlDriveGroupHeatProfileInfoTable, eqlDriveGroupHeatProfileBinTable."
+      },
+      {
+        "revision": "2011-08-09 00:00",
+        "description": "Add eqlDriveGroupStatisticsTable."
+      },
+      {
+        "revision": "2002-09-06 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "eqlmemberObjects": {
+    "name": "eqlmemberObjects",
+    "oid": "1.3.6.1.4.1.12740.2.1",
+    "class": "objectidentity"
+  },
+  "eqlmemberNotifications": {
+    "name": "eqlmemberNotifications",
+    "oid": "1.3.6.1.4.1.12740.2.2",
+    "class": "objectidentity"
+  },
+  "eqlmemberConformance": {
+    "name": "eqlmemberConformance",
+    "oid": "1.3.6.1.4.1.12740.2.3",
+    "class": "objectidentity"
+  },
+  "EqlMemberSEDShareType": {
+    "name": "EqlMemberSEDShareType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 163
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "eqlMemberTable": {
+    "name": "eqlMemberTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberEntry": {
+    "name": "eqlMemberEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberIndex": {
+    "name": "eqlMemberIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberDateAndTime": {
+    "name": "eqlMemberDateAndTime",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberTimeZone": {
+    "name": "eqlMemberTimeZone",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hst": 1,
+          "ast": 2,
+          "pst": 3,
+          "pnt": 4,
+          "mst": 5,
+          "cst": 6,
+          "est": 7,
+          "iet": 8,
+          "prt": 9,
+          "gmt": 10,
+          "ect": 11,
+          "eet": 12,
+          "eat": 13,
+          "met": 14,
+          "net": 15,
+          "plt": 16,
+          "ist": 17,
+          "bst": 18,
+          "vst": 19,
+          "ctt": 20,
+          "jst": 21,
+          "act": 22,
+          "aet": 23,
+          "sst": 24,
+          "nst": 25,
+          "mit": 26,
+          "cnt": 27,
+          "agt": 28,
+          "bet": 29,
+          "cat": 30
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "est",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberAdjustDaylightSavTime": {
+    "name": "eqlMemberAdjustDaylightSavTime",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberDefaultRoute": {
+    "name": "eqlMemberDefaultRoute",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberSite": {
+    "name": "eqlMemberSite",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberDescription": {
+    "name": "eqlMemberDescription",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberUUID": {
+    "name": "eqlMemberUUID",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberName": {
+    "name": "eqlMemberName",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberRowStatus": {
+    "name": "eqlMemberRowStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberState": {
+    "name": "eqlMemberState",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on-line": 1,
+          "off-line": 2,
+          "vacate": 3,
+          "vacated": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on-line",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberPolicySingleControllerSafe": {
+    "name": "eqlMemberPolicySingleControllerSafe",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "safe-enabled": 1,
+          "safe-disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "safe-enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberPolicyLowBatterySafe": {
+    "name": "eqlMemberPolicyLowBatterySafe",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "safe-enabled": 1,
+          "safe-disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "safe-enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberVersion": {
+    "name": "eqlMemberVersion",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberDelayDataMove": {
+    "name": "eqlMemberDelayDataMove",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconfigured": 0,
+          "wait": 1,
+          "use-member-space": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unconfigured",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberDefaultInetRouteType": {
+    "name": "eqlMemberDefaultInetRouteType",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberDefaultInetRoute": {
+    "name": "eqlMemberDefaultInetRoute",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberDriveMirroring": {
+    "name": "eqlMemberDriveMirroring",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberProfileIndex": {
+    "name": "eqlMemberProfileIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberControllerType": {
+    "name": "eqlMemberControllerType",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberControllerMajorVersion": {
+    "name": "eqlMemberControllerMajorVersion",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberControllerMinorVersion": {
+    "name": "eqlMemberControllerMinorVersion",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberControllerMaintenanceVersion": {
+    "name": "eqlMemberControllerMaintenanceVersion",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCompressionCapable": {
+    "name": "eqlMemberCompressionCapable",
+    "oid": "1.3.6.1.4.1.12740.2.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusTable": {
+    "name": "eqlMemberStatusTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberStatusEntry": {
+    "name": "eqlMemberStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberStatusTotalSpace": {
+    "name": "eqlMemberStatusTotalSpace",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusTotalSpaceUsed": {
+    "name": "eqlMemberStatusTotalSpaceUsed",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusModel": {
+    "name": "eqlMemberStatusModel",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusSerialNumber": {
+    "name": "eqlMemberStatusSerialNumber",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusNumberOfControllers": {
+    "name": "eqlMemberStatusNumberOfControllers",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "dual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusNumberOfDisks": {
+    "name": "eqlMemberStatusNumberOfDisks",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusNumberOfSpares": {
+    "name": "eqlMemberStatusNumberOfSpares",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusCacheSize": {
+    "name": "eqlMemberStatusCacheSize",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusCacheMode": {
+    "name": "eqlMemberStatusCacheMode",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "write-thru": 1,
+          "write-back": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "write-back",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusNumberOfConnections": {
+    "name": "eqlMemberStatusNumberOfConnections",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusAverageTemp": {
+    "name": "eqlMemberStatusAverageTemp",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusTempStatus": {
+    "name": "eqlMemberStatusTempStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "bad": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusBackplaneTempSensor1": {
+    "name": "eqlMemberStatusBackplaneTempSensor1",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusBackplaneTempSensor2": {
+    "name": "eqlMemberStatusBackplaneTempSensor2",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusPowerSupply1Status": {
+    "name": "eqlMemberStatusPowerSupply1Status",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "no-power": 2,
+          "failed": 3,
+          "fan-failed": 4,
+          "not-present": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusPowerSupply2Status": {
+    "name": "eqlMemberStatusPowerSupply2Status",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "no-power": 2,
+          "failed": 3,
+          "fan-failed": 4,
+          "not-present": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusTrayOneFanOneSpeed": {
+    "name": "eqlMemberStatusTrayOneFanOneSpeed",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusTrayOneFanTwoSpeed": {
+    "name": "eqlMemberStatusTrayOneFanTwoSpeed",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusTrayTwoFanOneSpeed": {
+    "name": "eqlMemberStatusTrayTwoFanOneSpeed",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusTrayTwoFanTwoSpeed": {
+    "name": "eqlMemberStatusTrayTwoFanTwoSpeed",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusPowerSupplyOneFanStatus": {
+    "name": "eqlMemberStatusPowerSupplyOneFanStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on-line": 1,
+          "off-line": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusPowerSupplyTwoFanStatus": {
+    "name": "eqlMemberStatusPowerSupplyTwoFanStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on-line": 1,
+          "off-line": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusRaidStatus": {
+    "name": "eqlMemberStatusRaidStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "degraded": 2,
+          "verifying": 3,
+          "reconstructing": 4,
+          "failed": 5,
+          "catastrophicLoss": 6,
+          "expanding": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusRaidPercentage": {
+    "name": "eqlMemberStatusRaidPercentage",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusLostRaidBlocks": {
+    "name": "eqlMemberStatusLostRaidBlocks",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberStatusHealth": {
+    "name": "eqlMemberStatusHealth",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberStatusShortId": {
+    "name": "eqlMemberStatusShortId",
+    "oid": "1.3.6.1.4.1.12740.2.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberInfoTable": {
+    "name": "eqlMemberInfoTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberInfoEntry": {
+    "name": "eqlMemberInfoEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlTargetMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlTargetMemberIndex": {
+    "name": "eqlTargetMemberIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberInfoStatus": {
+    "name": "eqlMemberInfoStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on-line": 1,
+          "off-line": 2,
+          "vacating-in-progress": 3,
+          "vacated": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on-line",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthTable": {
+    "name": "eqlMemberHealthTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHealthEntry": {
+    "name": "eqlMemberHealthEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthStatus": {
+    "name": "eqlMemberHealthStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberHealthWarningConditions": {
+    "name": "eqlMemberHealthWarningConditions",
+    "oid": "1.3.6.1.4.1.12740.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "hwComponentFailedWarn": 0,
+        "powerSupplyRemoved": 1,
+        "controlModuleRemoved": 2,
+        "psfanOffline": 3,
+        "fanSpeed": 4,
+        "cacheSyncing": 5,
+        "raidSetFaulted": 6,
+        "highTemp": 7,
+        "raidSetLostblkEntry": 8,
+        "secondaryEjectSWOpen": 9,
+        "b2bFailure": 10,
+        "replicationNoProg": 11,
+        "raidSpareTooSmall": 12,
+        "lowTemp": 13,
+        "powerSupplyFailed": 14,
+        "timeOfDayClkBatteryLow": 15,
+        "incorrectPhysRamSize": 16,
+        "mixedMedia": 17,
+        "sumoChannelCardMissing": 18,
+        "sumoChannelCardFailed": 19,
+        "batteryLessthan72hours": 20,
+        "cpuFanNotSpinning": 21,
+        "raidMoreSparesExpected": 22,
+        "raidSpareWrongType": 23,
+        "raidSsdRaidsetHasHdd": 24,
+        "driveNotApproved": 25,
+        "noEthernetFlowControl": 26,
+        "fanRemovedCondition": 27,
+        "smartBatteryLowCharge": 28,
+        "nandHighBadBlockCount": 29,
+        "networkStorm": 30,
+        "batteryEndOfLifeWarning": 31
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthCriticalConditions": {
+    "name": "eqlMemberHealthCriticalConditions",
+    "oid": "1.3.6.1.4.1.12740.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "raidSetDoubleFaulted": 0,
+        "bothFanTraysRemoved": 1,
+        "highAmbientTemp": 2,
+        "raidLostCache": 3,
+        "moreThanOneFanSpeedCondition": 4,
+        "fanTrayRemoved": 5,
+        "raidSetLostblkTableFull": 6,
+        "raidDeviceIncompatible": 7,
+        "raidOrphanCache": 8,
+        "raidMultipleRaidSets": 9,
+        "nVRAMBatteryFailed": 10,
+        "hwComponentFailedCrit": 11,
+        "incompatControlModule": 12,
+        "lowAmbientTemp": 13,
+        "opsPanelFailure": 14,
+        "emmLinkFailure": 15,
+        "highBatteryTemperature": 16,
+        "enclosureOpenPerm": 17,
+        "sumoChannelBothMissing": 18,
+        "sumoEIPFailureCOndition": 19,
+        "sumoChannelBothFailed": 20,
+        "staleMirrorDiskFailure": 21,
+        "c2fPowerModuleFailureCondition": 22,
+        "raidsedUnresolved": 23,
+        "colossusDeniedFullPower": 24,
+        "cemiUpdateInProgress": 25,
+        "colossusCannotStart": 26,
+        "multipleFansRemoved": 27,
+        "smartBatteryFailure": 28,
+        "critbit29": 29,
+        "nandFailure": 30,
+        "batteryEndOfLife": 31
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureTable": {
+    "name": "eqlMemberHealthDetailsTemperatureTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureEntry": {
+    "name": "eqlMemberHealthDetailsTemperatureEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTempSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTempSensorIndex": {
+    "name": "eqlMemberHealthDetailsTempSensorIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "integratedSystemTemperature": 1,
+          "backplaneSensor0": 2,
+          "backplaneSensor1": 3,
+          "controlModule0processor": 4,
+          "controlModule0chipset": 5,
+          "controlModule1processor": 6,
+          "controlModule1chipset": 7,
+          "controlModule0sasController": 8,
+          "controlModule0sasExpander": 9,
+          "controlModule0sesEnclosure": 10,
+          "controlModule1sasController": 11,
+          "controlModule1sasExpander": 12,
+          "controlModule1sesEnclosure": 13,
+          "sesOpsPanel": 14,
+          "cemi0": 15,
+          "cemi1": 16,
+          "controlModule0batteryThermistor": 17,
+          "controlModule1batteryThermistor": 18,
+          "subExpanderModule0": 19,
+          "subExpanderModule1": 20,
+          "subExpanderModule2": 21,
+          "subExpanderModule3": 22,
+          "bottomplane0d0": 23,
+          "bottomplane0d1": 24,
+          "bottomplane0d2": 25,
+          "bottomplane0d3": 26,
+          "bottomplane0d4": 27,
+          "bottomplane1d0": 28,
+          "bottomplane1d1": 29,
+          "bottomplane1d2": 30,
+          "bottomplane1d3": 31,
+          "bottomplane1d4": 32,
+          "subExpanderModule0expander0": 33,
+          "subExpanderModule0expander1": 34,
+          "subExpanderModule1expander0": 35,
+          "subExpanderModule1expander1": 36,
+          "subExpanderModule2expander0": 37,
+          "subExpanderModule2expander1": 38,
+          "subExpanderModule3expander0": 39,
+          "subExpanderModule3expander1": 40
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureName": {
+    "name": "eqlMemberHealthDetailsTemperatureName",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureValue": {
+    "name": "eqlMemberHealthDetailsTemperatureValue",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureCurrentState": {
+    "name": "eqlMemberHealthDetailsTemperatureCurrentState",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureHighCriticalThreshold": {
+    "name": "eqlMemberHealthDetailsTemperatureHighCriticalThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureHighWarningThreshold": {
+    "name": "eqlMemberHealthDetailsTemperatureHighWarningThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureLowCriticalThreshold": {
+    "name": "eqlMemberHealthDetailsTemperatureLowCriticalThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureLowWarningThreshold": {
+    "name": "eqlMemberHealthDetailsTemperatureLowWarningThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsTemperatureNameID": {
+    "name": "eqlMemberHealthDetailsTemperatureNameID",
+    "oid": "1.3.6.1.4.1.12740.2.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanTable": {
+    "name": "eqlMemberHealthDetailsFanTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanEntry": {
+    "name": "eqlMemberHealthDetailsFanEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanIndex": {
+    "name": "eqlMemberHealthDetailsFanIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emm0fan0": 1,
+          "emm0fan1": 2,
+          "emm1fan0": 3,
+          "emm1fan1": 4,
+          "emm2fan0": 5,
+          "emm2fan1": 6,
+          "emm3fan0": 7,
+          "emm3fan1": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanName": {
+    "name": "eqlMemberHealthDetailsFanName",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanValue": {
+    "name": "eqlMemberHealthDetailsFanValue",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanCurrentState": {
+    "name": "eqlMemberHealthDetailsFanCurrentState",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanHighCriticalThreshold": {
+    "name": "eqlMemberHealthDetailsFanHighCriticalThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanHighWarningThreshold": {
+    "name": "eqlMemberHealthDetailsFanHighWarningThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanLowCriticalThreshold": {
+    "name": "eqlMemberHealthDetailsFanLowCriticalThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanLowWarningThreshold": {
+    "name": "eqlMemberHealthDetailsFanLowWarningThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsFanNameID": {
+    "name": "eqlMemberHealthDetailsFanNameID",
+    "oid": "1.3.6.1.4.1.12740.2.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyTable": {
+    "name": "eqlMemberHealthDetailsPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyEntry": {
+    "name": "eqlMemberHealthDetailsPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyIndex": {
+    "name": "eqlMemberHealthDetailsPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerSupply0": 1,
+          "powerSupply1": 2,
+          "powerSupply2": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyName": {
+    "name": "eqlMemberHealthDetailsPowerSupplyName",
+    "oid": "1.3.6.1.4.1.12740.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyCurrentState": {
+    "name": "eqlMemberHealthDetailsPowerSupplyCurrentState",
+    "oid": "1.3.6.1.4.1.12740.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on-and-operating": 1,
+          "no-ac-power": 2,
+          "failed-or-no-data": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "failed-or-no-data",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyFanStatus": {
+    "name": "eqlMemberHealthDetailsPowerSupplyFanStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "fan-is-operational": 1,
+          "fan-not-operational": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fan-not-operational",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyFirmwareVersion": {
+    "name": "eqlMemberHealthDetailsPowerSupplyFirmwareVersion",
+    "oid": "1.3.6.1.4.1.12740.2.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHealthDetailsPowerSupplyNameID": {
+    "name": "eqlMemberHealthDetailsPowerSupplyNameID",
+    "oid": "1.3.6.1.4.1.12740.2.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberIdentificationTable": {
+    "name": "eqlMemberIdentificationTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberIdentificationEntry": {
+    "name": "eqlMemberIdentificationEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlMemberIdentificationEntry",
+      "module": "EQLMEMBER-MIB",
+      "object": "eqlMemberStatusEntry"
+    },
+    "status": "current"
+  },
+  "eqlMemberIdentificationLEDsBlinking": {
+    "name": "eqlMemberIdentificationLEDsBlinking",
+    "oid": "1.3.6.1.4.1.12740.2.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberStorageTable": {
+    "name": "eqlMemberStorageTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberStorageEntry": {
+    "name": "eqlMemberStorageEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlMemberStorageEntry",
+      "module": "EQLMEMBER-MIB",
+      "object": "eqlMemberIdentificationEntry"
+    },
+    "status": "current"
+  },
+  "eqlMemberTotalStorage": {
+    "name": "eqlMemberTotalStorage",
+    "oid": "1.3.6.1.4.1.12740.2.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberUsedStorage": {
+    "name": "eqlMemberUsedStorage",
+    "oid": "1.3.6.1.4.1.12740.2.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberSnapStorage": {
+    "name": "eqlMemberSnapStorage",
+    "oid": "1.3.6.1.4.1.12740.2.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberReplStorage": {
+    "name": "eqlMemberReplStorage",
+    "oid": "1.3.6.1.4.1.12740.2.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberVirtualStorage": {
+    "name": "eqlMemberVirtualStorage",
+    "oid": "1.3.6.1.4.1.12740.2.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCompressionStackStorage": {
+    "name": "eqlMemberCompressionStackStorage",
+    "oid": "1.3.6.1.4.1.12740.2.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberChassisTable": {
+    "name": "eqlMemberChassisTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberChassisEntry": {
+    "name": "eqlMemberChassisEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlMemberChassisEntry",
+      "module": "EQLMEMBER-MIB",
+      "object": "eqlMemberIdentificationEntry"
+    },
+    "status": "current"
+  },
+  "eqlMemberModel": {
+    "name": "eqlMemberModel",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberSerialNumber": {
+    "name": "eqlMemberSerialNumber",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberNumberOfControllers": {
+    "name": "eqlMemberNumberOfControllers",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "dual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberNumberOfDisks": {
+    "name": "eqlMemberNumberOfDisks",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCacheSize": {
+    "name": "eqlMemberCacheSize",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCacheMode": {
+    "name": "eqlMemberCacheMode",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "write-thru": 1,
+          "write-back": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "write-back",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberChassisType": {
+    "name": "eqlMemberChassisType",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "t1403": 1,
+          "t1603": 2,
+          "t4835": 3,
+          "tDELLSBB2u1235": 4,
+          "tDELLSBB2u2425": 5,
+          "tDELLSBB4u2435": 6,
+          "tDELL2WB1425V1": 7,
+          "tDELLSBB5u6035": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberServiceTag": {
+    "name": "eqlMemberServiceTag",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberProductFamily": {
+    "name": "eqlMemberProductFamily",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberChassisFlags": {
+    "name": "eqlMemberChassisFlags",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "isAccelerated": 0,
+        "isAllSedDisks": 1,
+        "flag2": 2,
+        "flag3": 3,
+        "flag4": 4,
+        "flag5": 5,
+        "flag6": 6,
+        "flag7": 7,
+        "flag8": 8,
+        "flag9": 9,
+        "flag10": 10,
+        "flag11": 11,
+        "flag12": 12,
+        "flag13": 13,
+        "flag14": 14,
+        "flag15": 15,
+        "flag16": 16,
+        "flag17": 17,
+        "flag18": 18,
+        "flag19": 19,
+        "flag20": 20,
+        "flag21": 21,
+        "flag22": 22,
+        "flag23": 23,
+        "flag24": 24,
+        "flag25": 25,
+        "flag26": 26,
+        "flag27": 27,
+        "flag28": 28,
+        "flag29": 29,
+        "flag30": 30,
+        "flag31": 31
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberChassisDiskSectorSize": {
+    "name": "eqlMemberChassisDiskSectorSize",
+    "oid": "1.3.6.1.4.1.12740.2.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sector-size-512-bytes": 0,
+          "sector-size-4096-bytes": 1,
+          "sector-size-unknown": 2,
+          "sector-size-mixed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberConnTable": {
+    "name": "eqlMemberConnTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberConnEntry": {
+    "name": "eqlMemberConnEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlMemberConnEntry",
+      "module": "EQLMEMBER-MIB",
+      "object": "eqlMemberIdentificationEntry"
+    },
+    "status": "current"
+  },
+  "eqlMemberNumberOfConnections": {
+    "name": "eqlMemberNumberOfConnections",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberReadLatency": {
+    "name": "eqlMemberReadLatency",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberWriteLatency": {
+    "name": "eqlMemberWriteLatency",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberReadAvgLatency": {
+    "name": "eqlMemberReadAvgLatency",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberWriteAvgLatency": {
+    "name": "eqlMemberWriteAvgLatency",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberReadOpCount": {
+    "name": "eqlMemberReadOpCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberWriteOpCount": {
+    "name": "eqlMemberWriteOpCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberTxData": {
+    "name": "eqlMemberTxData",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberRxData": {
+    "name": "eqlMemberRxData",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberNumberOfExtConnections": {
+    "name": "eqlMemberNumberOfExtConnections",
+    "oid": "1.3.6.1.4.1.12740.2.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberRAIDTable": {
+    "name": "eqlMemberRAIDTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberRAIDEntry": {
+    "name": "eqlMemberRAIDEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlMemberRAIDEntry",
+      "module": "EQLMEMBER-MIB",
+      "object": "eqlMemberIdentificationEntry"
+    },
+    "status": "current"
+  },
+  "eqlMemberRaidStatus": {
+    "name": "eqlMemberRaidStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "degraded": 2,
+          "verifying": 3,
+          "reconstructing": 4,
+          "failed": 5,
+          "catastrophicLoss": 6,
+          "expanding": 7,
+          "mirroring": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberRaidPercentage": {
+    "name": "eqlMemberRaidPercentage",
+    "oid": "1.3.6.1.4.1.12740.2.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberLostRaidBlocks": {
+    "name": "eqlMemberLostRaidBlocks",
+    "oid": "1.3.6.1.4.1.12740.2.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberNumberOfSpares": {
+    "name": "eqlMemberNumberOfSpares",
+    "oid": "1.3.6.1.4.1.12740.2.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberRaidProgress": {
+    "name": "eqlMemberRaidProgress",
+    "oid": "1.3.6.1.4.1.12740.2.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPSGMapTable": {
+    "name": "eqlMemberPSGMapTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberPSGMapEntry": {
+    "name": "eqlMemberPSGMapEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlMemberPSGMapEntry",
+      "module": "EQLMEMBER-MIB",
+      "object": "eqlMemberIdentificationEntry"
+    },
+    "status": "current"
+  },
+  "eqlMemberShortId": {
+    "name": "eqlMemberShortId",
+    "oid": "1.3.6.1.4.1.12740.2.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberEnclosureMgmtNotifications": {
+    "name": "eqlMemberEnclosureMgmtNotifications",
+    "oid": "1.3.6.1.4.1.12740.2.2.1",
+    "class": "objectidentity"
+  },
+  "eqlMemberHealthTempSensorHighThreshold": {
+    "name": "eqlMemberHealthTempSensorHighThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureName"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureValue"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureCurrentState"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureHighCriticalThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureHighWarningThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureNameID"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthTempSensorLowThreshold": {
+    "name": "eqlMemberHealthTempSensorLowThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureName"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureValue"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureCurrentState"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureLowCriticalThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureLowWarningThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsTemperatureNameID"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthFanSpeedHighThreshold": {
+    "name": "eqlMemberHealthFanSpeedHighThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanName"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanValue"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanCurrentState"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanHighCriticalThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanHighWarningThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanNameID"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthFanSpeedLowThreshold": {
+    "name": "eqlMemberHealthFanSpeedLowThreshold",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanName"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanValue"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanCurrentState"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanLowCriticalThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanLowWarningThreshold"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsFanNameID"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthPowerSupplyFanFailure": {
+    "name": "eqlMemberHealthPowerSupplyFanFailure",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsPowerSupplyName"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsPowerSupplyFanStatus"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsPowerSupplyNameID"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthPowerSupplyFailure": {
+    "name": "eqlMemberHealthPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsPowerSupplyName"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsPowerSupplyCurrentState"
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthDetailsPowerSupplyNameID"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthRAIDSetDoubleFaulted": {
+    "name": "eqlMemberHealthRAIDSetDoubleFaulted",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthBothFanTraysRemoved": {
+    "name": "eqlMemberHealthBothFanTraysRemoved",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthRAIDlostCache": {
+    "name": "eqlMemberHealthRAIDlostCache",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthFanTrayRemoved": {
+    "name": "eqlMemberHealthFanTrayRemoved",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthRAIDSetLostBlkTableFull": {
+    "name": "eqlMemberHealthRAIDSetLostBlkTableFull",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthBatteryLessThan72Hours": {
+    "name": "eqlMemberHealthBatteryLessThan72Hours",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthRaidOrphanCache": {
+    "name": "eqlMemberHealthRaidOrphanCache",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthRaidMultipleRaidSets": {
+    "name": "eqlMemberHealthRaidMultipleRaidSets",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthNVRAMBatteryFailed": {
+    "name": "eqlMemberHealthNVRAMBatteryFailed",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthhwComponentFailedCrit": {
+    "name": "eqlMemberHealthhwComponentFailedCrit",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthincompatControlModule": {
+    "name": "eqlMemberHealthincompatControlModule",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthlowAmbientTemp": {
+    "name": "eqlMemberHealthlowAmbientTemp",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthopsPanelFailure": {
+    "name": "eqlMemberHealthopsPanelFailure",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthemmLinkFailure": {
+    "name": "eqlMemberHealthemmLinkFailure",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthhighBatteryTemperature": {
+    "name": "eqlMemberHealthhighBatteryTemperature",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthenclosureOpenPerm": {
+    "name": "eqlMemberHealthenclosureOpenPerm",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthsumoChannelBothMissing": {
+    "name": "eqlMemberHealthsumoChannelBothMissing",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthsumoEIPFailureCOndition": {
+    "name": "eqlMemberHealthsumoEIPFailureCOndition",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHealthsumoChannelBothFailed": {
+    "name": "eqlMemberHealthsumoChannelBothFailed",
+    "oid": "1.3.6.1.4.1.12740.2.2.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHealthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDriveGroupTable": {
+    "name": "eqlDriveGroupTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupEntry": {
+    "name": "eqlDriveGroupEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDriveGroupIndex": {
+    "name": "eqlDriveGroupIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupStoragePoolIndex": {
+    "name": "eqlDriveGroupStoragePoolIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupRAIDPolicy": {
+    "name": "eqlDriveGroupRAIDPolicy",
+    "oid": "1.3.6.1.4.1.12740.2.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconfigured": 0,
+          "raid50": 1,
+          "raid10": 2,
+          "raid5": 3,
+          "raid50-nospares": 4,
+          "raid10-nospares": 5,
+          "raid5-nospares": 6,
+          "raid6": 7,
+          "raid6-nospares": 8,
+          "raid6-accelerated": 9,
+          "hvs-storage": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unconfigured",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsTable": {
+    "name": "eqlDriveGroupOpsTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsEntry": {
+    "name": "eqlDriveGroupOpsEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupOpsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDriveGroupOpsIndex": {
+    "name": "eqlDriveGroupOpsIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsRowStatus": {
+    "name": "eqlDriveGroupOpsRowStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsOperation": {
+    "name": "eqlDriveGroupOpsOperation",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "movePool": 1,
+          "vacate": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsExec": {
+    "name": "eqlDriveGroupOpsExec",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "cancel": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsStartTime": {
+    "name": "eqlDriveGroupOpsStartTime",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsStoragePoolSourceIndex": {
+    "name": "eqlDriveGroupOpsStoragePoolSourceIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsStoragePoolDestinationIndex": {
+    "name": "eqlDriveGroupOpsStoragePoolDestinationIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsVolBalCommandIndex": {
+    "name": "eqlDriveGroupOpsVolBalCommandIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsVolBalCommandiscsiLocalMemberId": {
+    "name": "eqlDriveGroupOpsVolBalCommandiscsiLocalMemberId",
+    "oid": "1.3.6.1.4.1.12740.2.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlAdminAccountMemberTable": {
+    "name": "eqlAdminAccountMemberTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlAdminAccountMemberEntry": {
+    "name": "eqlAdminAccountMemberEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlStorageGroupAdminAccountIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlAdminAccountMemberAccess": {
+    "name": "eqlAdminAccountMemberAccess",
+    "oid": "1.3.6.1.4.1.12740.2.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read-only": 1,
+          "read-write": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsStatusTable": {
+    "name": "eqlDriveGroupOpsStatusTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupOpsStatusEntry": {
+    "name": "eqlDriveGroupOpsStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlDriveGroupOpsStatusEntry",
+      "module": "EQLMEMBER-MIB",
+      "object": "eqlDriveGroupOpsEntry"
+    },
+    "status": "current"
+  },
+  "eqlDriveGroupOpsStatusCompletePct": {
+    "name": "eqlDriveGroupOpsStatusCompletePct",
+    "oid": "1.3.6.1.4.1.12740.2.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberOpsTable": {
+    "name": "eqlMemberOpsTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberOpsEntry": {
+    "name": "eqlMemberOpsEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberOpsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberOpsIndex": {
+    "name": "eqlMemberOpsIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberOpsRowStatus": {
+    "name": "eqlMemberOpsRowStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberOpsOperation": {
+    "name": "eqlMemberOpsOperation",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "diagnose": 3,
+          "update": 4,
+          "restart": 5,
+          "shutdown": 6,
+          "delete-pending": 7,
+          "install-software-component": 8,
+          "cli-update": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberOpsExec": {
+    "name": "eqlMemberOpsExec",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "cancel": 1,
+          "failed": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberOpsCompletePct": {
+    "name": "eqlMemberOpsCompletePct",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberOpsOperationArg": {
+    "name": "eqlMemberOpsOperationArg",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberOpsOperationStatus": {
+    "name": "eqlMemberOpsOperationStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 0,
+          "failure": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "success",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberOpsStartTime": {
+    "name": "eqlMemberOpsStartTime",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlMemberOpsOperationArg1": {
+    "name": "eqlMemberOpsOperationArg1",
+    "oid": "1.3.6.1.4.1.12740.2.1.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberHWComponentTable": {
+    "name": "eqlMemberHWComponentTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHWComponentEntry": {
+    "name": "eqlMemberHWComponentEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberHWComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberHWComponentIndex": {
+    "name": "eqlMemberHWComponentIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eip": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberHWComponentName": {
+    "name": "eqlMemberHWComponentName",
+    "oid": "1.3.6.1.4.1.12740.2.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHWComponentSerialNumber": {
+    "name": "eqlMemberHWComponentSerialNumber",
+    "oid": "1.3.6.1.4.1.12740.2.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHWComponentFirmwareRev": {
+    "name": "eqlMemberHWComponentFirmwareRev",
+    "oid": "1.3.6.1.4.1.12740.2.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHWComponentStatus": {
+    "name": "eqlMemberHWComponentStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "not-present": 1,
+          "failed": 2,
+          "good": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberDynamicInfoTable": {
+    "name": "eqlMemberDynamicInfoTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberDynamicInfoEntry": {
+    "name": "eqlMemberDynamicInfoEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberDynamicInfoPendingUpdateVersion": {
+    "name": "eqlMemberDynamicInfoPendingUpdateVersion",
+    "oid": "1.3.6.1.4.1.12740.2.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberDynamicInfoIsRestartRunning": {
+    "name": "eqlMemberDynamicInfoIsRestartRunning",
+    "oid": "1.3.6.1.4.1.12740.2.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-running": 0,
+          "running": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "not-running",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberDynamicInfoIsUpdateRunning": {
+    "name": "eqlMemberDynamicInfoIsUpdateRunning",
+    "oid": "1.3.6.1.4.1.12740.2.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-running": 0,
+          "running": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "not-running",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberCacheStatisticsTable": {
+    "name": "eqlMemberCacheStatisticsTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberCacheStatisticsEntry": {
+    "name": "eqlMemberCacheStatisticsEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberTotalPageCount": {
+    "name": "eqlMemberTotalPageCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberHotPageCount": {
+    "name": "eqlMemberHotPageCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberWarmPageCount": {
+    "name": "eqlMemberWarmPageCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberColdPageCount": {
+    "name": "eqlMemberColdPageCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPageSize": {
+    "name": "eqlMemberPageSize",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberSSDAcceleratorSize": {
+    "name": "eqlMemberSSDAcceleratorSize",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "GB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberSSDCacheSize": {
+    "name": "eqlMemberSSDCacheSize",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "GB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberSSDAcceleratorEntriesTotal": {
+    "name": "eqlMemberSSDAcceleratorEntriesTotal",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberSSDAcceleratorEntriesUsed": {
+    "name": "eqlMemberSSDAcceleratorEntriesUsed",
+    "oid": "1.3.6.1.4.1.12740.2.1.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberSEDEncryptionTable": {
+    "name": "eqlMemberSEDEncryptionTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberSEDEncryptionEntry": {
+    "name": "eqlMemberSEDEncryptionEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberSEDEncryptionRowStatus": {
+    "name": "eqlMemberSEDEncryptionRowStatus",
+    "oid": "1.3.6.1.4.1.12740.2.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberSEDEncryptionShare1": {
+    "name": "eqlMemberSEDEncryptionShare1",
+    "oid": "1.3.6.1.4.1.12740.2.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlMemberSEDShareType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberSEDEncryptionShare2": {
+    "name": "eqlMemberSEDEncryptionShare2",
+    "oid": "1.3.6.1.4.1.12740.2.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlMemberSEDShareType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberSEDEncryptionShare3": {
+    "name": "eqlMemberSEDEncryptionShare3",
+    "oid": "1.3.6.1.4.1.12740.2.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EqlMemberSEDShareType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberDynamicOpsTable": {
+    "name": "eqlMemberDynamicOpsTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberDynamicOpsEntry": {
+    "name": "eqlMemberDynamicOpsEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberDynamicOpsOperation",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberDynamicOpsOperation": {
+    "name": "eqlMemberDynamicOpsOperation",
+    "oid": "1.3.6.1.4.1.12740.2.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "delete-pending": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberDynamicOpsOperationArg": {
+    "name": "eqlMemberDynamicOpsOperationArg",
+    "oid": "1.3.6.1.4.1.12740.2.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlMemberGroupInfoAtMemberTable": {
+    "name": "eqlMemberGroupInfoAtMemberTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberGroupInfoAtMemberEntry": {
+    "name": "eqlMemberGroupInfoAtMemberEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberGroupInfoAtMemberPasswd1": {
+    "name": "eqlMemberGroupInfoAtMemberPasswd1",
+    "oid": "1.3.6.1.4.1.12740.2.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberGroupInfoAtMemberPasswd1Len": {
+    "name": "eqlMemberGroupInfoAtMemberPasswd1Len",
+    "oid": "1.3.6.1.4.1.12740.2.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupStatisticsTable": {
+    "name": "eqlDriveGroupStatisticsTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupStatisticsEntry": {
+    "name": "eqlDriveGroupStatisticsEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupStatisticsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDriveGroupStatisticsIndex": {
+    "name": "eqlDriveGroupStatisticsIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupStatisticsHeadroom": {
+    "name": "eqlDriveGroupStatisticsHeadroom",
+    "oid": "1.3.6.1.4.1.12740.2.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberFirmwareInfoTable": {
+    "name": "eqlMemberFirmwareInfoTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberFirmwareInfoEntry": {
+    "name": "eqlMemberFirmwareInfoEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberLanguageVersion": {
+    "name": "eqlMemberLanguageVersion",
+    "oid": "1.3.6.1.4.1.12740.2.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberFirmwareInfoDataReduction": {
+    "name": "eqlMemberFirmwareInfoDataReduction",
+    "oid": "1.3.6.1.4.1.12740.2.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "disabled": 1,
+          "no-capable-hardware": 2,
+          "no-capable-raid": 3,
+          "compression-running": 4,
+          "compression-paused": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileInfoTable": {
+    "name": "eqlDriveGroupHeatProfileInfoTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileInfoEntry": {
+    "name": "eqlDriveGroupHeatProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupStatisticsIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupHeatProfilePart",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfilePart": {
+    "name": "eqlDriveGroupHeatProfilePart",
+    "oid": "1.3.6.1.4.1.12740.2.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileColdCount": {
+    "name": "eqlDriveGroupHeatProfileColdCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileMinMagnitude": {
+    "name": "eqlDriveGroupHeatProfileMinMagnitude",
+    "oid": "1.3.6.1.4.1.12740.2.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileMinMultiplier": {
+    "name": "eqlDriveGroupHeatProfileMinMultiplier",
+    "oid": "1.3.6.1.4.1.12740.2.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileMaxMagnitude": {
+    "name": "eqlDriveGroupHeatProfileMaxMagnitude",
+    "oid": "1.3.6.1.4.1.12740.2.1.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileMaxMultiplier": {
+    "name": "eqlDriveGroupHeatProfileMaxMultiplier",
+    "oid": "1.3.6.1.4.1.12740.2.1.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileBinTable": {
+    "name": "eqlDriveGroupHeatProfileBinTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileBinEntry": {
+    "name": "eqlDriveGroupHeatProfileBinEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupStatisticsIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupHeatProfilePart",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupHeatProfileBinId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileBinId": {
+    "name": "eqlDriveGroupHeatProfileBinId",
+    "oid": "1.3.6.1.4.1.12740.2.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileAccessRateMagnitude": {
+    "name": "eqlDriveGroupHeatProfileAccessRateMagnitude",
+    "oid": "1.3.6.1.4.1.12740.2.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileAccessRateMultiplier": {
+    "name": "eqlDriveGroupHeatProfileAccessRateMultiplier",
+    "oid": "1.3.6.1.4.1.12740.2.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlDriveGroupHeatProfileCount": {
+    "name": "eqlDriveGroupHeatProfileCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileInfoTable": {
+    "name": "eqlTaggedHeatProfileInfoTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileInfoEntry": {
+    "name": "eqlTaggedHeatProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlTaggedHeatTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlTaggedHeatTag": {
+    "name": "eqlTaggedHeatTag",
+    "oid": "1.3.6.1.4.1.12740.2.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileColdCount": {
+    "name": "eqlTaggedHeatProfileColdCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileMinMagnitude": {
+    "name": "eqlTaggedHeatProfileMinMagnitude",
+    "oid": "1.3.6.1.4.1.12740.2.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileMinMultiplier": {
+    "name": "eqlTaggedHeatProfileMinMultiplier",
+    "oid": "1.3.6.1.4.1.12740.2.1.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileMaxMagnitude": {
+    "name": "eqlTaggedHeatProfileMaxMagnitude",
+    "oid": "1.3.6.1.4.1.12740.2.1.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileMaxMultiplier": {
+    "name": "eqlTaggedHeatProfileMaxMultiplier",
+    "oid": "1.3.6.1.4.1.12740.2.1.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileBinTable": {
+    "name": "eqlTaggedHeatProfileBinTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileBinEntry": {
+    "name": "eqlTaggedHeatProfileBinEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlTaggedHeatTag",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlTaggedHeatProfileBinId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileBinId": {
+    "name": "eqlTaggedHeatProfileBinId",
+    "oid": "1.3.6.1.4.1.12740.2.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileAccessRateMagnitude": {
+    "name": "eqlTaggedHeatProfileAccessRateMagnitude",
+    "oid": "1.3.6.1.4.1.12740.2.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileAccessRateMultiplier": {
+    "name": "eqlTaggedHeatProfileAccessRateMultiplier",
+    "oid": "1.3.6.1.4.1.12740.2.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlTaggedHeatProfileCount": {
+    "name": "eqlTaggedHeatProfileCount",
+    "oid": "1.3.6.1.4.1.12740.2.1.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberRaidPoliciesTable": {
+    "name": "eqlMemberRaidPoliciesTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberRaidPoliciesEntry": {
+    "name": "eqlMemberRaidPoliciesEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlDriveGroupRAIDPolicy",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberRaidPoliciesBehavior": {
+    "name": "eqlMemberRaidPoliciesBehavior",
+    "oid": "1.3.6.1.4.1.12740.2.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "never": 2,
+          "cli": 3,
+          "cliSanHQ": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberRaidPoliciesRAIDCapacity": {
+    "name": "eqlMemberRaidPoliciesRAIDCapacity",
+    "oid": "1.3.6.1.4.1.12740.2.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsTable": {
+    "name": "eqlMemberPerTCPConnectionStatsTable",
+    "oid": "1.3.6.1.4.1.12740.2.1.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsEntry": {
+    "name": "eqlMemberPerTCPConnectionStatsEntry",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberPerTCPConnectionStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsIndex": {
+    "name": "eqlMemberPerTCPConnectionStatsIndex",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsLocalAddrType": {
+    "name": "eqlMemberPerTCPConnectionStatsLocalAddrType",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsLocalAddr": {
+    "name": "eqlMemberPerTCPConnectionStatsLocalAddr",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsLocalPort": {
+    "name": "eqlMemberPerTCPConnectionStatsLocalPort",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsForeignAddrType": {
+    "name": "eqlMemberPerTCPConnectionStatsForeignAddrType",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsForeignAddr": {
+    "name": "eqlMemberPerTCPConnectionStatsForeignAddr",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsForeignPort": {
+    "name": "eqlMemberPerTCPConnectionStatsForeignPort",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsMss": {
+    "name": "eqlMemberPerTCPConnectionStatsMss",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsState": {
+    "name": "eqlMemberPerTCPConnectionStatsState",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcps-closed": 0,
+          "tcps-listen": 1,
+          "tcps-syn-sent": 2,
+          "tcps-syn-received": 3,
+          "tcps-established": 4,
+          "tcps-close-wait": 5,
+          "tcps-fin-wait1": 6,
+          "tcps-closing": 7,
+          "tcps-last-ack": 8,
+          "tcps-fin-wait2": 9,
+          "tcps-time-wait": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsSndpack": {
+    "name": "eqlMemberPerTCPConnectionStatsSndpack",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsSndbyte": {
+    "name": "eqlMemberPerTCPConnectionStatsSndbyte",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsSndrexmitpack": {
+    "name": "eqlMemberPerTCPConnectionStatsSndrexmitpack",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsSndrexmitbyte": {
+    "name": "eqlMemberPerTCPConnectionStatsSndrexmitbyte",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsRexmttimeout": {
+    "name": "eqlMemberPerTCPConnectionStatsRexmttimeout",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsFastrexmt": {
+    "name": "eqlMemberPerTCPConnectionStatsFastrexmt",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsSndprobe": {
+    "name": "eqlMemberPerTCPConnectionStatsSndprobe",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsRcvpack": {
+    "name": "eqlMemberPerTCPConnectionStatsRcvpack",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsRcvbyte": {
+    "name": "eqlMemberPerTCPConnectionStatsRcvbyte",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsRcvwinprobe": {
+    "name": "eqlMemberPerTCPConnectionStatsRcvwinprobe",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlMemberPerTCPConnectionStatsRcvbadsum": {
+    "name": "eqlMemberPerTCPConnectionStatsRcvbadsum",
+    "oid": "1.3.6.1.4.1.12740.2.1.33.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLMEMBER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQLMEMBER-MIB"
+  }
+}

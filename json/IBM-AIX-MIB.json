@@ -1,0 +1,5379 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ibmAIX": {
+    "name": "ibmAIX",
+    "oid": "1.3.6.1.4.1.2.6.191",
+    "class": "moduleidentity"
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "aixSystem": {
+    "name": "aixSystem",
+    "oid": "1.3.6.1.4.1.2.6.191.1",
+    "class": "objectidentity"
+  },
+  "aixAgent": {
+    "name": "aixAgent",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1",
+    "class": "objectidentity"
+  },
+  "aixSystemEnvironment": {
+    "name": "aixSystemEnvironment",
+    "oid": "1.3.6.1.4.1.2.6.191.1.2",
+    "class": "objectidentity"
+  },
+  "aixAuxSystemEnvironment": {
+    "name": "aixAuxSystemEnvironment",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3",
+    "class": "objectidentity"
+  },
+  "aixTrap": {
+    "name": "aixTrap",
+    "oid": "1.3.6.1.4.1.2.6.191.1.4",
+    "class": "objectidentity"
+  },
+  "aixGeneralTrap": {
+    "name": "aixGeneralTrap",
+    "oid": "1.3.6.1.4.1.2.6.191.1.6",
+    "class": "objectidentity"
+  },
+  "aixStorageSystem": {
+    "name": "aixStorageSystem",
+    "oid": "1.3.6.1.4.1.2.6.191.2",
+    "class": "objectidentity"
+  },
+  "aixVolumeGroup": {
+    "name": "aixVolumeGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1",
+    "class": "objectidentity"
+  },
+  "aixLogicalVolume": {
+    "name": "aixLogicalVolume",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2",
+    "class": "objectidentity"
+  },
+  "aixPhysicalVolume": {
+    "name": "aixPhysicalVolume",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3",
+    "class": "objectidentity"
+  },
+  "aixPagingSpace": {
+    "name": "aixPagingSpace",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4",
+    "class": "objectidentity"
+  },
+  "aixPrintSystem": {
+    "name": "aixPrintSystem",
+    "oid": "1.3.6.1.4.1.2.6.191.3",
+    "class": "objectidentity"
+  },
+  "aixPrtQueue": {
+    "name": "aixPrtQueue",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1",
+    "class": "objectidentity"
+  },
+  "aixUser": {
+    "name": "aixUser",
+    "oid": "1.3.6.1.4.1.2.6.191.4",
+    "class": "objectidentity"
+  },
+  "aixUsers": {
+    "name": "aixUsers",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1",
+    "class": "objectidentity"
+  },
+  "aixGroups": {
+    "name": "aixGroups",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2",
+    "class": "objectidentity"
+  },
+  "aixService": {
+    "name": "aixService",
+    "oid": "1.3.6.1.4.1.2.6.191.5",
+    "class": "objectidentity"
+  },
+  "aixSrvSubsystem": {
+    "name": "aixSrvSubsystem",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1",
+    "class": "objectidentity"
+  },
+  "aixSrvSubserver": {
+    "name": "aixSrvSubserver",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2",
+    "class": "objectidentity"
+  },
+  "aixFileSystem": {
+    "name": "aixFileSystem",
+    "oid": "1.3.6.1.4.1.2.6.191.6",
+    "class": "objectidentity"
+  },
+  "aixProcess": {
+    "name": "aixProcess",
+    "oid": "1.3.6.1.4.1.2.6.191.7",
+    "class": "objectidentity"
+  },
+  "aixLogin": {
+    "name": "aixLogin",
+    "oid": "1.3.6.1.4.1.2.6.191.8",
+    "class": "objectidentity"
+  },
+  "aixDevice": {
+    "name": "aixDevice",
+    "oid": "1.3.6.1.4.1.2.6.191.9",
+    "class": "objectidentity"
+  },
+  "aixPrinter": {
+    "name": "aixPrinter",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1",
+    "class": "objectidentity"
+  },
+  "aixTape": {
+    "name": "aixTape",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2",
+    "class": "objectidentity"
+  },
+  "aixHardDisk": {
+    "name": "aixHardDisk",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3",
+    "class": "objectidentity"
+  },
+  "aixMemory": {
+    "name": "aixMemory",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4",
+    "class": "objectidentity"
+  },
+  "aixCDROM": {
+    "name": "aixCDROM",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5",
+    "class": "objectidentity"
+  },
+  "aixScsi": {
+    "name": "aixScsi",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6",
+    "class": "objectidentity"
+  },
+  "aixProcessor": {
+    "name": "aixProcessor",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7",
+    "class": "objectidentity"
+  },
+  "aixNetwork": {
+    "name": "aixNetwork",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8",
+    "class": "objectidentity"
+  },
+  "aixAdapter": {
+    "name": "aixAdapter",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9",
+    "class": "objectidentity"
+  },
+  "aixConformance": {
+    "name": "aixConformance",
+    "oid": "1.3.6.1.4.1.2.6.191.10",
+    "class": "objectidentity"
+  },
+  "aixAgentAction": {
+    "name": "aixAgentAction",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "debugOn": 2,
+          "debugOff": 3,
+          "shutdown": 4,
+          "running": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixAgentCmdString": {
+    "name": "aixAgentCmdString",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixAgentExeCommand": {
+    "name": "aixAgentExeCommand",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trigger": 1,
+          "default": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixAgentCmdResult": {
+    "name": "aixAgentCmdResult",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAgentPollInterval": {
+    "name": "aixAgentPollInterval",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixPollEnable": {
+    "name": "aixPollEnable",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixLastTrapMsg": {
+    "name": "aixLastTrapMsg",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAgentCmdOutTable": {
+    "name": "aixAgentCmdOutTable",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixFsPollInterval": {
+    "name": "aixFsPollInterval",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixCPUPollInterval": {
+    "name": "aixCPUPollInterval",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixVgPollInterval": {
+    "name": "aixVgPollInterval",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixPagePollInterval": {
+    "name": "aixPagePollInterval",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixLFPollInterval": {
+    "name": "aixLFPollInterval",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixAgentCmdOutTableEntry": {
+    "name": "aixAgentCmdOutTableEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentCmdOutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixAgentCmdOutput": {
+    "name": "aixAgentCmdOutput",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAgentCmdOutIndex": {
+    "name": "aixAgentCmdOutIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSeCPUUtilization": {
+    "name": "aixSeCPUUtilization",
+    "oid": "1.3.6.1.4.1.2.6.191.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSeCPUThreshold": {
+    "name": "aixSeCPUThreshold",
+    "oid": "1.3.6.1.4.1.2.6.191.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixSeSystemRunLevel": {
+    "name": "aixSeSystemRunLevel",
+    "oid": "1.3.6.1.4.1.2.6.191.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 1,
+          "level1": 2,
+          "level2": 3,
+          "level3": 4,
+          "level4": 5,
+          "level5": 6,
+          "level6": 7,
+          "level7": 8,
+          "level8": 9,
+          "level9": 10,
+          "levelm": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixSeSystemState": {
+    "name": "aixSeSystemState",
+    "oid": "1.3.6.1.4.1.2.6.191.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "reboot": 2,
+          "shutdown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixSeSystemTrap": {
+    "name": "aixSeSystemTrap",
+    "oid": "1.3.6.1.4.1.2.6.191.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixSeDateAndTime": {
+    "name": "aixSeDateAndTime",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSeMaxProcPerUser": {
+    "name": "aixSeMaxProcPerUser",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixSeLicenseNum": {
+    "name": "aixSeLicenseNum",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixSeRemainingLicenseNum": {
+    "name": "aixSeRemainingLicenseNum",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSeNumCPUs": {
+    "name": "aixSeNumCPUs",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSeMachineType": {
+    "name": "aixSeMachineType",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSeSerialNumber": {
+    "name": "aixSeSerialNumber",
+    "oid": "1.3.6.1.4.1.2.6.191.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFileSystemMounted": {
+    "name": "aixFileSystemMounted",
+    "oid": "1.3.6.1.4.1.2.6.191.1.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsName"
+      }
+    ],
+    "status": "current"
+  },
+  "aixFileSystemFull": {
+    "name": "aixFileSystemFull",
+    "oid": "1.3.6.1.4.1.2.6.191.1.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsFree"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "aixVolumeGroupFull": {
+    "name": "aixVolumeGroupFull",
+    "oid": "1.3.6.1.4.1.2.6.191.1.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgFree"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "aixPageFull": {
+    "name": "aixPageFull",
+    "oid": "1.3.6.1.4.1.2.6.191.1.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPagePercentUsed"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "aixUserLoginFailed": {
+    "name": "aixUserLoginFailed",
+    "oid": "1.3.6.1.4.1.2.6.191.1.4.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFailedLoginTimePeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "aixUtilizationCPU": {
+    "name": "aixUtilizationCPU",
+    "oid": "1.3.6.1.4.1.2.6.191.1.4.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeCPUUtilization"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeCPUThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "aixSnmptrapHolder": {
+    "name": "aixSnmptrapHolder",
+    "oid": "1.3.6.1.4.1.2.6.191.1.6.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "aixVgThreshold": {
+    "name": "aixVgThreshold",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixVgTable": {
+    "name": "aixVgTable",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixVgEntry": {
+    "name": "aixVgEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixVgName": {
+    "name": "aixVgName",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgIdentifier": {
+    "name": "aixVgIdentifier",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgState": {
+    "name": "aixVgState",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activeComplete": 1,
+          "activePartial": 2,
+          "inactive": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgSize": {
+    "name": "aixVgSize",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgFree": {
+    "name": "aixVgFree",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgCurNumLVs": {
+    "name": "aixVgCurNumLVs",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgOpenLVs": {
+    "name": "aixVgOpenLVs",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgActivePVs": {
+    "name": "aixVgActivePVs",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixVgIndex": {
+    "name": "aixVgIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLvTable": {
+    "name": "aixLvTable",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixLvEntry": {
+    "name": "aixLvEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixLvName": {
+    "name": "aixLvName",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLvNameVG": {
+    "name": "aixLvNameVG",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLvType": {
+    "name": "aixLvType",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jfs": 1,
+          "jfslog": 2,
+          "paging": 3,
+          "boot": 4,
+          "jfs2": 5,
+          "jfs2log": 6,
+          "other": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixLvMountPoint": {
+    "name": "aixLvMountPoint",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLvSize": {
+    "name": "aixLvSize",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLvState": {
+    "name": "aixLvState",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openStale": 1,
+          "openSyncd": 2,
+          "closeStale": 3,
+          "closeSyncd": 4,
+          "undefined": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLvIndex": {
+    "name": "aixLvIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPvTable": {
+    "name": "aixPvTable",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixPvEntry": {
+    "name": "aixPvEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixPvName": {
+    "name": "aixPvName",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPvNameVG": {
+    "name": "aixPvNameVG",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPvState": {
+    "name": "aixPvState",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "missing": 2,
+          "removed": 3,
+          "variedOff": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPvSize": {
+    "name": "aixPvSize",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPvFree": {
+    "name": "aixPvFree",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPvNumLVs": {
+    "name": "aixPvNumLVs",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPvIndex": {
+    "name": "aixPvIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPageThreshold": {
+    "name": "aixPageThreshold",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixPageTable": {
+    "name": "aixPageTable",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixPageEntry": {
+    "name": "aixPageEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixPageName": {
+    "name": "aixPageName",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPageNameVG": {
+    "name": "aixPageNameVG",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPageNamePV": {
+    "name": "aixPageNamePV",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPageSize": {
+    "name": "aixPageSize",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPagePercentUsed": {
+    "name": "aixPagePercentUsed",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPageStatus": {
+    "name": "aixPageStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notActive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPageType": {
+    "name": "aixPageType",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lv": 1,
+          "nfs": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPageIndex": {
+    "name": "aixPageIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.2.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueTable": {
+    "name": "aixPrtQueTable",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixPrtQueEntry": {
+    "name": "aixPrtQueEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixPrtQueName": {
+    "name": "aixPrtQueName",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueDevice": {
+    "name": "aixPrtQueDevice",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueStatus": {
+    "name": "aixPrtQueStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "running": 2,
+          "waiting": 3,
+          "off": 4,
+          "oprwait": 5,
+          "init": 6,
+          "sending": 7,
+          "gethost": 8,
+          "connect": 9,
+          "busy": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueAction": {
+    "name": "aixPrtQueAction",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "start": 2,
+          "stop": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixPrtQueDescipline": {
+    "name": "aixPrtQueDescipline",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueAcctFile": {
+    "name": "aixPrtQueAcctFile",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueHost": {
+    "name": "aixPrtQueHost",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueRQ": {
+    "name": "aixPrtQueRQ",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueJobNum": {
+    "name": "aixPrtQueJobNum",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrtQueIndex": {
+    "name": "aixPrtQueIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixUsrTable": {
+    "name": "aixUsrTable",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixUsrEntry": {
+    "name": "aixUsrEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixUsrName": {
+    "name": "aixUsrName",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixUsrID": {
+    "name": "aixUsrID",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrHome": {
+    "name": "aixUsrHome",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrShell": {
+    "name": "aixUsrShell",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrLocalLogin": {
+    "name": "aixUsrLocalLogin",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrRemoteLogin": {
+    "name": "aixUsrRemoteLogin",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrPasswdMaxAge": {
+    "name": "aixUsrPasswdMaxAge",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 52
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrStatus": {
+    "name": "aixUsrStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unlocked": 1,
+          "locked": 2,
+          "disabled": 3,
+          "enabled": 4,
+          "error": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrGroups": {
+    "name": "aixUsrGroups",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixUsrAllowableAttempts": {
+    "name": "aixUsrAllowableAttempts",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrResetLoginCount": {
+    "name": "aixUsrResetLoginCount",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrPrimaryGroup": {
+    "name": "aixUsrPrimaryGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixUsrIndex": {
+    "name": "aixUsrIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixGrpTable": {
+    "name": "aixGrpTable",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixGrpEntry": {
+    "name": "aixGrpEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixGrpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixGrpIndex": {
+    "name": "aixGrpIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixGrpName": {
+    "name": "aixGrpName",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixGrpID": {
+    "name": "aixGrpID",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixGrpAdminGroup": {
+    "name": "aixGrpAdminGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixGrpUsrList": {
+    "name": "aixGrpUsrList",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixGrpAdmList": {
+    "name": "aixGrpAdmList",
+    "oid": "1.3.6.1.4.1.2.6.191.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsThreshold": {
+    "name": "aixFsThreshold",
+    "oid": "1.3.6.1.4.1.2.6.191.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixFsTable": {
+    "name": "aixFsTable",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixFsTableEntry": {
+    "name": "aixFsTableEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixFsIndex": {
+    "name": "aixFsIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsName": {
+    "name": "aixFsName",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsMountPoint": {
+    "name": "aixFsMountPoint",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsType": {
+    "name": "aixFsType",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jfs": 1,
+          "jfs2": 2,
+          "cdrfs": 3,
+          "procfs": 4,
+          "cachefs": 5,
+          "autofs": 6,
+          "afs": 7,
+          "dfs": 8,
+          "nfs": 9,
+          "nfs3": 10,
+          "other": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsSize": {
+    "name": "aixFsSize",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixFsFree": {
+    "name": "aixFsFree",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsNumINodes": {
+    "name": "aixFsNumINodes",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsUsedInodes": {
+    "name": "aixFsUsedInodes",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsStatus": {
+    "name": "aixFsStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mounted": 1,
+          "unmounted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFsExecution": {
+    "name": "aixFsExecution",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mount": 2,
+          "unmount": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixFsResultMsg": {
+    "name": "aixFsResultMsg",
+    "oid": "1.3.6.1.4.1.2.6.191.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcNum": {
+    "name": "aixProcNum",
+    "oid": "1.3.6.1.4.1.2.6.191.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcTable": {
+    "name": "aixProcTable",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixProcEntry": {
+    "name": "aixProcEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcPID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixProcPID": {
+    "name": "aixProcPID",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcUID": {
+    "name": "aixProcUID",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcPPID": {
+    "name": "aixProcPPID",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcGroup": {
+    "name": "aixProcGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcPriority": {
+    "name": "aixProcPriority",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcCMD": {
+    "name": "aixProcCMD",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcCPU": {
+    "name": "aixProcCPU",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcStart": {
+    "name": "aixProcStart",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcStatus": {
+    "name": "aixProcStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonexistentPS": 1,
+          "activePS": 2,
+          "swappedPS": 3,
+          "idlePS": 4,
+          "canceledPS": 5,
+          "stoppedPS": 6,
+          "other": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcTTY": {
+    "name": "aixProcTTY",
+    "oid": "1.3.6.1.4.1.2.6.191.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSystemNum": {
+    "name": "aixSubSystemNum",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSysTable": {
+    "name": "aixSubSysTable",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixSubSysEntry": {
+    "name": "aixSubSysEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSysIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixSubSysName": {
+    "name": "aixSubSysName",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSysGroup": {
+    "name": "aixSubSysGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSysPID": {
+    "name": "aixSubSysPID",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSysStatus": {
+    "name": "aixSubSysStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inoperative": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixSubSysIndex": {
+    "name": "aixSubSysIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSrvNum": {
+    "name": "aixSubSrvNum",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSrvTable": {
+    "name": "aixSubSrvTable",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixSubSrvEntry": {
+    "name": "aixSubSrvEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixSubSrvName": {
+    "name": "aixSubSrvName",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSrvDescr": {
+    "name": "aixSubSrvDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSrvCommand": {
+    "name": "aixSubSrvCommand",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSrvStatus": {
+    "name": "aixSubSrvStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inoperative": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSrvSubsys": {
+    "name": "aixSubSrvSubsys",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixSubSrvIndex": {
+    "name": "aixSubSrvIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixFailedLoginTimePeriod": {
+    "name": "aixFailedLoginTimePeriod",
+    "oid": "1.3.6.1.4.1.2.6.191.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixLoginFailedThreshold": {
+    "name": "aixLoginFailedThreshold",
+    "oid": "1.3.6.1.4.1.2.6.191.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aixLoginUserTable": {
+    "name": "aixLoginUserTable",
+    "oid": "1.3.6.1.4.1.2.6.191.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixLoginUserEntry": {
+    "name": "aixLoginUserEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLoginUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixLoginUserName": {
+    "name": "aixLoginUserName",
+    "oid": "1.3.6.1.4.1.2.6.191.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLoginUserTTY": {
+    "name": "aixLoginUserTTY",
+    "oid": "1.3.6.1.4.1.2.6.191.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLoginUserHost": {
+    "name": "aixLoginUserHost",
+    "oid": "1.3.6.1.4.1.2.6.191.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLoginUserDateAndTime": {
+    "name": "aixLoginUserDateAndTime",
+    "oid": "1.3.6.1.4.1.2.6.191.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixLoginUserIndex": {
+    "name": "aixLoginUserIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterTable": {
+    "name": "aixPrinterTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixPrinterEntry": {
+    "name": "aixPrinterEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixPrinterName": {
+    "name": "aixPrinterName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterIndex": {
+    "name": "aixPrinterIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterType": {
+    "name": "aixPrinterType",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterInterface": {
+    "name": "aixPrinterInterface",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterStatus": {
+    "name": "aixPrinterStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterDescr": {
+    "name": "aixPrinterDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterLocation": {
+    "name": "aixPrinterLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixPrinterPortNumber": {
+    "name": "aixPrinterPortNumber",
+    "oid": "1.3.6.1.4.1.2.6.191.9.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvTable": {
+    "name": "aixTapeDrvTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixTapeDrvEntry": {
+    "name": "aixTapeDrvEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixTapeDrvName": {
+    "name": "aixTapeDrvName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvIndex": {
+    "name": "aixTapeDrvIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvType": {
+    "name": "aixTapeDrvType",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvInterface": {
+    "name": "aixTapeDrvInterface",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvStatus": {
+    "name": "aixTapeDrvStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvDescr": {
+    "name": "aixTapeDrvDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvLocation": {
+    "name": "aixTapeDrvLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvBlkSize": {
+    "name": "aixTapeDrvBlkSize",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvManufacturerName": {
+    "name": "aixTapeDrvManufacturerName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvModelName": {
+    "name": "aixTapeDrvModelName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvSN": {
+    "name": "aixTapeDrvSN",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvPN": {
+    "name": "aixTapeDrvPN",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvFRU": {
+    "name": "aixTapeDrvFRU",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixTapeDrvEC": {
+    "name": "aixTapeDrvEC",
+    "oid": "1.3.6.1.4.1.2.6.191.9.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdTable": {
+    "name": "aixHdTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixHdEntry": {
+    "name": "aixHdEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixHdName": {
+    "name": "aixHdName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdIndex": {
+    "name": "aixHdIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdType": {
+    "name": "aixHdType",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdSize": {
+    "name": "aixHdSize",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdInterface": {
+    "name": "aixHdInterface",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdStatus": {
+    "name": "aixHdStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdLocation": {
+    "name": "aixHdLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdIdentifier": {
+    "name": "aixHdIdentifier",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdDescr": {
+    "name": "aixHdDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdManufacturerName": {
+    "name": "aixHdManufacturerName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdModelName": {
+    "name": "aixHdModelName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdSN": {
+    "name": "aixHdSN",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdPN": {
+    "name": "aixHdPN",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdFRU": {
+    "name": "aixHdFRU",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixHdEC": {
+    "name": "aixHdEC",
+    "oid": "1.3.6.1.4.1.2.6.191.9.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixMemTable": {
+    "name": "aixMemTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixMemEntry": {
+    "name": "aixMemEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixMemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixMemName": {
+    "name": "aixMemName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixMemIndex": {
+    "name": "aixMemIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixMemLocation": {
+    "name": "aixMemLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixMemSize": {
+    "name": "aixMemSize",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "megabytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixMemDescr": {
+    "name": "aixMemDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromTable": {
+    "name": "aixCdromTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixCdromEntry": {
+    "name": "aixCdromEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixCdromName": {
+    "name": "aixCdromName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromIndex": {
+    "name": "aixCdromIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromType": {
+    "name": "aixCdromType",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromInterface": {
+    "name": "aixCdromInterface",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromDescr": {
+    "name": "aixCdromDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromStatus": {
+    "name": "aixCdromStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromLocation": {
+    "name": "aixCdromLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromManufacturerName": {
+    "name": "aixCdromManufacturerName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromModelName": {
+    "name": "aixCdromModelName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromPN": {
+    "name": "aixCdromPN",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromFRU": {
+    "name": "aixCdromFRU",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCdromEC": {
+    "name": "aixCdromEC",
+    "oid": "1.3.6.1.4.1.2.6.191.9.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixScsiTable": {
+    "name": "aixScsiTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixScsiEntry": {
+    "name": "aixScsiEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixScsiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixScsiName": {
+    "name": "aixScsiName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixScsiIndex": {
+    "name": "aixScsiIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixScsiDescr": {
+    "name": "aixScsiDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixScsiStatus": {
+    "name": "aixScsiStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixScsiLocation": {
+    "name": "aixScsiLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixScsiAdapterID": {
+    "name": "aixScsiAdapterID",
+    "oid": "1.3.6.1.4.1.2.6.191.9.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcessorTable": {
+    "name": "aixProcessorTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixProcessorEntry": {
+    "name": "aixProcessorEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcessorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixProcessorName": {
+    "name": "aixProcessorName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcessorIndex": {
+    "name": "aixProcessorIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcessorType": {
+    "name": "aixProcessorType",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcessorDescr": {
+    "name": "aixProcessorDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixProcessorSpeed": {
+    "name": "aixProcessorSpeed",
+    "oid": "1.3.6.1.4.1.2.6.191.9.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixNetworkTable": {
+    "name": "aixNetworkTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixNetworkEntry": {
+    "name": "aixNetworkEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixNetworkName": {
+    "name": "aixNetworkName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixNetworkIndex": {
+    "name": "aixNetworkIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixNetworkType": {
+    "name": "aixNetworkType",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixNetworkInterface": {
+    "name": "aixNetworkInterface",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixNetworkStatus": {
+    "name": "aixNetworkStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixNetworkLocation": {
+    "name": "aixNetworkLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixNetworkDescr": {
+    "name": "aixNetworkDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAdapterTable": {
+    "name": "aixAdapterTable",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aixAdapterEntry": {
+    "name": "aixAdapterEntry",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aixAdapterName": {
+    "name": "aixAdapterName",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAdapterIndex": {
+    "name": "aixAdapterIndex",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAdapterType": {
+    "name": "aixAdapterType",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAdapterInterface": {
+    "name": "aixAdapterInterface",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAdapterStatus": {
+    "name": "aixAdapterStatus",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAdapterLocation": {
+    "name": "aixAdapterLocation",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixAdapterDescr": {
+    "name": "aixAdapterDescr",
+    "oid": "1.3.6.1.4.1.2.6.191.9.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aixCfmGroup": {
+    "name": "aixCfmGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1",
+    "class": "objectidentity"
+  },
+  "aixCompliances": {
+    "name": "aixCompliances",
+    "oid": "1.3.6.1.4.1.2.6.191.10.2",
+    "class": "objectidentity"
+  },
+  "aixCompliance": {
+    "name": "aixCompliance",
+    "oid": "1.3.6.1.4.1.2.6.191.10.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "aixAgentGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixVGGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixPVGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixLVGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixPagingSpaceGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixFsGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixProcessGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixLoginUsrGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixSeGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixPrtQueueGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixUsrGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixGrpGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixSubSystemGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixSubServerGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixSeAuxGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixPrinterGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixTapeGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixHardDiskGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixMemoryGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixCDROMGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixScsiGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixProcessorGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixNetworkGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "aixAdapterGroup",
+        "module": "IBM-AIX-MIB"
+      },
+      {
+        "object": "criticalNotificationGroup",
+        "module": "IBM-AIX-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "aixAgentGroup": {
+    "name": "aixAgentGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentAction"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentCmdString"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentExeCommand"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentCmdResult"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentCmdOutput"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentCmdOutIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAgentPollInterval"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPollEnable"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLastTrapMsg"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsPollInterval"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgPollInterval"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCPUPollInterval"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLFPollInterval"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPagePollInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "aixSeGroup": {
+    "name": "aixSeGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeCPUUtilization"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeCPUThreshold"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeSystemRunLevel"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeSystemState"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeSystemTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "criticalNotificationGroup": {
+    "name": "criticalNotificationGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFileSystemMounted"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFileSystemFull"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVolumeGroupFull"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageFull"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUserLoginFailed"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUtilizationCPU"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSnmptrapHolder"
+      }
+    ],
+    "status": "current"
+  },
+  "aixVGGroup": {
+    "name": "aixVGGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgIdentifier"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgState"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgFree"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgCurNumLVs"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgOpenLVs"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgActivePVs"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgThreshold"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixVgIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixLVGroup": {
+    "name": "aixLVGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvNameVG"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvMountPoint"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvState"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLvIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixPVGroup": {
+    "name": "aixPVGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvNameVG"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvState"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvFree"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvNumLVs"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPvIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixPagingSpaceGroup": {
+    "name": "aixPagingSpaceGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageNameVG"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageNamePV"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPagePercentUsed"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageThreshold"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPageIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixFsGroup": {
+    "name": "aixFsGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsMountPoint"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsFree"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsNumINodes"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsUsedInodes"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsThreshold"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsExecution"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFsResultMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "aixProcessGroup": {
+    "name": "aixProcessGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcPID"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcUID"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcPPID"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcGroup"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcPriority"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcCPU"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcStart"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcTTY"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcCMD"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcNum"
+      }
+    ],
+    "status": "current"
+  },
+  "aixLoginUsrGroup": {
+    "name": "aixLoginUsrGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLoginUserName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLoginUserTTY"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLoginUserHost"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLoginUserDateAndTime"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLoginUserIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixLoginFailedThreshold"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixFailedLoginTimePeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "aixPrtQueueGroup": {
+    "name": "aixPrtQueueGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueDevice"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueAction"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueAcctFile"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueRQ"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueDescipline"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueHost"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrtQueJobNum"
+      }
+    ],
+    "status": "current"
+  },
+  "aixUsrGroup": {
+    "name": "aixUsrGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrID"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrHome"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrShell"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrLocalLogin"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrRemoteLogin"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrPasswdMaxAge"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrGroups"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrAllowableAttempts"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrResetLoginCount"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrPrimaryGroup"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixUsrIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixGrpGroup": {
+    "name": "aixGrpGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixGrpName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixGrpID"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixGrpAdminGroup"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixGrpIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixGrpUsrList"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixGrpAdmList"
+      }
+    ],
+    "status": "current"
+  },
+  "aixSubSystemGroup": {
+    "name": "aixSubSystemGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSysName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSysGroup"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSysPID"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSysIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSysStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSystemNum"
+      }
+    ],
+    "status": "current"
+  },
+  "aixSubServerGroup": {
+    "name": "aixSubServerGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvCommand"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvNum"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSubSrvSubsys"
+      }
+    ],
+    "status": "current"
+  },
+  "aixSeAuxGroup": {
+    "name": "aixSeAuxGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeDateAndTime"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeMaxProcPerUser"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeLicenseNum"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeRemainingLicenseNum"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeNumCPUs"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeMachineType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixSeSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "aixPrinterGroup": {
+    "name": "aixPrinterGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterInterface"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterPortNumber"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixPrinterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixTapeGroup": {
+    "name": "aixTapeGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvInterface"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvBlkSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvManufacturerName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvModelName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvSN"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvFRU"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvPN"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixTapeDrvEC"
+      }
+    ],
+    "status": "current"
+  },
+  "aixHardDiskGroup": {
+    "name": "aixHardDiskGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdInterface"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdIdentifier"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdManufacturerName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdModelName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdSN"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdFRU"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdPN"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixHdEC"
+      }
+    ],
+    "status": "current"
+  },
+  "aixMemoryGroup": {
+    "name": "aixMemoryGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixMemName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixMemLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixMemSize"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixMemDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixMemIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixCDROMGroup": {
+    "name": "aixCDROMGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromInterface"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromManufacturerName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromModelName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromFRU"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromPN"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixCdromEC"
+      }
+    ],
+    "status": "current"
+  },
+  "aixScsiGroup": {
+    "name": "aixScsiGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixScsiName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixScsiDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixScsiStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixScsiLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixScsiAdapterID"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixScsiIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixProcessorGroup": {
+    "name": "aixProcessorGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcessorName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcessorDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcessorSpeed"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcessorType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixProcessorIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "aixNetworkGroup": {
+    "name": "aixNetworkGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixNetworkInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "aixAdapterGroup": {
+    "name": "aixAdapterGroup",
+    "oid": "1.3.6.1.4.1.2.6.191.10.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterName"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterDescr"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterStatus"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterLocation"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterType"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterIndex"
+      },
+      {
+        "module": "IBM-AIX-MIB",
+        "object": "aixAdapterInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-AIX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBM-AIX-MIB"
+  }
+}

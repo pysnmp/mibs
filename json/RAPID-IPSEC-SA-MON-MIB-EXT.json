@@ -1,0 +1,2552 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "IPSEC-ISAKMP-IKE-DOI-TC": [
+      "IpsecDoiEncapsulationMode",
+      "IpsecDoiEspTransform",
+      "IpsecDoiIdentType",
+      "IpsecDoiAuthAlgorithm",
+      "IpsecDoiAhTransform",
+      "IpsecDoiIpcompTransform",
+      "IpsecDoiSecProtocolId"
+    ],
+    "RAPID-MIB": [
+      "rapidstream"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "enterprises",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "rsIpsecSaMonModule": {
+    "name": "rsIpsecSaMonModule",
+    "oid": "1.3.6.1.4.1.4355.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-03-21 12:00",
+        "description": "Initial revision."
+      },
+      {
+        "revision": "2002-11-01 12:00",
+        "description": "Changed CONTACT-INFO."
+      }
+    ]
+  },
+  "IpsecSaCreatorIdent": {
+    "name": "IpsecSaCreatorIdent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "static": 1,
+          "ike": 2,
+          "other": 3
+        }
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "IpsecIpv6Address": {
+    "name": "IpsecIpv6Address",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:2x:2x:2x:2x:2x:1d.1d.1d.1d",
+    "status": "current"
+  },
+  "rsIpsecSaMonitorMIB": {
+    "name": "rsIpsecSaMonitorMIB",
+    "oid": "1.3.6.1.4.1.4355.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaTables": {
+    "name": "rsSaTables",
+    "oid": "1.3.6.1.4.1.4355.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaStatistics": {
+    "name": "rsSaStatistics",
+    "oid": "1.3.6.1.4.1.4355.3.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaErrors": {
+    "name": "rsSaErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaTraps": {
+    "name": "rsSaTraps",
+    "oid": "1.3.6.1.4.1.4355.3.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaTrapObjects": {
+    "name": "rsSaTrapObjects",
+    "oid": "1.3.6.1.4.1.4355.3.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaTrapControl": {
+    "name": "rsSaTrapControl",
+    "oid": "1.3.6.1.4.1.4355.3.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaGroups": {
+    "name": "rsSaGroups",
+    "oid": "1.3.6.1.4.1.4355.3.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSaConformance": {
+    "name": "rsSaConformance",
+    "oid": "1.3.6.1.4.1.4355.3.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsIpsecSaEspInTable": {
+    "name": "rsIpsecSaEspInTable",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpsecSaEspInEntry": {
+    "name": "rsIpsecSaEspInEntry",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaEspInAddress",
+        "implied": 0
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaEspInSpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpsecSaEspInAddress": {
+    "name": "rsIpsecSaEspInAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInSpi": {
+    "name": "rsIpsecSaEspInSpi",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInDestId": {
+    "name": "rsIpsecSaEspInDestId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInDestIdType": {
+    "name": "rsIpsecSaEspInDestIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInSourceId": {
+    "name": "rsIpsecSaEspInSourceId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInSourceIdType": {
+    "name": "rsIpsecSaEspInSourceIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInProtocol": {
+    "name": "rsIpsecSaEspInProtocol",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInDestPort": {
+    "name": "rsIpsecSaEspInDestPort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInSourcePort": {
+    "name": "rsIpsecSaEspInSourcePort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInCreator": {
+    "name": "rsIpsecSaEspInCreator",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecSaCreatorIdent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInEncapsulation": {
+    "name": "rsIpsecSaEspInEncapsulation",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInEncAlg": {
+    "name": "rsIpsecSaEspInEncAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEspTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInEncKeyLength": {
+    "name": "rsIpsecSaEspInEncKeyLength",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65531
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInAuthAlg": {
+    "name": "rsIpsecSaEspInAuthAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiAuthAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInLimitSeconds": {
+    "name": "rsIpsecSaEspInLimitSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInLimitKbytes": {
+    "name": "rsIpsecSaEspInLimitKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInAccSeconds": {
+    "name": "rsIpsecSaEspInAccSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInAccKbytes": {
+    "name": "rsIpsecSaEspInAccKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInUserOctets": {
+    "name": "rsIpsecSaEspInUserOctets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInPackets": {
+    "name": "rsIpsecSaEspInPackets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInDecryptErrors": {
+    "name": "rsIpsecSaEspInDecryptErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInAuthErrors": {
+    "name": "rsIpsecSaEspInAuthErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInReplayErrors": {
+    "name": "rsIpsecSaEspInReplayErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInPolicyErrors": {
+    "name": "rsIpsecSaEspInPolicyErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInPadErrors": {
+    "name": "rsIpsecSaEspInPadErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspInOtherReceiveErrors": {
+    "name": "rsIpsecSaEspInOtherReceiveErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInTable": {
+    "name": "rsIpsecSaAhInTable",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpsecSaAhInEntry": {
+    "name": "rsIpsecSaAhInEntry",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaAhInAddress",
+        "implied": 0
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaAhInSpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpsecSaAhInAddress": {
+    "name": "rsIpsecSaAhInAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInSpi": {
+    "name": "rsIpsecSaAhInSpi",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInDestId": {
+    "name": "rsIpsecSaAhInDestId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInDestIdType": {
+    "name": "rsIpsecSaAhInDestIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInSourceId": {
+    "name": "rsIpsecSaAhInSourceId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInSourceIdType": {
+    "name": "rsIpsecSaAhInSourceIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInProtocol": {
+    "name": "rsIpsecSaAhInProtocol",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInDestPort": {
+    "name": "rsIpsecSaAhInDestPort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInSourcePort": {
+    "name": "rsIpsecSaAhInSourcePort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInCreator": {
+    "name": "rsIpsecSaAhInCreator",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecSaCreatorIdent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInEncapsulation": {
+    "name": "rsIpsecSaAhInEncapsulation",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInAuthAlg": {
+    "name": "rsIpsecSaAhInAuthAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiAhTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInLimitSeconds": {
+    "name": "rsIpsecSaAhInLimitSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInLimitKbytes": {
+    "name": "rsIpsecSaAhInLimitKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInAccSeconds": {
+    "name": "rsIpsecSaAhInAccSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInAccKbytes": {
+    "name": "rsIpsecSaAhInAccKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInUserOctets": {
+    "name": "rsIpsecSaAhInUserOctets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInPackets": {
+    "name": "rsIpsecSaAhInPackets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInAuthErrors": {
+    "name": "rsIpsecSaAhInAuthErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInReplayErrors": {
+    "name": "rsIpsecSaAhInReplayErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInPolicyErrors": {
+    "name": "rsIpsecSaAhInPolicyErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhInOtherReceiveErrors": {
+    "name": "rsIpsecSaAhInOtherReceiveErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInTable": {
+    "name": "rsIpsecSaIpcompInTable",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInEntry": {
+    "name": "rsIpsecSaIpcompInEntry",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaIpcompInAddress",
+        "implied": 0
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaIpcompInCpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInAddress": {
+    "name": "rsIpsecSaIpcompInAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInCpi": {
+    "name": "rsIpsecSaIpcompInCpi",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIpcompTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInDestId": {
+    "name": "rsIpsecSaIpcompInDestId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInDestIdType": {
+    "name": "rsIpsecSaIpcompInDestIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInSourceId": {
+    "name": "rsIpsecSaIpcompInSourceId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInSourceIdType": {
+    "name": "rsIpsecSaIpcompInSourceIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInProtocol": {
+    "name": "rsIpsecSaIpcompInProtocol",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInDestPort": {
+    "name": "rsIpsecSaIpcompInDestPort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInSourcePort": {
+    "name": "rsIpsecSaIpcompInSourcePort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInCreator": {
+    "name": "rsIpsecSaIpcompInCreator",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecSaCreatorIdent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInEncapsulation": {
+    "name": "rsIpsecSaIpcompInEncapsulation",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInDecompAlg": {
+    "name": "rsIpsecSaIpcompInDecompAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIpcompTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInSeconds": {
+    "name": "rsIpsecSaIpcompInSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInUserOctets": {
+    "name": "rsIpsecSaIpcompInUserOctets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInPackets": {
+    "name": "rsIpsecSaIpcompInPackets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInDecompErrors": {
+    "name": "rsIpsecSaIpcompInDecompErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompInOtherReceiveErrors": {
+    "name": "rsIpsecSaIpcompInOtherReceiveErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutTable": {
+    "name": "rsIpsecSaEspOutTable",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutEntry": {
+    "name": "rsIpsecSaEspOutEntry",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaEspOutAddress",
+        "implied": 0
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaEspOutSpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpsecSaEspOutAddress": {
+    "name": "rsIpsecSaEspOutAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutSpi": {
+    "name": "rsIpsecSaEspOutSpi",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutSourceId": {
+    "name": "rsIpsecSaEspOutSourceId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutSourceIdType": {
+    "name": "rsIpsecSaEspOutSourceIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutDestId": {
+    "name": "rsIpsecSaEspOutDestId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutDestIdType": {
+    "name": "rsIpsecSaEspOutDestIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutProtocol": {
+    "name": "rsIpsecSaEspOutProtocol",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutSourcePort": {
+    "name": "rsIpsecSaEspOutSourcePort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutDestPort": {
+    "name": "rsIpsecSaEspOutDestPort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutCreator": {
+    "name": "rsIpsecSaEspOutCreator",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecSaCreatorIdent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutEncapsulation": {
+    "name": "rsIpsecSaEspOutEncapsulation",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutEncAlg": {
+    "name": "rsIpsecSaEspOutEncAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEspTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutEncKeyLength": {
+    "name": "rsIpsecSaEspOutEncKeyLength",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65531
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutAuthAlg": {
+    "name": "rsIpsecSaEspOutAuthAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiAuthAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutLimitSeconds": {
+    "name": "rsIpsecSaEspOutLimitSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutLimitKbytes": {
+    "name": "rsIpsecSaEspOutLimitKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutAccSeconds": {
+    "name": "rsIpsecSaEspOutAccSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutAccKbytes": {
+    "name": "rsIpsecSaEspOutAccKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutUserOctets": {
+    "name": "rsIpsecSaEspOutUserOctets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutPackets": {
+    "name": "rsIpsecSaEspOutPackets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaEspOutSendErrors": {
+    "name": "rsIpsecSaEspOutSendErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutTable": {
+    "name": "rsIpsecSaAhOutTable",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutEntry": {
+    "name": "rsIpsecSaAhOutEntry",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaAhOutAddress",
+        "implied": 0
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaAhOutSpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpsecSaAhOutAddress": {
+    "name": "rsIpsecSaAhOutAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutSpi": {
+    "name": "rsIpsecSaAhOutSpi",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutSourceId": {
+    "name": "rsIpsecSaAhOutSourceId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutSourceIdType": {
+    "name": "rsIpsecSaAhOutSourceIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutDestId": {
+    "name": "rsIpsecSaAhOutDestId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutDestIdType": {
+    "name": "rsIpsecSaAhOutDestIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutProtocol": {
+    "name": "rsIpsecSaAhOutProtocol",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutSourcePort": {
+    "name": "rsIpsecSaAhOutSourcePort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutDestPort": {
+    "name": "rsIpsecSaAhOutDestPort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutCreator": {
+    "name": "rsIpsecSaAhOutCreator",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecSaCreatorIdent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutEncapsulation": {
+    "name": "rsIpsecSaAhOutEncapsulation",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutAuthAlg": {
+    "name": "rsIpsecSaAhOutAuthAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiAhTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutLimitSeconds": {
+    "name": "rsIpsecSaAhOutLimitSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutLimitKbytes": {
+    "name": "rsIpsecSaAhOutLimitKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutAccSeconds": {
+    "name": "rsIpsecSaAhOutAccSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutAccKbytes": {
+    "name": "rsIpsecSaAhOutAccKbytes",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutUserOctets": {
+    "name": "rsIpsecSaAhOutUserOctets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutPackets": {
+    "name": "rsIpsecSaAhOutPackets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaAhOutSendErrors": {
+    "name": "rsIpsecSaAhOutSendErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutTable": {
+    "name": "rsIpsecSaIpcompOutTable",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutEntry": {
+    "name": "rsIpsecSaIpcompOutEntry",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaIpcompOutAddress",
+        "implied": 0
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaIpcompOutCpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutAddress": {
+    "name": "rsIpsecSaIpcompOutAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutCpi": {
+    "name": "rsIpsecSaIpcompOutCpi",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIpcompTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutSourceId": {
+    "name": "rsIpsecSaIpcompOutSourceId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutSourceIdType": {
+    "name": "rsIpsecSaIpcompOutSourceIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutDestId": {
+    "name": "rsIpsecSaIpcompOutDestId",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutDestIdType": {
+    "name": "rsIpsecSaIpcompOutDestIdType",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIdentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutProtocol": {
+    "name": "rsIpsecSaIpcompOutProtocol",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutSourcePort": {
+    "name": "rsIpsecSaIpcompOutSourcePort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutDestPort": {
+    "name": "rsIpsecSaIpcompOutDestPort",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutCreator": {
+    "name": "rsIpsecSaIpcompOutCreator",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecSaCreatorIdent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutEncapsulation": {
+    "name": "rsIpsecSaIpcompOutEncapsulation",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiEncapsulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutCompAlg": {
+    "name": "rsIpsecSaIpcompOutCompAlg",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiIpcompTransform",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutSeconds": {
+    "name": "rsIpsecSaIpcompOutSeconds",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutUserOctets": {
+    "name": "rsIpsecSaIpcompOutUserOctets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSaIpcompOutPackets": {
+    "name": "rsIpsecSaIpcompOutPackets",
+    "oid": "1.3.6.1.4.1.4355.3.1.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecEspCurrentInboundSAs": {
+    "name": "rsIpsecEspCurrentInboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecEspTotalInboundSAs": {
+    "name": "rsIpsecEspTotalInboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecEspCurrentOutboundSAs": {
+    "name": "rsIpsecEspCurrentOutboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecEspTotalOutboundSAs": {
+    "name": "rsIpsecEspTotalOutboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecAhCurrentInboundSAs": {
+    "name": "rsIpsecAhCurrentInboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecAhTotalInboundSAs": {
+    "name": "rsIpsecAhTotalInboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecAhCurrentOutboundSAs": {
+    "name": "rsIpsecAhCurrentOutboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecAhTotalOutboundSAs": {
+    "name": "rsIpsecAhTotalOutboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecIpcompCurrentInboundSAs": {
+    "name": "rsIpsecIpcompCurrentInboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecIpcompTotalInboundSAs": {
+    "name": "rsIpsecIpcompTotalInboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecIpcompCurrentOutboundSAs": {
+    "name": "rsIpsecIpcompCurrentOutboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecIpcompTotalOutboundSAs": {
+    "name": "rsIpsecIpcompTotalOutboundSAs",
+    "oid": "1.3.6.1.4.1.4355.3.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecDecryptionErrors": {
+    "name": "rsIpsecDecryptionErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecAuthenticationErrors": {
+    "name": "rsIpsecAuthenticationErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecReplayErrors": {
+    "name": "rsIpsecReplayErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecPolicyErrors": {
+    "name": "rsIpsecPolicyErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecOtherReceiveErrors": {
+    "name": "rsIpsecOtherReceiveErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSendErrors": {
+    "name": "rsIpsecSendErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecUnknownSpiErrors": {
+    "name": "rsIpsecUnknownSpiErrors",
+    "oid": "1.3.6.1.4.1.4355.3.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSecurityProtocol": {
+    "name": "rsIpsecSecurityProtocol",
+    "oid": "1.3.6.1.4.1.4355.3.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpsecDoiSecProtocolId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecSPI": {
+    "name": "rsIpsecSPI",
+    "oid": "1.3.6.1.4.1.4355.3.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecLocalAddress": {
+    "name": "rsIpsecLocalAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpsecPeerAddress": {
+    "name": "rsIpsecPeerAddress",
+    "oid": "1.3.6.1.4.1.4355.3.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsEspAuthFailureTrapEnable": {
+    "name": "rsEspAuthFailureTrapEnable",
+    "oid": "1.3.6.1.4.1.4355.3.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsAhAuthFailureTrapEnable": {
+    "name": "rsAhAuthFailureTrapEnable",
+    "oid": "1.3.6.1.4.1.4355.3.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsEspReplayFailureTrapEnable": {
+    "name": "rsEspReplayFailureTrapEnable",
+    "oid": "1.3.6.1.4.1.4355.3.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsAhReplayFailureTrapEnable": {
+    "name": "rsAhReplayFailureTrapEnable",
+    "oid": "1.3.6.1.4.1.4355.3.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsEspPolicyFailureTrapEnable": {
+    "name": "rsEspPolicyFailureTrapEnable",
+    "oid": "1.3.6.1.4.1.4355.3.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsAhPolicyFailureTrapEnable": {
+    "name": "rsAhPolicyFailureTrapEnable",
+    "oid": "1.3.6.1.4.1.4355.3.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsInvalidSpiTrapEnable": {
+    "name": "rsInvalidSpiTrapEnable",
+    "oid": "1.3.6.1.4.1.4355.3.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsEspAuthFailureTrap": {
+    "name": "rsEspAuthFailureTrap",
+    "oid": "1.3.6.1.4.1.4355.3.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaEspInAuthErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "rsAhAuthFailureTrap": {
+    "name": "rsAhAuthFailureTrap",
+    "oid": "1.3.6.1.4.1.4355.3.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaAhInAuthErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "rsEspReplayFailureTrap": {
+    "name": "rsEspReplayFailureTrap",
+    "oid": "1.3.6.1.4.1.4355.3.1.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaEspInReplayErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "rsAhReplayFailureTrap": {
+    "name": "rsAhReplayFailureTrap",
+    "oid": "1.3.6.1.4.1.4355.3.1.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaAhInReplayErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "rsEspPolicyFailureTrap": {
+    "name": "rsEspPolicyFailureTrap",
+    "oid": "1.3.6.1.4.1.4355.3.1.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaEspInPolicyErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "rsAhPolicyFailureTrap": {
+    "name": "rsAhPolicyFailureTrap",
+    "oid": "1.3.6.1.4.1.4355.3.1.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSaAhInPolicyErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "rsInvalidSpiTrap": {
+    "name": "rsInvalidSpiTrap",
+    "oid": "1.3.6.1.4.1.4355.3.1.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecLocalAddress"
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSecurityProtocol"
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecPeerAddress"
+      },
+      {
+        "module": "RAPID-IPSEC-SA-MON-MIB-EXT",
+        "object": "rsIpsecSPI"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-IPSEC-SA-MON-MIB-EXT",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAPID-IPSEC-SA-MON-MIB-EXT"
+  }
+}

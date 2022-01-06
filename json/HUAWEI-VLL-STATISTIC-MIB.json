@@ -1,0 +1,845 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "hwL2VpnVllStatistic": {
+    "name": "hwL2VpnVllStatistic",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 01:45",
+        "description": "mod dispcription."
+      },
+      {
+        "revision": "2013-08-30 14:52",
+        "description": "add hwVllStatisticInputPackets,hwVllStatisticInputBytes,hwVllStatisticInputPacketsRate,hwVllStatisticInputBytesRate for VLL PW NO Qos statistics"
+      }
+    ]
+  },
+  "hwL2Vpn": {
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119",
+    "class": "objectidentity"
+  },
+  "hwVllMIBObjects": {
+    "name": "hwVllMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1",
+    "class": "objectidentity"
+  },
+  "hwVllStatisticTable": {
+    "name": "hwVllStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVllStatisticEntry": {
+    "name": "hwVllStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticPwType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVllStatisticIfIndex": {
+    "name": "hwVllStatisticIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVllStatisticPwType": {
+    "name": "hwVllStatisticPwType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "bypass": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVllStatisticEnable": {
+    "name": "hwVllStatisticEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVllStatisticResetTraffic": {
+    "name": "hwVllStatisticResetTraffic",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unknownStatus": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwVllStatisticResetTime": {
+    "name": "hwVllStatisticResetTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticPackets": {
+    "name": "hwVllStatisticPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticBytes": {
+    "name": "hwVllStatisticBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticPacketsRate": {
+    "name": "hwVllStatisticPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticBytesRate": {
+    "name": "hwVllStatisticBytesRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticInputPackets": {
+    "name": "hwVllStatisticInputPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticInputBytes": {
+    "name": "hwVllStatisticInputBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticInputPacketsRate": {
+    "name": "hwVllStatisticInputPacketsRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllStatisticInputBytesRate": {
+    "name": "hwVllStatisticInputBytesRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticTable": {
+    "name": "hwVllQosStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVllQosStatisticEntry": {
+    "name": "hwVllQosStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPwType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVllQosStatisticIfIndex": {
+    "name": "hwVllQosStatisticIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVllQosStatisticPwType": {
+    "name": "hwVllQosStatisticPwType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "bypass": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVllQosStatisticQueueId": {
+    "name": "hwVllQosStatisticQueueId",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "be": 1,
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "ef": 6,
+          "cs6": 7,
+          "cs7": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwVllQosStatisticPassPacket": {
+    "name": "hwVllQosStatisticPassPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticPassByte": {
+    "name": "hwVllQosStatisticPassByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticDiscardPacket": {
+    "name": "hwVllQosStatisticDiscardPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticDiscardByte": {
+    "name": "hwVllQosStatisticDiscardByte",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticPassPacketRate": {
+    "name": "hwVllQosStatisticPassPacketRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticPassByteRate": {
+    "name": "hwVllQosStatisticPassByteRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticDiscardPacketRate": {
+    "name": "hwVllQosStatisticDiscardPacketRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllQosStatisticDiscardByteRate": {
+    "name": "hwVllQosStatisticDiscardByteRate",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentTable": {
+    "name": "hwPWATMPerfCurrentTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentEntry": {
+    "name": "hwPWATMPerfCurrentEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwPwATMIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwATMIfIndex": {
+    "name": "hwPwATMIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentEnable": {
+    "name": "hwPWATMPerfCurrentEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentMissingPkts": {
+    "name": "hwPWATMPerfCurrentMissingPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentPktsMisOrder": {
+    "name": "hwPWATMPerfCurrentPktsMisOrder",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentCellsXmit": {
+    "name": "hwPWATMPerfCurrentCellsXmit",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentCellsReceived": {
+    "name": "hwPWATMPerfCurrentCellsReceived",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWATMPerfCurrentUnknownCells": {
+    "name": "hwPWATMPerfCurrentUnknownCells",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentTable": {
+    "name": "hwPWTDMPerfCurrentTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentEntry": {
+    "name": "hwPWTDMPerfCurrentEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwPWTDMIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWTDMIfIndex": {
+    "name": "hwPWTDMIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentEnable": {
+    "name": "hwPWTDMPerfCurrentEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentMissingPkts": {
+    "name": "hwPWTDMPerfCurrentMissingPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentJtrBfrOverruns": {
+    "name": "hwPWTDMPerfCurrentJtrBfrOverruns",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentJtrBfrUnderruns": {
+    "name": "hwPWTDMPerfCurrentJtrBfrUnderruns",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentMisOrderDropped": {
+    "name": "hwPWTDMPerfCurrentMisOrderDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentMalformedPkt": {
+    "name": "hwPWTDMPerfCurrentMalformedPkt",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentESs": {
+    "name": "hwPWTDMPerfCurrentESs",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentSESs": {
+    "name": "hwPWTDMPerfCurrentSESs",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentUASs": {
+    "name": "hwPWTDMPerfCurrentUASs",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTDMPerfCurrentStrayPkt": {
+    "name": "hwPWTDMPerfCurrentStrayPkt",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwVllMIBTraps": {
+    "name": "hwVllMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.2",
+    "class": "objectidentity"
+  },
+  "hwVllMIBConformance": {
+    "name": "hwVllMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3",
+    "class": "objectidentity"
+  },
+  "hwVllMIBCompliances": {
+    "name": "hwVllMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.1",
+    "class": "objectidentity"
+  },
+  "hwVllMIBCompliance": {
+    "name": "hwVllMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwVllStatisticGroup",
+        "module": "HUAWEI-VLL-STATISTIC-MIB"
+      },
+      {
+        "object": "hwVllQosStatisticGroup",
+        "module": "HUAWEI-VLL-STATISTIC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVllMIBGroups": {
+    "name": "hwVllMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2",
+    "class": "objectidentity"
+  },
+  "hwVllStatisticGroup": {
+    "name": "hwVllStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticEnable"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticResetTraffic"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticResetTime"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticPackets"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticBytes"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticPacketsRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticBytesRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticInputPackets"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticInputBytes"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticInputPacketsRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticInputBytesRate"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVllQosStatisticGroup": {
+    "name": "hwVllQosStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassPacket"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassByte"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardPacket"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardByte"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassPacketRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassByteRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardPacketRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardByteRate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VLL-STATISTIC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-VLL-STATISTIC-MIB"
+  }
+}

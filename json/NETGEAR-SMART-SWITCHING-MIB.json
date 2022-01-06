@@ -1,0 +1,7324 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "NETGEAR-REF-MIB": [
+      "ng700smartswitch"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qTpFdbAddress",
+      "VlanIndex",
+      "dot1qVlanIndex",
+      "dot1qFdbId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
+    ]
+  },
+  "agentSwitching": {
+    "name": "agentSwitching",
+    "oid": "1.3.6.1.4.1.4526.11.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-03-17 00:00",
+        "description": "Updated for release."
+      }
+    ]
+  },
+  "PortList": {
+    "name": "PortList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "VlanList": {
+    "name": "VlanList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AgentPortMask": {
+    "name": "AgentPortMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Ipv6Address": {
+    "name": "Ipv6Address",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "current"
+  },
+  "Ipv6AddressPrefix": {
+    "name": "Ipv6AddressPrefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "current"
+  },
+  "Ipv6AddressIfIdentifier": {
+    "name": "Ipv6AddressIfIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "current"
+  },
+  "Ipv6IfIndex": {
+    "name": "Ipv6IfIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Ipv6IfIndexOrZero": {
+    "name": "Ipv6IfIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "agentInfoGroup": {
+    "name": "agentInfoGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.1",
+    "class": "objectidentity"
+  },
+  "agentInventoryGroup": {
+    "name": "agentInventoryGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1",
+    "class": "objectidentity"
+  },
+  "agentInventorySysDescription": {
+    "name": "agentInventorySysDescription",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryMachineType": {
+    "name": "agentInventoryMachineType",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryMachineModel": {
+    "name": "agentInventoryMachineModel",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventorySerialNumber": {
+    "name": "agentInventorySerialNumber",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryFRUNumber": {
+    "name": "agentInventoryFRUNumber",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryMaintenanceLevel": {
+    "name": "agentInventoryMaintenanceLevel",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryPartNumber": {
+    "name": "agentInventoryPartNumber",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryManufacturer": {
+    "name": "agentInventoryManufacturer",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryBurnedInMacAddress": {
+    "name": "agentInventoryBurnedInMacAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryOperatingSystem": {
+    "name": "agentInventoryOperatingSystem",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryNetworkProcessingDevice": {
+    "name": "agentInventoryNetworkProcessingDevice",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventoryAdditionalPackages": {
+    "name": "agentInventoryAdditionalPackages",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentInventorySoftwareVersion": {
+    "name": "agentInventorySoftwareVersion",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTrapLogGroup": {
+    "name": "agentTrapLogGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2",
+    "class": "objectidentity"
+  },
+  "agentTrapLogTotal": {
+    "name": "agentTrapLogTotal",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTrapLogTotalSinceLastViewed": {
+    "name": "agentTrapLogTotalSinceLastViewed",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTrapLogTable": {
+    "name": "agentTrapLogTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentTrapLogEntry": {
+    "name": "agentTrapLogEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentTrapLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentTrapLogIndex": {
+    "name": "agentTrapLogIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTrapLogSystemTime": {
+    "name": "agentTrapLogSystemTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTrapLogTrap": {
+    "name": "agentTrapLogTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSupportedMibTable": {
+    "name": "agentSupportedMibTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSupportedMibEntry": {
+    "name": "agentSupportedMibEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSupportedMibIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSupportedMibIndex": {
+    "name": "agentSupportedMibIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSupportedMibName": {
+    "name": "agentSupportedMibName",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSupportedMibDescription": {
+    "name": "agentSupportedMibDescription",
+    "oid": "1.3.6.1.4.1.4526.11.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentConfigGroup": {
+    "name": "agentConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2",
+    "class": "objectidentity"
+  },
+  "agentCLIConfigGroup": {
+    "name": "agentCLIConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1",
+    "class": "objectidentity"
+  },
+  "agentLoginSessionTable": {
+    "name": "agentLoginSessionTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLoginSessionEntry": {
+    "name": "agentLoginSessionEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentLoginSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLoginSessionIndex": {
+    "name": "agentLoginSessionIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLoginSessionUserName": {
+    "name": "agentLoginSessionUserName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLoginSessionIPAddress": {
+    "name": "agentLoginSessionIPAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "agentLoginSessionConnectionType": {
+    "name": "agentLoginSessionConnectionType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serial": 1,
+          "telnet": 2,
+          "ssh": 3,
+          "http": 4,
+          "https": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLoginSessionIdleTime": {
+    "name": "agentLoginSessionIdleTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLoginSessionSessionTime": {
+    "name": "agentLoginSessionSessionTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLoginSessionStatus": {
+    "name": "agentLoginSessionStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLoginSessionInetAddressType": {
+    "name": "agentLoginSessionInetAddressType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLoginSessionInetAddress": {
+    "name": "agentLoginSessionInetAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTelnetConfigGroup": {
+    "name": "agentTelnetConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "agentTelnetLoginTimeout": {
+    "name": "agentTelnetLoginTimeout",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTelnetMaxSessions": {
+    "name": "agentTelnetMaxSessions",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTelnetAllowNewMode": {
+    "name": "agentTelnetAllowNewMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserConfigGroup": {
+    "name": "agentUserConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "agentUserConfigCreate": {
+    "name": "agentUserConfigCreate",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserConfigTable": {
+    "name": "agentUserConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentUserConfigEntry": {
+    "name": "agentUserConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentUserIndex": {
+    "name": "agentUserIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentUserName": {
+    "name": "agentUserName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentUserPassword": {
+    "name": "agentUserPassword",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserAccessMode": {
+    "name": "agentUserAccessMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read": 1,
+          "write": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentUserAuthenticationType": {
+    "name": "agentUserAuthenticationType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "hmacmd5": 2,
+          "hmacsha": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserEncryptionType": {
+    "name": "agentUserEncryptionType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "des": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserEncryptionPassword": {
+    "name": "agentUserEncryptionPassword",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserLockoutStatus": {
+    "name": "agentUserLockoutStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentUserPasswordExpireTime": {
+    "name": "agentUserPasswordExpireTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSerialGroup": {
+    "name": "agentSerialGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.5",
+    "class": "objectidentity"
+  },
+  "agentSerialTimeout": {
+    "name": "agentSerialTimeout",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSerialBaudrate": {
+    "name": "agentSerialBaudrate",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "baud-1200": 1,
+          "baud-2400": 2,
+          "baud-4800": 3,
+          "baud-9600": 4,
+          "baud-19200": 5,
+          "baud-38400": 6,
+          "baud-57600": 7,
+          "baud-115200": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSerialCharacterSize": {
+    "name": "agentSerialCharacterSize",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSerialHWFlowControlMode": {
+    "name": "agentSerialHWFlowControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSerialStopBits": {
+    "name": "agentSerialStopBits",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSerialParityType": {
+    "name": "agentSerialParityType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "even": 1,
+          "odd": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentPasswordManagementConfigGroup": {
+    "name": "agentPasswordManagementConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.6",
+    "class": "objectidentity"
+  },
+  "agentPasswordManagementMinLength": {
+    "name": "agentPasswordManagementMinLength",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPasswordManagementHistory": {
+    "name": "agentPasswordManagementHistory",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPasswordManagementAging": {
+    "name": "agentPasswordManagementAging",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 365
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPasswordManagementLockAttempts": {
+    "name": "agentPasswordManagementLockAttempts",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagConfigGroup": {
+    "name": "agentLagConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2",
+    "class": "objectidentity"
+  },
+  "agentLagConfigCreate": {
+    "name": "agentLagConfigCreate",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryConfigTable": {
+    "name": "agentLagSummaryConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLagSummaryConfigEntry": {
+    "name": "agentLagSummaryConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentLagSummaryLagIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLagSummaryLagIndex": {
+    "name": "agentLagSummaryLagIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLagSummaryName": {
+    "name": "agentLagSummaryName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryFlushTimer": {
+    "name": "agentLagSummaryFlushTimer",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentLagSummaryLinkTrap": {
+    "name": "agentLagSummaryLinkTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryAdminMode": {
+    "name": "agentLagSummaryAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryStpMode": {
+    "name": "agentLagSummaryStpMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 1,
+          "fast": 2,
+          "off": 3,
+          "dot1s": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryAddPort": {
+    "name": "agentLagSummaryAddPort",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryDeletePort": {
+    "name": "agentLagSummaryDeletePort",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryStatus": {
+    "name": "agentLagSummaryStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagSummaryType": {
+    "name": "agentLagSummaryType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLagSummaryStaticCapability": {
+    "name": "agentLagSummaryStaticCapability",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentLagDetailedConfigTable": {
+    "name": "agentLagDetailedConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentLagDetailedConfigEntry": {
+    "name": "agentLagDetailedConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentLagDetailedLagIndex",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentLagDetailedIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentLagDetailedLagIndex": {
+    "name": "agentLagDetailedLagIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLagDetailedIfIndex": {
+    "name": "agentLagDetailedIfIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLagDetailedPortSpeed": {
+    "name": "agentLagDetailedPortSpeed",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLagDetailedPortStatus": {
+    "name": "agentLagDetailedPortStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentLagConfigStaticCapability": {
+    "name": "agentLagConfigStaticCapability",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentNetworkConfigGroup": {
+    "name": "agentNetworkConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3",
+    "class": "objectidentity"
+  },
+  "agentNetworkIPAddress": {
+    "name": "agentNetworkIPAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkSubnetMask": {
+    "name": "agentNetworkSubnetMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkDefaultGateway": {
+    "name": "agentNetworkDefaultGateway",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkBurnedInMacAddress": {
+    "name": "agentNetworkBurnedInMacAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentNetworkLocalAdminMacAddress": {
+    "name": "agentNetworkLocalAdminMacAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkMacAddressType": {
+    "name": "agentNetworkMacAddressType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "burned-in": 1,
+          "local": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkConfigProtocol": {
+    "name": "agentNetworkConfigProtocol",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bootp": 2,
+          "dhcp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkWebMode": {
+    "name": "agentNetworkWebMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentNetworkJavaMode": {
+    "name": "agentNetworkJavaMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentNetworkMgmtVlan": {
+    "name": "agentNetworkMgmtVlan",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkIpv6AdminMode": {
+    "name": "agentNetworkIpv6AdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkIpv6Gateway": {
+    "name": "agentNetworkIpv6Gateway",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentNetworkIpv6AddrTable": {
+    "name": "agentNetworkIpv6AddrTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentNetworkIpv6AddrEntry": {
+    "name": "agentNetworkIpv6AddrEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentNetworkIpv6AddrPrefix",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentNetworkIpv6AddrPrefix": {
+    "name": "agentNetworkIpv6AddrPrefix",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentNetworkIpv6AddrPrefixLength": {
+    "name": "agentNetworkIpv6AddrPrefixLength",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentNetworkIpv6AddrEuiFlag": {
+    "name": "agentNetworkIpv6AddrEuiFlag",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentNetworkIpv6AddrStatus": {
+    "name": "agentNetworkIpv6AddrStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.3.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentServicePortConfigGroup": {
+    "name": "agentServicePortConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4",
+    "class": "objectidentity"
+  },
+  "agentServicePortIPAddress": {
+    "name": "agentServicePortIPAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentServicePortSubnetMask": {
+    "name": "agentServicePortSubnetMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentServicePortDefaultGateway": {
+    "name": "agentServicePortDefaultGateway",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentServicePortBurnedInMacAddress": {
+    "name": "agentServicePortBurnedInMacAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentServicePortConfigProtocol": {
+    "name": "agentServicePortConfigProtocol",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bootp": 2,
+          "dhcp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentServicePortIpv6AdminMode": {
+    "name": "agentServicePortIpv6AdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentServicePortIpv6Gateway": {
+    "name": "agentServicePortIpv6Gateway",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentServicePortIpv6AddrTable": {
+    "name": "agentServicePortIpv6AddrTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentServicePortIpv6AddrEntry": {
+    "name": "agentServicePortIpv6AddrEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentServicePortIpv6AddrPrefix",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentServicePortIpv6AddrPrefix": {
+    "name": "agentServicePortIpv6AddrPrefix",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentServicePortIpv6AddrPrefixLength": {
+    "name": "agentServicePortIpv6AddrPrefixLength",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentServicePortIpv6AddrEuiFlag": {
+    "name": "agentServicePortIpv6AddrEuiFlag",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentServicePortIpv6AddrStatus": {
+    "name": "agentServicePortIpv6AddrStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentSnmpConfigGroup": {
+    "name": "agentSnmpConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6",
+    "class": "objectidentity"
+  },
+  "agentSnmpCommunityCreate": {
+    "name": "agentSnmpCommunityCreate",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpCommunityConfigTable": {
+    "name": "agentSnmpCommunityConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSnmpCommunityConfigEntry": {
+    "name": "agentSnmpCommunityConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSnmpCommunityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSnmpCommunityIndex": {
+    "name": "agentSnmpCommunityIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSnmpCommunityName": {
+    "name": "agentSnmpCommunityName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpCommunityIPAddress": {
+    "name": "agentSnmpCommunityIPAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpCommunityIPMask": {
+    "name": "agentSnmpCommunityIPMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpCommunityAccessMode": {
+    "name": "agentSnmpCommunityAccessMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read-only": 1,
+          "read-write": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpCommunityStatus": {
+    "name": "agentSnmpCommunityStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "config": 3,
+          "destroy": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverCreate": {
+    "name": "agentSnmpTrapReceiverCreate",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverConfigTable": {
+    "name": "agentSnmpTrapReceiverConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverConfigEntry": {
+    "name": "agentSnmpTrapReceiverConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSnmpTrapReceiverIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverIndex": {
+    "name": "agentSnmpTrapReceiverIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverCommunityName": {
+    "name": "agentSnmpTrapReceiverCommunityName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverIPAddress": {
+    "name": "agentSnmpTrapReceiverIPAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverStatus": {
+    "name": "agentSnmpTrapReceiverStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "config": 3,
+          "destroy": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverVersion": {
+    "name": "agentSnmpTrapReceiverVersion",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snmpv1": 1,
+          "snmpv2c": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "snmpv2c",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpTrapReceiverIpv6Address": {
+    "name": "agentSnmpTrapReceiverIpv6Address",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddressPrefix",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpTrapFlagsConfigGroup": {
+    "name": "agentSnmpTrapFlagsConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.5",
+    "class": "objectidentity"
+  },
+  "agentSnmpAuthenticationTrapFlag": {
+    "name": "agentSnmpAuthenticationTrapFlag",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpLinkUpDownTrapFlag": {
+    "name": "agentSnmpLinkUpDownTrapFlag",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpMultipleUsersTrapFlag": {
+    "name": "agentSnmpMultipleUsersTrapFlag",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpSpanningTreeTrapFlag": {
+    "name": "agentSnmpSpanningTreeTrapFlag",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSnmpBroadcastStormTrapFlag": {
+    "name": "agentSnmpBroadcastStormTrapFlag",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.6.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentSpanningTreeConfigGroup": {
+    "name": "agentSpanningTreeConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.7",
+    "class": "objectidentity"
+  },
+  "agentSpanningTreeMode": {
+    "name": "agentSpanningTreeMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchConfigGroup": {
+    "name": "agentSwitchConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8",
+    "class": "objectidentity"
+  },
+  "agentSwitchAddressAgingTimeoutTable": {
+    "name": "agentSwitchAddressAgingTimeoutTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchAddressAgingTimeoutEntry": {
+    "name": "agentSwitchAddressAgingTimeoutEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qFdbId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchAddressAgingTimeout": {
+    "name": "agentSwitchAddressAgingTimeout",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchStaticMacFilteringTable": {
+    "name": "agentSwitchStaticMacFilteringTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchStaticMacFilteringEntry": {
+    "name": "agentSwitchStaticMacFilteringEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchStaticMacFilteringVlanId",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchStaticMacFilteringAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchStaticMacFilteringVlanId": {
+    "name": "agentSwitchStaticMacFilteringVlanId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchStaticMacFilteringAddress": {
+    "name": "agentSwitchStaticMacFilteringAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchStaticMacFilteringSourcePortMask": {
+    "name": "agentSwitchStaticMacFilteringSourcePortMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchStaticMacFilteringDestPortMask": {
+    "name": "agentSwitchStaticMacFilteringDestPortMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchStaticMacFilteringStatus": {
+    "name": "agentSwitchStaticMacFilteringStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentSwitchStormControlGroup": {
+    "name": "agentSwitchStormControlGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12",
+    "class": "objectidentity"
+  },
+  "agentSwitchDot3FlowControlMode": {
+    "name": "agentSwitchDot3FlowControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchBroadcastControlMode": {
+    "name": "agentSwitchBroadcastControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchBroadcastControlThreshold": {
+    "name": "agentSwitchBroadcastControlThreshold",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchMulticastControlMode": {
+    "name": "agentSwitchMulticastControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchMulticastControlThreshold": {
+    "name": "agentSwitchMulticastControlThreshold",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchUnicastControlMode": {
+    "name": "agentSwitchUnicastControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchUnicastControlThreshold": {
+    "name": "agentSwitchUnicastControlThreshold",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingGroup": {
+    "name": "agentSwitchSnoopingGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.6",
+    "class": "objectidentity"
+  },
+  "agentSwitchSnoopingCfgTable": {
+    "name": "agentSwitchSnoopingCfgTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchSnoopingCfgEntry": {
+    "name": "agentSwitchSnoopingCfgEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchSnoopingProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchSnoopingProtocol": {
+    "name": "agentSwitchSnoopingProtocol",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingAdminMode": {
+    "name": "agentSwitchSnoopingAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingPortMask": {
+    "name": "agentSwitchSnoopingPortMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingMulticastControlFramesProcessed": {
+    "name": "agentSwitchSnoopingMulticastControlFramesProcessed",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfGroup": {
+    "name": "agentSwitchSnoopingIntfGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7",
+    "class": "objectidentity"
+  },
+  "agentSwitchSnoopingIntfTable": {
+    "name": "agentSwitchSnoopingIntfTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfEntry": {
+    "name": "agentSwitchSnoopingIntfEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchSnoopingProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfIndex": {
+    "name": "agentSwitchSnoopingIntfIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfAdminMode": {
+    "name": "agentSwitchSnoopingIntfAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfGroupMembershipInterval": {
+    "name": "agentSwitchSnoopingIntfGroupMembershipInterval",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfMaxResponseTime": {
+    "name": "agentSwitchSnoopingIntfMaxResponseTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3599
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfMRPExpirationTime": {
+    "name": "agentSwitchSnoopingIntfMRPExpirationTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfFastLeaveAdminMode": {
+    "name": "agentSwitchSnoopingIntfFastLeaveAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfMulticastRouterMode": {
+    "name": "agentSwitchSnoopingIntfMulticastRouterMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingIntfVlanIDs": {
+    "name": "agentSwitchSnoopingIntfVlanIDs",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingVlanGroup": {
+    "name": "agentSwitchSnoopingVlanGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8",
+    "class": "objectidentity"
+  },
+  "agentSwitchSnoopingVlanTable": {
+    "name": "agentSwitchSnoopingVlanTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchSnoopingVlanEntry": {
+    "name": "agentSwitchSnoopingVlanEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchSnoopingProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchSnoopingVlanAdminMode": {
+    "name": "agentSwitchSnoopingVlanAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingVlanGroupMembershipInterval": {
+    "name": "agentSwitchSnoopingVlanGroupMembershipInterval",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingVlanMaxResponseTime": {
+    "name": "agentSwitchSnoopingVlanMaxResponseTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3599
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingVlanFastLeaveAdminMode": {
+    "name": "agentSwitchSnoopingVlanFastLeaveAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingVlanMRPExpirationTime": {
+    "name": "agentSwitchSnoopingVlanMRPExpirationTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchVlanStaticMrouterGroup": {
+    "name": "agentSwitchVlanStaticMrouterGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.9",
+    "class": "objectidentity"
+  },
+  "agentSwitchVlanStaticMrouterTable": {
+    "name": "agentSwitchVlanStaticMrouterTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchVlanStaticMrouterEntry": {
+    "name": "agentSwitchVlanStaticMrouterEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchSnoopingProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchVlanStaticMrouterAdminMode": {
+    "name": "agentSwitchVlanStaticMrouterAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchMFDBGroup": {
+    "name": "agentSwitchMFDBGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10",
+    "class": "objectidentity"
+  },
+  "agentSwitchMFDBTable": {
+    "name": "agentSwitchMFDBTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchMFDBEntry": {
+    "name": "agentSwitchMFDBEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchMFDBVlanId",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchMFDBMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchMFDBProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchMFDBVlanId": {
+    "name": "agentSwitchMFDBVlanId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBMacAddress": {
+    "name": "agentSwitchMFDBMacAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBProtocolType": {
+    "name": "agentSwitchMFDBProtocolType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "gmrp": 2,
+          "igmp": 3,
+          "mld": 4,
+          "mmrp": 5,
+          "msrp": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBType": {
+    "name": "agentSwitchMFDBType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBDescription": {
+    "name": "agentSwitchMFDBDescription",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBForwardingPortMask": {
+    "name": "agentSwitchMFDBForwardingPortMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBFilteringPortMask": {
+    "name": "agentSwitchMFDBFilteringPortMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBSummaryTable": {
+    "name": "agentSwitchMFDBSummaryTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchMFDBSummaryEntry": {
+    "name": "agentSwitchMFDBSummaryEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchMFDBSummaryVlanId",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchMFDBSummaryMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchMFDBSummaryVlanId": {
+    "name": "agentSwitchMFDBSummaryVlanId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBSummaryMacAddress": {
+    "name": "agentSwitchMFDBSummaryMacAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBSummaryForwardingPortMask": {
+    "name": "agentSwitchMFDBSummaryForwardingPortMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBMaxTableEntries": {
+    "name": "agentSwitchMFDBMaxTableEntries",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBMostEntriesUsed": {
+    "name": "agentSwitchMFDBMostEntriesUsed",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchMFDBCurrentEntries": {
+    "name": "agentSwitchMFDBCurrentEntries",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentDhcpFilteringGroup": {
+    "name": "agentDhcpFilteringGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.15",
+    "class": "objectidentity"
+  },
+  "agentDhcpFilteringAdminMode": {
+    "name": "agentDhcpFilteringAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentDhcpFilteringPortConfigTable": {
+    "name": "agentDhcpFilteringPortConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentDhcpFilteringPortConfigEntry": {
+    "name": "agentDhcpFilteringPortConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentDhcpFilteringPortTrustedMode": {
+    "name": "agentDhcpFilteringPortTrustedMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trusted": 1,
+          "untrusted": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "untrusted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchProtectedPortConfigGroup": {
+    "name": "agentSwitchProtectedPortConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.18",
+    "class": "objectidentity"
+  },
+  "agentSwitchProtectedPortTable": {
+    "name": "agentSwitchProtectedPortTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchProtectedPortEntry": {
+    "name": "agentSwitchProtectedPortEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchProtectedPortGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchProtectedPortGroupId": {
+    "name": "agentSwitchProtectedPortGroupId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchProtectedPortGroupName": {
+    "name": "agentSwitchProtectedPortGroupName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchProtectedPortPortList": {
+    "name": "agentSwitchProtectedPortPortList",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierGroup": {
+    "name": "agentSwitchSnoopingQuerierGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20",
+    "class": "objectidentity"
+  },
+  "agentSwitchSnoopingQuerierCfgTable": {
+    "name": "agentSwitchSnoopingQuerierCfgTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierCfgEntry": {
+    "name": "agentSwitchSnoopingQuerierCfgEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchSnoopingProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierAdminMode": {
+    "name": "agentSwitchSnoopingQuerierAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierVersion": {
+    "name": "agentSwitchSnoopingQuerierVersion",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierAddress": {
+    "name": "agentSwitchSnoopingQuerierAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierQueryInterval": {
+    "name": "agentSwitchSnoopingQuerierQueryInterval",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierExpiryInterval": {
+    "name": "agentSwitchSnoopingQuerierExpiryInterval",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierVlanTable": {
+    "name": "agentSwitchSnoopingQuerierVlanTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierVlanEntry": {
+    "name": "agentSwitchSnoopingQuerierVlanEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentSwitchSnoopingProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierVlanAdminMode": {
+    "name": "agentSwitchSnoopingQuerierVlanAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierVlanOperMode": {
+    "name": "agentSwitchSnoopingQuerierVlanOperMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "querier": 1,
+          "non-querier": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierElectionParticipateMode": {
+    "name": "agentSwitchSnoopingQuerierElectionParticipateMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierVlanAddress": {
+    "name": "agentSwitchSnoopingQuerierVlanAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierOperVersion": {
+    "name": "agentSwitchSnoopingQuerierOperVersion",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierOperMaxResponseTime": {
+    "name": "agentSwitchSnoopingQuerierOperMaxResponseTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierLastQuerierAddress": {
+    "name": "agentSwitchSnoopingQuerierLastQuerierAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchSnoopingQuerierLastQuerierVersion": {
+    "name": "agentSwitchSnoopingQuerierLastQuerierVersion",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.8.20.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTransferConfigGroup": {
+    "name": "agentTransferConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9",
+    "class": "objectidentity"
+  },
+  "agentTransferUploadGroup": {
+    "name": "agentTransferUploadGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1",
+    "class": "objectidentity"
+  },
+  "agentTransferUploadMode": {
+    "name": "agentTransferUploadMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "xmodem": 2,
+          "ymodem": 3,
+          "zmodem": 4,
+          "sftp": 5,
+          "scp": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadServerIP": {
+    "name": "agentTransferUploadServerIP",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "agentTransferUploadPath": {
+    "name": "agentTransferUploadPath",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadFilename": {
+    "name": "agentTransferUploadFilename",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadDataType": {
+    "name": "agentTransferUploadDataType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config": 2,
+          "errorlog": 3,
+          "messagelog": 4,
+          "traplog": 5,
+          "clibanner": 6,
+          "code": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadStart": {
+    "name": "agentTransferUploadStart",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadStatus": {
+    "name": "agentTransferUploadStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "transferStarting": 2,
+          "errorStarting": 3,
+          "wrongFileType": 4,
+          "updatingConfig": 5,
+          "invalidConfigFile": 6,
+          "writingToFlash": 7,
+          "failureWritingToFlash": 8,
+          "checkingCRC": 9,
+          "failedCRC": 10,
+          "unknownDirection": 11,
+          "transferSuccessful": 12,
+          "transferFailed": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTransferUploadServerAddressType": {
+    "name": "agentTransferUploadServerAddressType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadServerAddress": {
+    "name": "agentTransferUploadServerAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadImagename": {
+    "name": "agentTransferUploadImagename",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "image1": 2,
+          "image2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadUsername": {
+    "name": "agentTransferUploadUsername",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferUploadPassword": {
+    "name": "agentTransferUploadPassword",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadGroup": {
+    "name": "agentTransferDownloadGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2",
+    "class": "objectidentity"
+  },
+  "agentTransferDownloadMode": {
+    "name": "agentTransferDownloadMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "xmodem": 2,
+          "ymodem": 3,
+          "zmodem": 4,
+          "sftp": 5,
+          "scp": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadServerIP": {
+    "name": "agentTransferDownloadServerIP",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "agentTransferDownloadPath": {
+    "name": "agentTransferDownloadPath",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadFilename": {
+    "name": "agentTransferDownloadFilename",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadDataType": {
+    "name": "agentTransferDownloadDataType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "code": 2,
+          "config": 3,
+          "sshkey-rsa1": 4,
+          "sshkey-rsa2": 5,
+          "sshkey-dsa": 6,
+          "sslpem-root": 7,
+          "sslpem-server": 8,
+          "sslpem-dhweak": 9,
+          "sslpem-dhstrong": 10,
+          "clibanner": 11,
+          "kernel": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadStart": {
+    "name": "agentTransferDownloadStart",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadStatus": {
+    "name": "agentTransferDownloadStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "transferStarting": 2,
+          "errorStarting": 3,
+          "wrongFileType": 4,
+          "updatingConfig": 5,
+          "invalidConfigFile": 6,
+          "writingToFlash": 7,
+          "failureWritingToFlash": 8,
+          "checkingCRC": 9,
+          "failedCRC": 10,
+          "unknownDirection": 11,
+          "transferSuccessful": 12,
+          "transferFailed": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTransferDownloadServerAddressType": {
+    "name": "agentTransferDownloadServerAddressType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadServerAddress": {
+    "name": "agentTransferDownloadServerAddress",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadImagename": {
+    "name": "agentTransferDownloadImagename",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "image1": 2,
+          "image2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadUsername": {
+    "name": "agentTransferDownloadUsername",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentTransferDownloadPassword": {
+    "name": "agentTransferDownloadPassword",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentImageConfigGroup": {
+    "name": "agentImageConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.3",
+    "class": "objectidentity"
+  },
+  "agentImage1": {
+    "name": "agentImage1",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentImage2": {
+    "name": "agentImage2",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentActiveImage": {
+    "name": "agentActiveImage",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentNextActiveImage": {
+    "name": "agentNextActiveImage",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.9.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortMirroringGroup": {
+    "name": "agentPortMirroringGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10",
+    "class": "objectidentity"
+  },
+  "agentMirroredPortIfIndex": {
+    "name": "agentMirroredPortIfIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentProbePortIfIndex": {
+    "name": "agentProbePortIfIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentPortMirroringMode": {
+    "name": "agentPortMirroringMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "delete": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentPortMirrorTable": {
+    "name": "agentPortMirrorTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentPortMirrorEntry": {
+    "name": "agentPortMirrorEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentPortMirrorSessionNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentPortMirrorSessionNum": {
+    "name": "agentPortMirrorSessionNum",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentPortMirrorDestinationPort": {
+    "name": "agentPortMirrorDestinationPort",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortMirrorSourcePortMask": {
+    "name": "agentPortMirrorSourcePortMask",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortMirrorAdminMode": {
+    "name": "agentPortMirrorAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "delete": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortMirrorTypeTable": {
+    "name": "agentPortMirrorTypeTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentPortMirrorTypeEntry": {
+    "name": "agentPortMirrorTypeEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentPortMirrorSessionNum",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentPortMirrorTypeSourcePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentPortMirrorTypeSourcePort": {
+    "name": "agentPortMirrorTypeSourcePort",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentPortMirrorTypeType": {
+    "name": "agentPortMirrorTypeType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tx": 1,
+          "rx": 2,
+          "txrx": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "txrx",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentDot3adAggPortTable": {
+    "name": "agentDot3adAggPortTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentDot3adAggPortEntry": {
+    "name": "agentDot3adAggPortEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentDot3adAggPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentDot3adAggPort": {
+    "name": "agentDot3adAggPort",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentDot3adAggPortLACPMode": {
+    "name": "agentDot3adAggPortLACPMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortConfigTable": {
+    "name": "agentPortConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentPortConfigEntry": {
+    "name": "agentPortConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentPortDot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentPortDot1dBasePort": {
+    "name": "agentPortDot1dBasePort",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentPortIfIndex": {
+    "name": "agentPortIfIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentPortIanaType": {
+    "name": "agentPortIanaType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentPortSTPMode": {
+    "name": "agentPortSTPMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 1,
+          "fast": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortSTPState": {
+    "name": "agentPortSTPState",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 1,
+          "listening": 2,
+          "learning": 3,
+          "forwarding": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentPortAdminMode": {
+    "name": "agentPortAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortPhysicalMode": {
+    "name": "agentPortPhysicalMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-negotiate": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-100fx": 6,
+          "full-100fx": 7,
+          "full-1000sx": 8,
+          "full-10gsx": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "agentPortPhysicalStatus": {
+    "name": "agentPortPhysicalStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-negotiate": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-100fx": 6,
+          "full-100fx": 7,
+          "full-1000sx": 8,
+          "full-10gsx": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "agentPortLinkTrapMode": {
+    "name": "agentPortLinkTrapMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortClearStats": {
+    "name": "agentPortClearStats",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortDefaultType": {
+    "name": "agentPortDefaultType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortType": {
+    "name": "agentPortType",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentPortAutoNegAdminStatus": {
+    "name": "agentPortAutoNegAdminStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortDot3FlowControlMode": {
+    "name": "agentPortDot3FlowControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortMaxFrameSizeLimit": {
+    "name": "agentPortMaxFrameSizeLimit",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentPortMaxFrameSize": {
+    "name": "agentPortMaxFrameSize",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortBroadcastControlMode": {
+    "name": "agentPortBroadcastControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortBroadcastControlThreshold": {
+    "name": "agentPortBroadcastControlThreshold",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortMulticastControlMode": {
+    "name": "agentPortMulticastControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortMulticastControlThreshold": {
+    "name": "agentPortMulticastControlThreshold",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortUnicastControlMode": {
+    "name": "agentPortUnicastControlMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentPortUnicastControlThreshold": {
+    "name": "agentPortUnicastControlThreshold",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.13.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpSwitchConfigGroup": {
+    "name": "agentStpSwitchConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15",
+    "class": "objectidentity"
+  },
+  "agentStpConfigDigestKey": {
+    "name": "agentStpConfigDigestKey",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpConfigFormatSelector": {
+    "name": "agentStpConfigFormatSelector",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpConfigName": {
+    "name": "agentStpConfigName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpConfigRevision": {
+    "name": "agentStpConfigRevision",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpForceVersion": {
+    "name": "agentStpForceVersion",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 1,
+          "dot1w": 2,
+          "dot1s": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpAdminMode": {
+    "name": "agentStpAdminMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpBpduGuardMode": {
+    "name": "agentStpBpduGuardMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpBpduFilterDefault": {
+    "name": "agentStpBpduFilterDefault",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpPortTable": {
+    "name": "agentStpPortTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentStpPortEntry": {
+    "name": "agentStpPortEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentStpPortState": {
+    "name": "agentStpPortState",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpPortStatsMstpBpduRx": {
+    "name": "agentStpPortStatsMstpBpduRx",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpPortStatsMstpBpduTx": {
+    "name": "agentStpPortStatsMstpBpduTx",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpPortStatsRstpBpduRx": {
+    "name": "agentStpPortStatsRstpBpduRx",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpPortStatsRstpBpduTx": {
+    "name": "agentStpPortStatsRstpBpduTx",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpPortStatsStpBpduRx": {
+    "name": "agentStpPortStatsStpBpduRx",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpPortStatsStpBpduTx": {
+    "name": "agentStpPortStatsStpBpduTx",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpPortUpTime": {
+    "name": "agentStpPortUpTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpPortMigrationCheck": {
+    "name": "agentStpPortMigrationCheck",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpPortHelloTime": {
+    "name": "agentStpPortHelloTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstConfigGroup": {
+    "name": "agentStpCstConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10",
+    "class": "objectidentity"
+  },
+  "agentStpCstHelloTime": {
+    "name": "agentStpCstHelloTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstMaxAge": {
+    "name": "agentStpCstMaxAge",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstRegionalRootId": {
+    "name": "agentStpCstRegionalRootId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstRegionalRootPathCost": {
+    "name": "agentStpCstRegionalRootPathCost",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstRootFwdDelay": {
+    "name": "agentStpCstRootFwdDelay",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstBridgeFwdDelay": {
+    "name": "agentStpCstBridgeFwdDelay",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstBridgeHelloTime": {
+    "name": "agentStpCstBridgeHelloTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstBridgeHoldTime": {
+    "name": "agentStpCstBridgeHoldTime",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstBridgeMaxAge": {
+    "name": "agentStpCstBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstBridgeMaxHops": {
+    "name": "agentStpCstBridgeMaxHops",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstBridgePriority": {
+    "name": "agentStpCstBridgePriority",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstBridgeHoldCount": {
+    "name": "agentStpCstBridgeHoldCount",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstTimeSinceTopologyChange": {
+    "name": "agentStpCstTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstTopologyChangeCount": {
+    "name": "agentStpCstTopologyChangeCount",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.10.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstPortTable": {
+    "name": "agentStpCstPortTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentStpCstPortEntry": {
+    "name": "agentStpCstPortEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentStpCstPortOperEdge": {
+    "name": "agentStpCstPortOperEdge",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstPortOperPointToPoint": {
+    "name": "agentStpCstPortOperPointToPoint",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstPortTopologyChangeAck": {
+    "name": "agentStpCstPortTopologyChangeAck",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstPortEdge": {
+    "name": "agentStpCstPortEdge",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstPortForwardingState": {
+    "name": "agentStpCstPortForwardingState",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "learning": 2,
+          "forwarding": 3,
+          "disabled": 4,
+          "manualFwd": 5,
+          "notParticipate": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstPortId": {
+    "name": "agentStpCstPortId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstPortPathCost": {
+    "name": "agentStpCstPortPathCost",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstPortPriority": {
+    "name": "agentStpCstPortPriority",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstDesignatedBridgeId": {
+    "name": "agentStpCstDesignatedBridgeId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstDesignatedCost": {
+    "name": "agentStpCstDesignatedCost",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstDesignatedPortId": {
+    "name": "agentStpCstDesignatedPortId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstExtPortPathCost": {
+    "name": "agentStpCstExtPortPathCost",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstPortBpduGuardEffect": {
+    "name": "agentStpCstPortBpduGuardEffect",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpCstPortBpduFilter": {
+    "name": "agentStpCstPortBpduFilter",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstPortBpduFlood": {
+    "name": "agentStpCstPortBpduFlood",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstPortAutoEdge": {
+    "name": "agentStpCstPortAutoEdge",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstPortRootGuard": {
+    "name": "agentStpCstPortRootGuard",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpCstPortTCNGuard": {
+    "name": "agentStpCstPortTCNGuard",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpMstTable": {
+    "name": "agentStpMstTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentStpMstEntry": {
+    "name": "agentStpMstEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentStpMstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentStpMstId": {
+    "name": "agentStpMstId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstBridgePriority": {
+    "name": "agentStpMstBridgePriority",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpMstBridgeIdentifier": {
+    "name": "agentStpMstBridgeIdentifier",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstDesignatedRootId": {
+    "name": "agentStpMstDesignatedRootId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstRootPathCost": {
+    "name": "agentStpMstRootPathCost",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstRootPortId": {
+    "name": "agentStpMstRootPortId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstTimeSinceTopologyChange": {
+    "name": "agentStpMstTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstTopologyChangeCount": {
+    "name": "agentStpMstTopologyChangeCount",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstTopologyChangeParm": {
+    "name": "agentStpMstTopologyChangeParm",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstRowStatus": {
+    "name": "agentStpMstRowStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentStpMstPortTable": {
+    "name": "agentStpMstPortTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentStpMstPortEntry": {
+    "name": "agentStpMstPortEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentStpMstId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentStpMstPortForwardingState": {
+    "name": "agentStpMstPortForwardingState",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "learning": 2,
+          "forwarding": 3,
+          "disabled": 4,
+          "manualFwd": 5,
+          "notParticipate": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstPortId": {
+    "name": "agentStpMstPortId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstPortPathCost": {
+    "name": "agentStpMstPortPathCost",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpMstPortPriority": {
+    "name": "agentStpMstPortPriority",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentStpMstDesignatedBridgeId": {
+    "name": "agentStpMstDesignatedBridgeId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstDesignatedCost": {
+    "name": "agentStpMstDesignatedCost",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstDesignatedPortId": {
+    "name": "agentStpMstDesignatedPortId",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentStpMstVlanTable": {
+    "name": "agentStpMstVlanTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentStpMstVlanEntry": {
+    "name": "agentStpMstVlanEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentStpMstId",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentStpMstVlanRowStatus": {
+    "name": "agentStpMstVlanRowStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.15.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "agentAuthenticationGroup": {
+    "name": "agentAuthenticationGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16",
+    "class": "objectidentity"
+  },
+  "agentAuthenticationListCreate": {
+    "name": "agentAuthenticationListCreate",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentAuthenticationListTable": {
+    "name": "agentAuthenticationListTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentAuthenticationListEntry": {
+    "name": "agentAuthenticationListEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentAuthenticationListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentAuthenticationListIndex": {
+    "name": "agentAuthenticationListIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentAuthenticationListName": {
+    "name": "agentAuthenticationListName",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentAuthenticationListMethod1": {
+    "name": "agentAuthenticationListMethod1",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "radius": 2,
+          "reject": 3,
+          "tacacs": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentAuthenticationListMethod2": {
+    "name": "agentAuthenticationListMethod2",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "local": 2,
+          "radius": 3,
+          "reject": 4,
+          "tacacs": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentAuthenticationListMethod3": {
+    "name": "agentAuthenticationListMethod3",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "local": 2,
+          "radius": 3,
+          "reject": 4,
+          "tacacs": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentAuthenticationListStatus": {
+    "name": "agentAuthenticationListStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentAuthenticationListMethod4": {
+    "name": "agentAuthenticationListMethod4",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "local": 2,
+          "radius": 3,
+          "reject": 4,
+          "tacacs": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserConfigDefaultAuthenticationList": {
+    "name": "agentUserConfigDefaultAuthenticationList",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserAuthenticationConfigTable": {
+    "name": "agentUserAuthenticationConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentUserAuthenticationConfigEntry": {
+    "name": "agentUserAuthenticationConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "agentUserAuthenticationConfigEntry",
+      "module": "NETGEAR-SMART-SWITCHING-MIB",
+      "object": "agentUserConfigEntry"
+    },
+    "status": "current"
+  },
+  "agentUserAuthenticationList": {
+    "name": "agentUserAuthenticationList",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentUserPortConfigTable": {
+    "name": "agentUserPortConfigTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentUserPortConfigEntry": {
+    "name": "agentUserPortConfigEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "agentUserPortConfigEntry",
+      "module": "NETGEAR-SMART-SWITCHING-MIB",
+      "object": "agentUserConfigEntry"
+    },
+    "status": "current"
+  },
+  "agentUserPortSecurity": {
+    "name": "agentUserPortSecurity",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.16.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClassOfServiceGroup": {
+    "name": "agentClassOfServiceGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.17",
+    "class": "objectidentity"
+  },
+  "agentClassOfServicePortTable": {
+    "name": "agentClassOfServicePortTable",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentClassOfServicePortEntry": {
+    "name": "agentClassOfServicePortEntry",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentClassOfServicePortPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "agentClassOfServicePortPriority": {
+    "name": "agentClassOfServicePortPriority",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "agentClassOfServicePortClass": {
+    "name": "agentClassOfServicePortClass",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentHTTPConfigGroup": {
+    "name": "agentHTTPConfigGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.18",
+    "class": "objectidentity"
+  },
+  "agentHTTPWebMode": {
+    "name": "agentHTTPWebMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentHTTPJavaMode": {
+    "name": "agentHTTPJavaMode",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentHTTPMaxSessions": {
+    "name": "agentHTTPMaxSessions",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentHTTPHardTimeout": {
+    "name": "agentHTTPHardTimeout",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 168
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentHTTPSoftTimeout": {
+    "name": "agentHTTPSoftTimeout",
+    "oid": "1.3.6.1.4.1.4526.11.1.2.18.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSystemGroup": {
+    "name": "agentSystemGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.3",
+    "class": "objectidentity"
+  },
+  "agentSaveConfig": {
+    "name": "agentSaveConfig",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearConfig": {
+    "name": "agentClearConfig",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearLags": {
+    "name": "agentClearLags",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearLoginSessions": {
+    "name": "agentClearLoginSessions",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearPasswords": {
+    "name": "agentClearPasswords",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearPortStats": {
+    "name": "agentClearPortStats",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearSwitchStats": {
+    "name": "agentClearSwitchStats",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearTrapLog": {
+    "name": "agentClearTrapLog",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentClearVlan": {
+    "name": "agentClearVlan",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentResetSystem": {
+    "name": "agentResetSystem",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentSaveConfigStatus": {
+    "name": "agentSaveConfigStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "savingInProcess": 2,
+          "savingComplete": 3,
+          "savingFailed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentCableTesterGroup": {
+    "name": "agentCableTesterGroup",
+    "oid": "1.3.6.1.4.1.4526.11.1.4",
+    "class": "objectidentity"
+  },
+  "agentCableTesterStatus": {
+    "name": "agentCableTesterStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "success": 2,
+          "failure": 3,
+          "uninitialized": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "uninitialized",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentCableTesterIfIndex": {
+    "name": "agentCableTesterIfIndex",
+    "oid": "1.3.6.1.4.1.4526.11.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agentCableTesterCableStatus": {
+    "name": "agentCableTesterCableStatus",
+    "oid": "1.3.6.1.4.1.4526.11.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "open": 2,
+          "short": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentCableTesterMinimumCableLength": {
+    "name": "agentCableTesterMinimumCableLength",
+    "oid": "1.3.6.1.4.1.4526.11.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentCableTesterMaximumCableLength": {
+    "name": "agentCableTesterMaximumCableLength",
+    "oid": "1.3.6.1.4.1.4526.11.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentCableTesterCableFailureLocation": {
+    "name": "agentCableTesterCableFailureLocation",
+    "oid": "1.3.6.1.4.1.4526.11.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSwitchingTraps": {
+    "name": "agentSwitchingTraps",
+    "oid": "1.3.6.1.4.1.4526.11.1.0",
+    "class": "objectidentity"
+  },
+  "multipleUsersTrap": {
+    "name": "multipleUsersTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "broadcastStormStartTrap": {
+    "name": "broadcastStormStartTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.2",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "broadcastStormEndTrap": {
+    "name": "broadcastStormEndTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.3",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "linkFailureTrap": {
+    "name": "linkFailureTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.4",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "vlanRequestFailureTrap": {
+    "name": "vlanRequestFailureTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vlanDeleteLastTrap": {
+    "name": "vlanDeleteLastTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDefaultCfgFailureTrap": {
+    "name": "vlanDefaultCfgFailureTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanRestoreFailureTrap": {
+    "name": "vlanRestoreFailureTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fanFailureTrap": {
+    "name": "fanFailureTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.9",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "stpInstanceNewRootTrap": {
+    "name": "stpInstanceNewRootTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentStpMstId"
+      }
+    ],
+    "status": "current"
+  },
+  "stpInstanceTopologyChangeTrap": {
+    "name": "stpInstanceTopologyChangeTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETGEAR-SMART-SWITCHING-MIB",
+        "object": "agentStpMstId"
+      }
+    ],
+    "status": "current"
+  },
+  "powerSupplyStatusChangeTrap": {
+    "name": "powerSupplyStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.12",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "failedUserLoginTrap": {
+    "name": "failedUserLoginTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "userLockoutTrap": {
+    "name": "userLockoutTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.14",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "macAddrLearnTrap": {
+    "name": "macAddrLearnTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpFdbAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "macAddrAgeoutTrap": {
+    "name": "macAddrAgeoutTrap",
+    "oid": "1.3.6.1.4.1.4526.11.1.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qTpFdbAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SMART-SWITCHING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETGEAR-SMART-SWITCHING-MIB"
+  }
+}

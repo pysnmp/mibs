@@ -1,0 +1,1786 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "routingProtocols"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "prvtOspfMIB": {
+    "name": "prvtOspfMIB",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-01 00:00",
+        "description": "Area ID is represent as octet string"
+      },
+      {
+        "revision": "2011-06-02 00:00",
+        "description": "Added prvtOspfTrafficEngEnable"
+      },
+      {
+        "revision": "2009-11-13 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "PrvtOspfDesignatedRouterPriority": {
+    "name": "PrvtOspfDesignatedRouterPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtOspfIpAddress": {
+    "name": "PrvtOspfIpAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d",
+    "status": "current"
+  },
+  "prvtOspfObjects": {
+    "name": "prvtOspfObjects",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1",
+    "class": "objectidentity"
+  },
+  "prvtOspfRouterId": {
+    "name": "prvtOspfRouterId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtOspfAdminStat": {
+    "name": "prvtOspfAdminStat",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtOspfVersionNumber": {
+    "name": "prvtOspfVersionNumber",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExternLsaCount": {
+    "name": "prvtOspfExternLsaCount",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExternLsaCksumSum": {
+    "name": "prvtOspfExternLsaCksumSum",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfTOSSupport": {
+    "name": "prvtOspfTOSSupport",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfOriginateNewLsas": {
+    "name": "prvtOspfOriginateNewLsas",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRxNewLsas": {
+    "name": "prvtOspfRxNewLsas",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbLimit": {
+    "name": "prvtOspfExtLsdbLimit",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtOspfMulticastExtensions": {
+    "name": "prvtOspfMulticastExtensions",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExitOverflowInterval": {
+    "name": "prvtOspfExitOverflowInterval",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtOspfDemandExtensions": {
+    "name": "prvtOspfDemandExtensions",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfAreaTable": {
+    "name": "prvtOspfAreaTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfAreaEntry": {
+    "name": "prvtOspfAreaEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfAreaId": {
+    "name": "prvtOspfAreaId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfAreaRowStatus": {
+    "name": "prvtOspfAreaRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaType": {
+    "name": "prvtOspfAreaType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "stub": 1,
+          "nssa": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaSummary": {
+    "name": "prvtOspfAreaSummary",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAreaSummary": 1,
+          "sendAreaSummary": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaAuthType": {
+    "name": "prvtOspfAreaAuthType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 1,
+          "md5": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaShortcutConfiguration": {
+    "name": "prvtOspfAreaShortcutConfiguration",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaNssaTransitRole": {
+    "name": "prvtOspfAreaNssaTransitRole",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ospfNssaRoleNever": 0,
+          "ospfNssaRoleAlways": 1,
+          "ospfNssaRoleCandidate": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaImportList": {
+    "name": "prvtOspfAreaImportList",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaExportList": {
+    "name": "prvtOspfAreaExportList",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaMetric": {
+    "name": "prvtOspfAreaMetric",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaMetricType": {
+    "name": "prvtOspfAreaMetricType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ospfMetric": 1,
+          "comparableCost": 2,
+          "nonComparable": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfAreaDefaultCost": {
+    "name": "prvtOspfAreaDefaultCost",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfLsdbTable": {
+    "name": "prvtOspfLsdbTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfLsdbEntry": {
+    "name": "prvtOspfLsdbEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfLsdbAreaId": {
+    "name": "prvtOspfLsdbAreaId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfLsdbType": {
+    "name": "prvtOspfLsdbType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "asExternalLink": 5,
+          "multicastLink": 6,
+          "nssaExternalLink": 7,
+          "unknownLink": 8,
+          "opaqueLinkLsa": 9,
+          "opaqueAreaLsa": 10,
+          "opaqueAsLsa": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfLsdbLsid": {
+    "name": "prvtOspfLsdbLsid",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfLsdbRouterId": {
+    "name": "prvtOspfLsdbRouterId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfLsdbSequence": {
+    "name": "prvtOspfLsdbSequence",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfLsdbAge": {
+    "name": "prvtOspfLsdbAge",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfLsdbChecksum": {
+    "name": "prvtOspfLsdbChecksum",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfLsdbLength": {
+    "name": "prvtOspfLsdbLength",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfLsdbAdvertisement": {
+    "name": "prvtOspfLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbTable": {
+    "name": "prvtOspfExtLsdbTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbEntry": {
+    "name": "prvtOspfExtLsdbEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfExtLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfExtLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfExtLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfExtLsdbType": {
+    "name": "prvtOspfExtLsdbType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "asExternalLink": 5,
+          "multicastLink": 6,
+          "nssaExternalLink": 7,
+          "unknownLink": 8,
+          "opaqueLinkLsa": 9,
+          "opaqueAreaLsa": 10,
+          "opaqueAsLsa": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbLsid": {
+    "name": "prvtOspfExtLsdbLsid",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbRouterId": {
+    "name": "prvtOspfExtLsdbRouterId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbSequence": {
+    "name": "prvtOspfExtLsdbSequence",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbAge": {
+    "name": "prvtOspfExtLsdbAge",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -32768,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbChecksum": {
+    "name": "prvtOspfExtLsdbChecksum",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfExtLsdbAdvertisement": {
+    "name": "prvtOspfExtLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfIfTable": {
+    "name": "prvtOspfIfTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfIfEntry": {
+    "name": "prvtOspfIfEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfIfIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfIfIpAddress": {
+    "name": "prvtOspfIfIpAddress",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfIfRowStatus": {
+    "name": "prvtOspfIfRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfAreaId": {
+    "name": "prvtOspfIfAreaId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfWorkingMode": {
+    "name": "prvtOspfIfWorkingMode",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 0,
+          "passive": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfTransitDelay": {
+    "name": "prvtOspfIfTransitDelay",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfPriority": {
+    "name": "prvtOspfIfPriority",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfHelloTimer": {
+    "name": "prvtOspfIfHelloTimer",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfDeadTimer": {
+    "name": "prvtOspfIfDeadTimer",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfRetransmitInterval": {
+    "name": "prvtOspfIfRetransmitInterval",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfOutputCost": {
+    "name": "prvtOspfIfOutputCost",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfAuthType": {
+    "name": "prvtOspfIfAuthType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simple": 1,
+          "md5": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfAuthSimple": {
+    "name": "prvtOspfIfAuthSimple",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfType": {
+    "name": "prvtOspfIfType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "broadcast": 1,
+          "nbma": 2,
+          "pointToPoint": 3,
+          "pointToMultipoint": 5,
+          "virtualLink": 6,
+          "loopback": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfAuthMd5Table": {
+    "name": "prvtOspfIfAuthMd5Table",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfIfAuthMd5Entry": {
+    "name": "prvtOspfIfAuthMd5Entry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfIfIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfIfAuthMd5Key",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfIfAuthMd5Key": {
+    "name": "prvtOspfIfAuthMd5Key",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfIfAuthMd5RowStatus": {
+    "name": "prvtOspfIfAuthMd5RowStatus",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfIfAuthMd5Word": {
+    "name": "prvtOspfIfAuthMd5Word",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfNbrTable": {
+    "name": "prvtOspfNbrTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfNbrEntry": {
+    "name": "prvtOspfNbrEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfNbrIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfNbrAddressLessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfNbrIpAddr": {
+    "name": "prvtOspfNbrIpAddr",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtOspfIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfNbrAddressLessIndex": {
+    "name": "prvtOspfNbrAddressLessIndex",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfNbrRtrId": {
+    "name": "prvtOspfNbrRtrId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtOspfIpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfNbrOptions": {
+    "name": "prvtOspfNbrOptions",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfNbrPriority": {
+    "name": "prvtOspfNbrPriority",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtOspfDesignatedRouterPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfNbrState": {
+    "name": "prvtOspfNbrState",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfNbrEvents": {
+    "name": "prvtOspfNbrEvents",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfNbrLsRetransQLen": {
+    "name": "prvtOspfNbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfNbmaNbrPermanence": {
+    "name": "prvtOspfNbmaNbrPermanence",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfNbrHelloSuppressed": {
+    "name": "prvtOspfNbrHelloSuppressed",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRedistributeTable": {
+    "name": "prvtOspfRedistributeTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRedistributeEntry": {
+    "name": "prvtOspfRedistributeEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRedistributeProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfRedistributeProtocol": {
+    "name": "prvtOspfRedistributeProtocol",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 2,
+          "connected": 3,
+          "static": 4,
+          "default": 17
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRedistributeRowStatus": {
+    "name": "prvtOspfRedistributeRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfRedistributeMetric1": {
+    "name": "prvtOspfRedistributeMetric1",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfRedistributeMetric2": {
+    "name": "prvtOspfRedistributeMetric2",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfRedistributeRouteMap": {
+    "name": "prvtOspfRedistributeRouteMap",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtOspfRouterDataTable": {
+    "name": "prvtOspfRouterDataTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterDataEntry": {
+    "name": "prvtOspfRouterDataEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRouterDataPrefix",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRouterDataType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRouterDataAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfRouterDataPrefix": {
+    "name": "prvtOspfRouterDataPrefix",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterDataType": {
+    "name": "prvtOspfRouterDataType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "network": 1,
+          "router": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterDataAreaId": {
+    "name": "prvtOspfRouterDataAreaId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterDataId": {
+    "name": "prvtOspfRouterDataId",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterDataCost": {
+    "name": "prvtOspfRouterDataCost",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterDataCostType": {
+    "name": "prvtOspfRouterDataCostType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRouterDataDestType": {
+    "name": "prvtOspfRouterDataDestType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "router": 1,
+          "network": 2,
+          "disables": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRouterDataPathType": {
+    "name": "prvtOspfRouterDataPathType",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intraArea": 1,
+          "interArea": 2,
+          "external1": 3,
+          "external3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRouterDataFlags": {
+    "name": "prvtOspfRouterDataFlags",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "abr": 0,
+        "asbr": 1,
+        "virtual": 2,
+        "unknown": 3,
+        "nssa": 4,
+        "shortcut": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRouterDataExternalRouting": {
+    "name": "prvtOspfRouterDataExternalRouting",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "stub": 1,
+          "nssa": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRouterDataTag": {
+    "name": "prvtOspfRouterDataTag",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.20.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRouterPathTable": {
+    "name": "prvtOspfRouterPathTable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterPathEntry": {
+    "name": "prvtOspfRouterPathEntry",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRouterDataPrefix",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRouterDataType",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRouterDataAreaId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-OSPF-MIB",
+        "object": "prvtOspfRouterPathNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtOspfRouterPathNextHop": {
+    "name": "prvtOspfRouterPathNextHop",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtOspfRouterPathAdvertisingRouter": {
+    "name": "prvtOspfRouterPathAdvertisingRouter",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfRouterPathInterfaceName": {
+    "name": "prvtOspfRouterPathInterfaceName",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtOspfTrafficEngEnable": {
+    "name": "prvtOspfTrafficEngEnable",
+    "oid": "1.3.6.1.4.1.738.10.6.4.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-OSPF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:50:55 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-OSPF-MIB"
+  }
+}

@@ -1,0 +1,513 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cProtocolVlan": {
+    "name": "hh3cProtocolVlan",
+    "oid": "1.3.6.1.4.1.25506.2.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-08-31 19:38",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "Hh3cvProtocolVlanProtocolType": {
+    "name": "Hh3cvProtocolVlanProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipx": 2,
+          "at": 3,
+          "ipv6": 4,
+          "mode-llc": 101,
+          "mode-snap": 102,
+          "mode-ethernetii": 103,
+          "notConfigure": 201
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cvProtocolVlanProtocolSubType": {
+    "name": "Hh3cvProtocolVlanProtocolSubType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notused": 1,
+          "ethernetii": 2,
+          "llc": 3,
+          "raw": 4,
+          "snap": 5,
+          "etype": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cProtocolVlanOperate": {
+    "name": "hh3cProtocolVlanOperate",
+    "oid": "1.3.6.1.4.1.25506.2.16.1",
+    "class": "objectidentity"
+  },
+  "hh3cProtocolNumAllVlan": {
+    "name": "hh3cProtocolNumAllVlan",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolNumPerVlan": {
+    "name": "hh3cProtocolNumPerVlan",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolNumAllPort": {
+    "name": "hh3cProtocolNumAllPort",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolNumPerPort": {
+    "name": "hh3cProtocolNumPerPort",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolVlanTable": {
+    "name": "hh3cProtocolVlanTable",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProtocolVlanEntry": {
+    "name": "hh3cProtocolVlanEntry",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cProtocolVlanVlanId": {
+    "name": "hh3cProtocolVlanVlanId",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProtocolVlanProtocolIndex": {
+    "name": "hh3cProtocolVlanProtocolIndex",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProtocolVlanProtocolType": {
+    "name": "hh3cProtocolVlanProtocolType",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cvProtocolVlanProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cProtocolVlanProtocolSubType": {
+    "name": "hh3cProtocolVlanProtocolSubType",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cvProtocolVlanProtocolSubType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cProtocolVlanProtocolTypeValue": {
+    "name": "hh3cProtocolVlanProtocolTypeValue",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cProtocolVlanRowStatus": {
+    "name": "hh3cProtocolVlanRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortTable": {
+    "name": "hh3cProtocolVlanPortTable",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortEntry": {
+    "name": "hh3cProtocolVlanPortEntry",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanPortVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanPortProtocolId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortIndex": {
+    "name": "hh3cProtocolVlanPortIndex",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortVlanId": {
+    "name": "hh3cProtocolVlanPortVlanId",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortProtocolId": {
+    "name": "hh3cProtocolVlanPortProtocolId",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortProtocolType": {
+    "name": "hh3cProtocolVlanPortProtocolType",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cvProtocolVlanProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortProtocolSubType": {
+    "name": "hh3cProtocolVlanPortProtocolSubType",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cvProtocolVlanProtocolSubType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortTypeValue": {
+    "name": "hh3cProtocolVlanPortTypeValue",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortRowStatus": {
+    "name": "hh3cProtocolVlanPortRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortStatus": {
+    "name": "hh3cProtocolVlanPortStatus",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cDifferentProtocolNumAllPort": {
+    "name": "hh3cDifferentProtocolNumAllPort",
+    "oid": "1.3.6.1.4.1.25506.2.16.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cProtocolVlanConformance": {
+    "name": "hh3cProtocolVlanConformance",
+    "oid": "1.3.6.1.4.1.25506.2.16.2",
+    "class": "objectidentity"
+  },
+  "hh3cProtocolVlanCompliances": {
+    "name": "hh3cProtocolVlanCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.16.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cProtocolVlanCompliance": {
+    "name": "hh3cProtocolVlanCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.16.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cProtocolVlanOperateGroup",
+        "module": "HH3C-PROTOCOL-VLAN-MIB"
+      },
+      {
+        "object": "hh3cProtocolVlanProtocolGroup",
+        "module": "HH3C-PROTOCOL-VLAN-MIB"
+      },
+      {
+        "object": "hh3cProtocolVlanPortGroup",
+        "module": "HH3C-PROTOCOL-VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cProtocolVlanGroups": {
+    "name": "hh3cProtocolVlanGroups",
+    "oid": "1.3.6.1.4.1.25506.2.16.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cProtocolVlanOperateGroup": {
+    "name": "hh3cProtocolVlanOperateGroup",
+    "oid": "1.3.6.1.4.1.25506.2.16.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolNumAllVlan"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolNumPerVlan"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolNumAllPort"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolNumPerPort"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cDifferentProtocolNumAllPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cProtocolVlanProtocolGroup": {
+    "name": "hh3cProtocolVlanProtocolGroup",
+    "oid": "1.3.6.1.4.1.25506.2.16.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanProtocolType"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanProtocolSubType"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanProtocolTypeValue"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cProtocolVlanPortGroup": {
+    "name": "hh3cProtocolVlanPortGroup",
+    "oid": "1.3.6.1.4.1.25506.2.16.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanPortProtocolType"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanPortProtocolSubType"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanPortTypeValue"
+      },
+      {
+        "module": "HH3C-PROTOCOL-VLAN-MIB",
+        "object": "hh3cProtocolVlanPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-PROTOCOL-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-PROTOCOL-VLAN-MIB"
+  }
+}

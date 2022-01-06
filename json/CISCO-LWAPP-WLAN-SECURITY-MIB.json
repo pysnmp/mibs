@@ -1,0 +1,878 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-TC-MIB": [
+      "CLSecEncryptType",
+      "CLSecKeyFormat"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLwappWlanSecurityMIB": {
+    "name": "ciscoLwappWlanSecurityMIB",
+    "oid": "1.3.6.1.4.1.9.9.521",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-03 00:00",
+        "description": "Added following OBJECT-GROUP: - ciscoLwappWlanSecurityAaaConfigGroup - ciscoLwappWlanSecurityFtConfigGroup - ciscoLwappWlanSecurityPfmConfigGroup - ciscoLwappWlanSecurityCckmConfigGroup1 Added new compliance - ciscoLwappWlanSecurityMIBComplianceRev2."
+      },
+      {
+        "revision": "2008-01-15 00:00",
+        "description": "Added new cLWSecDot11EssWebPolicyTable and ciscoLwappWlanSecurityMIBComplianceRev1"
+      },
+      {
+        "revision": "2007-11-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappWlanSecurityMIBNotifs": {
+    "name": "ciscoLwappWlanSecurityMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.521.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanSecurityMIBObjects": {
+    "name": "ciscoLwappWlanSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.521.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanSecurityMIBConform": {
+    "name": "ciscoLwappWlanSecurityMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.521.2",
+    "class": "objectidentity"
+  },
+  "clwsCckmConfig": {
+    "name": "clwsCckmConfig",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1",
+    "class": "objectidentity"
+  },
+  "clwsCkipConfig": {
+    "name": "clwsCkipConfig",
+    "oid": "1.3.6.1.4.1.9.9.521.1.2",
+    "class": "objectidentity"
+  },
+  "clwsWebPolicyConfig": {
+    "name": "clwsWebPolicyConfig",
+    "oid": "1.3.6.1.4.1.9.9.521.1.3",
+    "class": "objectidentity"
+  },
+  "clwsAaaConfig": {
+    "name": "clwsAaaConfig",
+    "oid": "1.3.6.1.4.1.9.9.521.1.4",
+    "class": "objectidentity"
+  },
+  "cLWSecDot11EssCckmTable": {
+    "name": "cLWSecDot11EssCckmTable",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmEntry": {
+    "name": "cLWSecDot11EssCckmEntry",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmWpaSupport": {
+    "name": "cLWSecDot11EssCckmWpaSupport",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmWpa1Security": {
+    "name": "cLWSecDot11EssCckmWpa1Security",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmWpa1EncType": {
+    "name": "cLWSecDot11EssCckmWpa1EncType",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLSecEncryptType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmWpa2Security": {
+    "name": "cLWSecDot11EssCckmWpa2Security",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmWpa2EncType": {
+    "name": "cLWSecDot11EssCckmWpa2EncType",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLSecEncryptType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmKeyMgmtMode": {
+    "name": "cLWSecDot11EssCckmKeyMgmtMode",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dot1x": 0,
+        "cckm": 1,
+        "psk": 2,
+        "ftDot1x": 3,
+        "ftPsk": 4,
+        "pfmDot1x": 5,
+        "pfmPsk": 6
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "dot1x": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssPskFmt": {
+    "name": "cLWSecDot11EssPskFmt",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLSecKeyFormat",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssPsk": {
+    "name": "cLWSecDot11EssPsk",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCckmGtkRandomize": {
+    "name": "cLWSecDot11EssCckmGtkRandomize",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssFtEnable": {
+    "name": "cLWSecDot11EssFtEnable",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssFtReassocTime": {
+    "name": "cLWSecDot11EssFtReassocTime",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssFtOverDs": {
+    "name": "cLWSecDot11EssFtOverDs",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11Ess11wPfm": {
+    "name": "cLWSecDot11Ess11wPfm",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "optional": 2,
+          "required": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssRetryTime": {
+    "name": "cLWSecDot11EssRetryTime",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssComebackTime": {
+    "name": "cLWSecDot11EssComebackTime",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipTable": {
+    "name": "cLWSecDot11EssCkipTable",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipEntry": {
+    "name": "cLWSecDot11EssCkipEntry",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipSecurity": {
+    "name": "cLWSecDot11EssCkipSecurity",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipKeyIndex": {
+    "name": "cLWSecDot11EssCkipKeyIndex",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipKeyLength": {
+    "name": "cLWSecDot11EssCkipKeyLength",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "len40": 2,
+          "len104": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipKeyFmt": {
+    "name": "cLWSecDot11EssCkipKeyFmt",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CLSecKeyFormat",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipKey": {
+    "name": "cLWSecDot11EssCkipKey",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipMMHMode": {
+    "name": "cLWSecDot11EssCkipMMHMode",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssCkipKPEnable": {
+    "name": "cLWSecDot11EssCkipKPEnable",
+    "oid": "1.3.6.1.4.1.9.9.521.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssWebPolicyTable": {
+    "name": "cLWSecDot11EssWebPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.521.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWSecDot11EssWebPolicyEntry": {
+    "name": "cLWSecDot11EssWebPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.521.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWSecDot11EssWebPolicyCondRedirect": {
+    "name": "cLWSecDot11EssWebPolicyCondRedirect",
+    "oid": "1.3.6.1.4.1.9.9.521.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecDot11EssWebPolicySplashPageWebRedirect": {
+    "name": "cLWSecDot11EssWebPolicySplashPageWebRedirect",
+    "oid": "1.3.6.1.4.1.9.9.521.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecAaaRadiusAuthCallStationIdType": {
+    "name": "cLWSecAaaRadiusAuthCallStationIdType",
+    "oid": "1.3.6.1.4.1.9.9.521.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipAddr": 1,
+          "macAddr": 2,
+          "apMacAddress": 3,
+          "apMacAddressSsid": 4,
+          "apNameSsid": 5,
+          "apName": 6,
+          "apGroupName": 7,
+          "apLocation": 8,
+          "apVlanId": 9,
+          "apMacEthAddress": 10,
+          "apMacEthAddressSsid": 11,
+          "apLabelAddress": 12,
+          "apLabelAddressSsid": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWSecAaaRadiusAccUsernameDelimiter": {
+    "name": "cLWSecAaaRadiusAccUsernameDelimiter",
+    "oid": "1.3.6.1.4.1.9.9.521.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDelimiter": 1,
+          "hyphen": 2,
+          "colon": 3,
+          "singleHyphen": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityMIBCompliances": {
+    "name": "ciscoLwappWlanSecurityMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.521.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanSecurityMIBGroups": {
+    "name": "ciscoLwappWlanSecurityMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanSecurityMIBCompliance": {
+    "name": "ciscoLwappWlanSecurityMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.521.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanSecurityCckmConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityCkipConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanSecurityMIBComplianceRev1": {
+    "name": "ciscoLwappWlanSecurityMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.521.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanSecurityCckmConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityCkipConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityWebPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanSecurityMIBComplianceRev2": {
+    "name": "ciscoLwappWlanSecurityMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.521.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanSecurityCckmConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityCkipConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityWebPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityAaaConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityFtConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityPfmConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanSecurityCckmConfigGroup1",
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityCckmConfigGroup": {
+    "name": "ciscoLwappWlanSecurityCckmConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCckmWpaSupport"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCckmWpa1Security"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCckmWpa1EncType"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCckmWpa2Security"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCckmWpa2EncType"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCckmKeyMgmtMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssPskFmt"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssPsk"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityCkipConfigGroup": {
+    "name": "ciscoLwappWlanSecurityCkipConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCkipSecurity"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCkipKeyIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCkipKeyLength"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCkipKeyFmt"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCkipKey"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCkipMMHMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCkipKPEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityWebPolicyConfigGroup": {
+    "name": "ciscoLwappWlanSecurityWebPolicyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssWebPolicyCondRedirect"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssWebPolicySplashPageWebRedirect"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityAaaConfigGroup": {
+    "name": "ciscoLwappWlanSecurityAaaConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecAaaRadiusAuthCallStationIdType"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecAaaRadiusAccUsernameDelimiter"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityFtConfigGroup": {
+    "name": "ciscoLwappWlanSecurityFtConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssFtEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssFtReassocTime"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssFtOverDs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityPfmConfigGroup": {
+    "name": "ciscoLwappWlanSecurityPfmConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11Ess11wPfm"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssRetryTime"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssComebackTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanSecurityCckmConfigGroup1": {
+    "name": "ciscoLwappWlanSecurityCckmConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.521.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-SECURITY-MIB",
+        "object": "cLWSecDot11EssCckmGtkRandomize"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-WLAN-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-WLAN-SECURITY-MIB"
+  }
+}

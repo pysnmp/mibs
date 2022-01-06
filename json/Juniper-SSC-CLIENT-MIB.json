@@ -1,0 +1,1418 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniName"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniSscClientMIB": {
+    "name": "juniSscClientMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.36",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-18 16:29",
+        "description": "Obsoleted token and added discover scalar statistics."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-01-14 20:15",
+        "description": "Added version number, local address and transport router name objects."
+      },
+      {
+        "revision": "2001-01-23 21:30",
+        "description": "Added DHCP-LS, Web and SSC support."
+      },
+      {
+        "revision": "2000-02-17 23:10",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniSscClientObjects": {
+    "name": "juniSscClientObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1",
+    "class": "objectidentity"
+  },
+  "juniSscClientCfg": {
+    "name": "juniSscClientCfg",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1",
+    "class": "objectidentity"
+  },
+  "juniSscClientStatus": {
+    "name": "juniSscClientStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.2",
+    "class": "objectidentity"
+  },
+  "juniSscClientStatistics": {
+    "name": "juniSscClientStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3",
+    "class": "objectidentity"
+  },
+  "juniSscClientCfgScalars": {
+    "name": "juniSscClientCfgScalars",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1",
+    "class": "objectidentity"
+  },
+  "juniSscClientServerSwitchoverTimeout": {
+    "name": "juniSscClientServerSwitchoverTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientPrimaryAddress": {
+    "name": "juniSscClientPrimaryAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientPrimaryPort": {
+    "name": "juniSscClientPrimaryPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientSecondaryAddress": {
+    "name": "juniSscClientSecondaryAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientSecondaryPort": {
+    "name": "juniSscClientSecondaryPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientTertiaryAddress": {
+    "name": "juniSscClientTertiaryAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientTertiaryPort": {
+    "name": "juniSscClientTertiaryPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientLocalAddress": {
+    "name": "juniSscClientLocalAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientTransportRouterName": {
+    "name": "juniSscClientTransportRouterName",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniSscClientStatusScalars": {
+    "name": "juniSscClientStatusScalars",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.2.1",
+    "class": "objectidentity"
+  },
+  "juniSscClientConnectionState": {
+    "name": "juniSscClientConnectionState",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 0,
+          "trying": 1,
+          "connected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientActiveAddress": {
+    "name": "juniSscClientActiveAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientActivePort": {
+    "name": "juniSscClientActivePort",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientVersion": {
+    "name": "juniSscClientVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientStatisticsScalars": {
+    "name": "juniSscClientStatisticsScalars",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1",
+    "class": "objectidentity"
+  },
+  "juniSscClientPolicyCommandsReceived": {
+    "name": "juniSscClientPolicyCommandsReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientPolicyCommandsListReceived": {
+    "name": "juniSscClientPolicyCommandsListReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientPolicyCommandsAcctReceived": {
+    "name": "juniSscClientPolicyCommandsAcctReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientBadPolicyCommandsReceived": {
+    "name": "juniSscClientBadPolicyCommandsReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientErrorPolicyCommandsReceived": {
+    "name": "juniSscClientErrorPolicyCommandsReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientPolicyReportsSent": {
+    "name": "juniSscClientPolicyReportsSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientConnectionOpenRequests": {
+    "name": "juniSscClientConnectionOpenRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientConnectionOpenCompletes": {
+    "name": "juniSscClientConnectionOpenCompletes",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientConnectionClosedSent": {
+    "name": "juniSscClientConnectionClosedSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientConnectionClosedRemotely": {
+    "name": "juniSscClientConnectionClosedRemotely",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientCreateInterfacesSent": {
+    "name": "juniSscClientCreateInterfacesSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientDeleteInterfacesSent": {
+    "name": "juniSscClientDeleteInterfacesSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientActiveIpInterfaces": {
+    "name": "juniSscClientActiveIpInterfaces",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientIpInterfaceTransitions": {
+    "name": "juniSscClientIpInterfaceTransitions",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientSynchronizesReceived": {
+    "name": "juniSscClientSynchronizesReceived",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientSynchronizeCompletesSent": {
+    "name": "juniSscClientSynchronizeCompletesSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientInternalErrors": {
+    "name": "juniSscClientInternalErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientCommunicationErrors": {
+    "name": "juniSscClientCommunicationErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientTokensSeen": {
+    "name": "juniSscClientTokensSeen",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniSscClientActiveTokens": {
+    "name": "juniSscClientActiveTokens",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniSscClientTokenTransitions": {
+    "name": "juniSscClientTokenTransitions",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniSscClientCreateTokensSent": {
+    "name": "juniSscClientCreateTokensSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniSscClientDeleteTokensSent": {
+    "name": "juniSscClientDeleteTokensSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniSscClientActiveAddresses": {
+    "name": "juniSscClientActiveAddresses",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientAddressTransitions": {
+    "name": "juniSscClientAddressTransitions",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientCreateAddressesSent": {
+    "name": "juniSscClientCreateAddressesSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientDeleteAddressesSent": {
+    "name": "juniSscClientDeleteAddressesSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientAuthenticationSuccesses": {
+    "name": "juniSscClientAuthenticationSuccesses",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniSscClientAuthenticationFailures": {
+    "name": "juniSscClientAuthenticationFailures",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniSscClientDiscoversSeen": {
+    "name": "juniSscClientDiscoversSeen",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientActiveDiscovers": {
+    "name": "juniSscClientActiveDiscovers",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientDiscoverTransitions": {
+    "name": "juniSscClientDiscoverTransitions",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientCreateDiscoversSent": {
+    "name": "juniSscClientCreateDiscoversSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientDeleteDiscoversSent": {
+    "name": "juniSscClientDeleteDiscoversSent",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.1.3.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniSscClientMIBConformance": {
+    "name": "juniSscClientMIBConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4",
+    "class": "objectidentity"
+  },
+  "juniSscClientMIBCompliances": {
+    "name": "juniSscClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.1",
+    "class": "objectidentity"
+  },
+  "juniSscClientMIBGroups": {
+    "name": "juniSscClientMIBGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.2",
+    "class": "objectidentity"
+  },
+  "juniSscClientAuthCompliance": {
+    "name": "juniSscClientAuthCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSscClientGroup",
+        "module": "Juniper-SSC-CLIENT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSscClientAuthCompliance2": {
+    "name": "juniSscClientAuthCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSscClientGroup2",
+        "module": "Juniper-SSC-CLIENT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSscClientAuthCompliance3": {
+    "name": "juniSscClientAuthCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSscClientGroup3",
+        "module": "Juniper-SSC-CLIENT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSscClientAuthCompliance4": {
+    "name": "juniSscClientAuthCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniSscClientGroup4",
+        "module": "Juniper-SSC-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniSscClientGroup": {
+    "name": "juniSscClientGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientServerSwitchoverTimeout"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionState"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActivePort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsListReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsAcctReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientBadPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientErrorPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyReportsSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenRequests"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenCompletes"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedRemotely"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveIpInterfaces"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientIpInterfaceTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizesReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizeCompletesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientInternalErrors"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCommunicationErrors"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSscClientGroup2": {
+    "name": "juniSscClientGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientServerSwitchoverTimeout"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionState"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActivePort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsListReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsAcctReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientBadPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientErrorPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyReportsSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenRequests"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenCompletes"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedRemotely"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveIpInterfaces"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientIpInterfaceTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizesReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizeCompletesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientInternalErrors"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCommunicationErrors"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTokensSeen"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveTokens"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTokenTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateTokensSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteTokensSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveAddresses"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientAddressTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateAddressesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteAddressesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientAuthenticationSuccesses"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientAuthenticationFailures"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSscClientGroup3": {
+    "name": "juniSscClientGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientServerSwitchoverTimeout"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientLocalAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTransportRouterName"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionState"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActivePort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientVersion"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsListReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsAcctReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientBadPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientErrorPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyReportsSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenRequests"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenCompletes"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedRemotely"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveIpInterfaces"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientIpInterfaceTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizesReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizeCompletesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientInternalErrors"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCommunicationErrors"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTokensSeen"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveTokens"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTokenTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateTokensSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteTokensSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveAddresses"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientAddressTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateAddressesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteAddressesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientAuthenticationSuccesses"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientAuthenticationFailures"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniSscClientGroup4": {
+    "name": "juniSscClientGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.36.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientServerSwitchoverTimeout"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPrimaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSecondaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTertiaryPort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientLocalAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientTransportRouterName"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveAddress"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionState"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActivePort"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientVersion"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsListReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyCommandsAcctReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientBadPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientErrorPolicyCommandsReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientPolicyReportsSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenRequests"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionOpenCompletes"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientConnectionClosedRemotely"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteInterfacesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveIpInterfaces"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientIpInterfaceTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizesReceived"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientSynchronizeCompletesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientInternalErrors"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCommunicationErrors"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveAddresses"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientAddressTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateAddressesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteAddressesSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDiscoversSeen"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientActiveDiscovers"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDiscoverTransitions"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientCreateDiscoversSent"
+      },
+      {
+        "module": "Juniper-SSC-CLIENT-MIB",
+        "object": "juniSscClientDeleteDiscoversSent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-SSC-CLIENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-SSC-CLIENT-MIB"
+  }
+}

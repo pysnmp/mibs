@@ -1,0 +1,5605 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsSysdebugTechSupportFsmStageName",
+      "CucsSysdebugAutoCoreFileExportTargetFsmTaskItem",
+      "CucsSysdebugLogControlLevel",
+      "CucsSysdebugManualCoreFileExportTargetFsmTaskItem",
+      "CucsFsmCompletion",
+      "CucsSysdebugCoreFileOperState",
+      "CucsSysdebugTechSupportOperState",
+      "CucsSysdebugManualCoreFileExportTargetFsmCurrentFsm",
+      "CucsSysdebugCoreFsmTaskItem",
+      "CucsSysdebugCoreFileAdminState",
+      "CucsSysdebugBackupBehaviorProto",
+      "CucsSysdebugAutoCoreFileExportTargetProto",
+      "CucsSysdebugLogExportPolicyFsmStageName",
+      "CucsSysdebugLogExportPolicyFsmCurrentFsm",
+      "CucsSysdebugEpLogBackupAction",
+      "CucsPolicyPolicyOwner",
+      "CucsSysfileExporterPostAction",
+      "CucsSysdebugLogControlEpFsmCurrentFsm",
+      "CucsSysdebugTechSupportFsmCurrentFsm",
+      "CucsSysdebugManualCoreFileExportTargetAdminState",
+      "CucsCommClientAdminState",
+      "CucsSysdebugManualCoreFileExportTargetFsmStageName",
+      "CucsSysdebugLogExportPolicyFsmTaskItem",
+      "CucsSysdebugLogControlEpFsmTaskItem",
+      "CucsSysdebugCoreFsmStageName",
+      "CucsSysdebugBackupFormat",
+      "CucsSysdebugEpLogAdminState",
+      "CucsSysdebugTechSupportAdminState",
+      "CucsSysdebugTSCmdOptCmdOptions",
+      "CucsSysdebugCoreExportStatus",
+      "CucsSysdebugTSCmdOptMajorType",
+      "CucsSysdebugTechSupportFsmTaskItem",
+      "CucsFsmFlags",
+      "CucsSysdebugLogControlDomainEnum",
+      "CucsSysdebugBackupBehaviorInterval",
+      "CucsSysdebugAutoCoreFileExportTargetFsmStageName",
+      "CucsSysdebugCoreFsmCurrentFsm",
+      "CucsFsmFsmStageStatus",
+      "CucsSysdebugLogExportPolicyProto",
+      "CucsSysdebugExportStatus",
+      "CucsSysdebugMEpLogOperState",
+      "CucsConditionRemoteInvRslt",
+      "CucsSysdebugEpLogType",
+      "CucsNetworkSwitchId",
+      "CucsSysdebugManualCoreFileExportTargetProto",
+      "CucsSysdebugLogControlEpFsmStageName",
+      "CucsSysdebugEpLogCapacity",
+      "CucsSysdebugAutoCoreFileExportTargetFsmCurrentFsm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsSysdebugObjects": {
+    "name": "cucsSysdebugObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47",
+    "class": "moduleidentity"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetTable": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetEntry": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugAutoCoreFileExportTargetInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetInstanceId": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetDn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetRn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetAdminState": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCommClientAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetDescr": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmDescr": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmPrev": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmProgr": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmRmtInvErrCode": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmRmtInvErrDescr": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmRmtInvRslt": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageDescr": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStamp": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStatus": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTry": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetHostname": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetHostname",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetIntId": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetName": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetPath": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetPath",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetPort": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetPort",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetPostAction": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetPostAction",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysfileExporterPostAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetProto": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetProto",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugAutoCoreFileExportTargetProto",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetExportFailureReason": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetExportFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetExportStatus": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetExportStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugCoreExportStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetPolicyLevel": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetPolicyOwner": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTable": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmEntry": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugAutoCoreFileExportTargetFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmInstanceId": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmDn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmRn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmCompletionTime": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmCurrentFsm": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugAutoCoreFileExportTargetFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmDescrData": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmFsmStatus": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmProgress": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmRmtErrCode": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmRmtErrDescr": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmRmtRslt": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.22.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageTable": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageEntry": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugAutoCoreFileExportTargetFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageInstanceId": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageDn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageRn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageDescrData": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageLastUpdateTime": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageName": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugAutoCoreFileExportTargetFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageOrder": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageRetry": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmStageStageStatus": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskTable": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskEntry": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugAutoCoreFileExportTargetFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskInstanceId": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskDn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskRn": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskCompletion": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskFlags": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskItem": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugAutoCoreFileExportTargetFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugAutoCoreFileExportTargetFsmTaskSeqId": {
+    "name": "cucsSysdebugAutoCoreFileExportTargetFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorTable": {
+    "name": "cucsSysdebugBackupBehaviorTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorEntry": {
+    "name": "cucsSysdebugBackupBehaviorEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugBackupBehaviorInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorInstanceId": {
+    "name": "cucsSysdebugBackupBehaviorInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorDn": {
+    "name": "cucsSysdebugBackupBehaviorDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorRn": {
+    "name": "cucsSysdebugBackupBehaviorRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorAction": {
+    "name": "cucsSysdebugBackupBehaviorAction",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugEpLogBackupAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorClearOnBackup": {
+    "name": "cucsSysdebugBackupBehaviorClearOnBackup",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorFormat": {
+    "name": "cucsSysdebugBackupBehaviorFormat",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugBackupFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorHostname": {
+    "name": "cucsSysdebugBackupBehaviorHostname",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorInterval": {
+    "name": "cucsSysdebugBackupBehaviorInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugBackupBehaviorInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorProto": {
+    "name": "cucsSysdebugBackupBehaviorProto",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugBackupBehaviorProto",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorPwd": {
+    "name": "cucsSysdebugBackupBehaviorPwd",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorRemotePath": {
+    "name": "cucsSysdebugBackupBehaviorRemotePath",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugBackupBehaviorUser": {
+    "name": "cucsSysdebugBackupBehaviorUser",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreTable": {
+    "name": "cucsSysdebugCoreTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreEntry": {
+    "name": "cucsSysdebugCoreEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugCoreInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugCoreInstanceId": {
+    "name": "cucsSysdebugCoreInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreDn": {
+    "name": "cucsSysdebugCoreDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreRn": {
+    "name": "cucsSysdebugCoreRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreDescr": {
+    "name": "cucsSysdebugCoreDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreName": {
+    "name": "cucsSysdebugCoreName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreSize": {
+    "name": "cucsSysdebugCoreSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreSwitchId": {
+    "name": "cucsSysdebugCoreSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreTs": {
+    "name": "cucsSysdebugCoreTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreUri": {
+    "name": "cucsSysdebugCoreUri",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreAdminState": {
+    "name": "cucsSysdebugCoreAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugCoreFileAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmDescr": {
+    "name": "cucsSysdebugCoreFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmPrev": {
+    "name": "cucsSysdebugCoreFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmProgr": {
+    "name": "cucsSysdebugCoreFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmRmtInvErrCode": {
+    "name": "cucsSysdebugCoreFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmRmtInvErrDescr": {
+    "name": "cucsSysdebugCoreFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmRmtInvRslt": {
+    "name": "cucsSysdebugCoreFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageDescr": {
+    "name": "cucsSysdebugCoreFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStamp": {
+    "name": "cucsSysdebugCoreFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStatus": {
+    "name": "cucsSysdebugCoreFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTry": {
+    "name": "cucsSysdebugCoreFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreOperState": {
+    "name": "cucsSysdebugCoreOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugCoreFileOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFileRepositoryTable": {
+    "name": "cucsSysdebugCoreFileRepositoryTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFileRepositoryEntry": {
+    "name": "cucsSysdebugCoreFileRepositoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugCoreFileRepositoryInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugCoreFileRepositoryInstanceId": {
+    "name": "cucsSysdebugCoreFileRepositoryInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFileRepositoryDn": {
+    "name": "cucsSysdebugCoreFileRepositoryDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFileRepositoryRn": {
+    "name": "cucsSysdebugCoreFileRepositoryRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTable": {
+    "name": "cucsSysdebugCoreFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmEntry": {
+    "name": "cucsSysdebugCoreFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugCoreFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmInstanceId": {
+    "name": "cucsSysdebugCoreFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmDn": {
+    "name": "cucsSysdebugCoreFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmRn": {
+    "name": "cucsSysdebugCoreFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmCompletionTime": {
+    "name": "cucsSysdebugCoreFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmCurrentFsm": {
+    "name": "cucsSysdebugCoreFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugCoreFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmDescrData": {
+    "name": "cucsSysdebugCoreFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmFsmStatus": {
+    "name": "cucsSysdebugCoreFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmProgress": {
+    "name": "cucsSysdebugCoreFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmRmtErrCode": {
+    "name": "cucsSysdebugCoreFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmRmtErrDescr": {
+    "name": "cucsSysdebugCoreFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmRmtRslt": {
+    "name": "cucsSysdebugCoreFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.24.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageTable": {
+    "name": "cucsSysdebugCoreFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageEntry": {
+    "name": "cucsSysdebugCoreFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugCoreFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageInstanceId": {
+    "name": "cucsSysdebugCoreFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageDn": {
+    "name": "cucsSysdebugCoreFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageRn": {
+    "name": "cucsSysdebugCoreFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageDescrData": {
+    "name": "cucsSysdebugCoreFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageLastUpdateTime": {
+    "name": "cucsSysdebugCoreFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageName": {
+    "name": "cucsSysdebugCoreFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugCoreFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageOrder": {
+    "name": "cucsSysdebugCoreFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageRetry": {
+    "name": "cucsSysdebugCoreFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmStageStageStatus": {
+    "name": "cucsSysdebugCoreFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.25.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskTable": {
+    "name": "cucsSysdebugCoreFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskEntry": {
+    "name": "cucsSysdebugCoreFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugCoreFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskInstanceId": {
+    "name": "cucsSysdebugCoreFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskDn": {
+    "name": "cucsSysdebugCoreFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskRn": {
+    "name": "cucsSysdebugCoreFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskCompletion": {
+    "name": "cucsSysdebugCoreFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskFlags": {
+    "name": "cucsSysdebugCoreFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskItem": {
+    "name": "cucsSysdebugCoreFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugCoreFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugCoreFsmTaskSeqId": {
+    "name": "cucsSysdebugCoreFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugEpTable": {
+    "name": "cucsSysdebugEpTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugEpEntry": {
+    "name": "cucsSysdebugEpEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugEpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugEpInstanceId": {
+    "name": "cucsSysdebugEpInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugEpDn": {
+    "name": "cucsSysdebugEpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugEpRn": {
+    "name": "cucsSysdebugEpRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileTable": {
+    "name": "cucsSysdebugLogControlDestinationFileTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileEntry": {
+    "name": "cucsSysdebugLogControlDestinationFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlDestinationFileInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileInstanceId": {
+    "name": "cucsSysdebugLogControlDestinationFileInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileDn": {
+    "name": "cucsSysdebugLogControlDestinationFileDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileRn": {
+    "name": "cucsSysdebugLogControlDestinationFileRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileBackupCount": {
+    "name": "cucsSysdebugLogControlDestinationFileBackupCount",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileDefaultLevel": {
+    "name": "cucsSysdebugLogControlDestinationFileDefaultLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileDefaultSize": {
+    "name": "cucsSysdebugLogControlDestinationFileDefaultSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileLevel": {
+    "name": "cucsSysdebugLogControlDestinationFileLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationFileSize": {
+    "name": "cucsSysdebugLogControlDestinationFileSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationSyslogTable": {
+    "name": "cucsSysdebugLogControlDestinationSyslogTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationSyslogEntry": {
+    "name": "cucsSysdebugLogControlDestinationSyslogEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlDestinationSyslogInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationSyslogInstanceId": {
+    "name": "cucsSysdebugLogControlDestinationSyslogInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationSyslogDn": {
+    "name": "cucsSysdebugLogControlDestinationSyslogDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationSyslogRn": {
+    "name": "cucsSysdebugLogControlDestinationSyslogRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationSyslogDefaultLevel": {
+    "name": "cucsSysdebugLogControlDestinationSyslogDefaultLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDestinationSyslogLevel": {
+    "name": "cucsSysdebugLogControlDestinationSyslogLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainTable": {
+    "name": "cucsSysdebugLogControlDomainTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainEntry": {
+    "name": "cucsSysdebugLogControlDomainEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlDomainInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainInstanceId": {
+    "name": "cucsSysdebugLogControlDomainInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainDn": {
+    "name": "cucsSysdebugLogControlDomainDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainRn": {
+    "name": "cucsSysdebugLogControlDomainRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainLevel": {
+    "name": "cucsSysdebugLogControlDomainLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainLevelFlag": {
+    "name": "cucsSysdebugLogControlDomainLevelFlag",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainName": {
+    "name": "cucsSysdebugLogControlDomainName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlDomainEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainPersist": {
+    "name": "cucsSysdebugLogControlDomainPersist",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlDomainReset": {
+    "name": "cucsSysdebugLogControlDomainReset",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpTable": {
+    "name": "cucsSysdebugLogControlEpTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpEntry": {
+    "name": "cucsSysdebugLogControlEpEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlEpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpInstanceId": {
+    "name": "cucsSysdebugLogControlEpInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpDn": {
+    "name": "cucsSysdebugLogControlEpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpRn": {
+    "name": "cucsSysdebugLogControlEpRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmDescr": {
+    "name": "cucsSysdebugLogControlEpFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmPrev": {
+    "name": "cucsSysdebugLogControlEpFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmProgr": {
+    "name": "cucsSysdebugLogControlEpFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmRmtInvErrCode": {
+    "name": "cucsSysdebugLogControlEpFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmRmtInvErrDescr": {
+    "name": "cucsSysdebugLogControlEpFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmRmtInvRslt": {
+    "name": "cucsSysdebugLogControlEpFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageDescr": {
+    "name": "cucsSysdebugLogControlEpFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStamp": {
+    "name": "cucsSysdebugLogControlEpFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStatus": {
+    "name": "cucsSysdebugLogControlEpFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTry": {
+    "name": "cucsSysdebugLogControlEpFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpLevel": {
+    "name": "cucsSysdebugLogControlEpLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpLevelFlag": {
+    "name": "cucsSysdebugLogControlEpLevelFlag",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpPersist": {
+    "name": "cucsSysdebugLogControlEpPersist",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpReset": {
+    "name": "cucsSysdebugLogControlEpReset",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.10.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTable": {
+    "name": "cucsSysdebugLogControlEpFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmEntry": {
+    "name": "cucsSysdebugLogControlEpFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlEpFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmInstanceId": {
+    "name": "cucsSysdebugLogControlEpFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmDn": {
+    "name": "cucsSysdebugLogControlEpFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmRn": {
+    "name": "cucsSysdebugLogControlEpFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmCompletionTime": {
+    "name": "cucsSysdebugLogControlEpFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmCurrentFsm": {
+    "name": "cucsSysdebugLogControlEpFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlEpFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmDescrData": {
+    "name": "cucsSysdebugLogControlEpFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmFsmStatus": {
+    "name": "cucsSysdebugLogControlEpFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmProgress": {
+    "name": "cucsSysdebugLogControlEpFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmRmtErrCode": {
+    "name": "cucsSysdebugLogControlEpFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmRmtErrDescr": {
+    "name": "cucsSysdebugLogControlEpFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmRmtRslt": {
+    "name": "cucsSysdebugLogControlEpFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.26.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageTable": {
+    "name": "cucsSysdebugLogControlEpFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageEntry": {
+    "name": "cucsSysdebugLogControlEpFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlEpFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageInstanceId": {
+    "name": "cucsSysdebugLogControlEpFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageDn": {
+    "name": "cucsSysdebugLogControlEpFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageRn": {
+    "name": "cucsSysdebugLogControlEpFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageDescrData": {
+    "name": "cucsSysdebugLogControlEpFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageLastUpdateTime": {
+    "name": "cucsSysdebugLogControlEpFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageName": {
+    "name": "cucsSysdebugLogControlEpFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlEpFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageOrder": {
+    "name": "cucsSysdebugLogControlEpFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageRetry": {
+    "name": "cucsSysdebugLogControlEpFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmStageStageStatus": {
+    "name": "cucsSysdebugLogControlEpFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.27.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskTable": {
+    "name": "cucsSysdebugLogControlEpFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskEntry": {
+    "name": "cucsSysdebugLogControlEpFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlEpFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskInstanceId": {
+    "name": "cucsSysdebugLogControlEpFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskDn": {
+    "name": "cucsSysdebugLogControlEpFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskRn": {
+    "name": "cucsSysdebugLogControlEpFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskCompletion": {
+    "name": "cucsSysdebugLogControlEpFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskFlags": {
+    "name": "cucsSysdebugLogControlEpFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskItem": {
+    "name": "cucsSysdebugLogControlEpFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlEpFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlEpFsmTaskSeqId": {
+    "name": "cucsSysdebugLogControlEpFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleTable": {
+    "name": "cucsSysdebugLogControlModuleTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleEntry": {
+    "name": "cucsSysdebugLogControlModuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogControlModuleInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleInstanceId": {
+    "name": "cucsSysdebugLogControlModuleInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleDn": {
+    "name": "cucsSysdebugLogControlModuleDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleRn": {
+    "name": "cucsSysdebugLogControlModuleRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleDefaultLevel": {
+    "name": "cucsSysdebugLogControlModuleDefaultLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleLevel": {
+    "name": "cucsSysdebugLogControlModuleLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogControlLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleName": {
+    "name": "cucsSysdebugLogControlModuleName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogControlModuleReset": {
+    "name": "cucsSysdebugLogControlModuleReset",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyTable": {
+    "name": "cucsSysdebugLogExportPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyEntry": {
+    "name": "cucsSysdebugLogExportPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogExportPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyInstanceId": {
+    "name": "cucsSysdebugLogExportPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyDn": {
+    "name": "cucsSysdebugLogExportPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyRn": {
+    "name": "cucsSysdebugLogExportPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyAdminState": {
+    "name": "cucsSysdebugLogExportPolicyAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCommClientAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyDescr": {
+    "name": "cucsSysdebugLogExportPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmDescr": {
+    "name": "cucsSysdebugLogExportPolicyFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmPrev": {
+    "name": "cucsSysdebugLogExportPolicyFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmProgr": {
+    "name": "cucsSysdebugLogExportPolicyFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmRmtInvErrCode": {
+    "name": "cucsSysdebugLogExportPolicyFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmRmtInvErrDescr": {
+    "name": "cucsSysdebugLogExportPolicyFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmRmtInvRslt": {
+    "name": "cucsSysdebugLogExportPolicyFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageDescr": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStamp": {
+    "name": "cucsSysdebugLogExportPolicyFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStatus": {
+    "name": "cucsSysdebugLogExportPolicyFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTry": {
+    "name": "cucsSysdebugLogExportPolicyFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyHostname": {
+    "name": "cucsSysdebugLogExportPolicyHostname",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyIntId": {
+    "name": "cucsSysdebugLogExportPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyName": {
+    "name": "cucsSysdebugLogExportPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyPasswordlessSsh": {
+    "name": "cucsSysdebugLogExportPolicyPasswordlessSsh",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyPath": {
+    "name": "cucsSysdebugLogExportPolicyPath",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyPolicyLevel": {
+    "name": "cucsSysdebugLogExportPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyPolicyOwner": {
+    "name": "cucsSysdebugLogExportPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyPostAction": {
+    "name": "cucsSysdebugLogExportPolicyPostAction",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysfileExporterPostAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyProto": {
+    "name": "cucsSysdebugLogExportPolicyProto",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogExportPolicyProto",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyPwd": {
+    "name": "cucsSysdebugLogExportPolicyPwd",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyUser": {
+    "name": "cucsSysdebugLogExportPolicyUser",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.32.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTable": {
+    "name": "cucsSysdebugLogExportPolicyFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmEntry": {
+    "name": "cucsSysdebugLogExportPolicyFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogExportPolicyFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmInstanceId": {
+    "name": "cucsSysdebugLogExportPolicyFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmDn": {
+    "name": "cucsSysdebugLogExportPolicyFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmRn": {
+    "name": "cucsSysdebugLogExportPolicyFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmCompletionTime": {
+    "name": "cucsSysdebugLogExportPolicyFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmCurrentFsm": {
+    "name": "cucsSysdebugLogExportPolicyFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogExportPolicyFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmDescrData": {
+    "name": "cucsSysdebugLogExportPolicyFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmFsmStatus": {
+    "name": "cucsSysdebugLogExportPolicyFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmProgress": {
+    "name": "cucsSysdebugLogExportPolicyFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmRmtErrCode": {
+    "name": "cucsSysdebugLogExportPolicyFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmRmtErrDescr": {
+    "name": "cucsSysdebugLogExportPolicyFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmRmtRslt": {
+    "name": "cucsSysdebugLogExportPolicyFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.33.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageTable": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageEntry": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogExportPolicyFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageInstanceId": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageDn": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageRn": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageDescrData": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageLastUpdateTime": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageName": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogExportPolicyFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageOrder": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageRetry": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmStageStageStatus": {
+    "name": "cucsSysdebugLogExportPolicyFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.34.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskTable": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskEntry": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogExportPolicyFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskInstanceId": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskDn": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskRn": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskCompletion": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskFlags": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskItem": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugLogExportPolicyFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportPolicyFsmTaskSeqId": {
+    "name": "cucsSysdebugLogExportPolicyFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.35.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusTable": {
+    "name": "cucsSysdebugLogExportStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusEntry": {
+    "name": "cucsSysdebugLogExportStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugLogExportStatusInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusInstanceId": {
+    "name": "cucsSysdebugLogExportStatusInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusDn": {
+    "name": "cucsSysdebugLogExportStatusDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusRn": {
+    "name": "cucsSysdebugLogExportStatusRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusExportFailureReason": {
+    "name": "cucsSysdebugLogExportStatusExportFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusExportStatus": {
+    "name": "cucsSysdebugLogExportStatusExportStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugExportStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugLogExportStatusSwitchId": {
+    "name": "cucsSysdebugLogExportStatusSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.36.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogTable": {
+    "name": "cucsSysdebugMEpLogTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogEntry": {
+    "name": "cucsSysdebugMEpLogEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugMEpLogInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogInstanceId": {
+    "name": "cucsSysdebugMEpLogInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogDn": {
+    "name": "cucsSysdebugMEpLogDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogRn": {
+    "name": "cucsSysdebugMEpLogRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogAdminState": {
+    "name": "cucsSysdebugMEpLogAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugEpLogAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogCapacity": {
+    "name": "cucsSysdebugMEpLogCapacity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugEpLogCapacity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogId": {
+    "name": "cucsSysdebugMEpLogId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogLastUpdate": {
+    "name": "cucsSysdebugMEpLogLastUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogOperState": {
+    "name": "cucsSysdebugMEpLogOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugMEpLogOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogType": {
+    "name": "cucsSysdebugMEpLogType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugEpLogType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyTable": {
+    "name": "cucsSysdebugMEpLogPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyEntry": {
+    "name": "cucsSysdebugMEpLogPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugMEpLogPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyInstanceId": {
+    "name": "cucsSysdebugMEpLogPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyDn": {
+    "name": "cucsSysdebugMEpLogPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyRn": {
+    "name": "cucsSysdebugMEpLogPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyDescr": {
+    "name": "cucsSysdebugMEpLogPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyIntId": {
+    "name": "cucsSysdebugMEpLogPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyName": {
+    "name": "cucsSysdebugMEpLogPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyType": {
+    "name": "cucsSysdebugMEpLogPolicyType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugEpLogType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyPolicyLevel": {
+    "name": "cucsSysdebugMEpLogPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugMEpLogPolicyPolicyOwner": {
+    "name": "cucsSysdebugMEpLogPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetTable": {
+    "name": "cucsSysdebugManualCoreFileExportTargetTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetEntry": {
+    "name": "cucsSysdebugManualCoreFileExportTargetEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugManualCoreFileExportTargetInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetInstanceId": {
+    "name": "cucsSysdebugManualCoreFileExportTargetInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetDn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetRn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetAdminState": {
+    "name": "cucsSysdebugManualCoreFileExportTargetAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugManualCoreFileExportTargetAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetDescr": {
+    "name": "cucsSysdebugManualCoreFileExportTargetDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmDescr": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmPrev": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmProgr": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmRmtInvErrCode": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmRmtInvErrDescr": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmRmtInvRslt": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageDescr": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStamp": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStatus": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTry": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetHostname": {
+    "name": "cucsSysdebugManualCoreFileExportTargetHostname",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetIntId": {
+    "name": "cucsSysdebugManualCoreFileExportTargetIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetName": {
+    "name": "cucsSysdebugManualCoreFileExportTargetName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetPath": {
+    "name": "cucsSysdebugManualCoreFileExportTargetPath",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetPort": {
+    "name": "cucsSysdebugManualCoreFileExportTargetPort",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetPostAction": {
+    "name": "cucsSysdebugManualCoreFileExportTargetPostAction",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysfileExporterPostAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetProto": {
+    "name": "cucsSysdebugManualCoreFileExportTargetProto",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugManualCoreFileExportTargetProto",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetExportFailureReason": {
+    "name": "cucsSysdebugManualCoreFileExportTargetExportFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetExportStatus": {
+    "name": "cucsSysdebugManualCoreFileExportTargetExportStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugCoreExportStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetPolicyLevel": {
+    "name": "cucsSysdebugManualCoreFileExportTargetPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetPolicyOwner": {
+    "name": "cucsSysdebugManualCoreFileExportTargetPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.15.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTable": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmEntry": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugManualCoreFileExportTargetFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmInstanceId": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmDn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmRn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmCompletionTime": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmCurrentFsm": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugManualCoreFileExportTargetFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmDescrData": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmFsmStatus": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmProgress": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmRmtErrCode": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmRmtErrDescr": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmRmtRslt": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.28.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageTable": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageEntry": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugManualCoreFileExportTargetFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageInstanceId": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageDn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageRn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageDescrData": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageLastUpdateTime": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageName": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugManualCoreFileExportTargetFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageOrder": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageRetry": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmStageStageStatus": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.29.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskTable": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskEntry": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugManualCoreFileExportTargetFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskInstanceId": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskDn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskRn": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskCompletion": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskFlags": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskItem": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugManualCoreFileExportTargetFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugManualCoreFileExportTargetFsmTaskSeqId": {
+    "name": "cucsSysdebugManualCoreFileExportTargetFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupFileRepositoryTable": {
+    "name": "cucsSysdebugTechSupFileRepositoryTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupFileRepositoryEntry": {
+    "name": "cucsSysdebugTechSupFileRepositoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugTechSupFileRepositoryInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugTechSupFileRepositoryInstanceId": {
+    "name": "cucsSysdebugTechSupFileRepositoryInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupFileRepositoryDn": {
+    "name": "cucsSysdebugTechSupFileRepositoryDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupFileRepositoryRn": {
+    "name": "cucsSysdebugTechSupFileRepositoryRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportTable": {
+    "name": "cucsSysdebugTechSupportTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportEntry": {
+    "name": "cucsSysdebugTechSupportEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugTechSupportInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportInstanceId": {
+    "name": "cucsSysdebugTechSupportInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportDn": {
+    "name": "cucsSysdebugTechSupportDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportRn": {
+    "name": "cucsSysdebugTechSupportRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportAdminState": {
+    "name": "cucsSysdebugTechSupportAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugTechSupportAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportDescr": {
+    "name": "cucsSysdebugTechSupportDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmDescr": {
+    "name": "cucsSysdebugTechSupportFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmPrev": {
+    "name": "cucsSysdebugTechSupportFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmProgr": {
+    "name": "cucsSysdebugTechSupportFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmRmtInvErrCode": {
+    "name": "cucsSysdebugTechSupportFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmRmtInvErrDescr": {
+    "name": "cucsSysdebugTechSupportFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmRmtInvRslt": {
+    "name": "cucsSysdebugTechSupportFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageDescr": {
+    "name": "cucsSysdebugTechSupportFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStamp": {
+    "name": "cucsSysdebugTechSupportFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStatus": {
+    "name": "cucsSysdebugTechSupportFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTry": {
+    "name": "cucsSysdebugTechSupportFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportName": {
+    "name": "cucsSysdebugTechSupportName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportOperState": {
+    "name": "cucsSysdebugTechSupportOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugTechSupportOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportSize": {
+    "name": "cucsSysdebugTechSupportSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportSwitchId": {
+    "name": "cucsSysdebugTechSupportSwitchId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsNetworkSwitchId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportTs": {
+    "name": "cucsSysdebugTechSupportTs",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportUri": {
+    "name": "cucsSysdebugTechSupportUri",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCreationTS": {
+    "name": "cucsSysdebugTechSupportCreationTS",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.18.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptTable": {
+    "name": "cucsSysdebugTechSupportCmdOptTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptEntry": {
+    "name": "cucsSysdebugTechSupportCmdOptEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugTechSupportCmdOptInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptInstanceId": {
+    "name": "cucsSysdebugTechSupportCmdOptInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptDn": {
+    "name": "cucsSysdebugTechSupportCmdOptDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptRn": {
+    "name": "cucsSysdebugTechSupportCmdOptRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptChassisCimcId": {
+    "name": "cucsSysdebugTechSupportCmdOptChassisCimcId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptChassisId": {
+    "name": "cucsSysdebugTechSupportCmdOptChassisId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptChassisIomId": {
+    "name": "cucsSysdebugTechSupportCmdOptChassisIomId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptCimcAdapterId": {
+    "name": "cucsSysdebugTechSupportCmdOptCimcAdapterId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptFabExtId": {
+    "name": "cucsSysdebugTechSupportCmdOptFabExtId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptMajorOptType": {
+    "name": "cucsSysdebugTechSupportCmdOptMajorOptType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugTSCmdOptMajorType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptRackServerAdapterId": {
+    "name": "cucsSysdebugTechSupportCmdOptRackServerAdapterId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptRackServerId": {
+    "name": "cucsSysdebugTechSupportCmdOptRackServerId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptCartridgeCIMCId": {
+    "name": "cucsSysdebugTechSupportCmdOptCartridgeCIMCId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptChassisCartridgeId": {
+    "name": "cucsSysdebugTechSupportCmdOptChassisCartridgeId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptServerIdList": {
+    "name": "cucsSysdebugTechSupportCmdOptServerIdList",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportCmdOptCommandOptions": {
+    "name": "cucsSysdebugTechSupportCmdOptCommandOptions",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.19.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugTSCmdOptCmdOptions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTable": {
+    "name": "cucsSysdebugTechSupportFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmEntry": {
+    "name": "cucsSysdebugTechSupportFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugTechSupportFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmInstanceId": {
+    "name": "cucsSysdebugTechSupportFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmDn": {
+    "name": "cucsSysdebugTechSupportFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmRn": {
+    "name": "cucsSysdebugTechSupportFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmCompletionTime": {
+    "name": "cucsSysdebugTechSupportFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmCurrentFsm": {
+    "name": "cucsSysdebugTechSupportFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugTechSupportFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmDescrData": {
+    "name": "cucsSysdebugTechSupportFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmFsmStatus": {
+    "name": "cucsSysdebugTechSupportFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmProgress": {
+    "name": "cucsSysdebugTechSupportFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmRmtErrCode": {
+    "name": "cucsSysdebugTechSupportFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmRmtErrDescr": {
+    "name": "cucsSysdebugTechSupportFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmRmtRslt": {
+    "name": "cucsSysdebugTechSupportFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.30.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageTable": {
+    "name": "cucsSysdebugTechSupportFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageEntry": {
+    "name": "cucsSysdebugTechSupportFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugTechSupportFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageInstanceId": {
+    "name": "cucsSysdebugTechSupportFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageDn": {
+    "name": "cucsSysdebugTechSupportFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageRn": {
+    "name": "cucsSysdebugTechSupportFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageDescrData": {
+    "name": "cucsSysdebugTechSupportFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageLastUpdateTime": {
+    "name": "cucsSysdebugTechSupportFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageName": {
+    "name": "cucsSysdebugTechSupportFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugTechSupportFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageOrder": {
+    "name": "cucsSysdebugTechSupportFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageRetry": {
+    "name": "cucsSysdebugTechSupportFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmStageStageStatus": {
+    "name": "cucsSysdebugTechSupportFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.31.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskTable": {
+    "name": "cucsSysdebugTechSupportFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskEntry": {
+    "name": "cucsSysdebugTechSupportFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+        "object": "cucsSysdebugTechSupportFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskInstanceId": {
+    "name": "cucsSysdebugTechSupportFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskDn": {
+    "name": "cucsSysdebugTechSupportFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskRn": {
+    "name": "cucsSysdebugTechSupportFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskCompletion": {
+    "name": "cucsSysdebugTechSupportFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskFlags": {
+    "name": "cucsSysdebugTechSupportFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskItem": {
+    "name": "cucsSysdebugTechSupportFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsSysdebugTechSupportFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsSysdebugTechSupportFsmTaskSeqId": {
+    "name": "cucsSysdebugTechSupportFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.47.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-SYSDEBUG-MIB"
+  }
+}

@@ -1,0 +1,1973 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SNMPv2-TC-v1": [
+      "PhysAddress",
+      "TruthValue"
+    ]
+  },
+  "ciscoVinesMIB": {
+    "name": "ciscoVinesMIB",
+    "oid": "1.3.6.1.4.1.9.9.17",
+    "class": "objectidentity"
+  },
+  "ciscoVinesMIBObjects": {
+    "name": "ciscoVinesMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.17.1",
+    "class": "objectidentity"
+  },
+  "cvBasic": {
+    "name": "cvBasic",
+    "oid": "1.3.6.1.4.1.9.9.17.1.1",
+    "class": "objectidentity"
+  },
+  "cvForwarding": {
+    "name": "cvForwarding",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2",
+    "class": "objectidentity"
+  },
+  "cvTotal": {
+    "name": "cvTotal",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3",
+    "class": "objectidentity"
+  },
+  "cvInterface": {
+    "name": "cvInterface",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoVinesMIBConformance": {
+    "name": "ciscoVinesMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.17.3",
+    "class": "objectidentity"
+  },
+  "ciscoVinesMIBCompliances": {
+    "name": "ciscoVinesMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.17.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoVinesMIBGroups": {
+    "name": "ciscoVinesMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.17.3.2",
+    "class": "objectidentity"
+  },
+  "VinesNetworkNumber": {
+    "name": "VinesNetworkNumber",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "VinesHostNumber": {
+    "name": "VinesHostNumber",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "VinesMetric": {
+    "name": "VinesMetric",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 819200
+          }
+        ]
+      }
+    }
+  },
+  "cvBasicNetwork": {
+    "name": "cvBasicNetwork",
+    "oid": "1.3.6.1.4.1.9.9.17.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvBasicHost": {
+    "name": "cvBasicHost",
+    "oid": "1.3.6.1.4.1.9.9.17.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesHostNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvBasicNextClient": {
+    "name": "cvBasicNextClient",
+    "oid": "1.3.6.1.4.1.9.9.17.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesHostNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborNeighborCount": {
+    "name": "cvForwNeighborNeighborCount",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborPathCount": {
+    "name": "cvForwNeighborPathCount",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborVersion": {
+    "name": "cvForwNeighborVersion",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborTable": {
+    "name": "cvForwNeighborTable",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvForwNeighborEntry": {
+    "name": "cvForwNeighborEntry",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborNetwork",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborHost",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborPhysAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cvForwNeighborNetwork": {
+    "name": "cvForwNeighborNetwork",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvForwNeighborHost": {
+    "name": "cvForwNeighborHost",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesHostNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvForwNeighborPhysAddress": {
+    "name": "cvForwNeighborPhysAddress",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvForwNeighborSource": {
+    "name": "cvForwNeighborSource",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unrecognized": 1,
+          "self": 2,
+          "rtpRedirect": 3,
+          "rtpUpdate": 4,
+          "manualRoute": 5,
+          "igrp": 6,
+          "test": 7,
+          "manualNeighbor": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborRtpVersion": {
+    "name": "cvForwNeighborRtpVersion",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborUsageType": {
+    "name": "cvForwNeighborUsageType",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "next": 1,
+          "roundRobin": 2,
+          "backup": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborAge": {
+    "name": "cvForwNeighborAge",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborMetric": {
+    "name": "cvForwNeighborMetric",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwNeighborUses": {
+    "name": "cvForwNeighborUses",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteRouterCount": {
+    "name": "cvForwRouteRouterCount",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteRouteCount": {
+    "name": "cvForwRouteRouteCount",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteVersion": {
+    "name": "cvForwRouteVersion",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteUpdateCountdown": {
+    "name": "cvForwRouteUpdateCountdown",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteTable": {
+    "name": "cvForwRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvForwRouteEntry": {
+    "name": "cvForwRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteNetworkNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteNeighborNetwork",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cvForwRouteNetworkNumber": {
+    "name": "cvForwRouteNetworkNumber",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvForwRouteNeighborNetwork": {
+    "name": "cvForwRouteNeighborNetwork",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvForwRouteSource": {
+    "name": "cvForwRouteSource",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unrecognized": 1,
+          "self": 2,
+          "rtpRedirect": 3,
+          "rtpUpdate": 4,
+          "manualRoute": 5,
+          "igrp": 6,
+          "test": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteRtpVersion": {
+    "name": "cvForwRouteRtpVersion",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteUseNext": {
+    "name": "cvForwRouteUseNext",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteForwardBroadcast": {
+    "name": "cvForwRouteForwardBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteSuppress": {
+    "name": "cvForwRouteSuppress",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteLoadShareEligible": {
+    "name": "cvForwRouteLoadShareEligible",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteAge": {
+    "name": "cvForwRouteAge",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteMetric": {
+    "name": "cvForwRouteMetric",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvForwRouteUses": {
+    "name": "cvForwRouteUses",
+    "oid": "1.3.6.1.4.1.9.9.17.1.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalInputPackets": {
+    "name": "cvTotalInputPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalOutputPackets": {
+    "name": "cvTotalOutputPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalLocalDestPackets": {
+    "name": "cvTotalLocalDestPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalForwardedPackets": {
+    "name": "cvTotalForwardedPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalBroadcastInPackets": {
+    "name": "cvTotalBroadcastInPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalBroadcastOutPackets": {
+    "name": "cvTotalBroadcastOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalBroadcastForwardPackets": {
+    "name": "cvTotalBroadcastForwardPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalLanOnlyPackets": {
+    "name": "cvTotalLanOnlyPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalNotOver4800Packets": {
+    "name": "cvTotalNotOver4800Packets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalNoChargesPackets": {
+    "name": "cvTotalNoChargesPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalFormatErrors": {
+    "name": "cvTotalFormatErrors",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalChecksumErrors": {
+    "name": "cvTotalChecksumErrors",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalHopCountsExceeded": {
+    "name": "cvTotalHopCountsExceeded",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalNoRouteDrops": {
+    "name": "cvTotalNoRouteDrops",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalEncapsFailedDrops": {
+    "name": "cvTotalEncapsFailedDrops",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalUnknownPackets": {
+    "name": "cvTotalUnknownPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalIcpInPackets": {
+    "name": "cvTotalIcpInPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalIcpOutPackets": {
+    "name": "cvTotalIcpOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalMetricOutPackets": {
+    "name": "cvTotalMetricOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalMacEchoInPackets": {
+    "name": "cvTotalMacEchoInPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalMacEchoOutPackets": {
+    "name": "cvTotalMacEchoOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalEchoInPackets": {
+    "name": "cvTotalEchoInPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalEchoOutPackets": {
+    "name": "cvTotalEchoOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalProxyOutPackets": {
+    "name": "cvTotalProxyOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvTotalProxyReplyOutPackets": {
+    "name": "cvTotalProxyReplyOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigTable": {
+    "name": "cvIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvIfConfigEntry": {
+    "name": "cvIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cvIfConfigMetric": {
+    "name": "cvIfConfigMetric",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VinesMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigEncapsulation": {
+    "name": "cvIfConfigEncapsulation",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arpa": 1,
+          "tokenRing": 2,
+          "snap": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigAccesslist": {
+    "name": "cvIfConfigAccesslist",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigPropagate": {
+    "name": "cvIfConfigPropagate",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "always": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigArpEnabled": {
+    "name": "cvIfConfigArpEnabled",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "always": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigServerless": {
+    "name": "cvIfConfigServerless",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "never": 1,
+          "dynamic": 2,
+          "always": 3,
+          "alwaysBroadcast": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigRedirectInterval": {
+    "name": "cvIfConfigRedirectInterval",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigSplitDisabled": {
+    "name": "cvIfConfigSplitDisabled",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigLineup": {
+    "name": "cvIfConfigLineup",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigFastokay": {
+    "name": "cvIfConfigFastokay",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigRouteCache": {
+    "name": "cvIfConfigRouteCache",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigInputRouterFilter": {
+    "name": "cvIfConfigInputRouterFilter",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigInputNetworkFilter": {
+    "name": "cvIfConfigInputNetworkFilter",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfConfigOutputNetworkFilter": {
+    "name": "cvIfConfigOutputNetworkFilter",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInTable": {
+    "name": "cvIfCountInTable",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvIfCountInEntry": {
+    "name": "cvIfCountInEntry",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cvIfCountInNotEnabledDrops": {
+    "name": "cvIfCountInNotEnabledDrops",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInFormatErrors": {
+    "name": "cvIfCountInFormatErrors",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInLocalDestPackets": {
+    "name": "cvIfCountInLocalDestPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInBroadcastPackets": {
+    "name": "cvIfCountInBroadcastPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInForwardedPackets": {
+    "name": "cvIfCountInForwardedPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInNoRouteDrops": {
+    "name": "cvIfCountInNoRouteDrops",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInZeroHopCountDrops": {
+    "name": "cvIfCountInZeroHopCountDrops",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInChecksumErrors": {
+    "name": "cvIfCountInChecksumErrors",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInArpQueryRequests": {
+    "name": "cvIfCountInArpQueryRequests",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInArpQueryResponses": {
+    "name": "cvIfCountInArpQueryResponses",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInArpAssignmentRequests": {
+    "name": "cvIfCountInArpAssignmentRequests",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInArpAssignmentResponses": {
+    "name": "cvIfCountInArpAssignmentResponses",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInArpIllegalMessages": {
+    "name": "cvIfCountInArpIllegalMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInIcpErrorMessages": {
+    "name": "cvIfCountInIcpErrorMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInIcpMetricMessages": {
+    "name": "cvIfCountInIcpMetricMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInIcpIllegalMessages": {
+    "name": "cvIfCountInIcpIllegalMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInIpcMessages": {
+    "name": "cvIfCountInIpcMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtp0Messages": {
+    "name": "cvIfCountInRtp0Messages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtp1Messages": {
+    "name": "cvIfCountInRtp1Messages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtp2Messages": {
+    "name": "cvIfCountInRtp2Messages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtp3Messages": {
+    "name": "cvIfCountInRtp3Messages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtpUpdateMessages": {
+    "name": "cvIfCountInRtpUpdateMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtpResponseMessages": {
+    "name": "cvIfCountInRtpResponseMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtpRedirectMessages": {
+    "name": "cvIfCountInRtpRedirectMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInRtpIllegalMessages": {
+    "name": "cvIfCountInRtpIllegalMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInSppMessages": {
+    "name": "cvIfCountInSppMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInIpUnknownProtocols": {
+    "name": "cvIfCountInIpUnknownProtocols",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInIpcUnknownPorts": {
+    "name": "cvIfCountInIpcUnknownPorts",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInBroadcastsHelpered": {
+    "name": "cvIfCountInBroadcastsHelpered",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInBroadcastsForwarded": {
+    "name": "cvIfCountInBroadcastsForwarded",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInBroadcastDuplicates": {
+    "name": "cvIfCountInBroadcastDuplicates",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInEchoPackets": {
+    "name": "cvIfCountInEchoPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInMacEchoPackets": {
+    "name": "cvIfCountInMacEchoPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountInProxyReplyPackets": {
+    "name": "cvIfCountInProxyReplyPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutTable": {
+    "name": "cvIfCountOutTable",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cvIfCountOutEntry": {
+    "name": "cvIfCountOutEntry",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cvIfCountOutUnicastPackets": {
+    "name": "cvIfCountOutUnicastPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutBroadcastPackets": {
+    "name": "cvIfCountOutBroadcastPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutForwardedPackets": {
+    "name": "cvIfCountOutForwardedPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutEncapsulationFailures": {
+    "name": "cvIfCountOutEncapsulationFailures",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutAccessFailures": {
+    "name": "cvIfCountOutAccessFailures",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutDownFailures": {
+    "name": "cvIfCountOutDownFailures",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutPacketsNotBroadcastToSource": {
+    "name": "cvIfCountOutPacketsNotBroadcastToSource",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutPacketsNotBroadcastLanOnly": {
+    "name": "cvIfCountOutPacketsNotBroadcastLanOnly",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutPacketsNotBroadcastNotOver4800": {
+    "name": "cvIfCountOutPacketsNotBroadcastNotOver4800",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutPacketsNotBroadcastNoCharge": {
+    "name": "cvIfCountOutPacketsNotBroadcastNoCharge",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutBroadcastsForwarded": {
+    "name": "cvIfCountOutBroadcastsForwarded",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutBroadcastsHelpered": {
+    "name": "cvIfCountOutBroadcastsHelpered",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutArpQueryRequests": {
+    "name": "cvIfCountOutArpQueryRequests",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutArpQueryResponses": {
+    "name": "cvIfCountOutArpQueryResponses",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutArpAssignmentRequests": {
+    "name": "cvIfCountOutArpAssignmentRequests",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutArpAssignmentResponses": {
+    "name": "cvIfCountOutArpAssignmentResponses",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutIcpErrorMessages": {
+    "name": "cvIfCountOutIcpErrorMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutIcpMetricMessages": {
+    "name": "cvIfCountOutIcpMetricMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutIpcMessages": {
+    "name": "cvIfCountOutIpcMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutRtp0Messages": {
+    "name": "cvIfCountOutRtp0Messages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutRtpRequestMessages": {
+    "name": "cvIfCountOutRtpRequestMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutRtp2Messages": {
+    "name": "cvIfCountOutRtp2Messages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutRtp3Messages": {
+    "name": "cvIfCountOutRtp3Messages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutRtpUpdateMessages": {
+    "name": "cvIfCountOutRtpUpdateMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutRtpResponseMessages": {
+    "name": "cvIfCountOutRtpResponseMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutRtpRedirectMessages": {
+    "name": "cvIfCountOutRtpRedirectMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutSppMessages": {
+    "name": "cvIfCountOutSppMessages",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutEchoPackets": {
+    "name": "cvIfCountOutEchoPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutMacEchoPackets": {
+    "name": "cvIfCountOutMacEchoPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cvIfCountOutProxyPackets": {
+    "name": "cvIfCountOutProxyPackets",
+    "oid": "1.3.6.1.4.1.9.9.17.1.4.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoVinesMIBGroup": {
+    "name": "ciscoVinesMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.17.3.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoVinesMIBCompliance": {
+    "name": "ciscoVinesMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.17.3.1.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VINES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VINES-MIB"
+  }
+}

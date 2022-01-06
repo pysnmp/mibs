@@ -1,0 +1,817 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "enterprises",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "broadcom": {
+    "name": "broadcom",
+    "oid": "1.3.6.1.4.1.4413",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-23 00:00",
+        "description": "Netgear branding related changes."
+      },
+      {
+        "revision": "2003-11-21 00:00",
+        "description": "Revisions made for new release."
+      },
+      {
+        "revision": "2003-02-06 12:00",
+        "description": "Updated for release"
+      }
+    ]
+  },
+  "netgear": {
+    "name": "netgear",
+    "oid": "1.3.6.1.4.1.4526",
+    "class": "objectidentity"
+  },
+  "managedSwitch": {
+    "name": "managedSwitch",
+    "oid": "1.3.6.1.4.1.4526.1",
+    "class": "objectidentity"
+  },
+  "vpnrouter": {
+    "name": "vpnrouter",
+    "oid": "1.3.6.1.4.1.4526.2",
+    "class": "objectidentity"
+  },
+  "carrier": {
+    "name": "carrier",
+    "oid": "1.3.6.1.4.1.4526.3",
+    "class": "objectidentity"
+  },
+  "wireless": {
+    "name": "wireless",
+    "oid": "1.3.6.1.4.1.4526.4",
+    "class": "objectidentity"
+  },
+  "rps": {
+    "name": "rps",
+    "oid": "1.3.6.1.4.1.4526.5",
+    "class": "objectidentity"
+  },
+  "wlanswitch": {
+    "name": "wlanswitch",
+    "oid": "1.3.6.1.4.1.4526.6",
+    "class": "objectidentity"
+  },
+  "fsm726s": {
+    "name": "fsm726s",
+    "oid": "1.3.6.1.4.1.4526.1.1",
+    "class": "objectidentity"
+  },
+  "fsm750s": {
+    "name": "fsm750s",
+    "oid": "1.3.6.1.4.1.4526.1.2",
+    "class": "objectidentity"
+  },
+  "gsm712": {
+    "name": "gsm712",
+    "oid": "1.3.6.1.4.1.4526.1.3",
+    "class": "objectidentity"
+  },
+  "fsm726": {
+    "name": "fsm726",
+    "oid": "1.3.6.1.4.1.4526.1.4",
+    "class": "objectidentity"
+  },
+  "gsm712f": {
+    "name": "gsm712f",
+    "oid": "1.3.6.1.4.1.4526.1.5",
+    "class": "objectidentity"
+  },
+  "fsm726v2": {
+    "name": "fsm726v2",
+    "oid": "1.3.6.1.4.1.4526.1.10",
+    "class": "objectidentity"
+  },
+  "me103": {
+    "name": "me103",
+    "oid": "1.3.6.1.4.1.4526.4.1",
+    "class": "objectidentity"
+  },
+  "wg302": {
+    "name": "wg302",
+    "oid": "1.3.6.1.4.1.4526.4.2",
+    "class": "objectidentity"
+  },
+  "wg102": {
+    "name": "wg102",
+    "oid": "1.3.6.1.4.1.4526.4.3",
+    "class": "objectidentity"
+  },
+  "wag302": {
+    "name": "wag302",
+    "oid": "1.3.6.1.4.1.4526.4.4",
+    "class": "objectidentity"
+  },
+  "wag102": {
+    "name": "wag102",
+    "oid": "1.3.6.1.4.1.4526.4.5",
+    "class": "objectidentity"
+  },
+  "wg302v2": {
+    "name": "wg302v2",
+    "oid": "1.3.6.1.4.1.4526.4.6",
+    "class": "objectidentity"
+  },
+  "wag302v2": {
+    "name": "wag302v2",
+    "oid": "1.3.6.1.4.1.4526.4.7",
+    "class": "objectidentity"
+  },
+  "wls538": {
+    "name": "wls538",
+    "oid": "1.3.6.1.4.1.4526.6.1",
+    "class": "objectidentity"
+  },
+  "gsm7312": {
+    "name": "gsm7312",
+    "oid": "1.3.6.1.4.1.4526.1.6",
+    "class": "objectidentity"
+  },
+  "gsm7324": {
+    "name": "gsm7324",
+    "oid": "1.3.6.1.4.1.4526.1.7",
+    "class": "objectidentity"
+  },
+  "gsm7224": {
+    "name": "gsm7224",
+    "oid": "1.3.6.1.4.1.4526.1.8",
+    "class": "objectidentity"
+  },
+  "fsm7326p": {
+    "name": "fsm7326p",
+    "oid": "1.3.6.1.4.1.4526.1.9",
+    "class": "objectidentity"
+  },
+  "ng7000managedswitch": {
+    "name": "ng7000managedswitch",
+    "oid": "1.3.6.1.4.1.4526.10",
+    "class": "objectidentity"
+  },
+  "ng700smartswitch": {
+    "name": "ng700smartswitch",
+    "oid": "1.3.6.1.4.1.4526.11",
+    "class": "objectidentity"
+  },
+  "ngrouter": {
+    "name": "ngrouter",
+    "oid": "1.3.6.1.4.1.4526.12",
+    "class": "objectidentity"
+  },
+  "ngfirewall": {
+    "name": "ngfirewall",
+    "oid": "1.3.6.1.4.1.4526.13",
+    "class": "objectidentity"
+  },
+  "ngap": {
+    "name": "ngap",
+    "oid": "1.3.6.1.4.1.4526.14",
+    "class": "objectidentity"
+  },
+  "ngwlan": {
+    "name": "ngwlan",
+    "oid": "1.3.6.1.4.1.4526.15",
+    "class": "objectidentity"
+  },
+  "ng9000chassisswitch": {
+    "name": "ng9000chassisswitch",
+    "oid": "1.3.6.1.4.1.4526.16",
+    "class": "objectidentity"
+  },
+  "ng700stacksmartswitch": {
+    "name": "ng700stacksmartswitch",
+    "oid": "1.3.6.1.4.1.4526.17",
+    "class": "objectidentity"
+  },
+  "productID": {
+    "name": "productID",
+    "oid": "1.3.6.1.4.1.4526.100",
+    "class": "objectidentity"
+  },
+  "stackswitch": {
+    "name": "stackswitch",
+    "oid": "1.3.6.1.4.1.4526.100.1",
+    "class": "objectidentity"
+  },
+  "l2switch": {
+    "name": "l2switch",
+    "oid": "1.3.6.1.4.1.4526.100.2",
+    "class": "objectidentity"
+  },
+  "l3switch": {
+    "name": "l3switch",
+    "oid": "1.3.6.1.4.1.4526.100.3",
+    "class": "objectidentity"
+  },
+  "smartswitch": {
+    "name": "smartswitch",
+    "oid": "1.3.6.1.4.1.4526.100.4",
+    "class": "objectidentity"
+  },
+  "l2Rswitch": {
+    "name": "l2Rswitch",
+    "oid": "1.3.6.1.4.1.4526.100.11",
+    "class": "objectidentity"
+  },
+  "router": {
+    "name": "router",
+    "oid": "1.3.6.1.4.1.4526.100.5",
+    "class": "objectidentity"
+  },
+  "firewall": {
+    "name": "firewall",
+    "oid": "1.3.6.1.4.1.4526.100.6",
+    "class": "objectidentity"
+  },
+  "accesspoint": {
+    "name": "accesspoint",
+    "oid": "1.3.6.1.4.1.4526.100.7",
+    "class": "objectidentity"
+  },
+  "wirelessLAN": {
+    "name": "wirelessLAN",
+    "oid": "1.3.6.1.4.1.4526.100.8",
+    "class": "objectidentity"
+  },
+  "chassisswitch": {
+    "name": "chassisswitch",
+    "oid": "1.3.6.1.4.1.4526.100.9",
+    "class": "objectidentity"
+  },
+  "stacksmartswitch": {
+    "name": "stacksmartswitch",
+    "oid": "1.3.6.1.4.1.4526.100.10",
+    "class": "objectidentity"
+  },
+  "fsm7328s": {
+    "name": "fsm7328s",
+    "oid": "1.3.6.1.4.1.4526.100.1.1",
+    "class": "objectidentity"
+  },
+  "fsm7352s": {
+    "name": "fsm7352s",
+    "oid": "1.3.6.1.4.1.4526.100.1.2",
+    "class": "objectidentity"
+  },
+  "gsm7328s": {
+    "name": "gsm7328s",
+    "oid": "1.3.6.1.4.1.4526.100.1.3",
+    "class": "objectidentity"
+  },
+  "gsm7352s": {
+    "name": "gsm7352s",
+    "oid": "1.3.6.1.4.1.4526.100.1.4",
+    "class": "objectidentity"
+  },
+  "fsm7352ps": {
+    "name": "fsm7352ps",
+    "oid": "1.3.6.1.4.1.4526.100.1.5",
+    "class": "objectidentity"
+  },
+  "fsm7328ps": {
+    "name": "fsm7328ps",
+    "oid": "1.3.6.1.4.1.4526.100.1.8",
+    "class": "objectidentity"
+  },
+  "gsm7328fs": {
+    "name": "gsm7328fs",
+    "oid": "1.3.6.1.4.1.4526.100.1.7",
+    "class": "objectidentity"
+  },
+  "gsm7228ps": {
+    "name": "gsm7228ps",
+    "oid": "1.3.6.1.4.1.4526.100.1.9",
+    "class": "objectidentity"
+  },
+  "gsm7252ps": {
+    "name": "gsm7252ps",
+    "oid": "1.3.6.1.4.1.4526.100.1.10",
+    "class": "objectidentity"
+  },
+  "fsm7226rs": {
+    "name": "fsm7226rs",
+    "oid": "1.3.6.1.4.1.4526.100.1.11",
+    "class": "objectidentity"
+  },
+  "fsm7250rs": {
+    "name": "fsm7250rs",
+    "oid": "1.3.6.1.4.1.4526.100.1.12",
+    "class": "objectidentity"
+  },
+  "gsm7328se": {
+    "name": "gsm7328se",
+    "oid": "1.3.6.1.4.1.4526.100.1.13",
+    "class": "objectidentity"
+  },
+  "gsm7352se": {
+    "name": "gsm7352se",
+    "oid": "1.3.6.1.4.1.4526.100.1.14",
+    "class": "objectidentity"
+  },
+  "xsm7224s": {
+    "name": "xsm7224s",
+    "oid": "1.3.6.1.4.1.4526.100.1.15",
+    "class": "objectidentity"
+  },
+  "m530028gpoe": {
+    "name": "m530028gpoe",
+    "oid": "1.3.6.1.4.1.4526.100.1.16",
+    "class": "objectidentity"
+  },
+  "m530052gpoe": {
+    "name": "m530052gpoe",
+    "oid": "1.3.6.1.4.1.4526.100.1.17",
+    "class": "objectidentity"
+  },
+  "m530028g3": {
+    "name": "m530028g3",
+    "oid": "1.3.6.1.4.1.4526.100.1.18",
+    "class": "objectidentity"
+  },
+  "m530052g3": {
+    "name": "m530052g3",
+    "oid": "1.3.6.1.4.1.4526.100.1.19",
+    "class": "objectidentity"
+  },
+  "m530028gf3": {
+    "name": "m530028gf3",
+    "oid": "1.3.6.1.4.1.4526.100.1.20",
+    "class": "objectidentity"
+  },
+  "m530028g": {
+    "name": "m530028g",
+    "oid": "1.3.6.1.4.1.4526.100.1.21",
+    "class": "objectidentity"
+  },
+  "m530052g": {
+    "name": "m530052g",
+    "oid": "1.3.6.1.4.1.4526.100.1.22",
+    "class": "objectidentity"
+  },
+  "gsm7312v2": {
+    "name": "gsm7312v2",
+    "oid": "1.3.6.1.4.1.4526.100.3.1",
+    "class": "objectidentity"
+  },
+  "gsm7324v2": {
+    "name": "gsm7324v2",
+    "oid": "1.3.6.1.4.1.4526.100.3.2",
+    "class": "objectidentity"
+  },
+  "xsm7312": {
+    "name": "xsm7312",
+    "oid": "1.3.6.1.4.1.4526.100.3.3",
+    "class": "objectidentity"
+  },
+  "gsm7324p": {
+    "name": "gsm7324p",
+    "oid": "1.3.6.1.4.1.4526.100.3.4",
+    "class": "objectidentity"
+  },
+  "gsm7224r": {
+    "name": "gsm7224r",
+    "oid": "1.3.6.1.4.1.4526.100.11.1",
+    "class": "objectidentity"
+  },
+  "gsm7248r": {
+    "name": "gsm7248r",
+    "oid": "1.3.6.1.4.1.4526.100.11.2",
+    "class": "objectidentity"
+  },
+  "gsm7224rp": {
+    "name": "gsm7224rp",
+    "oid": "1.3.6.1.4.1.4526.100.11.3",
+    "class": "objectidentity"
+  },
+  "gsm7248rp": {
+    "name": "gsm7248rp",
+    "oid": "1.3.6.1.4.1.4526.100.11.4",
+    "class": "objectidentity"
+  },
+  "gsm7224v2": {
+    "name": "gsm7224v2",
+    "oid": "1.3.6.1.4.1.4526.100.11.5",
+    "class": "objectidentity"
+  },
+  "gsm7248v2": {
+    "name": "gsm7248v2",
+    "oid": "1.3.6.1.4.1.4526.100.11.6",
+    "class": "objectidentity"
+  },
+  "gsm7212f": {
+    "name": "gsm7212f",
+    "oid": "1.3.6.1.4.1.4526.100.11.7",
+    "class": "objectidentity"
+  },
+  "gsm5212p": {
+    "name": "gsm5212p",
+    "oid": "1.3.6.1.4.1.4526.100.11.8",
+    "class": "objectidentity"
+  },
+  "gsm7212p": {
+    "name": "gsm7212p",
+    "oid": "1.3.6.1.4.1.4526.100.11.9",
+    "class": "objectidentity"
+  },
+  "gsm7224p": {
+    "name": "gsm7224p",
+    "oid": "1.3.6.1.4.1.4526.100.11.10",
+    "class": "objectidentity"
+  },
+  "m4100_26g": {
+    "name": "m4100_26g",
+    "oid": "1.3.6.1.4.1.4526.100.11.16",
+    "class": "objectidentity"
+  },
+  "m4100_50g": {
+    "name": "m4100_50g",
+    "oid": "1.3.6.1.4.1.4526.100.11.17",
+    "class": "objectidentity"
+  },
+  "m4100_26_poe": {
+    "name": "m4100_26_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.18",
+    "class": "objectidentity"
+  },
+  "m4100_26g_poe": {
+    "name": "m4100_26g_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.19",
+    "class": "objectidentity"
+  },
+  "m4100_50g_poe": {
+    "name": "m4100_50g_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.20",
+    "class": "objectidentity"
+  },
+  "m4100_50_poe": {
+    "name": "m4100_50_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.21",
+    "class": "objectidentity"
+  },
+  "m4100_d12g": {
+    "name": "m4100_d12g",
+    "oid": "1.3.6.1.4.1.4526.100.11.22",
+    "class": "objectidentity"
+  },
+  "m4100_d10_poe": {
+    "name": "m4100_d10_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.23",
+    "class": "objectidentity"
+  },
+  "m4100_12gf": {
+    "name": "m4100_12gf",
+    "oid": "1.3.6.1.4.1.4526.100.11.24",
+    "class": "objectidentity"
+  },
+  "m4100_d12g_poe": {
+    "name": "m4100_d12g_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.25",
+    "class": "objectidentity"
+  },
+  "m4100_12g_poe": {
+    "name": "m4100_12g_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.26",
+    "class": "objectidentity"
+  },
+  "m4100_24g_poe": {
+    "name": "m4100_24g_poe",
+    "oid": "1.3.6.1.4.1.4526.100.11.27",
+    "class": "objectidentity"
+  },
+  "gsm7312i": {
+    "name": "gsm7312i",
+    "oid": "1.3.6.1.4.1.4526.100.3.5",
+    "class": "objectidentity"
+  },
+  "gsm7324i": {
+    "name": "gsm7324i",
+    "oid": "1.3.6.1.4.1.4526.100.3.6",
+    "class": "objectidentity"
+  },
+  "fsm7326pi": {
+    "name": "fsm7326pi",
+    "oid": "1.3.6.1.4.1.4526.100.3.7",
+    "class": "objectidentity"
+  },
+  "gsm7248": {
+    "name": "gsm7248",
+    "oid": "1.3.6.1.4.1.4526.100.2.1",
+    "class": "objectidentity"
+  },
+  "gsm7212": {
+    "name": "gsm7212",
+    "oid": "1.3.6.1.4.1.4526.100.2.2",
+    "class": "objectidentity"
+  },
+  "gsm7224i": {
+    "name": "gsm7224i",
+    "oid": "1.3.6.1.4.1.4526.100.2.3",
+    "class": "objectidentity"
+  },
+  "fsm7226": {
+    "name": "fsm7226",
+    "oid": "1.3.6.1.4.1.4526.100.2.4",
+    "class": "objectidentity"
+  },
+  "gcm9000": {
+    "name": "gcm9000",
+    "oid": "1.3.6.1.4.1.4526.100.9.1",
+    "class": "objectidentity"
+  },
+  "xcm8903": {
+    "name": "xcm8903",
+    "oid": "1.3.6.1.4.1.4526.100.9.6",
+    "class": "objectidentity"
+  },
+  "gs748t": {
+    "name": "gs748t",
+    "oid": "1.3.6.1.4.1.4526.100.4.1",
+    "class": "objectidentity"
+  },
+  "fs726t": {
+    "name": "fs726t",
+    "oid": "1.3.6.1.4.1.4526.100.4.2",
+    "class": "objectidentity"
+  },
+  "gs716t": {
+    "name": "gs716t",
+    "oid": "1.3.6.1.4.1.4526.100.4.3",
+    "class": "objectidentity"
+  },
+  "fs750t": {
+    "name": "fs750t",
+    "oid": "1.3.6.1.4.1.4526.100.4.4",
+    "class": "objectidentity"
+  },
+  "gs724t": {
+    "name": "gs724t",
+    "oid": "1.3.6.1.4.1.4526.100.4.5",
+    "class": "objectidentity"
+  },
+  "fs726tp": {
+    "name": "fs726tp",
+    "oid": "1.3.6.1.4.1.4526.100.4.6",
+    "class": "objectidentity"
+  },
+  "fs728tp": {
+    "name": "fs728tp",
+    "oid": "1.3.6.1.4.1.4526.100.4.7",
+    "class": "objectidentity"
+  },
+  "gs108t": {
+    "name": "gs108t",
+    "oid": "1.3.6.1.4.1.4526.100.4.8",
+    "class": "objectidentity"
+  },
+  "gs108tp": {
+    "name": "gs108tp",
+    "oid": "1.3.6.1.4.1.4526.100.4.9",
+    "class": "objectidentity"
+  },
+  "gs724tp": {
+    "name": "gs724tp",
+    "oid": "1.3.6.1.4.1.4526.100.4.10",
+    "class": "objectidentity"
+  },
+  "gs748tp": {
+    "name": "gs748tp",
+    "oid": "1.3.6.1.4.1.4526.100.4.11",
+    "class": "objectidentity"
+  },
+  "gs724tr": {
+    "name": "gs724tr",
+    "oid": "1.3.6.1.4.1.4526.100.4.12",
+    "class": "objectidentity"
+  },
+  "gs748tr": {
+    "name": "gs748tr",
+    "oid": "1.3.6.1.4.1.4526.100.4.13",
+    "class": "objectidentity"
+  },
+  "gs716tv2": {
+    "name": "gs716tv2",
+    "oid": "1.3.6.1.4.1.4526.100.4.16",
+    "class": "objectidentity"
+  },
+  "gs724tv3": {
+    "name": "gs724tv3",
+    "oid": "1.3.6.1.4.1.4526.100.4.17",
+    "class": "objectidentity"
+  },
+  "gs108tv2": {
+    "name": "gs108tv2",
+    "oid": "1.3.6.1.4.1.4526.100.4.18",
+    "class": "objectidentity"
+  },
+  "gs110tp": {
+    "name": "gs110tp",
+    "oid": "1.3.6.1.4.1.4526.100.4.19",
+    "class": "objectidentity"
+  },
+  "fs728tpv2": {
+    "name": "fs728tpv2",
+    "oid": "1.3.6.1.4.1.4526.100.4.20",
+    "class": "objectidentity"
+  },
+  "gs716tv3": {
+    "name": "gs716tv3",
+    "oid": "1.3.6.1.4.1.4526.100.4.31",
+    "class": "objectidentity"
+  },
+  "gs724tv4": {
+    "name": "gs724tv4",
+    "oid": "1.3.6.1.4.1.4526.100.4.32",
+    "class": "objectidentity"
+  },
+  "gs748tv5": {
+    "name": "gs748tv5",
+    "oid": "1.3.6.1.4.1.4526.100.4.33",
+    "class": "objectidentity"
+  },
+  "xs712t": {
+    "name": "xs712t",
+    "oid": "1.3.6.1.4.1.4526.100.4.30",
+    "class": "objectidentity"
+  },
+  "fs728ts": {
+    "name": "fs728ts",
+    "oid": "1.3.6.1.4.1.4526.100.10.1",
+    "class": "objectidentity"
+  },
+  "fs752ts": {
+    "name": "fs752ts",
+    "oid": "1.3.6.1.4.1.4526.100.10.2",
+    "class": "objectidentity"
+  },
+  "fs752tps": {
+    "name": "fs752tps",
+    "oid": "1.3.6.1.4.1.4526.100.10.3",
+    "class": "objectidentity"
+  },
+  "gs724ts": {
+    "name": "gs724ts",
+    "oid": "1.3.6.1.4.1.4526.100.10.4",
+    "class": "objectidentity"
+  },
+  "gs748ts": {
+    "name": "gs748ts",
+    "oid": "1.3.6.1.4.1.4526.100.10.5",
+    "class": "objectidentity"
+  },
+  "gs752ts": {
+    "name": "gs752ts",
+    "oid": "1.3.6.1.4.1.4526.100.10.12",
+    "class": "objectidentity"
+  },
+  "gs728ts": {
+    "name": "gs728ts",
+    "oid": "1.3.6.1.4.1.4526.100.10.11",
+    "class": "objectidentity"
+  },
+  "gs752tstps": {
+    "name": "gs752tstps",
+    "oid": "1.3.6.1.4.1.4526.100.10.8",
+    "class": "objectidentity"
+  },
+  "gs728tps": {
+    "name": "gs728tps",
+    "oid": "1.3.6.1.4.1.4526.100.10.13",
+    "class": "objectidentity"
+  },
+  "gs752tps": {
+    "name": "gs752tps",
+    "oid": "1.3.6.1.4.1.4526.100.10.14",
+    "class": "objectidentity"
+  },
+  "gs752txs": {
+    "name": "gs752txs",
+    "oid": "1.3.6.1.4.1.4526.100.10.10",
+    "class": "objectidentity"
+  },
+  "gs728txs": {
+    "name": "gs728txs",
+    "oid": "1.3.6.1.4.1.4526.100.10.15",
+    "class": "objectidentity"
+  },
+  "s3300_28x": {
+    "name": "s3300_28x",
+    "oid": "1.3.6.1.4.1.4526.100.10.16",
+    "class": "objectidentity"
+  },
+  "s3300_28x_poe": {
+    "name": "s3300_28x_poe",
+    "oid": "1.3.6.1.4.1.4526.100.10.17",
+    "class": "objectidentity"
+  },
+  "s3300_52x": {
+    "name": "s3300_52x",
+    "oid": "1.3.6.1.4.1.4526.100.10.18",
+    "class": "objectidentity"
+  },
+  "s3300_52x_poe": {
+    "name": "s3300_52x_poe",
+    "oid": "1.3.6.1.4.1.4526.100.10.19",
+    "class": "objectidentity"
+  },
+  "fvx538": {
+    "name": "fvx538",
+    "oid": "1.3.6.1.4.1.4526.100.5.1",
+    "class": "objectidentity"
+  },
+  "fvs338": {
+    "name": "fvs338",
+    "oid": "1.3.6.1.4.1.4526.100.5.2",
+    "class": "objectidentity"
+  },
+  "fvg318": {
+    "name": "fvg318",
+    "oid": "1.3.6.1.4.1.4526.100.5.3",
+    "class": "objectidentity"
+  },
+  "fvs336g": {
+    "name": "fvs336g",
+    "oid": "1.3.6.1.4.1.4526.100.5.4",
+    "class": "objectidentity"
+  },
+  "fwag114": {
+    "name": "fwag114",
+    "oid": "1.3.6.1.4.1.4526.100.6.3",
+    "class": "objectidentity"
+  },
+  "fvs124g": {
+    "name": "fvs124g",
+    "oid": "1.3.6.1.4.1.4526.100.6.4",
+    "class": "objectidentity"
+  },
+  "fvs318v3": {
+    "name": "fvs318v3",
+    "oid": "1.3.6.1.4.1.4526.100.6.5",
+    "class": "objectidentity"
+  },
+  "dgfv338": {
+    "name": "dgfv338",
+    "oid": "1.3.6.1.4.1.4526.100.6.6",
+    "class": "objectidentity"
+  },
+  "wpn802": {
+    "name": "wpn802",
+    "oid": "1.3.6.1.4.1.4526.100.7.1",
+    "class": "objectidentity"
+  },
+  "wg312": {
+    "name": "wg312",
+    "oid": "1.3.6.1.4.1.4526.100.7.2",
+    "class": "objectidentity"
+  },
+  "wag312": {
+    "name": "wag312",
+    "oid": "1.3.6.1.4.1.4526.100.7.3",
+    "class": "objectidentity"
+  },
+  "AgentPortMask": {
+    "name": "AgentPortMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-REF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETGEAR-REF-MIB"
+  }
+}

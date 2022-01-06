@@ -1,0 +1,382 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfRhw"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfMultilinkPPP": {
+    "name": "hpnicfMultilinkPPP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33",
+    "class": "moduleidentity"
+  },
+  "hpnicfMpObjects": {
+    "name": "hpnicfMpObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMpMultilinkTable": {
+    "name": "hpnicfMpMultilinkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMpMultilinkEntry": {
+    "name": "hpnicfMpMultilinkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMpMultilinkDescr": {
+    "name": "hpnicfMpMultilinkDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpBundleName": {
+    "name": "hpnicfMpBundleName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpBundledSlot": {
+    "name": "hpnicfMpBundledSlot",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpBundledMemberCnt": {
+    "name": "hpnicfMpBundledMemberCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpLostFragments": {
+    "name": "hpnicfMpLostFragments",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpReorderedPkts": {
+    "name": "hpnicfMpReorderedPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpUnassignedPkts": {
+    "name": "hpnicfMpUnassignedPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpInterleavedPkts": {
+    "name": "hpnicfMpInterleavedPkts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpRcvdSequence": {
+    "name": "hpnicfMpRcvdSequence",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpSentSequence": {
+    "name": "hpnicfMpSentSequence",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpMemberlinkTable": {
+    "name": "hpnicfMpMemberlinkTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfMpMemberlinkEntry": {
+    "name": "hpnicfMpMemberlinkEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpMemberlinkSeqNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMpMemberlinkSeqNumber": {
+    "name": "hpnicfMpMemberlinkSeqNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpMemberlinkIfIndex": {
+    "name": "hpnicfMpMemberlinkIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpMemberlinkDescr": {
+    "name": "hpnicfMpMemberlinkDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpMemberlinkMpStatus": {
+    "name": "hpnicfMpMemberlinkMpStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfMpNotifications": {
+    "name": "hpnicfMpNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.2",
+    "class": "objectidentity"
+  },
+  "hpnicfMpConformance": {
+    "name": "hpnicfMpConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.3",
+    "class": "objectidentity"
+  },
+  "hpnicfMpCompliances": {
+    "name": "hpnicfMpCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMpCompliance": {
+    "name": "hpnicfMpCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfMpMandatoryGroup",
+        "module": "HPN-ICF-MP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMpGroups": {
+    "name": "hpnicfMpGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.3.2",
+    "class": "objectidentity"
+  },
+  "hpnicfMpMandatoryGroup": {
+    "name": "hpnicfMpMandatoryGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpBundledMemberCnt"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpMemberlinkSeqNumber"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpMemberlinkIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMpInfoGroup": {
+    "name": "hpnicfMpInfoGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.33.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpMultilinkDescr"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpBundleName"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpBundledSlot"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpBundledMemberCnt"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpLostFragments"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpReorderedPkts"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpUnassignedPkts"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpInterleavedPkts"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpRcvdSequence"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpSentSequence"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpMemberlinkDescr"
+      },
+      {
+        "module": "HPN-ICF-MP-MIB",
+        "object": "hpnicfMpMemberlinkMpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-MP-MIB"
+  }
+}

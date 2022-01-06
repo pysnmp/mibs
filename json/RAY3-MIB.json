@@ -1,0 +1,1623 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "snmpTraps"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "mib-2",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime"
+    ]
+  },
+  "racom": {
+    "name": "racom",
+    "oid": "1.3.6.1.4.1.33555",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-10-21 00:00",
+        "description": "Latest version of this MIB module"
+      }
+    ]
+  },
+  "Tenths": {
+    "name": "Tenths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "Hundredths": {
+    "name": "Hundredths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "Thousandths": {
+    "name": "Thousandths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "DisplayStringRaw": {
+    "name": "DisplayStringRaw",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "PhysAddressRaw": {
+    "name": "PhysAddressRaw",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "ServiceState": {
+    "name": "ServiceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlarmState": {
+    "name": "AlarmState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "up": 1,
+          "down": 2,
+          "ack": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OptionSetting": {
+    "name": "OptionSetting",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModulationList": {
+    "name": "ModulationList",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "qpskS": 1,
+          "qpsk": 2,
+          "qam16": 3,
+          "qam32": 4,
+          "qam64": 5,
+          "qam128": 6,
+          "qam256": 7,
+          "qam512": 8,
+          "qam1024": 9,
+          "qam2048": 10,
+          "qam4096": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ray3": {
+    "name": "ray3",
+    "oid": "1.3.6.1.4.1.33555.4",
+    "class": "objectidentity"
+  },
+  "station": {
+    "name": "station",
+    "oid": "1.3.6.1.4.1.33555.4.1",
+    "class": "objectidentity"
+  },
+  "interface": {
+    "name": "interface",
+    "oid": "1.3.6.1.4.1.33555.4.2",
+    "class": "objectidentity"
+  },
+  "statistic": {
+    "name": "statistic",
+    "oid": "1.3.6.1.4.1.33555.4.3",
+    "class": "objectidentity"
+  },
+  "switch": {
+    "name": "switch",
+    "oid": "1.3.6.1.4.1.33555.4.4",
+    "class": "objectidentity"
+  },
+  "ray3Traps": {
+    "name": "ray3Traps",
+    "oid": "1.3.6.1.4.1.33555.4.12",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.33555.4.1.1",
+    "class": "objectidentity"
+  },
+  "info": {
+    "name": "info",
+    "oid": "1.3.6.1.4.1.33555.4.1.2",
+    "class": "objectidentity"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.33555.4.1.3",
+    "class": "objectidentity"
+  },
+  "chassis": {
+    "name": "chassis",
+    "oid": "1.3.6.1.4.1.33555.4.1.4",
+    "class": "objectidentity"
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.4.1.33555.4.1.5",
+    "class": "objectidentity"
+  },
+  "access": {
+    "name": "access",
+    "oid": "1.3.6.1.4.1.33555.4.1.6",
+    "class": "objectidentity"
+  },
+  "alarm": {
+    "name": "alarm",
+    "oid": "1.3.6.1.4.1.33555.4.1.8",
+    "class": "objectidentity"
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.33555.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.33555.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitType": {
+    "name": "unitType",
+    "oid": "1.3.6.1.4.1.33555.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.33555.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVer": {
+    "name": "swVer",
+    "oid": "1.3.6.1.4.1.33555.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swVerRadio": {
+    "name": "swVerRadio",
+    "oid": "1.3.6.1.4.1.33555.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemStatus": {
+    "name": "systemStatus",
+    "oid": "1.3.6.1.4.1.33555.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "ok": 1,
+          "warning": 2,
+          "alarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "peerNumber": {
+    "name": "peerNumber",
+    "oid": "1.3.6.1.4.1.33555.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "securePeerMode": {
+    "name": "securePeerMode",
+    "oid": "1.3.6.1.4.1.33555.4.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineStatusII": {
+    "name": "lineStatusII",
+    "oid": "1.3.6.1.4.1.33555.4.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "setup": 1,
+          "single": 2,
+          "connecting": 3,
+          "authorizing": 4,
+          "ok": 5,
+          "analyzer": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eth1Link": {
+    "name": "eth1Link",
+    "oid": "1.3.6.1.4.1.33555.4.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eth2Link": {
+    "name": "eth2Link",
+    "oid": "1.3.6.1.4.1.33555.4.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureModem": {
+    "name": "temperatureModem",
+    "oid": "1.3.6.1.4.1.33555.4.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hundredths",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "deg C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureRadio": {
+    "name": "temperatureRadio",
+    "oid": "1.3.6.1.4.1.33555.4.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hundredths",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10000,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "deg C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageUnit": {
+    "name": "voltageUnit",
+    "oid": "1.3.6.1.4.1.33555.4.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Tenths",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "voltageSource": {
+    "name": "voltageSource",
+    "oid": "1.3.6.1.4.1.33555.4.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "aux": 1,
+          "poe": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "useCpu": {
+    "name": "useCpu",
+    "oid": "1.3.6.1.4.1.33555.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "useMemory": {
+    "name": "useMemory",
+    "oid": "1.3.6.1.4.1.33555.4.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "useLogStorage": {
+    "name": "useLogStorage",
+    "oid": "1.3.6.1.4.1.33555.4.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sshd": {
+    "name": "sshd",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "onlykey": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "telnetd": {
+    "name": "telnetd",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpd": {
+    "name": "httpd",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ip": {
+    "name": "ip",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mac": {
+    "name": "mac",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddressRaw",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementVlan": {
+    "name": "managementVlan",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "managementVlanId": {
+    "name": "managementVlanId",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wifiHAP": {
+    "name": "wifiHAP",
+    "oid": "1.3.6.1.4.1.33555.4.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "disabled": 1,
+          "enabled-on-air-link-loss": 2,
+          "force-enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmTemperature": {
+    "name": "alarmTemperature",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmVoltageLow": {
+    "name": "alarmVoltageLow",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmVoltageHigh": {
+    "name": "alarmVoltageHigh",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmRss": {
+    "name": "alarmRss",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmBer": {
+    "name": "alarmBer",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmPeerDisconnected": {
+    "name": "alarmPeerDisconnected",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmEth1Down": {
+    "name": "alarmEth1Down",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmEth2Down": {
+    "name": "alarmEth2Down",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmNetBitrate": {
+    "name": "alarmNetBitrate",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmWifiOn": {
+    "name": "alarmWifiOn",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmMse": {
+    "name": "alarmMse",
+    "oid": "1.3.6.1.4.1.33555.4.1.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifRadio": {
+    "name": "ifRadio",
+    "oid": "1.3.6.1.4.1.33555.4.2.1",
+    "class": "objectidentity"
+  },
+  "ifEth": {
+    "name": "ifEth",
+    "oid": "1.3.6.1.4.1.33555.4.2.2",
+    "class": "objectidentity"
+  },
+  "rxChannel": {
+    "name": "rxChannel",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txChannel": {
+    "name": "txChannel",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxFreq": {
+    "name": "rxFreq",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txFreq": {
+    "name": "txFreq",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxModulation": {
+    "name": "rxModulation",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txModulation": {
+    "name": "txModulation",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxModulationIndex": {
+    "name": "rxModulationIndex",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txModulationIndex": {
+    "name": "txModulationIndex",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matching": {
+    "name": "matching",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rfPowerConfigured": {
+    "name": "rfPowerConfigured",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netBitrate": {
+    "name": "netBitrate",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxNetBitrate": {
+    "name": "maxNetBitrate",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Mbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "txBandwidthKHz": {
+    "name": "txBandwidthKHz",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "channelArrangement": {
+    "name": "channelArrangement",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "accp": 1,
+          "acap": 2,
+          "ccdp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rfPowerCurrent": {
+    "name": "rfPowerCurrent",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "acm": {
+    "name": "acm",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atpc": {
+    "name": "atpc",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frequencyTable": {
+    "name": "frequencyTable",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringRaw",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rxBandwidthKHz": {
+    "name": "rxBandwidthKHz",
+    "oid": "1.3.6.1.4.1.33555.4.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifEthTable": {
+    "name": "ifEthTable",
+    "oid": "1.3.6.1.4.1.33555.4.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ifEthEntry": {
+    "name": "ifEthEntry",
+    "oid": "1.3.6.1.4.1.33555.4.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAY3-MIB",
+        "object": "speed",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "speed": {
+    "name": "speed",
+    "oid": "1.3.6.1.4.1.33555.4.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "duplex": {
+    "name": "duplex",
+    "oid": "1.3.6.1.4.1.33555.4.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "full": 1,
+          "half": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdix": {
+    "name": "mdix",
+    "oid": "1.3.6.1.4.1.33555.4.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "mdi": 1,
+          "mdi-x": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "autonego": {
+    "name": "autonego",
+    "oid": "1.3.6.1.4.1.33555.4.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowControl": {
+    "name": "flowControl",
+    "oid": "1.3.6.1.4.1.33555.4.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "off": 1,
+          "on": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radio": {
+    "name": "radio",
+    "oid": "1.3.6.1.4.1.33555.4.3.2",
+    "class": "objectidentity"
+  },
+  "ethernet": {
+    "name": "ethernet",
+    "oid": "1.3.6.1.4.1.33555.4.3.3",
+    "class": "objectidentity"
+  },
+  "rss": {
+    "name": "rss",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Tenths",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timeAllConnect": {
+    "name": "timeAllConnect",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timeAllDisconnect": {
+    "name": "timeAllDisconnect",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "timeMaxDisconnect": {
+    "name": "timeMaxDisconnect",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "numDisconnect": {
+    "name": "numDisconnect",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reliability": {
+    "name": "reliability",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Thousandths",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkUptime": {
+    "name": "linkUptime",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ber": {
+    "name": "ber",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mse": {
+    "name": "mse",
+    "oid": "1.3.6.1.4.1.33555.4.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Tenths",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethInThroughput": {
+    "name": "ethInThroughput",
+    "oid": "1.3.6.1.4.1.33555.4.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethOutThroughput": {
+    "name": "ethOutThroughput",
+    "oid": "1.3.6.1.4.1.33555.4.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eth2InThroughput": {
+    "name": "eth2InThroughput",
+    "oid": "1.3.6.1.4.1.33555.4.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eth2OutThroughput": {
+    "name": "eth2OutThroughput",
+    "oid": "1.3.6.1.4.1.33555.4.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "egressQueue": {
+    "name": "egressQueue",
+    "oid": "1.3.6.1.4.1.33555.4.4.3",
+    "class": "objectidentity"
+  },
+  "speedGuard": {
+    "name": "speedGuard",
+    "oid": "1.3.6.1.4.1.33555.4.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OptionSetting",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ray3TrapsPrefix": {
+    "name": "ray3TrapsPrefix",
+    "oid": "1.3.6.1.4.1.33555.4.12.0",
+    "class": "objectidentity"
+  },
+  "tr3TemperatureAlarm": {
+    "name": "tr3TemperatureAlarm",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "temperatureModem"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3VoltageLowAlarm": {
+    "name": "tr3VoltageLowAlarm",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "voltageUnit"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmVoltageLow"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3VoltageHighAlarm": {
+    "name": "tr3VoltageHighAlarm",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "voltageUnit"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmVoltageHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3RssAlarm": {
+    "name": "tr3RssAlarm",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "rss"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmRss"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3MseAlarm": {
+    "name": "tr3MseAlarm",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "mse"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmMse"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3BerAlarm": {
+    "name": "tr3BerAlarm",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "ber"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmBer"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3AirDisconnect": {
+    "name": "tr3AirDisconnect",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "lineStatusII"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmPeerDisconnected"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3AirConnect": {
+    "name": "tr3AirConnect",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "lineStatusII"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmPeerDisconnected"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3Eth1LinkDown": {
+    "name": "tr3Eth1LinkDown",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "eth1Link"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmEth1Down"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3Eth21LinkDown": {
+    "name": "tr3Eth21LinkDown",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "eth2Link"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmEth2Down"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3NetBitrate": {
+    "name": "tr3NetBitrate",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "netBitrate"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmNetBitrate"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3WifiOn": {
+    "name": "tr3WifiOn",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "wifiHAP"
+      },
+      {
+        "module": "RAY3-MIB",
+        "object": "alarmWifiOn"
+      }
+    ],
+    "status": "current"
+  },
+  "tr3EventAirCapacity": {
+    "name": "tr3EventAirCapacity",
+    "oid": "1.3.6.1.4.1.33555.4.12.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAY3-MIB",
+        "object": "netBitrate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ray/RAY3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAY3-MIB"
+  }
+}

@@ -1,0 +1,1000 @@
+{
+  "imports": {
+    "class": "imports",
+    "NSCRTV-EPONEOC-EPON-MIB": [
+      "EponDeviceIndex",
+      "EponCardIndex",
+      "EponStats24HourRecordType",
+      "TAddress",
+      "EponStatsThresholdType",
+      "AutoNegotiationTechAbility",
+      "EponPortIndex",
+      "EponSeverityType",
+      "EponStats15MinRecordType",
+      "vlanManagementObjects",
+      "EponAlarmCode",
+      "EponAlarmInstance"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "vlanGlobalInfoTable": {
+    "name": "vlanGlobalInfoTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanGlobalInfoEntry": {
+    "name": "vlanGlobalInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "vlanDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDeviceIndex": {
+    "name": "vlanDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "maxVlanId": {
+    "name": "maxVlanId",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxSupportVlans": {
+    "name": "maxSupportVlans",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "createdVlanNumber": {
+    "name": "createdVlanNumber",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanConfigGroup": {
+    "name": "vlanConfigGroup",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "oltVlanConfigTable": {
+    "name": "oltVlanConfigTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltVlanConfigEntry": {
+    "name": "oltVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "oltVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "oltVlanDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "oltVlanIndex": {
+    "name": "oltVlanIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltVlanDeviceIndex": {
+    "name": "oltVlanDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "oltVlanName": {
+    "name": "oltVlanName",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "taggedPort": {
+    "name": "taggedPort",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "untaggedPort": {
+    "name": "untaggedPort",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "oltVlanRowStatus": {
+    "name": "oltVlanRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuVlanConfigTable": {
+    "name": "onuVlanConfigTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuVlanConfigEntry": {
+    "name": "onuVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "onuVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuVlanIndex": {
+    "name": "onuVlanIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuVlanName": {
+    "name": "onuVlanName",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuVlanTaggedPort": {
+    "name": "onuVlanTaggedPort",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuVlanUntaggedPort": {
+    "name": "onuVlanUntaggedPort",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuVlanRowStatus": {
+    "name": "onuVlanRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portVlanGroup": {
+    "name": "portVlanGroup",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "portVlanTable": {
+    "name": "portVlanTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portVlanEntry": {
+    "name": "portVlanEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvlanDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvlanCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvlanPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pvlanDeviceIndex": {
+    "name": "pvlanDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvlanCardIndex": {
+    "name": "pvlanCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvlanPortIndex": {
+    "name": "pvlanPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanTagTpid": {
+    "name": "vlanTagTpid",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTagCfi": {
+    "name": "vlanTagCfi",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTagPriority": {
+    "name": "vlanTagPriority",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPVid": {
+    "name": "vlanPVid",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMode": {
+    "name": "vlanMode",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparent": 0,
+          "tag": 1,
+          "translation": 2,
+          "aggregation": 3,
+          "trunk": 4,
+          "stacking": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "portVlanTranslationTable": {
+    "name": "portVlanTranslationTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portVlanTranslationEntry": {
+    "name": "portVlanTranslationEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvtDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvtCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvtPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "portVidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pvtDeviceIndex": {
+    "name": "pvtDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvtCardIndex": {
+    "name": "pvtCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvtPortIndex": {
+    "name": "pvtPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portVidIndex": {
+    "name": "portVidIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "translationNewVid": {
+    "name": "translationNewVid",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "translationRowStatus": {
+    "name": "translationRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portVlanAggregationManagement": {
+    "name": "portVlanAggregationManagement",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "portVlanAggregationConfigTable": {
+    "name": "portVlanAggregationConfigTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portVlanAggregationConfigEntry": {
+    "name": "portVlanAggregationConfigEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvaDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvaCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pvaPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "portAggregationVidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pvaDeviceIndex": {
+    "name": "pvaDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvaCardIndex": {
+    "name": "pvaCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pvaPortIndex": {
+    "name": "pvaPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portAggregationVidIndex": {
+    "name": "portAggregationVidIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aggregationVidList": {
+    "name": "aggregationVidList",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aggregationRowStatus": {
+    "name": "aggregationRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portVlanTrunkTable": {
+    "name": "portVlanTrunkTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portVlanTrunkEntry": {
+    "name": "portVlanTrunkEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "trunkDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "trunkCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "trunkPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "trunkDeviceIndex": {
+    "name": "trunkDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trunkCardIndex": {
+    "name": "trunkCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trunkPortIndex": {
+    "name": "trunkPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trunkVidList": {
+    "name": "trunkVidList",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "portVlanTrunkRowStatus": {
+    "name": "portVlanTrunkRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "qinQConfigGroup": {
+    "name": "qinQConfigGroup",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "portQinQConfigTable": {
+    "name": "portQinQConfigTable",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portQinQConfigEntry": {
+    "name": "portQinQConfigEntry",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pqDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pqCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pqPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pqStartVlanId",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-EPON-VLAN-MGM-MIB",
+        "object": "pqEndVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pqDeviceIndex": {
+    "name": "pqDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pqCardIndex": {
+    "name": "pqCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pqPortIndex": {
+    "name": "pqPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pqStartVlanId": {
+    "name": "pqStartVlanId",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pqEndVlanId": {
+    "name": "pqEndVlanId",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pqSVlanId": {
+    "name": "pqSVlanId",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pqSTagCosDetermine": {
+    "name": "pqSTagCosDetermine",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redefine": 1,
+          "copyFromCTag": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pqSTagCosNewValue": {
+    "name": "pqSTagCosNewValue",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "pqRowStatus": {
+    "name": "pqRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.3.7.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/NSCRTV-EPON-VLAN-MGM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:31:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NSCRTV-EPON-VLAN-MGM-MIB"
+  }
+}

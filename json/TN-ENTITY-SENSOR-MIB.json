@@ -1,0 +1,350 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "ENTITY-SENSOR-MIB": [
+      "entPhySensorValue",
+      "EntitySensorValue"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnEntitySensorMIB": {
+    "name": "tnEntitySensorMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-01-08 00:00",
+        "description": "Initial Revision of this module"
+      }
+    ]
+  },
+  "tnEntitySensorMIBNotifications": {
+    "name": "tnEntitySensorMIBNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.6.0",
+    "class": "objectidentity"
+  },
+  "tnEntitySensorMIBObjects": {
+    "name": "tnEntitySensorMIBObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1",
+    "class": "objectidentity"
+  },
+  "tnEntitySensorMIBConformance": {
+    "name": "tnEntitySensorMIBConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.6.2",
+    "class": "objectidentity"
+  },
+  "TnSensorThresholdSeverity": {
+    "name": "TnSensorThresholdSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "minor": 10,
+          "major": 20,
+          "critical": 30
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TnSensorThresholdRelation": {
+    "name": "TnSensorThresholdRelation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessThan": 1,
+          "lessOrEqual": 2,
+          "greaterThan": 3,
+          "greaterOrEqual": 4,
+          "equalTo": 5,
+          "notEqualTo": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tnEntSensorValues": {
+    "name": "tnEntSensorValues",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.1",
+    "class": "objectidentity"
+  },
+  "tnEntSensorThresholds": {
+    "name": "tnEntSensorThresholds",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2",
+    "class": "objectidentity"
+  },
+  "tnEntSensorGlobalObjects": {
+    "name": "tnEntSensorGlobalObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.3",
+    "class": "objectidentity"
+  },
+  "tnEntSensorExtTable": {
+    "name": "tnEntSensorExtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEntSensorExtEntry": {
+    "name": "tnEntSensorExtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEntSensorExtRelayInstalled": {
+    "name": "tnEntSensorExtRelayInstalled",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEntSensorExtRelayEnabled": {
+    "name": "tnEntSensorExtRelayEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEntSensorExtModuleType": {
+    "name": "tnEntSensorExtModuleType",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acModule": 1,
+          "dcModule": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEntSensorExtOperMode": {
+    "name": "tnEntSensorExtOperMode",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEntSensorThresholdTable": {
+    "name": "tnEntSensorThresholdTable",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEntSensorThresholdEntry": {
+    "name": "tnEntSensorThresholdEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-ENTITY-SENSOR-MIB",
+        "object": "tnEntSensorThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnEntSensorThresholdIndex": {
+    "name": "tnEntSensorThresholdIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99999999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnEntSensorThresholdSeverity": {
+    "name": "tnEntSensorThresholdSeverity",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnSensorThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEntSensorThresholdRelation": {
+    "name": "tnEntSensorThresholdRelation",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnSensorThresholdRelation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEntSensorThresholdValue": {
+    "name": "tnEntSensorThresholdValue",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntitySensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEntSensorThresholdEvaluation": {
+    "name": "tnEntSensorThresholdEvaluation",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnEntSensorThresholdNotificationEnable": {
+    "name": "tnEntSensorThresholdNotificationEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEntSensorThreshNotifGlobalEnable": {
+    "name": "tnEntSensorThreshNotifGlobalEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.6.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnEntSensorThresholdNotification": {
+    "name": "tnEntSensorThresholdNotification",
+    "oid": "1.3.6.1.4.1.868.2.5.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-SENSOR-MIB",
+        "object": "entPhySensorValue"
+      },
+      {
+        "module": "TN-ENTITY-SENSOR-MIB",
+        "object": "tnEntSensorThresholdValue"
+      },
+      {
+        "module": "TN-ENTITY-SENSOR-MIB",
+        "object": "tnEntSensorThresholdSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-ENTITY-SENSOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-ENTITY-SENSOR-MIB"
+  }
+}

@@ -1,0 +1,932 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressIPv4"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cMplsExt": {
+    "name": "hh3cMplsExt",
+    "oid": "1.3.6.1.4.1.25506.2.142",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-08-04 18:00",
+        "description": "Added hh3cMplsExtStaticLspTable."
+      },
+      {
+        "revision": "2017-02-17 18:00",
+        "description": "Added hh3cMplsExtVpnTable."
+      },
+      {
+        "revision": "2015-06-16 18:00",
+        "description": "Added hh3cMplsExtVpnStatsTable."
+      },
+      {
+        "revision": "2014-12-17 12:00",
+        "description": "Added hh3cMplsExtBfdTable."
+      },
+      {
+        "revision": "2013-06-13 18:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "hh3cMplsExtObjects": {
+    "name": "hh3cMplsExtObjects",
+    "oid": "1.3.6.1.4.1.25506.2.142.1",
+    "class": "objectidentity"
+  },
+  "hh3cMplsExtScalarGroup": {
+    "name": "hh3cMplsExtScalarGroup",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cMplsExtLsrID": {
+    "name": "hh3cMplsExtLsrID",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMplsExtLdpStatus": {
+    "name": "hh3cMplsExtLdpStatus",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cMplsExtTable": {
+    "name": "hh3cMplsExtTable",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtEntry": {
+    "name": "hh3cMplsExtEntry",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLSEXT-MIB",
+        "object": "hh3cMplsExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsExtIndex": {
+    "name": "hh3cMplsExtIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtCapability": {
+    "name": "hh3cMplsExtCapability",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsExtMtu": {
+    "name": "hh3cMplsExtMtu",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 46,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsExtRowStatus": {
+    "name": "hh3cMplsExtRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsExtLdpTable": {
+    "name": "hh3cMplsExtLdpTable",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtLdpEntry": {
+    "name": "hh3cMplsExtLdpEntry",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLSEXT-MIB",
+        "object": "hh3cMplsExtLdpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsExtLdpIndex": {
+    "name": "hh3cMplsExtLdpIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtLdpCapability": {
+    "name": "hh3cMplsExtLdpCapability",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsExtLdpRowStatus": {
+    "name": "hh3cMplsExtLdpRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdTable": {
+    "name": "hh3cMplsExtBfdTable",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdEntry": {
+    "name": "hh3cMplsExtBfdEntry",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLSEXT-MIB",
+        "object": "hh3cMplsExtBfdLocalDiscr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsExtBfdLocalDiscr": {
+    "name": "hh3cMplsExtBfdLocalDiscr",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdType": {
+    "name": "hh3cMplsExtBfdType",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "lsp": 2,
+          "vpwsPw": 3,
+          "vplsPw": 4,
+          "te": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdBindIfIndex": {
+    "name": "hh3cMplsExtBfdBindIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdBindIfName": {
+    "name": "hh3cMplsExtBfdBindIfName",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdXcIndex": {
+    "name": "hh3cMplsExtBfdXcIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdPwBackupFlag": {
+    "name": "hh3cMplsExtBfdPwBackupFlag",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "primary": 2,
+          "backup": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdPwId": {
+    "name": "hh3cMplsExtBfdPwId",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdVsiIndex": {
+    "name": "hh3cMplsExtBfdVsiIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdPwPeerIpType": {
+    "name": "hh3cMplsExtBfdPwPeerIpType",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdPwPeerIp": {
+    "name": "hh3cMplsExtBfdPwPeerIp",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdPwSPE": {
+    "name": "hh3cMplsExtBfdPwSPE",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "upe": 2,
+          "spe": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtBfdPwEncapType": {
+    "name": "hh3cMplsExtBfdPwEncapType",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "frDlciMartini": 2,
+          "atmAal5Sdu": 3,
+          "atmTransCell": 4,
+          "vlan": 5,
+          "ethernet": 6,
+          "hdlc": 7,
+          "ppp": 8,
+          "cesom": 9,
+          "atmNto1Vcc": 10,
+          "atmNto1Vpc": 11,
+          "ipInterworking": 12,
+          "atm1to1Vcc": 13,
+          "atm1to1Vpc": 14,
+          "atmAal5Pdu": 15,
+          "frPort": 16,
+          "cep": 17,
+          "satopE1": 18,
+          "satopT1": 19,
+          "satopE3": 20,
+          "satopT3": 21,
+          "esopsnBasic": 22,
+          "tdmoipAal1Mode": 23,
+          "tdmCesopsnWithCas": 24,
+          "tdmoipAal2Mode": 25,
+          "frDlci": 26
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsTable": {
+    "name": "hh3cMplsExtVpnStatsTable",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsEntry": {
+    "name": "hh3cMplsExtVpnStatsEntry",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLSEXT-MIB",
+        "object": "hh3cMplsExtVpnStatsVrfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsVrfIndex": {
+    "name": "hh3cMplsExtVpnStatsVrfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsVpnName": {
+    "name": "hh3cMplsExtVpnStatsVpnName",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsInOctets": {
+    "name": "hh3cMplsExtVpnStatsInOctets",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsInPackets": {
+    "name": "hh3cMplsExtVpnStatsInPackets",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsInErrors": {
+    "name": "hh3cMplsExtVpnStatsInErrors",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsInDiscards": {
+    "name": "hh3cMplsExtVpnStatsInDiscards",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsOutOctets": {
+    "name": "hh3cMplsExtVpnStatsOutOctets",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsOutPackets": {
+    "name": "hh3cMplsExtVpnStatsOutPackets",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsOutErrors": {
+    "name": "hh3cMplsExtVpnStatsOutErrors",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnStatsOutDiscards": {
+    "name": "hh3cMplsExtVpnStatsOutDiscards",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnTable": {
+    "name": "hh3cMplsExtVpnTable",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtVpnEntry": {
+    "name": "hh3cMplsExtVpnEntry",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLSEXT-MIB",
+        "object": "hh3cMplsExtVpnName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsExtVpnName": {
+    "name": "hh3cMplsExtVpnName",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtVrfIndex": {
+    "name": "hh3cMplsExtVrfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspTable": {
+    "name": "hh3cMplsExtStaticLspTable",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspEntry": {
+    "name": "hh3cMplsExtStaticLspEntry",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-MPLSEXT-MIB",
+        "object": "hh3cMplsExtStaticLspName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspName": {
+    "name": "hh3cMplsExtStaticLspName",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspType": {
+    "name": "hh3cMplsExtStaticLspType",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "transit": 2,
+          "egress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspInLabel": {
+    "name": "hh3cMplsExtStaticLspInLabel",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspOutLabel": {
+    "name": "hh3cMplsExtStaticLspOutLabel",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspDestAddr": {
+    "name": "hh3cMplsExtStaticLspDestAddr",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspDestAddrMaskLen": {
+    "name": "hh3cMplsExtStaticLspDestAddrMaskLen",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspNextHopAddr": {
+    "name": "hh3cMplsExtStaticLspNextHopAddr",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cMplsExtStaticLspOutIfIndex": {
+    "name": "hh3cMplsExtStaticLspOutIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.142.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MPLSEXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-MPLSEXT-MIB"
+  }
+}

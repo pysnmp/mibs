@@ -1,0 +1,4614 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-SP-MIB": [
+      "cItpSpCLLICode"
+    ],
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcXuaName",
+      "CItpTcSubSystemNumber",
+      "CItpTcPointCode",
+      "CItpTcNetworkName",
+      "CItpTcServiceIndicator",
+      "CItpTcQos"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoItpXuaMIB": {
+    "name": "ciscoItpXuaMIB",
+    "oid": "1.3.6.1.4.1.9.9.253",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-09 00:00",
+        "description": "Added the following objects in cItpXuaAspStatsTable: cItpXuaAspBytesFromAsp, cItpXuaAspBytesToAsp, cItpXuaAspBytesFromMtp3, cItpXuaAspBytesToMtp3 Added the following objects in cItpXuaAsTable: cItpXuaAsPktsToMtp3, cItpXuaAsPktsFromASPsOfAs, cItpXuaAsBytesFromMtp3, cItpXuaAsBytesToASPsOfAs, cItpXuaAsBytesToMtp3, cItpXuaAsBytesFromASPsOfAs."
+      },
+      {
+        "revision": "2008-05-08 00:00",
+        "description": "Modified units clause and associated descriptions to indicate MSUs and messages instead of packets for all applicable objects."
+      },
+      {
+        "revision": "2008-01-04 00:00",
+        "description": "Added cItpXuaInstOffProcNumber to cItpXuaInstTable to support for SAMI line cards."
+      },
+      {
+        "revision": "2007-09-06 00:00",
+        "description": "Added the following textual conventions: CItpXuaAssocState CItpXuaRemoteIpDestState Added the following objects in table cItpXuaSgmTable: cItpXuaSgmAssocState cItpXuaSgmAssocFailedReason Added the following object in table cItpXuaSgmRemoteIpTable: cItpXuaSgmRemoteIpDestState Added the following objects in table cItpXuaAspTable: cItpXuaAspAssocState cItpXuaAspAssocFailedReason Added the following object in table cItpXuaAspRemoteIpTable: cItpXuaAspRemoteIpDestState Added the following notifications: ciscoItpXuaSgmDestAddrStateChange, ciscoItpXuaSgmAssocStateChange, ciscoItpXuaAspDestAddrStateChange, ciscoItpXuaAspAssocStateChange."
+      },
+      {
+        "revision": "2004-06-14 00:00",
+        "description": "Added the following textual convention: CItpXuaRouteState Added the following table: cItpXuaASRouteTable cItpXuaASRouteAsTable Added the following objects: cItpXuaAspAsWeight, cItpXuaAsNetworkAppear, cItpXuaAsCongLevel."
+      },
+      {
+        "revision": "2003-08-27 00:00",
+        "description": "Deprecated the following object(s): cItpXuaAspAssocId Added the following objects: cItpXuaInstOffload cItpXuaInstOffloadSlot cItpXuaAsNetworkName cItpXuaAspAssocIdU32 Modified the description of cItpXuaAsRkParameters to include TUP Service Indicator."
+      },
+      {
+        "revision": "2003-02-19 00:00",
+        "description": "Added the following sub-table: cItpXuaSgmRemoteIpTable Added the following objects: cItpXuaSgmCongLevel cItpXuaAspCongLevel Added the following notifications: ciscoItpXuaAspCongChange ciscoItpXuaSgmCongChange. Modified the following Textual Conventions: CItpXuaAsState CItpXuaAspState. Added 'undefined(5)' to CItpXuaTrafMode textual convention."
+      },
+      {
+        "revision": "2002-04-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoItpXuaMIBNotifs": {
+    "name": "ciscoItpXuaMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.253.0",
+    "class": "objectidentity"
+  },
+  "ciscoItpXuaMIBObjects": {
+    "name": "ciscoItpXuaMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.253.1",
+    "class": "objectidentity"
+  },
+  "ciscoItpXuaConformance": {
+    "name": "ciscoItpXuaConformance",
+    "oid": "1.3.6.1.4.1.9.9.253.2",
+    "class": "objectidentity"
+  },
+  "cItpXuaScalars": {
+    "name": "cItpXuaScalars",
+    "oid": "1.3.6.1.4.1.9.9.253.1.1",
+    "class": "objectidentity"
+  },
+  "cItpXuaInst": {
+    "name": "cItpXuaInst",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2",
+    "class": "objectidentity"
+  },
+  "cItpXuaInstLocalIp": {
+    "name": "cItpXuaInstLocalIp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.3",
+    "class": "objectidentity"
+  },
+  "cItpXuaSgm": {
+    "name": "cItpXuaSgm",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4",
+    "class": "objectidentity"
+  },
+  "cItpXuaAsp": {
+    "name": "cItpXuaAsp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5",
+    "class": "objectidentity"
+  },
+  "cItpXuaAspRemoteIp": {
+    "name": "cItpXuaAspRemoteIp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6",
+    "class": "objectidentity"
+  },
+  "cItpXuaAspStats": {
+    "name": "cItpXuaAspStats",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7",
+    "class": "objectidentity"
+  },
+  "cItpXuaAs": {
+    "name": "cItpXuaAs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8",
+    "class": "objectidentity"
+  },
+  "cItpXuaAspAs": {
+    "name": "cItpXuaAspAs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9",
+    "class": "objectidentity"
+  },
+  "cItpXuaMIBNotifObjects": {
+    "name": "cItpXuaMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.253.1.10",
+    "class": "objectidentity"
+  },
+  "cItpXuaSgmRemoteIp": {
+    "name": "cItpXuaSgmRemoteIp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11",
+    "class": "objectidentity"
+  },
+  "cItpXuaASRoute": {
+    "name": "cItpXuaASRoute",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12",
+    "class": "objectidentity"
+  },
+  "cItpXuaASRouteAs": {
+    "name": "cItpXuaASRouteAs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13",
+    "class": "objectidentity"
+  },
+  "CItpXuaProtocol": {
+    "name": "CItpXuaProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "m3ua": 1,
+          "sua": 2,
+          "sgmp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CItpXuaTrafMode": {
+    "name": "CItpXuaTrafMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "overRide": 1,
+          "loadBind": 2,
+          "loadRndRobin": 3,
+          "broadcast": 4,
+          "undefined": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CItpXuaAsState": {
+    "name": "CItpXuaAsState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "inactive": 2,
+          "active": 3,
+          "pending": 4,
+          "undefined": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CItpXuaAspState": {
+    "name": "CItpXuaAspState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "inactive": 2,
+          "active": 3,
+          "undefined": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CItpXuaRouteState": {
+    "name": "CItpXuaRouteState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "avail": 2,
+          "restr": 3,
+          "unavail": 4,
+          "deleted": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CItpXuaAssocState": {
+    "name": "CItpXuaAssocState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "closed": 2,
+          "established": 3,
+          "failed": 4,
+          "termPend": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CItpXuaRemoteIpDestState": {
+    "name": "CItpXuaRemoteIpDestState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "inactive": 2,
+          "active": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cItpXuaInstConfigLastChanged": {
+    "name": "cItpXuaInstConfigLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.253.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaSgmConfigLastChanged": {
+    "name": "cItpXuaSgmConfigLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.253.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspConfigLastChanged": {
+    "name": "cItpXuaAspConfigLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.253.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsConfigLastChanged": {
+    "name": "cItpXuaAsConfigLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.253.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaStateChangeNotifEnabled": {
+    "name": "cItpXuaStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.253.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cItpXuaInstTable": {
+    "name": "cItpXuaInstTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaInstTableEntry": {
+    "name": "cItpXuaInstTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaInstPort": {
+    "name": "cItpXuaInstPort",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaInstProtocol": {
+    "name": "cItpXuaInstProtocol",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaInstShut": {
+    "name": "cItpXuaInstShut",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaInstActiveASPs": {
+    "name": "cItpXuaInstActiveASPs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaInstRowStatus": {
+    "name": "cItpXuaInstRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaInstOffload": {
+    "name": "cItpXuaInstOffload",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaInstOffloadSlot": {
+    "name": "cItpXuaInstOffloadSlot",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaInstOffProcNumber": {
+    "name": "cItpXuaInstOffProcNumber",
+    "oid": "1.3.6.1.4.1.9.9.253.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaInstLocalIpTable": {
+    "name": "cItpXuaInstLocalIpTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaInstLocalIpTableEntry": {
+    "name": "cItpXuaInstLocalIpTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstAddrNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaInstAddrNum": {
+    "name": "cItpXuaInstAddrNum",
+    "oid": "1.3.6.1.4.1.9.9.253.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaInstLocalIpType": {
+    "name": "cItpXuaInstLocalIpType",
+    "oid": "1.3.6.1.4.1.9.9.253.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaInstLocalIpAddr": {
+    "name": "cItpXuaInstLocalIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.253.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaInstLocalIpRowStatus": {
+    "name": "cItpXuaInstLocalIpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmTable": {
+    "name": "cItpXuaSgmTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaSgmTableEntry": {
+    "name": "cItpXuaSgmTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaSgmName": {
+    "name": "cItpXuaSgmName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaSgmAssocId": {
+    "name": "cItpXuaSgmAssocId",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaSgmLocalPort": {
+    "name": "cItpXuaSgmLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmRemotePort": {
+    "name": "cItpXuaSgmRemotePort",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmShut": {
+    "name": "cItpXuaSgmShut",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmActiveTS": {
+    "name": "cItpXuaSgmActiveTS",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaSgmQosClass": {
+    "name": "cItpXuaSgmQosClass",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcQos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmPassive": {
+    "name": "cItpXuaSgmPassive",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmState": {
+    "name": "cItpXuaSgmState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaAspState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaSgmRowStatus": {
+    "name": "cItpXuaSgmRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmCongLevel": {
+    "name": "cItpXuaSgmCongLevel",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaSgmAssocState": {
+    "name": "cItpXuaSgmAssocState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaAssocState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaSgmAssocFailedReason": {
+    "name": "cItpXuaSgmAssocFailedReason",
+    "oid": "1.3.6.1.4.1.9.9.253.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaSgmRemoteIpTable": {
+    "name": "cItpXuaSgmRemoteIpTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaSgmRemoteIpTableEntry": {
+    "name": "cItpXuaSgmRemoteIpTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAddrNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaSgmAddrNum": {
+    "name": "cItpXuaSgmAddrNum",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaSgmRemoteIpType": {
+    "name": "cItpXuaSgmRemoteIpType",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmRemoteIpAddr": {
+    "name": "cItpXuaSgmRemoteIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmRemoteIpRowStatus": {
+    "name": "cItpXuaSgmRemoteIpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmRemoteIpDestState": {
+    "name": "cItpXuaSgmRemoteIpDestState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaRemoteIpDestState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspTable": {
+    "name": "cItpXuaAspTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAspTableEntry": {
+    "name": "cItpXuaAspTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaAspName": {
+    "name": "cItpXuaAspName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAspAssocId": {
+    "name": "cItpXuaAspAssocId",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpXuaAspLocalPort": {
+    "name": "cItpXuaAspLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspRemotePort": {
+    "name": "cItpXuaAspRemotePort",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspProtocol": {
+    "name": "cItpXuaAspProtocol",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspShut": {
+    "name": "cItpXuaAspShut",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspBlocked": {
+    "name": "cItpXuaAspBlocked",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspQosClass": {
+    "name": "cItpXuaAspQosClass",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcQos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspIdentifier": {
+    "name": "cItpXuaAspIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspRowStatus": {
+    "name": "cItpXuaAspRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspCongLevel": {
+    "name": "cItpXuaAspCongLevel",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspAssocIdU32": {
+    "name": "cItpXuaAspAssocIdU32",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspAssocState": {
+    "name": "cItpXuaAspAssocState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaAssocState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspAssocFailedReason": {
+    "name": "cItpXuaAspAssocFailedReason",
+    "oid": "1.3.6.1.4.1.9.9.253.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspRemoteIpTable": {
+    "name": "cItpXuaAspRemoteIpTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAspRemoteIpTableEntry": {
+    "name": "cItpXuaAspRemoteIpTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAddrNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaAspAddrNum": {
+    "name": "cItpXuaAspAddrNum",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAspRemoteIpType": {
+    "name": "cItpXuaAspRemoteIpType",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspRemoteIpAddr": {
+    "name": "cItpXuaAspRemoteIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspRemoteIpRowStatus": {
+    "name": "cItpXuaAspRemoteIpRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspRemoteIpDestState": {
+    "name": "cItpXuaAspRemoteIpDestState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaRemoteIpDestState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspStatsTable": {
+    "name": "cItpXuaAspStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAspStatsTableEntry": {
+    "name": "cItpXuaAspStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaAspPktsFromAsp": {
+    "name": "cItpXuaAspPktsFromAsp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspPktsToAsp": {
+    "name": "cItpXuaAspPktsToAsp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspPktsFromMtp3": {
+    "name": "cItpXuaAspPktsFromMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspPktsToMtp3": {
+    "name": "cItpXuaAspPktsToMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPUPsRcvd": {
+    "name": "cItpXuaAspASPUPsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPUPACKsSent": {
+    "name": "cItpXuaAspASPUPACKsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPDNsRcvd": {
+    "name": "cItpXuaAspASPDNsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPDNACKsSent": {
+    "name": "cItpXuaAspASPDNACKsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPACsRcvd": {
+    "name": "cItpXuaAspASPACsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPACACKsSent": {
+    "name": "cItpXuaAspASPACACKsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPIAsRcvd": {
+    "name": "cItpXuaAspASPIAsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspASPIAACKsSent": {
+    "name": "cItpXuaAspASPIAACKsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspErrorsRcvd": {
+    "name": "cItpXuaAspErrorsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspErrorsSent": {
+    "name": "cItpXuaAspErrorsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspNotifysSent": {
+    "name": "cItpXuaAspNotifysSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDUNAsRcvd": {
+    "name": "cItpXuaAspDUNAsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDUNAsSent": {
+    "name": "cItpXuaAspDUNAsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDAVAsRcvd": {
+    "name": "cItpXuaAspDAVAsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDAVAsSent": {
+    "name": "cItpXuaAspDAVAsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDUPUsRcvd": {
+    "name": "cItpXuaAspDUPUsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDUPUsSent": {
+    "name": "cItpXuaAspDUPUsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDAUDsRcvd": {
+    "name": "cItpXuaAspDAUDsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspDAUDsSent": {
+    "name": "cItpXuaAspDAUDsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON0sRcvd": {
+    "name": "cItpXuaAspSCON0sRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON1sRcvd": {
+    "name": "cItpXuaAspSCON1sRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON2sRcvd": {
+    "name": "cItpXuaAspSCON2sRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON3sRcvd": {
+    "name": "cItpXuaAspSCON3sRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON0sSent": {
+    "name": "cItpXuaAspSCON0sSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON1sSent": {
+    "name": "cItpXuaAspSCON1sSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON2sSent": {
+    "name": "cItpXuaAspSCON2sSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspSCON3sSent": {
+    "name": "cItpXuaAspSCON3sSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspBytesFromAsp": {
+    "name": "cItpXuaAspBytesFromAsp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspBytesToAsp": {
+    "name": "cItpXuaAspBytesToAsp",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspBytesFromMtp3": {
+    "name": "cItpXuaAspBytesFromMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspBytesToMtp3": {
+    "name": "cItpXuaAspBytesToMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.7.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsTable": {
+    "name": "cItpXuaAsTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAsTableEntry": {
+    "name": "cItpXuaAsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaAsName": {
+    "name": "cItpXuaAsName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAsProtocol": {
+    "name": "cItpXuaAsProtocol",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsShut": {
+    "name": "cItpXuaAsShut",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsState": {
+    "name": "cItpXuaAsState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaAsState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsStateOnSgMate": {
+    "name": "cItpXuaAsStateOnSgMate",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaAsState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsActiveTS": {
+    "name": "cItpXuaAsActiveTS",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsQosClass": {
+    "name": "cItpXuaAsQosClass",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcQos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsTrafMode": {
+    "name": "cItpXuaAsTrafMode",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaTrafMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRerouting": {
+    "name": "cItpXuaAsRerouting",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsRoutingContext": {
+    "name": "cItpXuaAsRoutingContext",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsRkParameters": {
+    "name": "cItpXuaAsRkParameters",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dpc": 0,
+        "opc": 1,
+        "opcMask": 2,
+        "si": 3,
+        "ssn": 4,
+        "gtt": 5,
+        "cic": 6
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkDpc": {
+    "name": "cItpXuaAsRkDpc",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkOpc": {
+    "name": "cItpXuaAsRkOpc",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkOpcMask": {
+    "name": "cItpXuaAsRkOpcMask",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkSi": {
+    "name": "cItpXuaAsRkSi",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcServiceIndicator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkSsn": {
+    "name": "cItpXuaAsRkSsn",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkGtt": {
+    "name": "cItpXuaAsRkGtt",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkCicMin": {
+    "name": "cItpXuaAsRkCicMin",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsRkCicMax": {
+    "name": "cItpXuaAsRkCicMax",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsPktsFromMtp3": {
+    "name": "cItpXuaAsPktsFromMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsPktsToASPsOfAs": {
+    "name": "cItpXuaAsPktsToASPsOfAs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsRowStatus": {
+    "name": "cItpXuaAsRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsNetworkName": {
+    "name": "cItpXuaAsNetworkName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsNetworkAppear": {
+    "name": "cItpXuaAsNetworkAppear",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsCongLevel": {
+    "name": "cItpXuaAsCongLevel",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsPktsToMtp3": {
+    "name": "cItpXuaAsPktsToMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsPktsFromASPsOfAs": {
+    "name": "cItpXuaAsPktsFromASPsOfAs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsBytesFromMtp3": {
+    "name": "cItpXuaAsBytesFromMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsBytesToASPsOfAs": {
+    "name": "cItpXuaAsBytesToASPsOfAs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsBytesToMtp3": {
+    "name": "cItpXuaAsBytesToMtp3",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsBytesFromASPsOfAs": {
+    "name": "cItpXuaAsBytesFromASPsOfAs",
+    "oid": "1.3.6.1.4.1.9.9.253.1.8.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspAsTable": {
+    "name": "cItpXuaAspAsTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAspAsTableEntry": {
+    "name": "cItpXuaAspAsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaAspAsName": {
+    "name": "cItpXuaAspAsName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAspAsState": {
+    "name": "cItpXuaAspAsState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaAspState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspAsActiveTS": {
+    "name": "cItpXuaAspAsActiveTS",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAspAsRowStatus": {
+    "name": "cItpXuaAspAsRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAspAsWeight": {
+    "name": "cItpXuaAspAsWeight",
+    "oid": "1.3.6.1.4.1.9.9.253.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaASRouteTable": {
+    "name": "cItpXuaASRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaASRouteTableEntry": {
+    "name": "cItpXuaASRouteTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaAsrName": {
+    "name": "cItpXuaAsrName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAsrNetwork": {
+    "name": "cItpXuaAsrNetwork",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrProtocol": {
+    "name": "cItpXuaAsrProtocol",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsrRoutingContext": {
+    "name": "cItpXuaAsrRoutingContext",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrDpc": {
+    "name": "cItpXuaAsrDpc",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsrShut": {
+    "name": "cItpXuaAsrShut",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaAsrSgmateState": {
+    "name": "cItpXuaAsrSgmateState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaRouteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrSgmatePriority": {
+    "name": "cItpXuaAsrSgmatePriority",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrOutbPktsRcvd": {
+    "name": "cItpXuaAsrOutbPktsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrOutbByteRcvd": {
+    "name": "cItpXuaAsrOutbByteRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrOutbPktsSent": {
+    "name": "cItpXuaAsrOutbPktsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrOutbByteSent": {
+    "name": "cItpXuaAsrOutbByteSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrSgmateDunaRcvd": {
+    "name": "cItpXuaAsrSgmateDunaRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrSgmateDavaRcvd": {
+    "name": "cItpXuaAsrSgmateDavaRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrSgmateDrstRcvd": {
+    "name": "cItpXuaAsrSgmateDrstRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrRowStatus": {
+    "name": "cItpXuaAsrRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.12.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaASRouteAsTable": {
+    "name": "cItpXuaASRouteAsTable",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaASRouteAsTableEntry": {
+    "name": "cItpXuaASRouteAsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpXuaAsrAsName": {
+    "name": "cItpXuaAsrAsName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpXuaAsrAsPriority": {
+    "name": "cItpXuaAsrAsPriority",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsState": {
+    "name": "cItpXuaAsrAsState",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpXuaRouteState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsOutbPktsRcvd": {
+    "name": "cItpXuaAsrAsOutbPktsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsOutbByteRcvd": {
+    "name": "cItpXuaAsrAsOutbByteRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsOutbPktsSent": {
+    "name": "cItpXuaAsrAsOutbPktsSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsOutbByteSent": {
+    "name": "cItpXuaAsrAsOutbByteSent",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsDunaRcvd": {
+    "name": "cItpXuaAsrAsDunaRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsDavaRcvd": {
+    "name": "cItpXuaAsrAsDavaRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsDrstRcvd": {
+    "name": "cItpXuaAsrAsDrstRcvd",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpXuaAsrAsRowStatus": {
+    "name": "cItpXuaAsrAsRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.253.1.13.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpXuaSgmDisplayName": {
+    "name": "cItpXuaSgmDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cItpXuaAspDisplayName": {
+    "name": "cItpXuaAspDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cItpXuaAsDisplayName": {
+    "name": "cItpXuaAsDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.253.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcXuaName",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoItpXuaAspStateChange": {
+    "name": "ciscoItpXuaAspStateChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmStateChange": {
+    "name": "ciscoItpXuaSgmStateChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAsStateChange": {
+    "name": "ciscoItpXuaAsStateChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspCongChange": {
+    "name": "ciscoItpXuaAspCongChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspCongLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmCongChange": {
+    "name": "ciscoItpXuaSgmCongChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmCongLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmDestAddrStateChange": {
+    "name": "ciscoItpXuaSgmDestAddrStateChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocId"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemoteIpAddr"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemoteIpDestState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspDestAddrStateChange": {
+    "name": "ciscoItpXuaAspDestAddrStateChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocIdU32"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemoteIpAddr"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemoteIpDestState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspAssocStateChange": {
+    "name": "ciscoItpXuaAspAssocStateChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocIdU32"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmAssocStateChange": {
+    "name": "ciscoItpXuaSgmAssocStateChange",
+    "oid": "1.3.6.1.4.1.9.9.253.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocId"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaMIBCompliances": {
+    "name": "ciscoItpXuaMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoItpXuaMIBGroups": {
+    "name": "ciscoItpXuaMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoItpXuaSup1Groups": {
+    "name": "ciscoItpXuaSup1Groups",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3",
+    "class": "objectidentity"
+  },
+  "ciscoItpXuaMIBCompliance": {
+    "name": "ciscoItpXuaMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpXuaScalarsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstLocalIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifObjectsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotificationsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaMIBComplianceRev1": {
+    "name": "ciscoItpXuaMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpXuaScalarsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstLocalIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifObjectsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaMIBComplianceRev2": {
+    "name": "ciscoItpXuaMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpXuaScalarsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstLocalIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifObjectsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspStatsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaMIBComplianceRev3": {
+    "name": "ciscoItpXuaMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpXuaScalarsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstLocalIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifObjectsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspStatsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaMIBComplianceRev4": {
+    "name": "ciscoItpXuaMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpXuaScalarsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstLocalIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifObjectsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspStatsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaMIBComplianceRev5": {
+    "name": "ciscoItpXuaMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpXuaScalarsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstLocalIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifObjectsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroupSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaMIBComplianceRev6": {
+    "name": "ciscoItpXuaMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.253.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoItpXuaScalarsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstLocalIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifObjectsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroupRev1",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspGroupRev2",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsGroupRev3",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsrAsGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmGroupSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaSgmRemoteIpSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspRemoteIpSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaNotifGroup",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaInstGroupSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAsSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      },
+      {
+        "object": "ciscoItpXuaAspStatsSup1Group",
+        "module": "CISCO-ITP-XUA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaScalarsGroup": {
+    "name": "ciscoItpXuaScalarsGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstConfigLastChanged"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmConfigLastChanged"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspConfigLastChanged"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsConfigLastChanged"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaStateChangeNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaInstGroup": {
+    "name": "ciscoItpXuaInstGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstActiveASPs"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaInstLocalIpGroup": {
+    "name": "ciscoItpXuaInstLocalIpGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstLocalIpType"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstLocalIpAddr"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstLocalIpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmGroup": {
+    "name": "ciscoItpXuaSgmGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocId"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmLocalPort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemotePort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmActiveTS"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmPassive"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaAspGroup": {
+    "name": "ciscoItpXuaAspGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocId"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspLocalPort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemotePort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspBlocked"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspIdentifier"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaAspRemoteIpGroup": {
+    "name": "ciscoItpXuaAspRemoteIpGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemoteIpType"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemoteIpAddr"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemoteIpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspStatsGroup": {
+    "name": "ciscoItpXuaAspStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspPktsFromAsp"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspPktsToAsp"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspPktsFromMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspPktsToMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPUPsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPUPACKsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPDNsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPDNACKsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPACsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPACACKsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPIAsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspASPIAACKsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspErrorsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspErrorsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspNotifysSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDUNAsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDUNAsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDAVAsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDAVAsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDUPUsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDUPUsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDAUDsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDAUDsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON0sRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON1sRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON2sRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON3sRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON0sSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON1sSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON2sSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspSCON3sSent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAsGroup": {
+    "name": "ciscoItpXuaAsGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsStateOnSgMate"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsActiveTS"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsTrafMode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRerouting"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRoutingContext"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkParameters"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkDpc"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkOpc"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkOpcMask"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkSi"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkSsn"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkGtt"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkCicMin"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkCicMax"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsFromMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsToASPsOfAs"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaAspAsGroup": {
+    "name": "ciscoItpXuaAspAsGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsActiveTS"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaNotifObjectsGroup": {
+    "name": "ciscoItpXuaNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsDisplayName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaNotificationsGroup": {
+    "name": "ciscoItpXuaNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaAspStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaSgmStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaAsStateChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaSgmGroupRev1": {
+    "name": "ciscoItpXuaSgmGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocId"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmLocalPort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemotePort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmActiveTS"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmPassive"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmCongLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspGroupRev1": {
+    "name": "ciscoItpXuaAspGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocId"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspLocalPort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemotePort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspBlocked"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspIdentifier"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspCongLevel"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaNotifGroupRev1": {
+    "name": "ciscoItpXuaNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaAspStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaSgmStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaAsStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaAspCongChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaSgmCongChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmRemoteIpGroup": {
+    "name": "ciscoItpXuaSgmRemoteIpGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemoteIpType"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemoteIpAddr"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemoteIpRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaInstGroupRev2": {
+    "name": "ciscoItpXuaInstGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstActiveASPs"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstOffload"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstOffloadSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspGroupRev2": {
+    "name": "ciscoItpXuaAspGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspLocalPort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemotePort"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspBlocked"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspIdentifier"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspCongLevel"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocIdU32"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAsGroupRev2": {
+    "name": "ciscoItpXuaAsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsStateOnSgMate"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsActiveTS"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsTrafMode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRerouting"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRoutingContext"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkParameters"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkDpc"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkOpc"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkOpcMask"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkSi"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkSsn"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkGtt"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkCicMin"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkCicMax"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsFromMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsToASPsOfAs"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsNetworkName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoItpXuaAsGroupRev3": {
+    "name": "ciscoItpXuaAsGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsStateOnSgMate"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsActiveTS"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsQosClass"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsTrafMode"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRerouting"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRoutingContext"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkParameters"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkDpc"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkOpc"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkOpcMask"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkSi"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkSsn"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkGtt"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkCicMin"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRkCicMax"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsFromMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsToASPsOfAs"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsNetworkName"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsNetworkAppear"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsCongLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspAsGroupRev3": {
+    "name": "ciscoItpXuaAspAsGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsActiveTS"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAsWeight"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAsrGroup": {
+    "name": "ciscoItpXuaAsrGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrNetwork"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrProtocol"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrRoutingContext"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrDpc"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrShut"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrSgmateState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrSgmatePriority"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrOutbPktsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrOutbByteRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrOutbPktsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrOutbByteSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrSgmateDunaRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrSgmateDavaRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrSgmateDrstRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAsrAsGroup": {
+    "name": "ciscoItpXuaAsrAsGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsPriority"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsOutbPktsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsOutbByteRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsOutbPktsSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsOutbByteSent"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsDunaRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsDavaRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsDrstRcvd"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsrAsRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmGroupSup1Group": {
+    "name": "ciscoItpXuaSgmGroupSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmAssocFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaSgmRemoteIpSup1Group": {
+    "name": "ciscoItpXuaSgmRemoteIpSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaSgmRemoteIpDestState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspSup1Group": {
+    "name": "ciscoItpXuaAspSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocState"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspAssocFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspRemoteIpSup1Group": {
+    "name": "ciscoItpXuaAspRemoteIpSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspRemoteIpDestState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaNotifGroup": {
+    "name": "ciscoItpXuaNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaSgmDestAddrStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaAspDestAddrStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaAspAssocStateChange"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "ciscoItpXuaSgmAssocStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaInstGroupSup1Group": {
+    "name": "ciscoItpXuaInstGroupSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaInstOffProcNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAsSup1Group": {
+    "name": "ciscoItpXuaAsSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsToMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsPktsFromASPsOfAs"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsBytesFromMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsBytesToASPsOfAs"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsBytesToMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAsBytesFromASPsOfAs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoItpXuaAspStatsSup1Group": {
+    "name": "ciscoItpXuaAspStatsSup1Group",
+    "oid": "1.3.6.1.4.1.9.9.253.2.3.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspBytesFromAsp"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspBytesToAsp"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspBytesFromMtp3"
+      },
+      {
+        "module": "CISCO-ITP-XUA-MIB",
+        "object": "cItpXuaAspBytesToMtp3"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-XUA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-XUA-MIB"
+  }
+}

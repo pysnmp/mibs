@@ -1,0 +1,3692 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsCoherentMib": {
+    "name": "nbsCoherentMib",
+    "oid": "1.3.6.1.4.1.629.242",
+    "class": "moduleidentity"
+  },
+  "nbsCoherentCfgGrp": {
+    "name": "nbsCoherentCfgGrp",
+    "oid": "1.3.6.1.4.1.629.242.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsGrp": {
+    "name": "nbsCohpmThresholdsGrp",
+    "oid": "1.3.6.1.4.1.629.242.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCohpmCurrentGrp": {
+    "name": "nbsCohpmCurrentGrp",
+    "oid": "1.3.6.1.4.1.629.242.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCohpmHistoricGrp": {
+    "name": "nbsCohpmHistoricGrp",
+    "oid": "1.3.6.1.4.1.629.242.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCohpmRunningGrp": {
+    "name": "nbsCohpmRunningGrp",
+    "oid": "1.3.6.1.4.1.629.242.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCoherentStatsGrp": {
+    "name": "nbsCoherentStatsGrp",
+    "oid": "1.3.6.1.4.1.629.242.90",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCohpmEventsGrp": {
+    "name": "nbsCohpmEventsGrp",
+    "oid": "1.3.6.1.4.1.629.242.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCoherentCfgTable": {
+    "name": "nbsCoherentCfgTable",
+    "oid": "1.3.6.1.4.1.629.242.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCoherentCfgEntry": {
+    "name": "nbsCoherentCfgEntry",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCoherentCfgIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCoherentCfgIfIndex": {
+    "name": "nbsCoherentCfgIfIndex",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDmodeCaps": {
+    "name": "nbsCoherentCfgCDmodeCaps",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDmodeAdmin": {
+    "name": "nbsCoherentCfgCDmodeAdmin",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disable": 2,
+          "auto": 3,
+          "fixed": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDmodeOper": {
+    "name": "nbsCoherentCfgCDmodeOper",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disable": 2,
+          "auto": 3,
+          "fixed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDautolAdmin": {
+    "name": "nbsCoherentCfgCDautolAdmin",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDautolOper": {
+    "name": "nbsCoherentCfgCDautolOper",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDautohAdmin": {
+    "name": "nbsCoherentCfgCDautohAdmin",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDautohOper": {
+    "name": "nbsCoherentCfgCDautohOper",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDfixedAdmin": {
+    "name": "nbsCoherentCfgCDfixedAdmin",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCoherentCfgCDfixedOper": {
+    "name": "nbsCoherentCfgCDfixedOper",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100000,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentCfgSOPmodeAdmin": {
+    "name": "nbsCoherentCfgSOPmodeAdmin",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "standard": 2,
+          "enhanced": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCoherentCfgSOPmodeOper": {
+    "name": "nbsCoherentCfgSOPmodeOper",
+    "oid": "1.3.6.1.4.1.629.242.10.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "standard": 2,
+          "enhanced": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsTable": {
+    "name": "nbsCohpmThresholdsTable",
+    "oid": "1.3.6.1.4.1.629.242.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsEntry": {
+    "name": "nbsCohpmThresholdsEntry",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmThresholdsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmThresholdsInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmThresholdsIfIndex": {
+    "name": "nbsCohpmThresholdsIfIndex",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsInterval": {
+    "name": "nbsCohpmThresholdsInterval",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "quarterHour": 1,
+          "twentyfourHour": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveNetBERsig": {
+    "name": "nbsCohpmThresholdsAveNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveNetBERexp": {
+    "name": "nbsCohpmThresholdsAveNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinNetBERsig": {
+    "name": "nbsCohpmThresholdsMinNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinNetBERexp": {
+    "name": "nbsCohpmThresholdsMinNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxNetBERsig": {
+    "name": "nbsCohpmThresholdsMaxNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxNetBERexp": {
+    "name": "nbsCohpmThresholdsMaxNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveCD": {
+    "name": "nbsCohpmThresholdsAveCD",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinCD": {
+    "name": "nbsCohpmThresholdsMinCD",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxCD": {
+    "name": "nbsCohpmThresholdsMaxCD",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveDGD": {
+    "name": "nbsCohpmThresholdsAveDGD",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinDGD": {
+    "name": "nbsCohpmThresholdsMinDGD",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxDGD": {
+    "name": "nbsCohpmThresholdsMaxDGD",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveQ": {
+    "name": "nbsCohpmThresholdsAveQ",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinQ": {
+    "name": "nbsCohpmThresholdsMinQ",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxQ": {
+    "name": "nbsCohpmThresholdsMaxQ",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveCFO": {
+    "name": "nbsCohpmThresholdsAveCFO",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinCFO": {
+    "name": "nbsCohpmThresholdsMinCFO",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxCFO": {
+    "name": "nbsCohpmThresholdsMaxCFO",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveOSNR": {
+    "name": "nbsCohpmThresholdsAveOSNR",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinOSNR": {
+    "name": "nbsCohpmThresholdsMinOSNR",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxOSNR": {
+    "name": "nbsCohpmThresholdsMaxOSNR",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveSNRx": {
+    "name": "nbsCohpmThresholdsAveSNRx",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinSNRx": {
+    "name": "nbsCohpmThresholdsMinSNRx",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxSNRx": {
+    "name": "nbsCohpmThresholdsMaxSNRx",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveSNRy": {
+    "name": "nbsCohpmThresholdsAveSNRy",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinSNRy": {
+    "name": "nbsCohpmThresholdsMinSNRy",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxSNRy": {
+    "name": "nbsCohpmThresholdsMaxSNRy",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAvePDL": {
+    "name": "nbsCohpmThresholdsAvePDL",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinPDL": {
+    "name": "nbsCohpmThresholdsMinPDL",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxPDL": {
+    "name": "nbsCohpmThresholdsMaxPDL",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsAveSOP": {
+    "name": "nbsCohpmThresholdsAveSOP",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMinSOP": {
+    "name": "nbsCohpmThresholdsMinSOP",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmThresholdsMaxSOP": {
+    "name": "nbsCohpmThresholdsMaxSOP",
+    "oid": "1.3.6.1.4.1.629.242.21.1.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCohpmCurrentTable": {
+    "name": "nbsCohpmCurrentTable",
+    "oid": "1.3.6.1.4.1.629.242.22.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCohpmCurrentEntry": {
+    "name": "nbsCohpmCurrentEntry",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmCurrentIfIndex": {
+    "name": "nbsCohpmCurrentIfIndex",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentInterval": {
+    "name": "nbsCohpmCurrentInterval",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "quarterHour": 1,
+          "twentyfourHour": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentDate": {
+    "name": "nbsCohpmCurrentDate",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentTime": {
+    "name": "nbsCohpmCurrentTime",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveNetBERsig": {
+    "name": "nbsCohpmCurrentAveNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveNetBERexp": {
+    "name": "nbsCohpmCurrentAveNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinNetBERsig": {
+    "name": "nbsCohpmCurrentMinNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinNetBERexp": {
+    "name": "nbsCohpmCurrentMinNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxNetBERsig": {
+    "name": "nbsCohpmCurrentMaxNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxNetBERexp": {
+    "name": "nbsCohpmCurrentMaxNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveCD": {
+    "name": "nbsCohpmCurrentAveCD",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinCD": {
+    "name": "nbsCohpmCurrentMinCD",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxCD": {
+    "name": "nbsCohpmCurrentMaxCD",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveDGD": {
+    "name": "nbsCohpmCurrentAveDGD",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinDGD": {
+    "name": "nbsCohpmCurrentMinDGD",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxDGD": {
+    "name": "nbsCohpmCurrentMaxDGD",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveQ": {
+    "name": "nbsCohpmCurrentAveQ",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinQ": {
+    "name": "nbsCohpmCurrentMinQ",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxQ": {
+    "name": "nbsCohpmCurrentMaxQ",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveCFO": {
+    "name": "nbsCohpmCurrentAveCFO",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinCFO": {
+    "name": "nbsCohpmCurrentMinCFO",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxCFO": {
+    "name": "nbsCohpmCurrentMaxCFO",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveOSNR": {
+    "name": "nbsCohpmCurrentAveOSNR",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinOSNR": {
+    "name": "nbsCohpmCurrentMinOSNR",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxOSNR": {
+    "name": "nbsCohpmCurrentMaxOSNR",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveSNRx": {
+    "name": "nbsCohpmCurrentAveSNRx",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinSNRx": {
+    "name": "nbsCohpmCurrentMinSNRx",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxSNRx": {
+    "name": "nbsCohpmCurrentMaxSNRx",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveSNRy": {
+    "name": "nbsCohpmCurrentAveSNRy",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinSNRy": {
+    "name": "nbsCohpmCurrentMinSNRy",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxSNRy": {
+    "name": "nbsCohpmCurrentMaxSNRy",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAvePDL": {
+    "name": "nbsCohpmCurrentAvePDL",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinPDL": {
+    "name": "nbsCohpmCurrentMinPDL",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxPDL": {
+    "name": "nbsCohpmCurrentMaxPDL",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentAveSOP": {
+    "name": "nbsCohpmCurrentAveSOP",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMinSOP": {
+    "name": "nbsCohpmCurrentMinSOP",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmCurrentMaxSOP": {
+    "name": "nbsCohpmCurrentMaxSOP",
+    "oid": "1.3.6.1.4.1.629.242.22.3.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricTable": {
+    "name": "nbsCohpmHistoricTable",
+    "oid": "1.3.6.1.4.1.629.242.23.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCohpmHistoricEntry": {
+    "name": "nbsCohpmHistoricEntry",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmHistoricIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmHistoricInterval",
+        "implied": 0
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmHistoricSample",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmHistoricIfIndex": {
+    "name": "nbsCohpmHistoricIfIndex",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricInterval": {
+    "name": "nbsCohpmHistoricInterval",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "quarterHour": 1,
+          "twentyfourHour": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCohpmHistoricSample": {
+    "name": "nbsCohpmHistoricSample",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCohpmHistoricDate": {
+    "name": "nbsCohpmHistoricDate",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricTime": {
+    "name": "nbsCohpmHistoricTime",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveNetBERsig": {
+    "name": "nbsCohpmHistoricAveNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveNetBERexp": {
+    "name": "nbsCohpmHistoricAveNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinNetBERsig": {
+    "name": "nbsCohpmHistoricMinNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinNetBERexp": {
+    "name": "nbsCohpmHistoricMinNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxNetBERsig": {
+    "name": "nbsCohpmHistoricMaxNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxNetBERexp": {
+    "name": "nbsCohpmHistoricMaxNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveCD": {
+    "name": "nbsCohpmHistoricAveCD",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinCD": {
+    "name": "nbsCohpmHistoricMinCD",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxCD": {
+    "name": "nbsCohpmHistoricMaxCD",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveDGD": {
+    "name": "nbsCohpmHistoricAveDGD",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinDGD": {
+    "name": "nbsCohpmHistoricMinDGD",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxDGD": {
+    "name": "nbsCohpmHistoricMaxDGD",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveQ": {
+    "name": "nbsCohpmHistoricAveQ",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinQ": {
+    "name": "nbsCohpmHistoricMinQ",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxQ": {
+    "name": "nbsCohpmHistoricMaxQ",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveCFO": {
+    "name": "nbsCohpmHistoricAveCFO",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinCFO": {
+    "name": "nbsCohpmHistoricMinCFO",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxCFO": {
+    "name": "nbsCohpmHistoricMaxCFO",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveOSNR": {
+    "name": "nbsCohpmHistoricAveOSNR",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinOSNR": {
+    "name": "nbsCohpmHistoricMinOSNR",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxOSNR": {
+    "name": "nbsCohpmHistoricMaxOSNR",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveSNRx": {
+    "name": "nbsCohpmHistoricAveSNRx",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinSNRx": {
+    "name": "nbsCohpmHistoricMinSNRx",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxSNRx": {
+    "name": "nbsCohpmHistoricMaxSNRx",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveSNRy": {
+    "name": "nbsCohpmHistoricAveSNRy",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinSNRy": {
+    "name": "nbsCohpmHistoricMinSNRy",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxSNRy": {
+    "name": "nbsCohpmHistoricMaxSNRy",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAvePDL": {
+    "name": "nbsCohpmHistoricAvePDL",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinPDL": {
+    "name": "nbsCohpmHistoricMinPDL",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxPDL": {
+    "name": "nbsCohpmHistoricMaxPDL",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricAveSOP": {
+    "name": "nbsCohpmHistoricAveSOP",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMinSOP": {
+    "name": "nbsCohpmHistoricMinSOP",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmHistoricMaxSOP": {
+    "name": "nbsCohpmHistoricMaxSOP",
+    "oid": "1.3.6.1.4.1.629.242.23.3.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningTable": {
+    "name": "nbsCohpmRunningTable",
+    "oid": "1.3.6.1.4.1.629.242.24.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCohpmRunningEntry": {
+    "name": "nbsCohpmRunningEntry",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmRunningIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmRunningIfIndex": {
+    "name": "nbsCohpmRunningIfIndex",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningDate": {
+    "name": "nbsCohpmRunningDate",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningTime": {
+    "name": "nbsCohpmRunningTime",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveNetBERsig": {
+    "name": "nbsCohpmRunningAveNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveNetBERexp": {
+    "name": "nbsCohpmRunningAveNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinNetBERsig": {
+    "name": "nbsCohpmRunningMinNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinNetBERexp": {
+    "name": "nbsCohpmRunningMinNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxNetBERsig": {
+    "name": "nbsCohpmRunningMaxNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxNetBERexp": {
+    "name": "nbsCohpmRunningMaxNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveCD": {
+    "name": "nbsCohpmRunningAveCD",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinCD": {
+    "name": "nbsCohpmRunningMinCD",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxCD": {
+    "name": "nbsCohpmRunningMaxCD",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveDGD": {
+    "name": "nbsCohpmRunningAveDGD",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinDGD": {
+    "name": "nbsCohpmRunningMinDGD",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxDGD": {
+    "name": "nbsCohpmRunningMaxDGD",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveQ": {
+    "name": "nbsCohpmRunningAveQ",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinQ": {
+    "name": "nbsCohpmRunningMinQ",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxQ": {
+    "name": "nbsCohpmRunningMaxQ",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveCFO": {
+    "name": "nbsCohpmRunningAveCFO",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinCFO": {
+    "name": "nbsCohpmRunningMinCFO",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxCFO": {
+    "name": "nbsCohpmRunningMaxCFO",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveOSNR": {
+    "name": "nbsCohpmRunningAveOSNR",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinOSNR": {
+    "name": "nbsCohpmRunningMinOSNR",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxOSNR": {
+    "name": "nbsCohpmRunningMaxOSNR",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveSNRx": {
+    "name": "nbsCohpmRunningAveSNRx",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinSNRx": {
+    "name": "nbsCohpmRunningMinSNRx",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxSNRx": {
+    "name": "nbsCohpmRunningMaxSNRx",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveSNRy": {
+    "name": "nbsCohpmRunningAveSNRy",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinSNRy": {
+    "name": "nbsCohpmRunningMinSNRy",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxSNRy": {
+    "name": "nbsCohpmRunningMaxSNRy",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAvePDL": {
+    "name": "nbsCohpmRunningAvePDL",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinPDL": {
+    "name": "nbsCohpmRunningMinPDL",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxPDL": {
+    "name": "nbsCohpmRunningMaxPDL",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningAveSOP": {
+    "name": "nbsCohpmRunningAveSOP",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMinSOP": {
+    "name": "nbsCohpmRunningMinSOP",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmRunningMaxSOP": {
+    "name": "nbsCohpmRunningMaxSOP",
+    "oid": "1.3.6.1.4.1.629.242.24.3.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsTable": {
+    "name": "nbsCoherentStatsTable",
+    "oid": "1.3.6.1.4.1.629.242.90.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsCoherentStatsEntry": {
+    "name": "nbsCoherentStatsEntry",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCoherentStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCoherentStatsIfIndex": {
+    "name": "nbsCoherentStatsIfIndex",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsDate": {
+    "name": "nbsCoherentStatsDate",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsTime": {
+    "name": "nbsCoherentStatsTime",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsSpan": {
+    "name": "nbsCoherentStatsSpan",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsState": {
+    "name": "nbsCoherentStatsState",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "counting": 2,
+          "clearing": 3,
+          "stopped": 4,
+          "resumed": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveNetBERsig": {
+    "name": "nbsCoherentStatsAveNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveNetBERexp": {
+    "name": "nbsCoherentStatsAveNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinNetBERsig": {
+    "name": "nbsCoherentStatsMinNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinNetBERexp": {
+    "name": "nbsCoherentStatsMinNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxNetBERsig": {
+    "name": "nbsCoherentStatsMaxNetBERsig",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxNetBERexp": {
+    "name": "nbsCoherentStatsMaxNetBERexp",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveCD": {
+    "name": "nbsCoherentStatsAveCD",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinCD": {
+    "name": "nbsCoherentStatsMinCD",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxCD": {
+    "name": "nbsCoherentStatsMaxCD",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveDGD": {
+    "name": "nbsCoherentStatsAveDGD",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinDGD": {
+    "name": "nbsCoherentStatsMinDGD",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxDGD": {
+    "name": "nbsCoherentStatsMaxDGD",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveQ": {
+    "name": "nbsCoherentStatsAveQ",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinQ": {
+    "name": "nbsCoherentStatsMinQ",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxQ": {
+    "name": "nbsCoherentStatsMaxQ",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveCFO": {
+    "name": "nbsCoherentStatsAveCFO",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinCFO": {
+    "name": "nbsCoherentStatsMinCFO",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxCFO": {
+    "name": "nbsCoherentStatsMaxCFO",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveOSNR": {
+    "name": "nbsCoherentStatsAveOSNR",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinOSNR": {
+    "name": "nbsCoherentStatsMinOSNR",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxOSNR": {
+    "name": "nbsCoherentStatsMaxOSNR",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveSNRx": {
+    "name": "nbsCoherentStatsAveSNRx",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinSNRx": {
+    "name": "nbsCoherentStatsMinSNRx",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxSNRx": {
+    "name": "nbsCoherentStatsMaxSNRx",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveSNRy": {
+    "name": "nbsCoherentStatsAveSNRy",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinSNRy": {
+    "name": "nbsCoherentStatsMinSNRy",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxSNRy": {
+    "name": "nbsCoherentStatsMaxSNRy",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAvePDL": {
+    "name": "nbsCoherentStatsAvePDL",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinPDL": {
+    "name": "nbsCoherentStatsMinPDL",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxPDL": {
+    "name": "nbsCoherentStatsMaxPDL",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsAveSOP": {
+    "name": "nbsCoherentStatsAveSOP",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMinSOP": {
+    "name": "nbsCoherentStatsMinSOP",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCoherentStatsMaxSOP": {
+    "name": "nbsCoherentStatsMaxSOP",
+    "oid": "1.3.6.1.4.1.629.242.90.2.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsCohpmTraps": {
+    "name": "nbsCohpmTraps",
+    "oid": "1.3.6.1.4.1.629.242.100.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveBER": {
+    "name": "nbsCohpmTrapsAveBER",
+    "oid": "1.3.6.1.4.1.629.242.100.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveNetBERsig"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveNetBERexp"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinBER": {
+    "name": "nbsCohpmTrapsMinBER",
+    "oid": "1.3.6.1.4.1.629.242.100.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinNetBERsig"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinNetBERexp"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxBER": {
+    "name": "nbsCohpmTrapsMaxBER",
+    "oid": "1.3.6.1.4.1.629.242.100.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxNetBERsig"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxNetBERexp"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveCD": {
+    "name": "nbsCohpmTrapsAveCD",
+    "oid": "1.3.6.1.4.1.629.242.100.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveCD"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinCD": {
+    "name": "nbsCohpmTrapsMinCD",
+    "oid": "1.3.6.1.4.1.629.242.100.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinCD"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxCD": {
+    "name": "nbsCohpmTrapsMaxCD",
+    "oid": "1.3.6.1.4.1.629.242.100.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxCD"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveDGD": {
+    "name": "nbsCohpmTrapsAveDGD",
+    "oid": "1.3.6.1.4.1.629.242.100.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveDGD"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinDGD": {
+    "name": "nbsCohpmTrapsMinDGD",
+    "oid": "1.3.6.1.4.1.629.242.100.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinDGD"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxDGD": {
+    "name": "nbsCohpmTrapsMaxDGD",
+    "oid": "1.3.6.1.4.1.629.242.100.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxDGD"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveQ": {
+    "name": "nbsCohpmTrapsAveQ",
+    "oid": "1.3.6.1.4.1.629.242.100.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveQ"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinQ": {
+    "name": "nbsCohpmTrapsMinQ",
+    "oid": "1.3.6.1.4.1.629.242.100.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinQ"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxQ": {
+    "name": "nbsCohpmTrapsMaxQ",
+    "oid": "1.3.6.1.4.1.629.242.100.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxQ"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveCFO": {
+    "name": "nbsCohpmTrapsAveCFO",
+    "oid": "1.3.6.1.4.1.629.242.100.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveCFO"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinCFO": {
+    "name": "nbsCohpmTrapsMinCFO",
+    "oid": "1.3.6.1.4.1.629.242.100.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinCFO"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxCFO": {
+    "name": "nbsCohpmTrapsMaxCFO",
+    "oid": "1.3.6.1.4.1.629.242.100.0.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxCFO"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveOSNR": {
+    "name": "nbsCohpmTrapsAveOSNR",
+    "oid": "1.3.6.1.4.1.629.242.100.0.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveOSNR"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinOSNR": {
+    "name": "nbsCohpmTrapsMinOSNR",
+    "oid": "1.3.6.1.4.1.629.242.100.0.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinOSNR"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxOSNR": {
+    "name": "nbsCohpmTrapsMaxOSNR",
+    "oid": "1.3.6.1.4.1.629.242.100.0.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxOSNR"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveSNRx": {
+    "name": "nbsCohpmTrapsAveSNRx",
+    "oid": "1.3.6.1.4.1.629.242.100.0.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveSNRx"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinSNRx": {
+    "name": "nbsCohpmTrapsMinSNRx",
+    "oid": "1.3.6.1.4.1.629.242.100.0.73",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinSNRx"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxSNRx": {
+    "name": "nbsCohpmTrapsMaxSNRx",
+    "oid": "1.3.6.1.4.1.629.242.100.0.76",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxSNRx"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveSNRy": {
+    "name": "nbsCohpmTrapsAveSNRy",
+    "oid": "1.3.6.1.4.1.629.242.100.0.80",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveSNRy"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinSNRy": {
+    "name": "nbsCohpmTrapsMinSNRy",
+    "oid": "1.3.6.1.4.1.629.242.100.0.83",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinSNRy"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxSNRy": {
+    "name": "nbsCohpmTrapsMaxSNRy",
+    "oid": "1.3.6.1.4.1.629.242.100.0.86",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxSNRy"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAvePDL": {
+    "name": "nbsCohpmTrapsAvePDL",
+    "oid": "1.3.6.1.4.1.629.242.100.0.90",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAvePDL"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinPDL": {
+    "name": "nbsCohpmTrapsMinPDL",
+    "oid": "1.3.6.1.4.1.629.242.100.0.93",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinPDL"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxPDL": {
+    "name": "nbsCohpmTrapsMaxPDL",
+    "oid": "1.3.6.1.4.1.629.242.100.0.96",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxPDL"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsAveSOP": {
+    "name": "nbsCohpmTrapsAveSOP",
+    "oid": "1.3.6.1.4.1.629.242.100.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentAveSOP"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMinSOP": {
+    "name": "nbsCohpmTrapsMinSOP",
+    "oid": "1.3.6.1.4.1.629.242.100.0.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMinSOP"
+      }
+    ],
+    "status": "current"
+  },
+  "nbsCohpmTrapsMaxSOP": {
+    "name": "nbsCohpmTrapsMaxSOP",
+    "oid": "1.3.6.1.4.1.629.242.100.0.106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentIfIndex"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentInterval"
+      },
+      {
+        "module": "NBS-COHERENT-MIB",
+        "object": "nbsCohpmCurrentMaxSOP"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-COHERENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-COHERENT-MIB"
+  }
+}

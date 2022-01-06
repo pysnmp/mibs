@@ -1,0 +1,7153 @@
+{
+  "imports": {
+    "class": "imports",
+    "CPQHOST-MIB": [
+      "cpqHoTrapFlags",
+      "compaq"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cpqStdEquipment": {
+    "name": "cpqStdEquipment",
+    "oid": "1.3.6.1.4.1.232.1",
+    "class": "objectidentity"
+  },
+  "cpqSeMibRev": {
+    "name": "cpqSeMibRev",
+    "oid": "1.3.6.1.4.1.232.1.1",
+    "class": "objectidentity"
+  },
+  "cpqSeComponent": {
+    "name": "cpqSeComponent",
+    "oid": "1.3.6.1.4.1.232.1.2",
+    "class": "objectidentity"
+  },
+  "cpqSeInterface": {
+    "name": "cpqSeInterface",
+    "oid": "1.3.6.1.4.1.232.1.2.1",
+    "class": "objectidentity"
+  },
+  "cpqSeProcessor": {
+    "name": "cpqSeProcessor",
+    "oid": "1.3.6.1.4.1.232.1.2.2",
+    "class": "objectidentity"
+  },
+  "cpqSeMemory": {
+    "name": "cpqSeMemory",
+    "oid": "1.3.6.1.4.1.232.1.2.3",
+    "class": "objectidentity"
+  },
+  "cpqSeIsaCmos": {
+    "name": "cpqSeIsaCmos",
+    "oid": "1.3.6.1.4.1.232.1.2.4",
+    "class": "objectidentity"
+  },
+  "cpqSeEisaNvram": {
+    "name": "cpqSeEisaNvram",
+    "oid": "1.3.6.1.4.1.232.1.2.5",
+    "class": "objectidentity"
+  },
+  "cpqSeRom": {
+    "name": "cpqSeRom",
+    "oid": "1.3.6.1.4.1.232.1.2.6",
+    "class": "objectidentity"
+  },
+  "cpqSeKeyboard": {
+    "name": "cpqSeKeyboard",
+    "oid": "1.3.6.1.4.1.232.1.2.7",
+    "class": "objectidentity"
+  },
+  "cpqSeVideo": {
+    "name": "cpqSeVideo",
+    "oid": "1.3.6.1.4.1.232.1.2.8",
+    "class": "objectidentity"
+  },
+  "cpqSeSerialPort": {
+    "name": "cpqSeSerialPort",
+    "oid": "1.3.6.1.4.1.232.1.2.9",
+    "class": "objectidentity"
+  },
+  "cpqSeParallelPort": {
+    "name": "cpqSeParallelPort",
+    "oid": "1.3.6.1.4.1.232.1.2.10",
+    "class": "objectidentity"
+  },
+  "cpqSeFloppyDisk": {
+    "name": "cpqSeFloppyDisk",
+    "oid": "1.3.6.1.4.1.232.1.2.11",
+    "class": "objectidentity"
+  },
+  "cpqSeFixedDisk": {
+    "name": "cpqSeFixedDisk",
+    "oid": "1.3.6.1.4.1.232.1.2.12",
+    "class": "objectidentity"
+  },
+  "cpqSePci": {
+    "name": "cpqSePci",
+    "oid": "1.3.6.1.4.1.232.1.2.13",
+    "class": "objectidentity"
+  },
+  "cpqSePCCard": {
+    "name": "cpqSePCCard",
+    "oid": "1.3.6.1.4.1.232.1.2.14",
+    "class": "objectidentity"
+  },
+  "cpqSeUSBPort": {
+    "name": "cpqSeUSBPort",
+    "oid": "1.3.6.1.4.1.232.1.2.15",
+    "class": "objectidentity"
+  },
+  "cpqSeCell": {
+    "name": "cpqSeCell",
+    "oid": "1.3.6.1.4.1.232.1.2.16",
+    "class": "objectidentity"
+  },
+  "cpqSeIOC": {
+    "name": "cpqSeIOC",
+    "oid": "1.3.6.1.4.1.232.1.2.17",
+    "class": "objectidentity"
+  },
+  "cpqSePartition": {
+    "name": "cpqSePartition",
+    "oid": "1.3.6.1.4.1.232.1.2.18",
+    "class": "objectidentity"
+  },
+  "cpqSeCabinet": {
+    "name": "cpqSeCabinet",
+    "oid": "1.3.6.1.4.1.232.1.2.19",
+    "class": "objectidentity"
+  },
+  "cpqSeComplex": {
+    "name": "cpqSeComplex",
+    "oid": "1.3.6.1.4.1.232.1.2.20",
+    "class": "objectidentity"
+  },
+  "cpqSeLED": {
+    "name": "cpqSeLED",
+    "oid": "1.3.6.1.4.1.232.1.2.21",
+    "class": "objectidentity"
+  },
+  "cpqSeUSBDevice": {
+    "name": "cpqSeUSBDevice",
+    "oid": "1.3.6.1.4.1.232.1.2.22",
+    "class": "objectidentity"
+  },
+  "cpqSePCIeDisk": {
+    "name": "cpqSePCIeDisk",
+    "oid": "1.3.6.1.4.1.232.1.2.23",
+    "class": "objectidentity"
+  },
+  "cpqSeOsCommon": {
+    "name": "cpqSeOsCommon",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "TruthValue": {
+    "name": "TruthValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    }
+  },
+  "cpqSeMibRevMajor": {
+    "name": "cpqSeMibRevMajor",
+    "oid": "1.3.6.1.4.1.232.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeMibRevMinor": {
+    "name": "cpqSeMibRevMinor",
+    "oid": "1.3.6.1.4.1.232.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeMibCondition": {
+    "name": "cpqSeMibCondition",
+    "oid": "1.3.6.1.4.1.232.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeOsCommonPollFreq": {
+    "name": "cpqSeOsCommonPollFreq",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "cpqSeOsCommonModuleTable": {
+    "name": "cpqSeOsCommonModuleTable",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cpqSeOsCommonModuleEntry": {
+    "name": "cpqSeOsCommonModuleEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeOsCommonModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpqSeOsCommonModuleIndex": {
+    "name": "cpqSeOsCommonModuleIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSeOsCommonModuleName": {
+    "name": "cpqSeOsCommonModuleName",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSeOsCommonModuleVersion": {
+    "name": "cpqSeOsCommonModuleVersion",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSeOsCommonModuleDate": {
+    "name": "cpqSeOsCommonModuleDate",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSeOsCommonModulePurpose": {
+    "name": "cpqSeOsCommonModulePurpose",
+    "oid": "1.3.6.1.4.1.232.1.2.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSeCpuTable": {
+    "name": "cpqSeCpuTable",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeCpuEntry": {
+    "name": "cpqSeCpuEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeCpuUnitIndex": {
+    "name": "cpqSeCpuUnitIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuSlot": {
+    "name": "cpqSeCpuSlot",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuName": {
+    "name": "cpqSeCpuName",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuSpeed": {
+    "name": "cpqSeCpuSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuStep": {
+    "name": "cpqSeCpuStep",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuStatus": {
+    "name": "cpqSeCpuStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuExtSpeed": {
+    "name": "cpqSeCpuExtSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuDesigner": {
+    "name": "cpqSeCpuDesigner",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "intel": 2,
+          "amd": 3,
+          "cyrix": 4,
+          "ti": 5,
+          "nexgen": 6,
+          "compaq": 7,
+          "samsung": 8,
+          "mitsubishi": 9,
+          "mips": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuSocketNumber": {
+    "name": "cpqSeCpuSocketNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuThreshPassed": {
+    "name": "cpqSeCpuThreshPassed",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 1,
+          "false": 2,
+          "true": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuHwLocation": {
+    "name": "cpqSeCpuHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuCellTablePtr": {
+    "name": "cpqSeCpuCellTablePtr",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuPowerpodStatus": {
+    "name": "cpqSeCpuPowerpodStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notfailed": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuArchitectureRevision": {
+    "name": "cpqSeCpuArchitectureRevision",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuCore": {
+    "name": "cpqSeCpuCore",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUSerialNumber": {
+    "name": "cpqSeCPUSerialNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUPartNumber": {
+    "name": "cpqSeCPUPartNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUSerialNumberMfgr": {
+    "name": "cpqSeCPUSerialNumberMfgr",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUPartNumberMfgr": {
+    "name": "cpqSeCPUPartNumberMfgr",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUCoreIndex": {
+    "name": "cpqSeCPUCoreIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUMaxSpeed": {
+    "name": "cpqSeCPUMaxSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUCoreThreadIndex": {
+    "name": "cpqSeCPUCoreThreadIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUChipGenerationName": {
+    "name": "cpqSeCPUChipGenerationName",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUMultiThreadStatus": {
+    "name": "cpqSeCPUMultiThreadStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCPUCoreMaxThreads": {
+    "name": "cpqSeCPUCoreMaxThreads",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuLowPowerStatus": {
+    "name": "cpqSeCpuLowPowerStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "lowpowered": 2,
+          "normalpowered": 3,
+          "highpowered": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuPrimary": {
+    "name": "cpqSeCpuPrimary",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "false": 2,
+          "true": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCoreSteppingText": {
+    "name": "cpqSeCpuCoreSteppingText",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuCurrentPerformanceState": {
+    "name": "cpqSeCpuCurrentPerformanceState",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuMinPerformanceState": {
+    "name": "cpqSeCpuMinPerformanceState",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuMaxPerformanceState": {
+    "name": "cpqSeCpuMaxPerformanceState",
+    "oid": "1.3.6.1.4.1.232.1.2.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeFpuTable": {
+    "name": "cpqSeFpuTable",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeFpuEntry": {
+    "name": "cpqSeFpuEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeFpuUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeFpuChipIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeFpuUnitIndex": {
+    "name": "cpqSeFpuUnitIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFpuChipIndex": {
+    "name": "cpqSeFpuChipIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFpuSlot": {
+    "name": "cpqSeFpuSlot",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFpuName": {
+    "name": "cpqSeFpuName",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFpuSpeed": {
+    "name": "cpqSeFpuSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFpuType": {
+    "name": "cpqSeFpuType",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "embedded": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFpuHwLocation": {
+    "name": "cpqSeFpuHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuCacheTable": {
+    "name": "cpqSeCpuCacheTable",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheEntry": {
+    "name": "cpqSeCpuCacheEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuCacheUnitIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuCacheLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheUnitIndex": {
+    "name": "cpqSeCpuCacheUnitIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheLevelIndex": {
+    "name": "cpqSeCpuCacheLevelIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheSize": {
+    "name": "cpqSeCpuCacheSize",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheSpeed": {
+    "name": "cpqSeCpuCacheSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheStatus": {
+    "name": "cpqSeCpuCacheStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheWritePolicy": {
+    "name": "cpqSeCpuCacheWritePolicy",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "write-through": 2,
+          "write-back": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeCpuCacheHwLocation": {
+    "name": "cpqSeCpuCacheHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuCacheCpuSlot": {
+    "name": "cpqSeCpuCacheCpuSlot",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuCacheCpuCoreIndex": {
+    "name": "cpqSeCpuCacheCpuCoreIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuCondition": {
+    "name": "cpqSeCpuCondition",
+    "oid": "1.3.6.1.4.1.232.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeBaseMem": {
+    "name": "cpqSeBaseMem",
+    "oid": "1.3.6.1.4.1.232.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeTotalMem": {
+    "name": "cpqSeTotalMem",
+    "oid": "1.3.6.1.4.1.232.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeTotalMemMB": {
+    "name": "cpqSeTotalMemMB",
+    "oid": "1.3.6.1.4.1.232.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeIsaCmosRaw": {
+    "name": "cpqSeIsaCmosRaw",
+    "oid": "1.3.6.1.4.1.232.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotTable": {
+    "name": "cpqSeEisaSlotTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotEntry": {
+    "name": "cpqSeEisaSlotEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotIndex": {
+    "name": "cpqSeEisaSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotRaw": {
+    "name": "cpqSeEisaSlotRaw",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotBoardId": {
+    "name": "cpqSeEisaSlotBoardId",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotBoardName": {
+    "name": "cpqSeEisaSlotBoardName",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotCfRev": {
+    "name": "cpqSeEisaSlotCfRev",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaSlotType": {
+    "name": "cpqSeEisaSlotType",
+    "oid": "1.3.6.1.4.1.232.1.2.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "isa8Bit": 2,
+          "isa16Bit": 3,
+          "eisa32Bit": 4,
+          "eisaBusMaster32Bit": 5,
+          "other": 6,
+          "reserved": 7,
+          "reserved2": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctTable": {
+    "name": "cpqSeEisaFunctTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctEntry": {
+    "name": "cpqSeEisaFunctEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaFunctSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaFunctIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctSlotIndex": {
+    "name": "cpqSeEisaFunctSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctIndex": {
+    "name": "cpqSeEisaFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctStatus": {
+    "name": "cpqSeEisaFunctStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctType": {
+    "name": "cpqSeEisaFunctType",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctCfgRev": {
+    "name": "cpqSeEisaFunctCfgRev",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctSels": {
+    "name": "cpqSeEisaFunctSels",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFunctInfo": {
+    "name": "cpqSeEisaFunctInfo",
+    "oid": "1.3.6.1.4.1.232.1.2.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemTable": {
+    "name": "cpqSeEisaMemTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemEntry": {
+    "name": "cpqSeEisaMemEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaMemSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaMemFunctIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaMemAllocIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemSlotIndex": {
+    "name": "cpqSeEisaMemSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemFunctIndex": {
+    "name": "cpqSeEisaMemFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemAllocIndex": {
+    "name": "cpqSeEisaMemAllocIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemStartAddr": {
+    "name": "cpqSeEisaMemStartAddr",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemSize": {
+    "name": "cpqSeEisaMemSize",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemShare": {
+    "name": "cpqSeEisaMemShare",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonshareable": 1,
+          "shareable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemType": {
+    "name": "cpqSeEisaMemType",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "systemBaseOrExtended": 1,
+          "expanded": 2,
+          "virtual": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemCache": {
+    "name": "cpqSeEisaMemCache",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notCached": 1,
+          "writeThroughCached": 2,
+          "writeBackCached": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemAccess": {
+    "name": "cpqSeEisaMemAccess",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "readWrite": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemDecode": {
+    "name": "cpqSeEisaMemDecode",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaMemDataSize": {
+    "name": "cpqSeEisaMemDataSize",
+    "oid": "1.3.6.1.4.1.232.1.2.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntTable": {
+    "name": "cpqSeEisaIntTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntEntry": {
+    "name": "cpqSeEisaIntEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaIntSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaIntFunctIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaIntAllocIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntSlotIndex": {
+    "name": "cpqSeEisaIntSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntFunctIndex": {
+    "name": "cpqSeEisaIntFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntAllocIndex": {
+    "name": "cpqSeEisaIntAllocIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntNum": {
+    "name": "cpqSeEisaIntNum",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntShare": {
+    "name": "cpqSeEisaIntShare",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonshareable": 1,
+          "shareable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaIntTrigger": {
+    "name": "cpqSeEisaIntTrigger",
+    "oid": "1.3.6.1.4.1.232.1.2.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "edge": 1,
+          "level": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaTable": {
+    "name": "cpqSeEisaDmaTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaEntry": {
+    "name": "cpqSeEisaDmaEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaDmaSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaDmaFunctIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaDmaAllocIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaSlotIndex": {
+    "name": "cpqSeEisaDmaSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaFunctIndex": {
+    "name": "cpqSeEisaDmaFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaAllocIndex": {
+    "name": "cpqSeEisaDmaAllocIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaChannel": {
+    "name": "cpqSeEisaDmaChannel",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaShare": {
+    "name": "cpqSeEisaDmaShare",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonshareable": 1,
+          "shareable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaTiming": {
+    "name": "cpqSeEisaDmaTiming",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isaTiming": 1,
+          "typeA": 2,
+          "typeB": 3,
+          "burstTypeC": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaXfer": {
+    "name": "cpqSeEisaDmaXfer",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaDmaXferCount": {
+    "name": "cpqSeEisaDmaXferCount",
+    "oid": "1.3.6.1.4.1.232.1.2.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byte": 1,
+          "word": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortTable": {
+    "name": "cpqSeEisaPortTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortEntry": {
+    "name": "cpqSeEisaPortEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaPortSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaPortFunctIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaPortAllocIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortSlotIndex": {
+    "name": "cpqSeEisaPortSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortFunctIndex": {
+    "name": "cpqSeEisaPortFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortAllocIndex": {
+    "name": "cpqSeEisaPortAllocIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortAddr": {
+    "name": "cpqSeEisaPortAddr",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortShare": {
+    "name": "cpqSeEisaPortShare",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonshareable": 1,
+          "shareable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaPortSize": {
+    "name": "cpqSeEisaPortSize",
+    "oid": "1.3.6.1.4.1.232.1.2.5.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFreeFormTable": {
+    "name": "cpqSeEisaFreeFormTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFreeFormEntry": {
+    "name": "cpqSeEisaFreeFormEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaFreeFormSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaFreeFormFunctIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaFreeFormSlotIndex": {
+    "name": "cpqSeEisaFreeFormSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFreeFormFunctIndex": {
+    "name": "cpqSeEisaFreeFormFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaFreeFormValue": {
+    "name": "cpqSeEisaFreeFormValue",
+    "oid": "1.3.6.1.4.1.232.1.2.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 205
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitTable": {
+    "name": "cpqSeEisaInitTable",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitEntry": {
+    "name": "cpqSeEisaInitEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaInitSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaInitFunctIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeEisaInitAllocIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitSlotIndex": {
+    "name": "cpqSeEisaInitSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitFunctIndex": {
+    "name": "cpqSeEisaInitFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitAllocIndex": {
+    "name": "cpqSeEisaInitAllocIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitUseMask": {
+    "name": "cpqSeEisaInitUseMask",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "useValueOnly": 1,
+          "useValueAndMask": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitAccess": {
+    "name": "cpqSeEisaInitAccess",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "eightBitAddress": 2,
+          "sixteenBitAddress": 3,
+          "thirtyTwoBitAddress": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitAddr": {
+    "name": "cpqSeEisaInitAddr",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitValue": {
+    "name": "cpqSeEisaInitValue",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeEisaInitMask": {
+    "name": "cpqSeEisaInitMask",
+    "oid": "1.3.6.1.4.1.232.1.2.5.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeSysRomVer": {
+    "name": "cpqSeSysRomVer",
+    "oid": "1.3.6.1.4.1.232.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeOptRomTable": {
+    "name": "cpqSeOptRomTable",
+    "oid": "1.3.6.1.4.1.232.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeOptRomEntry": {
+    "name": "cpqSeOptRomEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeOptRomAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeOptRomAddrIndex": {
+    "name": "cpqSeOptRomAddrIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeOptRomSize": {
+    "name": "cpqSeOptRomSize",
+    "oid": "1.3.6.1.4.1.232.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeBiosRomDataRaw": {
+    "name": "cpqSeBiosRomDataRaw",
+    "oid": "1.3.6.1.4.1.232.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 256,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeRedundantSysRomVer": {
+    "name": "cpqSeRedundantSysRomVer",
+    "oid": "1.3.6.1.4.1.232.1.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeSmbiosVer": {
+    "name": "cpqSeSmbiosVer",
+    "oid": "1.3.6.1.4.1.232.1.2.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeMPFwVer": {
+    "name": "cpqSeMPFwVer",
+    "oid": "1.3.6.1.4.1.232.1.2.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeBMCFwVer": {
+    "name": "cpqSeBMCFwVer",
+    "oid": "1.3.6.1.4.1.232.1.2.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeHPVMFwVer": {
+    "name": "cpqSeHPVMFwVer",
+    "oid": "1.3.6.1.4.1.232.1.2.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeKeyboardDesc": {
+    "name": "cpqSeKeyboardDesc",
+    "oid": "1.3.6.1.4.1.232.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeVideoDesc": {
+    "name": "cpqSeVideoDesc",
+    "oid": "1.3.6.1.4.1.232.1.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeSerialPortTable": {
+    "name": "cpqSeSerialPortTable",
+    "oid": "1.3.6.1.4.1.232.1.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeSerialPortEntry": {
+    "name": "cpqSeSerialPortEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeSerialPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeSerialPortIndex": {
+    "name": "cpqSeSerialPortIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeSerialPortAddr": {
+    "name": "cpqSeSerialPortAddr",
+    "oid": "1.3.6.1.4.1.232.1.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeSerialPortDesc": {
+    "name": "cpqSeSerialPortDesc",
+    "oid": "1.3.6.1.4.1.232.1.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeSerialPortHwLocation": {
+    "name": "cpqSeSerialPortHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeParallelPortTable": {
+    "name": "cpqSeParallelPortTable",
+    "oid": "1.3.6.1.4.1.232.1.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeParallelPortEntry": {
+    "name": "cpqSeParallelPortEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeParallelPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeParallelPortIndex": {
+    "name": "cpqSeParallelPortIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeParallelPortAddr": {
+    "name": "cpqSeParallelPortAddr",
+    "oid": "1.3.6.1.4.1.232.1.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeParallelPortDesc": {
+    "name": "cpqSeParallelPortDesc",
+    "oid": "1.3.6.1.4.1.232.1.2.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeParrallelPortHwLocation": {
+    "name": "cpqSeParrallelPortHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeFloppyDiskTable": {
+    "name": "cpqSeFloppyDiskTable",
+    "oid": "1.3.6.1.4.1.232.1.2.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeFloppyDiskEntry": {
+    "name": "cpqSeFloppyDiskEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeFloppyDiskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeFloppyDiskIndex": {
+    "name": "cpqSeFloppyDiskIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFloppyDiskType": {
+    "name": "cpqSeFloppyDiskType",
+    "oid": "1.3.6.1.4.1.232.1.2.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "drive360k": 2,
+          "drive1200k": 3,
+          "drive720k": 4,
+          "drive1440k": 5,
+          "drive120mb": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFloppyDiskHwLocation": {
+    "name": "cpqSeFloppyDiskHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeFixedDiskTable": {
+    "name": "cpqSeFixedDiskTable",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskEntry": {
+    "name": "cpqSeFixedDiskEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeFixedDiskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskIndex": {
+    "name": "cpqSeFixedDiskIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskType": {
+    "name": "cpqSeFixedDiskType",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskCyls": {
+    "name": "cpqSeFixedDiskCyls",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskHeads": {
+    "name": "cpqSeFixedDiskHeads",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskSectors": {
+    "name": "cpqSeFixedDiskSectors",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskCapacity": {
+    "name": "cpqSeFixedDiskCapacity",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeFixedDiskHwLocation": {
+    "name": "cpqSeFixedDiskHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePciSlotTable": {
+    "name": "cpqSePciSlotTable",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotEntry": {
+    "name": "cpqSePciSlotEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotBusNumberIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciSlotDeviceNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSePciSlotBusNumberIndex": {
+    "name": "cpqSePciSlotBusNumberIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotDeviceNumberIndex": {
+    "name": "cpqSePciSlotDeviceNumberIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciPhysSlot": {
+    "name": "cpqSePciPhysSlot",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotSubSystemID": {
+    "name": "cpqSePciSlotSubSystemID",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotBoardName": {
+    "name": "cpqSePciSlotBoardName",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotWidth": {
+    "name": "cpqSePciSlotWidth",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "thirtyTwoBit": 3,
+          "sixtyFourBit": 4,
+          "oneTwentyEightBit": 5,
+          "x1": 6,
+          "x2": 7,
+          "x4": 8,
+          "x8": 9,
+          "x12": 10,
+          "x16": 11,
+          "x32": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotSpeed": {
+    "name": "cpqSePciSlotSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "thirtyThreeMHz": 3,
+          "sixtySixMHz": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cpqSePciSlotExtendedInfo": {
+    "name": "cpqSePciSlotExtendedInfo",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotType": {
+    "name": "cpqSePciSlotType",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "pci": 3,
+          "pci66": 4,
+          "pcix": 5,
+          "pciexpress": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotCurrentMode": {
+    "name": "cpqSePciSlotCurrentMode",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "pci": 3,
+          "pci66": 4,
+          "pcix": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMaxSlotSpeed": {
+    "name": "cpqSePciMaxSlotSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciXMaxSlotSpeed": {
+    "name": "cpqSePciXMaxSlotSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciCurrentSlotSpeed": {
+    "name": "cpqSePciCurrentSlotSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciHwLocation": {
+    "name": "cpqSePciHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePciSlotIOCTablePtr": {
+    "name": "cpqSePciSlotIOCTablePtr",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciSlotHeaderType": {
+    "name": "cpqSePciSlotHeaderType",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciIsSlot0Embedded": {
+    "name": "cpqSePciIsSlot0Embedded",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePcieSlotMaxLinkSpeed": {
+    "name": "cpqSePcieSlotMaxLinkSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePcieSlotMaxLinkWidth": {
+    "name": "cpqSePcieSlotMaxLinkWidth",
+    "oid": "1.3.6.1.4.1.232.1.2.13.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePciFunctTable": {
+    "name": "cpqSePciFunctTable",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctEntry": {
+    "name": "cpqSePciFunctEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctBusNumberIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctDeviceNumberIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSePciFunctBusNumberIndex": {
+    "name": "cpqSePciFunctBusNumberIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctDeviceNumberIndex": {
+    "name": "cpqSePciFunctDeviceNumberIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctIndex": {
+    "name": "cpqSePciFunctIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctClassCode": {
+    "name": "cpqSePciFunctClassCode",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctClassDescription": {
+    "name": "cpqSePciFunctClassDescription",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctDeviceID": {
+    "name": "cpqSePciFunctDeviceID",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctVendorID": {
+    "name": "cpqSePciFunctVendorID",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctRevID": {
+    "name": "cpqSePciFunctRevID",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctIntLine": {
+    "name": "cpqSePciFunctIntLine",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctDevStatus": {
+    "name": "cpqSePciFunctDevStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciFunctHwLocation": {
+    "name": "cpqSePciFunctHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePcieFunctNegotiatedLinkSpeed": {
+    "name": "cpqSePcieFunctNegotiatedLinkSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePcieFunctNegotiatedLinkWidth": {
+    "name": "cpqSePcieFunctNegotiatedLinkWidth",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePcieFunctMaxLinkSpeed": {
+    "name": "cpqSePcieFunctMaxLinkSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePcieFunctMaxLinkWidth": {
+    "name": "cpqSePcieFunctMaxLinkWidth",
+    "oid": "1.3.6.1.4.1.232.1.2.13.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePciMemoryTable": {
+    "name": "cpqSePciMemoryTable",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryEntry": {
+    "name": "cpqSePciMemoryEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciMemoryBusNumberIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciMemoryDeviceNumberIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciMemoryFunctionIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciMemoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryBusNumberIndex": {
+    "name": "cpqSePciMemoryBusNumberIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryDeviceNumberIndex": {
+    "name": "cpqSePciMemoryDeviceNumberIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryFunctionIndex": {
+    "name": "cpqSePciMemoryFunctionIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryIndex": {
+    "name": "cpqSePciMemoryIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryBaseAddr": {
+    "name": "cpqSePciMemoryBaseAddr",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryType": {
+    "name": "cpqSePciMemoryType",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "io": 2,
+          "memory-mapped": 3,
+          "exp-rom": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMemorySize": {
+    "name": "cpqSePciMemorySize",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePciMemoryHwLocation": {
+    "name": "cpqSePciMemoryHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.13.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePciSegmentMode": {
+    "name": "cpqSePciSegmentMode",
+    "oid": "1.3.6.1.4.1.232.1.2.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "single-segment": 2,
+          "multi-segment": 3,
+          "auto-segment": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCCardSlotTable": {
+    "name": "cpqSePCCardSlotTable",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSePCCardSlotEntry": {
+    "name": "cpqSePCCardSlotEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSePCCardSlotIndex": {
+    "name": "cpqSePCCardSlotIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardCondition": {
+    "name": "cpqSePCCardCondition",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardPhysLocation": {
+    "name": "cpqSePCCardPhysLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardSlotType": {
+    "name": "cpqSePCCardSlotType",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardSlotWidth": {
+    "name": "cpqSePCCardSlotWidth",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "width8bit": 3,
+          "width16bit": 4,
+          "width32bit": 5,
+          "width64bit": 6,
+          "width128bit": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardSlotThermalCapacity": {
+    "name": "cpqSePCCardSlotThermalCapacity",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardSlotThermalSensor": {
+    "name": "cpqSePCCardSlotThermalSensor",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardSlotPowerState": {
+    "name": "cpqSePCCardSlotPowerState",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardStatus": {
+    "name": "cpqSePCCardStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "thermalDegraded": 3,
+          "thermalFailure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardDeviceInfo": {
+    "name": "cpqSePCCardDeviceInfo",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardProductInfo": {
+    "name": "cpqSePCCardProductInfo",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardSerialNumber": {
+    "name": "cpqSePCCardSerialNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSePCCardAssetTag": {
+    "name": "cpqSePCCardAssetTag",
+    "oid": "1.3.6.1.4.1.232.1.2.14.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortTable": {
+    "name": "cpqSeUSBPortTable",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortEntry": {
+    "name": "cpqSeUSBPortEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortIndex": {
+    "name": "cpqSeUSBPortIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortType": {
+    "name": "cpqSeUSBPortType",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "usbPort": 2,
+          "sdPort": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortHwLocation": {
+    "name": "cpqSeUSBPortHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortStatus": {
+    "name": "cpqSeUSBPortStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notPopulated": 2,
+          "populated": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortDeviceName": {
+    "name": "cpqSeUSBPortDeviceName",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceCapacity": {
+    "name": "cpqSeUSBPortDeviceCapacity",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceManufacturer": {
+    "name": "cpqSeUSBPortDeviceManufacturer",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceModel": {
+    "name": "cpqSeUSBPortDeviceModel",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceFWVersion": {
+    "name": "cpqSeUSBPortDeviceFWVersion",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceSerialNumber": {
+    "name": "cpqSeUSBPortDeviceSerialNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDevicePartNumber": {
+    "name": "cpqSeUSBPortDevicePartNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceCount": {
+    "name": "cpqSeUSBPortDeviceCount",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceReadErrorCount": {
+    "name": "cpqSeUSBPortDeviceReadErrorCount",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceWriteErrorCount": {
+    "name": "cpqSeUSBPortDeviceWriteErrorCount",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceReadThreshold": {
+    "name": "cpqSeUSBPortDeviceReadThreshold",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceWriteThreshold": {
+    "name": "cpqSeUSBPortDeviceWriteThreshold",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceStatus": {
+    "name": "cpqSeUSBPortDeviceStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceFeature": {
+    "name": "cpqSeUSBPortDeviceFeature",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundancy-capable": 1,
+          "standard": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDeviceFailedSlot": {
+    "name": "cpqSeUSBPortDeviceFailedSlot",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortDeviceLastSlotWithError": {
+    "name": "cpqSeUSBPortDeviceLastSlotWithError",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cpqSeUSBPortDeviceFaultTolerance": {
+    "name": "cpqSeUSBPortDeviceFaultTolerance",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "mirroring": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBPortDevicePresent": {
+    "name": "cpqSeUSBPortDevicePresent",
+    "oid": "1.3.6.1.4.1.232.1.2.15.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellTable": {
+    "name": "cpqSeCellTable",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "cpqSeCellEntry": {
+    "name": "cpqSeCellEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCellUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "cpqSeCellUnitIndex": {
+    "name": "cpqSeCellUnitIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellCabinetNumber": {
+    "name": "cpqSeCellCabinetNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellCellNumber": {
+    "name": "cpqSeCellCellNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellIOCTablePtr": {
+    "name": "cpqSeCellIOCTablePtr",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellPDHCFirmwareRevision": {
+    "name": "cpqSeCellPDHCFirmwareRevision",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellSysFwVersion": {
+    "name": "cpqSeCellSysFwVersion",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellBootInhibited": {
+    "name": "cpqSeCellBootInhibited",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellToScanBusConnectionStatus": {
+    "name": "cpqSeCellToScanBusConnectionStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellHasCoreIO": {
+    "name": "cpqSeCellHasCoreIO",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellBoardSpeed": {
+    "name": "cpqSeCellBoardSpeed",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellPresent": {
+    "name": "cpqSeCellPresent",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellHasPower": {
+    "name": "cpqSeCellHasPower",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellReadyForReconfig": {
+    "name": "cpqSeCellReadyForReconfig",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellTotalMemory": {
+    "name": "cpqSeCellTotalMemory",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellLEDState": {
+    "name": "cpqSeCellLEDState",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "cpqSeCellState": {
+    "name": "cpqSeCellState",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "cpqSeCellCLMRequestPercentage": {
+    "name": "cpqSeCellCLMRequestPercentage",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellCLMRequestSize": {
+    "name": "cpqSeCellCLMRequestSize",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellCLMAllocatedSize": {
+    "name": "cpqSeCellCLMAllocatedSize",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellInterleaveAllocatedSize": {
+    "name": "cpqSeCellInterleaveAllocatedSize",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellHasInterleaveMem": {
+    "name": "cpqSeCellHasInterleaveMem",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellSerialNumber": {
+    "name": "cpqSeCellSerialNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCellCLMCondition": {
+    "name": "cpqSeCellCLMCondition",
+    "oid": "1.3.6.1.4.1.232.1.2.16.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeIOCTable": {
+    "name": "cpqSeIOCTable",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "cpqSeIOCEntry": {
+    "name": "cpqSeIOCEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeIOCUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "cpqSeIOCUnitIndex": {
+    "name": "cpqSeIOCUnitIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeIOCCabinetNumber": {
+    "name": "cpqSeIOCCabinetNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeIOCBayNumber": {
+    "name": "cpqSeIOCBayNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeIOCIOCNumber": {
+    "name": "cpqSeIOCIOCNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeIOCPowerState": {
+    "name": "cpqSeIOCPowerState",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "powered-off": 2,
+          "powered-on": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeIOCLEDState": {
+    "name": "cpqSeIOCLEDState",
+    "oid": "1.3.6.1.4.1.232.1.2.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "cpqSePartitionTotalCPU": {
+    "name": "cpqSePartitionTotalCPU",
+    "oid": "1.3.6.1.4.1.232.1.2.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionAvailableCellSlots": {
+    "name": "cpqSePartitionAvailableCellSlots",
+    "oid": "1.3.6.1.4.1.232.1.2.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionInstalledCells": {
+    "name": "cpqSePartitionInstalledCells",
+    "oid": "1.3.6.1.4.1.232.1.2.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionPoweredOnCells": {
+    "name": "cpqSePartitionPoweredOnCells",
+    "oid": "1.3.6.1.4.1.232.1.2.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionReadyForReconfigCells": {
+    "name": "cpqSePartitionReadyForReconfigCells",
+    "oid": "1.3.6.1.4.1.232.1.2.18.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionMemInterleavingType": {
+    "name": "cpqSePartitionMemInterleavingType",
+    "oid": "1.3.6.1.4.1.232.1.2.18.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionName": {
+    "name": "cpqSePartitionName",
+    "oid": "1.3.6.1.4.1.232.1.2.18.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionCoreCell": {
+    "name": "cpqSePartitionCoreCell",
+    "oid": "1.3.6.1.4.1.232.1.2.18.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionCoreCellCabinet": {
+    "name": "cpqSePartitionCoreCellCabinet",
+    "oid": "1.3.6.1.4.1.232.1.2.18.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionCLMRequestPercentage": {
+    "name": "cpqSePartitionCLMRequestPercentage",
+    "oid": "1.3.6.1.4.1.232.1.2.18.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionCLMRequestSize": {
+    "name": "cpqSePartitionCLMRequestSize",
+    "oid": "1.3.6.1.4.1.232.1.2.18.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionCLMAllocatedSize": {
+    "name": "cpqSePartitionCLMAllocatedSize",
+    "oid": "1.3.6.1.4.1.232.1.2.18.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionInterleaveAllocatedSize": {
+    "name": "cpqSePartitionInterleaveAllocatedSize",
+    "oid": "1.3.6.1.4.1.232.1.2.18.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionHasInterleaveMem": {
+    "name": "cpqSePartitionHasInterleaveMem",
+    "oid": "1.3.6.1.4.1.232.1.2.18.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePartitionNumber": {
+    "name": "cpqSePartitionNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.18.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCabinetTable": {
+    "name": "cpqSeCabinetTable",
+    "oid": "1.3.6.1.4.1.232.1.2.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "cpqSeCabinetEntry": {
+    "name": "cpqSeCabinetEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCabinetUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "cpqSeCabinetUnitIndex": {
+    "name": "cpqSeCabinetUnitIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCabinetCPULED": {
+    "name": "cpqSeCabinetCPULED",
+    "oid": "1.3.6.1.4.1.232.1.2.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCabinetIOXLED": {
+    "name": "cpqSeCabinetIOXLED",
+    "oid": "1.3.6.1.4.1.232.1.2.19.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCabinetTypeNum": {
+    "name": "cpqSeCabinetTypeNum",
+    "oid": "1.3.6.1.4.1.232.1.2.19.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCabinetLED": {
+    "name": "cpqSeCabinetLED",
+    "oid": "1.3.6.1.4.1.232.1.2.19.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "cpqSeComplexUUID": {
+    "name": "cpqSeComplexUUID",
+    "oid": "1.3.6.1.4.1.232.1.2.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexTotalCabinet": {
+    "name": "cpqSeComplexTotalCabinet",
+    "oid": "1.3.6.1.4.1.232.1.2.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexComputeCabinet": {
+    "name": "cpqSeComplexComputeCabinet",
+    "oid": "1.3.6.1.4.1.232.1.2.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexIOXCabinet": {
+    "name": "cpqSeComplexIOXCabinet",
+    "oid": "1.3.6.1.4.1.232.1.2.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexName": {
+    "name": "cpqSeComplexName",
+    "oid": "1.3.6.1.4.1.232.1.2.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexLockedProperty": {
+    "name": "cpqSeComplexLockedProperty",
+    "oid": "1.3.6.1.4.1.232.1.2.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotStatusTable": {
+    "name": "cpqSeComplexCellSlotStatusTable",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotStatusEntry": {
+    "name": "cpqSeComplexCellSlotStatusEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeComplexCellSlotStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotStatusIndex": {
+    "name": "cpqSeComplexCellSlotStatusIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotStatusCabinetNo": {
+    "name": "cpqSeComplexCellSlotStatusCabinetNo",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotStatusSlotNo": {
+    "name": "cpqSeComplexCellSlotStatusSlotNo",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotStatus": {
+    "name": "cpqSeComplexCellSlotStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "inactive": 3,
+          "assigned-powered-off": 4,
+          "free-powered-on": 5,
+          "free-powered-off": 6,
+          "empty": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotPartitionNo": {
+    "name": "cpqSeComplexCellSlotPartitionNo",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeComplexCellSlotPartitionName": {
+    "name": "cpqSeComplexCellSlotPartitionName",
+    "oid": "1.3.6.1.4.1.232.1.2.20.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeLEDTable": {
+    "name": "cpqSeLEDTable",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "cpqSeLEDEntry": {
+    "name": "cpqSeLEDEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeLEDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "cpqSeLEDIndex": {
+    "name": "cpqSeLEDIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeLEDState": {
+    "name": "cpqSeLEDState",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "cpqSeLEDStateDuration": {
+    "name": "cpqSeLEDStateDuration",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "cpqSeLEDLocationType": {
+    "name": "cpqSeLEDLocationType",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeLEDDescription": {
+    "name": "cpqSeLEDDescription",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeLEDHardwareLocation": {
+    "name": "cpqSeLEDHardwareLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.21.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBDeviceType": {
+    "name": "cpqSeUSBDeviceType",
+    "oid": "1.3.6.1.4.1.232.1.2.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeUSBDeviceName": {
+    "name": "cpqSeUSBDeviceName",
+    "oid": "1.3.6.1.4.1.232.1.2.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskTable": {
+    "name": "cpqSePCIeDiskTable",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskEntry": {
+    "name": "cpqSePCIeDiskEntry",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIBusIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIFunctionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "optional"
+  },
+  "cpqSePCIeDiskPCIBusIndex": {
+    "name": "cpqSePCIeDiskPCIBusIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskPCIDeviceIndex": {
+    "name": "cpqSePCIeDiskPCIDeviceIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskPCIFunctionIndex": {
+    "name": "cpqSePCIeDiskPCIFunctionIndex",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskModel": {
+    "name": "cpqSePCIeDiskModel",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskFwRev": {
+    "name": "cpqSePCIeDiskFwRev",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskSerialNumber": {
+    "name": "cpqSePCIeDiskSerialNumber",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskCapacityMB": {
+    "name": "cpqSePCIeDiskCapacityMB",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskCondition": {
+    "name": "cpqSePCIeDiskCondition",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskCurrentTemperature": {
+    "name": "cpqSePCIeDiskCurrentTemperature",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskThresholdTemperature": {
+    "name": "cpqSePCIeDiskThresholdTemperature",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskHwLocation": {
+    "name": "cpqSePCIeDiskHwLocation",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskOsName": {
+    "name": "cpqSePCIeDiskOsName",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskWearStatus": {
+    "name": "cpqSePCIeDiskWearStatus",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "fiftySixDayThreshold": 3,
+          "fivePercentThreshold": 4,
+          "twoPercentThreshold": 5,
+          "ssdWearOut": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskPowerOnHours": {
+    "name": "cpqSePCIeDiskPowerOnHours",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskPercntEndrnceUsed": {
+    "name": "cpqSePCIeDiskPercntEndrnceUsed",
+    "oid": "1.3.6.1.4.1.232.1.2.23.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSePCIeDiskTableCondition": {
+    "name": "cpqSePCIeDiskTableCondition",
+    "oid": "1.3.6.1.4.1.232.1.2.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "cpqSeCpuThresholdPassed": {
+    "name": "cpqSeCpuThresholdPassed",
+    "oid": "1.3.6.1.4.1.2320.1001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSlot"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSocketNumber"
+      }
+    ]
+  },
+  "cpqSePCCardThermalDegraded": {
+    "name": "cpqSePCCardThermalDegraded",
+    "oid": "1.3.6.1.4.1.2320.1002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardDeviceInfo"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardProductInfo"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardSlotIndex"
+      }
+    ]
+  },
+  "cpqSePCCardThermalFailure": {
+    "name": "cpqSePCCardThermalFailure",
+    "oid": "1.3.6.1.4.1.2320.1003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardDeviceInfo"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardProductInfo"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardSlotIndex"
+      }
+    ]
+  },
+  "cpqSePCCardThermalSafe": {
+    "name": "cpqSePCCardThermalSafe",
+    "oid": "1.3.6.1.4.1.2320.1004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCCardSlotIndex"
+      }
+    ]
+  },
+  "cpqSe2CpuThresholdPassed": {
+    "name": "cpqSe2CpuThresholdPassed",
+    "oid": "1.3.6.1.4.1.2320.1005",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSlot"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSocketNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSpeed"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuExtSpeed"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuCacheSize"
+      }
+    ]
+  },
+  "cpqSeCpuStatusChange": {
+    "name": "cpqSeCpuStatusChange",
+    "oid": "1.3.6.1.4.1.2320.1006",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuUnitIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSlot"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuName"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSpeed"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuStep"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuExtSpeed"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSocketNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuHwLocation"
+      }
+    ]
+  },
+  "cpqSeCpuPowerPodstatusChange": {
+    "name": "cpqSeCpuPowerPodstatusChange",
+    "oid": "1.3.6.1.4.1.2320.1007",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuUnitIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSlot"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuName"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSpeed"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuStep"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuPowerpodStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuExtSpeed"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuSocketNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeCpuHwLocation"
+      }
+    ]
+  },
+  "cpqSeUSBStorageDeviceAttached": {
+    "name": "cpqSeUSBStorageDeviceAttached",
+    "oid": "1.3.6.1.4.1.2320.1008",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceName"
+      }
+    ]
+  },
+  "cpqSeUSBStorageDeviceRemoved": {
+    "name": "cpqSeUSBStorageDeviceRemoved",
+    "oid": "1.3.6.1.4.1.2320.1009",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceName"
+      }
+    ]
+  },
+  "cpqSeUSBStorageDeviceReadErrorOccurred": {
+    "name": "cpqSeUSBStorageDeviceReadErrorOccurred",
+    "oid": "1.3.6.1.4.1.2320.1010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceName"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceModel"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceFWVersion"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceSerialNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDevicePartNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceReadErrorCount"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceReadThreshold"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceLastSlotWithError"
+      }
+    ]
+  },
+  "cpqSeUSBStorageDeviceWriteErrorOccurred": {
+    "name": "cpqSeUSBStorageDeviceWriteErrorOccurred",
+    "oid": "1.3.6.1.4.1.2320.1011",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceName"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceModel"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceFWVersion"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceSerialNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDevicePartNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceWriteErrorCount"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceWriteThreshold"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceLastSlotWithError"
+      }
+    ]
+  },
+  "cpqSeUSBStorageDeviceRedundancyLost": {
+    "name": "cpqSeUSBStorageDeviceRedundancyLost",
+    "oid": "1.3.6.1.4.1.2320.1012",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceName"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceModel"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceFWVersion"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceSerialNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDevicePartNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceFailedSlot"
+      }
+    ]
+  },
+  "cpqSeUSBStorageDeviceRedundancyRestored": {
+    "name": "cpqSeUSBStorageDeviceRedundancyRestored",
+    "oid": "1.3.6.1.4.1.2320.1013",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceName"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceModel"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceFWVersion"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceSerialNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDevicePartNumber"
+      }
+    ]
+  },
+  "cpqSeUSBStorageDeviceSyncFailed": {
+    "name": "cpqSeUSBStorageDeviceSyncFailed",
+    "oid": "1.3.6.1.4.1.2320.1014",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceName"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceModel"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceFWVersion"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDeviceSerialNumber"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSeUSBPortDevicePartNumber"
+      }
+    ]
+  },
+  "cpqSePCIeDiskTemperatureFailed": {
+    "name": "cpqSePCIeDiskTemperatureFailed",
+    "oid": "1.3.6.1.4.1.2320.1015",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIBusIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIDeviceIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIFunctionIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskCurrentTemperature"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskThresholdTemperature"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskHwLocation"
+      }
+    ]
+  },
+  "cpqSePCIeDiskTemperatureOk": {
+    "name": "cpqSePCIeDiskTemperatureOk",
+    "oid": "1.3.6.1.4.1.2320.1016",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIBusIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIDeviceIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIFunctionIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskCurrentTemperature"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskThresholdTemperature"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskHwLocation"
+      }
+    ]
+  },
+  "cpqSePCIeDiskConditionChange": {
+    "name": "cpqSePCIeDiskConditionChange",
+    "oid": "1.3.6.1.4.1.2320.1017",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIBusIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIDeviceIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIFunctionIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskCondition"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskHwLocation"
+      }
+    ]
+  },
+  "cpqSePCIeDiskWearStatusChange": {
+    "name": "cpqSePCIeDiskWearStatusChange",
+    "oid": "1.3.6.1.4.1.2320.1018",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIBusIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIDeviceIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskPCIFunctionIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskWearStatus"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePCIeDiskHwLocation"
+      }
+    ]
+  },
+  "cpqSePciDeviceAddedOrPoweredOn": {
+    "name": "cpqSePciDeviceAddedOrPoweredOn",
+    "oid": "1.3.6.1.4.1.2320.1019",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctBusNumberIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctDeviceNumberIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctIndex"
+      }
+    ]
+  },
+  "cpqSePciDeviceRemovedOrPoweredOff": {
+    "name": "cpqSePciDeviceRemovedOrPoweredOff",
+    "oid": "1.3.6.1.4.1.2320.1020",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "CPQHOST-MIB",
+        "object": "cpqHoTrapFlags"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctBusNumberIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctDeviceNumberIndex"
+      },
+      {
+        "module": "CPQSTDEQ-MIB",
+        "object": "cpqSePciFunctIndex"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQSTDEQ-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CPQSTDEQ-MIB"
+  }
+}

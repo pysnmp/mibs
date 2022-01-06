@@ -1,0 +1,1376 @@
+{
+  "imports": {
+    "class": "imports",
+    "NSCRTV-ROOT": [
+      "nscrtvHFCemsTree",
+      "commonIdent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "commonAdminGroup": {
+    "name": "commonAdminGroup",
+    "oid": "1.3.6.1.4.1.17409.1.3.1",
+    "class": "objectidentity"
+  },
+  "commonAdminUseRf": {
+    "name": "commonAdminUseRf",
+    "oid": "1.3.6.1.4.1.17409.1.3.2",
+    "class": "objectidentity"
+  },
+  "commonAdminUseEthernet": {
+    "name": "commonAdminUseEthernet",
+    "oid": "1.3.6.1.4.1.17409.1.3.3",
+    "class": "objectidentity"
+  },
+  "commonMACGroup": {
+    "name": "commonMACGroup",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "commonRfGroup": {
+    "name": "commonRfGroup",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "commonMacAddress": {
+    "name": "commonMacAddress",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.1",
+    "class": "objectidentity"
+  },
+  "commonBackoffParams": {
+    "name": "commonBackoffParams",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.2",
+    "class": "objectidentity"
+  },
+  "commonMacStats": {
+    "name": "commonMacStats",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.3",
+    "class": "objectidentity"
+  },
+  "commonAgentGroup": {
+    "name": "commonAgentGroup",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1",
+    "class": "objectidentity"
+  },
+  "commonDeviceGroup": {
+    "name": "commonDeviceGroup",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2",
+    "class": "objectidentity"
+  },
+  "commonNELogicalID": {
+    "name": "commonNELogicalID",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonNEVendor": {
+    "name": "commonNEVendor",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonNEModelNumber": {
+    "name": "commonNEModelNumber",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonNESerialNumber": {
+    "name": "commonNESerialNumber",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonNEVendorInfo": {
+    "name": "commonNEVendorInfo",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonNEStatus": {
+    "name": "commonNEStatus",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonReset": {
+    "name": "commonReset",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAlarmDetectionControl": {
+    "name": "commonAlarmDetectionControl",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detectionDisabled": 1,
+          "detectionEnabled": 2,
+          "detectionEnabledAndRegenerate": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonNetworkAddress": {
+    "name": "commonNetworkAddress",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonCheckCode": {
+    "name": "commonCheckCode",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonTrapCommunityString": {
+    "name": "commonTrapCommunityString",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonTamperStatus": {
+    "name": "commonTamperStatus",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intact": 1,
+          "compromised": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonInternalTemperature": {
+    "name": "commonInternalTemperature",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonTime": {
+    "name": "commonTime",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonVarBindings": {
+    "name": "commonVarBindings",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonResetCause": {
+    "name": "commonResetCause",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "powerup": 2,
+          "command": 3,
+          "watchdog": 4,
+          "craft": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonCraftStatus": {
+    "name": "commonCraftStatus",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceOID": {
+    "name": "commonDeviceOID",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonDeviceId": {
+    "name": "commonDeviceId",
+    "oid": "1.3.6.1.4.1.17409.1.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonPhysAddress": {
+    "name": "commonPhysAddress",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonMaxMulticastAddresses": {
+    "name": "commonMaxMulticastAddresses",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonMulticastAddressTable": {
+    "name": "commonMulticastAddressTable",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "commonMulticastAddressEntry": {
+    "name": "commonMulticastAddressEntry",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-HFCEMS-COMMON-MIB",
+        "object": "commonMulticastAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "commonMulticastAddressIndex": {
+    "name": "commonMulticastAddressIndex",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonMulticastAddressNumber": {
+    "name": "commonMulticastAddressNumber",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonBackoffPeriod": {
+    "name": "commonBackoffPeriod",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonACKTimeoutWindow": {
+    "name": "commonACKTimeoutWindow",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonMaximumMACLayerRetries": {
+    "name": "commonMaximumMACLayerRetries",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonMaxPayloadSize": {
+    "name": "commonMaxPayloadSize",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonBackoffMinimumExponent": {
+    "name": "commonBackoffMinimumExponent",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonBackoffMaximumExponent": {
+    "name": "commonBackoffMaximumExponent",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonForwardPathLOSEvents": {
+    "name": "commonForwardPathLOSEvents",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "commonForwardPathFramingErrors": {
+    "name": "commonForwardPathFramingErrors",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "commonForwardPathCRCErrors": {
+    "name": "commonForwardPathCRCErrors",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "commonInvalidMacCmds": {
+    "name": "commonInvalidMacCmds",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "commonBackwardPathCollisionTimes": {
+    "name": "commonBackwardPathCollisionTimes",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "commonReturnPathFrequency": {
+    "name": "commonReturnPathFrequency",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonForwardPathFrequency": {
+    "name": "commonForwardPathFrequency",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonProvisionedReturnPowerLevel": {
+    "name": "commonProvisionedReturnPowerLevel",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonForwardPathReceiveLevel": {
+    "name": "commonForwardPathReceiveLevel",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonMaxReturnPower": {
+    "name": "commonMaxReturnPower",
+    "oid": "1.3.6.1.4.1.17409.1.3.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAgentBootWay": {
+    "name": "commonAgentBootWay",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootDefault": 1,
+          "bootBOOTP": 2,
+          "bootTFTP": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAgentReset": {
+    "name": "commonAgentReset",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAgentMaxTraps": {
+    "name": "commonAgentMaxTraps",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonAgentTrapMinInterval": {
+    "name": "commonAgentTrapMinInterval",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAgentTrapMaxInterval": {
+    "name": "commonAgentTrapMaxInterval",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonTrapAck": {
+    "name": "commonTrapAck",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 17,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "optional"
+  },
+  "commonAgentTrapTable": {
+    "name": "commonAgentTrapTable",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "commonAgentTrapEntry": {
+    "name": "commonAgentTrapEntry",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-HFCEMS-COMMON-MIB",
+        "object": "commonAgentTrapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "commonAgentTrapIndex": {
+    "name": "commonAgentTrapIndex",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAgentTrapIP": {
+    "name": "commonAgentTrapIP",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAgentTrapCommunity": {
+    "name": "commonAgentTrapCommunity",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonAgentTrapStatus": {
+    "name": "commonAgentTrapStatus",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commonAgentTrapEnable": 1,
+          "commonAgentTrapDisable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonDeviceNum": {
+    "name": "commonDeviceNum",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonDeviceInfoTable": {
+    "name": "commonDeviceInfoTable",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "commonDeviceInfoEntry": {
+    "name": "commonDeviceInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-HFCEMS-COMMON-MIB",
+        "object": "commonDeviceSlot",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "commonDeviceSlot": {
+    "name": "commonDeviceSlot",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDevicesID": {
+    "name": "commonDevicesID",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceVendor": {
+    "name": "commonDeviceVendor",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceModelNumber": {
+    "name": "commonDeviceModelNumber",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceSerialNumber": {
+    "name": "commonDeviceSerialNumber",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceVendorInfo": {
+    "name": "commonDeviceVendorInfo",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonDeviceStatus": {
+    "name": "commonDeviceStatus",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceReset": {
+    "name": "commonDeviceReset",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonDeviceAlarmDetectionControl": {
+    "name": "commonDeviceAlarmDetectionControl",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detectionDisabled": 1,
+          "detectionEnabled": 2,
+          "detectionEnabledAndRegenerate": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "commonDeviceMACAddress": {
+    "name": "commonDeviceMACAddress",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceTamperStatus": {
+    "name": "commonDeviceTamperStatus",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intact": 1,
+          "compromised": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonDeviceInternalTemperature": {
+    "name": "commonDeviceInternalTemperature",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonDeviceResetCause": {
+    "name": "commonDeviceResetCause",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "powerup": 2,
+          "command": 3,
+          "watchdog": 4,
+          "craft": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceCraftStatus": {
+    "name": "commonDeviceCraftStatus",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "connected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDevicesOID": {
+    "name": "commonDevicesOID",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceAcct": {
+    "name": "commonDeviceAcct",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "commonDeviceName": {
+    "name": "commonDeviceName",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceMFD": {
+    "name": "commonDeviceMFD",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commonDeviceFW": {
+    "name": "commonDeviceFW",
+    "oid": "1.3.6.1.4.1.17409.1.3.3.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hfcColdStart": {
+    "name": "hfcColdStart",
+    "oid": "1.3.6.1.4.1.17409.10.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NSCRTV-HFCEMS-COMMON-MIB",
+        "object": "commonPhysAddress"
+      },
+      {
+        "module": "NSCRTV-HFCEMS-COMMON-MIB",
+        "object": "commonNELogicalID"
+      }
+    ]
+  },
+  "hfcWarmStart": {
+    "name": "hfcWarmStart",
+    "oid": "1.3.6.1.4.1.17409.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NSCRTV-HFCEMS-COMMON-MIB",
+        "object": "commonPhysAddress"
+      },
+      {
+        "module": "NSCRTV-HFCEMS-COMMON-MIB",
+        "object": "commonNELogicalID"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/NSCRTV-HFCEMS-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NSCRTV-HFCEMS-COMMON-MIB"
+  }
+}

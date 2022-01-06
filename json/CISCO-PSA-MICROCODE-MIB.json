@@ -1,0 +1,412 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalDescr",
+      "entPhysicalIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPsaMicrocodeMIB": {
+    "name": "ciscoPsaMicrocodeMIB",
+    "oid": "1.3.6.1.4.1.9.9.259",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPsaMicrocodeMIBNotifs": {
+    "name": "ciscoPsaMicrocodeMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.259.0",
+    "class": "objectidentity"
+  },
+  "ciscoPsaMicrocodeMIBObjects": {
+    "name": "ciscoPsaMicrocodeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.259.1",
+    "class": "objectidentity"
+  },
+  "ciscoPsaMicrocodeMIBConformance": {
+    "name": "ciscoPsaMicrocodeMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.259.2",
+    "class": "objectidentity"
+  },
+  "cpmcModulePsa": {
+    "name": "cpmcModulePsa",
+    "oid": "1.3.6.1.4.1.9.9.259.1.1",
+    "class": "objectidentity"
+  },
+  "cpmcBundle": {
+    "name": "cpmcBundle",
+    "oid": "1.3.6.1.4.1.9.9.259.1.2",
+    "class": "objectidentity"
+  },
+  "cpmcNotif": {
+    "name": "cpmcNotif",
+    "oid": "1.3.6.1.4.1.9.9.259.1.3",
+    "class": "objectidentity"
+  },
+  "PsaMicrocodeBundleId": {
+    "name": "PsaMicrocodeBundleId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "vanillaPOS": 3,
+          "vanillaGE": 4,
+          "vanillaInuit": 5,
+          "vanillaTaz": 6,
+          "pircPOS": 7,
+          "pircGE": 8,
+          "uRPFPOS": 9,
+          "vrfSelectionPOS": 10,
+          "bgppaPOS": 11,
+          "bgppaGE": 12,
+          "ipColorPOS": 13,
+          "inputAcl128POS": 14,
+          "inputAcl128GE": 15,
+          "outputAcl128POS": 16,
+          "outputAcl128GE": 17,
+          "inputAcl448POS": 18,
+          "inputAcl448GE": 19,
+          "outputAcl448POS": 20,
+          "outputAcl448GE": 21,
+          "serverCard": 22,
+          "eoMplsGE": 23,
+          "frtpPOS": 24,
+          "outputAclATM": 25,
+          "inputAcl128Taz": 26,
+          "vrfSelectionGE": 27,
+          "uRPFGE": 28,
+          "cscGE": 29,
+          "linkBundleSMPOS": 30,
+          "linkBundleDMPOS": 31,
+          "linkBundleSMGE": 32,
+          "linkBundleDMGE": 33
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PsaMicrocodeFeatures": {
+    "name": "PsaMicrocodeFeatures",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "basicIpForwarding": 0,
+        "basicMplsSwitching": 1,
+        "frameRelaySwitching": 2,
+        "eAFrSwitching": 3,
+        "frtp": 4,
+        "pirc": 5,
+        "vrfSelection": 6,
+        "uRPF": 7,
+        "inputAcl128": 8,
+        "outputAcl128": 9,
+        "inputAcl448": 10,
+        "outputAcl448": 11,
+        "sampledNetflow": 12,
+        "ipMarking": 13,
+        "bgppa": 14,
+        "uti": 15,
+        "mplsVpn": 16,
+        "eoMpls": 17,
+        "atmoMpls": 18,
+        "csc": 19,
+        "multicast": 20,
+        "perPacketLoadBalancing": 21,
+        "sourceMacAccounting": 22,
+        "frSubVrf": 23,
+        "serverCard": 24,
+        "mplsSNF": 25,
+        "linkBundle": 26,
+        "atomDisposition": 27
+      }
+    },
+    "status": "current"
+  },
+  "cpmcModulePsaTable": {
+    "name": "cpmcModulePsaTable",
+    "oid": "1.3.6.1.4.1.9.9.259.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmcModulePsaEntry": {
+    "name": "cpmcModulePsaEntry",
+    "oid": "1.3.6.1.4.1.9.9.259.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmcModulePsaCurrBundleId": {
+    "name": "cpmcModulePsaCurrBundleId",
+    "oid": "1.3.6.1.4.1.9.9.259.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PsaMicrocodeBundleId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmcModulePsaPrevBundleId": {
+    "name": "cpmcModulePsaPrevBundleId",
+    "oid": "1.3.6.1.4.1.9.9.259.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PsaMicrocodeBundleId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmcModulePsaFeaturesEnabled": {
+    "name": "cpmcModulePsaFeaturesEnabled",
+    "oid": "1.3.6.1.4.1.9.9.259.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PsaMicrocodeFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmcModulePsaFeaturesDisabled": {
+    "name": "cpmcModulePsaFeaturesDisabled",
+    "oid": "1.3.6.1.4.1.9.9.259.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PsaMicrocodeFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmcBundleTable": {
+    "name": "cpmcBundleTable",
+    "oid": "1.3.6.1.4.1.9.9.259.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmcBundleEntry": {
+    "name": "cpmcBundleEntry",
+    "oid": "1.3.6.1.4.1.9.9.259.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcBundleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmcBundleId": {
+    "name": "cpmcBundleId",
+    "oid": "1.3.6.1.4.1.9.9.259.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PsaMicrocodeBundleId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmcBundleFeatures": {
+    "name": "cpmcBundleFeatures",
+    "oid": "1.3.6.1.4.1.9.9.259.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PsaMicrocodeFeatures",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmcNotifEnables": {
+    "name": "cpmcNotifEnables",
+    "oid": "1.3.6.1.4.1.9.9.259.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoPsaMicrocodeReload": {
+    "name": "ciscoPsaMicrocodeReload",
+    "oid": "1.3.6.1.4.1.9.9.259.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaCurrBundleId"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaPrevBundleId"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaFeaturesEnabled"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaFeaturesDisabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsaMicrocodeMIBCompliances": {
+    "name": "ciscoPsaMicrocodeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.259.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoPsaMicrocodeMIBGroups": {
+    "name": "ciscoPsaMicrocodeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.259.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoPsaMicrocodeMIBCompliance": {
+    "name": "ciscoPsaMicrocodeMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.259.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPsaMicrocodeParamsGroup",
+        "module": "CISCO-PSA-MICROCODE-MIB"
+      },
+      {
+        "object": "ciscoPsaMicrocodeNotifGroup",
+        "module": "CISCO-PSA-MICROCODE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsaMicrocodeParamsGroup": {
+    "name": "ciscoPsaMicrocodeParamsGroup",
+    "oid": "1.3.6.1.4.1.9.9.259.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaCurrBundleId"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaPrevBundleId"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaFeaturesEnabled"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcModulePsaFeaturesDisabled"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcBundleFeatures"
+      },
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "cpmcNotifEnables"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPsaMicrocodeNotifGroup": {
+    "name": "ciscoPsaMicrocodeNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.259.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PSA-MICROCODE-MIB",
+        "object": "ciscoPsaMicrocodeReload"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PSA-MICROCODE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PSA-MICROCODE-MIB"
+  }
+}

@@ -1,0 +1,3064 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoCosList"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoEvcMIB": {
+    "name": "ciscoEvcMIB",
+    "oid": "1.3.6.1.4.1.9.9.613",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-21 00:00",
+        "description": "- Added following objects to cevcSITable: * cevcSICreationType * cevcSIType - Added following objects to cevcSIForwardBdTable: * cevcSIForwardBdNumberBase * cevcSIForwardBdNumber1kBitmap * cevcSIForwardBdNumber2kBitmap * cevcSIForwardBdNumber3kBitmap * cevcSIForwardBdNumber4kBitmap - Added MacSecurityViolation OID subtree and following objects: * cevcMacAddress * cevcMaxMacConfigLimit * cevcSIID - Deprecated cevcEvcNotificationGroup and added cevcEvcNotificationGroupRev1 and added cevcMacSecurityViolationNotification - Deprecated cevcSIGroup and added cevcSIGroupRev1 and added cevcSICreationType and cevcSIType - Deprecated cevcSIForwardGroup and added cevcSIForwardGroupRev1 and added the new objects mentioned in cevcSIForwardBdTable - Added CevcMacSecurityViolationCause Textual convention - Added new ciscoEvcMIBComplianceRev2"
+      },
+      {
+        "revision": "2008-05-01 00:00",
+        "description": "- Added following enums to cevcSIOperStatus: * deleted(4) * errorDisabled(5) * unknown(6) - Added following named bits to cevcSIMatchEncapValid: * payloadTypes(3) * priorityCos(4) * dot1qNativeVlan(5) * dot1adNativeVlan(6) * encapExact(7) - The Object cevcSIMatchEncapPayloadType is replaced by new object cevcSIMatchEncapPayloadTypes to support multiple payload types for service instance match criteria. - Added new object cevcSIMatchEncapPriorityCos to cevcSIMatchEncapTable. - Added new Compliance ciscoEvcMIBComplianceRev1. - Added new Object Group cevcSIMatchCriteriaGroupRev1. - Miscellaneous updates/corrections."
+      },
+      {
+        "revision": "2007-12-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEvcMIBNotifications": {
+    "name": "ciscoEvcMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.613.0",
+    "class": "objectidentity"
+  },
+  "ciscoEvcMIBObjects": {
+    "name": "ciscoEvcMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.613.1",
+    "class": "objectidentity"
+  },
+  "ciscoEvcMIBConformance": {
+    "name": "ciscoEvcMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.613.2",
+    "class": "objectidentity"
+  },
+  "cevcSystem": {
+    "name": "cevcSystem",
+    "oid": "1.3.6.1.4.1.9.9.613.1.1",
+    "class": "objectidentity"
+  },
+  "cevcPort": {
+    "name": "cevcPort",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2",
+    "class": "objectidentity"
+  },
+  "cevcEvc": {
+    "name": "cevcEvc",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3",
+    "class": "objectidentity"
+  },
+  "cevcServiceInstance": {
+    "name": "cevcServiceInstance",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4",
+    "class": "objectidentity"
+  },
+  "cevcEvcNotificationConfig": {
+    "name": "cevcEvcNotificationConfig",
+    "oid": "1.3.6.1.4.1.9.9.613.1.5",
+    "class": "objectidentity"
+  },
+  "cevcMacSecurityViolation": {
+    "name": "cevcMacSecurityViolation",
+    "oid": "1.3.6.1.4.1.9.9.613.1.6",
+    "class": "objectidentity"
+  },
+  "CevcMacSecurityViolationCauseType": {
+    "name": "CevcMacSecurityViolationCauseType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exceedSystemLimit": 1,
+          "exceedBdLimit": 2,
+          "exceedSILimit": 3,
+          "blackListDeny": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoEvcIndex": {
+    "name": "CiscoEvcIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoEvcIndexOrZero": {
+    "name": "CiscoEvcIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CevcL2ControlProtocolType": {
+    "name": "CevcL2ControlProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "cdp": 2,
+          "dtp": 3,
+          "pagp": 4,
+          "udld": 5,
+          "vtp": 6,
+          "lacp": 7,
+          "dot1x": 8,
+          "stp": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServiceInstanceTarget": {
+    "name": "ServiceInstanceTarget",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ServiceInstanceTargetType": {
+    "name": "ServiceInstanceTargetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "interface": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServiceInstanceInterface": {
+    "name": "ServiceInstanceInterface",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cevcMacAddress": {
+    "name": "cevcMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.613.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcMaxMacConfigLimit": {
+    "name": "cevcMaxMacConfigLimit",
+    "oid": "1.3.6.1.4.1.9.9.613.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cevcSIID": {
+    "name": "cevcSIID",
+    "oid": "1.3.6.1.4.1.9.9.613.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcViolationCause": {
+    "name": "cevcViolationCause",
+    "oid": "1.3.6.1.4.1.9.9.613.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CevcMacSecurityViolationCauseType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcMaxNumEvcs": {
+    "name": "cevcMaxNumEvcs",
+    "oid": "1.3.6.1.4.1.9.9.613.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcNumCfgEvcs": {
+    "name": "cevcNumCfgEvcs",
+    "oid": "1.3.6.1.4.1.9.9.613.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcPortTable": {
+    "name": "cevcPortTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcPortEntry": {
+    "name": "cevcPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcPortMode": {
+    "name": "cevcPortMode",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uni": 1,
+          "nni": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cevcPortMaxNumEVCs": {
+    "name": "cevcPortMaxNumEVCs",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcPortMaxNumServiceInstances": {
+    "name": "cevcPortMaxNumServiceInstances",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcUniTable": {
+    "name": "cevcUniTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcUniEntry": {
+    "name": "cevcUniEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcUniIdentifier": {
+    "name": "cevcUniIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcUniPortType": {
+    "name": "cevcUniPortType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1q": 1,
+          "dot1ad": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot1q",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcUniServiceAttributes": {
+    "name": "cevcUniServiceAttributes",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "serviceMultiplexing": 0,
+        "bundling": 1,
+        "allToOneBundling": 2
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "serviceMultiplexing": 0,
+          "bundling": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcPortL2ControlProtocolTable": {
+    "name": "cevcPortL2ControlProtocolTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcPortL2ControlProtocolEntry": {
+    "name": "cevcPortL2ControlProtocolEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcPortL2ControlProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcPortL2ControlProtocolType": {
+    "name": "cevcPortL2ControlProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CevcL2ControlProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcPortL2ControlProtocolAction": {
+    "name": "cevcPortL2ControlProtocolAction",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "peer": 2,
+          "passToEvc": 3,
+          "peerAndPassToEvc": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discard",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcUniCEVlanEvcTable": {
+    "name": "cevcUniCEVlanEvcTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcUniCEVlanEvcEntry": {
+    "name": "cevcUniCEVlanEvcEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcUniEvcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcUniCEVlanEvcBeginningVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcUniEvcIndex": {
+    "name": "cevcUniEvcIndex",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEvcIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcUniCEVlanEvcBeginningVlan": {
+    "name": "cevcUniCEVlanEvcBeginningVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcUniCEVlanEvcEndingVlan": {
+    "name": "cevcUniCEVlanEvcEndingVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcEvcTable": {
+    "name": "cevcEvcTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcEvcEntry": {
+    "name": "cevcEvcEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcIndex": {
+    "name": "cevcEvcIndex",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEvcIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcEvcRowStatus": {
+    "name": "cevcEvcRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcEvcStorageType": {
+    "name": "cevcEvcStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcEvcIdentifier": {
+    "name": "cevcEvcIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcEvcType": {
+    "name": "cevcEvcType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "multipointToMultipoint": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pointToPoint",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcEvcCfgUnis": {
+    "name": "cevcEvcCfgUnis",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcEvcStateTable": {
+    "name": "cevcEvcStateTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcEvcStateEntry": {
+    "name": "cevcEvcStateEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcOperStatus": {
+    "name": "cevcEvcOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "active": 2,
+          "partiallyActive": 3,
+          "inactive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcEvcActiveUnis": {
+    "name": "cevcEvcActiveUnis",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcEvcUniTable": {
+    "name": "cevcEvcUniTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcEvcUniEntry": {
+    "name": "cevcEvcUniEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcUniIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcUniIndex": {
+    "name": "cevcEvcUniIndex",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcEvcUniId": {
+    "name": "cevcEvcUniId",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcEvcUniOperStatus": {
+    "name": "cevcEvcUniOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notReachable": 2,
+          "up": 3,
+          "down": 4,
+          "adminDown": 5,
+          "localExcessiveError": 6,
+          "remoteExcessiveError": 7,
+          "localInLoopback": 8,
+          "remoteInLoopback": 9,
+          "localOutLoopback": 10,
+          "remoteOutLoopback": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcEvcLocalUniIfIndex": {
+    "name": "cevcEvcLocalUniIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.613.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcSITable": {
+    "name": "cevcSITable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIEntry": {
+    "name": "cevcSIEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIIndex": {
+    "name": "cevcSIIndex",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIRowStatus": {
+    "name": "cevcSIRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIStorageType": {
+    "name": "cevcSIStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSITargetType": {
+    "name": "cevcSITargetType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceInstanceTargetType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSITarget": {
+    "name": "cevcSITarget",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceInstanceTarget",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIName": {
+    "name": "cevcSIName",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIEvcIndex": {
+    "name": "cevcSIEvcIndex",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoEvcIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIAdminStatus": {
+    "name": "cevcSIAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardingType": {
+    "name": "cevcSIForwardingType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "bridgeDomain": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSICreationType": {
+    "name": "cevcSICreationType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcSIType": {
+    "name": "cevcSIType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "regular": 1,
+          "trunk": 2,
+          "l2context": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIStateTable": {
+    "name": "cevcSIStateTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIStateEntry": {
+    "name": "cevcSIStateEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIOperStatus": {
+    "name": "cevcSIOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "adminDown": 3,
+          "deleted": 4,
+          "errorDisabled": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteTable": {
+    "name": "cevcSIVlanRewriteTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteEntry": {
+    "name": "cevcSIVlanRewriteEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIVlanRewriteDirection": {
+    "name": "cevcSIVlanRewriteDirection",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteRowStatus": {
+    "name": "cevcSIVlanRewriteRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteStorageType": {
+    "name": "cevcSIVlanRewriteStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteAction": {
+    "name": "cevcSIVlanRewriteAction",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "push1": 1,
+          "push2": 2,
+          "pop1": 3,
+          "pop2": 4,
+          "translate1To1": 5,
+          "translate1To2": 6,
+          "translate2To1": 7,
+          "translate2To2": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteEncapsulation": {
+    "name": "cevcSIVlanRewriteEncapsulation",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1q": 1,
+          "dot1ad": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteVlan1": {
+    "name": "cevcSIVlanRewriteVlan1",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteVlan2": {
+    "name": "cevcSIVlanRewriteVlan2",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIVlanRewriteSymmetric": {
+    "name": "cevcSIVlanRewriteSymmetric",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIL2ControlProtocolTable": {
+    "name": "cevcSIL2ControlProtocolTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIL2ControlProtocolEntry": {
+    "name": "cevcSIL2ControlProtocolEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIL2ControlProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIL2ControlProtocolType": {
+    "name": "cevcSIL2ControlProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CevcL2ControlProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIL2ControlProtocolAction": {
+    "name": "cevcSIL2ControlProtocolAction",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "tunnel": 2,
+          "forward": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discard",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSICEVlanTable": {
+    "name": "cevcSICEVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSICEVlanEntry": {
+    "name": "cevcSICEVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICEVlanBeginningVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSICEVlanBeginningVlan": {
+    "name": "cevcSICEVlanBeginningVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSICEVlanRowStatus": {
+    "name": "cevcSICEVlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSICEVlanStorageType": {
+    "name": "cevcSICEVlanStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSICEVlanEndingVlan": {
+    "name": "cevcSICEVlanEndingVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchCriteriaTable": {
+    "name": "cevcSIMatchCriteriaTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIMatchCriteriaEntry": {
+    "name": "cevcSIMatchCriteriaEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIMatchCriteriaIndex": {
+    "name": "cevcSIMatchCriteriaIndex",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIMatchRowStatus": {
+    "name": "cevcSIMatchRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchStorageType": {
+    "name": "cevcSIMatchStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchCriteriaType": {
+    "name": "cevcSIMatchCriteriaType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "dot1q": 2,
+          "dot1ad": 3,
+          "untagged": 4,
+          "untaggedAndDot1q": 5,
+          "untaggedAndDot1ad": 6,
+          "priorityTagged": 7,
+          "defaultTagged": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapTable": {
+    "name": "cevcSIMatchEncapTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIMatchEncapEntry": {
+    "name": "cevcSIMatchEncapEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIMatchEncapRowStatus": {
+    "name": "cevcSIMatchEncapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapStorageType": {
+    "name": "cevcSIMatchEncapStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapValid": {
+    "name": "cevcSIMatchEncapValid",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "primaryCos": 0,
+        "secondaryCos": 1,
+        "payloadType": 2,
+        "payloadTypes": 3,
+        "priorityCos": 4,
+        "dot1qNativeVlan": 5,
+        "dot1adNativeVlan": 6,
+        "encapExact": 7
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapEncapsulation": {
+    "name": "cevcSIMatchEncapEncapsulation",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1qEthertype0x8100": 1,
+          "dot1qEthertype0x9100": 2,
+          "dot1qEthertype0x9200": 3,
+          "dot1qEthertype0x88A8": 4,
+          "dot1adEthertype0x88A8": 5,
+          "dot1ahEthertype0x88A8": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapPrimaryCos": {
+    "name": "cevcSIMatchEncapPrimaryCos",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCosList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapSecondaryCos": {
+    "name": "cevcSIMatchEncapSecondaryCos",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCosList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapPayloadType": {
+    "name": "cevcSIMatchEncapPayloadType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "payloadType0x0800ip": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cevcSIMatchEncapPayloadTypes": {
+    "name": "cevcSIMatchEncapPayloadTypes",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "payloadTypeIPv4": 0,
+        "payloadTypeIPv6": 1,
+        "payloadTypePPPoEDiscovery": 2,
+        "payloadTypePPPoESession": 3,
+        "payloadTypePPPoEAll": 4
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIMatchEncapPriorityCos": {
+    "name": "cevcSIMatchEncapPriorityCos",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCosList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIPrimaryVlanTable": {
+    "name": "cevcSIPrimaryVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIPrimaryVlanEntry": {
+    "name": "cevcSIPrimaryVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanBeginningVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIPrimaryVlanBeginningVlan": {
+    "name": "cevcSIPrimaryVlanBeginningVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIPrimaryVlanRowStatus": {
+    "name": "cevcSIPrimaryVlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIPrimaryVlanStorageType": {
+    "name": "cevcSIPrimaryVlanStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIPrimaryVlanEndingVlan": {
+    "name": "cevcSIPrimaryVlanEndingVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSISecondaryVlanTable": {
+    "name": "cevcSISecondaryVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSISecondaryVlanEntry": {
+    "name": "cevcSISecondaryVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSISecondaryVlanBeginningVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSISecondaryVlanBeginningVlan": {
+    "name": "cevcSISecondaryVlanBeginningVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSISecondaryVlanRowStatus": {
+    "name": "cevcSISecondaryVlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSISecondaryVlanStorageType": {
+    "name": "cevcSISecondaryVlanStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSISecondaryVlanEndingVlan": {
+    "name": "cevcSISecondaryVlanEndingVlan",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardBdTable": {
+    "name": "cevcSIForwardBdTable",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cevcSIForwardBdEntry": {
+    "name": "cevcSIForwardBdEntry",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIForwardBdRowStatus": {
+    "name": "cevcSIForwardBdRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardBdStorageType": {
+    "name": "cevcSIForwardBdStorageType",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardBdNumber": {
+    "name": "cevcSIForwardBdNumber",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cevcSIForwardBdNumberBase": {
+    "name": "cevcSIForwardBdNumberBase",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bdNumBase0": 0,
+          "bdNumBase4096": 4096,
+          "bdNumBase8192": 8192,
+          "bdNumBase12288": 12288,
+          "bdNumBase16384": 16384
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardBdNumber1kBitmap": {
+    "name": "cevcSIForwardBdNumber1kBitmap",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardBdNumber2kBitmap": {
+    "name": "cevcSIForwardBdNumber2kBitmap",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardBdNumber3kBitmap": {
+    "name": "cevcSIForwardBdNumber3kBitmap",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcSIForwardBdNumber4kBitmap": {
+    "name": "cevcSIForwardBdNumber4kBitmap",
+    "oid": "1.3.6.1.4.1.9.9.613.1.4.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cevcEvcNotifyEnabled": {
+    "name": "cevcEvcNotifyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.613.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "status": 0,
+        "creation": 1,
+        "deletion": 2,
+        "macSecurityViolation": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoEvcNotificationPrefix": {
+    "name": "ciscoEvcNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.613.0.0",
+    "class": "objectidentity"
+  },
+  "cevcEvcStatusChangedNotification": {
+    "name": "cevcEvcStatusChangedNotification",
+    "oid": "1.3.6.1.4.1.9.9.613.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcOperStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcCfgUnis"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcActiveUnis"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcCreationNotification": {
+    "name": "cevcEvcCreationNotification",
+    "oid": "1.3.6.1.4.1.9.9.613.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcDeletionNotification": {
+    "name": "cevcEvcDeletionNotification",
+    "oid": "1.3.6.1.4.1.9.9.613.0.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcMacSecurityViolationNotification": {
+    "name": "cevcMacSecurityViolationNotification",
+    "oid": "1.3.6.1.4.1.9.9.613.0.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumberBase"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber1kBitmap"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber2kBitmap"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber3kBitmap"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber4kBitmap"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIID"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcMacAddress"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcMaxMacConfigLimit"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcViolationCause"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEvcMIBCompliances": {
+    "name": "ciscoEvcMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.613.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoEvcMIBGroups": {
+    "name": "ciscoEvcMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoEvcMIBCompliance": {
+    "name": "ciscoEvcMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.613.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cevcSystemGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcPortGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcNotificationConfigGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcNotificationGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSICosMatchCriteriaGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIVlanRewriteGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIMatchCriteriaGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIForwardGroup",
+        "module": "CISCO-EVC-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEvcMIBComplianceRev1": {
+    "name": "ciscoEvcMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.613.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cevcSystemGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcPortGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcNotificationConfigGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcNotificationGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSICosMatchCriteriaGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIVlanRewriteGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIMatchCriteriaGroupRev1",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIForwardGroup",
+        "module": "CISCO-EVC-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEvcMIBComplianceRev2": {
+    "name": "ciscoEvcMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.613.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cevcSystemGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcPortGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIGroupRev1",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcNotificationConfigGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcEvcNotificationGroupRev1",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSICosMatchCriteriaGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIVlanRewriteGroup",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIMatchCriteriaGroupRev1",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcSIForwardGroupRev1",
+        "module": "CISCO-EVC-MIB"
+      },
+      {
+        "object": "cevcMacSecurityViolationGroup",
+        "module": "CISCO-EVC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSystemGroup": {
+    "name": "cevcSystemGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcMaxNumEvcs"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcNumCfgEvcs"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcPortGroup": {
+    "name": "cevcPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcPortMode"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcPortMaxNumEVCs"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcPortMaxNumServiceInstances"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcPortL2ControlProtocolAction"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcUniIdentifier"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcUniPortType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcUniServiceAttributes"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcUniCEVlanEvcEndingVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcGroup": {
+    "name": "cevcEvcGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcIdentifier"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcOperStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcCfgUnis"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcActiveUnis"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcUniId"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcUniOperStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcLocalUniIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIGroup": {
+    "name": "cevcSIGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIName"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSITargetType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSITarget"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIEvcIndex"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIAdminStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIOperStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIL2ControlProtocolAction"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteAction"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteEncapsulation"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteVlan1"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteVlan2"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteSymmetric"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardingType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICEVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICEVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICEVlanEndingVlan"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapValid"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapEncapsulation"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanEndingVlan"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cevcSIVlanRewriteGroup": {
+    "name": "cevcSIVlanRewriteGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteAction"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteEncapsulation"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteVlan1"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteVlan2"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteSymmetric"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSICosMatchCriteriaGroup": {
+    "name": "cevcSICosMatchCriteriaGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapPrimaryCos"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapSecondaryCos"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIMatchCriteriaGroup": {
+    "name": "cevcSIMatchCriteriaGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapValid"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapEncapsulation"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapPrimaryCos"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapSecondaryCos"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapPayloadType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanEndingVlan"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSISecondaryVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSISecondaryVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSISecondaryVlanEndingVlan"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cevcSIForwardGroup": {
+    "name": "cevcSIForwardGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardingType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cevcEvcNotificationConfigGroup": {
+    "name": "cevcEvcNotificationConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcNotifyEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcNotificationGroup": {
+    "name": "cevcEvcNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcStatusChangedNotification"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcCreationNotification"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcDeletionNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cevcSIMatchCriteriaGroupRev1": {
+    "name": "cevcSIMatchCriteriaGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapValid"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapEncapsulation"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapPrimaryCos"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapSecondaryCos"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapPayloadTypes"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapPriorityCos"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanEndingVlan"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSISecondaryVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSISecondaryVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSISecondaryVlanEndingVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcEvcNotificationGroupRev1": {
+    "name": "cevcEvcNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcStatusChangedNotification"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcCreationNotification"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcEvcDeletionNotification"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcMacSecurityViolationNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIGroupRev1": {
+    "name": "cevcSIGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIName"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSITargetType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSITarget"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIEvcIndex"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIAdminStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIOperStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcPortL2ControlProtocolAction"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteAction"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteEncapsulation"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteVlan1"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteVlan2"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteSymmetric"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIVlanRewriteStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardingType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICEVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICEVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICEVlanEndingVlan"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchCriteriaType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapValid"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchEncapEncapsulation"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIPrimaryVlanEndingVlan"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIMatchRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSICreationType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIType"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcSIForwardGroupRev1": {
+    "name": "cevcSIForwardGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardingType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdRowStatus"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdStorageType"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumberBase"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber1kBitmap"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber2kBitmap"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber3kBitmap"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIForwardBdNumber4kBitmap"
+      }
+    ],
+    "status": "current"
+  },
+  "cevcMacSecurityViolationGroup": {
+    "name": "cevcMacSecurityViolationGroup",
+    "oid": "1.3.6.1.4.1.9.9.613.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcMacAddress"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcMaxMacConfigLimit"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcSIID"
+      },
+      {
+        "module": "CISCO-EVC-MIB",
+        "object": "cevcViolationCause"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-EVC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-EVC-MIB"
+  }
+}

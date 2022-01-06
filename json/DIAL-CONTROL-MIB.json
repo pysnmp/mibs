@@ -1,0 +1,1640 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IF-MIB": [
+      "ifOperStatus",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "transmission",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dialControlMib": {
+    "name": "dialControlMib",
+    "oid": "1.3.6.1.2.1.10.21",
+    "class": "moduleidentity"
+  },
+  "AbsoluteCounter32": {
+    "name": "AbsoluteCounter32",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "dialControlMibObjects": {
+    "name": "dialControlMibObjects",
+    "oid": "1.3.6.1.2.1.10.21.1",
+    "class": "objectidentity"
+  },
+  "dialCtlConfiguration": {
+    "name": "dialCtlConfiguration",
+    "oid": "1.3.6.1.2.1.10.21.1.1",
+    "class": "objectidentity"
+  },
+  "dialCtlAcceptMode": {
+    "name": "dialCtlAcceptMode",
+    "oid": "1.3.6.1.2.1.10.21.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acceptNone": 1,
+          "acceptAll": 2,
+          "acceptKnown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dialCtlTrapEnable": {
+    "name": "dialCtlTrapEnable",
+    "oid": "1.3.6.1.2.1.10.21.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dialCtlPeer": {
+    "name": "dialCtlPeer",
+    "oid": "1.3.6.1.2.1.10.21.1.2",
+    "class": "objectidentity"
+  },
+  "dialCtlPeerCfgTable": {
+    "name": "dialCtlPeerCfgTable",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dialCtlPeerCfgEntry": {
+    "name": "dialCtlPeerCfgEntry",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dialCtlPeerCfgId": {
+    "name": "dialCtlPeerCfgId",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dialCtlPeerCfgIfType": {
+    "name": "dialCtlPeerCfgIfType",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgLowerIf": {
+    "name": "dialCtlPeerCfgLowerIf",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgOriginateAddress": {
+    "name": "dialCtlPeerCfgOriginateAddress",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgAnswerAddress": {
+    "name": "dialCtlPeerCfgAnswerAddress",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgSubAddress": {
+    "name": "dialCtlPeerCfgSubAddress",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgClosedUserGroup": {
+    "name": "dialCtlPeerCfgClosedUserGroup",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgSpeed": {
+    "name": "dialCtlPeerCfgSpeed",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgInfoType": {
+    "name": "dialCtlPeerCfgInfoType",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "speech": 2,
+          "unrestrictedDigital": 3,
+          "unrestrictedDigital56": 4,
+          "restrictedDigital": 5,
+          "audio31": 6,
+          "audio7": 7,
+          "video": 8,
+          "packetSwitched": 9,
+          "fax": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgPermission": {
+    "name": "dialCtlPeerCfgPermission",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "originate": 1,
+          "answer": 2,
+          "both": 3,
+          "callback": 4,
+          "none": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "both",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgInactivityTimer": {
+    "name": "dialCtlPeerCfgInactivityTimer",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgMinDuration": {
+    "name": "dialCtlPeerCfgMinDuration",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgMaxDuration": {
+    "name": "dialCtlPeerCfgMaxDuration",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgCarrierDelay": {
+    "name": "dialCtlPeerCfgCarrierDelay",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgCallRetries": {
+    "name": "dialCtlPeerCfgCallRetries",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgRetryDelay": {
+    "name": "dialCtlPeerCfgRetryDelay",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgFailureDelay": {
+    "name": "dialCtlPeerCfgFailureDelay",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgTrapEnable": {
+    "name": "dialCtlPeerCfgTrapEnable",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerCfgStatus": {
+    "name": "dialCtlPeerCfgStatus",
+    "oid": "1.3.6.1.2.1.10.21.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dialCtlPeerStatsTable": {
+    "name": "dialCtlPeerStatsTable",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dialCtlPeerStatsEntry": {
+    "name": "dialCtlPeerStatsEntry",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dialCtlPeerStatsEntry",
+      "module": "DIAL-CONTROL-MIB",
+      "object": "dialCtlPeerCfgEntry"
+    },
+    "status": "current"
+  },
+  "dialCtlPeerStatsConnectTime": {
+    "name": "dialCtlPeerStatsConnectTime",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsChargedUnits": {
+    "name": "dialCtlPeerStatsChargedUnits",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsSuccessCalls": {
+    "name": "dialCtlPeerStatsSuccessCalls",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsFailCalls": {
+    "name": "dialCtlPeerStatsFailCalls",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsAcceptCalls": {
+    "name": "dialCtlPeerStatsAcceptCalls",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsRefuseCalls": {
+    "name": "dialCtlPeerStatsRefuseCalls",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsLastDisconnectCause": {
+    "name": "dialCtlPeerStatsLastDisconnectCause",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsLastDisconnectText": {
+    "name": "dialCtlPeerStatsLastDisconnectText",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialCtlPeerStatsLastSetupTime": {
+    "name": "dialCtlPeerStatsLastSetupTime",
+    "oid": "1.3.6.1.2.1.10.21.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActive": {
+    "name": "callActive",
+    "oid": "1.3.6.1.2.1.10.21.1.3",
+    "class": "objectidentity"
+  },
+  "callActiveTable": {
+    "name": "callActiveTable",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callActiveEntry": {
+    "name": "callActiveEntry",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "callActiveSetupTime": {
+    "name": "callActiveSetupTime",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callActiveIndex": {
+    "name": "callActiveIndex",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callActivePeerAddress": {
+    "name": "callActivePeerAddress",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActivePeerSubAddress": {
+    "name": "callActivePeerSubAddress",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActivePeerId": {
+    "name": "callActivePeerId",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActivePeerIfIndex": {
+    "name": "callActivePeerIfIndex",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveLogicalIfIndex": {
+    "name": "callActiveLogicalIfIndex",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveConnectTime": {
+    "name": "callActiveConnectTime",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveCallState": {
+    "name": "callActiveCallState",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "connecting": 2,
+          "connected": 3,
+          "active": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveCallOrigin": {
+    "name": "callActiveCallOrigin",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "originate": 1,
+          "answer": 2,
+          "callback": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveChargedUnits": {
+    "name": "callActiveChargedUnits",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveInfoType": {
+    "name": "callActiveInfoType",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "speech": 2,
+          "unrestrictedDigital": 3,
+          "unrestrictedDigital56": 4,
+          "restrictedDigital": 5,
+          "audio31": 6,
+          "audio7": 7,
+          "video": 8,
+          "packetSwitched": 9,
+          "fax": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveTransmitPackets": {
+    "name": "callActiveTransmitPackets",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveTransmitBytes": {
+    "name": "callActiveTransmitBytes",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveReceivePackets": {
+    "name": "callActiveReceivePackets",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callActiveReceiveBytes": {
+    "name": "callActiveReceiveBytes",
+    "oid": "1.3.6.1.2.1.10.21.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistory": {
+    "name": "callHistory",
+    "oid": "1.3.6.1.2.1.10.21.1.4",
+    "class": "objectidentity"
+  },
+  "callHistoryTableMaxLength": {
+    "name": "callHistoryTableMaxLength",
+    "oid": "1.3.6.1.2.1.10.21.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHistoryRetainTimer": {
+    "name": "callHistoryRetainTimer",
+    "oid": "1.3.6.1.2.1.10.21.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "callHistoryTable": {
+    "name": "callHistoryTable",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "callHistoryEntry": {
+    "name": "callHistoryEntry",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveSetupTime",
+        "implied": 0
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "callHistoryPeerAddress": {
+    "name": "callHistoryPeerAddress",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryPeerSubAddress": {
+    "name": "callHistoryPeerSubAddress",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryPeerId": {
+    "name": "callHistoryPeerId",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryPeerIfIndex": {
+    "name": "callHistoryPeerIfIndex",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryLogicalIfIndex": {
+    "name": "callHistoryLogicalIfIndex",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryDisconnectCause": {
+    "name": "callHistoryDisconnectCause",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryDisconnectText": {
+    "name": "callHistoryDisconnectText",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryConnectTime": {
+    "name": "callHistoryConnectTime",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryDisconnectTime": {
+    "name": "callHistoryDisconnectTime",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryCallOrigin": {
+    "name": "callHistoryCallOrigin",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "originate": 1,
+          "answer": 2,
+          "callback": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryChargedUnits": {
+    "name": "callHistoryChargedUnits",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryInfoType": {
+    "name": "callHistoryInfoType",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "speech": 2,
+          "unrestrictedDigital": 3,
+          "unrestrictedDigital56": 4,
+          "restrictedDigital": 5,
+          "audio31": 6,
+          "audio7": 7,
+          "video": 8,
+          "packetSwitched": 9,
+          "fax": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryTransmitPackets": {
+    "name": "callHistoryTransmitPackets",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryTransmitBytes": {
+    "name": "callHistoryTransmitBytes",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryReceivePackets": {
+    "name": "callHistoryReceivePackets",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "callHistoryReceiveBytes": {
+    "name": "callHistoryReceiveBytes",
+    "oid": "1.3.6.1.2.1.10.21.1.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AbsoluteCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dialControlMibTrapPrefix": {
+    "name": "dialControlMibTrapPrefix",
+    "oid": "1.3.6.1.2.1.10.21.2",
+    "class": "objectidentity"
+  },
+  "dialControlMibTraps": {
+    "name": "dialControlMibTraps",
+    "oid": "1.3.6.1.2.1.10.21.2.0",
+    "class": "objectidentity"
+  },
+  "dialCtlPeerCallInformation": {
+    "name": "dialCtlPeerCallInformation",
+    "oid": "1.3.6.1.2.1.10.21.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerId"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerIfIndex"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryLogicalIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerSubAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryDisconnectCause"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryConnectTime"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryDisconnectTime"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryInfoType"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryCallOrigin"
+      }
+    ],
+    "status": "current"
+  },
+  "dialCtlPeerCallSetup": {
+    "name": "dialCtlPeerCallSetup",
+    "oid": "1.3.6.1.2.1.10.21.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerId"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerIfIndex"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveLogicalIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerSubAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveInfoType"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveCallOrigin"
+      }
+    ],
+    "status": "current"
+  },
+  "dialControlMibConformance": {
+    "name": "dialControlMibConformance",
+    "oid": "1.3.6.1.2.1.10.21.3",
+    "class": "objectidentity"
+  },
+  "dialControlMibCompliances": {
+    "name": "dialControlMibCompliances",
+    "oid": "1.3.6.1.2.1.10.21.3.1",
+    "class": "objectidentity"
+  },
+  "dialControlMibGroups": {
+    "name": "dialControlMibGroups",
+    "oid": "1.3.6.1.2.1.10.21.3.2",
+    "class": "objectidentity"
+  },
+  "dialControlMibCompliance": {
+    "name": "dialControlMibCompliance",
+    "oid": "1.3.6.1.2.1.10.21.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dialControlGroup",
+        "module": "DIAL-CONTROL-MIB"
+      },
+      {
+        "object": "callActiveGroup",
+        "module": "DIAL-CONTROL-MIB"
+      },
+      {
+        "object": "callHistoryGroup",
+        "module": "DIAL-CONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dialControlGroup": {
+    "name": "dialControlGroup",
+    "oid": "1.3.6.1.2.1.10.21.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlAcceptMode"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlTrapEnable"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgIfType"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgLowerIf"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgOriginateAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgAnswerAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgSubAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgClosedUserGroup"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgSpeed"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgInfoType"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgPermission"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgInactivityTimer"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgMinDuration"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgMaxDuration"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgCarrierDelay"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgCallRetries"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgRetryDelay"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgFailureDelay"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgTrapEnable"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCfgStatus"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsConnectTime"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsChargedUnits"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsSuccessCalls"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsFailCalls"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsAcceptCalls"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsRefuseCalls"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsLastDisconnectCause"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsLastDisconnectText"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerStatsLastSetupTime"
+      }
+    ],
+    "status": "current"
+  },
+  "callActiveGroup": {
+    "name": "callActiveGroup",
+    "oid": "1.3.6.1.2.1.10.21.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerSubAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerId"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActivePeerIfIndex"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveLogicalIfIndex"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveConnectTime"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveCallState"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveCallOrigin"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveChargedUnits"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveInfoType"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveTransmitPackets"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveTransmitBytes"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveReceivePackets"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callActiveReceiveBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "callHistoryGroup": {
+    "name": "callHistoryGroup",
+    "oid": "1.3.6.1.2.1.10.21.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryTableMaxLength"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryRetainTimer"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerSubAddress"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerId"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryPeerIfIndex"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryLogicalIfIndex"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryDisconnectCause"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryDisconnectText"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryConnectTime"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryDisconnectTime"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryCallOrigin"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryChargedUnits"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryInfoType"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryTransmitPackets"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryTransmitBytes"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryReceivePackets"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "callHistoryReceiveBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DIAL-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DIAL-CONTROL-MIB"
+  }
+}

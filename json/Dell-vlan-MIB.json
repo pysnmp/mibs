@@ -1,0 +1,2873 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dBasePort"
+    ],
+    "Dell-BRIDGEMIBOBJECTS-MIB": [
+      "VlanList4",
+      "VlanList1",
+      "VlanList3",
+      "VlanList2"
+    ],
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex",
+      "PortList",
+      "dot1qVlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "vlan": {
+    "name": "vlan",
+    "oid": "1.3.6.1.4.1.89.48",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-12 00:00",
+        "description": "Editorial changes to support new MIB compilers."
+      },
+      {
+        "revision": "2004-04-19 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "vlanMibVersion": {
+    "name": "vlanMibVersion",
+    "oid": "1.3.6.1.4.1.89.48.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanMaxTableNumber": {
+    "name": "vlanMaxTableNumber",
+    "oid": "1.3.6.1.4.1.89.48.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanNameTable": {
+    "name": "vlanNameTable",
+    "oid": "1.3.6.1.4.1.89.48.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanNameEntry": {
+    "name": "vlanNameEntry",
+    "oid": "1.3.6.1.4.1.89.48.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanNameName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanNameName": {
+    "name": "vlanNameName",
+    "oid": "1.3.6.1.4.1.89.48.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanNameTag": {
+    "name": "vlanNameTag",
+    "oid": "1.3.6.1.4.1.89.48.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanNameIfIndex": {
+    "name": "vlanNameIfIndex",
+    "oid": "1.3.6.1.4.1.89.48.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPortModeTable": {
+    "name": "vlanPortModeTable",
+    "oid": "1.3.6.1.4.1.89.48.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPortModeEntry": {
+    "name": "vlanPortModeEntry",
+    "oid": "1.3.6.1.4.1.89.48.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPortModeState": {
+    "name": "vlanPortModeState",
+    "oid": "1.3.6.1.4.1.89.48.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanSendUnknownToAllPorts": {
+    "name": "vlanSendUnknownToAllPorts",
+    "oid": "1.3.6.1.4.1.89.48.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDefaultSupported": {
+    "name": "vlanDefaultSupported",
+    "oid": "1.3.6.1.4.1.89.48.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanDot1vSupported": {
+    "name": "vlanDot1vSupported",
+    "oid": "1.3.6.1.4.1.89.48.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanDefaultEnabled": {
+    "name": "vlanDefaultEnabled",
+    "oid": "1.3.6.1.4.1.89.48.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanSpecialTagTable": {
+    "name": "vlanSpecialTagTable",
+    "oid": "1.3.6.1.4.1.89.48.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanSpecialTagEntry": {
+    "name": "vlanSpecialTagEntry",
+    "oid": "1.3.6.1.4.1.89.48.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanSpecialTagVID": {
+    "name": "vlanSpecialTagVID",
+    "oid": "1.3.6.1.4.1.89.48.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanSpecialTagStatus": {
+    "name": "vlanSpecialTagStatus",
+    "oid": "1.3.6.1.4.1.89.48.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanSpecialTagCurrentTable": {
+    "name": "vlanSpecialTagCurrentTable",
+    "oid": "1.3.6.1.4.1.89.48.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanSpecialTagCurrentEntry": {
+    "name": "vlanSpecialTagCurrentEntry",
+    "oid": "1.3.6.1.4.1.89.48.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanSpecialTagCurrentVID": {
+    "name": "vlanSpecialTagCurrentVID",
+    "oid": "1.3.6.1.4.1.89.48.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSpecialTagCurrentReserved": {
+    "name": "vlanSpecialTagCurrentReserved",
+    "oid": "1.3.6.1.4.1.89.48.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSpecialTagCurrentActive": {
+    "name": "vlanSpecialTagCurrentActive",
+    "oid": "1.3.6.1.4.1.89.48.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateEdgeSupported": {
+    "name": "vlanPrivateEdgeSupported",
+    "oid": "1.3.6.1.4.1.89.48.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateEdgeVersion": {
+    "name": "vlanPrivateEdgeVersion",
+    "oid": "1.3.6.1.4.1.89.48.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateEdgeTable": {
+    "name": "vlanPrivateEdgeTable",
+    "oid": "1.3.6.1.4.1.89.48.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateEdgeEntry": {
+    "name": "vlanPrivateEdgeEntry",
+    "oid": "1.3.6.1.4.1.89.48.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPrivateEdgeUplink": {
+    "name": "vlanPrivateEdgeUplink",
+    "oid": "1.3.6.1.4.1.89.48.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateEdgeStatus": {
+    "name": "vlanPrivateEdgeStatus",
+    "oid": "1.3.6.1.4.1.89.48.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDynamicVlanSupported": {
+    "name": "vlanDynamicVlanSupported",
+    "oid": "1.3.6.1.4.1.89.48.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanDynamicVlanTable": {
+    "name": "vlanDynamicVlanTable",
+    "oid": "1.3.6.1.4.1.89.48.39",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanDynamicVlanEntry": {
+    "name": "vlanDynamicVlanEntry",
+    "oid": "1.3.6.1.4.1.89.48.39.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanDynamicVlanMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDynamicVlanMacAddress": {
+    "name": "vlanDynamicVlanMacAddress",
+    "oid": "1.3.6.1.4.1.89.48.39.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanDynamicVlanTag": {
+    "name": "vlanDynamicVlanTag",
+    "oid": "1.3.6.1.4.1.89.48.39.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDynamicVlanStatus": {
+    "name": "vlanDynamicVlanStatus",
+    "oid": "1.3.6.1.4.1.89.48.39.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPortModeExtTable": {
+    "name": "vlanPortModeExtTable",
+    "oid": "1.3.6.1.4.1.89.48.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPortModeExtEntry": {
+    "name": "vlanPortModeExtEntry",
+    "oid": "1.3.6.1.4.1.89.48.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPortModeExtState": {
+    "name": "vlanPortModeExtState",
+    "oid": "1.3.6.1.4.1.89.48.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPortModeExtStatus": {
+    "name": "vlanPortModeExtStatus",
+    "oid": "1.3.6.1.4.1.89.48.40.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateSupported": {
+    "name": "vlanPrivateSupported",
+    "oid": "1.3.6.1.4.1.89.48.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateTableOld": {
+    "name": "vlanPrivateTableOld",
+    "oid": "1.3.6.1.4.1.89.48.42",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateEntryOld": {
+    "name": "vlanPrivateEntryOld",
+    "oid": "1.3.6.1.4.1.89.48.42.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPrivateOldIsolatedVlanTag": {
+    "name": "vlanPrivateOldIsolatedVlanTag",
+    "oid": "1.3.6.1.4.1.89.48.42.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateOldStatus": {
+    "name": "vlanPrivateOldStatus",
+    "oid": "1.3.6.1.4.1.89.48.42.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateCommunityTable": {
+    "name": "vlanPrivateCommunityTable",
+    "oid": "1.3.6.1.4.1.89.48.43",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateCommunityEntry": {
+    "name": "vlanPrivateCommunityEntry",
+    "oid": "1.3.6.1.4.1.89.48.43.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanPrivateCommunityVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPrivateCommunityVlanTag": {
+    "name": "vlanPrivateCommunityVlanTag",
+    "oid": "1.3.6.1.4.1.89.48.43.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateCommunityStatus": {
+    "name": "vlanPrivateCommunityStatus",
+    "oid": "1.3.6.1.4.1.89.48.43.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMulticastTvTable": {
+    "name": "vlanMulticastTvTable",
+    "oid": "1.3.6.1.4.1.89.48.44",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanMulticastTvEntry": {
+    "name": "vlanMulticastTvEntry",
+    "oid": "1.3.6.1.4.1.89.48.44.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanMulticastTvVID": {
+    "name": "vlanMulticastTvVID",
+    "oid": "1.3.6.1.4.1.89.48.44.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMulticastTvStatus": {
+    "name": "vlanMulticastTvStatus",
+    "oid": "1.3.6.1.4.1.89.48.44.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanMacBaseVlanGroupTable": {
+    "name": "vlanMacBaseVlanGroupTable",
+    "oid": "1.3.6.1.4.1.89.48.45",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanMacBaseVlanGroupEntry": {
+    "name": "vlanMacBaseVlanGroupEntry",
+    "oid": "1.3.6.1.4.1.89.48.45.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanMacBaseVlanMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanMacBaseVlanMacMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanMacBaseVlanMacAddress": {
+    "name": "vlanMacBaseVlanMacAddress",
+    "oid": "1.3.6.1.4.1.89.48.45.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanMacBaseVlanMacMask": {
+    "name": "vlanMacBaseVlanMacMask",
+    "oid": "1.3.6.1.4.1.89.48.45.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanMacBaseVlanGroupId": {
+    "name": "vlanMacBaseVlanGroupId",
+    "oid": "1.3.6.1.4.1.89.48.45.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanMacBaseVlanGroupRowStatus": {
+    "name": "vlanMacBaseVlanGroupRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.45.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanMacBaseVlanPortTable": {
+    "name": "vlanMacBaseVlanPortTable",
+    "oid": "1.3.6.1.4.1.89.48.46",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanMacBaseVlanPortEntry": {
+    "name": "vlanMacBaseVlanPortEntry",
+    "oid": "1.3.6.1.4.1.89.48.46.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanMacBaseVlanPortGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanMacBaseVlanPortGroupId": {
+    "name": "vlanMacBaseVlanPortGroupId",
+    "oid": "1.3.6.1.4.1.89.48.46.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanMacBaseVlanPortGroupVid": {
+    "name": "vlanMacBaseVlanPortGroupVid",
+    "oid": "1.3.6.1.4.1.89.48.46.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanMacBaseVlanPortRowStatus": {
+    "name": "vlanMacBaseVlanPortRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.46.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupTable": {
+    "name": "vlanPrivateEdgeGroupTable",
+    "oid": "1.3.6.1.4.1.89.48.47",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupEntry": {
+    "name": "vlanPrivateEdgeGroupEntry",
+    "oid": "1.3.6.1.4.1.89.48.47.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanPrivateEdgeGroupSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupSource": {
+    "name": "vlanPrivateEdgeGroupSource",
+    "oid": "1.3.6.1.4.1.89.48.47.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupUplink": {
+    "name": "vlanPrivateEdgeGroupUplink",
+    "oid": "1.3.6.1.4.1.89.48.47.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupStatus": {
+    "name": "vlanPrivateEdgeGroupStatus",
+    "oid": "1.3.6.1.4.1.89.48.47.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupIfIndexTable": {
+    "name": "vlanPrivateEdgeGroupIfIndexTable",
+    "oid": "1.3.6.1.4.1.89.48.48",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupIfIndexEntry": {
+    "name": "vlanPrivateEdgeGroupIfIndexEntry",
+    "oid": "1.3.6.1.4.1.89.48.48.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupIfIndexID": {
+    "name": "vlanPrivateEdgeGroupIfIndexID",
+    "oid": "1.3.6.1.4.1.89.48.48.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateEdgeGroupIfIndexDomainID": {
+    "name": "vlanPrivateEdgeGroupIfIndexDomainID",
+    "oid": "1.3.6.1.4.1.89.48.48.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSubnetRangeTable": {
+    "name": "vlanSubnetRangeTable",
+    "oid": "1.3.6.1.4.1.89.48.49",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanSubnetRangeEntry": {
+    "name": "vlanSubnetRangeEntry",
+    "oid": "1.3.6.1.4.1.89.48.49.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanSubnetRangeAddr",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanSubnetRangeMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanSubnetRangeAddr": {
+    "name": "vlanSubnetRangeAddr",
+    "oid": "1.3.6.1.4.1.89.48.49.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSubnetRangeMask": {
+    "name": "vlanSubnetRangeMask",
+    "oid": "1.3.6.1.4.1.89.48.49.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSubnetRangeGroupId": {
+    "name": "vlanSubnetRangeGroupId",
+    "oid": "1.3.6.1.4.1.89.48.49.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanSubnetRangeRowStatus": {
+    "name": "vlanSubnetRangeRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.49.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanSubnetPortTable": {
+    "name": "vlanSubnetPortTable",
+    "oid": "1.3.6.1.4.1.89.48.50",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanSubnetPortEntry": {
+    "name": "vlanSubnetPortEntry",
+    "oid": "1.3.6.1.4.1.89.48.50.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanSubnetPortGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanSubnetPortGroupId": {
+    "name": "vlanSubnetPortGroupId",
+    "oid": "1.3.6.1.4.1.89.48.50.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanSubnetPortGroupVid": {
+    "name": "vlanSubnetPortGroupVid",
+    "oid": "1.3.6.1.4.1.89.48.50.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanSubnetPortRowStatus": {
+    "name": "vlanSubnetPortRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.50.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTriplePlayTable": {
+    "name": "vlanTriplePlayTable",
+    "oid": "1.3.6.1.4.1.89.48.51",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanTriplePlayEntry": {
+    "name": "vlanTriplePlayEntry",
+    "oid": "1.3.6.1.4.1.89.48.51.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanTriplePlayInnerVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanTriplePlayInnerVID": {
+    "name": "vlanTriplePlayInnerVID",
+    "oid": "1.3.6.1.4.1.89.48.51.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanTriplePlayMulticastTvVID": {
+    "name": "vlanTriplePlayMulticastTvVID",
+    "oid": "1.3.6.1.4.1.89.48.51.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTriplePlayRowStatus": {
+    "name": "vlanTriplePlayRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.51.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanTriplePlayMulticastTvTable": {
+    "name": "vlanTriplePlayMulticastTvTable",
+    "oid": "1.3.6.1.4.1.89.48.52",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanTriplePlayMulticatTvEntry": {
+    "name": "vlanTriplePlayMulticatTvEntry",
+    "oid": "1.3.6.1.4.1.89.48.52.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanTriplePlayMulticastTvMulticastTvVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanTriplePlayMulticastTvMulticastTvVID": {
+    "name": "vlanTriplePlayMulticastTvMulticastTvVID",
+    "oid": "1.3.6.1.4.1.89.48.52.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanTriplePlayMulticastTvMulticastTvPortList": {
+    "name": "vlanTriplePlayMulticastTvMulticastTvPortList",
+    "oid": "1.3.6.1.4.1.89.48.52.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDefaultExtManagment": {
+    "name": "vlanDefaultExtManagment",
+    "oid": "1.3.6.1.4.1.89.48.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoice": {
+    "name": "vlanVoice",
+    "oid": "1.3.6.1.4.1.89.48.54",
+    "class": "objectidentity"
+  },
+  "vlanVoiceAgingTimeout": {
+    "name": "vlanVoiceAgingTimeout",
+    "oid": "1.3.6.1.4.1.89.48.54.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 43200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1440,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoiceTable": {
+    "name": "vlanVoiceTable",
+    "oid": "1.3.6.1.4.1.89.48.54.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanVoiceEntry": {
+    "name": "vlanVoiceEntry",
+    "oid": "1.3.6.1.4.1.89.48.54.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanVoicePriority": {
+    "name": "vlanVoicePriority",
+    "oid": "1.3.6.1.4.1.89.48.54.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoicePriorityRemark": {
+    "name": "vlanVoicePriorityRemark",
+    "oid": "1.3.6.1.4.1.89.48.54.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanVoiceRowStatus": {
+    "name": "vlanVoiceRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.54.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanVoiceOUITable": {
+    "name": "vlanVoiceOUITable",
+    "oid": "1.3.6.1.4.1.89.48.54.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanVoiceOUIEntry": {
+    "name": "vlanVoiceOUIEntry",
+    "oid": "1.3.6.1.4.1.89.48.54.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanVoiceOUIPrefix",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanVoiceOUIPrefix": {
+    "name": "vlanVoiceOUIPrefix",
+    "oid": "1.3.6.1.4.1.89.48.54.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanVoiceOUIDescription": {
+    "name": "vlanVoiceOUIDescription",
+    "oid": "1.3.6.1.4.1.89.48.54.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoiceOUIEntryRowStatus": {
+    "name": "vlanVoiceOUIEntryRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.54.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanVoicePortTable": {
+    "name": "vlanVoicePortTable",
+    "oid": "1.3.6.1.4.1.89.48.54.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanVoicePortEntry": {
+    "name": "vlanVoicePortEntry",
+    "oid": "1.3.6.1.4.1.89.48.54.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanVoicePortEnable": {
+    "name": "vlanVoicePortEnable",
+    "oid": "1.3.6.1.4.1.89.48.54.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoicePortVlanIndex": {
+    "name": "vlanVoicePortVlanIndex",
+    "oid": "1.3.6.1.4.1.89.48.54.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoicePortSecure": {
+    "name": "vlanVoicePortSecure",
+    "oid": "1.3.6.1.4.1.89.48.54.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoicePortCurrentMembership": {
+    "name": "vlanVoicePortCurrentMembership",
+    "oid": "1.3.6.1.4.1.89.48.54.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notActive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanVoicePortQosMode": {
+    "name": "vlanVoicePortQosMode",
+    "oid": "1.3.6.1.4.1.89.48.54.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "src": 1,
+          "all": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanVoiceOUISetToDefault": {
+    "name": "vlanVoiceOUISetToDefault",
+    "oid": "1.3.6.1.4.1.89.48.54.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDefault": {
+    "name": "vlanDefault",
+    "oid": "1.3.6.1.4.1.89.48.55",
+    "class": "objectidentity"
+  },
+  "vlanDefaultTaggedPorts": {
+    "name": "vlanDefaultTaggedPorts",
+    "oid": "1.3.6.1.4.1.89.48.55.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanDefaultEnabledPorts": {
+    "name": "vlanDefaultEnabledPorts",
+    "oid": "1.3.6.1.4.1.89.48.55.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanInetTriplePlayTable": {
+    "name": "vlanInetTriplePlayTable",
+    "oid": "1.3.6.1.4.1.89.48.56",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanInetTriplePlayEntry": {
+    "name": "vlanInetTriplePlayEntry",
+    "oid": "1.3.6.1.4.1.89.48.56.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanInetTriplePlayInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanTriplePlayInnerVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanInetTriplePlayInetAddressType": {
+    "name": "vlanInetTriplePlayInetAddressType",
+    "oid": "1.3.6.1.4.1.89.48.56.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanInetTriplePlayInnerVID": {
+    "name": "vlanInetTriplePlayInnerVID",
+    "oid": "1.3.6.1.4.1.89.48.56.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanInetTriplePlayMulticastTvVID": {
+    "name": "vlanInetTriplePlayMulticastTvVID",
+    "oid": "1.3.6.1.4.1.89.48.56.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanInetTriplePlayRowStatus": {
+    "name": "vlanInetTriplePlayRowStatus",
+    "oid": "1.3.6.1.4.1.89.48.56.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanInetTriplePlayMulticastTvTable": {
+    "name": "vlanInetTriplePlayMulticastTvTable",
+    "oid": "1.3.6.1.4.1.89.48.57",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanInetTriplePlayMulticatTvEntry": {
+    "name": "vlanInetTriplePlayMulticatTvEntry",
+    "oid": "1.3.6.1.4.1.89.48.57.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanTriplePlayMulticastTvMulticastTvVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanInetTriplePlayMulticastTvMulticastTvVID": {
+    "name": "vlanInetTriplePlayMulticastTvMulticastTvVID",
+    "oid": "1.3.6.1.4.1.89.48.57.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanInetTriplePlayMulticastTvMulticastTvPortList": {
+    "name": "vlanInetTriplePlayMulticastTvMulticastTvPortList",
+    "oid": "1.3.6.1.4.1.89.48.57.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanAsymmetricEnabled": {
+    "name": "vlanAsymmetricEnabled",
+    "oid": "1.3.6.1.4.1.89.48.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateTable": {
+    "name": "vlanPrivateTable",
+    "oid": "1.3.6.1.4.1.89.48.59",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateEntry": {
+    "name": "vlanPrivateEntry",
+    "oid": "1.3.6.1.4.1.89.48.59.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanPrivateVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPrivateVid": {
+    "name": "vlanPrivateVid",
+    "oid": "1.3.6.1.4.1.89.48.59.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateType": {
+    "name": "vlanPrivateType",
+    "oid": "1.3.6.1.4.1.89.48.59.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "isolated": 2,
+          "community": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "primary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivatePrimaryVid": {
+    "name": "vlanPrivatePrimaryVid",
+    "oid": "1.3.6.1.4.1.89.48.59.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateStatus": {
+    "name": "vlanPrivateStatus",
+    "oid": "1.3.6.1.4.1.89.48.59.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateMapTable": {
+    "name": "vlanPrivateMapTable",
+    "oid": "1.3.6.1.4.1.89.48.60",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateMapEntry": {
+    "name": "vlanPrivateMapEntry",
+    "oid": "1.3.6.1.4.1.89.48.60.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanPrivateMapPrimaryVid",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanPrivateMapSecondaryVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPrivateMapPrimaryVid": {
+    "name": "vlanPrivateMapPrimaryVid",
+    "oid": "1.3.6.1.4.1.89.48.60.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateMapSecondaryVid": {
+    "name": "vlanPrivateMapSecondaryVid",
+    "oid": "1.3.6.1.4.1.89.48.60.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPrivateMapPrimaryPorts": {
+    "name": "vlanPrivateMapPrimaryPorts",
+    "oid": "1.3.6.1.4.1.89.48.60.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateMapSecondaryPorts": {
+    "name": "vlanPrivateMapSecondaryPorts",
+    "oid": "1.3.6.1.4.1.89.48.60.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPrivateMapPrimaryOperPorts": {
+    "name": "vlanPrivateMapPrimaryOperPorts",
+    "oid": "1.3.6.1.4.1.89.48.60.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateMapSecondaryOperPorts": {
+    "name": "vlanPrivateMapSecondaryOperPorts",
+    "oid": "1.3.6.1.4.1.89.48.60.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanPrivateMapStatus": {
+    "name": "vlanPrivateMapStatus",
+    "oid": "1.3.6.1.4.1.89.48.60.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTrunkPortModeTable": {
+    "name": "vlanTrunkPortModeTable",
+    "oid": "1.3.6.1.4.1.89.48.61",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanTrunkPortModeEntry": {
+    "name": "vlanTrunkPortModeEntry",
+    "oid": "1.3.6.1.4.1.89.48.61.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanTrunkPortModeNativeVlanId": {
+    "name": "vlanTrunkPortModeNativeVlanId",
+    "oid": "1.3.6.1.4.1.89.48.61.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTrunkModeList1to1024": {
+    "name": "vlanTrunkModeList1to1024",
+    "oid": "1.3.6.1.4.1.89.48.61.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTrunkModeList1025to2048": {
+    "name": "vlanTrunkModeList1025to2048",
+    "oid": "1.3.6.1.4.1.89.48.61.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTrunkModeList2049to3072": {
+    "name": "vlanTrunkModeList2049to3072",
+    "oid": "1.3.6.1.4.1.89.48.61.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanTrunkModeList3073to4094": {
+    "name": "vlanTrunkModeList3073to4094",
+    "oid": "1.3.6.1.4.1.89.48.61.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanAccessPortModeTable": {
+    "name": "vlanAccessPortModeTable",
+    "oid": "1.3.6.1.4.1.89.48.62",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanAccessPortModeEntry": {
+    "name": "vlanAccessPortModeEntry",
+    "oid": "1.3.6.1.4.1.89.48.62.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanAccessPortModeVlanId": {
+    "name": "vlanAccessPortModeVlanId",
+    "oid": "1.3.6.1.4.1.89.48.62.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanAccessPortModeMcstTvVlanId": {
+    "name": "vlanAccessPortModeMcstTvVlanId",
+    "oid": "1.3.6.1.4.1.89.48.62.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanCustomerPortModeTable": {
+    "name": "vlanCustomerPortModeTable",
+    "oid": "1.3.6.1.4.1.89.48.63",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanCustomerPortModeEntry": {
+    "name": "vlanCustomerPortModeEntry",
+    "oid": "1.3.6.1.4.1.89.48.63.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanCustomerPortModeVlanId": {
+    "name": "vlanCustomerPortModeVlanId",
+    "oid": "1.3.6.1.4.1.89.48.63.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanCustomerPortModeMtvList1to1024": {
+    "name": "vlanCustomerPortModeMtvList1to1024",
+    "oid": "1.3.6.1.4.1.89.48.63.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanCustomerPortModeMtvList1025to2048": {
+    "name": "vlanCustomerPortModeMtvList1025to2048",
+    "oid": "1.3.6.1.4.1.89.48.63.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanCustomerPortModeMtvList2049to3072": {
+    "name": "vlanCustomerPortModeMtvList2049to3072",
+    "oid": "1.3.6.1.4.1.89.48.63.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanCustomerPortModeMtvList3073to4094": {
+    "name": "vlanCustomerPortModeMtvList3073to4094",
+    "oid": "1.3.6.1.4.1.89.48.63.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vlanSwitchPortModeTable": {
+    "name": "vlanSwitchPortModeTable",
+    "oid": "1.3.6.1.4.1.89.48.64",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanSwitchPortModeEntry": {
+    "name": "vlanSwitchPortModeEntry",
+    "oid": "1.3.6.1.4.1.89.48.64.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanSwitchPortModeCategory": {
+    "name": "vlanSwitchPortModeCategory",
+    "oid": "1.3.6.1.4.1.89.48.64.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2": 1,
+          "l3": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanPortModeContextTable": {
+    "name": "vlanPortModeContextTable",
+    "oid": "1.3.6.1.4.1.89.48.65",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanPortModeContextEntry": {
+    "name": "vlanPortModeContextEntry",
+    "oid": "1.3.6.1.4.1.89.48.65.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanPortModeContextValue": {
+    "name": "vlanPortModeContextValue",
+    "oid": "1.3.6.1.4.1.89.48.65.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanRsvlEnable": {
+    "name": "vlanRsvlEnable",
+    "oid": "1.3.6.1.4.1.89.48.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vlanRsvlMapTable": {
+    "name": "vlanRsvlMapTable",
+    "oid": "1.3.6.1.4.1.89.48.67",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanRsvlMapEntry": {
+    "name": "vlanRsvlMapEntry",
+    "oid": "1.3.6.1.4.1.89.48.67.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanRsvlMapPrimaryVid",
+        "implied": 0
+      },
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "vlanRsvlMapSecondaryVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vlanRsvlMapPrimaryVid": {
+    "name": "vlanRsvlMapPrimaryVid",
+    "oid": "1.3.6.1.4.1.89.48.67.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanRsvlMapSecondaryVid": {
+    "name": "vlanRsvlMapSecondaryVid",
+    "oid": "1.3.6.1.4.1.89.48.67.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vlanRsvlMapStatus": {
+    "name": "vlanRsvlMapStatus",
+    "oid": "1.3.6.1.4.1.89.48.67.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticTable": {
+    "name": "rldot1qPortVlanStaticTable",
+    "oid": "1.3.6.1.4.1.89.48.68",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticEntry": {
+    "name": "rldot1qPortVlanStaticEntry",
+    "oid": "1.3.6.1.4.1.89.48.68.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticEgressList1to1024": {
+    "name": "rldot1qPortVlanStaticEgressList1to1024",
+    "oid": "1.3.6.1.4.1.89.48.68.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticEgressList1025to2048": {
+    "name": "rldot1qPortVlanStaticEgressList1025to2048",
+    "oid": "1.3.6.1.4.1.89.48.68.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticEgressList2049to3072": {
+    "name": "rldot1qPortVlanStaticEgressList2049to3072",
+    "oid": "1.3.6.1.4.1.89.48.68.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticEgressList3073to4094": {
+    "name": "rldot1qPortVlanStaticEgressList3073to4094",
+    "oid": "1.3.6.1.4.1.89.48.68.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticUntaggedEgressList1to1024": {
+    "name": "rldot1qPortVlanStaticUntaggedEgressList1to1024",
+    "oid": "1.3.6.1.4.1.89.48.68.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticUntaggedEgressList1025to2048": {
+    "name": "rldot1qPortVlanStaticUntaggedEgressList1025to2048",
+    "oid": "1.3.6.1.4.1.89.48.68.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticUntaggedEgressList2049to3072": {
+    "name": "rldot1qPortVlanStaticUntaggedEgressList2049to3072",
+    "oid": "1.3.6.1.4.1.89.48.68.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticUntaggedEgressList3073to4094": {
+    "name": "rldot1qPortVlanStaticUntaggedEgressList3073to4094",
+    "oid": "1.3.6.1.4.1.89.48.68.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticForbiddenList1to1024": {
+    "name": "rldot1qPortVlanStaticForbiddenList1to1024",
+    "oid": "1.3.6.1.4.1.89.48.68.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticForbiddenList1025to2048": {
+    "name": "rldot1qPortVlanStaticForbiddenList1025to2048",
+    "oid": "1.3.6.1.4.1.89.48.68.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticForbiddenList2049to3072": {
+    "name": "rldot1qPortVlanStaticForbiddenList2049to3072",
+    "oid": "1.3.6.1.4.1.89.48.68.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qPortVlanStaticForbiddenList3073to4094": {
+    "name": "rldot1qPortVlanStaticForbiddenList3073to4094",
+    "oid": "1.3.6.1.4.1.89.48.68.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qVlanStaticListTable": {
+    "name": "rldot1qVlanStaticListTable",
+    "oid": "1.3.6.1.4.1.89.48.69",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1qVlanStaticListEntry": {
+    "name": "rldot1qVlanStaticListEntry",
+    "oid": "1.3.6.1.4.1.89.48.69.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-vlan-MIB",
+        "object": "rldot1qVlanStaticListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1qVlanStaticListIndex": {
+    "name": "rldot1qVlanStaticListIndex",
+    "oid": "1.3.6.1.4.1.89.48.69.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 0,
+          "dynamicGvrp": 1,
+          "dynamicRava": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qVlanStaticList1to1024": {
+    "name": "rldot1qVlanStaticList1to1024",
+    "oid": "1.3.6.1.4.1.89.48.69.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qVlanStaticList1025to2048": {
+    "name": "rldot1qVlanStaticList1025to2048",
+    "oid": "1.3.6.1.4.1.89.48.69.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qVlanStaticList2049to3072": {
+    "name": "rldot1qVlanStaticList2049to3072",
+    "oid": "1.3.6.1.4.1.89.48.69.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qVlanStaticList3073to4094": {
+    "name": "rldot1qVlanStaticList3073to4094",
+    "oid": "1.3.6.1.4.1.89.48.69.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qVlanStaticNameTable": {
+    "name": "rldot1qVlanStaticNameTable",
+    "oid": "1.3.6.1.4.1.89.48.70",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1qVlanStaticNameEntry": {
+    "name": "rldot1qVlanStaticNameEntry",
+    "oid": "1.3.6.1.4.1.89.48.70.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1qVlanStaticName": {
+    "name": "rldot1qVlanStaticName",
+    "oid": "1.3.6.1.4.1.89.48.70.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortVlanTriplePlayMulticastTvTable": {
+    "name": "rlPortVlanTriplePlayMulticastTvTable",
+    "oid": "1.3.6.1.4.1.89.48.71",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPortVlanTriplePlayMulticastTvEntry": {
+    "name": "rlPortVlanTriplePlayMulticastTvEntry",
+    "oid": "1.3.6.1.4.1.89.48.71.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPortVlanTriplePlayMulticastTvList1to1024": {
+    "name": "rlPortVlanTriplePlayMulticastTvList1to1024",
+    "oid": "1.3.6.1.4.1.89.48.71.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList1",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortVlanTriplePlayMulticastTvList1025to2048": {
+    "name": "rlPortVlanTriplePlayMulticastTvList1025to2048",
+    "oid": "1.3.6.1.4.1.89.48.71.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortVlanTriplePlayMulticastTvList2049to3072": {
+    "name": "rlPortVlanTriplePlayMulticastTvList2049to3072",
+    "oid": "1.3.6.1.4.1.89.48.71.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList3",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPortVlanTriplePlayMulticastTvList3073to4094": {
+    "name": "rlPortVlanTriplePlayMulticastTvList3073to4094",
+    "oid": "1.3.6.1.4.1.89.48.71.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanList4",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1qVlanMembershipTypeTable": {
+    "name": "rldot1qVlanMembershipTypeTable",
+    "oid": "1.3.6.1.4.1.89.48.72",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1qVlanMembershipTypeEntry": {
+    "name": "rldot1qVlanMembershipTypeEntry",
+    "oid": "1.3.6.1.4.1.89.48.72.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1qVlanMembershipTypeBitmap": {
+    "name": "rldot1qVlanMembershipTypeBitmap",
+    "oid": "1.3.6.1.4.1.89.48.72.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-vlan-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-vlan-MIB"
+  }
+}

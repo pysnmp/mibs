@@ -1,0 +1,2469 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-IP": [
+      "ipSpec"
+    ],
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "IANA-RTPROTO-MIB": [
+      "IANAipRouteProtocol"
+    ],
+    "IANAifType-MIB": [
+      "IANAtunnelType"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetAutonomousSystemNumber"
+    ],
+    "IP-FORWARD-MIB": [
+      "inetCidrRouteEntry"
+    ],
+    "IP-MIB": [
+      "ipv6InterfaceEntry",
+      "ipNetToPhysicalEntry",
+      "ipAddressEntry",
+      "ipv6RouterAdvertEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "zeroDotZero",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlIPv6": {
+    "name": "rlIPv6",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-25 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rlIpAddressTable": {
+    "name": "rlIpAddressTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpAddressEntry": {
+    "name": "rlIpAddressEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlIpAddressEntry",
+      "module": "CISCOSB-IPv6",
+      "object": "ipAddressEntry"
+    },
+    "status": "current"
+  },
+  "rlIpAddressPrefixLength": {
+    "name": "rlIpAddressPrefixLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpAddressType": {
+    "name": "rlIpAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "anycast": 2,
+          "broadcast": 3,
+          "multicast": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unicast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlipv6InterfaceTable": {
+    "name": "rlipv6InterfaceTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlipv6InterfaceEntry": {
+    "name": "rlipv6InterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlipv6InterfaceEntry",
+      "module": "CISCOSB-IPv6",
+      "object": "ipv6InterfaceEntry"
+    },
+    "status": "current"
+  },
+  "rlipv6InterfaceNdDadAttemps": {
+    "name": "rlipv6InterfaceNdDadAttemps",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlipv6InterfaceAutoconfigEnable": {
+    "name": "rlipv6InterfaceAutoconfigEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlipv6InterfaceIcmpUnreachSendEnable": {
+    "name": "rlipv6InterfaceIcmpUnreachSendEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlipv6InterfaceLinkMTU": {
+    "name": "rlipv6InterfaceLinkMTU",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1280,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlipv6InterfaceMLDVersion": {
+    "name": "rlipv6InterfaceMLDVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlipv6InterfaceRetransmitTime": {
+    "name": "rlipv6InterfaceRetransmitTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1000,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlipv6InterfaceIcmpRedirectSendEnable": {
+    "name": "rlipv6InterfaceIcmpRedirectSendEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlinetCidrRouteTable": {
+    "name": "rlinetCidrRouteTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlinetCidrRouteEntry": {
+    "name": "rlinetCidrRouteEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlinetCidrRouteEntry",
+      "module": "CISCOSB-IPv6",
+      "object": "inetCidrRouteEntry"
+    },
+    "status": "current"
+  },
+  "rlinetCidrRouteLifetime": {
+    "name": "rlinetCidrRouteLifetime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlinetCidrRouteInfo": {
+    "name": "rlinetCidrRouteInfo",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ospfIntraArea": 1,
+          "ospfInterArea": 2,
+          "ospfExternalType1": 3,
+          "ospfExternalType2": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlipNetToPhysicalTable": {
+    "name": "rlipNetToPhysicalTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlipNetToPhysicalEntry": {
+    "name": "rlipNetToPhysicalEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlipNetToPhysicalEntry",
+      "module": "CISCOSB-IPv6",
+      "object": "ipNetToPhysicalEntry"
+    },
+    "status": "current"
+  },
+  "rlipNetToPhysicalIsRouter": {
+    "name": "rlipNetToPhysicalIsRouter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlipNetToPhysicalReachableConfirmed": {
+    "name": "rlipNetToPhysicalReachableConfirmed",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlipv6IcmpErrorRatelimitInterval": {
+    "name": "rlipv6IcmpErrorRatelimitInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlipv6IcmpErrorRatelimitBucketSize": {
+    "name": "rlipv6IcmpErrorRatelimitBucketSize",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlipv6LLDefaultZone": {
+    "name": "rlipv6LLDefaultZone",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixTable": {
+    "name": "rlIpv6GeneralPrefixTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixEntry": {
+    "name": "rlIpv6GeneralPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6GeneralPrefixName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixName": {
+    "name": "rlIpv6GeneralPrefixName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixInetAddrType": {
+    "name": "rlIpv6GeneralPrefixInetAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixInetAddr": {
+    "name": "rlIpv6GeneralPrefixInetAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixInetAddrPrefixLength": {
+    "name": "rlIpv6GeneralPrefixInetAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixInterfaceId": {
+    "name": "rlIpv6GeneralPrefixInterfaceId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6GeneralPrefixRowStatus": {
+    "name": "rlIpv6GeneralPrefixRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlipv6MaximumHopsNumber": {
+    "name": "rlipv6MaximumHopsNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixTable": {
+    "name": "rlIpv6RouterAdvertPrefixTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixEntry": {
+    "name": "rlIpv6RouterAdvertPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6RouterAdvertPrefixIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6RouterAdvertPrefixIsDefault",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6RouterAdvertPrefixInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6RouterAdvertPrefixInetAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6RouterAdvertPrefixInetAddrPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixIfIndex": {
+    "name": "rlIpv6RouterAdvertPrefixIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixIsDefault": {
+    "name": "rlIpv6RouterAdvertPrefixIsDefault",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixInetAddrType": {
+    "name": "rlIpv6RouterAdvertPrefixInetAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixInetAddr": {
+    "name": "rlIpv6RouterAdvertPrefixInetAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixInetAddrPrefixLength": {
+    "name": "rlIpv6RouterAdvertPrefixInetAddrPrefixLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixAdminStatus": {
+    "name": "rlIpv6RouterAdvertPrefixAdminStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixAdvertise": {
+    "name": "rlIpv6RouterAdvertPrefixAdvertise",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixOnLinkStatus": {
+    "name": "rlIpv6RouterAdvertPrefixOnLinkStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onlink": 1,
+          "not-onlink": 2,
+          "off-link": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "onlink",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixAutonomousFlag": {
+    "name": "rlIpv6RouterAdvertPrefixAutonomousFlag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixAdvPreferredLifetime": {
+    "name": "rlIpv6RouterAdvertPrefixAdvPreferredLifetime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 604800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixAdvValidLifetime": {
+    "name": "rlIpv6RouterAdvertPrefixAdvValidLifetime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2592000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertPrefixRowStatus": {
+    "name": "rlIpv6RouterAdvertPrefixRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertTable": {
+    "name": "rlIpv6RouterAdvertTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertEntry": {
+    "name": "rlIpv6RouterAdvertEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlIpv6RouterAdvertEntry",
+      "module": "CISCOSB-IPv6",
+      "object": "ipv6RouterAdvertEntry"
+    },
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertAdvIntervalOption": {
+    "name": "rlIpv6RouterAdvertAdvIntervalOption",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertRouterPreference": {
+    "name": "rlIpv6RouterAdvertRouterPreference",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "medium",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlIpv6RouterAdvertIsCurHopLimitUserConfigured": {
+    "name": "rlIpv6RouterAdvertIsCurHopLimitUserConfigured",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlipv6InetCidrTableClear": {
+    "name": "rlipv6InetCidrTableClear",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6PathMtuTable": {
+    "name": "rlIpv6PathMtuTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6PathMtuEntry": {
+    "name": "rlIpv6PathMtuEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6PathMtuEntryInetDestAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6PathMtuEntryInetDestAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpv6PathMtuEntryInetDestAddrType": {
+    "name": "rlIpv6PathMtuEntryInetDestAddrType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6PathMtuEntryInetDestAddr": {
+    "name": "rlIpv6PathMtuEntryInetDestAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6PathMtuEntryMtu": {
+    "name": "rlIpv6PathMtuEntryMtu",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpv6PathMtuEntryAge": {
+    "name": "rlIpv6PathMtuEntryAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetStaticRouteTable": {
+    "name": "rlInetStaticRouteTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRouteEntry": {
+    "name": "rlInetStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRouteDestType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRoutePfxLen",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRouteNextHopType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRouteIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetStaticRouteDestType": {
+    "name": "rlInetStaticRouteDestType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetStaticRouteDest": {
+    "name": "rlInetStaticRouteDest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRoutePfxLen": {
+    "name": "rlInetStaticRoutePfxLen",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRouteNextHopType": {
+    "name": "rlInetStaticRouteNextHopType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRouteNextHop": {
+    "name": "rlInetStaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRouteIfIndex": {
+    "name": "rlInetStaticRouteIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRoutePathCost": {
+    "name": "rlInetStaticRoutePathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetStaticRouteType": {
+    "name": "rlInetStaticRouteType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reject": 2,
+          "local": 3,
+          "remote": 4,
+          "blackhole": 5,
+          "nd": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "remote",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetStaticRouteOwner": {
+    "name": "rlInetStaticRouteOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2,
+          "default": 3,
+          "icmp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetStaticRouteRowStatus": {
+    "name": "rlInetStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetStaticRouteForwardingStatus": {
+    "name": "rlInetStaticRouteForwardingStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetStaticRouteTrackObject": {
+    "name": "rlInetStaticRouteTrackObject",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetStaticRouteTrackStatus": {
+    "name": "rlInetStaticRouteTrackStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.28.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 0,
+          "down": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpNetToPhysicalTableClearTable": {
+    "name": "rlIpNetToPhysicalTableClearTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpNetToPhysicalTableClearEntry": {
+    "name": "rlIpNetToPhysicalTableClearEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpNetToPhysicalTableClearIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpNetToPhysicalTableClearIfIndex": {
+    "name": "rlIpNetToPhysicalTableClearIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpNetToPhysicalTableClearScope": {
+    "name": "rlIpNetToPhysicalTableClearScope",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "dynamicOnly": 2,
+          "staticOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetRoutingDistanceTable": {
+    "name": "rlInetRoutingDistanceTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetRoutingDistanceEntry": {
+    "name": "rlInetRoutingDistanceEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetRoutingDistanceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetRoutingDistanceType": {
+    "name": "rlInetRoutingDistanceType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInetRoutingDistanceConnected": {
+    "name": "rlInetRoutingDistanceConnected",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetRoutingDistanceStatic": {
+    "name": "rlInetRoutingDistanceStatic",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetRoutingDistanceRip": {
+    "name": "rlInetRoutingDistanceRip",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetRoutingDistanceOspfInternal": {
+    "name": "rlInetRoutingDistanceOspfInternal",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetRoutingDistanceOspfExternal": {
+    "name": "rlInetRoutingDistanceOspfExternal",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteTable": {
+    "name": "rlInternInetCidrRouteTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteEntry": {
+    "name": "rlInternInetCidrRouteEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetCidrRouteDestType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetCidrRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetCidrRoutePfxLen",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetCidrRoutePolicy",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetCidrRouteNextHopType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetCidrRouteNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInternInetCidrRouteDestType": {
+    "name": "rlInternInetCidrRouteDestType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteDest": {
+    "name": "rlInternInetCidrRouteDest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRoutePfxLen": {
+    "name": "rlInternInetCidrRoutePfxLen",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRoutePolicy": {
+    "name": "rlInternInetCidrRoutePolicy",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteNextHopType": {
+    "name": "rlInternInetCidrRouteNextHopType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteNextHop": {
+    "name": "rlInternInetCidrRouteNextHop",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteIfIndex": {
+    "name": "rlInternInetCidrRouteIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteType": {
+    "name": "rlInternInetCidrRouteType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reject": 2,
+          "local": 3,
+          "remote": 4,
+          "blackhole": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteProto": {
+    "name": "rlInternInetCidrRouteProto",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteAge": {
+    "name": "rlInternInetCidrRouteAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteNextHopAS": {
+    "name": "rlInternInetCidrRouteNextHopAS",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteMetric1": {
+    "name": "rlInternInetCidrRouteMetric1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteMetric2": {
+    "name": "rlInternInetCidrRouteMetric2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteMetric3": {
+    "name": "rlInternInetCidrRouteMetric3",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteMetric4": {
+    "name": "rlInternInetCidrRouteMetric4",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteMetric5": {
+    "name": "rlInternInetCidrRouteMetric5",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteStatus": {
+    "name": "rlInternInetCidrRouteStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteLifetime": {
+    "name": "rlInternInetCidrRouteLifetime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetCidrRouteInfo": {
+    "name": "rlInternInetCidrRouteInfo",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.30.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ospfIntraArea": 1,
+          "ospfInterArea": 2,
+          "ospfExternalType1": 3,
+          "ospfExternalType2": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteTable": {
+    "name": "rlInternInetStaticRouteTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteEntry": {
+    "name": "rlInternInetStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetStaticRouteDestType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetStaticRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetStaticRoutePfxLen",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetStaticRouteNextHopType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetStaticRouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInternInetStaticRouteIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInternInetStaticRouteDestType": {
+    "name": "rlInternInetStaticRouteDestType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteDest": {
+    "name": "rlInternInetStaticRouteDest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetStaticRoutePfxLen": {
+    "name": "rlInternInetStaticRoutePfxLen",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteNextHopType": {
+    "name": "rlInternInetStaticRouteNextHopType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteNextHop": {
+    "name": "rlInternInetStaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteIfIndex": {
+    "name": "rlInternInetStaticRouteIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInternInetStaticRoutePathCost": {
+    "name": "rlInternInetStaticRoutePathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteType": {
+    "name": "rlInternInetStaticRouteType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reject": 2,
+          "local": 3,
+          "remote": 4,
+          "blackhole": 5,
+          "nd": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "remote",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteOwner": {
+    "name": "rlInternInetStaticRouteOwner",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2,
+          "default": 3,
+          "icmp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteRowStatus": {
+    "name": "rlInternInetStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInternInetStaticRouteForwardingStatus": {
+    "name": "rlInternInetStaticRouteForwardingStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.31.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingTable": {
+    "name": "rlIpv6HostForwardingTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingEntry": {
+    "name": "rlIpv6HostForwardingEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6HostForwardingDestType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6HostForwardingDest",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6HostForwardingPfxLen",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6HostForwardingNextHopType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6HostForwardingNextHop",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6HostForwardingIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6HostForwardingType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpv6HostForwardingDestType": {
+    "name": "rlIpv6HostForwardingDestType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingDest": {
+    "name": "rlIpv6HostForwardingDest",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingPfxLen": {
+    "name": "rlIpv6HostForwardingPfxLen",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingNextHopType": {
+    "name": "rlIpv6HostForwardingNextHopType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingNextHop": {
+    "name": "rlIpv6HostForwardingNextHop",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingIfIndex": {
+    "name": "rlIpv6HostForwardingIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingType": {
+    "name": "rlIpv6HostForwardingType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redirect": 1,
+          "local": 2,
+          "nd": 3,
+          "remote-static": 4,
+          "remote-dynamic": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6HostForwardingPathCost": {
+    "name": "rlIpv6HostForwardingPathCost",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlipv6EnabledByDefaultRemovedIfindex": {
+    "name": "rlipv6EnabledByDefaultRemovedIfindex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlManagementIpv6": {
+    "name": "rlManagementIpv6",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlManagementIpv6Action": {
+    "name": "rlManagementIpv6Action",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6DbTable": {
+    "name": "rlIpv6TunnelToIPv6DbTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6DbEntry": {
+    "name": "rlIpv6TunnelToIPv6DbEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlIpv6TunnelToIPv6IfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6IfIndex": {
+    "name": "rlIpv6TunnelToIPv6IfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6Action": {
+    "name": "rlIpv6TunnelToIPv6Action",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createTunnel": 1,
+          "destroyTunnel": 2,
+          "addAddress": 3,
+          "deleteAddress": 4,
+          "updateAddresses": 5,
+          "six2fourCfgRestore": 6,
+          "six2fourCfgClear": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6TunnelType": {
+    "name": "rlIpv6TunnelToIPv6TunnelType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAtunnelType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6Address": {
+    "name": "rlIpv6TunnelToIPv6Address",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6PrefixLength": {
+    "name": "rlIpv6TunnelToIPv6PrefixLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6Mtu": {
+    "name": "rlIpv6TunnelToIPv6Mtu",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6MinRtrSolicitationInterval": {
+    "name": "rlIpv6TunnelToIPv6MinRtrSolicitationInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6TunnelToIPv6LinkLayerIPv4": {
+    "name": "rlIpv6TunnelToIPv6LinkLayerIPv4",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6DefaultTC": {
+    "name": "rlIpv6DefaultTC",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6DefaultUP": {
+    "name": "rlIpv6DefaultUP",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpv6MtuSize": {
+    "name": "rlIpv6MtuSize",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlInetStaticRouteAuxMappingTable": {
+    "name": "rlInetStaticRouteAuxMappingTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRouteAuxMappingEntry": {
+    "name": "rlInetStaticRouteAuxMappingEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRouteAuxMappingNextHopType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IPv6",
+        "object": "rlInetStaticRouteAuxMappingNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlInetStaticRouteAuxMappingNextHopType": {
+    "name": "rlInetStaticRouteAuxMappingNextHopType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRouteAuxMappingNextHop": {
+    "name": "rlInetStaticRouteAuxMappingNextHop",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlInetStaticRouteAuxMappingNextHopIfIndex": {
+    "name": "rlInetStaticRouteAuxMappingNextHopIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.129.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-IPv6"
+  }
+}

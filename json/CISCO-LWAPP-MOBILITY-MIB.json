@@ -1,0 +1,834 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappMobilityMIB": {
+    "name": "ciscoLwappMobilityMIB",
+    "oid": "1.3.6.1.4.1.9.9.576",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-23 00:00",
+        "description": "Added ciscoLwappMobilityMIBComplianceRev01 that deprecates ciscoLwappMobilityMIBCompliance. Added cLMobilityGroupRev01ConfigGroup object group."
+      },
+      {
+        "revision": "2006-07-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappMobilityMIBNotifs": {
+    "name": "ciscoLwappMobilityMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.576.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMobilityMIBObjects": {
+    "name": "ciscoLwappMobilityMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.576.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMobilityMIBConform": {
+    "name": "ciscoLwappMobilityMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.576.2",
+    "class": "objectidentity"
+  },
+  "cLMobilityAnchorTable": {
+    "name": "cLMobilityAnchorTable",
+    "oid": "1.3.6.1.4.1.9.9.576.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityAnchorEntry": {
+    "name": "cLMobilityAnchorEntry",
+    "oid": "1.3.6.1.4.1.9.9.576.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorWlanSsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorSwitchAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorSwitchAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityAnchorWlanSsid": {
+    "name": "cLMobilityAnchorWlanSsid",
+    "oid": "1.3.6.1.4.1.9.9.576.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityAnchorSwitchAddressType": {
+    "name": "cLMobilityAnchorSwitchAddressType",
+    "oid": "1.3.6.1.4.1.9.9.576.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityAnchorSwitchAddress": {
+    "name": "cLMobilityAnchorSwitchAddress",
+    "oid": "1.3.6.1.4.1.9.9.576.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityAnchorStatus": {
+    "name": "cLMobilityAnchorStatus",
+    "oid": "1.3.6.1.4.1.9.9.576.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "controlpath": 0,
+        "datapath": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityAnchorRowStatus": {
+    "name": "cLMobilityAnchorRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.576.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityAnchorGlobalDot11Config": {
+    "name": "cLMobilityAnchorGlobalDot11Config",
+    "oid": "1.3.6.1.4.1.9.9.576.1.2",
+    "class": "objectidentity"
+  },
+  "cLMobilityAnchorGroupKeepAliveNumber": {
+    "name": "cLMobilityAnchorGroupKeepAliveNumber",
+    "oid": "1.3.6.1.4.1.9.9.576.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityAnchorGroupKeepAliveInterval": {
+    "name": "cLMobilityAnchorGroupKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.576.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityAnchorSmtStatus": {
+    "name": "cLMobilityAnchorSmtStatus",
+    "oid": "1.3.6.1.4.1.9.9.576.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityAnchorCurrentSmt": {
+    "name": "cLMobilityAnchorCurrentSmt",
+    "oid": "1.3.6.1.4.1.9.9.576.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityMulticastGroupConfig": {
+    "name": "cLMobilityMulticastGroupConfig",
+    "oid": "1.3.6.1.4.1.9.9.576.1.4",
+    "class": "objectidentity"
+  },
+  "cLMobilityMulticastMessagingEnable": {
+    "name": "cLMobilityMulticastMessagingEnable",
+    "oid": "1.3.6.1.4.1.9.9.576.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityMulticastGroupTable": {
+    "name": "cLMobilityMulticastGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.576.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityMulticastGroupEntry": {
+    "name": "cLMobilityMulticastGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.576.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityGroupMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityGroupMacAddress": {
+    "name": "cLMobilityGroupMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.576.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityMulticastGroupIPAddress": {
+    "name": "cLMobilityMulticastGroupIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.576.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityMulticastGroupIPAddressType": {
+    "name": "cLMobilityMulticastGroupIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.576.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityGroupMembersTable": {
+    "name": "cLMobilityGroupMembersTable",
+    "oid": "1.3.6.1.4.1.9.9.576.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityGroupMembersEntry": {
+    "name": "cLMobilityGroupMembersEntry",
+    "oid": "1.3.6.1.4.1.9.9.576.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityGroupMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityGroupMemberIPAddressType": {
+    "name": "cLMobilityGroupMemberIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.576.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityGroupMemberIPAddress": {
+    "name": "cLMobilityGroupMemberIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.576.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityGroupMemberControlPathStatusUp": {
+    "name": "cLMobilityGroupMemberControlPathStatusUp",
+    "oid": "1.3.6.1.4.1.9.9.576.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityGroupMemberDataPathStatusUp": {
+    "name": "cLMobilityGroupMemberDataPathStatusUp",
+    "oid": "1.3.6.1.4.1.9.9.576.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityForeignWlcMapTable": {
+    "name": "cLMobilityForeignWlcMapTable",
+    "oid": "1.3.6.1.4.1.9.9.576.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityForeignWlcMapEntry": {
+    "name": "cLMobilityForeignWlcMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.576.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorWlanSsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityForeignWlcMapMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityForeignWlcMapMacAddress": {
+    "name": "cLMobilityForeignWlcMapMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.576.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityForeignWlcMapIf": {
+    "name": "cLMobilityForeignWlcMapIf",
+    "oid": "1.3.6.1.4.1.9.9.576.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityForeignWlcMapRowStatus": {
+    "name": "cLMobilityForeignWlcMapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.576.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityTrapVariables": {
+    "name": "cLMobilityTrapVariables",
+    "oid": "1.3.6.1.4.1.9.9.576.1.3",
+    "class": "objectidentity"
+  },
+  "cLMobilityAnchorWlanId": {
+    "name": "cLMobilityAnchorWlanId",
+    "oid": "1.3.6.1.4.1.9.9.576.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLMobilityAnchorAddressType": {
+    "name": "cLMobilityAnchorAddressType",
+    "oid": "1.3.6.1.4.1.9.9.576.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLMobilityAnchorAddress": {
+    "name": "cLMobilityAnchorAddress",
+    "oid": "1.3.6.1.4.1.9.9.576.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoLwappMobilityAnchorControlPathDown": {
+    "name": "ciscoLwappMobilityAnchorControlPathDown",
+    "oid": "1.3.6.1.4.1.9.9.576.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityAnchorControlPathUp": {
+    "name": "ciscoLwappMobilityAnchorControlPathUp",
+    "oid": "1.3.6.1.4.1.9.9.576.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityAnchorDataPathDown": {
+    "name": "ciscoLwappMobilityAnchorDataPathDown",
+    "oid": "1.3.6.1.4.1.9.9.576.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityAnchorDataPathUp": {
+    "name": "ciscoLwappMobilityAnchorDataPathUp",
+    "oid": "1.3.6.1.4.1.9.9.576.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityAllAnchorsOnWlanDown": {
+    "name": "ciscoLwappMobilityAllAnchorsOnWlanDown",
+    "oid": "1.3.6.1.4.1.9.9.576.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorWlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityOneAnchorOnWlanUp": {
+    "name": "ciscoLwappMobilityOneAnchorOnWlanUp",
+    "oid": "1.3.6.1.4.1.9.9.576.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorWlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityMIBCompliances": {
+    "name": "ciscoLwappMobilityMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.576.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMobilityMIBGroups": {
+    "name": "ciscoLwappMobilityMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.576.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMobilityMIBCompliance": {
+    "name": "ciscoLwappMobilityMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.576.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLNplus1RedundancyRev01ConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLNplus1RedundancyRev01StatusGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLNplus1RedundancyRev01NotifsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLSymmetricTunnelingRev01ConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLSymmetricTunnelingRev01StatusGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappMobilityMIBComplianceRev01": {
+    "name": "ciscoLwappMobilityMIBComplianceRev01",
+    "oid": "1.3.6.1.4.1.9.9.576.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLNplus1RedundancyRev01ConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLNplus1RedundancyRev01StatusGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLNplus1RedundancyRev01NotifsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLSymmetricTunnelingRev01ConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLSymmetricTunnelingRev01StatusGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      },
+      {
+        "object": "cLMobilityGroupRev01ConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cLNplus1RedundancyRev01ConfigGroup": {
+    "name": "cLNplus1RedundancyRev01ConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.576.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorGroupKeepAliveNumber"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorGroupKeepAliveInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cLNplus1RedundancyRev01StatusGroup": {
+    "name": "cLNplus1RedundancyRev01StatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.576.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorWlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cLNplus1RedundancyRev01NotifsGroup": {
+    "name": "cLNplus1RedundancyRev01NotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.576.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "ciscoLwappMobilityAnchorControlPathDown"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "ciscoLwappMobilityAnchorControlPathUp"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "ciscoLwappMobilityAnchorDataPathDown"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "ciscoLwappMobilityAnchorDataPathUp"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "ciscoLwappMobilityAllAnchorsOnWlanDown"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "ciscoLwappMobilityOneAnchorOnWlanUp"
+      }
+    ],
+    "status": "current"
+  },
+  "cLSymmetricTunnelingRev01ConfigGroup": {
+    "name": "cLSymmetricTunnelingRev01ConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.576.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorSmtStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cLSymmetricTunnelingRev01StatusGroup": {
+    "name": "cLSymmetricTunnelingRev01StatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.576.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityAnchorCurrentSmt"
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityGroupRev01ConfigGroup": {
+    "name": "cLMobilityGroupRev01ConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.576.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityMulticastMessagingEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityMulticastGroupIPAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityMulticastGroupIPAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityGroupMemberIPAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityGroupMemberIPAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityGroupMemberControlPathStatusUp"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityGroupMemberDataPathStatusUp"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityForeignWlcMapIf"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-MIB",
+        "object": "cLMobilityForeignWlcMapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MOBILITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-MOBILITY-MIB"
+  }
+}

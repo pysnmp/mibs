@@ -1,0 +1,303 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dStpPortEntry",
+      "dot1dStp"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rstpMIB": {
+    "name": "rstpMIB",
+    "oid": "1.3.6.1.2.1.134",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-07 00:00",
+        "description": "The initial version of this MIB module as published in RFC 4318."
+      }
+    ]
+  },
+  "rstpNotifications": {
+    "name": "rstpNotifications",
+    "oid": "1.3.6.1.2.1.134.0",
+    "class": "objectidentity"
+  },
+  "rstpObjects": {
+    "name": "rstpObjects",
+    "oid": "1.3.6.1.2.1.134.1",
+    "class": "objectidentity"
+  },
+  "rstpConformance": {
+    "name": "rstpConformance",
+    "oid": "1.3.6.1.2.1.134.2",
+    "class": "objectidentity"
+  },
+  "dot1dStpVersion": {
+    "name": "dot1dStpVersion",
+    "oid": "1.3.6.1.2.1.17.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stpCompatible": 0,
+          "rstp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rstp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpTxHoldCount": {
+    "name": "dot1dStpTxHoldCount",
+    "oid": "1.3.6.1.2.1.17.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpExtPortTable": {
+    "name": "dot1dStpExtPortTable",
+    "oid": "1.3.6.1.2.1.17.2.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1dStpExtPortEntry": {
+    "name": "dot1dStpExtPortEntry",
+    "oid": "1.3.6.1.2.1.17.2.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dot1dStpExtPortEntry",
+      "module": "RSTP-MIB",
+      "object": "dot1dStpPortEntry"
+    },
+    "status": "current"
+  },
+  "dot1dStpPortProtocolMigration": {
+    "name": "dot1dStpPortProtocolMigration",
+    "oid": "1.3.6.1.2.1.17.2.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPortAdminEdgePort": {
+    "name": "dot1dStpPortAdminEdgePort",
+    "oid": "1.3.6.1.2.1.17.2.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPortOperEdgePort": {
+    "name": "dot1dStpPortOperEdgePort",
+    "oid": "1.3.6.1.2.1.17.2.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortAdminPointToPoint": {
+    "name": "dot1dStpPortAdminPointToPoint",
+    "oid": "1.3.6.1.2.1.17.2.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 0,
+          "forceFalse": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPortOperPointToPoint": {
+    "name": "dot1dStpPortOperPointToPoint",
+    "oid": "1.3.6.1.2.1.17.2.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortAdminPathCost": {
+    "name": "dot1dStpPortAdminPathCost",
+    "oid": "1.3.6.1.2.1.17.2.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rstpGroups": {
+    "name": "rstpGroups",
+    "oid": "1.3.6.1.2.1.134.2.1",
+    "class": "objectidentity"
+  },
+  "rstpCompliances": {
+    "name": "rstpCompliances",
+    "oid": "1.3.6.1.2.1.134.2.2",
+    "class": "objectidentity"
+  },
+  "rstpBridgeGroup": {
+    "name": "rstpBridgeGroup",
+    "oid": "1.3.6.1.2.1.134.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpVersion"
+      },
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpTxHoldCount"
+      }
+    ],
+    "status": "current"
+  },
+  "rstpPortGroup": {
+    "name": "rstpPortGroup",
+    "oid": "1.3.6.1.2.1.134.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpPortProtocolMigration"
+      },
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpPortAdminEdgePort"
+      },
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpPortOperEdgePort"
+      },
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpPortAdminPointToPoint"
+      },
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpPortOperPointToPoint"
+      },
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpPortAdminPathCost"
+      }
+    ],
+    "status": "current"
+  },
+  "rstpCompliance": {
+    "name": "rstpCompliance",
+    "oid": "1.3.6.1.2.1.134.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rstpBridgeGroup",
+        "module": "RSTP-MIB"
+      },
+      {
+        "object": "rstpPortGroup",
+        "module": "RSTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RSTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RSTP-MIB"
+  }
+}

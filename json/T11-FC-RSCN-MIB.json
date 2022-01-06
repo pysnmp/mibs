@@ -1,0 +1,816 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "FcAddressIdOrZero",
+      "FcNameIdOrZero",
+      "fcmSwitchIndex",
+      "fcmInstanceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "T11-FC-NAME-SERVER-MIB": [
+      "T11NsGs4RejectReasonCode"
+    ],
+    "T11-TC-MIB": [
+      "T11FabricIndex"
+    ]
+  },
+  "t11FcRscnMIB": {
+    "name": "t11FcRscnMIB",
+    "oid": "1.3.6.1.2.1.161",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-08 00:00",
+        "description": "Initial version of this MIB module, published as RFC 4983."
+      }
+    ]
+  },
+  "t11FcRscnNotifications": {
+    "name": "t11FcRscnNotifications",
+    "oid": "1.3.6.1.2.1.161.0",
+    "class": "objectidentity"
+  },
+  "t11FcRscnObjects": {
+    "name": "t11FcRscnObjects",
+    "oid": "1.3.6.1.2.1.161.1",
+    "class": "objectidentity"
+  },
+  "t11FcRscnConformance": {
+    "name": "t11FcRscnConformance",
+    "oid": "1.3.6.1.2.1.161.2",
+    "class": "objectidentity"
+  },
+  "t11FcRscnRegistrations": {
+    "name": "t11FcRscnRegistrations",
+    "oid": "1.3.6.1.2.1.161.1.1",
+    "class": "objectidentity"
+  },
+  "t11FcRscnStats": {
+    "name": "t11FcRscnStats",
+    "oid": "1.3.6.1.2.1.161.1.2",
+    "class": "objectidentity"
+  },
+  "t11FcRscnInformation": {
+    "name": "t11FcRscnInformation",
+    "oid": "1.3.6.1.2.1.161.1.3",
+    "class": "objectidentity"
+  },
+  "t11FcRscnRegTable": {
+    "name": "t11FcRscnRegTable",
+    "oid": "1.3.6.1.2.1.161.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcRscnRegEntry": {
+    "name": "t11FcRscnRegEntry",
+    "oid": "1.3.6.1.2.1.161.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRegFcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnFabricIndex": {
+    "name": "t11FcRscnFabricIndex",
+    "oid": "1.3.6.1.2.1.161.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11FabricIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcRscnRegFcId": {
+    "name": "t11FcRscnRegFcId",
+    "oid": "1.3.6.1.2.1.161.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressIdOrZero",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcRscnRegType": {
+    "name": "t11FcRscnRegType",
+    "oid": "1.3.6.1.2.1.161.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fromFabricController": 0,
+        "fromNxPort": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnStatsTable": {
+    "name": "t11FcRscnStatsTable",
+    "oid": "1.3.6.1.2.1.161.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcRscnStatsEntry": {
+    "name": "t11FcRscnStatsEntry",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnInScrs": {
+    "name": "t11FcRscnInScrs",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnInRscns": {
+    "name": "t11FcRscnInRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnOutRscns": {
+    "name": "t11FcRscnOutRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnInSwRscns": {
+    "name": "t11FcRscnInSwRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnOutSwRscns": {
+    "name": "t11FcRscnOutSwRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnScrRejects": {
+    "name": "t11FcRscnScrRejects",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnRscnRejects": {
+    "name": "t11FcRscnRscnRejects",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnSwRscnRejects": {
+    "name": "t11FcRscnSwRscnRejects",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnInUnspecifiedRscns": {
+    "name": "t11FcRscnInUnspecifiedRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnOutUnspecifiedRscns": {
+    "name": "t11FcRscnOutUnspecifiedRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnInChangedAttribRscns": {
+    "name": "t11FcRscnInChangedAttribRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnOutChangedAttribRscns": {
+    "name": "t11FcRscnOutChangedAttribRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnInChangedServiceRscns": {
+    "name": "t11FcRscnInChangedServiceRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnOutChangedServiceRscns": {
+    "name": "t11FcRscnOutChangedServiceRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnInChangedSwitchRscns": {
+    "name": "t11FcRscnInChangedSwitchRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnOutChangedSwitchRscns": {
+    "name": "t11FcRscnOutChangedSwitchRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnInRemovedRscns": {
+    "name": "t11FcRscnInRemovedRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnOutRemovedRscns": {
+    "name": "t11FcRscnOutRemovedRscns",
+    "oid": "1.3.6.1.2.1.161.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnNotifyControlTable": {
+    "name": "t11FcRscnNotifyControlTable",
+    "oid": "1.3.6.1.2.1.161.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "t11FcRscnNotifyControlEntry": {
+    "name": "t11FcRscnNotifyControlEntry",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "FC-MGMT-MIB",
+        "object": "fcmSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnIlsRejectNotifyEnable": {
+    "name": "t11FcRscnIlsRejectNotifyEnable",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcRscnElsRejectNotifyEnable": {
+    "name": "t11FcRscnElsRejectNotifyEnable",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "t11FcRscnRejectedRequestString": {
+    "name": "t11FcRscnRejectedRequestString",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnRejectedRequestSource": {
+    "name": "t11FcRscnRejectedRequestSource",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnRejectReasonCode": {
+    "name": "t11FcRscnRejectReasonCode",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "T11NsGs4RejectReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnRejectReasonCodeExp": {
+    "name": "t11FcRscnRejectReasonCodeExp",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnRejectReasonVendorCode": {
+    "name": "t11FcRscnRejectReasonVendorCode",
+    "oid": "1.3.6.1.2.1.161.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "t11FcRscnElsRejectReqNotify": {
+    "name": "t11FcRscnElsRejectReqNotify",
+    "oid": "1.3.6.1.2.1.161.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectedRequestString"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectedRequestSource"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonCode"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnIlsRejectReqNotify": {
+    "name": "t11FcRscnIlsRejectReqNotify",
+    "oid": "1.3.6.1.2.1.161.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectedRequestString"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectedRequestSource"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonCode"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnCompliances": {
+    "name": "t11FcRscnCompliances",
+    "oid": "1.3.6.1.2.1.161.2.1",
+    "class": "objectidentity"
+  },
+  "t11FcRscnGroups": {
+    "name": "t11FcRscnGroups",
+    "oid": "1.3.6.1.2.1.161.2.2",
+    "class": "objectidentity"
+  },
+  "t11FcRscnCompliance": {
+    "name": "t11FcRscnCompliance",
+    "oid": "1.3.6.1.2.1.161.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "t11FcRscnRegistrationGroup",
+        "module": "T11-FC-RSCN-MIB"
+      },
+      {
+        "object": "t11FcRscnNotifyControlGroup",
+        "module": "T11-FC-RSCN-MIB"
+      },
+      {
+        "object": "t11FcRscnNotifyGroup",
+        "module": "T11-FC-RSCN-MIB"
+      },
+      {
+        "object": "t11FcRscnStatsGroup",
+        "module": "T11-FC-RSCN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnRegistrationGroup": {
+    "name": "t11FcRscnRegistrationGroup",
+    "oid": "1.3.6.1.2.1.161.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRegType"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnStatsGroup": {
+    "name": "t11FcRscnStatsGroup",
+    "oid": "1.3.6.1.2.1.161.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInScrs"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnOutRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInSwRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnOutSwRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnScrRejects"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRscnRejects"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnSwRscnRejects"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInUnspecifiedRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnOutUnspecifiedRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInChangedAttribRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnOutChangedAttribRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInChangedServiceRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnOutChangedServiceRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInChangedSwitchRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnOutChangedSwitchRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnInRemovedRscns"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnOutRemovedRscns"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnNotifyControlGroup": {
+    "name": "t11FcRscnNotifyControlGroup",
+    "oid": "1.3.6.1.2.1.161.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnIlsRejectNotifyEnable"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnElsRejectNotifyEnable"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectedRequestString"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectedRequestSource"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonCode"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonCodeExp"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnRejectReasonVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "t11FcRscnNotifyGroup": {
+    "name": "t11FcRscnNotifyGroup",
+    "oid": "1.3.6.1.2.1.161.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnIlsRejectReqNotify"
+      },
+      {
+        "module": "T11-FC-RSCN-MIB",
+        "object": "t11FcRscnElsRejectReqNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-RSCN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-RSCN-MIB"
+  }
+}

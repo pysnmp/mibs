@@ -1,0 +1,380 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxMibs",
+      "jnxSyslogNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxSyslog": {
+    "name": "jnxSyslog",
+    "oid": "1.3.6.1.4.1.2636.3.35",
+    "class": "moduleidentity"
+  },
+  "JnxSyslogSeverity": {
+    "name": "JnxSyslogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "alert": 2,
+          "critical": 3,
+          "error": 4,
+          "warning": 5,
+          "notice": 6,
+          "info": 7,
+          "debug": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSyslogFacility": {
+    "name": "JnxSyslogFacility",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 1,
+          "user": 2,
+          "mail": 3,
+          "daemon": 4,
+          "auth": 5,
+          "syslog": 6,
+          "lpr": 7,
+          "news": 8,
+          "uucp": 9,
+          "cron": 10,
+          "authPriv": 11,
+          "ftp": 12,
+          "ntp": 13,
+          "security": 14,
+          "console": 15,
+          "local0": 17,
+          "dfc": 18,
+          "local2": 19,
+          "firewall": 20,
+          "pfe": 21,
+          "conflict": 22,
+          "change": 23,
+          "interact": 24
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxSyslogNotifyVars": {
+    "name": "jnxSyslogNotifyVars",
+    "oid": "1.3.6.1.4.1.2636.3.35.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxSyslogTable": {
+    "name": "jnxSyslogTable",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSyslogEntry": {
+    "name": "jnxSyslogEntry",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSyslogId": {
+    "name": "jnxSyslogId",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSyslogEventName": {
+    "name": "jnxSyslogEventName",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogTimestamp": {
+    "name": "jnxSyslogTimestamp",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogSeverity": {
+    "name": "jnxSyslogSeverity",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogFacility": {
+    "name": "jnxSyslogFacility",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSyslogFacility",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogProcessId": {
+    "name": "jnxSyslogProcessId",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogProcessName": {
+    "name": "jnxSyslogProcessName",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogHostName": {
+    "name": "jnxSyslogHostName",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogMessage": {
+    "name": "jnxSyslogMessage",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogAvTable": {
+    "name": "jnxSyslogAvTable",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSyslogAvEntry": {
+    "name": "jnxSyslogAvEntry",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogId",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogAvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSyslogAvIndex": {
+    "name": "jnxSyslogAvIndex",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSyslogAvAttribute": {
+    "name": "jnxSyslogAvAttribute",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogAvValue": {
+    "name": "jnxSyslogAvValue",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxUserDefinedTrapOID": {
+    "name": "jnxUserDefinedTrapOID",
+    "oid": "1.3.6.1.4.1.2636.3.35.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSyslogNotificationPrefix": {
+    "name": "jnxSyslogNotificationPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.12.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxSyslogTrap": {
+    "name": "jnxSyslogTrap",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogEventName"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogTimestamp"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogSeverity"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogFacility"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogProcessId"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogProcessName"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogHostName"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxUserDefinedNotification": {
+    "name": "jnxUserDefinedNotification",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxUserDefinedTrapOID"
+      },
+      {
+        "module": "JUNIPER-SYSLOG-MIB",
+        "object": "jnxSyslogMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-SYSLOG-MIB"
+  }
+}

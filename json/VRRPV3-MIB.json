@@ -1,0 +1,934 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "vrrpv3MIB": {
+    "name": "vrrpv3MIB",
+    "oid": "1.3.6.1.2.1.207",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-12 00:00",
+        "description": "Initial version as published in RFC 6527."
+      }
+    ]
+  },
+  "Vrrpv3VrIdTC": {
+    "name": "Vrrpv3VrIdTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "vrrpv3Notifications": {
+    "name": "vrrpv3Notifications",
+    "oid": "1.3.6.1.2.1.207.0",
+    "class": "objectidentity"
+  },
+  "vrrpv3Objects": {
+    "name": "vrrpv3Objects",
+    "oid": "1.3.6.1.2.1.207.1",
+    "class": "objectidentity"
+  },
+  "vrrpv3Conformance": {
+    "name": "vrrpv3Conformance",
+    "oid": "1.3.6.1.2.1.207.2",
+    "class": "objectidentity"
+  },
+  "vrrpv3Operations": {
+    "name": "vrrpv3Operations",
+    "oid": "1.3.6.1.2.1.207.1.1",
+    "class": "objectidentity"
+  },
+  "vrrpv3Statistics": {
+    "name": "vrrpv3Statistics",
+    "oid": "1.3.6.1.2.1.207.1.2",
+    "class": "objectidentity"
+  },
+  "vrrpv3OperationsTable": {
+    "name": "vrrpv3OperationsTable",
+    "oid": "1.3.6.1.2.1.207.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vrrpv3OperationsEntry": {
+    "name": "vrrpv3OperationsEntry",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsVrId",
+        "implied": 0
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsInetAddrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3OperationsVrId": {
+    "name": "vrrpv3OperationsVrId",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Vrrpv3VrIdTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vrrpv3OperationsInetAddrType": {
+    "name": "vrrpv3OperationsInetAddrType",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vrrpv3OperationsMasterIpAddr": {
+    "name": "vrrpv3OperationsMasterIpAddr",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3OperationsPrimaryIpAddr": {
+    "name": "vrrpv3OperationsPrimaryIpAddr",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vrrpv3OperationsVirtualMacAddr": {
+    "name": "vrrpv3OperationsVirtualMacAddr",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3OperationsStatus": {
+    "name": "vrrpv3OperationsStatus",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3OperationsPriority": {
+    "name": "vrrpv3OperationsPriority",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vrrpv3OperationsAddrCount": {
+    "name": "vrrpv3OperationsAddrCount",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3OperationsAdvInterval": {
+    "name": "vrrpv3OperationsAdvInterval",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vrrpv3OperationsPreemptMode": {
+    "name": "vrrpv3OperationsPreemptMode",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vrrpv3OperationsAcceptMode": {
+    "name": "vrrpv3OperationsAcceptMode",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vrrpv3OperationsUpTime": {
+    "name": "vrrpv3OperationsUpTime",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3OperationsRowStatus": {
+    "name": "vrrpv3OperationsRowStatus",
+    "oid": "1.3.6.1.2.1.207.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vrrpv3AssociatedIpAddrTable": {
+    "name": "vrrpv3AssociatedIpAddrTable",
+    "oid": "1.3.6.1.2.1.207.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vrrpv3AssociatedIpAddrEntry": {
+    "name": "vrrpv3AssociatedIpAddrEntry",
+    "oid": "1.3.6.1.2.1.207.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsVrId",
+        "implied": 0
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsInetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3AssociatedIpAddrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3AssociatedIpAddrAddress": {
+    "name": "vrrpv3AssociatedIpAddrAddress",
+    "oid": "1.3.6.1.2.1.207.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vrrpv3AssociatedIpAddrRowStatus": {
+    "name": "vrrpv3AssociatedIpAddrRowStatus",
+    "oid": "1.3.6.1.2.1.207.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vrrpv3RouterChecksumErrors": {
+    "name": "vrrpv3RouterChecksumErrors",
+    "oid": "1.3.6.1.2.1.207.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3RouterVersionErrors": {
+    "name": "vrrpv3RouterVersionErrors",
+    "oid": "1.3.6.1.2.1.207.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3RouterVrIdErrors": {
+    "name": "vrrpv3RouterVrIdErrors",
+    "oid": "1.3.6.1.2.1.207.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3GlobalStatisticsDiscontinuityTime": {
+    "name": "vrrpv3GlobalStatisticsDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.207.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsTable": {
+    "name": "vrrpv3StatisticsTable",
+    "oid": "1.3.6.1.2.1.207.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vrrpv3StatisticsEntry": {
+    "name": "vrrpv3StatisticsEntry",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vrrpv3StatisticsEntry",
+      "module": "VRRPV3-MIB",
+      "object": "vrrpv3OperationsEntry"
+    },
+    "status": "current"
+  },
+  "vrrpv3StatisticsMasterTransitions": {
+    "name": "vrrpv3StatisticsMasterTransitions",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsNewMasterReason": {
+    "name": "vrrpv3StatisticsNewMasterReason",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notMaster": 0,
+          "priority": 1,
+          "preempted": 2,
+          "masterNoResponse": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsRcvdAdvertisements": {
+    "name": "vrrpv3StatisticsRcvdAdvertisements",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsAdvIntervalErrors": {
+    "name": "vrrpv3StatisticsAdvIntervalErrors",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsIpTtlErrors": {
+    "name": "vrrpv3StatisticsIpTtlErrors",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsProtoErrReason": {
+    "name": "vrrpv3StatisticsProtoErrReason",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "ipTtlError": 1,
+          "versionError": 2,
+          "checksumError": 3,
+          "vrIdError": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsRcvdPriZeroPackets": {
+    "name": "vrrpv3StatisticsRcvdPriZeroPackets",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsSentPriZeroPackets": {
+    "name": "vrrpv3StatisticsSentPriZeroPackets",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsRcvdInvalidTypePackets": {
+    "name": "vrrpv3StatisticsRcvdInvalidTypePackets",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsAddressListErrors": {
+    "name": "vrrpv3StatisticsAddressListErrors",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsPacketLengthErrors": {
+    "name": "vrrpv3StatisticsPacketLengthErrors",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsRowDiscontinuityTime": {
+    "name": "vrrpv3StatisticsRowDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3StatisticsRefreshRate": {
+    "name": "vrrpv3StatisticsRefreshRate",
+    "oid": "1.3.6.1.2.1.207.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrrpv3NewMaster": {
+    "name": "vrrpv3NewMaster",
+    "oid": "1.3.6.1.2.1.207.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsMasterIpAddr"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsNewMasterReason"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3ProtoError": {
+    "name": "vrrpv3ProtoError",
+    "oid": "1.3.6.1.2.1.207.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsProtoErrReason"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3Compliances": {
+    "name": "vrrpv3Compliances",
+    "oid": "1.3.6.1.2.1.207.2.1",
+    "class": "objectidentity"
+  },
+  "vrrpv3Groups": {
+    "name": "vrrpv3Groups",
+    "oid": "1.3.6.1.2.1.207.2.2",
+    "class": "objectidentity"
+  },
+  "vrrpv3FullCompliance": {
+    "name": "vrrpv3FullCompliance",
+    "oid": "1.3.6.1.2.1.207.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vrrpv3OperationsGroup",
+        "module": "VRRPV3-MIB"
+      },
+      {
+        "object": "vrrpv3StatisticsGroup",
+        "module": "VRRPV3-MIB"
+      },
+      {
+        "object": "vrrpv3InfoGroup",
+        "module": "VRRPV3-MIB"
+      },
+      {
+        "object": "vrrpv3NotificationsGroup",
+        "module": "VRRPV3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3ReadOnlyCompliance": {
+    "name": "vrrpv3ReadOnlyCompliance",
+    "oid": "1.3.6.1.2.1.207.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vrrpv3OperationsGroup",
+        "module": "VRRPV3-MIB"
+      },
+      {
+        "object": "vrrpv3StatisticsGroup",
+        "module": "VRRPV3-MIB"
+      },
+      {
+        "object": "vrrpv3StatisticsDiscontinuityGroup",
+        "module": "VRRPV3-MIB"
+      },
+      {
+        "object": "vrrpv3InfoGroup",
+        "module": "VRRPV3-MIB"
+      },
+      {
+        "object": "vrrpv3NotificationsGroup",
+        "module": "VRRPV3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3OperationsGroup": {
+    "name": "vrrpv3OperationsGroup",
+    "oid": "1.3.6.1.2.1.207.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsVirtualMacAddr"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsStatus"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsPriority"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsMasterIpAddr"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsAdvInterval"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsPreemptMode"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsAcceptMode"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsUpTime"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsRowStatus"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsAddrCount"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3OperationsPrimaryIpAddr"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3AssociatedIpAddrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3StatisticsGroup": {
+    "name": "vrrpv3StatisticsGroup",
+    "oid": "1.3.6.1.2.1.207.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3RouterChecksumErrors"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3RouterVersionErrors"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3RouterVrIdErrors"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsMasterTransitions"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsNewMasterReason"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsRcvdAdvertisements"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsAdvIntervalErrors"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsRcvdPriZeroPackets"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsSentPriZeroPackets"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsRcvdInvalidTypePackets"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsIpTtlErrors"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsProtoErrReason"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsAddressListErrors"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsPacketLengthErrors"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsRowDiscontinuityTime"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsRefreshRate"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3StatisticsDiscontinuityGroup": {
+    "name": "vrrpv3StatisticsDiscontinuityGroup",
+    "oid": "1.3.6.1.2.1.207.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3GlobalStatisticsDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3InfoGroup": {
+    "name": "vrrpv3InfoGroup",
+    "oid": "1.3.6.1.2.1.207.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsProtoErrReason"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3StatisticsNewMasterReason"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpv3NotificationsGroup": {
+    "name": "vrrpv3NotificationsGroup",
+    "oid": "1.3.6.1.2.1.207.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3NewMaster"
+      },
+      {
+        "module": "VRRPV3-MIB",
+        "object": "vrrpv3ProtoError"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/VRRPV3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VRRPV3-MIB"
+  }
+}

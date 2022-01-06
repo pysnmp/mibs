@@ -1,0 +1,2398 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmVpIdentifier"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoAtmVirtualIfMIB": {
+    "name": "ciscoAtmVirtualIfMIB",
+    "oid": "1.3.6.1.4.1.9.9.129",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-11 00:00",
+        "description": "1. Added caviIngressIntervalTable. "
+      },
+      {
+        "revision": "2002-05-07 00:00",
+        "description": "1. Added following objects to caviStatEgressTable, as upper 32-bits for 64-bit wide counters: caviHighEgrRcvClp0Cells, caviHighEgrRcvClp1Cells, caviHighEgrClp0DiscCells, caviHighEgrClp1DiscCells, caviHighEgrXmtClp0Cells, caviHighEgrXmtClp1Cells. 2. Added following 64-bit objects to caviStatEgressTable for 64-bit counter support: caviHEgrRcvClp0Cells, caviHEgrClp0DiscCells, caviHEgrClp0DiscCells, caviHEgrClp1DiscCells. 3. Added following objects to caviEgressIntervalTable, as upper 32-bits for 64-bit wide counters: caviHighIntEgrRcvClp0Cells, caviHighIntEgrRcvClp1Cells, caviHighIntEgrClp0DiscCells, caviHighIntEgrClp1DiscCells, caviHighIntEgrXmtClp0Cells, caviHighIntEgrXmtClp1Cells. 4. Added following 64-bit objects to caviEgressIntervalTable: caviHIntEgrRcvClp0Cells, caviHIntEgrRcvClp1Cells, caviHIntEgrClp0DiscCells, caviHIntEgrClp1DiscCells, caviHIntEgrXmtClp0Cells, caviHIntEgrXmtClp1Cells. 5. Added following objects to caviStatIngressTable, as upper 32-bits for 64-bit wide counters: caviHighIngRcvClp0Cells, caviHighIngRcvClp1Cells, caviHighIngClp0DiscCells, caviHighIngClp1DiscCells, caviHighIngXmtClp0Cells, caviHighIngXmtClp1Cells. 6. Added following 64-bit objects to caviStatIngressTable: caviHIngClp0DiscCells, caviHIngClp1DiscCells, caviHIngXmtClp0Cells, caviHIngXmtClp1Cells. 7. Changed IMPORT for Unsigned32 to SNMPv2-SMI, instead of CISCO-TC."
+      },
+      {
+        "revision": "2001-09-03 00:00",
+        "description": "Added caviMinVpiNum and caviMaxVpiNum. Modified description for caviEntry and caviIfType."
+      },
+      {
+        "revision": "2000-08-11 00:00",
+        "description": "Changed description of objects caviMinRate and caviMaxRate. Modified range for caviMinRate, caviMaxRate and caviFileId."
+      },
+      {
+        "revision": "2000-01-14 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoAtmVirtualIfMIBObjects": {
+    "name": "ciscoAtmVirtualIfMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.129.1",
+    "class": "objectidentity"
+  },
+  "caviConfig": {
+    "name": "caviConfig",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1",
+    "class": "objectidentity"
+  },
+  "caviStatistics": {
+    "name": "caviStatistics",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2",
+    "class": "objectidentity"
+  },
+  "caviTable": {
+    "name": "caviTable",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caviEntry": {
+    "name": "caviEntry",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caviIndex": {
+    "name": "caviIndex",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caviPhyIfIndex": {
+    "name": "caviPhyIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviViIfIndex": {
+    "name": "caviViIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviMinRate": {
+    "name": "caviMinRate",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviMaxRate": {
+    "name": "caviMaxRate",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviFileId": {
+    "name": "caviFileId",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviIfType": {
+    "name": "caviIfType",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uni": 1,
+          "nni": 2,
+          "vnni": 3,
+          "vuni": 4,
+          "evuni": 5,
+          "evnni": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "uni",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviVpiNum": {
+    "name": "caviVpiNum",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviRowStatus": {
+    "name": "caviRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviMinVpiNum": {
+    "name": "caviMinVpiNum",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviMaxVpiNum": {
+    "name": "caviMaxVpiNum",
+    "oid": "1.3.6.1.4.1.9.9.129.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "caviStatEgressTable": {
+    "name": "caviStatEgressTable",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caviStatEgressEntry": {
+    "name": "caviStatEgressEntry",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caviEgrRcvClp0Cells": {
+    "name": "caviEgrRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrRcvClp1Cells": {
+    "name": "caviEgrRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrClp0DiscCells": {
+    "name": "caviEgrClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrClp1DiscCells": {
+    "name": "caviEgrClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrXmtClp0Cells": {
+    "name": "caviEgrXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrXmtClp1Cells": {
+    "name": "caviEgrXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrRcvOAMCells": {
+    "name": "caviEgrRcvOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrRMCells": {
+    "name": "caviEgrRMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrXmtEFCICells": {
+    "name": "caviEgrXmtEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrRcvEFCICells": {
+    "name": "caviEgrRcvEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgrXmtOAMCells": {
+    "name": "caviEgrXmtOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHEgrXmtClp0Cells": {
+    "name": "caviHEgrXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHEgrXmtClp1Cells": {
+    "name": "caviHEgrXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighEgrRcvClp0Cells": {
+    "name": "caviHighEgrRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighEgrRcvClp1Cells": {
+    "name": "caviHighEgrRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighEgrClp0DiscCells": {
+    "name": "caviHighEgrClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighEgrClp1DiscCells": {
+    "name": "caviHighEgrClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighEgrXmtClp0Cells": {
+    "name": "caviHighEgrXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighEgrXmtClp1Cells": {
+    "name": "caviHighEgrXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHEgrRcvClp0Cells": {
+    "name": "caviHEgrRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHEgrRcvClp1Cells": {
+    "name": "caviHEgrRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHEgrClp0DiscCells": {
+    "name": "caviHEgrClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHEgrClp1DiscCells": {
+    "name": "caviHEgrClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviEgressIntervalTable": {
+    "name": "caviEgressIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caviEgressIntervalEntry": {
+    "name": "caviEgressIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgressIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caviEgressIntervalNumber": {
+    "name": "caviEgressIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrRcvClp0Cells": {
+    "name": "caviIntEgrRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrRcvClp1Cells": {
+    "name": "caviIntEgrRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrClp0DiscCells": {
+    "name": "caviIntEgrClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrClp1DiscCells": {
+    "name": "caviIntEgrClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrXmtClp0Cells": {
+    "name": "caviIntEgrXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrXmtClp1Cells": {
+    "name": "caviIntEgrXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrRcvOAMCells": {
+    "name": "caviIntEgrRcvOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrRMCells": {
+    "name": "caviIntEgrRMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrXmtEFCICells": {
+    "name": "caviIntEgrXmtEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrRcvEFCICells": {
+    "name": "caviIntEgrRcvEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntEgrXmtOAMCells": {
+    "name": "caviIntEgrXmtOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntEgrRcvClp0Cells": {
+    "name": "caviHighIntEgrRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntEgrRcvClp1Cells": {
+    "name": "caviHighIntEgrRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntEgrClp0DiscCells": {
+    "name": "caviHighIntEgrClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntEgrClp1DiscCells": {
+    "name": "caviHighIntEgrClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntEgrXmtClp0Cells": {
+    "name": "caviHighIntEgrXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntEgrXmtClp1Cells": {
+    "name": "caviHighIntEgrXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntEgrRcvClp0Cells": {
+    "name": "caviHIntEgrRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntEgrRcvClp1Cells": {
+    "name": "caviHIntEgrRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntEgrClp0DiscCells": {
+    "name": "caviHIntEgrClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntEgrClp1DiscCells": {
+    "name": "caviHIntEgrClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntEgrXmtClp0Cells": {
+    "name": "caviHIntEgrXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntEgrXmtClp1Cells": {
+    "name": "caviHIntEgrXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviStatIngressTable": {
+    "name": "caviStatIngressTable",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caviStatIngressEntry": {
+    "name": "caviStatIngressEntry",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caviIngRcvClp0Cells": {
+    "name": "caviIngRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngRcvClp1Cells": {
+    "name": "caviIngRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngClp0DiscCells": {
+    "name": "caviIngClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngClp1DiscCells": {
+    "name": "caviIngClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngXmtClp0Cells": {
+    "name": "caviIngXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngXmtClp1Cells": {
+    "name": "caviIngXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngRcvOAMCells": {
+    "name": "caviIngRcvOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngRMCells": {
+    "name": "caviIngRMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngXmtEFCICells": {
+    "name": "caviIngXmtEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngRcvEFCICells": {
+    "name": "caviIngRcvEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngXmtOAMCells": {
+    "name": "caviIngXmtOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIngRcvClp0Cells": {
+    "name": "caviHIngRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIngRcvClp1Cells": {
+    "name": "caviHIngRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIngRcvClp0Cells": {
+    "name": "caviHighIngRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIngRcvClp1Cells": {
+    "name": "caviHighIngRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIngClp0DiscCells": {
+    "name": "caviHighIngClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIngClp1DiscCells": {
+    "name": "caviHighIngClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIngXmtClp0Cells": {
+    "name": "caviHighIngXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIngXmtClp1Cells": {
+    "name": "caviHighIngXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIngClp0DiscCells": {
+    "name": "caviHIngClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIngClp1DiscCells": {
+    "name": "caviHIngClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIngXmtClp0Cells": {
+    "name": "caviHIngXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIngXmtClp1Cells": {
+    "name": "caviHIngXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIngressIntervalTable": {
+    "name": "caviIngressIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caviIngressIntervalEntry": {
+    "name": "caviIngressIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngressIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caviIngressIntervalNumber": {
+    "name": "caviIngressIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caviIntIngRcvClp0Cells": {
+    "name": "caviIntIngRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngRcvClp1Cells": {
+    "name": "caviIntIngRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngClp0DiscCells": {
+    "name": "caviIntIngClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngClp1DiscCells": {
+    "name": "caviIntIngClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngXmtClp0Cells": {
+    "name": "caviIntIngXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngXmtClp1Cells": {
+    "name": "caviIntIngXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngRcvOAMCells": {
+    "name": "caviIntIngRcvOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngRMCells": {
+    "name": "caviIntIngRMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngXmtEFCICells": {
+    "name": "caviIntIngXmtEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngRcvEFCICells": {
+    "name": "caviIntIngRcvEFCICells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviIntIngXmtOAMCells": {
+    "name": "caviIntIngXmtOAMCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntIngRcvClp0Cells": {
+    "name": "caviHighIntIngRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntIngRcvClp1Cells": {
+    "name": "caviHighIntIngRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntIngClp0DiscCells": {
+    "name": "caviHighIntIngClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntIngClp1DiscCells": {
+    "name": "caviHighIntIngClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntIngXmtClp0Cells": {
+    "name": "caviHighIntIngXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHighIntIngXmtClp1Cells": {
+    "name": "caviHighIntIngXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntIngRcvClp0Cells": {
+    "name": "caviHIntIngRcvClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntIngRcvClp1Cells": {
+    "name": "caviHIntIngRcvClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntIngClp0DiscCells": {
+    "name": "caviHIntIngClp0DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntIngClp1DiscCells": {
+    "name": "caviHIntIngClp1DiscCells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntIngXmtClp0Cells": {
+    "name": "caviHIntIngXmtClp0Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviHIntIngXmtClp1Cells": {
+    "name": "caviHIntIngXmtClp1Cells",
+    "oid": "1.3.6.1.4.1.9.9.129.1.2.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caviMIBConformance": {
+    "name": "caviMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.129.3",
+    "class": "objectidentity"
+  },
+  "caviMIBCompliances": {
+    "name": "caviMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.129.3.1",
+    "class": "objectidentity"
+  },
+  "caviMIBGroups": {
+    "name": "caviMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2",
+    "class": "objectidentity"
+  },
+  "caviMIBCompliance": {
+    "name": "caviMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.129.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caviMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressHighSpeedStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressIntervalMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngressStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngressHighSpeedStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviMIBComplianceRev1": {
+    "name": "caviMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.129.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caviMIBGroupRev1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressHighSpeedStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressIntervalMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngressStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngressHighSpeedStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviMIBComplianceRev2": {
+    "name": "caviMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.129.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caviMIBGroupRev1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressStatMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressHighSpeedStatMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressIntervalMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngressStatMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngHighSpeedStatMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviMIBComplianceRev3": {
+    "name": "caviMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.129.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "caviMIBGroupRev1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressStatMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressHighSpeedStatMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviEgressIntervalMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngressStatMIBGroup1",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngHighSpeedStatMIBGroup2",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      },
+      {
+        "object": "caviIngressIntervalStatMIBGroup",
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "caviMIBGroup": {
+    "name": "caviMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviPhyIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviViIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviMinRate"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviMaxRate"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviFileId"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIfType"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviVpiNum"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviEgressStatMIBGroup": {
+    "name": "caviEgressStatMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtOAMCells"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviEgressHighSpeedStatMIBGroup": {
+    "name": "caviEgressHighSpeedStatMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrXmtClp1Cells"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviEgressIntervalMIBGroup": {
+    "name": "caviEgressIntervalMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgressIntervalNumber"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtOAMCells"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviIngressStatMIBGroup": {
+    "name": "caviIngressStatMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtOAMCells"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviIngressHighSpeedStatMIBGroup": {
+    "name": "caviIngressHighSpeedStatMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngRcvClp1Cells"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviMIBGroupRev1": {
+    "name": "caviMIBGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviPhyIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviViIfIndex"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviMinRate"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviMaxRate"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviFileId"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIfType"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviVpiNum"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviRowStatus"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviMinVpiNum"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviMaxVpiNum"
+      }
+    ],
+    "status": "current"
+  },
+  "caviEgressStatMIBGroup1": {
+    "name": "caviEgressStatMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrRcvEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgrXmtOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighEgrXmtClp1Cells"
+      }
+    ],
+    "status": "current"
+  },
+  "caviEgressHighSpeedStatMIBGroup1": {
+    "name": "caviEgressHighSpeedStatMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntEgrXmtClp1Cells"
+      }
+    ],
+    "status": "current"
+  },
+  "caviEgressIntervalMIBGroup1": {
+    "name": "caviEgressIntervalMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviEgressIntervalNumber"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrRcvEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntEgrXmtOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntEgrRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntEgrRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntEgrClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntEgrClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntEgrXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntEgrXmtClp1Cells"
+      }
+    ],
+    "status": "current"
+  },
+  "caviIngressStatMIBGroup1": {
+    "name": "caviIngressStatMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngRcvEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIngXmtOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIngXmtClp1Cells"
+      }
+    ],
+    "status": "current"
+  },
+  "caviIngHighSpeedStatMIBGroup1": {
+    "name": "caviIngHighSpeedStatMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngXmtClp1Cells"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "caviIngressIntervalStatMIBGroup": {
+    "name": "caviIngressIntervalStatMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngRcvOAMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngRMCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngXmtEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngRcvEFCICells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviIntIngXmtOAMCells"
+      }
+    ],
+    "status": "current"
+  },
+  "caviIngHighSpeedStatMIBGroup2": {
+    "name": "caviIngHighSpeedStatMIBGroup2",
+    "oid": "1.3.6.1.4.1.9.9.129.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHighIntIngXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIngXmtClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntIngRcvClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntIngRcvClp1Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntIngClp0DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntIngClp1DiscCells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntIngXmtClp0Cells"
+      },
+      {
+        "module": "CISCO-ATM-VIRTUAL-IF-MIB",
+        "object": "caviHIntIngXmtClp1Cells"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-VIRTUAL-IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-VIRTUAL-IF-MIB"
+  }
+}

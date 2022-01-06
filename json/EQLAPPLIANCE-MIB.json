@@ -1,0 +1,6075 @@
+{
+  "imports": {
+    "class": "imports",
+    "EQLGROUP-MIB": [
+      "UTFString",
+      "eqlGroupId"
+    ],
+    "EQLMEMBER-MIB": [
+      "eqlMemberIndex"
+    ],
+    "EQLVOLUME-MIB": [
+      "eqliscsiVolumeEntry",
+      "eqliscsiVolumeTargetIscsiName"
+    ],
+    "EQUALLOGIC-SMI": [
+      "equalLogic"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "DateAndTime"
+    ]
+  },
+  "eqlApplianceModule": {
+    "name": "eqlApplianceModule",
+    "oid": "1.3.6.1.4.1.12740.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-21 08:00",
+        "description": "New eqlApplianceDnsServerTable, eqlApplianceDnsSuffixTable"
+      },
+      {
+        "revision": "2012-03-05 10:00",
+        "description": "New eqlApplianceMultiStateOpsState rename-cluster"
+      },
+      {
+        "revision": "2009-07-13 00:00",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "eqlApplianceObjects": {
+    "name": "eqlApplianceObjects",
+    "oid": "1.3.6.1.4.1.12740.17.1",
+    "class": "objectidentity"
+  },
+  "eqlApplianceTable": {
+    "name": "eqlApplianceTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceEntry": {
+    "name": "eqlApplianceEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceIndex": {
+    "name": "eqlApplianceIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceRowStatus": {
+    "name": "eqlApplianceRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceName": {
+    "name": "eqlApplianceName",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceType": {
+    "name": "eqlApplianceType",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nas": 1,
+          "blade-chassis": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceState": {
+    "name": "eqlApplianceState",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconfigured": 0,
+          "node-setup": 1000,
+          "internal-network": 1001,
+          "san-network": 1002,
+          "client-network": 1003,
+          "configure-gateway": 1004,
+          "start-nodes-validation": 1005,
+          "nodes-validation-inprogress": 1006,
+          "make-cluster": 1007,
+          "send-eql-group-ip": 1008,
+          "create-volume-acls": 1009,
+          "start-format": 1010,
+          "format-in-progress": 1011,
+          "start-system": 1012,
+          "start-system-in-progress": 1013,
+          "configured": 1014,
+          "cluster-name": 1015,
+          "start-nas-appliance-create": 1016,
+          "nas-appliance-create-in-progress": 1017,
+          "start-volume-discovery": 1018
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unconfigured",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDescription": {
+    "name": "eqlApplianceDescription",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMgmtAddressType": {
+    "name": "eqlApplianceMgmtAddressType",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMgmtAddress": {
+    "name": "eqlApplianceMgmtAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMgmtPort": {
+    "name": "eqlApplianceMgmtPort",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3004,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMajorVersion": {
+    "name": "eqlApplianceMajorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceMinorVersion": {
+    "name": "eqlApplianceMinorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceMaintVersion": {
+    "name": "eqlApplianceMaintVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceVendorId": {
+    "name": "eqlApplianceVendorId",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceSharedSecret": {
+    "name": "eqlApplianceSharedSecret",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserName": {
+    "name": "eqlApplianceUserName",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTFString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNumberOfNodes": {
+    "name": "eqlApplianceNumberOfNodes",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUniqueID": {
+    "name": "eqlApplianceUniqueID",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceConfigStatus": {
+    "name": "eqlApplianceConfigStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceAction": {
+    "name": "eqlApplianceAction",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "start": 1,
+          "retry": 2,
+          "abort": 3,
+          "continue": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAdminStatus": {
+    "name": "eqlApplianceAdminStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1,
+          "maintenance": 2,
+          "delete": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGatewayAddrType": {
+    "name": "eqlApplianceGatewayAddrType",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGatewayAddr": {
+    "name": "eqlApplianceGatewayAddr",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLastScheduleIndex": {
+    "name": "eqlApplianceLastScheduleIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMPV": {
+    "name": "eqlApplianceMPV",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceEnableFTP": {
+    "name": "eqlApplianceEnableFTP",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlApplianceDesiredServiceMode": {
+    "name": "eqlApplianceDesiredServiceMode",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "maintenance": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlApplianceServiceModeStatus": {
+    "name": "eqlApplianceServiceModeStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "maintenance": 1,
+          "transition-to-maint": 2,
+          "transition-to-normal": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceRequestId": {
+    "name": "eqlApplianceRequestId",
+    "oid": "1.3.6.1.4.1.12740.17.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUniqueIDTable": {
+    "name": "eqlApplianceUniqueIDTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceUniqueIDEntry": {
+    "name": "eqlApplianceUniqueIDEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUniqueIDType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceUniqueIDType": {
+    "name": "eqlApplianceUniqueIDType",
+    "oid": "1.3.6.1.4.1.12740.17.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fsid": 1,
+          "userid": 2,
+          "nfsexportname": 3,
+          "partnershipid": 4,
+          "replicationid": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceUniqueIDValueLen": {
+    "name": "eqlApplianceUniqueIDValueLen",
+    "oid": "1.3.6.1.4.1.12740.17.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUniqueIDValue": {
+    "name": "eqlApplianceUniqueIDValue",
+    "oid": "1.3.6.1.4.1.12740.17.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodesTable": {
+    "name": "eqlApplianceUnInitNodesTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodesEntry": {
+    "name": "eqlApplianceUnInitNodesEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUnInitNodeProductType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUnInitNodeServiceTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeProductType": {
+    "name": "eqlApplianceUnInitNodeProductType",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nas": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeServiceTag": {
+    "name": "eqlApplianceUnInitNodeServiceTag",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeState": {
+    "name": "eqlApplianceUnInitNodeState",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discover": 1,
+          "found": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeModel": {
+    "name": "eqlApplianceUnInitNodeModel",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeVendor": {
+    "name": "eqlApplianceUnInitNodeVendor",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeLinkLocalIPType": {
+    "name": "eqlApplianceUnInitNodeLinkLocalIPType",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeLinkLocalIP": {
+    "name": "eqlApplianceUnInitNodeLinkLocalIP",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeMajorVersion": {
+    "name": "eqlApplianceUnInitNodeMajorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeMinorVersion": {
+    "name": "eqlApplianceUnInitNodeMinorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeMaintVersion": {
+    "name": "eqlApplianceUnInitNodeMaintVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeRowStatus": {
+    "name": "eqlApplianceUnInitNodeRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeClusterMPV": {
+    "name": "eqlApplianceUnInitNodeClusterMPV",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceUnInitNodeChassisTag": {
+    "name": "eqlApplianceUnInitNodeChassisTag",
+    "oid": "1.3.6.1.4.1.12740.17.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "-",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeTable": {
+    "name": "eqlApplianceNodeTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeEntry": {
+    "name": "eqlApplianceNodeEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceNodeIndex": {
+    "name": "eqlApplianceNodeIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeRowStatus": {
+    "name": "eqlApplianceNodeRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeProductType": {
+    "name": "eqlApplianceNodeProductType",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fs7500": 1,
+          "fs7600": 2,
+          "fs7610": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeServiceTag": {
+    "name": "eqlApplianceNodeServiceTag",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeModel": {
+    "name": "eqlApplianceNodeModel",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeVendor": {
+    "name": "eqlApplianceNodeVendor",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeLinkLocalIPType": {
+    "name": "eqlApplianceNodeLinkLocalIPType",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeLinkLocalIP": {
+    "name": "eqlApplianceNodeLinkLocalIP",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeMajorVersion": {
+    "name": "eqlApplianceNodeMajorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeMinorVersion": {
+    "name": "eqlApplianceNodeMinorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeMaintVersion": {
+    "name": "eqlApplianceNodeMaintVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeName": {
+    "name": "eqlApplianceNodeName",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodePeerIndex": {
+    "name": "eqlApplianceNodePeerIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeConfigState": {
+    "name": "eqlApplianceNodeConfigState",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconfigured": 0,
+          "node-setup-complete": 1001,
+          "internal-network-complete": 1002,
+          "san-network-complete": 1003,
+          "client-network-complete": 1004,
+          "gateway-config-complete": 1005,
+          "configured": 1006,
+          "detached": 1007
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeConfigStatus": {
+    "name": "eqlApplianceNodeConfigStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeGatewayAddrType": {
+    "name": "eqlApplianceNodeGatewayAddrType",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeGatewayAddr": {
+    "name": "eqlApplianceNodeGatewayAddr",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeInitiatorName": {
+    "name": "eqlApplianceNodeInitiatorName",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeAdminStatus": {
+    "name": "eqlApplianceNodeAdminStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 0,
+          "detach": 1,
+          "attach": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeChassisTag": {
+    "name": "eqlApplianceNodeChassisTag",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeChassisName": {
+    "name": "eqlApplianceNodeChassisName",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeOpsRequestId": {
+    "name": "eqlApplianceNodeOpsRequestId",
+    "oid": "1.3.6.1.4.1.12740.17.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNetworksTable": {
+    "name": "eqlApplianceNetworksTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNetworksEntry": {
+    "name": "eqlApplianceNetworksEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNetworkType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNetworkID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceNetworkRowStatus": {
+    "name": "eqlApplianceNetworkRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkType": {
+    "name": "eqlApplianceNetworkType",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "san": 2,
+          "client": 3,
+          "backplane": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNetworkID": {
+    "name": "eqlApplianceNetworkID",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNetworkName": {
+    "name": "eqlApplianceNetworkName",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkBlockIPAddressType": {
+    "name": "eqlApplianceNetworkBlockIPAddressType",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkBlockIPAddress": {
+    "name": "eqlApplianceNetworkBlockIPAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkBlockNetmaskAddrType": {
+    "name": "eqlApplianceNetworkBlockNetmaskAddrType",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkBlockNetmaskAddr": {
+    "name": "eqlApplianceNetworkBlockNetmaskAddr",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkVLANTag": {
+    "name": "eqlApplianceNetworkVLANTag",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkAdminState": {
+    "name": "eqlApplianceNetworkAdminState",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "creating": 1,
+          "modifying": 2,
+          "done": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkMTUSize": {
+    "name": "eqlApplianceNetworkMTUSize",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNetworkBondingMode": {
+    "name": "eqlApplianceNetworkBondingMode",
+    "oid": "1.3.6.1.4.1.12740.17.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alb": 0,
+          "lacp": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceIPTable": {
+    "name": "eqlApplianceIPTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceIPEntry": {
+    "name": "eqlApplianceIPEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNetworkType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNetworkID",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceIPRowStatus": {
+    "name": "eqlApplianceIPRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceIPAddressType": {
+    "name": "eqlApplianceIPAddressType",
+    "oid": "1.3.6.1.4.1.12740.17.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceIPAddress": {
+    "name": "eqlApplianceIPAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeIPTable": {
+    "name": "eqlApplianceNodeIPTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeIPEntry": {
+    "name": "eqlApplianceNodeIPEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNetworkType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNetworkID",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceNodeIPRowStatus": {
+    "name": "eqlApplianceNodeIPRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNodeIPAddressType": {
+    "name": "eqlApplianceNodeIPAddressType",
+    "oid": "1.3.6.1.4.1.12740.17.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeIPAddress": {
+    "name": "eqlApplianceNodeIPAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOpsTable": {
+    "name": "eqlApplianceOpsTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOpsEntry": {
+    "name": "eqlApplianceOpsEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceOpsType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceOpsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceOpsIndex": {
+    "name": "eqlApplianceOpsIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOpsRowStatus": {
+    "name": "eqlApplianceOpsRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceOpsType": {
+    "name": "eqlApplianceOpsType",
+    "oid": "1.3.6.1.4.1.12740.17.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "validation": 1,
+          "format": 2,
+          "start": 3,
+          "stop": 4,
+          "attach": 5,
+          "expand": 6,
+          "incrementalformat": 7,
+          "detach": 8,
+          "add-pair": 9,
+          "delete": 10,
+          "create-nas-appliance": 11,
+          "discover": 12,
+          "add-nas-appliance": 13,
+          "join-nas-appliance": 14,
+          "diagnostics": 15,
+          "nas-cluster-update": 16,
+          "restore-config": 17,
+          "service-mode-change": 18,
+          "container-cfg-modify": 19
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOpsStatus": {
+    "name": "eqlApplianceOpsStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceOpsPercentage": {
+    "name": "eqlApplianceOpsPercentage",
+    "oid": "1.3.6.1.4.1.12740.17.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceOpsRequestId": {
+    "name": "eqlApplianceOpsRequestId",
+    "oid": "1.3.6.1.4.1.12740.17.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlVolumeApplianceTable": {
+    "name": "eqlVolumeApplianceTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlVolumeApplianceEntry": {
+    "name": "eqlVolumeApplianceEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "eqlVolumeApplianceEntry",
+      "module": "EQLAPPLIANCE-MIB",
+      "object": "eqliscsiVolumeEntry"
+    },
+    "status": "current"
+  },
+  "eqlVolumeApplianceRowStatus": {
+    "name": "eqlVolumeApplianceRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolumeApplianceIndex": {
+    "name": "eqlVolumeApplianceIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolumeApplianceNodeIndex": {
+    "name": "eqlVolumeApplianceNodeIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlVolumeApplianceState": {
+    "name": "eqlVolumeApplianceState",
+    "oid": "1.3.6.1.4.1.12740.17.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "formatpending": 0,
+          "formatted": 1,
+          "expansionpending": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureTable": {
+    "name": "eqlApplianceOpsFailureTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureEntry": {
+    "name": "eqlApplianceOpsFailureEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceOpsType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceOpsIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceOpsFailureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureIndex": {
+    "name": "eqlApplianceOpsFailureIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureType": {
+    "name": "eqlApplianceOpsFailureType",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "error": 1,
+          "warning": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureScope": {
+    "name": "eqlApplianceOpsFailureScope",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureCode": {
+    "name": "eqlApplianceOpsFailureCode",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureComponent": {
+    "name": "eqlApplianceOpsFailureComponent",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "fans": 1,
+          "psus": 2,
+          "cpus": 3,
+          "fc": 4,
+          "monitor": 5,
+          "nics": 6,
+          "ipmi": 7,
+          "ups": 8,
+          "temperatures": 9,
+          "raid": 10,
+          "memory": 11,
+          "connectivity": 12,
+          "network": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureSubComponent": {
+    "name": "eqlApplianceOpsFailureSubComponent",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceOpsFailureMessage": {
+    "name": "eqlApplianceOpsFailureMessage",
+    "oid": "1.3.6.1.4.1.12740.17.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureTable": {
+    "name": "eqlApplianceNodeHealthFailureTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureEntry": {
+    "name": "eqlApplianceNodeHealthFailureEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeHealthFailureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureIndex": {
+    "name": "eqlApplianceNodeHealthFailureIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureType": {
+    "name": "eqlApplianceNodeHealthFailureType",
+    "oid": "1.3.6.1.4.1.12740.17.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "error": 1,
+          "warning": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureCode": {
+    "name": "eqlApplianceNodeHealthFailureCode",
+    "oid": "1.3.6.1.4.1.12740.17.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureComponent": {
+    "name": "eqlApplianceNodeHealthFailureComponent",
+    "oid": "1.3.6.1.4.1.12740.17.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "power": 1,
+          "network": 2,
+          "internalhw": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureSubComponent": {
+    "name": "eqlApplianceNodeHealthFailureSubComponent",
+    "oid": "1.3.6.1.4.1.12740.17.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeHealthFailureMessage": {
+    "name": "eqlApplianceNodeHealthFailureMessage",
+    "oid": "1.3.6.1.4.1.12740.17.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceServiceStatusTable": {
+    "name": "eqlApplianceServiceStatusTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceServiceStatusEntry": {
+    "name": "eqlApplianceServiceStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceOverallState": {
+    "name": "eqlApplianceOverallState",
+    "oid": "1.3.6.1.4.1.12740.17.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "on": 1,
+          "off": 2,
+          "stopping": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceServiceStatus": {
+    "name": "eqlApplianceServiceStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "error": 1,
+          "warning": 2,
+          "normal": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceServiceCriticalConditions": {
+    "name": "eqlApplianceServiceCriticalConditions",
+    "oid": "1.3.6.1.4.1.12740.17.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "exaStoreServiceFaultCacheLoss": 0,
+        "exaStoreServiceFaultServers": 1,
+        "exaStoreServiceNoService": 2,
+        "exaStoreServersFault": 3,
+        "exaStoreStorageSubsysFault": 4,
+        "eqlNASChassisClientNetworkCritical": 5,
+        "eqlNASChassisBackplaneNetworkCritical": 6,
+        "eqlNASChassisInternalNetworkCritical": 7,
+        "eqlNASChassisSanNetworkCritical": 8,
+        "eqlNASChassisFanCritical": 9,
+        "eqlNASControllerAmbientTempCritical": 10,
+        "eqlNASControllerBPSCritical": 11,
+        "eqlNASControllerCPUCritical": 12,
+        "eqlNASControllerFanCritical": 13,
+        "eqlNASControllerLocalDiskCritical": 14,
+        "eqlNASControllerRaidControllerCritical": 15,
+        "eqlNASControllerMemoryCritical": 16,
+        "eqlNASControllerVirtualDiskCritical": 17
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceServiceWarningConditions": {
+    "name": "eqlApplianceServiceWarningConditions",
+    "oid": "1.3.6.1.4.1.12740.17.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "exaStoreServiceFSCheckerFailed": 0,
+        "exaStoreServicejournal": 1,
+        "exaStoreServersSomeDown": 2,
+        "exaStoreServersSomeDetached": 3,
+        "exaStoreServersNotOptimal": 4,
+        "exaStoreStorageSubsysNotOptimal": 5,
+        "eqlNASChassisClientNetworkNotOptimal": 6,
+        "eqlNASChassisBackplaneNetworkNotOptimal": 7,
+        "eqlNASChassisInternalNetworkNotOptimal": 8,
+        "eqlNASChassisSanNetworkNotOptimal": 9,
+        "eqlNASChassisFanNotOptimal": 10,
+        "eqlNASChassisPowerSupplyPartial": 11,
+        "eqlNASControllerAmbientTempNotOptimal": 12,
+        "eqlNASControllerBPSNotOptimal": 13,
+        "eqlNASControllerCPUNotOptimal": 14,
+        "eqlNASControllerFanNotOptimal": 15,
+        "eqlNASControllerLocalDiskNotOptimal": 16,
+        "eqlNASControllerRaidControllerNotOptimal": 17,
+        "eqlNASControllerMemoryNotOptimal": 18,
+        "eqlNASControllerVirtualDiskNotOptimal": 19,
+        "eqlNASControllerPowerSupplyPartial": 20
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceServiceAction": {
+    "name": "eqlApplianceServiceAction",
+    "oid": "1.3.6.1.4.1.12740.17.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "massFailback": 1,
+          "massRebalance": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlApplianceStatsTable": {
+    "name": "eqlApplianceStatsTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceStatsEntry": {
+    "name": "eqlApplianceStatsEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceStatsTotalCapacity": {
+    "name": "eqlApplianceStatsTotalCapacity",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsTotalAllocated": {
+    "name": "eqlApplianceStatsTotalAllocated",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsTotalUsed": {
+    "name": "eqlApplianceStatsTotalUsed",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsTotalFree": {
+    "name": "eqlApplianceStatsTotalFree",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsTotalSnapshots": {
+    "name": "eqlApplianceStatsTotalSnapshots",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsNumberOfContainers": {
+    "name": "eqlApplianceStatsNumberOfContainers",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsNumberOfNfsExports": {
+    "name": "eqlApplianceStatsNumberOfNfsExports",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsNumberOfCifsShares": {
+    "name": "eqlApplianceStatsNumberOfCifsShares",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsNumberOfSnapshots": {
+    "name": "eqlApplianceStatsNumberOfSnapshots",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceStatsTotalOptimizationSpaceSavings": {
+    "name": "eqlApplianceStatsTotalOptimizationSpaceSavings",
+    "oid": "1.3.6.1.4.1.12740.17.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNodeStatusTable": {
+    "name": "eqlApplianceNodeStatusTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNodeStatusEntry": {
+    "name": "eqlApplianceNodeStatusEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceNodeStatusNodeState": {
+    "name": "eqlApplianceNodeStatusNodeState",
+    "oid": "1.3.6.1.4.1.12740.17.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "on": 1,
+          "off": 2,
+          "detached": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsTable": {
+    "name": "eqlApplianceMultiStateOpsTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsEntry": {
+    "name": "eqlApplianceMultiStateOpsEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceMultiStateOpsType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceMultiStateOpsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsIndex": {
+    "name": "eqlApplianceMultiStateOpsIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsRowStatus": {
+    "name": "eqlApplianceMultiStateOpsRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsType": {
+    "name": "eqlApplianceMultiStateOpsType",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "attach-node": 1,
+          "add-pair": 2,
+          "resize": 3,
+          "detach": 4,
+          "start": 5,
+          "stop": 6,
+          "delete": 7,
+          "long-running-blocking-config": 8,
+          "diagnostics": 9,
+          "nas-cluster-update": 10,
+          "restore": 11,
+          "service-mode-change": 12,
+          "container-cfg-modify": 13
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsStatus": {
+    "name": "eqlApplianceMultiStateOpsStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsServiceTag": {
+    "name": "eqlApplianceMultiStateOpsServiceTag",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsServiceTag2": {
+    "name": "eqlApplianceMultiStateOpsServiceTag2",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsNodeIndex": {
+    "name": "eqlApplianceMultiStateOpsNodeIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsNodeIndex2": {
+    "name": "eqlApplianceMultiStateOpsNodeIndex2",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsState": {
+    "name": "eqlApplianceMultiStateOpsState",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "attach-node-setup": 1001,
+          "attach-internal-network": 1002,
+          "attach-san-network": 1003,
+          "attach-client-network": 1004,
+          "attach-configure-gateway": 1005,
+          "attach-start-nodes-validation": 1006,
+          "attach-nodes-validation-inprogress": 1007,
+          "attach-action": 1008,
+          "attach-action-inprogress": 1009,
+          "attach-completed": 1010,
+          "resize-expand": 1101,
+          "resize-expand-inprogress": 1102,
+          "resize-format": 1103,
+          "resize-format-inprogress": 1104,
+          "resize-completed": 1105,
+          "resize-nas-volumes": 1106,
+          "resize-discover-volumes": 1107,
+          "detach-inprogress": 1201,
+          "start-inprogress": 1301,
+          "stop-inprogress": 1401,
+          "add-pair-node-setup": 1501,
+          "add-pair-node-count": 1502,
+          "add-pair-cluster-internal-network": 1503,
+          "add-pair-reset-node-count": 1504,
+          "add-pair-nodes-internal-network": 1505,
+          "add-pair-cluster-san-network": 1506,
+          "add-pair-nodes-san-network": 1507,
+          "add-pair-cluster-client-network": 1508,
+          "add-pair-nodes-client-network": 1509,
+          "add-pair-configure-gateway": 1510,
+          "add-pair-start-nodes-validation": 1511,
+          "add-pair-nodes-validation-inprogress": 1512,
+          "add-pair-prepare": 1513,
+          "add-pair-create-volume-acls": 1514,
+          "add-pair-start-attach": 1515,
+          "add-pair-attach-inprogress": 1516,
+          "add-pair-start-action": 1517,
+          "add-pair-action-inprogress": 1518,
+          "add-pair-completed": 1519,
+          "add-pair-start-nas-appliance-add": 1520,
+          "add-pair-nas-appliance-add-inprogress": 1521,
+          "add-pair-start-volume-discovery": 1522,
+          "add-pair-start-nas-appliance-join": 1523,
+          "add-pair-nas-appliance-join-inprogress": 1524,
+          "delete-inprogress": 1601,
+          "local-delete-inprogress": 1602,
+          "modify-internal-network": 1701,
+          "modify-san-network": 1702,
+          "modify-client-network": 1703,
+          "configure-credential-no-external": 1704,
+          "configure-credential-ldap": 1705,
+          "configure-credential-nis": 1706,
+          "configure-credential-unknown": 1707,
+          "configure-active-directory": 1708,
+          "max-keep-set": 1709,
+          "grp-inet-addr-set": 1710,
+          "delete-container-host-access": 1711,
+          "rename-cluster": 1712,
+          "cifs-operation": 1713,
+          "nas-cluster-update-start": 1714,
+          "nas-diags-init": 1801,
+          "nas-diags-start-general": 1802,
+          "nas-diags-check-general-started": 1803,
+          "nas-diags-check-general-finished": 1804,
+          "nas-diags-start-file": 1805,
+          "nas-diags-check-file-started": 1806,
+          "nas-diags-check-file-finished": 1807,
+          "nas-diags-finalize": 1808,
+          "nas-diags-done": 1809,
+          "nas-cluster-update-inprogress": 1901,
+          "restore-start": 2001,
+          "restore-service-mode-to-maintenance": 2002,
+          "restore-transitioning-to-maintenance": 2003,
+          "restore-internal-network": 2004,
+          "restore-cluster-name": 2005,
+          "restore-start-nas-appliance-create": 2006,
+          "restore-nas-appliance-create-in-progress": 2007,
+          "restore-san-network": 2008,
+          "restore-send-eql-group-ip": 2009,
+          "restore-create-volume-acls": 2010,
+          "restore-start-volume-discovery": 2011,
+          "restore-start-format": 2012,
+          "restore-format-in-progress": 2013,
+          "restore-start-config-restore": 2014,
+          "restore-config-restore-in-progress": 2015,
+          "restore-done": 2016,
+          "service-mode-change-inprogress": 2101,
+          "container-cfg-modify-inprogress": 2200
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsPercentage": {
+    "name": "eqlApplianceMultiStateOpsPercentage",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsAction": {
+    "name": "eqlApplianceMultiStateOpsAction",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "retry": 1,
+          "continue": 2,
+          "delete": 3,
+          "start": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsCurNodeIndex": {
+    "name": "eqlApplianceMultiStateOpsCurNodeIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsLongRunningOp": {
+    "name": "eqlApplianceMultiStateOpsLongRunningOp",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMultiStateOpsRequestId": {
+    "name": "eqlApplianceMultiStateOpsRequestId",
+    "oid": "1.3.6.1.4.1.12740.17.1.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceNdmpTable": {
+    "name": "eqlApplianceNdmpTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNdmpEntry": {
+    "name": "eqlApplianceNdmpEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceNdmpRowStatus": {
+    "name": "eqlApplianceNdmpRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpUserName": {
+    "name": "eqlApplianceNdmpUserName",
+    "oid": "1.3.6.1.4.1.12740.17.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "backup_user",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpPasswd": {
+    "name": "eqlApplianceNdmpPasswd",
+    "oid": "1.3.6.1.4.1.12740.17.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpDesiredState": {
+    "name": "eqlApplianceNdmpDesiredState",
+    "oid": "1.3.6.1.4.1.12740.17.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 0,
+          "start": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpClientPort": {
+    "name": "eqlApplianceNdmpClientPort",
+    "oid": "1.3.6.1.4.1.12740.17.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpDmaServerTable": {
+    "name": "eqlApplianceNdmpDmaServerTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceNdmpDmaServerEntry": {
+    "name": "eqlApplianceNdmpDmaServerEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNdmpDmaServerIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNdmpDmaServerIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceNdmpDmaServerRowStatus": {
+    "name": "eqlApplianceNdmpDmaServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpDmaServerIPAddressType": {
+    "name": "eqlApplianceNdmpDmaServerIPAddressType",
+    "oid": "1.3.6.1.4.1.12740.17.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpDmaServerIPAddress": {
+    "name": "eqlApplianceNdmpDmaServerIPAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceNdmpDmaServerTransactionState": {
+    "name": "eqlApplianceNdmpDmaServerTransactionState",
+    "oid": "1.3.6.1.4.1.12740.17.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configNone": 0,
+          "configStart": 1,
+          "configInProgress": 2,
+          "configCommit": 3,
+          "configStartCommit": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "configNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserAccessTable": {
+    "name": "eqlApplianceLocalUserAccessTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserAccessEntry": {
+    "name": "eqlApplianceLocalUserAccessEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceLocalUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceLocalUserAccessRowStatus": {
+    "name": "eqlApplianceLocalUserAccessRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserName": {
+    "name": "eqlApplianceLocalUserName",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserPassword": {
+    "name": "eqlApplianceLocalUserPassword",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserUid": {
+    "name": "eqlApplianceLocalUserUid",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserPrimaryGroup": {
+    "name": "eqlApplianceLocalUserPrimaryGroup",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserRealName": {
+    "name": "eqlApplianceLocalUserRealName",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserSid": {
+    "name": "eqlApplianceLocalUserSid",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "eqlApplianceLocalUserRemarks": {
+    "name": "eqlApplianceLocalUserRemarks",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserAdditionalGroups": {
+    "name": "eqlApplianceLocalUserAdditionalGroups",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalUserAccess": {
+    "name": "eqlApplianceLocalUserAccess",
+    "oid": "1.3.6.1.4.1.12740.17.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqlApplianceLocalGroupAccessTable": {
+    "name": "eqlApplianceLocalGroupAccessTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceLocalGroupAccessEntry": {
+    "name": "eqlApplianceLocalGroupAccessEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceLocalGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceLocalGroupAccessRowStatus": {
+    "name": "eqlApplianceLocalGroupAccessRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalGroupName": {
+    "name": "eqlApplianceLocalGroupName",
+    "oid": "1.3.6.1.4.1.12740.17.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalGroupGid": {
+    "name": "eqlApplianceLocalGroupGid",
+    "oid": "1.3.6.1.4.1.12740.17.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLocalGroupGsid": {
+    "name": "eqlApplianceLocalGroupGsid",
+    "oid": "1.3.6.1.4.1.12740.17.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseTable": {
+    "name": "eqlApplianceCredentialsDatabaseTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseEntry": {
+    "name": "eqlApplianceCredentialsDatabaseEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseRowStatus": {
+    "name": "eqlApplianceCredentialsDatabaseRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseType": {
+    "name": "eqlApplianceCredentialsDatabaseType",
+    "oid": "1.3.6.1.4.1.12740.17.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noexternal": 0,
+          "ldap": 1,
+          "nis": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseLdapBaseDn": {
+    "name": "eqlApplianceCredentialsDatabaseLdapBaseDn",
+    "oid": "1.3.6.1.4.1.12740.17.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseLdapServerAddress": {
+    "name": "eqlApplianceCredentialsDatabaseLdapServerAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseNisDomain": {
+    "name": "eqlApplianceCredentialsDatabaseNisDomain",
+    "oid": "1.3.6.1.4.1.12740.17.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCredentialsDatabaseNisServerAddress": {
+    "name": "eqlApplianceCredentialsDatabaseNisServerAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryAccessTable": {
+    "name": "eqlApplianceActiveDirectoryAccessTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryAccessEntry": {
+    "name": "eqlApplianceActiveDirectoryAccessEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryRowStatus": {
+    "name": "eqlApplianceActiveDirectoryRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryAdvancedSettings": {
+    "name": "eqlApplianceActiveDirectoryAdvancedSettings",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryNetBiosName": {
+    "name": "eqlApplianceActiveDirectoryNetBiosName",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryDomain": {
+    "name": "eqlApplianceActiveDirectoryDomain",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryUserName": {
+    "name": "eqlApplianceActiveDirectoryUserName",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryPassword": {
+    "name": "eqlApplianceActiveDirectoryPassword",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryDescription": {
+    "name": "eqlApplianceActiveDirectoryDescription",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryFunctionalLevel": {
+    "name": "eqlApplianceActiveDirectoryFunctionalLevel",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryWinsServer": {
+    "name": "eqlApplianceActiveDirectoryWinsServer",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryWorkGroup": {
+    "name": "eqlApplianceActiveDirectoryWorkGroup",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryDomainControllers": {
+    "name": "eqlApplianceActiveDirectoryDomainControllers",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryMemberOfDomain": {
+    "name": "eqlApplianceActiveDirectoryMemberOfDomain",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryStatus": {
+    "name": "eqlApplianceActiveDirectoryStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unused",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryAccessibleControllers": {
+    "name": "eqlApplianceActiveDirectoryAccessibleControllers",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceActiveDirectoryPreferredControllers": {
+    "name": "eqlApplianceActiveDirectoryPreferredControllers",
+    "oid": "1.3.6.1.4.1.12740.17.1.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceManualMappingTable": {
+    "name": "eqlApplianceManualMappingTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceManualMappingEntry": {
+    "name": "eqlApplianceManualMappingEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceManualMappingUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceManualMappingRowStatus": {
+    "name": "eqlApplianceManualMappingRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceManualMappingUserName": {
+    "name": "eqlApplianceManualMappingUserName",
+    "oid": "1.3.6.1.4.1.12740.17.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceManualMappingMappedToUserName": {
+    "name": "eqlApplianceManualMappingMappedToUserName",
+    "oid": "1.3.6.1.4.1.12740.17.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceManualMappingDirection": {
+    "name": "eqlApplianceManualMappingDirection",
+    "oid": "1.3.6.1.4.1.12740.17.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "none": 1,
+          "unixtowindows": 2,
+          "windowstounix": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMappingPolicyTable": {
+    "name": "eqlApplianceMappingPolicyTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceMappingPolicyEntry": {
+    "name": "eqlApplianceMappingPolicyEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceMappingPolicyRowStatus": {
+    "name": "eqlApplianceMappingPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMappingPolicyAcquireMapping": {
+    "name": "eqlApplianceMappingPolicyAcquireMapping",
+    "oid": "1.3.6.1.4.1.12740.17.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceMappingPolicyAllowNotMapped": {
+    "name": "eqlApplianceMappingPolicyAllowNotMapped",
+    "oid": "1.3.6.1.4.1.12740.17.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "eqlApplianceAllGroupsTable": {
+    "name": "eqlApplianceAllGroupsTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceAllGroupsEntry": {
+    "name": "eqlApplianceAllGroupsEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceAllGroupsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceAllGroupsRowStatus": {
+    "name": "eqlApplianceAllGroupsRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllGroupsName": {
+    "name": "eqlApplianceAllGroupsName",
+    "oid": "1.3.6.1.4.1.12740.17.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllGroupsId": {
+    "name": "eqlApplianceAllGroupsId",
+    "oid": "1.3.6.1.4.1.12740.17.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllGroupsType": {
+    "name": "eqlApplianceAllGroupsType",
+    "oid": "1.3.6.1.4.1.12740.17.1.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "ad": 1,
+          "unix": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllGroupsSource": {
+    "name": "eqlApplianceAllGroupsSource",
+    "oid": "1.3.6.1.4.1.12740.17.1.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "local": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllUsersTable": {
+    "name": "eqlApplianceAllUsersTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceAllUsersEntry": {
+    "name": "eqlApplianceAllUsersEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceAllUsersName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceAllUsersRowStatus": {
+    "name": "eqlApplianceAllUsersRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllUsersName": {
+    "name": "eqlApplianceAllUsersName",
+    "oid": "1.3.6.1.4.1.12740.17.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllUsersId": {
+    "name": "eqlApplianceAllUsersId",
+    "oid": "1.3.6.1.4.1.12740.17.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllUsersType": {
+    "name": "eqlApplianceAllUsersType",
+    "oid": "1.3.6.1.4.1.12740.17.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "ad": 1,
+          "unix": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAllUsersSource": {
+    "name": "eqlApplianceAllUsersSource",
+    "oid": "1.3.6.1.4.1.12740.17.1.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "local": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceEQLMemberMPVTable": {
+    "name": "eqlApplianceEQLMemberMPVTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "eqlApplianceEQLMemberMPVEntry": {
+    "name": "eqlApplianceEQLMemberMPVEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "eqlApplianceEQLMemberMPV": {
+    "name": "eqlApplianceEQLMemberMPV",
+    "oid": "1.3.6.1.4.1.12740.17.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "eqlApplianceMPVTable": {
+    "name": "eqlApplianceMPVTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceMPVEntry": {
+    "name": "eqlApplianceMPVEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceEQLGroupMPV": {
+    "name": "eqlApplianceEQLGroupMPV",
+    "oid": "1.3.6.1.4.1.12740.17.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceClusterMPV": {
+    "name": "eqlApplianceClusterMPV",
+    "oid": "1.3.6.1.4.1.12740.17.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceClusterMajorVersion": {
+    "name": "eqlApplianceClusterMajorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceClusterMinorVersion": {
+    "name": "eqlApplianceClusterMinorVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceClusterMaintVersion": {
+    "name": "eqlApplianceClusterMaintVersion",
+    "oid": "1.3.6.1.4.1.12740.17.1.27.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataTable": {
+    "name": "eqlApplianceSyncedDataTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataEntry": {
+    "name": "eqlApplianceSyncedDataEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceSyncedDataType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceSyncedDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataRowStatus": {
+    "name": "eqlApplianceSyncedDataRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataType": {
+    "name": "eqlApplianceSyncedDataType",
+    "oid": "1.3.6.1.4.1.12740.17.1.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "grpadminpswd": 1,
+          "grpip": 2,
+          "timezone": 3,
+          "traprecipient": 4,
+          "trapcommunity": 5,
+          "cluster-san-vip": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataIndex": {
+    "name": "eqlApplianceSyncedDataIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataIndexPayload": {
+    "name": "eqlApplianceSyncedDataIndexPayload",
+    "oid": "1.3.6.1.4.1.12740.17.1.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataEntryPayload": {
+    "name": "eqlApplianceSyncedDataEntryPayload",
+    "oid": "1.3.6.1.4.1.12740.17.1.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceSyncedDataState": {
+    "name": "eqlApplianceSyncedDataState",
+    "oid": "1.3.6.1.4.1.12740.17.1.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sync-pending": 0,
+          "sync-initiated": 1,
+          "synced": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolTable": {
+    "name": "eqlApplianceCIFSProtocolTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolEntry": {
+    "name": "eqlApplianceCIFSProtocolEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolRowStatus": {
+    "name": "eqlApplianceCIFSProtocolRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolAuthenticationEnabled": {
+    "name": "eqlApplianceCIFSProtocolAuthenticationEnabled",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolAuthenticationType": {
+    "name": "eqlApplianceCIFSProtocolAuthenticationType",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "activedirectory": 1,
+          "localuser": 2,
+          "guestsonly": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolAllowGuests": {
+    "name": "eqlApplianceCIFSProtocolAllowGuests",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "eqlApplianceCIFSProtocolMaxConnections": {
+    "name": "eqlApplianceCIFSProtocolMaxConnections",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolUnixCharacterSet": {
+    "name": "eqlApplianceCIFSProtocolUnixCharacterSet",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "utf8": 1,
+          "utf8jp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceCIFSProtocolDosCodePage": {
+    "name": "eqlApplianceCIFSProtocolDosCodePage",
+    "oid": "1.3.6.1.4.1.12740.17.1.29.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "cp850": 1,
+          "cp437": 2,
+          "cp737": 3,
+          "cp775": 4,
+          "cp852": 5,
+          "cp857": 6,
+          "cp860": 7,
+          "cp861": 8,
+          "cp862": 9,
+          "cp863": 10,
+          "cp864": 11,
+          "cp865": 12,
+          "cp866": 13,
+          "cp874": 14,
+          "cp932": 15,
+          "cp936": 16,
+          "cp949": 17,
+          "cp950": 18,
+          "eucjp": 19
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceOptimizationScheduleTable": {
+    "name": "eqlApplianceOptimizationScheduleTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOptimizationScheduleEntry": {
+    "name": "eqlApplianceOptimizationScheduleEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceOptimizationScheduleRowStatus": {
+    "name": "eqlApplianceOptimizationScheduleRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceOptimizationScheduleStatus": {
+    "name": "eqlApplianceOptimizationScheduleStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceOptimizationContainerIndex": {
+    "name": "eqlApplianceOptimizationContainerIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceOptimizationPolicyIndex": {
+    "name": "eqlApplianceOptimizationPolicyIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceAdminAccountTable": {
+    "name": "eqlApplianceAdminAccountTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceAdminAccountEntry": {
+    "name": "eqlApplianceAdminAccountEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceAdminAccountName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceAdminAccountName": {
+    "name": "eqlApplianceAdminAccountName",
+    "oid": "1.3.6.1.4.1.12740.17.1.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAdminAccountRowStatus": {
+    "name": "eqlApplianceAdminAccountRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceAdminAccountPassword": {
+    "name": "eqlApplianceAdminAccountPassword",
+    "oid": "1.3.6.1.4.1.12740.17.1.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLicenseTable": {
+    "name": "eqlApplianceLicenseTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceLicenseEntry": {
+    "name": "eqlApplianceLicenseEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceLicenseFeatureId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceLicenseRowStatus": {
+    "name": "eqlApplianceLicenseRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLicenseFeatureId": {
+    "name": "eqlApplianceLicenseFeatureId",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic-dedupe": 1,
+          "advanced-dedupe": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "basic-dedupe",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceLicenseEntitlementId": {
+    "name": "eqlApplianceLicenseEntitlementId",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceLicenseState": {
+    "name": "eqlApplianceLicenseState",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1,
+          "expired": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLicenseExpiry": {
+    "name": "eqlApplianceLicenseExpiry",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceLicenseUsed": {
+    "name": "eqlApplianceLicenseUsed",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceLicenseType": {
+    "name": "eqlApplianceLicenseType",
+    "oid": "1.3.6.1.4.1.12740.17.1.32.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "evaluation": 0,
+          "perpetual": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "perpetual",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceLicenseFileTable": {
+    "name": "eqlApplianceLicenseFileTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceLicenseFileEntry": {
+    "name": "eqlApplianceLicenseFileEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceLicenseFileRowStatus": {
+    "name": "eqlApplianceLicenseFileRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceLicenseFileName": {
+    "name": "eqlApplianceLicenseFileName",
+    "oid": "1.3.6.1.4.1.12740.17.1.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceTypeEQLMemberMPVTable": {
+    "name": "eqlApplianceTypeEQLMemberMPVTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceTypeEQLMemberMPVEntry": {
+    "name": "eqlApplianceTypeEQLMemberMPVEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLMEMBER-MIB",
+        "object": "eqlMemberIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceTypeEQLMemberMPV": {
+    "name": "eqlApplianceTypeEQLMemberMPV",
+    "oid": "1.3.6.1.4.1.12740.17.1.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceTypeEQLGroupMPVTable": {
+    "name": "eqlApplianceTypeEQLGroupMPVTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.35",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceTypeEQLGroupMPVEntry": {
+    "name": "eqlApplianceTypeEQLGroupMPVEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.35.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLGROUP-MIB",
+        "object": "eqlGroupId",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceTypeEQLGroupMPV": {
+    "name": "eqlApplianceTypeEQLGroupMPV",
+    "oid": "1.3.6.1.4.1.12740.17.1.35.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceVolumeDiscoveryTable": {
+    "name": "eqlApplianceVolumeDiscoveryTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceVolumeDiscoveryEntry": {
+    "name": "eqlApplianceVolumeDiscoveryEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLVOLUME-MIB",
+        "object": "eqliscsiVolumeTargetIscsiName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceVolumeDiscoveryRowStatus": {
+    "name": "eqlApplianceVolumeDiscoveryRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.36.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceVolumeDiscoveryVolumeNodeAccessibleStatus": {
+    "name": "eqlApplianceVolumeDiscoveryVolumeNodeAccessibleStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.36.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-optimal": 0,
+          "optimal": 1,
+          "fault": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "not-optimal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceVolumeDiscoveryVolumeStatus": {
+    "name": "eqlApplianceVolumeDiscoveryVolumeStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "expanding": 1,
+          "formatted": 2,
+          "expandable": 3,
+          "new": 4,
+          "formatting": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceVolumeDiscoveryVolumeLunNumber": {
+    "name": "eqlApplianceVolumeDiscoveryVolumeLunNumber",
+    "oid": "1.3.6.1.4.1.12740.17.1.36.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqlApplianceInitiatorsTable": {
+    "name": "eqlApplianceInitiatorsTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceInitiatorsEntry": {
+    "name": "eqlApplianceInitiatorsEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceNodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceInitiatorRowStatus": {
+    "name": "eqlApplianceInitiatorRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceInitiatorName": {
+    "name": "eqlApplianceInitiatorName",
+    "oid": "1.3.6.1.4.1.12740.17.1.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryTable": {
+    "name": "eqlApplianceUserQueryTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryEntry": {
+    "name": "eqlApplianceUserQueryEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUserQuerySearchString",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUserQueryDBType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUserQueryPageSize",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUserQueryPageNumber",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUserQueryUserDomain",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceUserQueryUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceUserQuerySearchString": {
+    "name": "eqlApplianceUserQuerySearchString",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryDBType": {
+    "name": "eqlApplianceUserQueryDBType",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "ad": 1,
+          "unix": 2,
+          "all": 3,
+          "local": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryPageSize": {
+    "name": "eqlApplianceUserQueryPageSize",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryPageNumber": {
+    "name": "eqlApplianceUserQueryPageNumber",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryUserDomain": {
+    "name": "eqlApplianceUserQueryUserDomain",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryUserName": {
+    "name": "eqlApplianceUserQueryUserName",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryRowStatus": {
+    "name": "eqlApplianceUserQueryRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryTotalUsers": {
+    "name": "eqlApplianceUserQueryTotalUsers",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryUserId": {
+    "name": "eqlApplianceUserQueryUserId",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryUserPrimaryGroup": {
+    "name": "eqlApplianceUserQueryUserPrimaryGroup",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 184
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryUserType": {
+    "name": "eqlApplianceUserQueryUserType",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "ad": 1,
+          "unix": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceUserQueryUserSource": {
+    "name": "eqlApplianceUserQueryUserSource",
+    "oid": "1.3.6.1.4.1.12740.17.1.38.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "local": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDnsServerTable": {
+    "name": "eqlApplianceDnsServerTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.39",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceDnsServerEntry": {
+    "name": "eqlApplianceDnsServerEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.39.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceDnsServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceDnsServerIndex": {
+    "name": "eqlApplianceDnsServerIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.39.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceDnsServerRowStatus": {
+    "name": "eqlApplianceDnsServerRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.39.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDnsServerInetAddressType": {
+    "name": "eqlApplianceDnsServerInetAddressType",
+    "oid": "1.3.6.1.4.1.12740.17.1.39.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDnsServerInetAddress": {
+    "name": "eqlApplianceDnsServerInetAddress",
+    "oid": "1.3.6.1.4.1.12740.17.1.39.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDnsServerTransactionState": {
+    "name": "eqlApplianceDnsServerTransactionState",
+    "oid": "1.3.6.1.4.1.12740.17.1.39.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleOp": 0,
+          "configStart": 1,
+          "configInProgress": 2,
+          "configCommit": 3,
+          "configStartCommit": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "singleOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDnsSuffixTable": {
+    "name": "eqlApplianceDnsSuffixTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.40",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceDnsSuffixEntry": {
+    "name": "eqlApplianceDnsSuffixEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.40.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceDnsSuffixIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceDnsSuffixIndex": {
+    "name": "eqlApplianceDnsSuffixIndex",
+    "oid": "1.3.6.1.4.1.12740.17.1.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceDnsSuffixRowStatus": {
+    "name": "eqlApplianceDnsSuffixRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.40.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDnsSuffixString": {
+    "name": "eqlApplianceDnsSuffixString",
+    "oid": "1.3.6.1.4.1.12740.17.1.40.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDnsSuffixTransactionState": {
+    "name": "eqlApplianceDnsSuffixTransactionState",
+    "oid": "1.3.6.1.4.1.12740.17.1.40.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleOp": 0,
+          "configStart": 1,
+          "configInProgress": 2,
+          "configCommit": 3,
+          "configStartCommit": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "singleOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDomainListTable": {
+    "name": "eqlApplianceDomainListTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.41",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceDomainListEntry": {
+    "name": "eqlApplianceDomainListEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.41.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceDomainName": {
+    "name": "eqlApplianceDomainName",
+    "oid": "1.3.6.1.4.1.12740.17.1.41.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceDomainType": {
+    "name": "eqlApplianceDomainType",
+    "oid": "1.3.6.1.4.1.12740.17.1.41.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "ad": 1,
+          "unix": 2,
+          "local": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryTable": {
+    "name": "eqlApplianceGroupQueryTable",
+    "oid": "1.3.6.1.4.1.12740.17.1.42",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryEntry": {
+    "name": "eqlApplianceGroupQueryEntry",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceIndex",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceGroupQuerySearchString",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceGroupQueryDBType",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceGroupQueryPageSize",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceGroupQueryPageNumber",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceGroupQueryDomain",
+        "implied": 0
+      },
+      {
+        "module": "EQLAPPLIANCE-MIB",
+        "object": "eqlApplianceGroupQueryGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqlApplianceGroupQuerySearchString": {
+    "name": "eqlApplianceGroupQuerySearchString",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryDBType": {
+    "name": "eqlApplianceGroupQueryDBType",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "ad": 1,
+          "unix": 2,
+          "all": 3,
+          "local": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryPageSize": {
+    "name": "eqlApplianceGroupQueryPageSize",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryPageNumber": {
+    "name": "eqlApplianceGroupQueryPageNumber",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryDomain": {
+    "name": "eqlApplianceGroupQueryDomain",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryGroupName": {
+    "name": "eqlApplianceGroupQueryGroupName",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 129
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryRowStatus": {
+    "name": "eqlApplianceGroupQueryRowStatus",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryTotalGroups": {
+    "name": "eqlApplianceGroupQueryTotalGroups",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryGroupId": {
+    "name": "eqlApplianceGroupQueryGroupId",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryGroupType": {
+    "name": "eqlApplianceGroupQueryGroupType",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "ad": 1,
+          "unix": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eqlApplianceGroupQueryGroupSource": {
+    "name": "eqlApplianceGroupQueryGroupSource",
+    "oid": "1.3.6.1.4.1.12740.17.1.42.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 0,
+          "local": 1,
+          "external": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLAPPLIANCE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EQLAPPLIANCE-MIB"
+  }
+}

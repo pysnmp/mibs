@@ -1,0 +1,814 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "voice"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVismSvcMIB": {
+    "name": "ciscoVismSvcMIB",
+    "oid": "1.3.6.1.4.1.351.150.90",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-09 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in SMIv1 version. The MIB has been converted to SMIv2 version and descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "vismSvcGrp": {
+    "name": "vismSvcGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10",
+    "class": "objectidentity"
+  },
+  "vismSvcCnfGroups": {
+    "name": "vismSvcCnfGroups",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19",
+    "class": "objectidentity"
+  },
+  "vismSvcAtmQosGrp": {
+    "name": "vismSvcAtmQosGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.1",
+    "class": "objectidentity"
+  },
+  "vismSvcTrfScalingGrp": {
+    "name": "vismSvcTrfScalingGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.2",
+    "class": "objectidentity"
+  },
+  "vismSvcAal2CidGrp": {
+    "name": "vismSvcAal2CidGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.3",
+    "class": "objectidentity"
+  },
+  "vismSvcTxSetups": {
+    "name": "vismSvcTxSetups",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxSetups": {
+    "name": "vismSvcRxSetups",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxCallProcs": {
+    "name": "vismSvcTxCallProcs",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxCallProcs": {
+    "name": "vismSvcRxCallProcs",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxConns": {
+    "name": "vismSvcTxConns",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxConnAcks": {
+    "name": "vismSvcTxConnAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxConns": {
+    "name": "vismSvcRxConns",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxConnAcks": {
+    "name": "vismSvcRxConnAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxReleases": {
+    "name": "vismSvcTxReleases",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxReleaseCompls": {
+    "name": "vismSvcTxReleaseCompls",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxReleases": {
+    "name": "vismSvcRxReleases",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxReleaseCompls": {
+    "name": "vismSvcRxReleaseCompls",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxRestarts": {
+    "name": "vismSvcTxRestarts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxRestartAcks": {
+    "name": "vismSvcTxRestartAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxRestarts": {
+    "name": "vismSvcRxRestarts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxRestartAcks": {
+    "name": "vismSvcRxRestartAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxResyncStrts": {
+    "name": "vismSvcTxResyncStrts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxResyncStrtAcks": {
+    "name": "vismSvcTxResyncStrtAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxResyncStrts": {
+    "name": "vismSvcRxResyncStrts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxResyncStrtAcks": {
+    "name": "vismSvcRxResyncStrtAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxResyncEnds": {
+    "name": "vismSvcTxResyncEnds",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxResyncEndAcks": {
+    "name": "vismSvcTxResyncEndAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxResyncEnds": {
+    "name": "vismSvcRxResyncEnds",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxResyncEndAcks": {
+    "name": "vismSvcRxResyncEndAcks",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcTxBulkResyncs": {
+    "name": "vismSvcTxBulkResyncs",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRxBulkResyncs": {
+    "name": "vismSvcRxBulkResyncs",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcCallProcExpiries": {
+    "name": "vismSvcCallProcExpiries",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcReleasExpiries": {
+    "name": "vismSvcReleasExpiries",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcConnExpiries": {
+    "name": "vismSvcConnExpiries",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcConnAckExpiries": {
+    "name": "vismSvcConnAckExpiries",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcRestartExpiries": {
+    "name": "vismSvcRestartExpiries",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcResyncExpiries": {
+    "name": "vismSvcResyncExpiries",
+    "oid": "1.3.6.1.4.1.351.110.5.5.10.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSvcAtmQosCdv": {
+    "name": "vismSvcAtmQosCdv",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSvcAtmQosCtd": {
+    "name": "vismSvcAtmQosCtd",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20000,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSvcAtmQosClr": {
+    "name": "vismSvcAtmQosClr",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSvcTrfScalingFactor": {
+    "name": "vismSvcTrfScalingFactor",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSvcAal2CidNumber": {
+    "name": "vismSvcAal2CidNumber",
+    "oid": "1.3.6.1.4.1.351.110.5.5.19.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoVismSvcMIBConformance": {
+    "name": "ciscoVismSvcMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.90.2",
+    "class": "objectidentity"
+  },
+  "ciscoVismSvcMIBGroups": {
+    "name": "ciscoVismSvcMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.90.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoVismSvcMIBCompliances": {
+    "name": "ciscoVismSvcMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.90.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoVismSvcCompliance": {
+    "name": "ciscoVismSvcCompliance",
+    "oid": "1.3.6.1.4.1.351.150.90.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVismSvcCounterGroup",
+        "module": "CISCO-VISM-SVC-MIB"
+      },
+      {
+        "object": "ciscoVismSvcAtmQosGroup",
+        "module": "CISCO-VISM-SVC-MIB"
+      },
+      {
+        "object": "ciscoVismSvcTrfScalingGrp",
+        "module": "CISCO-VISM-SVC-MIB"
+      },
+      {
+        "object": "ciscoVismSvcAal2CidGrp",
+        "module": "CISCO-VISM-SVC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSvcCounterGroup": {
+    "name": "ciscoVismSvcCounterGroup",
+    "oid": "1.3.6.1.4.1.351.150.90.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxSetups"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxSetups"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxCallProcs"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxCallProcs"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxConns"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxConnAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxConns"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxConnAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxReleases"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxReleaseCompls"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxReleases"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxReleaseCompls"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxRestarts"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxRestartAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxRestarts"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxRestartAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxResyncStrts"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxResyncStrtAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxResyncStrts"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxResyncStrtAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxResyncEnds"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxResyncEndAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxResyncEnds"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxResyncEndAcks"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTxBulkResyncs"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRxBulkResyncs"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcCallProcExpiries"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcReleasExpiries"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcConnExpiries"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcConnAckExpiries"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcRestartExpiries"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcResyncExpiries"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSvcAtmQosGroup": {
+    "name": "ciscoVismSvcAtmQosGroup",
+    "oid": "1.3.6.1.4.1.351.150.90.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcAtmQosCdv"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcAtmQosCtd"
+      },
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcAtmQosClr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSvcTrfScalingGrp": {
+    "name": "ciscoVismSvcTrfScalingGrp",
+    "oid": "1.3.6.1.4.1.351.150.90.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcTrfScalingFactor"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSvcAal2CidGrp": {
+    "name": "ciscoVismSvcAal2CidGrp",
+    "oid": "1.3.6.1.4.1.351.150.90.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-SVC-MIB",
+        "object": "vismSvcAal2CidNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VISM-SVC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VISM-SVC-MIB"
+  }
+}

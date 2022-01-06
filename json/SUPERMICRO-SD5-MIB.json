@@ -1,0 +1,2631 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SUPERMICRO-SMI": [
+      "smSSMInfo"
+    ]
+  },
+  "smSuperDoctor5MIB": {
+    "name": "smSuperDoctor5MIB",
+    "oid": "1.3.6.1.4.1.10876.100.1",
+    "class": "moduleidentity"
+  },
+  "sd5Table": {
+    "name": "sd5Table",
+    "oid": "1.3.6.1.4.1.10876.100.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sd5Entry": {
+    "name": "sd5Entry",
+    "oid": "1.3.6.1.4.1.10876.100.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "sd5Idx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sd5Idx": {
+    "name": "sd5Idx",
+    "oid": "1.3.6.1.4.1.10876.100.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sd5Version": {
+    "name": "sd5Version",
+    "oid": "1.3.6.1.4.1.10876.100.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sd5MIBVersion": {
+    "name": "sd5MIBVersion",
+    "oid": "1.3.6.1.4.1.10876.100.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTable": {
+    "name": "cpuTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuEntry": {
+    "name": "cpuEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "cpuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpuIndex": {
+    "name": "cpuIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuName": {
+    "name": "cpuName",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuDescription": {
+    "name": "cpuDescription",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuManufacturer": {
+    "name": "cpuManufacturer",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuDeviceStatus": {
+    "name": "cpuDeviceStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuMaxSpeed": {
+    "name": "cpuMaxSpeed",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuCurrentSpeed": {
+    "name": "cpuCurrentSpeed",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLoadingPercentage": {
+    "name": "cpuLoadingPercentage",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuCoreEnabled": {
+    "name": "cpuCoreEnabled",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuCoreCount": {
+    "name": "cpuCoreCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuThreadCount": {
+    "name": "cpuThreadCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuSocketDesignation": {
+    "name": "cpuSocketDesignation",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuDeviceVersion": {
+    "name": "cpuDeviceVersion",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuDeviceID": {
+    "name": "cpuDeviceID",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuID": {
+    "name": "cpuID",
+    "oid": "1.3.6.1.4.1.10876.100.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTable": {
+    "name": "memTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memEntry": {
+    "name": "memEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "memTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memTag": {
+    "name": "memTag",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memDescription": {
+    "name": "memDescription",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memDeviceStatus": {
+    "name": "memDeviceStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memLabeledBank": {
+    "name": "memLabeledBank",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memDeviceLocator": {
+    "name": "memDeviceLocator",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memModel": {
+    "name": "memModel",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memManufacturer": {
+    "name": "memManufacturer",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memPartNumber": {
+    "name": "memPartNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memSerialNumber": {
+    "name": "memSerialNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memCapacity": {
+    "name": "memCapacity",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memDataWidth": {
+    "name": "memDataWidth",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memTotalWidth": {
+    "name": "memTotalWidth",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memErrorCount": {
+    "name": "memErrorCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memECCErrorCount": {
+    "name": "memECCErrorCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memUECCErrorCount": {
+    "name": "memUECCErrorCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTable": {
+    "name": "diskTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskEntry": {
+    "name": "diskEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "diskName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskSerialNumber": {
+    "name": "diskSerialNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskName": {
+    "name": "diskName",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVendor": {
+    "name": "diskVendor",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSmartStatus": {
+    "name": "diskSmartStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskModel": {
+    "name": "diskModel",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSize": {
+    "name": "diskSize",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskMediaType": {
+    "name": "diskMediaType",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskInterfaceType": {
+    "name": "diskInterfaceType",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskController": {
+    "name": "diskController",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSlotID": {
+    "name": "diskSlotID",
+    "oid": "1.3.6.1.4.1.10876.100.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysBIOSTable": {
+    "name": "sysBIOSTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysBIOSEntry": {
+    "name": "sysBIOSEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "sysBIOSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysBIOSIndex": {
+    "name": "sysBIOSIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysBIOSReleaseDate": {
+    "name": "sysBIOSReleaseDate",
+    "oid": "1.3.6.1.4.1.10876.100.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysBIOSVersion": {
+    "name": "sysBIOSVersion",
+    "oid": "1.3.6.1.4.1.10876.100.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysBIOSManufacturer": {
+    "name": "sysBIOSManufacturer",
+    "oid": "1.3.6.1.4.1.10876.100.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbTable": {
+    "name": "mbTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mbEntry": {
+    "name": "mbEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "mbIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mbIndex": {
+    "name": "mbIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbManufacturer": {
+    "name": "mbManufacturer",
+    "oid": "1.3.6.1.4.1.10876.100.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbProductName": {
+    "name": "mbProductName",
+    "oid": "1.3.6.1.4.1.10876.100.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbVersionName": {
+    "name": "mbVersionName",
+    "oid": "1.3.6.1.4.1.10876.100.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbAssetTag": {
+    "name": "mbAssetTag",
+    "oid": "1.3.6.1.4.1.10876.100.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mbSerialNumber": {
+    "name": "mbSerialNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osTable": {
+    "name": "osTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "osEntry": {
+    "name": "osEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "osIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "osIndex": {
+    "name": "osIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osName": {
+    "name": "osName",
+    "oid": "1.3.6.1.4.1.10876.100.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osVersion": {
+    "name": "osVersion",
+    "oid": "1.3.6.1.4.1.10876.100.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osManufacturer": {
+    "name": "osManufacturer",
+    "oid": "1.3.6.1.4.1.10876.100.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osSerialNumber": {
+    "name": "osSerialNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "osCSDVersion": {
+    "name": "osCSDVersion",
+    "oid": "1.3.6.1.4.1.10876.100.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dmiLogTable": {
+    "name": "dmiLogTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.8",
+    "class": "objectidentity"
+  },
+  "ceccLogTable": {
+    "name": "ceccLogTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceccLogEntry": {
+    "name": "ceccLogEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "ceccLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceccLogDatetime": {
+    "name": "ceccLogDatetime",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceccLogInfo": {
+    "name": "ceccLogInfo",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceccLogIndex": {
+    "name": "ceccLogIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ueccLogTable": {
+    "name": "ueccLogTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ueccLogEntry": {
+    "name": "ueccLogEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "ceccLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ueccLogDatetime": {
+    "name": "ueccLogDatetime",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ueccLogInfo": {
+    "name": "ueccLogInfo",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ueccLogIndex": {
+    "name": "ueccLogIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "postLogTable": {
+    "name": "postLogTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "postLogEntry": {
+    "name": "postLogEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "postLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "postLogDatetime": {
+    "name": "postLogDatetime",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "postLogInfo": {
+    "name": "postLogInfo",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "postLogIndex": {
+    "name": "postLogIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLogTable": {
+    "name": "cpuLogTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuLogEntry": {
+    "name": "cpuLogEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "cpuLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpuLogDatetime": {
+    "name": "cpuLogDatetime",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLogInfo": {
+    "name": "cpuLogInfo",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuLogIndex": {
+    "name": "cpuLogIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.8.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterTable": {
+    "name": "raidAdapterTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raidAdapterEntry": {
+    "name": "raidAdapterEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "raidAdapterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raidAdapterIndex": {
+    "name": "raidAdapterIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterGroup": {
+    "name": "raidAdapterGroup",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterId": {
+    "name": "raidAdapterId",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterProductName": {
+    "name": "raidAdapterProductName",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterSerialNumber": {
+    "name": "raidAdapterSerialNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterFWPackageBuild": {
+    "name": "raidAdapterFWPackageBuild",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterFWVersion": {
+    "name": "raidAdapterFWVersion",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterBIOSVersion": {
+    "name": "raidAdapterBIOSVersion",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterVendorId": {
+    "name": "raidAdapterVendorId",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterDeviceId": {
+    "name": "raidAdapterDeviceId",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterSubVendorId": {
+    "name": "raidAdapterSubVendorId",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterSubDeviceId": {
+    "name": "raidAdapterSubDeviceId",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidIsBBUAbsent": {
+    "name": "raidIsBBUAbsent",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidIsBBUAbsentIgnored": {
+    "name": "raidIsBBUAbsentIgnored",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterAllinoneStatus": {
+    "name": "raidAdapterAllinoneStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterAllinoneMsg": {
+    "name": "raidAdapterAllinoneMsg",
+    "oid": "1.3.6.1.4.1.10876.100.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidBBUTable": {
+    "name": "raidBBUTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raidBBUEntry": {
+    "name": "raidBBUEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "raidBBUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raidBBUIndex": {
+    "name": "raidBBUIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterGroup_BBU": {
+    "name": "raidAdapterGroup_BBU",
+    "oid": "1.3.6.1.4.1.10876.100.1.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterId_BBU": {
+    "name": "raidAdapterId_BBU",
+    "oid": "1.3.6.1.4.1.10876.100.1.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidBBUStatus": {
+    "name": "raidBBUStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidBBUAllinoneStatus": {
+    "name": "raidBBUAllinoneStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidBBUAllinoneMsg": {
+    "name": "raidBBUAllinoneMsg",
+    "oid": "1.3.6.1.4.1.10876.100.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDTable": {
+    "name": "raidVDTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raidVDEntry": {
+    "name": "raidVDEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "raidVDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raidVDIndex": {
+    "name": "raidVDIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterGroup_VD": {
+    "name": "raidAdapterGroup_VD",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterId_VD": {
+    "name": "raidAdapterId_VD",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidDiskGroupId": {
+    "name": "raidDiskGroupId",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDId": {
+    "name": "raidVDId",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDTargetId": {
+    "name": "raidVDTargetId",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDName": {
+    "name": "raidVDName",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDRaidLevel": {
+    "name": "raidVDRaidLevel",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDSize": {
+    "name": "raidVDSize",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDMirrorDataSize": {
+    "name": "raidVDMirrorDataSize",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDStripSize": {
+    "name": "raidVDStripSize",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDNumDrives": {
+    "name": "raidVDNumDrives",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDSpanDepth": {
+    "name": "raidVDSpanDepth",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDDefaultCachePolicy": {
+    "name": "raidVDDefaultCachePolicy",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDCurrentCachePolicy": {
+    "name": "raidVDCurrentCachePolicy",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDDefaultAccessPolicy": {
+    "name": "raidVDDefaultAccessPolicy",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDCurrentAccessPolicy": {
+    "name": "raidVDCurrentAccessPolicy",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDDiskCachePolicy": {
+    "name": "raidVDDiskCachePolicy",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDEncryptionType": {
+    "name": "raidVDEncryptionType",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDDefaultPSPolicy": {
+    "name": "raidVDDefaultPSPolicy",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDCurrentPSPolicy": {
+    "name": "raidVDCurrentPSPolicy",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDCanSpinUpIn1Min": {
+    "name": "raidVDCanSpinUpIn1Min",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDSupportT10Power": {
+    "name": "raidVDSupportT10Power",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDSupportsMaxPS": {
+    "name": "raidVDSupportsMaxPS",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDBadBlocksExist": {
+    "name": "raidVDBadBlocksExist",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDCached": {
+    "name": "raidVDCached",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDState": {
+    "name": "raidVDState",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDAllinoneStatus": {
+    "name": "raidVDAllinoneStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidVDAllinoneMsg": {
+    "name": "raidVDAllinoneMsg",
+    "oid": "1.3.6.1.4.1.10876.100.1.11.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDTable": {
+    "name": "raidPDTable",
+    "oid": "1.3.6.1.4.1.10876.100.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "raidPDEntry": {
+    "name": "raidPDEntry",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SUPERMICRO-SD5-MIB",
+        "object": "raidPDIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "raidPDIndex": {
+    "name": "raidPDIndex",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterGroup_PD": {
+    "name": "raidAdapterGroup_PD",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidAdapterId_PD": {
+    "name": "raidAdapterId_PD",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidDiskGroupId_PD": {
+    "name": "raidDiskGroupId_PD",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDSlotNumber": {
+    "name": "raidPDSlotNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDFirmwareState": {
+    "name": "raidPDFirmwareState",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDMediaErrorCount": {
+    "name": "raidPDMediaErrorCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDOtherErrorCount": {
+    "name": "raidPDOtherErrorCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDPredFailCount": {
+    "name": "raidPDPredFailCount",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDLastPredFailEventSeqNo": {
+    "name": "raidPDLastPredFailEventSeqNo",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDRawSize": {
+    "name": "raidPDRawSize",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDDeviceFwLevel": {
+    "name": "raidPDDeviceFwLevel",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDInquiryData": {
+    "name": "raidPDInquiryData",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDDeviceSpeed": {
+    "name": "raidPDDeviceSpeed",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDLinkSpeed": {
+    "name": "raidPDLinkSpeed",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDMediaType": {
+    "name": "raidPDMediaType",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDWriteCache": {
+    "name": "raidPDWriteCache",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDNCQSetting": {
+    "name": "raidPDNCQSetting",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDPort0Linkspeed": {
+    "name": "raidPDPort0Linkspeed",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDPort0Status": {
+    "name": "raidPDPort0Status",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDPort1Linkspeed": {
+    "name": "raidPDPort1Linkspeed",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDPort1Status": {
+    "name": "raidPDPort1Status",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDEnclosureDeviceID": {
+    "name": "raidPDEnclosureDeviceID",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDOpProgress": {
+    "name": "raidPDOpProgress",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDSpan": {
+    "name": "raidPDSpan",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDAllinoneStatus": {
+    "name": "raidPDAllinoneStatus",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDAllinoneMsg": {
+    "name": "raidPDAllinoneMsg",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDModel": {
+    "name": "raidPDModel",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDSerialNumber": {
+    "name": "raidPDSerialNumber",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "raidPDFirmwareRevision": {
+    "name": "raidPDFirmwareRevision",
+    "oid": "1.3.6.1.4.1.10876.100.1.12.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smSD5TrapMIB": {
+    "name": "smSD5TrapMIB",
+    "oid": "1.3.6.1.4.1.10876.100.3",
+    "class": "objectidentity"
+  },
+  "trapFanNormal": {
+    "name": "trapFanNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.101",
+    "class": "notificationtype"
+  },
+  "trapFanWarning": {
+    "name": "trapFanWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.102",
+    "class": "notificationtype"
+  },
+  "trapFanCritical": {
+    "name": "trapFanCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.103",
+    "class": "notificationtype"
+  },
+  "trapVoltageNormal": {
+    "name": "trapVoltageNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.201",
+    "class": "notificationtype"
+  },
+  "trapVoltageWarning": {
+    "name": "trapVoltageWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.202",
+    "class": "notificationtype"
+  },
+  "trapVoltageCritical": {
+    "name": "trapVoltageCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.203",
+    "class": "notificationtype"
+  },
+  "trapTemperatureNormal": {
+    "name": "trapTemperatureNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.301",
+    "class": "notificationtype"
+  },
+  "trapTemperatureWarning": {
+    "name": "trapTemperatureWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.302",
+    "class": "notificationtype"
+  },
+  "trapTemperatureCritical": {
+    "name": "trapTemperatureCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.303",
+    "class": "notificationtype"
+  },
+  "trapChassisIntrusionCleared": {
+    "name": "trapChassisIntrusionCleared",
+    "oid": "1.3.6.1.4.1.10876.100.30.401",
+    "class": "notificationtype"
+  },
+  "trapChassisIntrusion": {
+    "name": "trapChassisIntrusion",
+    "oid": "1.3.6.1.4.1.10876.100.30.403",
+    "class": "notificationtype"
+  },
+  "trapStorageSMARTCheckNormal": {
+    "name": "trapStorageSMARTCheckNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.601",
+    "class": "notificationtype"
+  },
+  "trapStorageSMARTCheckWarning": {
+    "name": "trapStorageSMARTCheckWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.602",
+    "class": "notificationtype"
+  },
+  "trapStorageSMARTCheckCritical": {
+    "name": "trapStorageSMARTCheckCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.603",
+    "class": "notificationtype"
+  },
+  "trapPowerSupplyNormal": {
+    "name": "trapPowerSupplyNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.701",
+    "class": "notificationtype"
+  },
+  "trapPowerSupplyWarning": {
+    "name": "trapPowerSupplyWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.702",
+    "class": "notificationtype"
+  },
+  "trapPowerSupplyCritical": {
+    "name": "trapPowerSupplyCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.703",
+    "class": "notificationtype"
+  },
+  "trapMemoryCeccNormal": {
+    "name": "trapMemoryCeccNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.801",
+    "class": "notificationtype"
+  },
+  "trapMemoryCeccWarning": {
+    "name": "trapMemoryCeccWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.802",
+    "class": "notificationtype"
+  },
+  "trapMemoryCeccCritical": {
+    "name": "trapMemoryCeccCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.803",
+    "class": "notificationtype"
+  },
+  "trapMemoryUeccNormal": {
+    "name": "trapMemoryUeccNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.901",
+    "class": "notificationtype"
+  },
+  "trapMemoryUeccWarning": {
+    "name": "trapMemoryUeccWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.902",
+    "class": "notificationtype"
+  },
+  "trapMemoryUeccCritical": {
+    "name": "trapMemoryUeccCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.903",
+    "class": "notificationtype"
+  },
+  "trapGenericNormal": {
+    "name": "trapGenericNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.1001",
+    "class": "notificationtype"
+  },
+  "trapGenericWarning": {
+    "name": "trapGenericWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.1002",
+    "class": "notificationtype"
+  },
+  "trapGenericCritical": {
+    "name": "trapGenericCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.1003",
+    "class": "notificationtype"
+  },
+  "trapBbpStatusNormal": {
+    "name": "trapBbpStatusNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.1101",
+    "class": "notificationtype"
+  },
+  "trapBbpStatusWarning": {
+    "name": "trapBbpStatusWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.1102",
+    "class": "notificationtype"
+  },
+  "trapBbpStatusCritical": {
+    "name": "trapBbpStatusCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.1103",
+    "class": "notificationtype"
+  },
+  "trapCpuFaultNormal": {
+    "name": "trapCpuFaultNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.1201",
+    "class": "notificationtype"
+  },
+  "trapCpuFaultWarning": {
+    "name": "trapCpuFaultWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.1202",
+    "class": "notificationtype"
+  },
+  "trapCpuFaultCritical": {
+    "name": "trapCpuFaultCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.1203",
+    "class": "notificationtype"
+  },
+  "trapStorageAdapterStatusNormal": {
+    "name": "trapStorageAdapterStatusNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.1301",
+    "class": "notificationtype"
+  },
+  "trapStorageAdapterStatusWarning": {
+    "name": "trapStorageAdapterStatusWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.1302",
+    "class": "notificationtype"
+  },
+  "trapStorageAdapterStatusCritical": {
+    "name": "trapStorageAdapterStatusCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.1303",
+    "class": "notificationtype"
+  },
+  "trapBatteryStatusNormal": {
+    "name": "trapBatteryStatusNormal",
+    "oid": "1.3.6.1.4.1.10876.100.30.1401",
+    "class": "notificationtype"
+  },
+  "trapBatteryStatusWarning": {
+    "name": "trapBatteryStatusWarning",
+    "oid": "1.3.6.1.4.1.10876.100.30.1402",
+    "class": "notificationtype"
+  },
+  "trapBatteryStatusCritical": {
+    "name": "trapBatteryStatusCritical",
+    "oid": "1.3.6.1.4.1.10876.100.30.1403",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/supermicro/SUPERMICRO-SD5-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SUPERMICRO-SD5-MIB"
+  }
+}

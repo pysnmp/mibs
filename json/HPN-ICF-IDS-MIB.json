@@ -1,0 +1,513 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfIDSMib": {
+    "name": "hpnicfIDSMib",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1",
+    "class": "moduleidentity"
+  },
+  "hpnicfIds": {
+    "name": "hpnicfIds",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47",
+    "class": "objectidentity"
+  },
+  "hpnicfIDSTrapGroup": {
+    "name": "hpnicfIDSTrapGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIDSTrapInfo": {
+    "name": "hpnicfIDSTrapInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIDSTrapIPFragmentQueueLen": {
+    "name": "hpnicfIDSTrapIPFragmentQueueLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapStatSessionTabLen": {
+    "name": "hpnicfIDSTrapStatSessionTabLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapIPAddressType": {
+    "name": "hpnicfIDSTrapIPAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapIPAddress": {
+    "name": "hpnicfIDSTrapIPAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapUserName": {
+    "name": "hpnicfIDSTrapUserName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapLoginType": {
+    "name": "hpnicfIDSTrapLoginType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "telnet": 1,
+          "ssh": 2,
+          "web": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapUpgradeType": {
+    "name": "hpnicfIDSTrapUpgradeType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "programme": 1,
+          "crb": 2,
+          "vrb": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapCRLName": {
+    "name": "hpnicfIDSTrapCRLName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapCertName": {
+    "name": "hpnicfIDSTrapCertName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapDetectRuleID": {
+    "name": "hpnicfIDSTrapDetectRuleID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapEngineID": {
+    "name": "hpnicfIDSTrapEngineID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapFileName": {
+    "name": "hpnicfIDSTrapFileName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapCfgLineInFile": {
+    "name": "hpnicfIDSTrapCfgLineInFile",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrapReasonForError": {
+    "name": "hpnicfIDSTrapReasonForError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfIDSTrap": {
+    "name": "hpnicfIDSTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIDSTrapPrefix": {
+    "name": "hpnicfIDSTrapPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0",
+    "class": "objectidentity"
+  },
+  "hpnicfIDSTrapIPFragQueueFull": {
+    "name": "hpnicfIDSTrapIPFragQueueFull",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapIPFragmentQueueLen"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapStatSessTabFull": {
+    "name": "hpnicfIDSTrapStatSessTabFull",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapStatSessionTabLen"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapDetectRuleParseFail": {
+    "name": "hpnicfIDSTrapDetectRuleParseFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapDetectRuleID"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapEngineID"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapDBConnLost": {
+    "name": "hpnicfIDSTrapDBConnLost",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapIPAddressType"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapIPAddress"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapCRLNeedUpdate": {
+    "name": "hpnicfIDSTrapCRLNeedUpdate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapCRLName"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapCertOverdue": {
+    "name": "hpnicfIDSTrapCertOverdue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapCertName"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapTooManyLoginFail": {
+    "name": "hpnicfIDSTrapTooManyLoginFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapUserName"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapIPAddressType"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapIPAddress"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapLoginType"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapUpgradeError": {
+    "name": "hpnicfIDSTrapUpgradeError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapUpgradeType"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapFileAccessError": {
+    "name": "hpnicfIDSTrapFileAccessError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapFileName"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapConsArithMemLow": {
+    "name": "hpnicfIDSTrapConsArithMemLow",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapSSRAMOperFail": {
+    "name": "hpnicfIDSTrapSSRAMOperFail",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapPacketProcessDisorder": {
+    "name": "hpnicfIDSTrapPacketProcessDisorder",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapReasonForError"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIDSTrapCfgFileFormatError": {
+    "name": "hpnicfIDSTrapCfgFileFormatError",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.47.1.1.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapFileName"
+      },
+      {
+        "module": "HPN-ICF-IDS-MIB",
+        "object": "hpnicfIDSTrapCfgLineInFile"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-IDS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-IDS-MIB"
+  }
+}

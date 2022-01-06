@@ -1,0 +1,1159 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-ENTITY-MIB": [
+      "IANAPhysicalClass"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TDomain",
+      "TAddress",
+      "RowPointer",
+      "AutonomousType"
+    ],
+    "UUID-TC-MIB": [
+      "UUIDorZero"
+    ]
+  },
+  "entityMIB": {
+    "name": "entityMIB",
+    "oid": "1.3.6.1.2.1.47",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-05 00:00",
+        "description": "Entity MIB (Version 4). This revision obsoletes RFC 4133. - Creation of a new MIB module, IANA-ENTITY-MIB, which makes the PhysicalIndex TC an IANA-maintained TEXTUAL- CONVENTION. IANAPhysicalClass is now imported from the IANA-ENTITY-MIB. - Addition of a new MIB object to the entPhysicalTable, entPhysicalUUID. UUIDorZero is imported from the UUID-TC-MIB. - Addition of two new MODULE-COMPLIANCE modules- entity4Compliance and entity4CRCompliance. This version is published as RFC 6933."
+      },
+      {
+        "revision": "2005-08-10 00:00",
+        "description": "Initial Version of Entity MIB (Version 3). This revision obsoletes RFC 2737. Additions: - cpu(12) enumeration added to IANAPhysicalClass TC - DISPLAY-HINT clause to PhysicalIndex TC - PhysicalIndexOrZero TC - entPhysicalMfgDate object - entPhysicalUris object Changes: - entPhysicalContainedIn SYNTAX changed from INTEGER to PhysicalIndexOrZero This version was published as RFC 4133."
+      },
+      {
+        "revision": "1999-12-07 00:00",
+        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037. This version was published as RFC 2737."
+      },
+      {
+        "revision": "1996-10-31 00:00",
+        "description": "Initial version (version 1), published as RFC 2037."
+      }
+    ]
+  },
+  "entityMIBObjects": {
+    "name": "entityMIBObjects",
+    "oid": "1.3.6.1.2.1.47.1",
+    "class": "objectidentity"
+  },
+  "entityPhysical": {
+    "name": "entityPhysical",
+    "oid": "1.3.6.1.2.1.47.1.1",
+    "class": "objectidentity"
+  },
+  "entityLogical": {
+    "name": "entityLogical",
+    "oid": "1.3.6.1.2.1.47.1.2",
+    "class": "objectidentity"
+  },
+  "entityMapping": {
+    "name": "entityMapping",
+    "oid": "1.3.6.1.2.1.47.1.3",
+    "class": "objectidentity"
+  },
+  "entityGeneral": {
+    "name": "entityGeneral",
+    "oid": "1.3.6.1.2.1.47.1.4",
+    "class": "objectidentity"
+  },
+  "PhysicalIndex": {
+    "name": "PhysicalIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PhysicalIndexOrZero": {
+    "name": "PhysicalIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "SnmpEngineIdOrNone": {
+    "name": "SnmpEngineIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PhysicalClass": {
+    "name": "PhysicalClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "chassis": 3,
+          "backplane": 4,
+          "container": 5,
+          "powerSupply": 6,
+          "fan": 7,
+          "sensor": 8,
+          "module": 9,
+          "port": 10,
+          "stack": 11,
+          "cpu": 12
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "entPhysicalTable": {
+    "name": "entPhysicalTable",
+    "oid": "1.3.6.1.2.1.47.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entPhysicalEntry": {
+    "name": "entPhysicalEntry",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entPhysicalIndex": {
+    "name": "entPhysicalIndex",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entPhysicalDescr": {
+    "name": "entPhysicalDescr",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalVendorType": {
+    "name": "entPhysicalVendorType",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalContainedIn": {
+    "name": "entPhysicalContainedIn",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalClass": {
+    "name": "entPhysicalClass",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPhysicalClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalParentRelPos": {
+    "name": "entPhysicalParentRelPos",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalName": {
+    "name": "entPhysicalName",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalHardwareRev": {
+    "name": "entPhysicalHardwareRev",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalFirmwareRev": {
+    "name": "entPhysicalFirmwareRev",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalSoftwareRev": {
+    "name": "entPhysicalSoftwareRev",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalSerialNum": {
+    "name": "entPhysicalSerialNum",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "entPhysicalMfgName": {
+    "name": "entPhysicalMfgName",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalModelName": {
+    "name": "entPhysicalModelName",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalAlias": {
+    "name": "entPhysicalAlias",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "entPhysicalAssetID": {
+    "name": "entPhysicalAssetID",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "entPhysicalIsFRU": {
+    "name": "entPhysicalIsFRU",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalMfgDate": {
+    "name": "entPhysicalMfgDate",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalUris": {
+    "name": "entPhysicalUris",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "entPhysicalUUID": {
+    "name": "entPhysicalUUID",
+    "oid": "1.3.6.1.2.1.47.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UUIDorZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLogicalTable": {
+    "name": "entLogicalTable",
+    "oid": "1.3.6.1.2.1.47.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entLogicalEntry": {
+    "name": "entLogicalEntry",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entLogicalIndex": {
+    "name": "entLogicalIndex",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entLogicalDescr": {
+    "name": "entLogicalDescr",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLogicalType": {
+    "name": "entLogicalType",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLogicalCommunity": {
+    "name": "entLogicalCommunity",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "entLogicalTAddress": {
+    "name": "entLogicalTAddress",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLogicalTDomain": {
+    "name": "entLogicalTDomain",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLogicalContextEngineID": {
+    "name": "entLogicalContextEngineID",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLogicalContextName": {
+    "name": "entLogicalContextName",
+    "oid": "1.3.6.1.2.1.47.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLPMappingTable": {
+    "name": "entLPMappingTable",
+    "oid": "1.3.6.1.2.1.47.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entLPMappingEntry": {
+    "name": "entLPMappingEntry",
+    "oid": "1.3.6.1.2.1.47.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLPPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entLPPhysicalIndex": {
+    "name": "entLPPhysicalIndex",
+    "oid": "1.3.6.1.2.1.47.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entAliasMappingTable": {
+    "name": "entAliasMappingTable",
+    "oid": "1.3.6.1.2.1.47.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entAliasMappingEntry": {
+    "name": "entAliasMappingEntry",
+    "oid": "1.3.6.1.2.1.47.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entAliasLogicalIndexOrZero",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entAliasLogicalIndexOrZero": {
+    "name": "entAliasLogicalIndexOrZero",
+    "oid": "1.3.6.1.2.1.47.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entAliasMappingIdentifier": {
+    "name": "entAliasMappingIdentifier",
+    "oid": "1.3.6.1.2.1.47.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entPhysicalContainsTable": {
+    "name": "entPhysicalContainsTable",
+    "oid": "1.3.6.1.2.1.47.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "entPhysicalContainsEntry": {
+    "name": "entPhysicalContainsEntry",
+    "oid": "1.3.6.1.2.1.47.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalChildIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "entPhysicalChildIndex": {
+    "name": "entPhysicalChildIndex",
+    "oid": "1.3.6.1.2.1.47.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entLastChangeTime": {
+    "name": "entLastChangeTime",
+    "oid": "1.3.6.1.2.1.47.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "entityMIBTraps": {
+    "name": "entityMIBTraps",
+    "oid": "1.3.6.1.2.1.47.2",
+    "class": "objectidentity"
+  },
+  "entityMIBTrapPrefix": {
+    "name": "entityMIBTrapPrefix",
+    "oid": "1.3.6.1.2.1.47.2.0",
+    "class": "objectidentity"
+  },
+  "entConfigChange": {
+    "name": "entConfigChange",
+    "oid": "1.3.6.1.2.1.47.2.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "entityConformance": {
+    "name": "entityConformance",
+    "oid": "1.3.6.1.2.1.47.3",
+    "class": "objectidentity"
+  },
+  "entityCompliances": {
+    "name": "entityCompliances",
+    "oid": "1.3.6.1.2.1.47.3.1",
+    "class": "objectidentity"
+  },
+  "entityGroups": {
+    "name": "entityGroups",
+    "oid": "1.3.6.1.2.1.47.3.2",
+    "class": "objectidentity"
+  },
+  "entityCompliance": {
+    "name": "entityCompliance",
+    "oid": "1.3.6.1.2.1.47.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "entityPhysicalGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityLogicalGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityMappingGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityGeneralGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityNotificationsGroup",
+        "module": "ENTITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "entity2Compliance": {
+    "name": "entity2Compliance",
+    "oid": "1.3.6.1.2.1.47.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "entityPhysicalGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityPhysical2Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityGeneralGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityNotificationsGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityLogical2Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityMappingGroup",
+        "module": "ENTITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "entity3Compliance": {
+    "name": "entity3Compliance",
+    "oid": "1.3.6.1.2.1.47.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "entityPhysicalGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityPhysical2Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityPhysical3Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityGeneralGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityNotificationsGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityLogical2Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityMappingGroup",
+        "module": "ENTITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "entity4Compliance": {
+    "name": "entity4Compliance",
+    "oid": "1.3.6.1.2.1.47.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "entityPhysicalGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityPhysical2Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityPhysical3Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityGeneralGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityNotificationsGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityPhysical4Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityLogical2Group",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityMappingGroup",
+        "module": "ENTITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "entity4CRCompliance": {
+    "name": "entity4CRCompliance",
+    "oid": "1.3.6.1.2.1.47.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "entityPhysicalCRGroup",
+        "module": "ENTITY-MIB"
+      },
+      {
+        "object": "entityPhysical4Group",
+        "module": "ENTITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "entityPhysicalGroup": {
+    "name": "entityPhysicalGroup",
+    "oid": "1.3.6.1.2.1.47.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalVendorType"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalClass"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalParentRelPos"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "entityLogicalGroup": {
+    "name": "entityLogicalGroup",
+    "oid": "1.3.6.1.2.1.47.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalDescr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalType"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalCommunity"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalTAddress"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalTDomain"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "entityMappingGroup": {
+    "name": "entityMappingGroup",
+    "oid": "1.3.6.1.2.1.47.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLPPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entAliasMappingIdentifier"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalChildIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "entityGeneralGroup": {
+    "name": "entityGeneralGroup",
+    "oid": "1.3.6.1.2.1.47.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLastChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "entityNotificationsGroup": {
+    "name": "entityNotificationsGroup",
+    "oid": "1.3.6.1.2.1.47.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entConfigChange"
+      }
+    ],
+    "status": "current"
+  },
+  "entityPhysical2Group": {
+    "name": "entityPhysical2Group",
+    "oid": "1.3.6.1.2.1.47.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalHardwareRev"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalFirmwareRev"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalSoftwareRev"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalSerialNum"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalMfgName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalModelName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAlias"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIsFRU"
+      }
+    ],
+    "status": "current"
+  },
+  "entityLogical2Group": {
+    "name": "entityLogical2Group",
+    "oid": "1.3.6.1.2.1.47.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalDescr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalType"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalTAddress"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalTDomain"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalContextEngineID"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entLogicalContextName"
+      }
+    ],
+    "status": "current"
+  },
+  "entityPhysical3Group": {
+    "name": "entityPhysical3Group",
+    "oid": "1.3.6.1.2.1.47.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalMfgDate"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalUris"
+      }
+    ],
+    "status": "current"
+  },
+  "entityPhysical4Group": {
+    "name": "entityPhysical4Group",
+    "oid": "1.3.6.1.2.1.47.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalUUID"
+      }
+    ],
+    "status": "current"
+  },
+  "entityPhysicalCRGroup": {
+    "name": "entityPhysicalCRGroup",
+    "oid": "1.3.6.1.2.1.47.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalClass"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ENTITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ENTITY-MIB"
+  }
+}

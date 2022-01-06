@@ -1,0 +1,2110 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfIpx": {
+    "name": "hpnicfIpx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34",
+    "class": "moduleidentity"
+  },
+  "EnabledStatus": {
+    "name": "EnabledStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfIpxConfig": {
+    "name": "hpnicfIpxConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIpxRip": {
+    "name": "hpnicfIpxRip",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIpxSap": {
+    "name": "hpnicfIpxSap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3",
+    "class": "objectidentity"
+  },
+  "hpnicfIpxStat": {
+    "name": "hpnicfIpxStat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4",
+    "class": "objectidentity"
+  },
+  "hpnicfIpxStatus": {
+    "name": "hpnicfIpxStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxIfConfigTable": {
+    "name": "hpnicfIpxIfConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxIfConfigEntry": {
+    "name": "hpnicfIpxIfConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpxIfIndex": {
+    "name": "hpnicfIpxIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxIfNetId": {
+    "name": "hpnicfIpxIfNetId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfNodeId": {
+    "name": "hpnicfIpxIfNodeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfSplitHorizon": {
+    "name": "hpnicfIpxIfSplitHorizon",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIPxIfTick": {
+    "name": "hpnicfIPxIfTick",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfUpdateChangeOnly": {
+    "name": "hpnicfIpxIfUpdateChangeOnly",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfRipMtu": {
+    "name": "hpnicfIpxIfRipMtu",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 432,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 432,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfEncapsuleType": {
+    "name": "hpnicfIpxIfEncapsuleType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot2": 1,
+          "dot3": 2,
+          "ethernet-2": 3,
+          "snap": 4,
+          "unkown": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfNetbiosPropagation": {
+    "name": "hpnicfIpxIfNetbiosPropagation",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfSapStatus": {
+    "name": "hpnicfIpxIfSapStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfSapMtu": {
+    "name": "hpnicfIpxIfSapMtu",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 480,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 480,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfGnsReply": {
+    "name": "hpnicfIpxIfGnsReply",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxIfRowStatus": {
+    "name": "hpnicfIpxIfRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxRouteMultiplier": {
+    "name": "hpnicfIpxRouteMultiplier",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxRouteUpdateTimer": {
+    "name": "hpnicfIpxRouteUpdateTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxRouteImpRouteStatic": {
+    "name": "hpnicfIpxRouteImpRouteStatic",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxRouteLoadBalancePaths": {
+    "name": "hpnicfIpxRouteLoadBalancePaths",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxRouteMaxResPaths": {
+    "name": "hpnicfIpxRouteMaxResPaths",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxRouteTable": {
+    "name": "hpnicfIpxRouteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxRouteEntry": {
+    "name": "hpnicfIpxRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpxRouteIndex": {
+    "name": "hpnicfIpxRouteIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxRouteDestNetId": {
+    "name": "hpnicfIpxRouteDestNetId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteNextHop": {
+    "name": "hpnicfIpxRouteNextHop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRoutePro": {
+    "name": "hpnicfIpxRoutePro",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "direct": 1,
+          "rip": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRoutePre": {
+    "name": "hpnicfIpxRoutePre",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteTicks": {
+    "name": "hpnicfIpxRouteTicks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteHops": {
+    "name": "hpnicfIpxRouteHops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteTime": {
+    "name": "hpnicfIpxRouteTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteOutInterface": {
+    "name": "hpnicfIpxRouteOutInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteTable": {
+    "name": "hpnicfIpxStaticRouteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteEntry": {
+    "name": "hpnicfIpxStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxStaticRouteDestNetId",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxStaticRouteNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteDestNetId": {
+    "name": "hpnicfIpxStaticRouteDestNetId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteNextHop": {
+    "name": "hpnicfIpxStaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRoutePre": {
+    "name": "hpnicfIpxStaticRoutePre",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteOutIf": {
+    "name": "hpnicfIpxStaticRouteOutIf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteTicks": {
+    "name": "hpnicfIpxStaticRouteTicks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteHops": {
+    "name": "hpnicfIpxStaticRouteHops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteStatus": {
+    "name": "hpnicfIpxStaticRouteStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticRouteRowStatus": {
+    "name": "hpnicfIpxStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatTable": {
+    "name": "hpnicfIpxRouteStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatEntry": {
+    "name": "hpnicfIpxRouteStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxRouteStatPro",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatPro": {
+    "name": "hpnicfIpxRouteStatPro",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "direct": 1,
+          "static": 2,
+          "rip": 3,
+          "default": 4,
+          "total": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatRoutes": {
+    "name": "hpnicfIpxRouteStatRoutes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatActives": {
+    "name": "hpnicfIpxRouteStatActives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatAddeds": {
+    "name": "hpnicfIpxRouteStatAddeds",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatDeleteds": {
+    "name": "hpnicfIpxRouteStatDeleteds",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxRouteStatFreeds": {
+    "name": "hpnicfIpxRouteStatFreeds",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxSapMultiplier": {
+    "name": "hpnicfIpxSapMultiplier",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxSapUpdateTimer": {
+    "name": "hpnicfIpxSapUpdateTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 60000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxSapGnsLoadBalance": {
+    "name": "hpnicfIpxSapGnsLoadBalance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxSapMaxResServers": {
+    "name": "hpnicfIpxSapMaxResServers",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2048,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfIpxServiceTable": {
+    "name": "hpnicfIpxServiceTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxServiceEntry": {
+    "name": "hpnicfIpxServiceEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxServiceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpxServiceIndex": {
+    "name": "hpnicfIpxServiceIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxServiceName": {
+    "name": "hpnicfIpxServiceName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxServiceType": {
+    "name": "hpnicfIpxServiceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxServiceNetId": {
+    "name": "hpnicfIpxServiceNetId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxServiceNodeId": {
+    "name": "hpnicfIpxServiceNodeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxServiceSocketNo": {
+    "name": "hpnicfIpxServiceSocketNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxServicePreference": {
+    "name": "hpnicfIpxServicePreference",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxServiceHops": {
+    "name": "hpnicfIpxServiceHops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxServiceRecvIf": {
+    "name": "hpnicfIpxServiceRecvIf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceTable": {
+    "name": "hpnicfIpxStaticServiceTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceEntry": {
+    "name": "hpnicfIpxStaticServiceEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxStaticServiceType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxStaticServiceName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxStaticServiceNetId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceType": {
+    "name": "hpnicfIpxStaticServiceType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceName": {
+    "name": "hpnicfIpxStaticServiceName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceNetId": {
+    "name": "hpnicfIpxStaticServiceNetId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceNodeId": {
+    "name": "hpnicfIpxStaticServiceNodeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStatciServiceSocketNo": {
+    "name": "hpnicfIpxStatciServiceSocketNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServicePreference": {
+    "name": "hpnicfIpxStaticServicePreference",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceHops": {
+    "name": "hpnicfIpxStaticServiceHops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceStatus": {
+    "name": "hpnicfIpxStaticServiceStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStaticServiceRowStatus": {
+    "name": "hpnicfIpxStaticServiceRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfIpxStatGlobal": {
+    "name": "hpnicfIpxStatGlobal",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1",
+    "class": "objectidentity"
+  },
+  "hpnicfIpxStatInterface": {
+    "name": "hpnicfIpxStatInterface",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2",
+    "class": "objectidentity"
+  },
+  "hpnicfIpxStatTotalReceives": {
+    "name": "hpnicfIpxStatTotalReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatPitchs": {
+    "name": "hpnicfIpxStatPitchs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatLenErrors": {
+    "name": "hpnicfIpxStatLenErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatFormatErrors": {
+    "name": "hpnicfIpxStatFormatErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatBadHops": {
+    "name": "hpnicfIpxStatBadHops",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatHopsDiscards": {
+    "name": "hpnicfIpxStatHopsDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatOtherErrors": {
+    "name": "hpnicfIpxStatOtherErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatLocalDests": {
+    "name": "hpnicfIpxStatLocalDests",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatCantDeals": {
+    "name": "hpnicfIpxStatCantDeals",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatForwards": {
+    "name": "hpnicfIpxStatForwards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatGenerates": {
+    "name": "hpnicfIpxStatGenerates",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatNoRoutes": {
+    "name": "hpnicfIpxStatNoRoutes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatOutDiscards": {
+    "name": "hpnicfIpxStatOutDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatRipSends": {
+    "name": "hpnicfIpxStatRipSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatRipReceives": {
+    "name": "hpnicfIpxStatRipReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStaRipRspSends": {
+    "name": "hpnicfIpxStaRipRspSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStaRipRspReceives": {
+    "name": "hpnicfIpxStaRipRspReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatRipReqReceives": {
+    "name": "hpnicfIpxStatRipReqReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatRipReqDeals": {
+    "name": "hpnicfIpxStatRipReqDeals",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatRipReqSends": {
+    "name": "hpnicfIpxStatRipReqSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatRipPeriUpdates": {
+    "name": "hpnicfIpxStatRipPeriUpdates",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapGenReqReceives": {
+    "name": "hpnicfIpxStatSapGenReqReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapSpecReqReceives": {
+    "name": "hpnicfIpxStatSapSpecReqReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapGnsReqReceives": {
+    "name": "hpnicfIpxStatSapGnsReqReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapGenRspSends": {
+    "name": "hpnicfIpxStatSapGenRspSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapSpecRspSends": {
+    "name": "hpnicfIpxStatSapSpecRspSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapGnsRspSends": {
+    "name": "hpnicfIpxStatSapGnsRspSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapPeriUpdates": {
+    "name": "hpnicfIpxStatSapPeriUpdates",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxStatSapInPktErrors": {
+    "name": "hpnicfIpxStatSapInPktErrors",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatTable": {
+    "name": "hpnicfIpxIfStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatEntry": {
+    "name": "hpnicfIpxIfStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-IPX-MIB",
+        "object": "hpnicfIpxIfStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfIpxIfStatIndex": {
+    "name": "hpnicfIpxIfStatIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatNetId": {
+    "name": "hpnicfIpxIfStatNetId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatNodeId": {
+    "name": "hpnicfIpxIfStatNodeId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatIpxReceives": {
+    "name": "hpnicfIpxIfStatIpxReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatIpxSends": {
+    "name": "hpnicfIpxIfStatIpxSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatIpxRecvBytes": {
+    "name": "hpnicfIpxIfStatIpxRecvBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatIpxSendBytes": {
+    "name": "hpnicfIpxIfStatIpxSendBytes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatRipReceives": {
+    "name": "hpnicfIpxIfStatRipReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatRipSends": {
+    "name": "hpnicfIpxIfStatRipSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatRipDiscards": {
+    "name": "hpnicfIpxIfStatRipDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatRipSpecReqReceives": {
+    "name": "hpnicfIpxIfStatRipSpecReqReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatRipSpecRspSends": {
+    "name": "hpnicfIpxIfStatRipSpecRspSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatRipGenReqReceives": {
+    "name": "hpnicfIpxIfStatRipGenReqReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatRipGenRspSends": {
+    "name": "hpnicfIpxIfStatRipGenRspSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatSapReceives": {
+    "name": "hpnicfIpxIfStatSapReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatSapSends": {
+    "name": "hpnicfIpxIfStatSapSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatSapDiscards": {
+    "name": "hpnicfIpxIfStatSapDiscards",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatSapGnsReqReceives": {
+    "name": "hpnicfIpxIfStatSapGnsReqReceives",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfIpxIfStatSapGnsRspSends": {
+    "name": "hpnicfIpxIfStatSapGnsRspSends",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.34.4.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-IPX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-IPX-MIB"
+  }
+}

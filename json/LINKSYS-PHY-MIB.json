@@ -1,0 +1,289 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "rlPhy": {
+    "name": "rlPhy",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-30 00:24",
+        "description": "Initial revision"
+      },
+      {
+        "revision": "2003-09-21 00:24",
+        "description": "Added MODULE-IDENTITY and TEXTUAL-CONVENTION IMPORTS."
+      }
+    ]
+  },
+  "RlPhyTestType": {
+    "name": "RlPhyTestType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rlPhyTestTableNoTest": 1,
+          "rlPhyTestTableCableStatus": 2,
+          "rlPhyTestTableCableFault": 3,
+          "rlPhyTestTableCableLength": 4,
+          "rlPhyTestTableTransceiverTemp": 5,
+          "rlPhyTestTableTransceiverSupply": 6,
+          "rlPhyTestTableTxBias": 7,
+          "rlPhyTestTableTxOutput": 8,
+          "rlPhyTestTableRxOpticalPower": 9,
+          "rlPhyTestTableDataReady": 10,
+          "rlPhyTestTableLOS": 11,
+          "rlPhyTestTableTxFault": 12,
+          "rlPhyTestTableCableChannel1": 13,
+          "rlPhyTestTableCableChannel2": 14,
+          "rlPhyTestTableCableChannel3": 15,
+          "rlPhyTestTableCableChannel4": 16,
+          "rlPhyTestTableCablePolarity1": 17,
+          "rlPhyTestTableCablePolarity2": 18,
+          "rlPhyTestTableCablePolarity3": 19,
+          "rlPhyTestTableCablePolarity4": 20,
+          "rlPhyTestTableCablePairSkew1": 21,
+          "rlPhyTestTableCablePairSkew2": 22,
+          "rlPhyTestTableCablePairSkew3": 23,
+          "rlPhyTestTableCablePairSkew4": 24
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlPhyTest": {
+    "name": "rlPhyTest",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1",
+    "class": "objectidentity"
+  },
+  "rlPhyTestSetTable": {
+    "name": "rlPhyTestSetTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPhyTestSetEntry": {
+    "name": "rlPhyTestSetEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPhyTestSetType": {
+    "name": "rlPhyTestSetType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPhyTestType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlPhyTestGetTable": {
+    "name": "rlPhyTestGetTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlPhyTestGetEntry": {
+    "name": "rlPhyTestGetEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-PHY-MIB",
+        "object": "rlPhyTestGetType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlPhyTestGetType": {
+    "name": "rlPhyTestGetType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlPhyTestType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPhyTestGetStatus": {
+    "name": "rlPhyTestGetStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "success": 2,
+          "inProgress": 3,
+          "notSupported": 4,
+          "unAbleToRun": 5,
+          "aborted": 6,
+          "failed": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPhyTestGetResult": {
+    "name": "rlPhyTestGetResult",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPhyTestGetUnits": {
+    "name": "rlPhyTestGetUnits",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "integer": 1,
+          "boolean": 2,
+          "downUP": 3,
+          "reverseNormal": 4,
+          "mdiMdix": 5,
+          "meter": 6,
+          "degree": 7,
+          "microVolt": 8,
+          "microOham": 9,
+          "microAmper": 10,
+          "microWatt": 11,
+          "millisecond": 12,
+          "alaskaPhyLength": 13,
+          "alaskaPhyStatus": 14,
+          "dbm": 15,
+          "decidbm": 16,
+          "milidbm": 17,
+          "abcd": 18,
+          "nanosecond": 19
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPhyTestGetAlarm": {
+    "name": "rlPhyTestGetAlarm",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRelevant": 1,
+          "noAlarmSet": 2,
+          "lowWarning": 3,
+          "highWarning": 4,
+          "lowAlarm": 5,
+          "highAlarm": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlPhyTestGetTimeStamp": {
+    "name": "rlPhyTestGetTimeStamp",
+    "oid": "1.3.6.1.4.1.3955.1000.201.90.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-PHY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LINKSYS-PHY-MIB"
+  }
+}

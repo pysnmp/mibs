@@ -1,0 +1,186 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfSlbg": {
+    "name": "hpnicfSlbg",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-10-16 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfSlbgMibTable": {
+    "name": "hpnicfSlbgMibTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1",
+    "class": "objectidentity"
+  },
+  "hpnicfSlbgGroupTable": {
+    "name": "hpnicfSlbgGroupTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSlbgGroupEntry": {
+    "name": "hpnicfSlbgGroupEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-SLBG-MIB",
+        "object": "hpnicfSlbgGroupNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSlbgGroupNumber": {
+    "name": "hpnicfSlbgGroupNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSlbgGroupSrvType": {
+    "name": "hpnicfSlbgGroupSrvType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv6": 0,
+        "ipv6mc": 1,
+        "tunnel": 2,
+        "multicastTunnel": 3,
+        "mpls": 4
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSlbgGroupRowStatus": {
+    "name": "hpnicfSlbgGroupRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfSlbgPortTable": {
+    "name": "hpnicfSlbgPortTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSlbgPortEntry": {
+    "name": "hpnicfSlbgPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-SLBG-MIB",
+        "object": "hpnicfSlbgPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfSlbgPortIndex": {
+    "name": "hpnicfSlbgPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfSlbgPortAttachedGroupNumber": {
+    "name": "hpnicfSlbgPortAttachedGroupNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfSlbgPortSelectedGroupNumber": {
+    "name": "hpnicfSlbgPortSelectedGroupNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.130.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-SLBG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:35 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-SLBG-MIB"
+  }
+}

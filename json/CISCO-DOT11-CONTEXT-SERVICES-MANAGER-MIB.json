@@ -1,0 +1,273 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoDot11CsMgrMIB": {
+    "name": "ciscoDot11CsMgrMIB",
+    "oid": "1.3.6.1.4.1.9.9.3228",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-11-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDot11CsMgrMIBObjects": {
+    "name": "ciscoDot11CsMgrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.3228.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CsMgrMIBConformance": {
+    "name": "ciscoDot11CsMgrMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.3228.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CsMgrClientConfig": {
+    "name": "ciscoDot11CsMgrClientConfig",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1",
+    "class": "objectidentity"
+  },
+  "Cdot11CsModuleIndex": {
+    "name": "Cdot11CsModuleIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cDot11CsMgrClientTable": {
+    "name": "cDot11CsMgrClientTable",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDot11CsMgrClientEntry": {
+    "name": "cDot11CsMgrClientEntry",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cDot11CsMgrClntModuleIndex": {
+    "name": "cDot11CsMgrClntModuleIndex",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cdot11CsModuleIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDot11CsMgrClntAddressType": {
+    "name": "cDot11CsMgrClntAddressType",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CsMgrClntParentWdsAddr": {
+    "name": "cDot11CsMgrClntParentWdsAddr",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CsMgrClntRootNodeAddr": {
+    "name": "cDot11CsMgrClntRootNodeAddr",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CsMgrClntMnAuthenAddr": {
+    "name": "cDot11CsMgrClntMnAuthenAddr",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CsMgrClntOperMode": {
+    "name": "cDot11CsMgrClntOperMode",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "infrastructure": 1,
+          "distributed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CsMgrClntRegistLifeTime": {
+    "name": "cDot11CsMgrClntRegistLifeTime",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11CsMgrClntStateTransitions": {
+    "name": "cDot11CsMgrClntStateTransitions",
+    "oid": "1.3.6.1.4.1.9.9.3228.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDot11CsMgrMIBCompliances": {
+    "name": "ciscoDot11CsMgrMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.3228.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CsMgrMIBGroups": {
+    "name": "ciscoDot11CsMgrMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.3228.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11CsMgrMIBCompliance": {
+    "name": "ciscoDot11CsMgrMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.3228.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11CsMgrClientGroup",
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11CsMgrClientGroup": {
+    "name": "ciscoDot11CsMgrClientGroup",
+    "oid": "1.3.6.1.4.1.9.9.3228.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntAddressType"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntParentWdsAddr"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntRootNodeAddr"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntMnAuthenAddr"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntOperMode"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntRegistLifeTime"
+      },
+      {
+        "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+        "object": "cDot11CsMgrClntStateTransitions"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DOT11-CONTEXT-SERVICES-MANAGER-MIB"
+  }
+}

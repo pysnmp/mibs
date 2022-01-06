@@ -1,0 +1,1685 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-Vendor-MIB": [
+      "dellLan",
+      "dellLanCommon"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dellAlarmGroup": {
+    "name": "dellAlarmGroup",
+    "oid": "1.3.6.1.4.1.674.10895.5000.1.1",
+    "class": "moduleidentity"
+  },
+  "dellTrapInfo": {
+    "name": "dellTrapInfo",
+    "oid": "1.3.6.1.4.1.674.10895.5000.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellTrapSeverity": {
+    "name": "dellTrapSeverity",
+    "oid": "1.3.6.1.4.1.674.10895.5000.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "info": 1,
+          "minor": 2,
+          "major": 3,
+          "critical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellTrapSource": {
+    "name": "dellTrapSource",
+    "oid": "1.3.6.1.4.1.674.10895.5000.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellTrapSeqNum": {
+    "name": "dellTrapSeqNum",
+    "oid": "1.3.6.1.4.1.674.10895.5000.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellTrapTimeStamp": {
+    "name": "dellTrapTimeStamp",
+    "oid": "1.3.6.1.4.1.674.10895.5000.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwResourceOverflow": {
+    "name": "hwResourceOverflow",
+    "oid": "1.3.6.1.4.1.674.10895.500",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "swResourceOverflow": {
+    "name": "swResourceOverflow",
+    "oid": "1.3.6.1.4.1.674.10895.510",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "configChanged": {
+    "name": "configChanged",
+    "oid": "1.3.6.1.4.1.674.10895.520",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "resetRequired": {
+    "name": "resetRequired",
+    "oid": "1.3.6.1.4.1.674.10895.530",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "endTftp": {
+    "name": "endTftp",
+    "oid": "1.3.6.1.4.1.674.10895.540",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "abortTftp": {
+    "name": "abortTftp",
+    "oid": "1.3.6.1.4.1.674.10895.550",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "startTftp": {
+    "name": "startTftp",
+    "oid": "1.3.6.1.4.1.674.10895.560",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "linkFailure": {
+    "name": "linkFailure",
+    "oid": "1.3.6.1.4.1.674.10895.570",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "linkFailureSwitchBackUp": {
+    "name": "linkFailureSwitchBackUp",
+    "oid": "1.3.6.1.4.1.674.10895.580",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "mainLinkUp": {
+    "name": "mainLinkUp",
+    "oid": "1.3.6.1.4.1.674.10895.590",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "errorsDuringInit": {
+    "name": "errorsDuringInit",
+    "oid": "1.3.6.1.4.1.674.10895.600",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDynPortAdded": {
+    "name": "vlanDynPortAdded",
+    "oid": "1.3.6.1.4.1.674.10895.610",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDynPortRemoved": {
+    "name": "vlanDynPortRemoved",
+    "oid": "1.3.6.1.4.1.674.10895.620",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ipZhrReqStaticConnNotAccepted": {
+    "name": "ipZhrReqStaticConnNotAccepted",
+    "oid": "1.3.6.1.4.1.674.10895.630",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ipZhrVirtualIpAsSource": {
+    "name": "ipZhrVirtualIpAsSource",
+    "oid": "1.3.6.1.4.1.674.10895.640",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "ipZhrNotAllocVirtualIp": {
+    "name": "ipZhrNotAllocVirtualIp",
+    "oid": "1.3.6.1.4.1.674.10895.650",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackMasterFailed": {
+    "name": "stackMasterFailed",
+    "oid": "1.3.6.1.4.1.674.10895.660",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackNewMasterElected": {
+    "name": "stackNewMasterElected",
+    "oid": "1.3.6.1.4.1.674.10895.670",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackMemberUnitFailed": {
+    "name": "stackMemberUnitFailed",
+    "oid": "1.3.6.1.4.1.674.10895.680",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackNewMemberUnitAdded": {
+    "name": "stackNewMemberUnitAdded",
+    "oid": "1.3.6.1.4.1.674.10895.690",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackMemberUnitRemoved": {
+    "name": "stackMemberUnitRemoved",
+    "oid": "1.3.6.1.4.1.674.10895.700",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackSplitMasterReport": {
+    "name": "stackSplitMasterReport",
+    "oid": "1.3.6.1.4.1.674.10895.710",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackSplitNewMasterReport": {
+    "name": "stackSplitNewMasterReport",
+    "oid": "1.3.6.1.4.1.674.10895.720",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackRejoined": {
+    "name": "stackRejoined",
+    "oid": "1.3.6.1.4.1.674.10895.730",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stackLinkFailed": {
+    "name": "stackLinkFailed",
+    "oid": "1.3.6.1.4.1.674.10895.740",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpAllocationFailure": {
+    "name": "dhcpAllocationFailure",
+    "oid": "1.3.6.1.4.1.674.10895.750",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStpPortStateForwarding": {
+    "name": "dot1dStpPortStateForwarding",
+    "oid": "1.3.6.1.4.1.674.10895.760",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStpPortStateNotForwarding": {
+    "name": "dot1dStpPortStateNotForwarding",
+    "oid": "1.3.6.1.4.1.674.10895.770",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "policyDropPacketTrap": {
+    "name": "policyDropPacketTrap",
+    "oid": "1.3.6.1.4.1.674.10895.780",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "policyForwardPacketTrap": {
+    "name": "policyForwardPacketTrap",
+    "oid": "1.3.6.1.4.1.674.10895.790",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "igmpV1MsgReceived": {
+    "name": "igmpV1MsgReceived",
+    "oid": "1.3.6.1.4.1.674.10895.800",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "vrrpEntriesDeleted": {
+    "name": "vrrpEntriesDeleted",
+    "oid": "1.3.6.1.4.1.674.10895.810",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "trunkPortAddedTrap": {
+    "name": "trunkPortAddedTrap",
+    "oid": "1.3.6.1.4.1.674.10895.820",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "trunkPortRemovedTrap": {
+    "name": "trunkPortRemovedTrap",
+    "oid": "1.3.6.1.4.1.674.10895.830",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "lockPortTrap": {
+    "name": "lockPortTrap",
+    "oid": "1.3.6.1.4.1.674.10895.840",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDynVlanAdded": {
+    "name": "vlanDynVlanAdded",
+    "oid": "1.3.6.1.4.1.674.10895.850",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDynVlanRemoved": {
+    "name": "vlanDynVlanRemoved",
+    "oid": "1.3.6.1.4.1.674.10895.860",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDynamicToStatic": {
+    "name": "vlanDynamicToStatic",
+    "oid": "1.3.6.1.4.1.674.10895.870",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanStaticToDynamic": {
+    "name": "vlanStaticToDynamic",
+    "oid": "1.3.6.1.4.1.674.10895.880",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "envMonFanStateChange": {
+    "name": "envMonFanStateChange",
+    "oid": "1.3.6.1.4.1.674.10895.890",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "envMonPowerSupplyStateChange": {
+    "name": "envMonPowerSupplyStateChange",
+    "oid": "1.3.6.1.4.1.674.10895.900",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "envMonTemperatureRisingAlarm": {
+    "name": "envMonTemperatureRisingAlarm",
+    "oid": "1.3.6.1.4.1.674.10895.910",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "copyFinished": {
+    "name": "copyFinished",
+    "oid": "1.3.6.1.4.1.674.10895.920",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "copyFailed": {
+    "name": "copyFailed",
+    "oid": "1.3.6.1.4.1.674.10895.930",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xPortStatusAuthorizedTrap": {
+    "name": "dot1xPortStatusAuthorizedTrap",
+    "oid": "1.3.6.1.4.1.674.10895.940",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xPortStatusUnauthorizedTrap": {
+    "name": "dot1xPortStatusUnauthorizedTrap",
+    "oid": "1.3.6.1.4.1.674.10895.950",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "broadcastStormDetected": {
+    "name": "broadcastStormDetected",
+    "oid": "1.3.6.1.4.1.674.10895.960",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stpElectedAsRoot": {
+    "name": "stpElectedAsRoot",
+    "oid": "1.3.6.1.4.1.674.10895.970",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "stpNewRootElected": {
+    "name": "stpNewRootElected",
+    "oid": "1.3.6.1.4.1.674.10895.980",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "igmpElectedAsQuerier": {
+    "name": "igmpElectedAsQuerier",
+    "oid": "1.3.6.1.4.1.674.10895.990",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "invalidUserLoginAttempted": {
+    "name": "invalidUserLoginAttempted",
+    "oid": "1.3.6.1.4.1.674.10895.1000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "managementACLViolation": {
+    "name": "managementACLViolation",
+    "oid": "1.3.6.1.4.1.674.10895.1010",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "sfpInserted": {
+    "name": "sfpInserted",
+    "oid": "1.3.6.1.4.1.674.10895.1020",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "sfpRemoved": {
+    "name": "sfpRemoved",
+    "oid": "1.3.6.1.4.1.674.10895.1030",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "xfpInserted": {
+    "name": "xfpInserted",
+    "oid": "1.3.6.1.4.1.674.10895.1040",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "xfpRemoved": {
+    "name": "xfpRemoved",
+    "oid": "1.3.6.1.4.1.674.10895.1050",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapTimeStamp"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeqNum"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSource"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapSeverity"
+      },
+      {
+        "module": "Dell-LAN-TRAP-MIB",
+        "object": "dellTrapInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-LAN-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-LAN-TRAP-MIB"
+  }
+}

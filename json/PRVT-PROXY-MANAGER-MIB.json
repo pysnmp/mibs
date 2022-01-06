@@ -1,0 +1,701 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "ipSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress",
+      "DisplayString"
+    ]
+  },
+  "prvtProxyManager": {
+    "name": "prvtProxyManager",
+    "oid": "1.3.6.1.4.1.738.1.6.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-01-16 00:00",
+        "description": "Added prvtProxySecurityEnabled, prvtProxyAcceptInforms, prvtProxyManMappingAuthenticated, prvtProxyManagerUnauthenticatedDevice"
+      },
+      {
+        "revision": "2007-11-13 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "prvtProxyManNotifications": {
+    "name": "prvtProxyManNotifications",
+    "oid": "1.3.6.1.4.1.738.1.6.6.0",
+    "class": "objectidentity"
+  },
+  "prvtProxyManObjects": {
+    "name": "prvtProxyManObjects",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1",
+    "class": "objectidentity"
+  },
+  "PrvtProxyManStates": {
+    "name": "PrvtProxyManStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtProxyManProtocols": {
+    "name": "PrvtProxyManProtocols",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "snmp-udp": 1,
+          "snmptrap-udp": 2,
+          "telnet-tcp": 3,
+          "ssh-tcp": 4,
+          "tftp-udp": 5,
+          "syslog-udp": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtProxyManPortTypes": {
+    "name": "PrvtProxyManPortTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "tcp": 1,
+          "udp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtProxyManDirection": {
+    "name": "PrvtProxyManDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noDirection": 0,
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtProxyManAuthentication": {
+    "name": "PrvtProxyManAuthentication",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authenticated": 0,
+          "unauthenticated": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtProxySecurity": {
+    "name": "PrvtProxySecurity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "securityEnabled": 0,
+          "securityDisabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtProxyAcceptInformsType": {
+    "name": "PrvtProxyAcceptInformsType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informsEnabled": 0,
+          "informsDisabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtProxyManDeviceAddress": {
+    "name": "prvtProxyManDeviceAddress",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "prvtProxyManConfigTable": {
+    "name": "prvtProxyManConfigTable",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManConfigEntry": {
+    "name": "prvtProxyManConfigEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtProxyManIndex": {
+    "name": "prvtProxyManIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManStatus": {
+    "name": "prvtProxyManStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManStates",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManAutoMapMode": {
+    "name": "prvtProxyManAutoMapMode",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManStates",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManVlan": {
+    "name": "prvtProxyManVlan",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManIpAddr": {
+    "name": "prvtProxyManIpAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManIpMask": {
+    "name": "prvtProxyManIpMask",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManIpRangeStart": {
+    "name": "prvtProxyManIpRangeStart",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManIpRangeEnd": {
+    "name": "prvtProxyManIpRangeEnd",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManLeasePeriod": {
+    "name": "prvtProxyManLeasePeriod",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManRowStatus": {
+    "name": "prvtProxyManRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtProxySecurityEnabled": {
+    "name": "prvtProxySecurityEnabled",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxySecurity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyAcceptInforms": {
+    "name": "prvtProxyAcceptInforms",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyAcceptInformsType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManProtoTable": {
+    "name": "prvtProxyManProtoTable",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManProtoEntry": {
+    "name": "prvtProxyManProtoEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManProtoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtProxyManProtoIndex": {
+    "name": "prvtProxyManProtoIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManProtocols",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManProtoSvcPort": {
+    "name": "prvtProxyManProtoSvcPort",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtProxyManProtoSvcPortType": {
+    "name": "prvtProxyManProtoSvcPortType",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManPortTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtProxyManProtoSrcPort": {
+    "name": "prvtProxyManProtoSrcPort",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtProxyManProtoDirection": {
+    "name": "prvtProxyManProtoDirection",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtProxyManProtoStatus": {
+    "name": "prvtProxyManProtoStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManStates",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManMappingTable": {
+    "name": "prvtProxyManMappingTable",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManMappingEntry": {
+    "name": "prvtProxyManMappingEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManMappingDevice",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManMappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManMappingProto",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtProxyManMappingDevice": {
+    "name": "prvtProxyManMappingDevice",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManMappingIndex": {
+    "name": "prvtProxyManMappingIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManMappingProto": {
+    "name": "prvtProxyManMappingProto",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManProtocols",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtProxyManMappingDirection": {
+    "name": "prvtProxyManMappingDirection",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtProxyManMappingGlobalPort": {
+    "name": "prvtProxyManMappingGlobalPort",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManMappingLocalSrcPort": {
+    "name": "prvtProxyManMappingLocalSrcPort",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManMappingLocalDstPort": {
+    "name": "prvtProxyManMappingLocalDstPort",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManMappingRowStatus": {
+    "name": "prvtProxyManMappingRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtProxyManMappingMAC": {
+    "name": "prvtProxyManMappingMAC",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtProxyManMappingIfIndex": {
+    "name": "prvtProxyManMappingIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtProxyManMappingAuthenticated": {
+    "name": "prvtProxyManMappingAuthenticated",
+    "oid": "1.3.6.1.4.1.738.1.6.6.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtProxyManAuthentication",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtProxyManagerNewDevice": {
+    "name": "prvtProxyManagerNewDevice",
+    "oid": "1.3.6.1.4.1.738.1.6.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManDeviceAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtProxyManagerRemovedDevice": {
+    "name": "prvtProxyManagerRemovedDevice",
+    "oid": "1.3.6.1.4.1.738.1.6.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManDeviceAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtProxyManagerUnauthenticatedDevice": {
+    "name": "prvtProxyManagerUnauthenticatedDevice",
+    "oid": "1.3.6.1.4.1.738.1.6.6.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-PROXY-MANAGER-MIB",
+        "object": "prvtProxyManDeviceAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-PROXY-MANAGER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-PROXY-MANAGER-MIB"
+  }
+}

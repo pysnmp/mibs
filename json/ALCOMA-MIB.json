@@ -1,0 +1,6413 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "enterprises",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "alcoma": {
+    "name": "alcoma",
+    "oid": "1.3.6.1.4.1.12140",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.12140.1",
+    "class": "objectidentity"
+  },
+  "alMP": {
+    "name": "alMP",
+    "oid": "1.3.6.1.4.1.12140.2",
+    "class": "objectidentity"
+  },
+  "alRADIO_RELAY_LINK": {
+    "name": "alRADIO_RELAY_LINK",
+    "oid": "1.3.6.1.4.1.12140.1.1",
+    "class": "objectidentity"
+  },
+  "alNMS": {
+    "name": "alNMS",
+    "oid": "1.3.6.1.4.1.12140.1.2",
+    "class": "objectidentity"
+  },
+  "alStatusLED": {
+    "name": "alStatusLED",
+    "oid": "1.3.6.1.4.1.12140.1.1.1",
+    "class": "objectidentity"
+  },
+  "alEHW": {
+    "name": "alEHW",
+    "oid": "1.3.6.1.4.1.12140.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alESR": {
+    "name": "alESR",
+    "oid": "1.3.6.1.4.1.12140.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alESL": {
+    "name": "alESL",
+    "oid": "1.3.6.1.4.1.12140.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alCA": {
+    "name": "alCA",
+    "oid": "1.3.6.1.4.1.12140.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "local_station": {
+    "name": "local_station",
+    "oid": "1.3.6.1.4.1.12140.1.1.2",
+    "class": "objectidentity"
+  },
+  "alL_General": {
+    "name": "alL_General",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "alLSupervisor": {
+    "name": "alLSupervisor",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "none": 0,
+          "terminal": 1,
+          "local": 2,
+          "network": 3,
+          "service": 4,
+          "alcoma": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLConfiguration": {
+    "name": "alLConfiguration",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "undefined": 0,
+          "cf2xE1": 1,
+          "cf4xE1": 2,
+          "cf1xE2": 3,
+          "cf1xE1-Ethernet": 4,
+          "cf1xE3-E1": 7,
+          "cf1xEthernet": 8,
+          "cf1xEthF-E1": 9,
+          "cf1xEthF-E1-1xE1": 10,
+          "cf1xEthF-E1-2xE1": 11,
+          "cf1xEthF-E1-3xE1": 12,
+          "cf1xEthF-E1-4xE1": 13,
+          "cf1xEthF-E1-5xE1": 14,
+          "cf1xEthF-E1-6xE1": 15,
+          "cf1xEthF-E1-7xE1": 16,
+          "cf1xEthF-E1-8xE1": 17,
+          "cf1xEthF": 18,
+          "cf1xEthF-1xE1": 19,
+          "cf1xEthF-2xE1": 20,
+          "cf1xEthF-3xE1": 21,
+          "cf1xEthF-4xE1": 22,
+          "cf1xEthF-5xE1": 23,
+          "cf1xEthF-6xE1": 24,
+          "cf1xEthF-7xE1": 25,
+          "cf1xEthF-8xE1": 26,
+          "cf2xFEth": 27,
+          "cf2xFEth-1xE1": 28,
+          "cf4xFEth-2xE1": 29,
+          "cf2xGEth": 30,
+          "cf2xGEth-SFP100": 31,
+          "cf2xGEth-SFP1000": 32,
+          "cf2xGEth-SFPSG": 33
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLStatus": {
+    "name": "alLStatus",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 0,
+          "ok": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLHistory": {
+    "name": "alLHistory",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLIAISL": {
+    "name": "alLIAISL",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILEVPWR": {
+    "name": "alLILEVPWR",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_ODU": {
+    "name": "alL_ODU",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "alLRX_Level": {
+    "name": "alLRX_Level",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLTX_PWR": {
+    "name": "alLTX_PWR",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLMode_TX": {
+    "name": "alLMode_TX",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "manual": 1,
+          "atpc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLODU_LB": {
+    "name": "alLODU_LB",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Modem": {
+    "name": "alL_Modem",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "alLQuality": {
+    "name": "alLQuality",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Supply": {
+    "name": "alL_Supply",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "alLVoltage_5V": {
+    "name": "alLVoltage_5V",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLVoltage_5Vor15V": {
+    "name": "alLVoltage_5Vor15V",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLVoltage_24V": {
+    "name": "alLVoltage_24V",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLCurrent_ODU": {
+    "name": "alLCurrent_ODU",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLInput": {
+    "name": "alLInput",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_IDU": {
+    "name": "alL_IDU",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "alLEEPROM": {
+    "name": "alLEEPROM",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRAM": {
+    "name": "alLRAM",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLBattery": {
+    "name": "alLBattery",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLCommIDU": {
+    "name": "alLCommIDU",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLCommRMT": {
+    "name": "alLCommRMT",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_MUX": {
+    "name": "alL_MUX",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "alLBER_10E6": {
+    "name": "alLBER_10E6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLBER_10E4": {
+    "name": "alLBER_10E4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLFrame": {
+    "name": "alLFrame",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "loss": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_PDH1": {
+    "name": "alL_PDH1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.7",
+    "class": "objectidentity"
+  },
+  "alLPDHFrame": {
+    "name": "alLPDHFrame",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "loss": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISPDH": {
+    "name": "alLAISPDH",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLBPDH": {
+    "name": "alLLLBPDH",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLBPDH": {
+    "name": "alLRLBPDH",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line1": {
+    "name": "alL_Line1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.9",
+    "class": "objectidentity"
+  },
+  "alLOSS1": {
+    "name": "alLOSS1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alILOSS1": {
+    "name": "alILOSS1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alAIS1": {
+    "name": "alAIS1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alAISL1": {
+    "name": "alAISL1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLB1": {
+    "name": "alLLB1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLB1": {
+    "name": "alRLB1",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line2": {
+    "name": "alL_Line2",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.10",
+    "class": "objectidentity"
+  },
+  "alLLOSS2": {
+    "name": "alLLOSS2",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS2": {
+    "name": "alLILOSS2",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS2": {
+    "name": "alLAIS2",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL2": {
+    "name": "alLAISL2",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB2": {
+    "name": "alLLLB2",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB2": {
+    "name": "alLRLB2",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line3": {
+    "name": "alL_Line3",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.11",
+    "class": "objectidentity"
+  },
+  "alLLOSS3": {
+    "name": "alLLOSS3",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS3": {
+    "name": "alLILOSS3",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS3": {
+    "name": "alLAIS3",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL3": {
+    "name": "alLAISL3",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB3": {
+    "name": "alLLLB3",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB3": {
+    "name": "alLRLB3",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line4": {
+    "name": "alL_Line4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.12",
+    "class": "objectidentity"
+  },
+  "alLLOSS4": {
+    "name": "alLLOSS4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS4": {
+    "name": "alLILOSS4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS4": {
+    "name": "alLAIS4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL4": {
+    "name": "alLAISL4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB4": {
+    "name": "alLLLB4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB4": {
+    "name": "alLRLB4",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line5": {
+    "name": "alL_Line5",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.13",
+    "class": "objectidentity"
+  },
+  "alLLOSS5": {
+    "name": "alLLOSS5",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS5": {
+    "name": "alLILOSS5",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS5": {
+    "name": "alLAIS5",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL5": {
+    "name": "alLAISL5",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB5": {
+    "name": "alLLLB5",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB5": {
+    "name": "alLRLB5",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line6": {
+    "name": "alL_Line6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.14",
+    "class": "objectidentity"
+  },
+  "alLLOSS6": {
+    "name": "alLLOSS6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS6": {
+    "name": "alLILOSS6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS6": {
+    "name": "alLAIS6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL6": {
+    "name": "alLAISL6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB6": {
+    "name": "alLLLB6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB6": {
+    "name": "alLRLB6",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.14.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line7": {
+    "name": "alL_Line7",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.15",
+    "class": "objectidentity"
+  },
+  "alLLOSS7": {
+    "name": "alLLOSS7",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS7": {
+    "name": "alLILOSS7",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS7": {
+    "name": "alLAIS7",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL7": {
+    "name": "alLAISL7",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB7": {
+    "name": "alLLLB7",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB7": {
+    "name": "alLRLB7",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line8": {
+    "name": "alL_Line8",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.16",
+    "class": "objectidentity"
+  },
+  "alLLOSS8": {
+    "name": "alLLOSS8",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS8": {
+    "name": "alLILOSS8",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS8": {
+    "name": "alLAIS8",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL8": {
+    "name": "alLAISL8",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.16.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB8": {
+    "name": "alLLLB8",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.16.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB8": {
+    "name": "alLRLB8",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.16.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line9": {
+    "name": "alL_Line9",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.17",
+    "class": "objectidentity"
+  },
+  "alLLOSS9": {
+    "name": "alLLOSS9",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS9": {
+    "name": "alLILOSS9",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS9": {
+    "name": "alLAIS9",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL9": {
+    "name": "alLAISL9",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB9": {
+    "name": "alLLLB9",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB9": {
+    "name": "alLRLB9",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.17.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line10": {
+    "name": "alL_Line10",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.18",
+    "class": "objectidentity"
+  },
+  "alLLOSS10": {
+    "name": "alLLOSS10",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS10": {
+    "name": "alLILOSS10",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS10": {
+    "name": "alLAIS10",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL10": {
+    "name": "alLAISL10",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB10": {
+    "name": "alLLLB10",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.18.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB10": {
+    "name": "alLRLB10",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.18.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line11": {
+    "name": "alL_Line11",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.19",
+    "class": "objectidentity"
+  },
+  "alLLOSS11": {
+    "name": "alLLOSS11",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS11": {
+    "name": "alLILOSS11",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS11": {
+    "name": "alLAIS11",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL11": {
+    "name": "alLAISL11",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB11": {
+    "name": "alLLLB11",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.19.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB11": {
+    "name": "alLRLB11",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.19.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alL_Line12": {
+    "name": "alL_Line12",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.20",
+    "class": "objectidentity"
+  },
+  "alLLOSS12": {
+    "name": "alLLOSS12",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLILOSS12": {
+    "name": "alLILOSS12",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAIS12": {
+    "name": "alLAIS12",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLAISL12": {
+    "name": "alLAISL12",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLLLB12": {
+    "name": "alLLLB12",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alLRLB12": {
+    "name": "alLRLB12",
+    "oid": "1.3.6.1.4.1.12140.1.1.2.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remote_station": {
+    "name": "remote_station",
+    "oid": "1.3.6.1.4.1.12140.1.1.3",
+    "class": "objectidentity"
+  },
+  "alR_General": {
+    "name": "alR_General",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "alRSupervisor": {
+    "name": "alRSupervisor",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "none": 0,
+          "terminal": 1,
+          "local": 2,
+          "network": 3,
+          "service": 4,
+          "alcoma": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRConfiguration": {
+    "name": "alRConfiguration",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "undefined": 0,
+          "cf2xE1": 1,
+          "cf4xE1": 2,
+          "cf1xE2": 3,
+          "cf1xE1-Ethernet": 4,
+          "cf1xE3-E1": 7,
+          "cf1xEthernet": 8,
+          "cf1xEthF-E1": 9,
+          "cf1xEthF-E1-1xE1": 10,
+          "cf1xEthF-E1-2xE1": 11,
+          "cf1xEthF-E1-3xE1": 12,
+          "cf1xEthF-E1-4xE1": 13,
+          "cf1xEthF-E1-5xE1": 14,
+          "cf1xEthF-E1-6xE1": 15,
+          "cf1xEthF-E1-7xE1": 16,
+          "cf1xEthF-E1-8xE1": 17,
+          "cf1xEthF": 18,
+          "cf1xEthF-1xE1": 19,
+          "cf1xEthF-2xE1": 20,
+          "cf1xEthF-3xE1": 21,
+          "cf1xEthF-4xE1": 22,
+          "cf1xEthF-5xE1": 23,
+          "cf1xEthF-6xE1": 24,
+          "cf1xEthF-7xE1": 25,
+          "cf1xEthF-8xE1": 26,
+          "cf2xFEth": 27,
+          "cf2xFEth-1xE1": 28,
+          "cf4xFEth-2xE1": 29,
+          "cf2xGEth": 30,
+          "cf2xGEth-SFP100": 31,
+          "cf2xGEth-SFP1000": 32,
+          "cf2xGEth-SFPSG": 33
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRStatus": {
+    "name": "alRStatus",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 0,
+          "ok": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRHistory": {
+    "name": "alRHistory",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRIAISL": {
+    "name": "alRIAISL",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILEVPWR": {
+    "name": "alRILEVPWR",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_ODU": {
+    "name": "alR_ODU",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "alRRX_Level": {
+    "name": "alRRX_Level",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRTX_PWR": {
+    "name": "alRTX_PWR",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRMode_TX": {
+    "name": "alRMode_TX",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "manual": 1,
+          "atpc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRODU_LB": {
+    "name": "alRODU_LB",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Modem": {
+    "name": "alR_Modem",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "alRQuality": {
+    "name": "alRQuality",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Supply": {
+    "name": "alR_Supply",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.4",
+    "class": "objectidentity"
+  },
+  "alRVoltage_5V": {
+    "name": "alRVoltage_5V",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "high": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRVoltage_5Vor15V": {
+    "name": "alRVoltage_5Vor15V",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRVoltage_24V": {
+    "name": "alRVoltage_24V",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRCurrent_ODU": {
+    "name": "alRCurrent_ODU",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRInput": {
+    "name": "alRInput",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_IDU": {
+    "name": "alR_IDU",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.5",
+    "class": "objectidentity"
+  },
+  "alREEPROM": {
+    "name": "alREEPROM",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRAM": {
+    "name": "alRRAM",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRBattery": {
+    "name": "alRBattery",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRCommIDU": {
+    "name": "alRCommIDU",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRCommRMT": {
+    "name": "alRCommRMT",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_MUX": {
+    "name": "alR_MUX",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.6",
+    "class": "objectidentity"
+  },
+  "alRBER_10E6": {
+    "name": "alRBER_10E6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRBER_10E4": {
+    "name": "alRBER_10E4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRFrame": {
+    "name": "alRFrame",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "loss": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_PDH1": {
+    "name": "alR_PDH1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.7",
+    "class": "objectidentity"
+  },
+  "alRPDHFrame": {
+    "name": "alRPDHFrame",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "loss": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISPDH": {
+    "name": "alRAISPDH",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLBPDH": {
+    "name": "alRLLBPDH",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLBPDH": {
+    "name": "alRRLBPDH",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line1": {
+    "name": "alR_Line1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.9",
+    "class": "objectidentity"
+  },
+  "alRLOSS1": {
+    "name": "alRLOSS1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS1": {
+    "name": "alRILOSS1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS1": {
+    "name": "alRAIS1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL1": {
+    "name": "alRAISL1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB1": {
+    "name": "alRLLB1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB1": {
+    "name": "alRRLB1",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line2": {
+    "name": "alR_Line2",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.10",
+    "class": "objectidentity"
+  },
+  "alRLOSS2": {
+    "name": "alRLOSS2",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS2": {
+    "name": "alRILOSS2",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS2": {
+    "name": "alRAIS2",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL2": {
+    "name": "alRAISL2",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB2": {
+    "name": "alRLLB2",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB2": {
+    "name": "alRRLB2",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line3": {
+    "name": "alR_Line3",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.11",
+    "class": "objectidentity"
+  },
+  "alRLOSS3": {
+    "name": "alRLOSS3",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS3": {
+    "name": "alRILOSS3",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS3": {
+    "name": "alRAIS3",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL3": {
+    "name": "alRAISL3",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB3": {
+    "name": "alRLLB3",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB3": {
+    "name": "alRRLB3",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line4": {
+    "name": "alR_Line4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.12",
+    "class": "objectidentity"
+  },
+  "alRLOSS4": {
+    "name": "alRLOSS4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS4": {
+    "name": "alRILOSS4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS4": {
+    "name": "alRAIS4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL4": {
+    "name": "alRAISL4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB4": {
+    "name": "alRLLB4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB4": {
+    "name": "alRRLB4",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line5": {
+    "name": "alR_Line5",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.13",
+    "class": "objectidentity"
+  },
+  "alRLOSS5": {
+    "name": "alRLOSS5",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS5": {
+    "name": "alRILOSS5",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS5": {
+    "name": "alRAIS5",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL5": {
+    "name": "alRAISL5",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB5": {
+    "name": "alRLLB5",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB5": {
+    "name": "alRRLB5",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line6": {
+    "name": "alR_Line6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.14",
+    "class": "objectidentity"
+  },
+  "alRLOSS6": {
+    "name": "alRLOSS6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS6": {
+    "name": "alRILOSS6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS6": {
+    "name": "alRAIS6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL6": {
+    "name": "alRAISL6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB6": {
+    "name": "alRLLB6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB6": {
+    "name": "alRRLB6",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.14.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line7": {
+    "name": "alR_Line7",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.15",
+    "class": "objectidentity"
+  },
+  "alRLOSS7": {
+    "name": "alRLOSS7",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS7": {
+    "name": "alRILOSS7",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS7": {
+    "name": "alRAIS7",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL7": {
+    "name": "alRAISL7",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB7": {
+    "name": "alRLLB7",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB7": {
+    "name": "alRRLB7",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line8": {
+    "name": "alR_Line8",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.16",
+    "class": "objectidentity"
+  },
+  "alRLOSS8": {
+    "name": "alRLOSS8",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS8": {
+    "name": "alRILOSS8",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS8": {
+    "name": "alRAIS8",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL8": {
+    "name": "alRAISL8",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.16.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB8": {
+    "name": "alRLLB8",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.16.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB8": {
+    "name": "alRRLB8",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.16.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line9": {
+    "name": "alR_Line9",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.17",
+    "class": "objectidentity"
+  },
+  "alRLOSS9": {
+    "name": "alRLOSS9",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS9": {
+    "name": "alRILOSS9",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS9": {
+    "name": "alRAIS9",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL9": {
+    "name": "alRAISL9",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB9": {
+    "name": "alRLLB9",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB9": {
+    "name": "alRRLB9",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.17.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line10": {
+    "name": "alR_Line10",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.18",
+    "class": "objectidentity"
+  },
+  "alRLOSS10": {
+    "name": "alRLOSS10",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS10": {
+    "name": "alRILOSS10",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS10": {
+    "name": "alRAIS10",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL10": {
+    "name": "alRAISL10",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB10": {
+    "name": "alRLLB10",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.18.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB10": {
+    "name": "alRRLB10",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.18.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line11": {
+    "name": "alR_Line11",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.19",
+    "class": "objectidentity"
+  },
+  "alRLOSS11": {
+    "name": "alRLOSS11",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS11": {
+    "name": "alRILOSS11",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS11": {
+    "name": "alRAIS11",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL11": {
+    "name": "alRAISL11",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB11": {
+    "name": "alRLLB11",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.19.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB11": {
+    "name": "alRRLB11",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.19.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alR_Line12": {
+    "name": "alR_Line12",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.20",
+    "class": "objectidentity"
+  },
+  "alRLOSS12": {
+    "name": "alRLOSS12",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRILOSS12": {
+    "name": "alRILOSS12",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAIS12": {
+    "name": "alRAIS12",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRAISL12": {
+    "name": "alRAISL12",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRLLB12": {
+    "name": "alRLLB12",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLB12": {
+    "name": "alRRLB12",
+    "oid": "1.3.6.1.4.1.12140.1.1.3.20.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alRRLTrap": {
+    "name": "alRRLTrap",
+    "oid": "1.3.6.1.4.1.12140.1.1.4",
+    "class": "objectidentity"
+  },
+  "alLast_Message": {
+    "name": "alLast_Message",
+    "oid": "1.3.6.1.4.1.12140.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.12140.0",
+    "class": "objectidentity"
+  },
+  "generalOFF": {
+    "name": "generalOFF",
+    "oid": "1.3.6.1.4.1.12140.0.1",
+    "class": "objectidentity"
+  },
+  "generalOK": {
+    "name": "generalOK",
+    "oid": "1.3.6.1.4.1.12140.0.2",
+    "class": "objectidentity"
+  },
+  "generalWAR": {
+    "name": "generalWAR",
+    "oid": "1.3.6.1.4.1.12140.0.3",
+    "class": "objectidentity"
+  },
+  "generalERR": {
+    "name": "generalERR",
+    "oid": "1.3.6.1.4.1.12140.0.4",
+    "class": "objectidentity"
+  },
+  "receiverLowAlarmOn": {
+    "name": "receiverLowAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.5",
+    "class": "objectidentity"
+  },
+  "receiverLowAlarmOff": {
+    "name": "receiverLowAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.6",
+    "class": "objectidentity"
+  },
+  "transmitterLowAlarmOn": {
+    "name": "transmitterLowAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.7",
+    "class": "objectidentity"
+  },
+  "transmitterLowAlarmOff": {
+    "name": "transmitterLowAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.8",
+    "class": "objectidentity"
+  },
+  "signalQualityAlarmOn": {
+    "name": "signalQualityAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.9",
+    "class": "objectidentity"
+  },
+  "signalQualityAlarmOff": {
+    "name": "signalQualityAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.10",
+    "class": "objectidentity"
+  },
+  "ber6EAlarmOn": {
+    "name": "ber6EAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.11",
+    "class": "objectidentity"
+  },
+  "ber6EAlarmOff": {
+    "name": "ber6EAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.12",
+    "class": "objectidentity"
+  },
+  "ber4EAlarmOn": {
+    "name": "ber4EAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.13",
+    "class": "objectidentity"
+  },
+  "ber4EAlarmOff": {
+    "name": "ber4EAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.14",
+    "class": "objectidentity"
+  },
+  "inputSupplyAlarmOn": {
+    "name": "inputSupplyAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.15",
+    "class": "objectidentity"
+  },
+  "inputSupplyAlarmOff": {
+    "name": "inputSupplyAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.16",
+    "class": "objectidentity"
+  },
+  "aisFromLineAlarmOn": {
+    "name": "aisFromLineAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.17",
+    "class": "objectidentity"
+  },
+  "aisFromLineAlarmOff": {
+    "name": "aisFromLineAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.18",
+    "class": "objectidentity"
+  },
+  "aisToLineAlarmOn": {
+    "name": "aisToLineAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.19",
+    "class": "objectidentity"
+  },
+  "aisToLineAlarmOff": {
+    "name": "aisToLineAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.20",
+    "class": "objectidentity"
+  },
+  "aisToPdhAlarmOn": {
+    "name": "aisToPdhAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.21",
+    "class": "objectidentity"
+  },
+  "aisToPdhAlarmOff": {
+    "name": "aisToPdhAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.22",
+    "class": "objectidentity"
+  },
+  "lossAtLineAlarmOn": {
+    "name": "lossAtLineAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.23",
+    "class": "objectidentity"
+  },
+  "lossAtLineAlarmOff": {
+    "name": "lossAtLineAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.24",
+    "class": "objectidentity"
+  },
+  "lossAtPdhAlarmOn": {
+    "name": "lossAtPdhAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.25",
+    "class": "objectidentity"
+  },
+  "lossAtPdhAlarmOff": {
+    "name": "lossAtPdhAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.26",
+    "class": "objectidentity"
+  },
+  "lossAtFrameAlarmOn": {
+    "name": "lossAtFrameAlarmOn",
+    "oid": "1.3.6.1.4.1.12140.0.27",
+    "class": "objectidentity"
+  },
+  "lossAtFrameAlarmOff": {
+    "name": "lossAtFrameAlarmOff",
+    "oid": "1.3.6.1.4.1.12140.0.28",
+    "class": "objectidentity"
+  },
+  "trapParam": {
+    "name": "trapParam",
+    "oid": "1.3.6.1.4.1.12140.1.2.1",
+    "class": "objectidentity"
+  },
+  "nmsTrapTime": {
+    "name": "nmsTrapTime",
+    "oid": "1.3.6.1.4.1.12140.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapSequence": {
+    "name": "trapSequence",
+    "oid": "1.3.6.1.4.1.12140.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mwRouteID": {
+    "name": "mwRouteID",
+    "oid": "1.3.6.1.4.1.12140.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "stationID": {
+    "name": "stationID",
+    "oid": "1.3.6.1.4.1.12140.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "stationName": {
+    "name": "stationName",
+    "oid": "1.3.6.1.4.1.12140.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mgmtGWaddr": {
+    "name": "mgmtGWaddr",
+    "oid": "1.3.6.1.4.1.12140.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lineID": {
+    "name": "lineID",
+    "oid": "1.3.6.1.4.1.12140.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPStatusLED": {
+    "name": "alMPStatusLED",
+    "oid": "1.3.6.1.4.1.12140.2.1",
+    "class": "objectidentity"
+  },
+  "alMPEHW": {
+    "name": "alMPEHW",
+    "oid": "1.3.6.1.4.1.12140.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPESR": {
+    "name": "alMPESR",
+    "oid": "1.3.6.1.4.1.12140.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPESL": {
+    "name": "alMPESL",
+    "oid": "1.3.6.1.4.1.12140.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPCA": {
+    "name": "alMPCA",
+    "oid": "1.3.6.1.4.1.12140.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPGeneral": {
+    "name": "alMPGeneral",
+    "oid": "1.3.6.1.4.1.12140.2.2",
+    "class": "objectidentity"
+  },
+  "alMPSupervisor": {
+    "name": "alMPSupervisor",
+    "oid": "1.3.6.1.4.1.12140.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "none": 0,
+          "terminal": 1,
+          "local": 2,
+          "network": 3,
+          "service": 4,
+          "alcoma": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPConfiguration": {
+    "name": "alMPConfiguration",
+    "oid": "1.3.6.1.4.1.12140.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "undefined": 0,
+          "cf2xE1": 1,
+          "cf4xE1": 2,
+          "cf1xE2": 3,
+          "cf1xE1-Ethernet": 4,
+          "cf1xE3-E1": 7,
+          "cf1xEthernet": 8,
+          "cf1xEthF-E1": 9,
+          "cf1xEthF-E1-1xE1": 10,
+          "cf1xEthF-E1-2xE1": 11,
+          "cf1xEthF-E1-3xE1": 12,
+          "cf1xEthF-E1-4xE1": 13,
+          "cf1xEthF-E1-5xE1": 14,
+          "cf1xEthF-E1-6xE1": 15,
+          "cf1xEthF-E1-7xE1": 16,
+          "cf1xEthF-E1-8xE1": 17,
+          "cf1xEthF": 18,
+          "cf1xEthF-1xE1": 19,
+          "cf1xEthF-2xE1": 20,
+          "cf1xEthF-3xE1": 21,
+          "cf1xEthF-4xE1": 22,
+          "cf1xEthF-5xE1": 23,
+          "cf1xEthF-6xE1": 24,
+          "cf1xEthF-7xE1": 25,
+          "cf1xEthF-8xE1": 26,
+          "cf2xFEth": 27,
+          "cf2xFEth-1xE1": 28,
+          "cf4xFEth-2xE1": 29,
+          "cf2xGEth": 30,
+          "cf2xGEth-SFP100": 31,
+          "cf2xGEth-SFP1000": 32,
+          "cf2xGEth-SFPSG": 33
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPStatus": {
+    "name": "alMPStatus",
+    "oid": "1.3.6.1.4.1.12140.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 0,
+          "ok": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPHistory": {
+    "name": "alMPHistory",
+    "oid": "1.3.6.1.4.1.12140.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPIAISL": {
+    "name": "alMPIAISL",
+    "oid": "1.3.6.1.4.1.12140.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPILEVPWR": {
+    "name": "alMPILEVPWR",
+    "oid": "1.3.6.1.4.1.12140.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPExpiration": {
+    "name": "alMPExpiration",
+    "oid": "1.3.6.1.4.1.12140.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPDevType": {
+    "name": "alMPDevType",
+    "oid": "1.3.6.1.4.1.12140.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPModel": {
+    "name": "alMPModel",
+    "oid": "1.3.6.1.4.1.12140.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPVersionSW": {
+    "name": "alMPVersionSW",
+    "oid": "1.3.6.1.4.1.12140.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPODU": {
+    "name": "alMPODU",
+    "oid": "1.3.6.1.4.1.12140.2.3",
+    "class": "objectidentity"
+  },
+  "alMPTuneTX": {
+    "name": "alMPTuneTX",
+    "oid": "1.3.6.1.4.1.12140.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPTuneRX": {
+    "name": "alMPTuneRX",
+    "oid": "1.3.6.1.4.1.12140.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPTX_PWR": {
+    "name": "alMPTX_PWR",
+    "oid": "1.3.6.1.4.1.12140.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -128
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPRX_Level": {
+    "name": "alMPRX_Level",
+    "oid": "1.3.6.1.4.1.12140.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -128
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPTX_PWRAlrm": {
+    "name": "alMPTX_PWRAlrm",
+    "oid": "1.3.6.1.4.1.12140.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPRX_LevelAlrm": {
+    "name": "alMPRX_LevelAlrm",
+    "oid": "1.3.6.1.4.1.12140.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPMode_TX": {
+    "name": "alMPMode_TX",
+    "oid": "1.3.6.1.4.1.12140.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "manual": 1,
+          "atpc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPODU_LB": {
+    "name": "alMPODU_LB",
+    "oid": "1.3.6.1.4.1.12140.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPTemperature": {
+    "name": "alMPTemperature",
+    "oid": "1.3.6.1.4.1.12140.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPVerSwMW": {
+    "name": "alMPVerSwMW",
+    "oid": "1.3.6.1.4.1.12140.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPSerNumMW": {
+    "name": "alMPSerNumMW",
+    "oid": "1.3.6.1.4.1.12140.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPTypeODU": {
+    "name": "alMPTypeODU",
+    "oid": "1.3.6.1.4.1.12140.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "oduA": 0,
+          "oduB": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPTX": {
+    "name": "alMPPTX",
+    "oid": "1.3.6.1.4.1.12140.2.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPModem": {
+    "name": "alMPModem",
+    "oid": "1.3.6.1.4.1.12140.2.4",
+    "class": "objectidentity"
+  },
+  "alMPQuality": {
+    "name": "alMPQuality",
+    "oid": "1.3.6.1.4.1.12140.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPSNR": {
+    "name": "alMPSNR",
+    "oid": "1.3.6.1.4.1.12140.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPQualityAlrm": {
+    "name": "alMPQualityAlrm",
+    "oid": "1.3.6.1.4.1.12140.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "out": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPSNRAlrm": {
+    "name": "alMPSNRAlrm",
+    "oid": "1.3.6.1.4.1.12140.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPRate": {
+    "name": "alMPRate",
+    "oid": "1.3.6.1.4.1.12140.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ndef": 0,
+          "r300Mbps": 1,
+          "r200Mbps": 2,
+          "r16Mbps1": 3,
+          "r282Mbps": 4,
+          "r40Mbps1": 5,
+          "r20Mbps1": 6,
+          "r10Mbps1": 7,
+          "r5Mbps1": 8,
+          "r179Mbps": 9,
+          "r230Mbps": 10,
+          "r14Mbps": 11,
+          "r32Mbps2": 12,
+          "r44Mbps": 13,
+          "r22Mbps": 14,
+          "r11Mbps": 15,
+          "r5Mbps": 16,
+          "r66Mbps": 17,
+          "r33Mbps": 18,
+          "r16Mbps": 19,
+          "r8Mbps": 20,
+          "r80Mbps": 21,
+          "r333Mbps": 22,
+          "r355Mbps": 23,
+          "r384Mbps": 24,
+          "r50Mbps": 25,
+          "r72Mbps": 26,
+          "r100Mbps": 27,
+          "r123Mbps": 28,
+          "r158Mbps": 29,
+          "r168Mbps": 30,
+          "r77Mbps": 31,
+          "r35Mbps": 32,
+          "r25Mbps": 33,
+          "r165Mbps": 34,
+          "r61Mbps": 35,
+          "r39Mbps": 36,
+          "r19Mbps": 37,
+          "r17Mbps": 38,
+          "r30Mbps": 39,
+          "r34Mbps": 40,
+          "r60Mbps": 41,
+          "r178Mbps": 42,
+          "r186Mbps": 43,
+          "r1250Mbps": 44,
+          "r70Mbps": 45,
+          "r58Mbps": 46,
+          "r116Mbps": 47,
+          "r149Mbps": 48,
+          "r183Mbps": 49,
+          "r216Mbps": 50,
+          "r249Mbps": 51,
+          "r31Mbps": 52,
+          "r41Mbps": 53,
+          "r59Mbps": 54,
+          "r64Mbps": 55,
+          "r69Mbps": 56,
+          "r83Mbps": 57,
+          "r102Mbps": 58,
+          "r119Mbps": 59,
+          "r127Mbps": 60,
+          "r137Mbps": 61,
+          "r89Mbps": 62
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPQAM": {
+    "name": "alMPQAM",
+    "oid": "1.3.6.1.4.1.12140.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ndef": 0,
+          "mp4FSK": 1,
+          "mpQPSK": 2,
+          "mp4QAM1": 3,
+          "mp8QAM": 4,
+          "mp16QAM1": 5,
+          "mp4QAM2": 6,
+          "mp16QAM2": 7,
+          "mp32QAM": 8,
+          "mp64QAM": 9,
+          "mp128QAM": 10,
+          "mp256QAM": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPActiveACM": {
+    "name": "alMPActiveACM",
+    "oid": "1.3.6.1.4.1.12140.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPStatusACM": {
+    "name": "alMPStatusACM",
+    "oid": "1.3.6.1.4.1.12140.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "normal": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPBW": {
+    "name": "alMPBW",
+    "oid": "1.3.6.1.4.1.12140.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ndef": 0,
+          "bw3-5MHz": 1,
+          "bw5MHz": 2,
+          "bw7MHz": 3,
+          "bw7-5MHz": 4,
+          "bw10MHz": 5,
+          "bw13-75MHz": 6,
+          "bw14MHz": 7,
+          "bw20MHz": 8,
+          "bw20MHzETSI": 9,
+          "bw27-5MHz": 10,
+          "bw28MHz": 11,
+          "bw28MHzACAP": 12,
+          "bw30MHz": 13,
+          "bw40MHz": 14,
+          "bw50MHz": 15,
+          "bw55MHz": 16,
+          "bw56MHz": 17,
+          "bw56ACAPMHz": 18,
+          "bw80MHz": 19,
+          "bw110MHz": 20,
+          "bw112MHz": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPMaxRate": {
+    "name": "alMPMaxRate",
+    "oid": "1.3.6.1.4.1.12140.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ndef": 0,
+          "r300Mbps": 1,
+          "r200Mbps": 2,
+          "r16Mbps1": 3,
+          "r282Mbps": 4,
+          "r40Mbps1": 5,
+          "r20Mbps1": 6,
+          "r10Mbps1": 7,
+          "r5Mbps1": 8,
+          "r179Mbps": 9,
+          "r230Mbps": 10,
+          "r14Mbps": 11,
+          "r32Mbps2": 12,
+          "r44Mbps": 13,
+          "r22Mbps": 14,
+          "r11Mbps": 15,
+          "r5Mbps": 16,
+          "r66Mbps": 17,
+          "r33Mbps": 18,
+          "r16Mbps": 19,
+          "r8Mbps": 20,
+          "r80Mbps": 21,
+          "r333Mbps": 22,
+          "r355Mbps": 23,
+          "r384Mbps": 24,
+          "r50Mbps": 25,
+          "r72Mbps": 26,
+          "r100Mbps": 27,
+          "r123Mbps": 28,
+          "r158Mbps": 29,
+          "r168Mbps": 30,
+          "r77Mbps": 31,
+          "r35Mbps": 32,
+          "r25Mbps": 33,
+          "r165Mbps": 34,
+          "r61Mbps": 35,
+          "r39Mbps": 36,
+          "r19Mbps": 37,
+          "r17Mbps": 38,
+          "r30Mbps": 39,
+          "r34Mbps": 40,
+          "r60Mbps": 41,
+          "r178Mbps": 42,
+          "r186Mbps": 43,
+          "r1250Mbps": 44,
+          "r70Mbps": 45,
+          "r58Mbps": 46,
+          "r116Mbps": 47,
+          "r149Mbps": 48,
+          "r183Mbps": 49,
+          "r216Mbps": 50,
+          "r249Mbps": 51,
+          "r31Mbps": 52,
+          "r41Mbps": 53,
+          "r59Mbps": 54,
+          "r64Mbps": 55,
+          "r69Mbps": 56,
+          "r83Mbps": 57,
+          "r102Mbps": 58,
+          "r119Mbps": 59,
+          "r127Mbps": 60,
+          "r137Mbps": 61,
+          "r89Mbps": 62
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPSupply": {
+    "name": "alMPSupply",
+    "oid": "1.3.6.1.4.1.12140.2.5",
+    "class": "objectidentity"
+  },
+  "alMPInput": {
+    "name": "alMPInput",
+    "oid": "1.3.6.1.4.1.12140.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "low": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPRDG": {
+    "name": "alMPRDG",
+    "oid": "1.3.6.1.4.1.12140.2.6",
+    "class": "objectidentity"
+  },
+  "alMPEEPROM": {
+    "name": "alMPEEPROM",
+    "oid": "1.3.6.1.4.1.12140.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPRAM": {
+    "name": "alMPRAM",
+    "oid": "1.3.6.1.4.1.12140.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "bad": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPCommRMT": {
+    "name": "alMPCommRMT",
+    "oid": "1.3.6.1.4.1.12140.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "error": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPMUX": {
+    "name": "alMPMUX",
+    "oid": "1.3.6.1.4.1.12140.2.7",
+    "class": "objectidentity"
+  },
+  "alMPBER": {
+    "name": "alMPBER",
+    "oid": "1.3.6.1.4.1.12140.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPBER_10E6": {
+    "name": "alMPBER_10E6",
+    "oid": "1.3.6.1.4.1.12140.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPBER_10E4": {
+    "name": "alMPBER_10E4",
+    "oid": "1.3.6.1.4.1.12140.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPFrame": {
+    "name": "alMPFrame",
+    "oid": "1.3.6.1.4.1.12140.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "ok": 0,
+          "loss": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLine1": {
+    "name": "alMPLine1",
+    "oid": "1.3.6.1.4.1.12140.2.8",
+    "class": "objectidentity"
+  },
+  "alMPLOSS1": {
+    "name": "alMPLOSS1",
+    "oid": "1.3.6.1.4.1.12140.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPILOSS1": {
+    "name": "alMPILOSS1",
+    "oid": "1.3.6.1.4.1.12140.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPAIS1": {
+    "name": "alMPAIS1",
+    "oid": "1.3.6.1.4.1.12140.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPAISL1": {
+    "name": "alMPAISL1",
+    "oid": "1.3.6.1.4.1.12140.2.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLLB1": {
+    "name": "alMPLLB1",
+    "oid": "1.3.6.1.4.1.12140.2.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPRLB1": {
+    "name": "alMPRLB1",
+    "oid": "1.3.6.1.4.1.12140.2.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLine2": {
+    "name": "alMPLine2",
+    "oid": "1.3.6.1.4.1.12140.2.9",
+    "class": "objectidentity"
+  },
+  "alMPLOSS2": {
+    "name": "alMPLOSS2",
+    "oid": "1.3.6.1.4.1.12140.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPILOSS2": {
+    "name": "alMPILOSS2",
+    "oid": "1.3.6.1.4.1.12140.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLink2": {
+    "name": "alMPLink2",
+    "oid": "1.3.6.1.4.1.12140.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPSpeed2": {
+    "name": "alMPSpeed2",
+    "oid": "1.3.6.1.4.1.12140.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "e10Mbps": 0,
+          "e100Mbps": 1,
+          "e1000Mbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPType2": {
+    "name": "alMPType2",
+    "oid": "1.3.6.1.4.1.12140.2.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "halfduplex": 0,
+          "fullduplex": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPFlow2": {
+    "name": "alMPFlow2",
+    "oid": "1.3.6.1.4.1.12140.2.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPktRX2": {
+    "name": "alMPPktRX2",
+    "oid": "1.3.6.1.4.1.12140.2.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPByteRX2": {
+    "name": "alMPByteRX2",
+    "oid": "1.3.6.1.4.1.12140.2.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPktTX2": {
+    "name": "alMPPktTX2",
+    "oid": "1.3.6.1.4.1.12140.2.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPByteTX2": {
+    "name": "alMPByteTX2",
+    "oid": "1.3.6.1.4.1.12140.2.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPError2": {
+    "name": "alMPError2",
+    "oid": "1.3.6.1.4.1.12140.2.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPCollision2": {
+    "name": "alMPCollision2",
+    "oid": "1.3.6.1.4.1.12140.2.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPauseIn2": {
+    "name": "alMPPauseIn2",
+    "oid": "1.3.6.1.4.1.12140.2.9.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPauseOut2": {
+    "name": "alMPPauseOut2",
+    "oid": "1.3.6.1.4.1.12140.2.9.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPDiscardsIn2": {
+    "name": "alMPDiscardsIn2",
+    "oid": "1.3.6.1.4.1.12140.2.9.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLine3": {
+    "name": "alMPLine3",
+    "oid": "1.3.6.1.4.1.12140.2.10",
+    "class": "objectidentity"
+  },
+  "alMPLOSS3": {
+    "name": "alMPLOSS3",
+    "oid": "1.3.6.1.4.1.12140.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPILOSS3": {
+    "name": "alMPILOSS3",
+    "oid": "1.3.6.1.4.1.12140.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLink3": {
+    "name": "alMPLink3",
+    "oid": "1.3.6.1.4.1.12140.2.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPSpeed3": {
+    "name": "alMPSpeed3",
+    "oid": "1.3.6.1.4.1.12140.2.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "e10Mbps": 0,
+          "e100Mbps": 1,
+          "e1000Mbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPType3": {
+    "name": "alMPType3",
+    "oid": "1.3.6.1.4.1.12140.2.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "halfduplex": 0,
+          "fullduplex": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPFlow3": {
+    "name": "alMPFlow3",
+    "oid": "1.3.6.1.4.1.12140.2.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPktRX3": {
+    "name": "alMPPktRX3",
+    "oid": "1.3.6.1.4.1.12140.2.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPByteRX3": {
+    "name": "alMPByteRX3",
+    "oid": "1.3.6.1.4.1.12140.2.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPktTX3": {
+    "name": "alMPPktTX3",
+    "oid": "1.3.6.1.4.1.12140.2.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPByteTX3": {
+    "name": "alMPByteTX3",
+    "oid": "1.3.6.1.4.1.12140.2.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPError3": {
+    "name": "alMPError3",
+    "oid": "1.3.6.1.4.1.12140.2.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPCollision3": {
+    "name": "alMPCollision3",
+    "oid": "1.3.6.1.4.1.12140.2.10.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPauseIn3": {
+    "name": "alMPPauseIn3",
+    "oid": "1.3.6.1.4.1.12140.2.10.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPauseOut3": {
+    "name": "alMPPauseOut3",
+    "oid": "1.3.6.1.4.1.12140.2.10.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPDiscardsIn3": {
+    "name": "alMPDiscardsIn3",
+    "oid": "1.3.6.1.4.1.12140.2.10.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLine4": {
+    "name": "alMPLine4",
+    "oid": "1.3.6.1.4.1.12140.2.11",
+    "class": "objectidentity"
+  },
+  "alMPLOSS4": {
+    "name": "alMPLOSS4",
+    "oid": "1.3.6.1.4.1.12140.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "not": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPILOSS4": {
+    "name": "alMPILOSS4",
+    "oid": "1.3.6.1.4.1.12140.2.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPLink4": {
+    "name": "alMPLink4",
+    "oid": "1.3.6.1.4.1.12140.2.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPSpeed4": {
+    "name": "alMPSpeed4",
+    "oid": "1.3.6.1.4.1.12140.2.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "e10Mbps": 0,
+          "e100Mbps": 1,
+          "e1000Mbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPType4": {
+    "name": "alMPType4",
+    "oid": "1.3.6.1.4.1.12140.2.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "halfduplex": 0,
+          "fullduplex": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPFlow4": {
+    "name": "alMPFlow4",
+    "oid": "1.3.6.1.4.1.12140.2.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": -1,
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPktRX4": {
+    "name": "alMPPktRX4",
+    "oid": "1.3.6.1.4.1.12140.2.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPByteRX4": {
+    "name": "alMPByteRX4",
+    "oid": "1.3.6.1.4.1.12140.2.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPktTX4": {
+    "name": "alMPPktTX4",
+    "oid": "1.3.6.1.4.1.12140.2.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPByteTX4": {
+    "name": "alMPByteTX4",
+    "oid": "1.3.6.1.4.1.12140.2.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPError4": {
+    "name": "alMPError4",
+    "oid": "1.3.6.1.4.1.12140.2.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPCollision4": {
+    "name": "alMPCollision4",
+    "oid": "1.3.6.1.4.1.12140.2.11.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPauseIn4": {
+    "name": "alMPPauseIn4",
+    "oid": "1.3.6.1.4.1.12140.2.11.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPPauseOut4": {
+    "name": "alMPPauseOut4",
+    "oid": "1.3.6.1.4.1.12140.2.11.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alMPDiscardsIn4": {
+    "name": "alMPDiscardsIn4",
+    "oid": "1.3.6.1.4.1.12140.2.11.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcoma/ALCOMA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:58 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCOMA-MIB"
+  }
+}

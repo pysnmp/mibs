@@ -1,0 +1,1887 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-NS-MIB": [
+      "FcGs3RejectReasonCode"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcPortModuleTypes",
+      "FcNameId",
+      "FcAddressId",
+      "FcPortTypes",
+      "FcPortTxTypes",
+      "DomainIdOrZero",
+      "VsanIndex"
+    ],
+    "CISCO-TC": [
+      "ListIndexOrZero",
+      "TimeIntervalSec",
+      "ListIndex"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "CISCO-ZS-MIB": [
+      "FcList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFcsMIB": {
+    "name": "ciscoFcsMIB",
+    "oid": "1.3.6.1.4.1.9.9.297",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-02-19 00:00",
+        "description": "Added notification fcsMgmtAddrChangeNotify."
+      },
+      {
+        "revision": "2003-08-20 00:00",
+        "description": "Changed the max lengths of fcsPlatformName, fcsIeLogicalName and fcsMgmtAddr to 255 from 256. Changed the min length of fcsPlatformName from 2 to 1."
+      },
+      {
+        "revision": "2002-12-18 00:00",
+        "description": "Changed the ranges of fcsPortNumber and fcsPlatformNumber objects, so that they start from 0."
+      },
+      {
+        "revision": "2002-10-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFcsMIBObjects": {
+    "name": "ciscoFcsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.297.1",
+    "class": "objectidentity"
+  },
+  "fcsMIBConformance": {
+    "name": "fcsMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.297.2",
+    "class": "objectidentity"
+  },
+  "fcsConfiguration": {
+    "name": "fcsConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1",
+    "class": "objectidentity"
+  },
+  "fcsStats": {
+    "name": "fcsStats",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2",
+    "class": "objectidentity"
+  },
+  "fcsInformation": {
+    "name": "fcsInformation",
+    "oid": "1.3.6.1.4.1.9.9.297.1.3",
+    "class": "objectidentity"
+  },
+  "fcsNotification": {
+    "name": "fcsNotification",
+    "oid": "1.3.6.1.4.1.9.9.297.1.4",
+    "class": "objectidentity"
+  },
+  "fcsNotifications": {
+    "name": "fcsNotifications",
+    "oid": "1.3.6.1.4.1.9.9.297.1.4.0",
+    "class": "objectidentity"
+  },
+  "CreatedBy": {
+    "name": "CreatedBy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createdByMgmt": 1,
+          "learnedviaGS3": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcIeType": {
+    "name": "FcIeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "switch": 3,
+          "hub": 4,
+          "bridge": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcPortState": {
+    "name": "FcPortState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "online": 2,
+          "offline": 3,
+          "testing": 4,
+          "fault": 5,
+          "other": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcPlatformType": {
+    "name": "FcPlatformType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "gateway": 3,
+          "converter": 4,
+          "hostBusAdapter": 5,
+          "swProxyAgent": 6,
+          "storageDevice": 7,
+          "host": 8,
+          "storageSubSys": 9,
+          "module": 10,
+          "swDriver": 11,
+          "storageAccessDev": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcFcsRejReasonExplanation": {
+    "name": "FcFcsRejReasonExplanation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAdditionalExplanation": 1,
+          "invNameIdForIEOrPort": 2,
+          "ieListNotAvailable": 3,
+          "ieTypeNotAvailable": 4,
+          "domainIdNotAvailable": 5,
+          "mgmtIdNotAvailable": 6,
+          "fabNameNotAvailable": 7,
+          "ielogNameNotAvailable": 8,
+          "mgmtAddrListNotAvailable": 9,
+          "ieInfoListNotAvailable": 10,
+          "portListNotAvailable": 11,
+          "portTypeNotAvailable": 12,
+          "phyPortNumNotAvailable": 13,
+          "attPortNameListNotAvailable": 14,
+          "portStateNotAvailable": 15,
+          "unableToRegIELogName": 16,
+          "platformNameNoExist": 17,
+          "platformNameAlreadyExists": 18,
+          "platformNodeNameNoExists": 19,
+          "platformNodeNameAlreadyExists": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fcsVsanDiscoverySpinLock": {
+    "name": "fcsVsanDiscoverySpinLock",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsVsanDiscoveryName": {
+    "name": "fcsVsanDiscoveryName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsVsanDiscoveryList2k": {
+    "name": "fcsVsanDiscoveryList2k",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsVsanDiscoveryList4k": {
+    "name": "fcsVsanDiscoveryList4k",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsStartDiscovery": {
+    "name": "fcsStartDiscovery",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startDiscovery": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsDiscoveryStatusTable": {
+    "name": "fcsDiscoveryStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsDiscoveryStatusEntry": {
+    "name": "fcsDiscoveryStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsDiscoveryStatus": {
+    "name": "fcsDiscoveryStatus",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "completed": 2,
+          "databaseInvalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsDiscoveryCompleteTime": {
+    "name": "fcsDiscoveryCompleteTime",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsVsanDiscoveryTimeOut": {
+    "name": "fcsVsanDiscoveryTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsDiscoveryInvalidateCache2k": {
+    "name": "fcsDiscoveryInvalidateCache2k",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsDiscoveryInvalidateCache4k": {
+    "name": "fcsDiscoveryInvalidateCache4k",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsIeNumber": {
+    "name": "fcsIeNumber",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 489472
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIeTable": {
+    "name": "fcsIeTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsIeEntry": {
+    "name": "fcsIeEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsIeName": {
+    "name": "fcsIeName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsIeType": {
+    "name": "fcsIeType",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcIeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIeDomainId": {
+    "name": "fcsIeDomainId",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIeMgmtId": {
+    "name": "fcsIeMgmtId",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIeFabricName": {
+    "name": "fcsIeFabricName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIeLogicalName": {
+    "name": "fcsIeLogicalName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIeMgmtAddrListIndex": {
+    "name": "fcsIeMgmtAddrListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIeInfoList": {
+    "name": "fcsIeInfoList",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsIePortListIndex": {
+    "name": "fcsIePortListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsMgmtAddrListTable": {
+    "name": "fcsMgmtAddrListTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsMgmtAddrListEntry": {
+    "name": "fcsMgmtAddrListEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsMgmtAddrListIndex": {
+    "name": "fcsMgmtAddrListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsMgmtAddrIndex": {
+    "name": "fcsMgmtAddrIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsMgmtAddr": {
+    "name": "fcsMgmtAddr",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsMgmtAddrConfigSource": {
+    "name": "fcsMgmtAddrConfigSource",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CreatedBy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsMgmtAddrRowStatus": {
+    "name": "fcsMgmtAddrRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsPortListTable": {
+    "name": "fcsPortListTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsPortListEntry": {
+    "name": "fcsPortListEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsPortListIndex": {
+    "name": "fcsPortListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPortNumber": {
+    "name": "fcsPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPortTable": {
+    "name": "fcsPortTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsPortEntry": {
+    "name": "fcsPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsPortName": {
+    "name": "fcsPortName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsPortType": {
+    "name": "fcsPortType",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPortTXType": {
+    "name": "fcsPortTXType",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortTxTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPortModuleType": {
+    "name": "fcsPortModuleType",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortModuleTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPortPhyPortNum": {
+    "name": "fcsPortPhyPortNum",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPortAttachPortNameIndex": {
+    "name": "fcsPortAttachPortNameIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPortState": {
+    "name": "fcsPortState",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsAttachPortNameListTable": {
+    "name": "fcsAttachPortNameListTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsAttachPortNameListEntry": {
+    "name": "fcsAttachPortNameListEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsAttachPortNameListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsAttachPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsAttachPortNameListIndex": {
+    "name": "fcsAttachPortNameListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsAttachPortName": {
+    "name": "fcsAttachPortName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPlatformNumber": {
+    "name": "fcsPlatformNumber",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPlatformTable": {
+    "name": "fcsPlatformTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsPlatformEntry": {
+    "name": "fcsPlatformEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsPlatformIndex": {
+    "name": "fcsPlatformIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsPlatformName": {
+    "name": "fcsPlatformName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsPlatformType": {
+    "name": "fcsPlatformType",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPlatformType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsPlatformNodeNameListIndex": {
+    "name": "fcsPlatformNodeNameListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsPlatformMgmtAddrListIndex": {
+    "name": "fcsPlatformMgmtAddrListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsPlatformConfigSource": {
+    "name": "fcsPlatformConfigSource",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CreatedBy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPlatformValidation": {
+    "name": "fcsPlatformValidation",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "validate": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsPlatformValidationResult": {
+    "name": "fcsPlatformValidationResult",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "inProgress": 2,
+          "nameInvalid": 3,
+          "nodeInvalid": 4,
+          "failure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsPlatformRowStatus": {
+    "name": "fcsPlatformRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsNodeNameListTable": {
+    "name": "fcsNodeNameListTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsNodeNameListEntry": {
+    "name": "fcsNodeNameListEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsNodeNameListIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsNodeNameListIndex": {
+    "name": "fcsNodeNameListIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ListIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsNodeName": {
+    "name": "fcsNodeName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsNodeNameConfigSource": {
+    "name": "fcsNodeNameConfigSource",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CreatedBy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsNodeNameRowStatus": {
+    "name": "fcsNodeNameRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcsTotalRejects": {
+    "name": "fcsTotalRejects",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsStatsTable": {
+    "name": "fcsStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsStatsEntry": {
+    "name": "fcsStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsRxGetReqs": {
+    "name": "fcsRxGetReqs",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsTxGetReqs": {
+    "name": "fcsTxGetReqs",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsRxRegReqs": {
+    "name": "fcsRxRegReqs",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsTxRegReqs": {
+    "name": "fcsTxRegReqs",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsRxDeregReqs": {
+    "name": "fcsRxDeregReqs",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsTxDeregReqs": {
+    "name": "fcsTxDeregReqs",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsTxRscns": {
+    "name": "fcsTxRscns",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsRxRscns": {
+    "name": "fcsRxRscns",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsRejects": {
+    "name": "fcsRejects",
+    "oid": "1.3.6.1.4.1.9.9.297.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsRejReasonCode": {
+    "name": "fcsRejReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.297.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcGs3RejectReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsRejReasonCodeExplanation": {
+    "name": "fcsRejReasonCodeExplanation",
+    "oid": "1.3.6.1.4.1.9.9.297.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcFcsRejReasonExplanation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsMgmtAddrChangeVsanIndex": {
+    "name": "fcsMgmtAddrChangeVsanIndex",
+    "oid": "1.3.6.1.4.1.9.9.297.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fcsMgmtAddrChangeIeName": {
+    "name": "fcsMgmtAddrChangeIeName",
+    "oid": "1.3.6.1.4.1.9.9.297.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fcsReqRejNotifyEnable": {
+    "name": "fcsReqRejNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsDiscoveryCompleteNotifyEnable": {
+    "name": "fcsDiscoveryCompleteNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.297.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsReqRejNotify": {
+    "name": "fcsReqRejNotify",
+    "oid": "1.3.6.1.4.1.9.9.297.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRejReasonCode"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRejReasonCodeExplanation"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsDiscoveryCompleteNotify": {
+    "name": "fcsDiscoveryCompleteNotify",
+    "oid": "1.3.6.1.4.1.9.9.297.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsVsanDiscoveryName"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsMgmtAddrChangeNotify": {
+    "name": "fcsMgmtAddrChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.297.1.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrChangeVsanIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrChangeIeName"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsMIBCompliances": {
+    "name": "fcsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.297.2.1",
+    "class": "objectidentity"
+  },
+  "fcsMIBGroups": {
+    "name": "fcsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.297.2.2",
+    "class": "objectidentity"
+  },
+  "fcsMIBCompliance": {
+    "name": "fcsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.297.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcsConfigurationGroup",
+        "module": "CISCO-FCS-MIB"
+      },
+      {
+        "object": "fcsStatisticsGroup",
+        "module": "CISCO-FCS-MIB"
+      },
+      {
+        "object": "fcsNotificationControlGroup",
+        "module": "CISCO-FCS-MIB"
+      },
+      {
+        "object": "fcsNotificationGroup",
+        "module": "CISCO-FCS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcsMIBComplianceRev1": {
+    "name": "fcsMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.297.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcsConfigurationGroup",
+        "module": "CISCO-FCS-MIB"
+      },
+      {
+        "object": "fcsStatisticsGroup",
+        "module": "CISCO-FCS-MIB"
+      },
+      {
+        "object": "fcsNotificationControlGroupRev1",
+        "module": "CISCO-FCS-MIB"
+      },
+      {
+        "object": "fcsNotificationGroupRev1",
+        "module": "CISCO-FCS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsConfigurationGroup": {
+    "name": "fcsConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.297.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsVsanDiscoverySpinLock"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsVsanDiscoveryName"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsVsanDiscoveryList2k"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsVsanDiscoveryList4k"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsStartDiscovery"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryStatus"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryCompleteTime"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsVsanDiscoveryTimeOut"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryInvalidateCache2k"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryInvalidateCache4k"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeNumber"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeType"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeDomainId"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeMgmtId"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeFabricName"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeLogicalName"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeMgmtAddrListIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIeInfoList"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsIePortListIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddr"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrConfigSource"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrRowStatus"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortListIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortNumber"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortType"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortTXType"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortModuleType"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortPhyPortNum"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortAttachPortNameIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPortState"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsAttachPortName"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformNumber"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformName"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformType"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformNodeNameListIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformMgmtAddrListIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformConfigSource"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformValidation"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformValidationResult"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsPlatformRowStatus"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsNodeNameConfigSource"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsNodeNameRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsStatisticsGroup": {
+    "name": "fcsStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.297.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsTotalRejects"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRxGetReqs"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsTxGetReqs"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRxRegReqs"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsTxRegReqs"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRxDeregReqs"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsTxDeregReqs"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsTxRscns"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRxRscns"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRejects"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsNotificationControlGroup": {
+    "name": "fcsNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.297.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsReqRejNotifyEnable"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRejReasonCode"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRejReasonCodeExplanation"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryCompleteNotifyEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcsNotificationGroup": {
+    "name": "fcsNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.297.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsReqRejNotify"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryCompleteNotify"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcsNotificationGroupRev1": {
+    "name": "fcsNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.297.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsReqRejNotify"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryCompleteNotify"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrChangeNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsNotificationControlGroupRev1": {
+    "name": "fcsNotificationControlGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.297.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsReqRejNotifyEnable"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRejReasonCode"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsRejReasonCodeExplanation"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsDiscoveryCompleteNotifyEnable"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrChangeVsanIndex"
+      },
+      {
+        "module": "CISCO-FCS-MIB",
+        "object": "fcsMgmtAddrChangeIeName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FCS-MIB"
+  }
+}

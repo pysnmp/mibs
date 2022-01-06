@@ -1,0 +1,1408 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "MacAddress"
+    ],
+    "IEEE8021-PAE-MIB": [
+      "dot1xAuthSessionStatsEntry",
+      "dot1xPaePortNumber",
+      "PaeControlledPortStatus"
+    ],
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList",
+      "VlanIndex",
+      "dot1qFdbId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "rldot1x": {
+    "name": "rldot1x",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rldot1xMibVersion": {
+    "name": "rldot1xMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xExtAuthSessionStatsTable": {
+    "name": "rldot1xExtAuthSessionStatsTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xExtAuthSessionStatsEntry": {
+    "name": "rldot1xExtAuthSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rldot1xExtAuthSessionStatsEntry",
+      "module": "LINKSYS-DOT1X-MIB",
+      "object": "dot1xAuthSessionStatsEntry"
+    },
+    "status": "current"
+  },
+  "rlDot1xAuthSessionAuthenticMethod": {
+    "name": "rlDot1xAuthSessionAuthenticMethod",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remoteAuthServer": 1,
+          "localAuthServer": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xGuestVlanSupported": {
+    "name": "rldot1xGuestVlanSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xGuestVlanVID": {
+    "name": "rldot1xGuestVlanVID",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xGuestVlanPorts": {
+    "name": "rldot1xGuestVlanPorts",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xUnAuthenticatedVlanSupported": {
+    "name": "rldot1xUnAuthenticatedVlanSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xUnAuthenticatedVlanTable": {
+    "name": "rldot1xUnAuthenticatedVlanTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xUnAuthenticatedVlanEntry": {
+    "name": "rldot1xUnAuthenticatedVlanEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qFdbId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xUnAuthenticatedVlanStatus": {
+    "name": "rldot1xUnAuthenticatedVlanStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rldot1xUserBasedVlanSupported": {
+    "name": "rldot1xUserBasedVlanSupported",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xUserBasedVlanPorts": {
+    "name": "rldot1xUserBasedVlanPorts",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xAuthenticationPortTable": {
+    "name": "rldot1xAuthenticationPortTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xAuthenticationPortEntry": {
+    "name": "rldot1xAuthenticationPortEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xAuthenticationPortMethod": {
+    "name": "rldot1xAuthenticationPortMethod",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eapolOnly": 1,
+          "macAndEapol": 2,
+          "macOnly": 3,
+          "webOnly": 4,
+          "webAndEapol": 5,
+          "webAndMac": 6,
+          "webAndMacAndEapol": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "eapolOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xRadiusAttrVlanIdEnabled": {
+    "name": "rldot1xRadiusAttrVlanIdEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xRadiusAttAclNameEnabled": {
+    "name": "rldot1xRadiusAttAclNameEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xTimeBasedName": {
+    "name": "rldot1xTimeBasedName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xTimeBasedActive": {
+    "name": "rldot1xTimeBasedActive",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xRadiusAttrVlanIdentifier": {
+    "name": "rldot1xRadiusAttrVlanIdentifier",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xMaxHosts": {
+    "name": "rldot1xMaxHosts",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xMaxLoginAttempts": {
+    "name": "rldot1xMaxLoginAttempts",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xTimeoutSilencePeriod": {
+    "name": "rldot1xTimeoutSilencePeriod",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xNumOfAuthorizedHosts": {
+    "name": "rldot1xNumOfAuthorizedHosts",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiStatsTable": {
+    "name": "rldot1xAuthMultiStatsTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xAuthMultiStatsEntry": {
+    "name": "rldot1xAuthMultiStatsEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiStatsPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiStatsSourceMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xAuthMultiStatsPortNumber": {
+    "name": "rldot1xAuthMultiStatsPortNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiStatsSourceMac": {
+    "name": "rldot1xAuthMultiStatsSourceMac",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolFramesRx": {
+    "name": "rldot1xAuthMultiEapolFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolFramesTx": {
+    "name": "rldot1xAuthMultiEapolFramesTx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolStartFramesRx": {
+    "name": "rldot1xAuthMultiEapolStartFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolLogoffFramesRx": {
+    "name": "rldot1xAuthMultiEapolLogoffFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolRespIdFramesRx": {
+    "name": "rldot1xAuthMultiEapolRespIdFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolRespFramesRx": {
+    "name": "rldot1xAuthMultiEapolRespFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolReqIdFramesTx": {
+    "name": "rldot1xAuthMultiEapolReqIdFramesTx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapolReqFramesTx": {
+    "name": "rldot1xAuthMultiEapolReqFramesTx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiInvalidEapolFramesRx": {
+    "name": "rldot1xAuthMultiInvalidEapolFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEapLengthErrorFramesRx": {
+    "name": "rldot1xAuthMultiEapLengthErrorFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiDiagTable": {
+    "name": "rldot1xAuthMultiDiagTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xAuthMultiDiagEntry": {
+    "name": "rldot1xAuthMultiDiagEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiDiagPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiDiagSourceMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xAuthMultiDiagPortNumber": {
+    "name": "rldot1xAuthMultiDiagPortNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiDiagSourceMac": {
+    "name": "rldot1xAuthMultiDiagSourceMac",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEntersConnecting": {
+    "name": "rldot1xAuthMultiEntersConnecting",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiEntersAuthenticating": {
+    "name": "rldot1xAuthMultiEntersAuthenticating",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiAuthSuccessWhileAuthenticating": {
+    "name": "rldot1xAuthMultiAuthSuccessWhileAuthenticating",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiAuthFailWhileAuthenticating": {
+    "name": "rldot1xAuthMultiAuthFailWhileAuthenticating",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiAuthReauthsWhileAuthenticating": {
+    "name": "rldot1xAuthMultiAuthReauthsWhileAuthenticating",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiAuthEapStartsWhileAuthenticating": {
+    "name": "rldot1xAuthMultiAuthEapStartsWhileAuthenticating",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiAuthReauthsWhileAuthenticated": {
+    "name": "rldot1xAuthMultiAuthReauthsWhileAuthenticated",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiAuthEapStartsWhileAuthenticated": {
+    "name": "rldot1xAuthMultiAuthEapStartsWhileAuthenticated",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiBackendResponses": {
+    "name": "rldot1xAuthMultiBackendResponses",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiBackendAccessChallenges": {
+    "name": "rldot1xAuthMultiBackendAccessChallenges",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiBackendOtherRequestsToSupplicant": {
+    "name": "rldot1xAuthMultiBackendOtherRequestsToSupplicant",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiBackendNonNakResponsesFromSupplicant": {
+    "name": "rldot1xAuthMultiBackendNonNakResponsesFromSupplicant",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiBackendAuthSuccesses": {
+    "name": "rldot1xAuthMultiBackendAuthSuccesses",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionStatsTable": {
+    "name": "rldot1xAuthMultiSessionStatsTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionStatsEntry": {
+    "name": "rldot1xAuthMultiSessionStatsEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiSessionStatsPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiSessionStatsSourceMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionStatsPortNumber": {
+    "name": "rldot1xAuthMultiSessionStatsPortNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionStatsSourceMac": {
+    "name": "rldot1xAuthMultiSessionStatsSourceMac",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionOctetsRx": {
+    "name": "rldot1xAuthMultiSessionOctetsRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionOctetsTx": {
+    "name": "rldot1xAuthMultiSessionOctetsTx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionFramesRx": {
+    "name": "rldot1xAuthMultiSessionFramesRx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionFramesTx": {
+    "name": "rldot1xAuthMultiSessionFramesTx",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionId": {
+    "name": "rldot1xAuthMultiSessionId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionTime": {
+    "name": "rldot1xAuthMultiSessionTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionUserName": {
+    "name": "rldot1xAuthMultiSessionUserName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionRadiusAttrVlan": {
+    "name": "rldot1xAuthMultiSessionRadiusAttrVlan",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionRadiusAttrFilterId": {
+    "name": "rldot1xAuthMultiSessionRadiusAttrFilterId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSessionRadiusAttrSecondFilterId": {
+    "name": "rldot1xAuthMultiSessionRadiusAttrSecondFilterId",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDot1xAuthMultiSessionMonitorResultsReason": {
+    "name": "rlDot1xAuthMultiSessionMonitorResultsReason",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRejected": 0,
+          "aclNotExst": 1,
+          "aclOvrfl": 2,
+          "authErr": 3,
+          "fltrErr": 4,
+          "ipv6WithMac": 5,
+          "ipv6WithNotIp": 6,
+          "polBasicMode": 7,
+          "aclDel": 8,
+          "polDel": 9,
+          "vlanDfly": 10,
+          "vlanDynam": 11,
+          "vlanGuest": 12,
+          "vlanNoInMsg": 13,
+          "vlanNotExst": 14,
+          "vlanOvfl": 15,
+          "vlanVoice": 16,
+          "vlanUnauth": 17,
+          "frsMthDeny": 18,
+          "radApierr": 19,
+          "radInvlres": 20,
+          "radNoresp": 21,
+          "aclEgress": 22,
+          "maxHosts": 23,
+          "noActivity": 24
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDot1xAuthMultiSessionMethodType": {
+    "name": "rlDot1xAuthMultiSessionMethodType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eapol": 1,
+          "mac": 2,
+          "web": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiConfigTable": {
+    "name": "rldot1xAuthMultiConfigTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xAuthMultiConfigEntry": {
+    "name": "rldot1xAuthMultiConfigEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xAuthMultiSourceMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xAuthMultiPortNumber": {
+    "name": "rldot1xAuthMultiPortNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiSourceMac": {
+    "name": "rldot1xAuthMultiSourceMac",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiPaeState": {
+    "name": "rldot1xAuthMultiPaeState",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "disconnected": 2,
+          "connecting": 3,
+          "authenticating": 4,
+          "authenticated": 5,
+          "aborting": 6,
+          "held": 7,
+          "forceAuth": 8,
+          "forceUnauth": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiBackendAuthState": {
+    "name": "rldot1xAuthMultiBackendAuthState",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2,
+          "success": 3,
+          "fail": 4,
+          "timeout": 5,
+          "idle": 6,
+          "initialize": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xAuthMultiControlledPortStatus": {
+    "name": "rldot1xAuthMultiControlledPortStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PaeControlledPortStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xBpduFilteringEnabled": {
+    "name": "rldot1xBpduFilteringEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xRadiusAttributesErrorsAclReject": {
+    "name": "rldot1xRadiusAttributesErrorsAclReject",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xGuestVlanTimeInterval": {
+    "name": "rldot1xGuestVlanTimeInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xMacAuthSuccessTrapEnabled": {
+    "name": "rldot1xMacAuthSuccessTrapEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xMacAuthFailureTrapEnabled": {
+    "name": "rldot1xMacAuthFailureTrapEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xLegacyPortTable": {
+    "name": "rldot1xLegacyPortTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xLegacyPortEntry": {
+    "name": "rldot1xLegacyPortEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xLegacyPortModeEnabled": {
+    "name": "rldot1xLegacyPortModeEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xSystemAuthControlMonitorVlan": {
+    "name": "rldot1xSystemAuthControlMonitorVlan",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xClearPortMibCounters": {
+    "name": "rldot1xClearPortMibCounters",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xWebQuietFailureTrapEnabled": {
+    "name": "rldot1xWebQuietFailureTrapEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xMacWebAuthSuccessTrapEnabled": {
+    "name": "rldot1xMacWebAuthSuccessTrapEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "eapolOnly": 1,
+          "macAndEapol": 2,
+          "macOnly": 3,
+          "webOnly": 4,
+          "webAndEapol": 5,
+          "webAndMac": 6,
+          "webAndMacAndEapol": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xMacWebAuthFailureTrapEnabled": {
+    "name": "rldot1xMacWebAuthFailureTrapEnabled",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "eapolOnly": 1,
+          "macAndEapol": 2,
+          "macOnly": 3,
+          "webOnly": 4,
+          "webAndEapol": 5,
+          "webAndMac": 6,
+          "webAndMacAndEapol": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rldot1xLockedCientsTable": {
+    "name": "rldot1xLockedCientsTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rldot1xLockedCientsEntry": {
+    "name": "rldot1xLockedCientsEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xLockedCientsPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-DOT1X-MIB",
+        "object": "rldot1xLockedCientsSourceMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rldot1xLockedCientsPortNumber": {
+    "name": "rldot1xLockedCientsPortNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xLockedCientsSourceMac": {
+    "name": "rldot1xLockedCientsSourceMac",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xLockedCientsRemainedTime": {
+    "name": "rldot1xLockedCientsRemainedTime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rldot1xLockedCientsRowStatus": {
+    "name": "rldot1xLockedCientsRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.95.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DOT1X-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LINKSYS-DOT1X-MIB"
+  }
+}

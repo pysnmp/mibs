@@ -1,0 +1,1819 @@
+{
+  "imports": {
+    "class": "imports",
+    "BEGEMOT-MIB": [
+      "begemot"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "begemotPf": {
+    "name": "begemotPf",
+    "oid": "1.3.6.1.4.1.12325.1.200",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-18 00:00",
+        "description": "Modified pfTablesAddrEntry to support IPv6 addresses - added pfTablesAddrNetType column and modified type of pfTablesAddrNet to InetAddress."
+      },
+      {
+        "revision": "2009-12-05 00:00",
+        "description": "Added support for retrieving counters of labeled pf filter rules via pfLabelspfLabels subtree."
+      },
+      {
+        "revision": "2005-01-24 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "begemotPfObjects": {
+    "name": "begemotPfObjects",
+    "oid": "1.3.6.1.4.1.12325.1.200.1",
+    "class": "objectidentity"
+  },
+  "pfStatus": {
+    "name": "pfStatus",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.1",
+    "class": "objectidentity"
+  },
+  "pfCounter": {
+    "name": "pfCounter",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.2",
+    "class": "objectidentity"
+  },
+  "pfStateTable": {
+    "name": "pfStateTable",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.3",
+    "class": "objectidentity"
+  },
+  "pfSrcNodes": {
+    "name": "pfSrcNodes",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.4",
+    "class": "objectidentity"
+  },
+  "pfLimits": {
+    "name": "pfLimits",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.5",
+    "class": "objectidentity"
+  },
+  "pfTimeouts": {
+    "name": "pfTimeouts",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6",
+    "class": "objectidentity"
+  },
+  "pfLogInterface": {
+    "name": "pfLogInterface",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7",
+    "class": "objectidentity"
+  },
+  "pfInterfaces": {
+    "name": "pfInterfaces",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8",
+    "class": "objectidentity"
+  },
+  "pfTables": {
+    "name": "pfTables",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9",
+    "class": "objectidentity"
+  },
+  "pfAltq": {
+    "name": "pfAltq",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10",
+    "class": "objectidentity"
+  },
+  "pfLabels": {
+    "name": "pfLabels",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11",
+    "class": "objectidentity"
+  },
+  "pfStatusRunning": {
+    "name": "pfStatusRunning",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfStatusRuntime": {
+    "name": "pfStatusRuntime",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "1/100th of a Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfStatusDebug": {
+    "name": "pfStatusDebug",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "urgent": 1,
+          "misc": 2,
+          "loud": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfStatusHostId": {
+    "name": "pfStatusHostId",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfCounterMatch": {
+    "name": "pfCounterMatch",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfCounterBadOffset": {
+    "name": "pfCounterBadOffset",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfCounterFragment": {
+    "name": "pfCounterFragment",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfCounterShort": {
+    "name": "pfCounterShort",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfCounterNormalize": {
+    "name": "pfCounterNormalize",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfCounterMemDrop": {
+    "name": "pfCounterMemDrop",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfStateTableCount": {
+    "name": "pfStateTableCount",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfStateTableSearches": {
+    "name": "pfStateTableSearches",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfStateTableInserts": {
+    "name": "pfStateTableInserts",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfStateTableRemovals": {
+    "name": "pfStateTableRemovals",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfSrcNodesCount": {
+    "name": "pfSrcNodesCount",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfSrcNodesSearches": {
+    "name": "pfSrcNodesSearches",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfSrcNodesInserts": {
+    "name": "pfSrcNodesInserts",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfSrcNodesRemovals": {
+    "name": "pfSrcNodesRemovals",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLimitsStates": {
+    "name": "pfLimitsStates",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLimitsSrcNodes": {
+    "name": "pfLimitsSrcNodes",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLimitsFrags": {
+    "name": "pfLimitsFrags",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsTcpFirst": {
+    "name": "pfTimeoutsTcpFirst",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsTcpOpening": {
+    "name": "pfTimeoutsTcpOpening",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsTcpEstablished": {
+    "name": "pfTimeoutsTcpEstablished",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsTcpClosing": {
+    "name": "pfTimeoutsTcpClosing",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsTcpFinWait": {
+    "name": "pfTimeoutsTcpFinWait",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsTcpClosed": {
+    "name": "pfTimeoutsTcpClosed",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsUdpFirst": {
+    "name": "pfTimeoutsUdpFirst",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsUdpSingle": {
+    "name": "pfTimeoutsUdpSingle",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsUdpMultiple": {
+    "name": "pfTimeoutsUdpMultiple",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsIcmpFirst": {
+    "name": "pfTimeoutsIcmpFirst",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsIcmpError": {
+    "name": "pfTimeoutsIcmpError",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsOtherFirst": {
+    "name": "pfTimeoutsOtherFirst",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsOtherSingle": {
+    "name": "pfTimeoutsOtherSingle",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsOtherMultiple": {
+    "name": "pfTimeoutsOtherMultiple",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsFragment": {
+    "name": "pfTimeoutsFragment",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsInterval": {
+    "name": "pfTimeoutsInterval",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsAdaptiveStart": {
+    "name": "pfTimeoutsAdaptiveStart",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsAdaptiveEnd": {
+    "name": "pfTimeoutsAdaptiveEnd",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTimeoutsSrcNode": {
+    "name": "pfTimeoutsSrcNode",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceName": {
+    "name": "pfLogInterfaceName",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp4BytesIn": {
+    "name": "pfLogInterfaceIp4BytesIn",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp4BytesOut": {
+    "name": "pfLogInterfaceIp4BytesOut",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp4PktsInPass": {
+    "name": "pfLogInterfaceIp4PktsInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp4PktsInDrop": {
+    "name": "pfLogInterfaceIp4PktsInDrop",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp4PktsOutPass": {
+    "name": "pfLogInterfaceIp4PktsOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp4PktsOutDrop": {
+    "name": "pfLogInterfaceIp4PktsOutDrop",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp6BytesIn": {
+    "name": "pfLogInterfaceIp6BytesIn",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp6BytesOut": {
+    "name": "pfLogInterfaceIp6BytesOut",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp6PktsInPass": {
+    "name": "pfLogInterfaceIp6PktsInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp6PktsInDrop": {
+    "name": "pfLogInterfaceIp6PktsInDrop",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp6PktsOutPass": {
+    "name": "pfLogInterfaceIp6PktsOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLogInterfaceIp6PktsOutDrop": {
+    "name": "pfLogInterfaceIp6PktsOutDrop",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIfNumber": {
+    "name": "pfInterfacesIfNumber",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIfTable": {
+    "name": "pfInterfacesIfTable",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfInterfacesIfEntry": {
+    "name": "pfInterfacesIfEntry",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-PF-MIB",
+        "object": "pfInterfacesIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pfInterfacesIfIndex": {
+    "name": "pfInterfacesIfIndex",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfInterfacesIfDescr": {
+    "name": "pfInterfacesIfDescr",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIfType": {
+    "name": "pfInterfacesIfType",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "group": 0,
+          "instance": 1,
+          "detached": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIfTZero": {
+    "name": "pfInterfacesIfTZero",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "1/100th of a Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIfRefsState": {
+    "name": "pfInterfacesIfRefsState",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIfRefsRule": {
+    "name": "pfInterfacesIfRefsRule",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4BytesInPass": {
+    "name": "pfInterfacesIf4BytesInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4BytesInBlock": {
+    "name": "pfInterfacesIf4BytesInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4BytesOutPass": {
+    "name": "pfInterfacesIf4BytesOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4BytesOutBlock": {
+    "name": "pfInterfacesIf4BytesOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4PktsInPass": {
+    "name": "pfInterfacesIf4PktsInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4PktsInBlock": {
+    "name": "pfInterfacesIf4PktsInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4PktsOutPass": {
+    "name": "pfInterfacesIf4PktsOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf4PktsOutBlock": {
+    "name": "pfInterfacesIf4PktsOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6BytesInPass": {
+    "name": "pfInterfacesIf6BytesInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6BytesInBlock": {
+    "name": "pfInterfacesIf6BytesInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6BytesOutPass": {
+    "name": "pfInterfacesIf6BytesOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6BytesOutBlock": {
+    "name": "pfInterfacesIf6BytesOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6PktsInPass": {
+    "name": "pfInterfacesIf6PktsInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6PktsInBlock": {
+    "name": "pfInterfacesIf6PktsInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6PktsOutPass": {
+    "name": "pfInterfacesIf6PktsOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfInterfacesIf6PktsOutBlock": {
+    "name": "pfInterfacesIf6PktsOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.8.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblNumber": {
+    "name": "pfTablesTblNumber",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblTable": {
+    "name": "pfTablesTblTable",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfTablesTblEntry": {
+    "name": "pfTablesTblEntry",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-PF-MIB",
+        "object": "pfTablesTblIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pfTablesTblIndex": {
+    "name": "pfTablesTblIndex",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfTablesTblDescr": {
+    "name": "pfTablesTblDescr",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblCount": {
+    "name": "pfTablesTblCount",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblTZero": {
+    "name": "pfTablesTblTZero",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "1/100th of a Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblRefsAnchor": {
+    "name": "pfTablesTblRefsAnchor",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblRefsRule": {
+    "name": "pfTablesTblRefsRule",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblEvalMatch": {
+    "name": "pfTablesTblEvalMatch",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblEvalNoMatch": {
+    "name": "pfTablesTblEvalNoMatch",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblBytesInPass": {
+    "name": "pfTablesTblBytesInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblBytesInBlock": {
+    "name": "pfTablesTblBytesInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblBytesInXPass": {
+    "name": "pfTablesTblBytesInXPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblBytesOutPass": {
+    "name": "pfTablesTblBytesOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblBytesOutBlock": {
+    "name": "pfTablesTblBytesOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblBytesOutXPass": {
+    "name": "pfTablesTblBytesOutXPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblPktsInPass": {
+    "name": "pfTablesTblPktsInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblPktsInBlock": {
+    "name": "pfTablesTblPktsInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblPktsInXPass": {
+    "name": "pfTablesTblPktsInXPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblPktsOutPass": {
+    "name": "pfTablesTblPktsOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblPktsOutBlock": {
+    "name": "pfTablesTblPktsOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesTblPktsOutXPass": {
+    "name": "pfTablesTblPktsOutXPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrTable": {
+    "name": "pfTablesAddrTable",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfTablesAddrEntry": {
+    "name": "pfTablesAddrEntry",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-PF-MIB",
+        "object": "pfTablesAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pfTablesAddrIndex": {
+    "name": "pfTablesAddrIndex",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfTablesAddrNetType": {
+    "name": "pfTablesAddrNetType",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrNet": {
+    "name": "pfTablesAddrNet",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrPrefix": {
+    "name": "pfTablesAddrPrefix",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrTZero": {
+    "name": "pfTablesAddrTZero",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "1/100th of a Second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrBytesInPass": {
+    "name": "pfTablesAddrBytesInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrBytesInBlock": {
+    "name": "pfTablesAddrBytesInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrBytesOutPass": {
+    "name": "pfTablesAddrBytesOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrBytesOutBlock": {
+    "name": "pfTablesAddrBytesOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrPktsInPass": {
+    "name": "pfTablesAddrPktsInPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrPktsInBlock": {
+    "name": "pfTablesAddrPktsInBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrPktsOutPass": {
+    "name": "pfTablesAddrPktsOutPass",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfTablesAddrPktsOutBlock": {
+    "name": "pfTablesAddrPktsOutBlock",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.9.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfAltqQueueNumber": {
+    "name": "pfAltqQueueNumber",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfAltqQueueTable": {
+    "name": "pfAltqQueueTable",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfAltqQueueEntry": {
+    "name": "pfAltqQueueEntry",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-PF-MIB",
+        "object": "pfAltqQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pfAltqQueueIndex": {
+    "name": "pfAltqQueueIndex",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfAltqQueueDescr": {
+    "name": "pfAltqQueueDescr",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfAltqQueueParent": {
+    "name": "pfAltqQueueParent",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfAltqQueueScheduler": {
+    "name": "pfAltqQueueScheduler",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbq": 1,
+          "hfsc": 8,
+          "priq": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfAltqQueueBandwidth": {
+    "name": "pfAltqQueueBandwidth",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfAltqQueuePriority": {
+    "name": "pfAltqQueuePriority",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfAltqQueueLimit": {
+    "name": "pfAltqQueueLimit",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLabelsLblNumber": {
+    "name": "pfLabelsLblNumber",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLabelsLblTable": {
+    "name": "pfLabelsLblTable",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfLabelsLblEntry": {
+    "name": "pfLabelsLblEntry",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-PF-MIB",
+        "object": "pfLabelsLblIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pfLabelsLblIndex": {
+    "name": "pfLabelsLblIndex",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pfLabelsLblName": {
+    "name": "pfLabelsLblName",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLabelsLblEvals": {
+    "name": "pfLabelsLblEvals",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLabelsLblBytesIn": {
+    "name": "pfLabelsLblBytesIn",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLabelsLblBytesOut": {
+    "name": "pfLabelsLblBytesOut",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLabelsLblPktsIn": {
+    "name": "pfLabelsLblPktsIn",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pfLabelsLblPktsOut": {
+    "name": "pfLabelsLblPktsOut",
+    "oid": "1.3.6.1.4.1.12325.1.200.1.11.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-PF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BEGEMOT-PF-MIB"
+  }
+}

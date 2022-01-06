@@ -1,0 +1,2865 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "AutonomousType"
+    ]
+  },
+  "atPtpMIB": {
+    "name": "atPtpMIB",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-23 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "PtpClockDomainType": {
+    "name": "PtpClockDomainType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PtpClockIdentity": {
+    "name": "PtpClockIdentity",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PtpClockInstanceType": {
+    "name": "PtpClockInstanceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PtpClockIntervalBase2": {
+    "name": "PtpClockIntervalBase2",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PtpClockMechanismType": {
+    "name": "PtpClockMechanismType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e2e": 1,
+          "p2p": 2,
+          "disabled": 254
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockPortNumber": {
+    "name": "PtpClockPortNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PtpClockPortState": {
+    "name": "PtpClockPortState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "faulty": 2,
+          "disabled": 3,
+          "listening": 4,
+          "preMaster": 5,
+          "master": 6,
+          "passive": 7,
+          "uncalibrated": 8,
+          "slave": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockPortTransportTypeAddress": {
+    "name": "PtpClockPortTransportTypeAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PtpClockProfileType": {
+    "name": "PtpClockProfileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "telecom": 2,
+          "vendorspecific": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockQualityAccuracyType": {
+    "name": "PtpClockQualityAccuracyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nanoSecond25": 32,
+          "nanoSecond100": 33,
+          "nanoSecond250": 34,
+          "microSec1": 35,
+          "microSec2dot5": 36,
+          "microSec10": 37,
+          "microSec25": 38,
+          "microSec100": 39,
+          "microSec250": 40,
+          "milliSec1": 41,
+          "milliSec2dot5": 42,
+          "milliSec10": 43,
+          "milliSec25": 44,
+          "milliSec100": 45,
+          "milliSec250": 46,
+          "second1": 47,
+          "second10": 48,
+          "secondGreater10": 49,
+          "unknown": 254
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockQualityClassType": {
+    "name": "PtpClockQualityClassType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clockclass6": 6,
+          "clockclass7": 7,
+          "clockclass13": 13,
+          "clockclass14": 14,
+          "clockclass52": 52,
+          "clockclass58": 58
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockRoleType": {
+    "name": "PtpClockRoleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockStateType": {
+    "name": "PtpClockStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerun": 1,
+          "holdover": 2,
+          "acquiring": 3,
+          "frequencyLocked": 4,
+          "phaseAligned": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockTimeInterval": {
+    "name": "PtpClockTimeInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "PtpClockTimeSourceType": {
+    "name": "PtpClockTimeSourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atomicClock": 16,
+          "gps": 32,
+          "terrestrialRadio": 48,
+          "ptp": 64,
+          "ntp": 80,
+          "handSet": 96,
+          "other": 144,
+          "internalOscillator": 160
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockTxModeType": {
+    "name": "PtpClockTxModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2,
+          "multicastmix": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PtpClockType": {
+    "name": "PtpClockType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ordinaryClock": 1,
+          "boundaryClock": 2,
+          "transparentClock": 3,
+          "boundaryNode": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ptpMIBNotifs": {
+    "name": "ptpMIBNotifs",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.0",
+    "class": "objectidentity"
+  },
+  "ptpMIBObjects": {
+    "name": "ptpMIBObjects",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1",
+    "class": "objectidentity"
+  },
+  "ptpMIBConformance": {
+    "name": "ptpMIBConformance",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2",
+    "class": "objectidentity"
+  },
+  "ptpMIBSystemInfo": {
+    "name": "ptpMIBSystemInfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1",
+    "class": "objectidentity"
+  },
+  "ptpMIBClockInfo": {
+    "name": "ptpMIBClockInfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2",
+    "class": "objectidentity"
+  },
+  "ptpSystemTable": {
+    "name": "ptpSystemTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpSystemEntry": {
+    "name": "ptpSystemEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpDomainIndex": {
+    "name": "ptpDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpInstanceIndex": {
+    "name": "ptpInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpDomainClockPortsTotal": {
+    "name": "ptpDomainClockPortsTotal",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ptp ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpSystemDomainTable": {
+    "name": "ptpSystemDomainTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpSystemDomainEntry": {
+    "name": "ptpSystemDomainEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpSystemDomainClockTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpSystemDomainClockTypeIndex": {
+    "name": "ptpSystemDomainClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpSystemDomainTotals": {
+    "name": "ptpSystemDomainTotals",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "domains",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpSystemProfile": {
+    "name": "ptpSystemProfile",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockProfileType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockCurrentDSTable": {
+    "name": "ptpClockCurrentDSTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockCurrentDSEntry": {
+    "name": "ptpClockCurrentDSEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockCurrentDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockCurrentDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockCurrentDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockCurrentDSDomainIndex": {
+    "name": "ptpClockCurrentDSDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockCurrentDSClockTypeIndex": {
+    "name": "ptpClockCurrentDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockCurrentDSInstanceIndex": {
+    "name": "ptpClockCurrentDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockCurrentDSStepsRemoved": {
+    "name": "ptpClockCurrentDSStepsRemoved",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Steps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockCurrentDSOffsetFromMaster": {
+    "name": "ptpClockCurrentDSOffsetFromMaster",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockTimeInterval",
+      "class": "type"
+    },
+    "units": "Time Interval",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockCurrentDSMeanPathDelay": {
+    "name": "ptpClockCurrentDSMeanPathDelay",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockTimeInterval",
+      "class": "type"
+    },
+    "units": "Time Interval",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSTable": {
+    "name": "ptpClockParentDSTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockParentDSEntry": {
+    "name": "ptpClockParentDSEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockParentDSDomainIndex": {
+    "name": "ptpClockParentDSDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockParentDSClockTypeIndex": {
+    "name": "ptpClockParentDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockParentDSInstanceIndex": {
+    "name": "ptpClockParentDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockParentDSParentPortIdentity": {
+    "name": "ptpClockParentDSParentPortIdentity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSParentStats": {
+    "name": "ptpClockParentDSParentStats",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSOffset": {
+    "name": "ptpClockParentDSOffset",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIntervalBase2",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSClockPhChRate": {
+    "name": "ptpClockParentDSClockPhChRate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSGMClockIdentity": {
+    "name": "ptpClockParentDSGMClockIdentity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSGMClockPriority1": {
+    "name": "ptpClockParentDSGMClockPriority1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSGMClockPriority2": {
+    "name": "ptpClockParentDSGMClockPriority2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSGMClockQualityClass": {
+    "name": "ptpClockParentDSGMClockQualityClass",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockQualityClassType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSGMClockQualityAccuracy": {
+    "name": "ptpClockParentDSGMClockQualityAccuracy",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockQualityAccuracyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockParentDSGMClockQualityOffset": {
+    "name": "ptpClockParentDSGMClockQualityOffset",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSTable": {
+    "name": "ptpClockDefaultDSTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockDefaultDSEntry": {
+    "name": "ptpClockDefaultDSEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockDefaultDSDomainIndex": {
+    "name": "ptpClockDefaultDSDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockDefaultDSClockTypeIndex": {
+    "name": "ptpClockDefaultDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockDefaultDSInstanceIndex": {
+    "name": "ptpClockDefaultDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockDefaultDSTwoStepFlag": {
+    "name": "ptpClockDefaultDSTwoStepFlag",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSClockIdentity": {
+    "name": "ptpClockDefaultDSClockIdentity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSPriority1": {
+    "name": "ptpClockDefaultDSPriority1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSPriority2": {
+    "name": "ptpClockDefaultDSPriority2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSSlaveOnly": {
+    "name": "ptpClockDefaultDSSlaveOnly",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSQualityClass": {
+    "name": "ptpClockDefaultDSQualityClass",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockQualityClassType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSQualityAccuracy": {
+    "name": "ptpClockDefaultDSQualityAccuracy",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockQualityAccuracyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockDefaultDSQualityOffset": {
+    "name": "ptpClockDefaultDSQualityOffset",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockRunningTable": {
+    "name": "ptpClockRunningTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockRunningEntry": {
+    "name": "ptpClockRunningEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockRunningDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockRunningClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockRunningInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockRunningDomainIndex": {
+    "name": "ptpClockRunningDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockRunningClockTypeIndex": {
+    "name": "ptpClockRunningClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockRunningInstanceIndex": {
+    "name": "ptpClockRunningInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockRunningState": {
+    "name": "ptpClockRunningState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockRunningPacketsSent": {
+    "name": "ptpClockRunningPacketsSent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockRunningPacketsReceived": {
+    "name": "ptpClockRunningPacketsReceived",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSTable": {
+    "name": "ptpClockTimePropertiesDSTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSEntry": {
+    "name": "ptpClockTimePropertiesDSEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSDomainIndex": {
+    "name": "ptpClockTimePropertiesDSDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSClockTypeIndex": {
+    "name": "ptpClockTimePropertiesDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSInstanceIndex": {
+    "name": "ptpClockTimePropertiesDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSCurrentUTCOffsetValid": {
+    "name": "ptpClockTimePropertiesDSCurrentUTCOffsetValid",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSCurrentUTCOffset": {
+    "name": "ptpClockTimePropertiesDSCurrentUTCOffset",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSLeap59": {
+    "name": "ptpClockTimePropertiesDSLeap59",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSLeap61": {
+    "name": "ptpClockTimePropertiesDSLeap61",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSTimeTraceable": {
+    "name": "ptpClockTimePropertiesDSTimeTraceable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSFreqTraceable": {
+    "name": "ptpClockTimePropertiesDSFreqTraceable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSPTPTimescale": {
+    "name": "ptpClockTimePropertiesDSPTPTimescale",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTimePropertiesDSSource": {
+    "name": "ptpClockTimePropertiesDSSource",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockTimeSourceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSTable": {
+    "name": "ptpClockTransDefaultDSTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSEntry": {
+    "name": "ptpClockTransDefaultDSEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTransDefaultDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTransDefaultDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSDomainIndex": {
+    "name": "ptpClockTransDefaultDSDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSInstanceIndex": {
+    "name": "ptpClockTransDefaultDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSClockIdentity": {
+    "name": "ptpClockTransDefaultDSClockIdentity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSNumOfPorts": {
+    "name": "ptpClockTransDefaultDSNumOfPorts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSDelay": {
+    "name": "ptpClockTransDefaultDSDelay",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockMechanismType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockTransDefaultDSPrimaryDomain": {
+    "name": "ptpClockTransDefaultDSPrimaryDomain",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortTable": {
+    "name": "ptpClockPortTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortEntry": {
+    "name": "ptpClockPortEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTablePortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockPortDomainIndex": {
+    "name": "ptpClockPortDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortClockTypeIndex": {
+    "name": "ptpClockPortClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortClockInstanceIndex": {
+    "name": "ptpClockPortClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortTablePortNumberIndex": {
+    "name": "ptpClockPortTablePortNumberIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortName": {
+    "name": "ptpClockPortName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRole": {
+    "name": "ptpClockPortRole",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockRoleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortSyncTwoStep": {
+    "name": "ptpClockPortSyncTwoStep",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortCurrentPeerAddressType": {
+    "name": "ptpClockPortCurrentPeerAddressType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortCurrentPeerAddress": {
+    "name": "ptpClockPortCurrentPeerAddress",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortTransportTypeAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortNumOfAssociatedPorts": {
+    "name": "ptpClockPortNumOfAssociatedPorts",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSTable": {
+    "name": "ptpClockPortDSTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortDSEntry": {
+    "name": "ptpClockPortDSEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSPortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockPortDSDomainIndex": {
+    "name": "ptpClockPortDSDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortDSClockTypeIndex": {
+    "name": "ptpClockPortDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortDSClockInstanceIndex": {
+    "name": "ptpClockPortDSClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortDSPortNumberIndex": {
+    "name": "ptpClockPortDSPortNumberIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortDSName": {
+    "name": "ptpClockPortDSName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSPortIdentity": {
+    "name": "ptpClockPortDSPortIdentity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSlogAnnouncementInterval": {
+    "name": "ptpClockPortDSlogAnnouncementInterval",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIntervalBase2",
+      "class": "type"
+    },
+    "units": "Time Interval",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSAnnounceRctTimeout": {
+    "name": "ptpClockPortDSAnnounceRctTimeout",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSlogSyncInterval": {
+    "name": "ptpClockPortDSlogSyncInterval",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIntervalBase2",
+      "class": "type"
+    },
+    "units": "Time Interval",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSMinDelayReqInterval": {
+    "name": "ptpClockPortDSMinDelayReqInterval",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSPeerDelayReqInterval": {
+    "name": "ptpClockPortDSPeerDelayReqInterval",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSDelayMech": {
+    "name": "ptpClockPortDSDelayMech",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockMechanismType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSPeerMeanPathDelay": {
+    "name": "ptpClockPortDSPeerMeanPathDelay",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockTimeInterval",
+      "class": "type"
+    },
+    "units": "Time Interval",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSGrantDuration": {
+    "name": "ptpClockPortDSGrantDuration",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortDSPTPVersion": {
+    "name": "ptpClockPortDSPTPVersion",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningTable": {
+    "name": "ptpClockPortRunningTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortRunningEntry": {
+    "name": "ptpClockPortRunningEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningPortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockPortRunningDomainIndex": {
+    "name": "ptpClockPortRunningDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortRunningClockTypeIndex": {
+    "name": "ptpClockPortRunningClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortRunningClockInstanceIndex": {
+    "name": "ptpClockPortRunningClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortRunningPortNumberIndex": {
+    "name": "ptpClockPortRunningPortNumberIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortRunningName": {
+    "name": "ptpClockPortRunningName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningState": {
+    "name": "ptpClockPortRunningState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningRole": {
+    "name": "ptpClockPortRunningRole",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockRoleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningInterfaceIndex": {
+    "name": "ptpClockPortRunningInterfaceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningTransport": {
+    "name": "ptpClockPortRunningTransport",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningEncapsulationType": {
+    "name": "ptpClockPortRunningEncapsulationType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningTxMode": {
+    "name": "ptpClockPortRunningTxMode",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockTxModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningRxMode": {
+    "name": "ptpClockPortRunningRxMode",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockTxModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningPacketsReceived": {
+    "name": "ptpClockPortRunningPacketsReceived",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortRunningPacketsSent": {
+    "name": "ptpClockPortRunningPacketsSent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortTransDSTable": {
+    "name": "ptpClockPortTransDSTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortTransDSEntry": {
+    "name": "ptpClockPortTransDSEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTransDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTransDSInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTransDSPortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockPortTransDSDomainIndex": {
+    "name": "ptpClockPortTransDSDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortTransDSInstanceIndex": {
+    "name": "ptpClockPortTransDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortTransDSPortNumberIndex": {
+    "name": "ptpClockPortTransDSPortNumberIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortTransDSPortIdentity": {
+    "name": "ptpClockPortTransDSPortIdentity",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortTransDSlogMinPdelayReqInt": {
+    "name": "ptpClockPortTransDSlogMinPdelayReqInt",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockIntervalBase2",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortTransDSFaultyFlag": {
+    "name": "ptpClockPortTransDSFaultyFlag",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortTransDSPeerMeanPathDelay": {
+    "name": "ptpClockPortTransDSPeerMeanPathDelay",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockTimeInterval",
+      "class": "type"
+    },
+    "units": "Time Interval",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortAssociateTable": {
+    "name": "ptpClockPortAssociateTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpWellKnownTransportTypes": {
+    "name": "ptpWellKnownTransportTypes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.12",
+    "class": "objectidentity"
+  },
+  "ptpTransportTypeIPversion4": {
+    "name": "ptpTransportTypeIPversion4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.12.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpTransportTypeIPversion6": {
+    "name": "ptpTransportTypeIPversion6",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.12.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpTransportTypeEthernet": {
+    "name": "ptpTransportTypeEthernet",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.12.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpTransportTypeDeviceNET": {
+    "name": "ptpTransportTypeDeviceNET",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.12.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpTransportTypeControlNET": {
+    "name": "ptpTransportTypeControlNET",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.12.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpTransportTypeIEC61158": {
+    "name": "ptpTransportTypeIEC61158",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.12.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpWellKnownEncapsulationTypes": {
+    "name": "ptpWellKnownEncapsulationTypes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.13",
+    "class": "objectidentity"
+  },
+  "ptpEncapsulationTypeEthernet": {
+    "name": "ptpEncapsulationTypeEthernet",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.13.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpEncapsulationTypeVLAN": {
+    "name": "ptpEncapsulationTypeVLAN",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.13.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpEncapsulationTypeUDPIPLSP": {
+    "name": "ptpEncapsulationTypeUDPIPLSP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.13.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpEncapsulationTypePWUDPIPLSP": {
+    "name": "ptpEncapsulationTypePWUDPIPLSP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.13.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpEncapsulationTypePWEthernetLSP": {
+    "name": "ptpEncapsulationTypePWEthernetLSP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.13.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ptpClockPortAssociateEntry": {
+    "name": "ptpClockPortAssociateEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortCurrentDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortCurrentClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortCurrentClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortCurrentPortNumberIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortAssociatePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ptpClockPortCurrentDomainIndex": {
+    "name": "ptpClockPortCurrentDomainIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortCurrentClockTypeIndex": {
+    "name": "ptpClockPortCurrentClockTypeIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortCurrentClockInstanceIndex": {
+    "name": "ptpClockPortCurrentClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortCurrentPortNumberIndex": {
+    "name": "ptpClockPortCurrentPortNumberIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortAssociatePortIndex": {
+    "name": "ptpClockPortAssociatePortIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ptpClockPortAssociateAddressType": {
+    "name": "ptpClockPortAssociateAddressType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortAssociateAddress": {
+    "name": "ptpClockPortAssociateAddress",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PtpClockPortTransportTypeAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortAssociatePacketsSent": {
+    "name": "ptpClockPortAssociatePacketsSent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortAssociatePacketsReceived": {
+    "name": "ptpClockPortAssociatePacketsReceived",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortAssociateInErrors": {
+    "name": "ptpClockPortAssociateInErrors",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpClockPortAssociateOutErrors": {
+    "name": "ptpClockPortAssociateOutErrors",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.1.2.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ptpMIBCompliances": {
+    "name": "ptpMIBCompliances",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.1",
+    "class": "objectidentity"
+  },
+  "ptpMIBGroups": {
+    "name": "ptpMIBGroups",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2",
+    "class": "objectidentity"
+  },
+  "ptpMIBCompliancesSystemInfo": {
+    "name": "ptpMIBCompliancesSystemInfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptpMIBSystemInfoGroup",
+        "module": "AT-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBCompliancesClockInfo": {
+    "name": "ptpMIBCompliancesClockInfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptpMIBClockCurrentDSGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockParentDSGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockDefaultDSGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockRunningGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockTimepropertiesGroup",
+        "module": "AT-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBCompliancesClockPortInfo": {
+    "name": "ptpMIBCompliancesClockPortInfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptpMIBClockPortGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockPortDSGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockPortRunningGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockPortAssociateGroup",
+        "module": "AT-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBCompliancesTransparentClockInfo": {
+    "name": "ptpMIBCompliancesTransparentClockInfo",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ptpMIBClockTranparentDSGroup",
+        "module": "AT-PTP-MIB"
+      },
+      {
+        "object": "ptpMIBClockPortTransDSGroup",
+        "module": "AT-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBSystemInfoGroup": {
+    "name": "ptpMIBSystemInfoGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpSystemDomainTotals"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpDomainClockPortsTotal"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpSystemProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockCurrentDSGroup": {
+    "name": "ptpMIBClockCurrentDSGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockCurrentDSStepsRemoved"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockCurrentDSOffsetFromMaster"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockCurrentDSMeanPathDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockParentDSGroup": {
+    "name": "ptpMIBClockParentDSGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSParentPortIdentity"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSParentStats"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSOffset"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSClockPhChRate"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSGMClockIdentity"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSGMClockPriority1"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSGMClockPriority2"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSGMClockQualityClass"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSGMClockQualityAccuracy"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockParentDSGMClockQualityOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockDefaultDSGroup": {
+    "name": "ptpMIBClockDefaultDSGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSTwoStepFlag"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSClockIdentity"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSPriority1"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSPriority2"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSSlaveOnly"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSQualityClass"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSQualityAccuracy"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockDefaultDSQualityOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockRunningGroup": {
+    "name": "ptpMIBClockRunningGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockRunningState"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockRunningPacketsSent"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockRunningPacketsReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockTimepropertiesGroup": {
+    "name": "ptpMIBClockTimepropertiesGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSCurrentUTCOffsetValid"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSCurrentUTCOffset"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSLeap59"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSLeap61"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSTimeTraceable"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSFreqTraceable"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSPTPTimescale"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTimePropertiesDSSource"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockTranparentDSGroup": {
+    "name": "ptpMIBClockTranparentDSGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTransDefaultDSClockIdentity"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTransDefaultDSNumOfPorts"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTransDefaultDSDelay"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockTransDefaultDSPrimaryDomain"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockPortGroup": {
+    "name": "ptpMIBClockPortGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortName"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortSyncTwoStep"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortCurrentPeerAddress"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortNumOfAssociatedPorts"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortCurrentPeerAddressType"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRole"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockPortDSGroup": {
+    "name": "ptpMIBClockPortDSGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSName"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSPortIdentity"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSlogAnnouncementInterval"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSAnnounceRctTimeout"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSlogSyncInterval"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSMinDelayReqInterval"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSPeerDelayReqInterval"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSDelayMech"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSPeerMeanPathDelay"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSGrantDuration"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortDSPTPVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockPortRunningGroup": {
+    "name": "ptpMIBClockPortRunningGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningName"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningState"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningRole"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningInterfaceIndex"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningTransport"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningEncapsulationType"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningTxMode"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningRxMode"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningPacketsReceived"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortRunningPacketsSent"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockPortTransDSGroup": {
+    "name": "ptpMIBClockPortTransDSGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTransDSPortIdentity"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTransDSlogMinPdelayReqInt"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTransDSFaultyFlag"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortTransDSPeerMeanPathDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "ptpMIBClockPortAssociateGroup": {
+    "name": "ptpMIBClockPortAssociateGroup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.504.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortAssociatePacketsSent"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortAssociatePacketsReceived"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortAssociateAddress"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortAssociateAddressType"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortAssociateInErrors"
+      },
+      {
+        "module": "AT-PTP-MIB",
+        "object": "ptpClockPortAssociateOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-PTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-PTP-MIB"
+  }
+}

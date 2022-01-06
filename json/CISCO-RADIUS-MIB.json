@@ -1,0 +1,1331 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort",
+      "TimeIntervalMin",
+      "TimeIntervalSec"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoRadiusMIB": {
+    "name": "ciscoRadiusMIB",
+    "oid": "1.3.6.1.4.1.9.9.288",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-06 00:00",
+        "description": "The following objects have been added [1] crRadiusServerRTTThldNorm [2] crRadiusServerRTTThldHi [3] crRadiusServerRetransThldNorm [4] crRadiusServerRetransThldHi [5] crRadiusServerRTTNormNotifEnable [6] crRadiusServerRTTHiNotifEnable [7] crRadiusServerRetransNormNotifEnable [8] crRadiusServerRetransHiNotifEnable The following notifications have been added [1] crRadiusServerRTTNormNotif [2] crRadiusServerRTTHiNotif [3] crRadiusServerRetransNormNotif [4] crRadiusServerRetransHiNotif The following object-groups have been added [1] crmRadiusServerNotifGroup [2] crmNotificationControlGroup [3] crmRadiusServerNotifCntlGroup The compliance statement ciscoRadiusMIBCompliance3 has been deprecated by ciscoRadiusMIBCompliance4."
+      },
+      {
+        "revision": "2007-07-22 00:00",
+        "description": "Added support of crmRadiusKeepAliveUserGroup."
+      },
+      {
+        "revision": "2007-01-03 00:00",
+        "description": "Added support of crmKeepAliveGroup, crmAutoInitializeConfigGroup, and crmAttributesGroup2."
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Added support of crRadiusFramedIpAddrIncluded, crRadiusVlanAssignmentEnabled, crVlanGroupTable. Added http(2) bit to crRadiusLoginAuthentication."
+      },
+      {
+        "revision": "2002-11-09 00:00",
+        "description": "Removed the TC CiscoRadiusAuthKeyType. Added new TC CiscoRadiusAuthKey. Removed the objects crRadiusAuthKeyType and crRadiusServerKeyType. Changed the SYNTAX of objects crRadiusAuthKey and crRadiusServerKey."
+      },
+      {
+        "revision": "2002-10-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoRadiusMIBObjects": {
+    "name": "ciscoRadiusMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.288.1",
+    "class": "objectidentity"
+  },
+  "ciscoRadiusMIBConformance": {
+    "name": "ciscoRadiusMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.288.2",
+    "class": "objectidentity"
+  },
+  "crRadiusGenericConfig": {
+    "name": "crRadiusGenericConfig",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1",
+    "class": "objectidentity"
+  },
+  "crRadiusServerConfig": {
+    "name": "crRadiusServerConfig",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2",
+    "class": "objectidentity"
+  },
+  "crRadiusAttributesConfig": {
+    "name": "crRadiusAttributesConfig",
+    "oid": "1.3.6.1.4.1.9.9.288.1.3",
+    "class": "objectidentity"
+  },
+  "crRadiusVlanConfigGroup": {
+    "name": "crRadiusVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4",
+    "class": "objectidentity"
+  },
+  "crRadiusKeepAliveConfig": {
+    "name": "crRadiusKeepAliveConfig",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5",
+    "class": "objectidentity"
+  },
+  "crRadiusServerNotifCntl": {
+    "name": "crRadiusServerNotifCntl",
+    "oid": "1.3.6.1.4.1.9.9.288.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoRadiusMIBNotifications": {
+    "name": "ciscoRadiusMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.288.3",
+    "class": "objectidentity"
+  },
+  "CiscoRadiusAuthKey": {
+    "name": "CiscoRadiusAuthKey",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoRadiusRoundTripTimePercent": {
+    "name": "CiscoRadiusRoundTripTimePercent",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "CiscoRadiusRetransPercent": {
+    "name": "CiscoRadiusRetransPercent",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "crRadiusLoginAuthentication": {
+    "name": "crRadiusLoginAuthentication",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "telnet": 0,
+        "console": 1,
+        "http": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusDeadtime": {
+    "name": "crRadiusDeadtime",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusAuthKey": {
+    "name": "crRadiusAuthKey",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRadiusAuthKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusTimeout": {
+    "name": "crRadiusTimeout",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusRetransmits": {
+    "name": "crRadiusRetransmits",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "retransmits",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusAccountingLogMaxSize": {
+    "name": "crRadiusAccountingLogMaxSize",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusAccountingMethod": {
+    "name": "crRadiusAccountingMethod",
+    "oid": "1.3.6.1.4.1.9.9.288.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "radius": 0,
+        "local": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusFramedIpAddrIncluded": {
+    "name": "crRadiusFramedIpAddrIncluded",
+    "oid": "1.3.6.1.4.1.9.9.288.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusFramedMtu": {
+    "name": "crRadiusFramedMtu",
+    "oid": "1.3.6.1.4.1.9.9.288.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusServerTableMaxEntries": {
+    "name": "crRadiusServerTableMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crRadiusServerTable": {
+    "name": "crRadiusServerTable",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crRadiusServerEntry": {
+    "name": "crRadiusServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crRadiusServerIndex": {
+    "name": "crRadiusServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crRadiusServerAddrType": {
+    "name": "crRadiusServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerAddr": {
+    "name": "crRadiusServerAddr",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerAuthPort": {
+    "name": "crRadiusServerAuthPort",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1812,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerAcctPort": {
+    "name": "crRadiusServerAcctPort",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1813,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerKey": {
+    "name": "crRadiusServerKey",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRadiusAuthKey",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerType": {
+    "name": "crRadiusServerType",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "primary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerMode": {
+    "name": "crRadiusServerMode",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "authAndAcct": 2,
+          "authOnly": 3,
+          "acctOnly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "authAndAcct",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerRowStatus": {
+    "name": "crRadiusServerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerRTTThldNorm": {
+    "name": "crRadiusServerRTTThldNorm",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRadiusRoundTripTimePercent",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerRTTThldHi": {
+    "name": "crRadiusServerRTTThldHi",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRadiusRoundTripTimePercent",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerRetransThldNorm": {
+    "name": "crRadiusServerRetransThldNorm",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRadiusRetransPercent",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusServerRetransThldHi": {
+    "name": "crRadiusServerRetransThldHi",
+    "oid": "1.3.6.1.4.1.9.9.288.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoRadiusRetransPercent",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusVlanAssignmentEnabled": {
+    "name": "crRadiusVlanAssignmentEnabled",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crVlanGroupTable": {
+    "name": "crVlanGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crVlanGroupEntry": {
+    "name": "crVlanGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crVlanGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crVlanGroupName": {
+    "name": "crVlanGroupName",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crVlanGroupVlansLow": {
+    "name": "crVlanGroupVlansLow",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crVlanGroupVlansHigh": {
+    "name": "crVlanGroupVlansHigh",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crVlanGroupRowStatus": {
+    "name": "crVlanGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.288.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "crRadiusKeepAliveEnabled": {
+    "name": "crRadiusKeepAliveEnabled",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusKeepAliveInterval": {
+    "name": "crRadiusKeepAliveInterval",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusKeepAliveServerTable": {
+    "name": "crRadiusKeepAliveServerTable",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "crRadiusKeepAliveServerEntry": {
+    "name": "crRadiusKeepAliveServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "crRadiusKeepAliveServerStatus": {
+    "name": "crRadiusKeepAliveServerStatus",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "init": 2,
+          "active": 3,
+          "checkup": 4,
+          "dead": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "crRadiusPortAutoInitialize": {
+    "name": "crRadiusPortAutoInitialize",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusKeepAliveUserName": {
+    "name": "crRadiusKeepAliveUserName",
+    "oid": "1.3.6.1.4.1.9.9.288.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusServerRTTNormNotifEnable": {
+    "name": "crRadiusServerRTTNormNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.288.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusServerRTTHiNotifEnable": {
+    "name": "crRadiusServerRTTHiNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.288.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusServerRetransNormNotifEnable": {
+    "name": "crRadiusServerRetransNormNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.288.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusServerRetransHiNotifEnable": {
+    "name": "crRadiusServerRetransHiNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.288.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "crRadiusServerRTTNormNotif": {
+    "name": "crRadiusServerRTTNormNotif",
+    "oid": "1.3.6.1.4.1.9.9.288.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTThldNorm"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAddr"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAuthPort"
+      }
+    ],
+    "status": "current"
+  },
+  "crRadiusServerRTTHiNotif": {
+    "name": "crRadiusServerRTTHiNotif",
+    "oid": "1.3.6.1.4.1.9.9.288.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTThldHi"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAddr"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAuthPort"
+      }
+    ],
+    "status": "current"
+  },
+  "crRadiusServerRetransNormNotif": {
+    "name": "crRadiusServerRetransNormNotif",
+    "oid": "1.3.6.1.4.1.9.9.288.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransThldNorm"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAddr"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAuthPort"
+      }
+    ],
+    "status": "current"
+  },
+  "crRadiusServerRetransHiNotif": {
+    "name": "crRadiusServerRetransHiNotif",
+    "oid": "1.3.6.1.4.1.9.9.288.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransThldHi"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAddr"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAuthPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRadiusMIBCompliances": {
+    "name": "ciscoRadiusMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.288.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoRadiusMIBGroups": {
+    "name": "ciscoRadiusMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoRadiusMIBCompliance": {
+    "name": "ciscoRadiusMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.288.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "crmConfigurationGroup",
+        "module": "CISCO-RADIUS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRadiusMIBCompliance2": {
+    "name": "ciscoRadiusMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.288.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "crmConfigurationGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAttributesGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmKeepAliveGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAutoInitializeConfigGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAttributesGroup2",
+        "module": "CISCO-RADIUS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRadiusMIBCompliance3": {
+    "name": "ciscoRadiusMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.288.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "crmConfigurationGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAttributesGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmKeepAliveGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAutoInitializeConfigGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAttributesGroup2",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmVlanConfigGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmRadiusKeepAliveUserGroup",
+        "module": "CISCO-RADIUS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRadiusMIBCompliance4": {
+    "name": "ciscoRadiusMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.288.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "crmConfigurationGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmConfigurationGroupSup1",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmRadiusServerNotifGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmRadiusServerNotifCntlGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAttributesGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmKeepAliveGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAutoInitializeConfigGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmAttributesGroup2",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmVlanConfigGroup",
+        "module": "CISCO-RADIUS-MIB"
+      },
+      {
+        "object": "crmRadiusKeepAliveUserGroup",
+        "module": "CISCO-RADIUS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "crmConfigurationGroup": {
+    "name": "crmConfigurationGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusLoginAuthentication"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusAuthKey"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusTimeout"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusRetransmits"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusDeadtime"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusAccountingLogMaxSize"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusAccountingMethod"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerTableMaxEntries"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAddrType"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAddr"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAuthPort"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerAcctPort"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerKey"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerType"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerMode"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "crmAttributesGroup": {
+    "name": "crmAttributesGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusFramedIpAddrIncluded"
+      }
+    ],
+    "status": "current"
+  },
+  "crmVlanConfigGroup": {
+    "name": "crmVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusVlanAssignmentEnabled"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crVlanGroupVlansLow"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crVlanGroupVlansHigh"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crVlanGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "crmKeepAliveGroup": {
+    "name": "crmKeepAliveGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusKeepAliveEnabled"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusKeepAliveInterval"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusKeepAliveServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "crmAutoInitializeConfigGroup": {
+    "name": "crmAutoInitializeConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusPortAutoInitialize"
+      }
+    ],
+    "status": "current"
+  },
+  "crmAttributesGroup2": {
+    "name": "crmAttributesGroup2",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusFramedMtu"
+      }
+    ],
+    "status": "current"
+  },
+  "crmRadiusKeepAliveUserGroup": {
+    "name": "crmRadiusKeepAliveUserGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusKeepAliveUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "crmRadiusServerNotifGroup": {
+    "name": "crmRadiusServerNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTNormNotif"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTHiNotif"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransNormNotif"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransHiNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "crmConfigurationGroupSup1": {
+    "name": "crmConfigurationGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTThldNorm"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTThldHi"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransThldNorm"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransThldHi"
+      }
+    ],
+    "status": "current"
+  },
+  "crmRadiusServerNotifCntlGroup": {
+    "name": "crmRadiusServerNotifCntlGroup",
+    "oid": "1.3.6.1.4.1.9.9.288.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTNormNotifEnable"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRTTHiNotifEnable"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransNormNotifEnable"
+      },
+      {
+        "module": "CISCO-RADIUS-MIB",
+        "object": "crRadiusServerRetransHiNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RADIUS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-RADIUS-MIB"
+  }
+}

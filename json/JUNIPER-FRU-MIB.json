@@ -1,0 +1,330 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxFruTraps",
+      "jnxFruMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxFruMib": {
+    "name": "jnxFruMib",
+    "oid": "1.3.6.1.4.1.2636.3.74.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-26 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "JnxFruAdminStates": {
+    "name": "JnxFruAdminStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "outOfService": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxFruOperStates": {
+    "name": "JnxFruOperStates",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unEquipped": 1,
+          "init": 2,
+          "normal": 3,
+          "mismatched": 4,
+          "fault": 5,
+          "swul": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxFruCfg": {
+    "name": "jnxFruCfg",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1",
+    "class": "objectidentity"
+  },
+  "jnxFruCfgTable": {
+    "name": "jnxFruCfgTable",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxFruCfgEntry": {
+    "name": "jnxFruCfgEntry",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgContentsIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL1Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL2Index",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruCfgContentsIndex": {
+    "name": "jnxFruCfgContentsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxFruCfgL1Index": {
+    "name": "jnxFruCfgL1Index",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxFruCfgL2Index": {
+    "name": "jnxFruCfgL2Index",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxFruCfgL3Index": {
+    "name": "jnxFruCfgL3Index",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxFruCfgType": {
+    "name": "jnxFruCfgType",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxFruCfgAdminState": {
+    "name": "jnxFruCfgAdminState",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxFruAdminStates",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxFruCfgOperState": {
+    "name": "jnxFruCfgOperState",
+    "oid": "1.3.6.1.4.1.2636.3.74.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxFruOperStates",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxFruNotifMismatch": {
+    "name": "jnxFruNotifMismatch",
+    "oid": "1.3.6.1.4.1.2636.4.23.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgContentsIndex"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL1Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL2Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL3Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgType"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruNotifAdminStatus": {
+    "name": "jnxFruNotifAdminStatus",
+    "oid": "1.3.6.1.4.1.2636.4.23.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgContentsIndex"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL1Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL2Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL3Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxFruNotifOperStatus": {
+    "name": "jnxFruNotifOperStatus",
+    "oid": "1.3.6.1.4.1.2636.4.23.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgContentsIndex"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL1Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL2Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgL3Index"
+      },
+      {
+        "module": "JUNIPER-FRU-MIB",
+        "object": "jnxFruCfgOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-FRU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-FRU-MIB"
+  }
+}

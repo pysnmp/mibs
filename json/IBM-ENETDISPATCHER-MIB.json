@@ -1,0 +1,1514 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-SMI-v1": [
+      "enterprises",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SNMPv2-TC-v1": [
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "dispatcherMib": {
+    "name": "dispatcherMib",
+    "oid": "1.3.6.1.4.1.2.6.144.1",
+    "class": "objectidentity"
+  },
+  "dispatcherMibTraps": {
+    "name": "dispatcherMibTraps",
+    "oid": "1.3.6.1.4.1.2.6.144.1.0",
+    "class": "objectidentity"
+  },
+  "dispatcherMibAdmin": {
+    "name": "dispatcherMibAdmin",
+    "oid": "1.3.6.1.4.1.2.6.144.1.1",
+    "class": "objectidentity"
+  },
+  "dispatcherMibObjects": {
+    "name": "dispatcherMibObjects",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2",
+    "class": "objectidentity"
+  },
+  "dispatcherMibConformance": {
+    "name": "dispatcherMibConformance",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3",
+    "class": "objectidentity"
+  },
+  "indStatus": {
+    "name": "indStatus",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1",
+    "class": "objectidentity"
+  },
+  "indConfig": {
+    "name": "indConfig",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2",
+    "class": "objectidentity"
+  },
+  "indExecStatObjects": {
+    "name": "indExecStatObjects",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "indHiAvailStatObjects": {
+    "name": "indHiAvailStatObjects",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.6",
+    "class": "objectidentity"
+  },
+  "indExecCnfgObjects": {
+    "name": "indExecCnfgObjects",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "indClstrCnfgTable": {
+    "name": "indClstrCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "indPortCnfgTable": {
+    "name": "indPortCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.3",
+    "class": "objectidentity"
+  },
+  "indSrvrCnfgTable": {
+    "name": "indSrvrCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.4",
+    "class": "objectidentity"
+  },
+  "indHiAvailCnfgObjects": {
+    "name": "indHiAvailCnfgObjects",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.6",
+    "class": "objectidentity"
+  },
+  "indReachCnfgTable": {
+    "name": "indReachCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.7",
+    "class": "objectidentity"
+  },
+  "indMngrCnfgObjects": {
+    "name": "indMngrCnfgObjects",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10",
+    "class": "objectidentity"
+  },
+  "indMibCompliances": {
+    "name": "indMibCompliances",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.1",
+    "class": "objectidentity"
+  },
+  "indMibGroups": {
+    "name": "indMibGroups",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2",
+    "class": "objectidentity"
+  },
+  "indMibStatGroups": {
+    "name": "indMibStatGroups",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "indMibCnfgGroups": {
+    "name": "indMibCnfgGroups",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "Percentages": {
+    "name": "Percentages",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    }
+  },
+  "GaugeNeg1": {
+    "name": "GaugeNeg1",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "esNonForAddr": {
+    "name": "esNonForAddr",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esVersion": {
+    "name": "esVersion",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esNumClust": {
+    "name": "esNumClust",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esTotalPkts": {
+    "name": "esTotalPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esTooShortPkts": {
+    "name": "esTooShortPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esNonForPkts": {
+    "name": "esNonForPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esClstrDscrdPkts": {
+    "name": "esClstrDscrdPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esClstrErrPkts": {
+    "name": "esClstrErrPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esClstrLocalPkts": {
+    "name": "esClstrLocalPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esClstrOwnAddrPkts": {
+    "name": "esClstrOwnAddrPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esClstrForPkts": {
+    "name": "esClstrForPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esForErrPkts": {
+    "name": "esForErrPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esNotClstrPkts": {
+    "name": "esNotClstrPkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esHashBkts": {
+    "name": "esHashBkts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "esStartTime": {
+    "name": "esStartTime",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "indClstrStatTable": {
+    "name": "indClstrStatTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indClstrStatEntry": {
+    "name": "indClstrStatEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "csAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "csAddr": {
+    "name": "csAddr",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "csNumPorts": {
+    "name": "csNumPorts",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "csActiveSYNs": {
+    "name": "csActiveSYNs",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "csDroppedFINs": {
+    "name": "csDroppedFINs",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "csDroppedACKs": {
+    "name": "csDroppedACKs",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "csDroppedRSTs": {
+    "name": "csDroppedRSTs",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "csDroppedPKTs": {
+    "name": "csDroppedPKTs",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "csNonExistingPKTs": {
+    "name": "csNonExistingPKTs",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "indPortStatTable": {
+    "name": "indPortStatTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indPortStatEntry": {
+    "name": "indPortStatEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "csAddr",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "psNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "psNum": {
+    "name": "psNum",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "psNumServers": {
+    "name": "psNumServers",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "psNumNodesDown": {
+    "name": "psNumNodesDown",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "indSrvrStatTable": {
+    "name": "indSrvrStatTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indSrvrStatEntry": {
+    "name": "indSrvrStatEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "csAddr",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "psNum",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "ssAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ssAddr": {
+    "name": "ssAddr",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ssActiveConns": {
+    "name": "ssActiveConns",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssNewConns": {
+    "name": "ssNewConns",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssTotalConns": {
+    "name": "ssTotalConns",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssTotalTcpConns": {
+    "name": "ssTotalTcpConns",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssTotalUdpConns": {
+    "name": "ssTotalUdpConns",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssFinConns": {
+    "name": "ssFinConns",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssCompleteConns": {
+    "name": "ssCompleteConns",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssWeight": {
+    "name": "ssWeight",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GaugeNeg1",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssSavedWeight": {
+    "name": "ssSavedWeight",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GaugeNeg1",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssPortLoad": {
+    "name": "ssPortLoad",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GaugeNeg1",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssSystemLoad": {
+    "name": "ssSystemLoad",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssActiveConnsWeight": {
+    "name": "ssActiveConnsWeight",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssNewConnsWeight": {
+    "name": "ssNewConnsWeight",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssPortLoadWeight": {
+    "name": "ssPortLoadWeight",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ssSystemLoadWeight": {
+    "name": "ssSystemLoadWeight",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "indRulesStatTable": {
+    "name": "indRulesStatTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indRulesStatEntry": {
+    "name": "indRulesStatEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "csAddr",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "psNum",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "rcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rsTimesFired": {
+    "name": "rsTimesFired",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rsNumSrvrs": {
+    "name": "rsNumSrvrs",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hasPrimary": {
+    "name": "hasPrimary",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 0,
+          "backup": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hasPort": {
+    "name": "hasPort",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hasState": {
+    "name": "hasState",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "listen": 1,
+          "active": 2,
+          "standby": 3,
+          "preempt": 4,
+          "elect": 5,
+          "noExec": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hasSubState": {
+    "name": "hasSubState",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSynchronized": 0,
+          "synchronized": 1,
+          "syncIn": 2,
+          "syncOut": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "indReachStatTable": {
+    "name": "indReachStatTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indReachStatEntry": {
+    "name": "indReachStatEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "rsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rsAddr": {
+    "name": "rsAddr",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rsPingAble": {
+    "name": "rsPingAble",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "reachable": 1,
+          "unreachable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "indRulesCnfgTable": {
+    "name": "indRulesCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indRulesCnfgEntry": {
+    "name": "indRulesCnfgEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "csAddr",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "psNum",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "rcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rcIndex": {
+    "name": "rcIndex",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rcName": {
+    "name": "rcName",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rcType": {
+    "name": "rcType",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 0,
+          "ip": 1,
+          "port": 2,
+          "time": 3,
+          "connection": 4,
+          "active": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rcBeginRange": {
+    "name": "rcBeginRange",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rcEndRange": {
+    "name": "rcEndRange",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rcPriority": {
+    "name": "rcPriority",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rcSrvrList": {
+    "name": "rcSrvrList",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "indHrtBeatCnfgTable": {
+    "name": "indHrtBeatCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indHrtBeatCnfgEntry": {
+    "name": "indHrtBeatCnfgEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "hbcSrcAddr",
+        "implied": 0
+      },
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "hbcDestAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hbcSrcAddr": {
+    "name": "hbcSrcAddr",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hbcDestAddr": {
+    "name": "hbcDestAddr",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hbcNumber": {
+    "name": "hbcNumber",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "indAdvsrCnfgTable": {
+    "name": "indAdvsrCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indAdvsrCnfgEntry": {
+    "name": "indAdvsrCnfgEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "acPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "acPort": {
+    "name": "acPort",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "acName": {
+    "name": "acName",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "acVersion": {
+    "name": "acVersion",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mcInterval": {
+    "name": "mcInterval",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcRefresh": {
+    "name": "mcRefresh",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcActiveProp": {
+    "name": "mcActiveProp",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentages",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcNewProp": {
+    "name": "mcNewProp",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentages",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcPortProp": {
+    "name": "mcPortProp",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentages",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcSystemProp": {
+    "name": "mcSystemProp",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentages",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcSensitivity": {
+    "name": "mcSensitivity",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentages",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcSmoothing": {
+    "name": "mcSmoothing",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentages",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mcVersion": {
+    "name": "mcVersion",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "indAllSrvrsCnfgTable": {
+    "name": "indAllSrvrsCnfgTable",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "indAllSrvrsCnfgEntry": {
+    "name": "indAllSrvrsCnfgEntry",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "ascAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ascAddr": {
+    "name": "ascAddr",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ascQuiesced": {
+    "name": "ascQuiesced",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ascInstances": {
+    "name": "ascInstances",
+    "oid": "1.3.6.1.4.1.2.6.144.1.2.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "indHighAvailStatus": {
+    "name": "indHighAvailStatus",
+    "oid": "1.3.6.1.4.1.2.6.144.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "hasState"
+      }
+    ]
+  },
+  "indSrvrGoneDown": {
+    "name": "indSrvrGoneDown",
+    "oid": "1.3.6.1.4.1.2.6.144.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-ENETDISPATCHER-MIB",
+        "object": "ssActiveConns"
+      }
+    ]
+  },
+  "indMibExecStatGroup": {
+    "name": "indMibExecStatGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1.1",
+    "class": "objectidentity"
+  },
+  "indMibClstrStatGroup": {
+    "name": "indMibClstrStatGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1.2",
+    "class": "objectidentity"
+  },
+  "indMibPortStatGroup": {
+    "name": "indMibPortStatGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1.3",
+    "class": "objectidentity"
+  },
+  "indMibSrvrStatGroup": {
+    "name": "indMibSrvrStatGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1.4",
+    "class": "objectidentity"
+  },
+  "indMibRulesStatGroup": {
+    "name": "indMibRulesStatGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1.5",
+    "class": "objectidentity"
+  },
+  "indMibHiAvailStatGroup": {
+    "name": "indMibHiAvailStatGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1.6",
+    "class": "objectidentity"
+  },
+  "indMibReachStatGroup": {
+    "name": "indMibReachStatGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.1.7",
+    "class": "objectidentity"
+  },
+  "indMibRulesCnfgGroup": {
+    "name": "indMibRulesCnfgGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.2.5",
+    "class": "objectidentity"
+  },
+  "indMibHrtBeatCnfgGroup": {
+    "name": "indMibHrtBeatCnfgGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.2.8",
+    "class": "objectidentity"
+  },
+  "indMibAdvsrCnfgGroup": {
+    "name": "indMibAdvsrCnfgGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.2.9",
+    "class": "objectidentity"
+  },
+  "indMibMngrCnfgGroup": {
+    "name": "indMibMngrCnfgGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.2.10",
+    "class": "objectidentity"
+  },
+  "indMibAllSrvrsCnfgGroup": {
+    "name": "indMibAllSrvrsCnfgGroup",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.2.2.11",
+    "class": "objectidentity"
+  },
+  "indMibCompliance": {
+    "name": "indMibCompliance",
+    "oid": "1.3.6.1.4.1.2.6.144.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-ENETDISPATCHER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBM-ENETDISPATCHER-MIB"
+  }
+}

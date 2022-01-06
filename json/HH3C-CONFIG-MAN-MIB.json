@@ -1,0 +1,1619 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cConfig": {
+    "name": "hh3cConfig",
+    "oid": "1.3.6.1.4.1.25506.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-03-06 00:00",
+        "description": "Added hh3cCfgOperateFailCmd hh3cCfgOperateFailCmdView hh3cCfgOperateFailCmdReason."
+      },
+      {
+        "revision": "2014-11-14 07:00",
+        "description": "Modified description of ConfigOperationType for defining 'startup'."
+      },
+      {
+        "revision": "2014-08-11 09:04",
+        "description": "Added running2File(7), file2Running(8) to ConfigOperationType, modified description of hh3cCfgOperateFileName."
+      },
+      {
+        "revision": "2014-01-17 00:00",
+        "description": "Modified description of hh3cCfgLogCmdSrcAddress, hh3cCfgLogServerAddress and hh3cCfgOperateServerAddress."
+      },
+      {
+        "revision": "2013-09-13 00:00",
+        "description": "Added hh3cCfgReset2."
+      },
+      {
+        "revision": "2011-11-26 00:00",
+        "description": "Added hh3cCfgFirstTrapTime."
+      },
+      {
+        "revision": "2010-10-30 00:00",
+        "description": "Deprecated hh3cCfgOperateServerAddress, hh3cCfgLogCmdSrcAddress and hh3cCfgLogServerAddress, added enum in ConfigOperationStateType, added hh3cCfgOperateSrvAddrType, hh3cCfgOperateSrvAddrRev and hh3cCfgOperateSrvVPNName, hh3cCfgLogCmdSrcAddrType, hh3cCfgLogCmdSrcAddrRev, hh3cCfgLogCmdSrcAddrVPNName, hh3cCfgLogServerAddrType,hh3cCfgLogServerAddrRev, hh3cCfgLogServerAddrVPNName."
+      },
+      {
+        "revision": "2009-12-20 00:00",
+        "description": "Added hh3cCfgOperFailReason, hh3cCfgReset."
+      },
+      {
+        "revision": "2009-05-05 00:00",
+        "description": "Added hh3cCfgOperateServerPort, hh3cCfgInvalidConfigFile."
+      },
+      {
+        "revision": "2005-09-27 00:00",
+        "description": "Modified DESCRIPTION of 'hh3cCfgLogSrcCmd', 'hh3cCfgRunModifiedLast' and 'hh3cCfgLogDesData'."
+      },
+      {
+        "revision": "2005-06-06 00:00",
+        "description": "Added enum value in SYNTAX of hh3cCfgOperateProtocol."
+      },
+      {
+        "revision": "2005-04-26 00:00",
+        "description": "Added hh3cCfgExecuteOperate and added ConfigOperationStateType. Modified DESCRIPTION of 'hh3cCfgLogSrcData', 'hh3cCfgLogDesData' and 'hh3cCfgLogTerminalType'."
+      },
+      {
+        "revision": "2005-01-11 00:00",
+        "description": "Modified DESCRIPTION."
+      },
+      {
+        "revision": "2004-11-30 00:00",
+        "description": "Modified DESCRIPTION of 'hh3cCfgOperateCompletion'."
+      },
+      {
+        "revision": "2004-10-09 00:00",
+        "description": "Modified DESCRIPTION of 'hh3cCfgRunModifiedLast' and 'hh3cCfgManEventlog'."
+      },
+      {
+        "revision": "2004-09-16 00:00",
+        "description": "Modified DESCRIPTION of 'hh3cCfgLogTerminalType' and 'hh3cCfgLogTerminalNum'."
+      },
+      {
+        "revision": "2004-08-18 00:00",
+        "description": "Modified DESCRIPTION of 'hh3cCfgLogFile'."
+      },
+      {
+        "revision": "2004-05-14 00:00",
+        "description": "Changed MIB object name from hh3cXXX to hh3c, etc."
+      },
+      {
+        "revision": "2004-02-24 00:00",
+        "description": "Imported module from HH3C-OID-MIB, the root MIB."
+      },
+      {
+        "revision": "2002-12-20 00:00",
+        "description": "Initial version. "
+      }
+    ]
+  },
+  "ConfigOperationType": {
+    "name": "ConfigOperationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running2Startup": 1,
+          "startup2Running": 2,
+          "running2Net": 3,
+          "net2Running": 4,
+          "net2Startup": 5,
+          "startup2Net": 6,
+          "running2File": 7,
+          "file2Running": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ConfigOperationStateType": {
+    "name": "ConfigOperationStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opInvalidOperation": 3,
+          "opInvalidProtocol": 4,
+          "opInvalidSourceName": 5,
+          "opInvalidDestName": 6,
+          "opInvalidServerAddress": 7,
+          "opDeviceBusy": 8,
+          "opDeviceOpenError": 9,
+          "opDeviceError": 10,
+          "opDeviceNotProgrammable": 11,
+          "opDeviceFull": 12,
+          "opFileOpenError": 13,
+          "opFileTransferError": 14,
+          "opFileChecksumError": 15,
+          "opNoMemory": 16,
+          "opAuthFail": 17,
+          "opTimeOut": 18,
+          "opUnknownFailure": 19,
+          "opInvalidConfigFile": 20,
+          "opSlaveFull": 21,
+          "opCopyToSlaveFailure": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cConfigManObjects": {
+    "name": "hh3cConfigManObjects",
+    "oid": "1.3.6.1.4.1.25506.2.4.1",
+    "class": "objectidentity"
+  },
+  "hh3cCfgLog": {
+    "name": "hh3cCfgLog",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cCfgRunModifiedLast": {
+    "name": "hh3cCfgRunModifiedLast",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgRunSavedLast": {
+    "name": "hh3cCfgRunSavedLast",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgStartModifiedLast": {
+    "name": "hh3cCfgStartModifiedLast",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogLimitedEntries": {
+    "name": "hh3cCfgLogLimitedEntries",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogDeletedEntries": {
+    "name": "hh3cCfgLogDeletedEntries",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogWantBackup": {
+    "name": "hh3cCfgLogWantBackup",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cCfgLogTable": {
+    "name": "hh3cCfgLogTable",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgLogEntry": {
+    "name": "hh3cCfgLogEntry",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgLogIndex": {
+    "name": "hh3cCfgLogIndex",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgLogTime": {
+    "name": "hh3cCfgLogTime",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogSrcCmd": {
+    "name": "hh3cCfgLogSrcCmd",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cmdLine": 1,
+          "snmp": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogSrcData": {
+    "name": "hh3cCfgLogSrcData",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "erase": 1,
+          "runningData": 2,
+          "commandSource": 3,
+          "startupData": 4,
+          "local": 5,
+          "netFtp": 6,
+          "hotPlugging": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogDesData": {
+    "name": "hh3cCfgLogDesData",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "runningData": 2,
+          "commandSource": 3,
+          "startupData": 4,
+          "local": 5,
+          "netFtp": 6,
+          "hotPlugging": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogTerminalType": {
+    "name": "hh3cCfgLogTerminalType",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "unknown": 2,
+          "console": 3,
+          "terminal": 4,
+          "virtual": 5,
+          "auxiliary": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogTerminalUser": {
+    "name": "hh3cCfgLogTerminalUser",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogTerminalNum": {
+    "name": "hh3cCfgLogTerminalNum",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogTerminalLocation": {
+    "name": "hh3cCfgLogTerminalLocation",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogCmdSrcAddress": {
+    "name": "hh3cCfgLogCmdSrcAddress",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hh3cCfgLogVirHost": {
+    "name": "hh3cCfgLogVirHost",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogUserName": {
+    "name": "hh3cCfgLogUserName",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogServerAddress": {
+    "name": "hh3cCfgLogServerAddress",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hh3cCfgLogFile": {
+    "name": "hh3cCfgLogFile",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogCmdSrcAddrType": {
+    "name": "hh3cCfgLogCmdSrcAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogCmdSrcAddrRev": {
+    "name": "hh3cCfgLogCmdSrcAddrRev",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogCmdSrcAddrVPNName": {
+    "name": "hh3cCfgLogCmdSrcAddrVPNName",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogServerAddrType": {
+    "name": "hh3cCfgLogServerAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogServerAddrRev": {
+    "name": "hh3cCfgLogServerAddrRev",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgLogServerAddrVPNName": {
+    "name": "hh3cCfgLogServerAddrVPNName",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgFirstTrapTime": {
+    "name": "hh3cCfgFirstTrapTime",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cCfgOperate": {
+    "name": "hh3cCfgOperate",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cCfgOperateGlobalEntryLimit": {
+    "name": "hh3cCfgOperateGlobalEntryLimit",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateEntryAgeOutTime": {
+    "name": "hh3cCfgOperateEntryAgeOutTime",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cCfgOperateResultGlobalEntryLimit": {
+    "name": "hh3cCfgOperateResultGlobalEntryLimit",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cCfgOperateTable": {
+    "name": "hh3cCfgOperateTable",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgOperateEntry": {
+    "name": "hh3cCfgOperateEntry",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgOperateIndex": {
+    "name": "hh3cCfgOperateIndex",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgOperateType": {
+    "name": "hh3cCfgOperateType",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateProtocol": {
+    "name": "hh3cCfgOperateProtocol",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "tftp": 2,
+          "clusterftp": 3,
+          "clustertftp": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateFileName": {
+    "name": "hh3cCfgOperateFileName",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateServerAddress": {
+    "name": "hh3cCfgOperateServerAddress",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "hh3cCfgOperateUserName": {
+    "name": "hh3cCfgOperateUserName",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateUserPassword": {
+    "name": "hh3cCfgOperateUserPassword",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateEndNotificationSwitch": {
+    "name": "hh3cCfgOperateEndNotificationSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateRowStatus": {
+    "name": "hh3cCfgOperateRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateServerPort": {
+    "name": "hh3cCfgOperateServerPort",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateSrvAddrType": {
+    "name": "hh3cCfgOperateSrvAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateSrvAddrRev": {
+    "name": "hh3cCfgOperateSrvAddrRev",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateSrvVPNName": {
+    "name": "hh3cCfgOperateSrvVPNName",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cCfgOperateResultTable": {
+    "name": "hh3cCfgOperateResultTable",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgOperateResultEntry": {
+    "name": "hh3cCfgOperateResultEntry",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgOperateResultIndex": {
+    "name": "hh3cCfgOperateResultIndex",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgOperateResultOptIndex": {
+    "name": "hh3cCfgOperateResultOptIndex",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateResultOpType": {
+    "name": "hh3cCfgOperateResultOpType",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateState": {
+    "name": "hh3cCfgOperateState",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigOperationStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateTime": {
+    "name": "hh3cCfgOperateTime",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateEndTime": {
+    "name": "hh3cCfgOperateEndTime",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperFailReason": {
+    "name": "hh3cCfgOperFailReason",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateFailCmd": {
+    "name": "hh3cCfgOperateFailCmd",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateFailCmdView": {
+    "name": "hh3cCfgOperateFailCmdView",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 264
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgOperateFailCmdReason": {
+    "name": "hh3cCfgOperateFailCmdReason",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgExecuteOperate": {
+    "name": "hh3cCfgExecuteOperate",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "hh3cCfgExecuteOperateResultEntryLimit": {
+    "name": "hh3cCfgExecuteOperateResultEntryLimit",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cCfgExecuteResultTable": {
+    "name": "hh3cCfgExecuteResultTable",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgExecuteResultEntry": {
+    "name": "hh3cCfgExecuteResultEntry",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgExecuteResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgExecuteResultIndex": {
+    "name": "hh3cCfgExecuteResultIndex",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cCfgExecuteResultOptIndex": {
+    "name": "hh3cCfgExecuteResultOptIndex",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgExecuteResultOpType": {
+    "name": "hh3cCfgExecuteResultOpType",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigOperationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgExecuteState": {
+    "name": "hh3cCfgExecuteState",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigOperationStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgExecuteTime": {
+    "name": "hh3cCfgExecuteTime",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgExecuteEndTime": {
+    "name": "hh3cCfgExecuteEndTime",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cCfgReset": {
+    "name": "hh3cCfgReset",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cCfgReset2": {
+    "name": "hh3cCfgReset2",
+    "oid": "1.3.6.1.4.1.25506.2.4.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cConfigManNotifications": {
+    "name": "hh3cConfigManNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.4.2",
+    "class": "objectidentity"
+  },
+  "hh3cCfgManEventlog": {
+    "name": "hh3cCfgManEventlog",
+    "oid": "1.3.6.1.4.1.25506.2.4.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogSrcCmd"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogSrcData"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogDesData"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgOperateCompletion": {
+    "name": "hh3cCfgOperateCompletion",
+    "oid": "1.3.6.1.4.1.25506.2.4.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateType"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateTime"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateState"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateEndTime"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgInvalidConfigFile": {
+    "name": "hh3cCfgInvalidConfigFile",
+    "oid": "1.3.6.1.4.1.25506.2.4.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateType"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateFileName"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cConfigManConformance": {
+    "name": "hh3cConfigManConformance",
+    "oid": "1.3.6.1.4.1.25506.2.4.3",
+    "class": "objectidentity"
+  },
+  "hh3cConfigManCompliances": {
+    "name": "hh3cConfigManCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.4.3.1",
+    "class": "objectidentity"
+  },
+  "hh3cConfigManCompliance": {
+    "name": "hh3cConfigManCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.4.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cCfgManLogGroup",
+        "module": "HH3C-CONFIG-MAN-MIB"
+      },
+      {
+        "object": "hh3cCfgOperateGroup",
+        "module": "HH3C-CONFIG-MAN-MIB"
+      },
+      {
+        "object": "hh3cCfgManNotificationGroup",
+        "module": "HH3C-CONFIG-MAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cConfigManGroups": {
+    "name": "hh3cConfigManGroups",
+    "oid": "1.3.6.1.4.1.25506.2.4.3.2",
+    "class": "objectidentity"
+  },
+  "hh3cCfgManLogGroup": {
+    "name": "hh3cCfgManLogGroup",
+    "oid": "1.3.6.1.4.1.25506.2.4.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgRunModifiedLast"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgRunSavedLast"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgStartModifiedLast"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogLimitedEntries"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogDeletedEntries"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogTime"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogSrcCmd"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogTerminalType"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogTerminalNum"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogTerminalUser"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogTerminalLocation"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogCmdSrcAddress"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogVirHost"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogServerAddress"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogFile"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogUserName"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogWantBackup"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogSrcData"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgLogDesData"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgOperateGroup": {
+    "name": "hh3cCfgOperateGroup",
+    "oid": "1.3.6.1.4.1.25506.2.4.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateGlobalEntryLimit"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateEntryAgeOutTime"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateType"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateProtocol"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateFileName"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateServerAddress"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateUserName"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateUserPassword"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateTime"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateEndNotificationSwitch"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateResultGlobalEntryLimit"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateState"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateRowStatus"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateResultOptIndex"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateResultOpType"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateEndTime"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperFailReason"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateServerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cCfgManNotificationGroup": {
+    "name": "hh3cCfgManNotificationGroup",
+    "oid": "1.3.6.1.4.1.25506.2.4.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgManEventlog"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgOperateCompletion"
+      },
+      {
+        "module": "HH3C-CONFIG-MAN-MIB",
+        "object": "hh3cCfgInvalidConfigFile"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-CONFIG-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-CONFIG-MAN-MIB"
+  }
+}

@@ -1,0 +1,1330 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "enterprises",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "mib-2"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "RowPointer",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alarmMIB": {
+    "name": "alarmMIB",
+    "oid": "1.3.6.1.2.1.118",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-09 00:00",
+        "description": "Initial version, published as RFC 3877."
+      }
+    ]
+  },
+  "alarmObjects": {
+    "name": "alarmObjects",
+    "oid": "1.3.6.1.2.1.118.1",
+    "class": "objectidentity"
+  },
+  "alarmNotifications": {
+    "name": "alarmNotifications",
+    "oid": "1.3.6.1.2.1.118.0",
+    "class": "objectidentity"
+  },
+  "alarmModel": {
+    "name": "alarmModel",
+    "oid": "1.3.6.1.2.1.118.1.1",
+    "class": "objectidentity"
+  },
+  "alarmActive": {
+    "name": "alarmActive",
+    "oid": "1.3.6.1.2.1.118.1.2",
+    "class": "objectidentity"
+  },
+  "alarmClear": {
+    "name": "alarmClear",
+    "oid": "1.3.6.1.2.1.118.1.3",
+    "class": "objectidentity"
+  },
+  "ZeroBasedCounter32": {
+    "name": "ZeroBasedCounter32",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ResourceId": {
+    "name": "ResourceId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "LocalSnmpEngineOrZeroLenStr": {
+    "name": "LocalSnmpEngineOrZeroLenStr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "alarmModelLastChanged": {
+    "name": "alarmModelLastChanged",
+    "oid": "1.3.6.1.2.1.118.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmModelTable": {
+    "name": "alarmModelTable",
+    "oid": "1.3.6.1.2.1.118.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmModelEntry": {
+    "name": "alarmModelEntry",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelState",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmModelIndex": {
+    "name": "alarmModelIndex",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmModelState": {
+    "name": "alarmModelState",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmModelNotificationId": {
+    "name": "alarmModelNotificationId",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmModelVarbindIndex": {
+    "name": "alarmModelVarbindIndex",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmModelVarbindValue": {
+    "name": "alarmModelVarbindValue",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmModelDescription": {
+    "name": "alarmModelDescription",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmModelSpecificPointer": {
+    "name": "alarmModelSpecificPointer",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmModelVarbindSubtree": {
+    "name": "alarmModelVarbindSubtree",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmModelResourcePrefix": {
+    "name": "alarmModelResourcePrefix",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmModelRowStatus": {
+    "name": "alarmModelRowStatus",
+    "oid": "1.3.6.1.2.1.118.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alarmActiveLastChanged": {
+    "name": "alarmActiveLastChanged",
+    "oid": "1.3.6.1.2.1.118.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveOverflow": {
+    "name": "alarmActiveOverflow",
+    "oid": "1.3.6.1.2.1.118.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "active alarms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveTable": {
+    "name": "alarmActiveTable",
+    "oid": "1.3.6.1.2.1.118.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveEntry": {
+    "name": "alarmActiveEntry",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveDateAndTime",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmListName": {
+    "name": "alarmListName",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveDateAndTime": {
+    "name": "alarmActiveDateAndTime",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveIndex": {
+    "name": "alarmActiveIndex",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveEngineID": {
+    "name": "alarmActiveEngineID",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalSnmpEngineOrZeroLenStr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveEngineAddressType": {
+    "name": "alarmActiveEngineAddressType",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveEngineAddress": {
+    "name": "alarmActiveEngineAddress",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveContextName": {
+    "name": "alarmActiveContextName",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariables": {
+    "name": "alarmActiveVariables",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveNotificationID": {
+    "name": "alarmActiveNotificationID",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveResourceId": {
+    "name": "alarmActiveResourceId",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveDescription": {
+    "name": "alarmActiveDescription",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveLogPointer": {
+    "name": "alarmActiveLogPointer",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveModelPointer": {
+    "name": "alarmActiveModelPointer",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveSpecificPointer": {
+    "name": "alarmActiveSpecificPointer",
+    "oid": "1.3.6.1.2.1.118.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableTable": {
+    "name": "alarmActiveVariableTable",
+    "oid": "1.3.6.1.2.1.118.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveVariableEntry": {
+    "name": "alarmActiveVariableEntry",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmActiveVariableIndex": {
+    "name": "alarmActiveVariableIndex",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveVariableID": {
+    "name": "alarmActiveVariableID",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableValueType": {
+    "name": "alarmActiveVariableValueType",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "counter32": 1,
+          "unsigned32": 2,
+          "timeTicks": 3,
+          "integer32": 4,
+          "ipAddress": 5,
+          "octetString": 6,
+          "objectId": 7,
+          "counter64": 8,
+          "opaque": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableCounter32Val": {
+    "name": "alarmActiveVariableCounter32Val",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableUnsigned32Val": {
+    "name": "alarmActiveVariableUnsigned32Val",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableTimeTicksVal": {
+    "name": "alarmActiveVariableTimeTicksVal",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableInteger32Val": {
+    "name": "alarmActiveVariableInteger32Val",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableOctetStringVal": {
+    "name": "alarmActiveVariableOctetStringVal",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableIpAddressVal": {
+    "name": "alarmActiveVariableIpAddressVal",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableOidVal": {
+    "name": "alarmActiveVariableOidVal",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableCounter64Val": {
+    "name": "alarmActiveVariableCounter64Val",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveVariableOpaqueVal": {
+    "name": "alarmActiveVariableOpaqueVal",
+    "oid": "1.3.6.1.2.1.118.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveStatsTable": {
+    "name": "alarmActiveStatsTable",
+    "oid": "1.3.6.1.2.1.118.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmActiveStatsEntry": {
+    "name": "alarmActiveStatsEntry",
+    "oid": "1.3.6.1.2.1.118.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmActiveStatsActiveCurrent": {
+    "name": "alarmActiveStatsActiveCurrent",
+    "oid": "1.3.6.1.2.1.118.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveStatsActives": {
+    "name": "alarmActiveStatsActives",
+    "oid": "1.3.6.1.2.1.118.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveStatsLastRaise": {
+    "name": "alarmActiveStatsLastRaise",
+    "oid": "1.3.6.1.2.1.118.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveStatsLastClear": {
+    "name": "alarmActiveStatsLastClear",
+    "oid": "1.3.6.1.2.1.118.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearMaximum": {
+    "name": "alarmClearMaximum",
+    "oid": "1.3.6.1.2.1.118.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmClearTable": {
+    "name": "alarmClearTable",
+    "oid": "1.3.6.1.2.1.118.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmClearEntry": {
+    "name": "alarmClearEntry",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearDateAndTime",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmClearIndex": {
+    "name": "alarmClearIndex",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmClearDateAndTime": {
+    "name": "alarmClearDateAndTime",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmClearEngineID": {
+    "name": "alarmClearEngineID",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalSnmpEngineOrZeroLenStr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearEngineAddressType": {
+    "name": "alarmClearEngineAddressType",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearEngineAddress": {
+    "name": "alarmClearEngineAddress",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearContextName": {
+    "name": "alarmClearContextName",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearNotificationID": {
+    "name": "alarmClearNotificationID",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearResourceId": {
+    "name": "alarmClearResourceId",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearLogIndex": {
+    "name": "alarmClearLogIndex",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmClearModelPointer": {
+    "name": "alarmClearModelPointer",
+    "oid": "1.3.6.1.2.1.118.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveState": {
+    "name": "alarmActiveState",
+    "oid": "1.3.6.1.2.1.118.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveModelPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveResourceId"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmClearState": {
+    "name": "alarmClearState",
+    "oid": "1.3.6.1.2.1.118.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveModelPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveResourceId"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmConformance": {
+    "name": "alarmConformance",
+    "oid": "1.3.6.1.2.1.118.2",
+    "class": "objectidentity"
+  },
+  "alarmCompliances": {
+    "name": "alarmCompliances",
+    "oid": "1.3.6.1.2.1.118.2.1",
+    "class": "objectidentity"
+  },
+  "alarmCompliance": {
+    "name": "alarmCompliance",
+    "oid": "1.3.6.1.2.1.118.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alarmActiveGroup",
+        "module": "ALARM-MIB"
+      },
+      {
+        "object": "alarmModelGroup",
+        "module": "ALARM-MIB"
+      },
+      {
+        "object": "alarmActiveStatsGroup",
+        "module": "ALARM-MIB"
+      },
+      {
+        "object": "alarmClearGroup",
+        "module": "ALARM-MIB"
+      },
+      {
+        "object": "alarmNotificationsGroup",
+        "module": "ALARM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmGroups": {
+    "name": "alarmGroups",
+    "oid": "1.3.6.1.2.1.118.2.2",
+    "class": "objectidentity"
+  },
+  "alarmModelGroup": {
+    "name": "alarmModelGroup",
+    "oid": "1.3.6.1.2.1.118.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelLastChanged"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelNotificationId"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelVarbindIndex"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelVarbindValue"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelDescription"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelSpecificPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelVarbindSubtree"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelResourcePrefix"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmActiveGroup": {
+    "name": "alarmActiveGroup",
+    "oid": "1.3.6.1.2.1.118.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveLastChanged"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveOverflow"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveEngineID"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveEngineAddressType"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveEngineAddress"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveContextName"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariables"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveNotificationID"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveResourceId"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveDescription"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveLogPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveModelPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveSpecificPointer"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableID"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableValueType"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableCounter32Val"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableUnsigned32Val"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableTimeTicksVal"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableInteger32Val"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableOctetStringVal"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableIpAddressVal"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableOidVal"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableCounter64Val"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveVariableOpaqueVal"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmActiveStatsGroup": {
+    "name": "alarmActiveStatsGroup",
+    "oid": "1.3.6.1.2.1.118.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveStatsActives"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveStatsActiveCurrent"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveStatsLastRaise"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveStatsLastClear"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmClearGroup": {
+    "name": "alarmClearGroup",
+    "oid": "1.3.6.1.2.1.118.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearMaximum"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearEngineID"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearEngineAddressType"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearEngineAddress"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearContextName"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearNotificationID"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearResourceId"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearLogIndex"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearModelPointer"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmNotificationsGroup": {
+    "name": "alarmNotificationsGroup",
+    "oid": "1.3.6.1.2.1.118.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveState"
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmClearState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALARM-MIB"
+  }
+}

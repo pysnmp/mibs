@@ -1,0 +1,5628 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSConformance",
+      "adGenAOSRouter"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "adGenAOSNetMonMib": {
+    "name": "adGenAOSNetMonMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-27 00:00",
+        "description": "Added adGenAOSnmTrackTraps and a limited RO adGenAOSnmTrackTable to allow OID support for the adGenAOSnmTrackStateChgFail and adGenAOSnmTrackStateChgPass trap additions. Changes by Joe Sieja."
+      },
+      {
+        "revision": "2009-01-20 00:00",
+        "description": "Added adGenAOSnmICMPTSPktSentCount to the adGenAOSnmICMPTSHistoryTable and adGenAOSnmTwPktSentCount to the adGenAOSnmTwampHistoryTable. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-09-30 00:00",
+        "description": "Added adGenAOSnmICMPTSResponderStatsTable and adGenAOSnmTWAMPResponderStatsTable. These tables will be used to retrieve the statistics available for enabled responders. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-08-12 00:00",
+        "description": "Changed adGenAOSNetMon to use adGenAOSnmIndex in all tables that were using adGenAOSnmName. Added ICMP Timestamp and TWAMP responders. Removed adGenAOSnmICMPTSHistoryIndex and adGenAOSnmTwHistoryIndex from the adGenAOSnmICMPTSHistoryTable and adGenAOSnmTwampHistoryTable. Using adGenAOSnmICMPTsSeqNum and adGenAOSnmTwSeqNum as indices in these tables instead. Added adGenAOSnmProbeTableNextIndex. Changed adGenAOSnmIndex to have a maximum value of 1000. Changes by Reba Holland."
+      },
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Changed adGenAOSNetMon to be under the adGenAOSRouter tree instead of the adGenAOSCommon tree. Changes by Reba Holland."
+      },
+      {
+        "revision": "2007-08-23 00:00",
+        "description": "First Draft of ADTRAN-AOS-NETWORKMONITOR MIB module."
+      }
+    ]
+  },
+  "adGenAOSNetMon": {
+    "name": "adGenAOSNetMon",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSnmTrackTraps": {
+    "name": "adGenAOSnmTrackTraps",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.0",
+    "class": "objectidentity"
+  },
+  "adGenAOSnmProbeTableNextIndex": {
+    "name": "adGenAOSnmProbeTableNextIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmProbeTable": {
+    "name": "adGenAOSnmProbeTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmProbeEntry": {
+    "name": "adGenAOSnmProbeEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmIndex": {
+    "name": "adGenAOSnmIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmName": {
+    "name": "adGenAOSnmName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSnmType": {
+    "name": "adGenAOSnmType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmpEcho": 1,
+          "tcpConnect": 2,
+          "httpRequest": 3,
+          "icmpTimeStamp": 4,
+          "twamp": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSnmRowStatus": {
+    "name": "adGenAOSnmRowStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adGenAOSnmConfigProbeTable": {
+    "name": "adGenAOSnmConfigProbeTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmConfigProbeEntry": {
+    "name": "adGenAOSnmConfigProbeEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmCfgName": {
+    "name": "adGenAOSnmCfgName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmAdminStatus": {
+    "name": "adGenAOSnmAdminStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmPollPeriod": {
+    "name": "adGenAOSnmPollPeriod",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTimeoutPeriod": {
+    "name": "adGenAOSnmTimeoutPeriod",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmToleranceMode": {
+    "name": "adGenAOSnmToleranceMode",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rate": 2,
+          "consecutive": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmFailTolerance": {
+    "name": "adGenAOSnmFailTolerance",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmPassTolerance": {
+    "name": "adGenAOSnmPassTolerance",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmToleranceTestSize": {
+    "name": "adGenAOSnmToleranceTestSize",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmClearCounters": {
+    "name": "adGenAOSnmClearCounters",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmProbeStatusTable": {
+    "name": "adGenAOSnmProbeStatusTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmProbeStatusEntry": {
+    "name": "adGenAOSnmProbeStatusEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmStatusName": {
+    "name": "adGenAOSnmStatusName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTestStatus": {
+    "name": "adGenAOSnmTestStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "pass": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTestsRun": {
+    "name": "adGenAOSnmTestsRun",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTestsFailed": {
+    "name": "adGenAOSnmTestsFailed",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmStatsToleranceTestSize": {
+    "name": "adGenAOSnmStatsToleranceTestSize",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmStatsToleranceTestValue": {
+    "name": "adGenAOSnmStatsToleranceTestValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTimeSinceLastStatusChange": {
+    "name": "adGenAOSnmTimeSinceLastStatusChange",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmCfgTwampProbeTable": {
+    "name": "adGenAOSnmCfgTwampProbeTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmCfgTwampProbeEntry": {
+    "name": "adGenAOSnmCfgTwampProbeEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmCfgTwName": {
+    "name": "adGenAOSnmCfgTwName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDestHostname": {
+    "name": "adGenAOSnmTwDestHostname",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDestPort": {
+    "name": "adGenAOSnmTwDestPort",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwSrcIP": {
+    "name": "adGenAOSnmTwSrcIP",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwSrcPort": {
+    "name": "adGenAOSnmTwSrcPort",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDscp": {
+    "name": "adGenAOSnmTwDscp",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwPaddingLen": {
+    "name": "adGenAOSnmTwPaddingLen",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1462
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwPaddingFormat": {
+    "name": "adGenAOSnmTwPaddingFormat",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "hex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwPaddingPattern": {
+    "name": "adGenAOSnmTwPaddingPattern",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDataPadType": {
+    "name": "adGenAOSnmTwDataPadType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zeroes": 1,
+          "random": 2,
+          "custom": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwPktSendCnt": {
+    "name": "adGenAOSnmTwPktSendCnt",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwSendScheduleType": {
+    "name": "adGenAOSnmTwSendScheduleType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "periodic": 1,
+          "poisson": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwSendScheduleValue": {
+    "name": "adGenAOSnmTwSendScheduleValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsInMinFail": {
+    "name": "adGenAOSnmTwIpdvAbsInMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsInAvgFail": {
+    "name": "adGenAOSnmTwIpdvAbsInAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsInMaxFail": {
+    "name": "adGenAOSnmTwIpdvAbsInMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsInMinPass": {
+    "name": "adGenAOSnmTwIpdvAbsInMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsInAvgPass": {
+    "name": "adGenAOSnmTwIpdvAbsInAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsInMaxPass": {
+    "name": "adGenAOSnmTwIpdvAbsInMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsOutMinFail": {
+    "name": "adGenAOSnmTwIpdvAbsOutMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsOutAvgFail": {
+    "name": "adGenAOSnmTwIpdvAbsOutAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsOutMaxFail": {
+    "name": "adGenAOSnmTwIpdvAbsOutMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsOutMinPass": {
+    "name": "adGenAOSnmTwIpdvAbsOutMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsOutAvgPass": {
+    "name": "adGenAOSnmTwIpdvAbsOutAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsOutMaxPass": {
+    "name": "adGenAOSnmTwIpdvAbsOutMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsRtMinFail": {
+    "name": "adGenAOSnmTwIpdvAbsRtMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsRtAvgFail": {
+    "name": "adGenAOSnmTwIpdvAbsRtAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsRtMaxFail": {
+    "name": "adGenAOSnmTwIpdvAbsRtMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsRtMinPass": {
+    "name": "adGenAOSnmTwIpdvAbsRtMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsRtAvgPass": {
+    "name": "adGenAOSnmTwIpdvAbsRtAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpdvAbsRtMaxPass": {
+    "name": "adGenAOSnmTwIpdvAbsRtMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInMinFail": {
+    "name": "adGenAOSnmTwDelayInMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInAvgFail": {
+    "name": "adGenAOSnmTwDelayInAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInMaxFail": {
+    "name": "adGenAOSnmTwDelayInMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInMinPass": {
+    "name": "adGenAOSnmTwDelayInMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInAvgPass": {
+    "name": "adGenAOSnmTwDelayInAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInMaxPass": {
+    "name": "adGenAOSnmTwDelayInMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutMinFail": {
+    "name": "adGenAOSnmTwDelayOutMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutAvgFail": {
+    "name": "adGenAOSnmTwDelayOutAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutMaxFail": {
+    "name": "adGenAOSnmTwDelayOutMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutMinPass": {
+    "name": "adGenAOSnmTwDelayOutMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutAvgPass": {
+    "name": "adGenAOSnmTwDelayOutAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutMaxPass": {
+    "name": "adGenAOSnmTwDelayOutMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtMinFail": {
+    "name": "adGenAOSnmTwDelayRtMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtAvgFail": {
+    "name": "adGenAOSnmTwDelayRtAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtMaxFail": {
+    "name": "adGenAOSnmTwDelayRtMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtMinPass": {
+    "name": "adGenAOSnmTwDelayRtMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtAvgPass": {
+    "name": "adGenAOSnmTwDelayRtAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtMaxPass": {
+    "name": "adGenAOSnmTwDelayRtMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwPktRtLossFail": {
+    "name": "adGenAOSnmTwPktRtLossFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwPktRtLossPass": {
+    "name": "adGenAOSnmTwPktRtLossPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwHistoryDepth": {
+    "name": "adGenAOSnmTwHistoryDepth",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.5.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwampHistoryTable": {
+    "name": "adGenAOSnmTwampHistoryTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmTwampHistoryEntry": {
+    "name": "adGenAOSnmTwampHistoryEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwSeqNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTwSeqNum": {
+    "name": "adGenAOSnmTwSeqNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwHistoryName": {
+    "name": "adGenAOSnmTwHistoryName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwStartTime": {
+    "name": "adGenAOSnmTwStartTime",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwEndTime": {
+    "name": "adGenAOSnmTwEndTime",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwLocalSyncState": {
+    "name": "adGenAOSnmTwLocalSyncState",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwLocalClkErr": {
+    "name": "adGenAOSnmTwLocalClkErr",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwRemoteSyncState": {
+    "name": "adGenAOSnmTwRemoteSyncState",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwRemoteClkErr": {
+    "name": "adGenAOSnmTwRemoteClkErr",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInMin": {
+    "name": "adGenAOSnmTwDelayInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInMax": {
+    "name": "adGenAOSnmTwDelayInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutMin": {
+    "name": "adGenAOSnmTwDelayOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutMax": {
+    "name": "adGenAOSnmTwDelayOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtMin": {
+    "name": "adGenAOSnmTwDelayRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtMax": {
+    "name": "adGenAOSnmTwDelayRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwLossRoundTrip": {
+    "name": "adGenAOSnmTwLossRoundTrip",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutSum": {
+    "name": "adGenAOSnmTwDelayOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutSum2": {
+    "name": "adGenAOSnmTwDelayOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayOutNum": {
+    "name": "adGenAOSnmTwDelayOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInSum": {
+    "name": "adGenAOSnmTwDelayInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInSum2": {
+    "name": "adGenAOSnmTwDelayInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayInNum": {
+    "name": "adGenAOSnmTwDelayInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtSum": {
+    "name": "adGenAOSnmTwDelayRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtSum2": {
+    "name": "adGenAOSnmTwDelayRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwDelayRtNum": {
+    "name": "adGenAOSnmTwDelayRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosInMin": {
+    "name": "adGenAOSnmTwIpvPosInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosInMax": {
+    "name": "adGenAOSnmTwIpvPosInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosInSum": {
+    "name": "adGenAOSnmTwIpvPosInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosInSum2": {
+    "name": "adGenAOSnmTwIpvPosInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosInNum": {
+    "name": "adGenAOSnmTwIpvPosInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosOutMin": {
+    "name": "adGenAOSnmTwIpvPosOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosOutMax": {
+    "name": "adGenAOSnmTwIpvPosOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosOutSum": {
+    "name": "adGenAOSnmTwIpvPosOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosOutSum2": {
+    "name": "adGenAOSnmTwIpvPosOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosOutNum": {
+    "name": "adGenAOSnmTwIpvPosOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosRtMin": {
+    "name": "adGenAOSnmTwIpvPosRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosRtMax": {
+    "name": "adGenAOSnmTwIpvPosRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosRtSum": {
+    "name": "adGenAOSnmTwIpvPosRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosRtSum2": {
+    "name": "adGenAOSnmTwIpvPosRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvPosRtNum": {
+    "name": "adGenAOSnmTwIpvPosRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegInMin": {
+    "name": "adGenAOSnmTwIpvNegInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegInMax": {
+    "name": "adGenAOSnmTwIpvNegInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegInSum": {
+    "name": "adGenAOSnmTwIpvNegInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegInSum2": {
+    "name": "adGenAOSnmTwIpvNegInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegInNum": {
+    "name": "adGenAOSnmTwIpvNegInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegOutMin": {
+    "name": "adGenAOSnmTwIpvNegOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegOutMax": {
+    "name": "adGenAOSnmTwIpvNegOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegOutSum": {
+    "name": "adGenAOSnmTwIpvNegOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegOutSum2": {
+    "name": "adGenAOSnmTwIpvNegOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegOutNum": {
+    "name": "adGenAOSnmTwIpvNegOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegRtMin": {
+    "name": "adGenAOSnmTwIpvNegRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegRtMax": {
+    "name": "adGenAOSnmTwIpvNegRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegRtSum": {
+    "name": "adGenAOSnmTwIpvNegRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegRtSum2": {
+    "name": "adGenAOSnmTwIpvNegRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvNegRtNum": {
+    "name": "adGenAOSnmTwIpvNegRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsInMin": {
+    "name": "adGenAOSnmTwIpvAbsInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsInMax": {
+    "name": "adGenAOSnmTwIpvAbsInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsInSum": {
+    "name": "adGenAOSnmTwIpvAbsInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsInSum2": {
+    "name": "adGenAOSnmTwIpvAbsInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsInNum": {
+    "name": "adGenAOSnmTwIpvAbsInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsOutMin": {
+    "name": "adGenAOSnmTwIpvAbsOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsOutMax": {
+    "name": "adGenAOSnmTwIpvAbsOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsOutSum": {
+    "name": "adGenAOSnmTwIpvAbsOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsOutSum2": {
+    "name": "adGenAOSnmTwIpvAbsOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsOutNum": {
+    "name": "adGenAOSnmTwIpvAbsOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsRtMin": {
+    "name": "adGenAOSnmTwIpvAbsRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsRtMax": {
+    "name": "adGenAOSnmTwIpvAbsRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsRtSum": {
+    "name": "adGenAOSnmTwIpvAbsRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsRtSum2": {
+    "name": "adGenAOSnmTwIpvAbsRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwIpvAbsRtNum": {
+    "name": "adGenAOSnmTwIpvAbsRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwPktSentCount": {
+    "name": "adGenAOSnmTwPktSentCount",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.6.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmCfgICMPTSProbeTable": {
+    "name": "adGenAOSnmCfgICMPTSProbeTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmCfgICMPTSProbeEntry": {
+    "name": "adGenAOSnmCfgICMPTSProbeEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmCfgICMPTSName": {
+    "name": "adGenAOSnmCfgICMPTSName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDestHostname": {
+    "name": "adGenAOSnmICMPTSDestHostname",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSSrcIP": {
+    "name": "adGenAOSnmICMPTSSrcIP",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDscp": {
+    "name": "adGenAOSnmICMPTSDscp",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSPaddingLen": {
+    "name": "adGenAOSnmICMPTSPaddingLen",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1462
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSPaddingFormat": {
+    "name": "adGenAOSnmICMPTSPaddingFormat",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "hex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSPaddingPattern": {
+    "name": "adGenAOSnmICMPTSPaddingPattern",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDataPadType": {
+    "name": "adGenAOSnmICMPTSDataPadType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zeroes": 1,
+          "random": 2,
+          "custom": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSPktSendCnt": {
+    "name": "adGenAOSnmICMPTSPktSendCnt",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSSendScheduleType": {
+    "name": "adGenAOSnmICMPTSSendScheduleType",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "periodic": 1,
+          "poisson": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSSendScheduleValue": {
+    "name": "adGenAOSnmICMPTSSendScheduleValue",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsInMinFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsInMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsInAvgFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsInAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsInMaxFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsInMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsInMinPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsInMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsInAvgPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsInAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsInMaxPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsInMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsOutMinFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsOutMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsOutAvgFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsOutAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsOutMaxFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsOutMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsOutMinPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsOutMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsOutAvgPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsOutAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsOutMaxPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsOutMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsRtMinFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsRtMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsRtAvgFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsRtAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsRtMaxFail": {
+    "name": "adGenAOSnmICMPTSIpdvAbsRtMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsRtMinPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsRtMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsRtAvgPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsRtAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpdvAbsRtMaxPass": {
+    "name": "adGenAOSnmICMPTSIpdvAbsRtMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInMinFail": {
+    "name": "adGenAOSnmICMPTSDelayInMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInAvgFail": {
+    "name": "adGenAOSnmICMPTSDelayInAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInMaxFail": {
+    "name": "adGenAOSnmICMPTSDelayInMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInMinPass": {
+    "name": "adGenAOSnmICMPTSDelayInMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInAvgPass": {
+    "name": "adGenAOSnmICMPTSDelayInAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInMaxPass": {
+    "name": "adGenAOSnmICMPTSDelayInMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutMinFail": {
+    "name": "adGenAOSnmICMPTSDelayOutMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutAvgFail": {
+    "name": "adGenAOSnmICMPTSDelayOutAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutMaxFail": {
+    "name": "adGenAOSnmICMPTSDelayOutMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutMinPass": {
+    "name": "adGenAOSnmICMPTSDelayOutMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutAvgPass": {
+    "name": "adGenAOSnmICMPTSDelayOutAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutMaxPass": {
+    "name": "adGenAOSnmICMPTSDelayOutMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtMinFail": {
+    "name": "adGenAOSnmICMPTSDelayRtMinFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtAvgFail": {
+    "name": "adGenAOSnmICMPTSDelayRtAvgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtMaxFail": {
+    "name": "adGenAOSnmICMPTSDelayRtMaxFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtMinPass": {
+    "name": "adGenAOSnmICMPTSDelayRtMinPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtAvgPass": {
+    "name": "adGenAOSnmICMPTSDelayRtAvgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtMaxPass": {
+    "name": "adGenAOSnmICMPTSDelayRtMaxPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSPktRtLossFail": {
+    "name": "adGenAOSnmICMPTSPktRtLossFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSPktRtLossPass": {
+    "name": "adGenAOSnmICMPTSPktRtLossPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSHistoryDepth": {
+    "name": "adGenAOSnmICMPTSHistoryDepth",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.7.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSHistoryTable": {
+    "name": "adGenAOSnmICMPTSHistoryTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSHistoryEntry": {
+    "name": "adGenAOSnmICMPTSHistoryEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSSeqNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSSeqNum": {
+    "name": "adGenAOSnmICMPTSSeqNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSHistoryName": {
+    "name": "adGenAOSnmICMPTSHistoryName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSStartTime": {
+    "name": "adGenAOSnmICMPTSStartTime",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSEndTime": {
+    "name": "adGenAOSnmICMPTSEndTime",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInMin": {
+    "name": "adGenAOSnmICMPTSDelayInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInMax": {
+    "name": "adGenAOSnmICMPTSDelayInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutMin": {
+    "name": "adGenAOSnmICMPTSDelayOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutMax": {
+    "name": "adGenAOSnmICMPTSDelayOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtMin": {
+    "name": "adGenAOSnmICMPTSDelayRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtMax": {
+    "name": "adGenAOSnmICMPTSDelayRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSLossRoundTrip": {
+    "name": "adGenAOSnmICMPTSLossRoundTrip",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutSum": {
+    "name": "adGenAOSnmICMPTSDelayOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutSum2": {
+    "name": "adGenAOSnmICMPTSDelayOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayOutNum": {
+    "name": "adGenAOSnmICMPTSDelayOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInSum": {
+    "name": "adGenAOSnmICMPTSDelayInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInSum2": {
+    "name": "adGenAOSnmICMPTSDelayInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayInNum": {
+    "name": "adGenAOSnmICMPTSDelayInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtSum": {
+    "name": "adGenAOSnmICMPTSDelayRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtSum2": {
+    "name": "adGenAOSnmICMPTSDelayRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSDelayRtNum": {
+    "name": "adGenAOSnmICMPTSDelayRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosInMin": {
+    "name": "adGenAOSnmICMPTSIpvPosInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosInMax": {
+    "name": "adGenAOSnmICMPTSIpvPosInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosInSum": {
+    "name": "adGenAOSnmICMPTSIpvPosInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosInSum2": {
+    "name": "adGenAOSnmICMPTSIpvPosInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosInNum": {
+    "name": "adGenAOSnmICMPTSIpvPosInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosOutMin": {
+    "name": "adGenAOSnmICMPTSIpvPosOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosOutMax": {
+    "name": "adGenAOSnmICMPTSIpvPosOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosOutSum": {
+    "name": "adGenAOSnmICMPTSIpvPosOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosOutSum2": {
+    "name": "adGenAOSnmICMPTSIpvPosOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosOutNum": {
+    "name": "adGenAOSnmICMPTSIpvPosOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosRtMin": {
+    "name": "adGenAOSnmICMPTSIpvPosRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosRtMax": {
+    "name": "adGenAOSnmICMPTSIpvPosRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosRtSum": {
+    "name": "adGenAOSnmICMPTSIpvPosRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosRtSum2": {
+    "name": "adGenAOSnmICMPTSIpvPosRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvPosRtNum": {
+    "name": "adGenAOSnmICMPTSIpvPosRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegInMin": {
+    "name": "adGenAOSnmICMPTSIpvNegInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegInMax": {
+    "name": "adGenAOSnmICMPTSIpvNegInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegInSum": {
+    "name": "adGenAOSnmICMPTSIpvNegInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegInSum2": {
+    "name": "adGenAOSnmICMPTSIpvNegInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegInNum": {
+    "name": "adGenAOSnmICMPTSIpvNegInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegOutMin": {
+    "name": "adGenAOSnmICMPTSIpvNegOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegOutMax": {
+    "name": "adGenAOSnmICMPTSIpvNegOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegOutSum": {
+    "name": "adGenAOSnmICMPTSIpvNegOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegOutSum2": {
+    "name": "adGenAOSnmICMPTSIpvNegOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegOutNum": {
+    "name": "adGenAOSnmICMPTSIpvNegOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegRtMin": {
+    "name": "adGenAOSnmICMPTSIpvNegRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegRtMax": {
+    "name": "adGenAOSnmICMPTSIpvNegRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegRtSum": {
+    "name": "adGenAOSnmICMPTSIpvNegRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegRtSum2": {
+    "name": "adGenAOSnmICMPTSIpvNegRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvNegRtNum": {
+    "name": "adGenAOSnmICMPTSIpvNegRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsInMin": {
+    "name": "adGenAOSnmICMPTSIpvAbsInMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsInMax": {
+    "name": "adGenAOSnmICMPTSIpvAbsInMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsInSum": {
+    "name": "adGenAOSnmICMPTSIpvAbsInSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsInSum2": {
+    "name": "adGenAOSnmICMPTSIpvAbsInSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsInNum": {
+    "name": "adGenAOSnmICMPTSIpvAbsInNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsOutMin": {
+    "name": "adGenAOSnmICMPTSIpvAbsOutMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsOutMax": {
+    "name": "adGenAOSnmICMPTSIpvAbsOutMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsOutSum": {
+    "name": "adGenAOSnmICMPTSIpvAbsOutSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsOutSum2": {
+    "name": "adGenAOSnmICMPTSIpvAbsOutSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsOutNum": {
+    "name": "adGenAOSnmICMPTSIpvAbsOutNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsRtMin": {
+    "name": "adGenAOSnmICMPTSIpvAbsRtMin",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsRtMax": {
+    "name": "adGenAOSnmICMPTSIpvAbsRtMax",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsRtSum": {
+    "name": "adGenAOSnmICMPTSIpvAbsRtSum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsRtSum2": {
+    "name": "adGenAOSnmICMPTSIpvAbsRtSum2",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSIpvAbsRtNum": {
+    "name": "adGenAOSnmICMPTSIpvAbsRtNum",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSPktSentCount": {
+    "name": "adGenAOSnmICMPTSPktSentCount",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.8.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponder": {
+    "name": "adGenAOSnmICMPTSResponder",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTWAMPResponder": {
+    "name": "adGenAOSnmTWAMPResponder",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponderStatsTable": {
+    "name": "adGenAOSnmICMPTSResponderStatsTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponderStatsEntry": {
+    "name": "adGenAOSnmICMPTSResponderStatsEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSResponderStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponderStatsIndex": {
+    "name": "adGenAOSnmICMPTSResponderStatsIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponderPacketsReceived": {
+    "name": "adGenAOSnmICMPTSResponderPacketsReceived",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponderPacketsSent": {
+    "name": "adGenAOSnmICMPTSResponderPacketsSent",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmClearICMPTSResponderCounters": {
+    "name": "adGenAOSnmClearICMPTSResponderCounters",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderStatsTable": {
+    "name": "adGenAOSnmTwampResponderStatsTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderStatsEntry": {
+    "name": "adGenAOSnmTwampResponderStatsEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwampResponderStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderStatsIndex": {
+    "name": "adGenAOSnmTwampResponderStatsIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderPacketsReceived": {
+    "name": "adGenAOSnmTwampResponderPacketsReceived",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderPacketsSent": {
+    "name": "adGenAOSnmTwampResponderPacketsSent",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderSessionClosed": {
+    "name": "adGenAOSnmTwampResponderSessionClosed",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderSessionOpened": {
+    "name": "adGenAOSnmTwampResponderSessionOpened",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderSessionRejected": {
+    "name": "adGenAOSnmTwampResponderSessionRejected",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmClearTwampResponderCounters": {
+    "name": "adGenAOSnmClearTwampResponderCounters",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmCfgIEProbeTable": {
+    "name": "adGenAOSnmCfgIEProbeTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmCfgIEProbeEntry": {
+    "name": "adGenAOSnmCfgIEProbeEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmCfgIEName": {
+    "name": "adGenAOSnmCfgIEName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmIEDestHostname": {
+    "name": "adGenAOSnmIEDestHostname",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmIESrcIP": {
+    "name": "adGenAOSnmIESrcIP",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmIEPacketLength": {
+    "name": "adGenAOSnmIEPacketLength",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1462
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmIEPacketPattern": {
+    "name": "adGenAOSnmIEPacketPattern",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adGenAOSnmTrackTable": {
+    "name": "adGenAOSnmTrackTable",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenAOSnmTrackEntry": {
+    "name": "adGenAOSnmTrackEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTrackIndex": {
+    "name": "adGenAOSnmTrackIndex",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmTrackName": {
+    "name": "adGenAOSnmTrackName",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSnmConformance": {
+    "name": "adGenAOSnmConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7",
+    "class": "objectidentity"
+  },
+  "adGenAOSnmGroups": {
+    "name": "adGenAOSnmGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSnmCompliances": {
+    "name": "adGenAOSnmCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSnmFullCompliance": {
+    "name": "adGenAOSnmFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSnmProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmProbeTableNextIndexGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmConfigProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmProbeStatusGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmCfgTwampProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTwampHistoryGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmCfgICMPTSProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmICMPTSHistoryGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmICMPTSResponderGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTWAMPResponderGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmICMPTSResponderStatsGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTwampResponderStatsGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmCfgIEProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTrackGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmReadOnlyCompliance": {
+    "name": "adGenAOSnmReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSnmProbeTableNextIndexGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmConfigProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmProbeStatusGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmCfgTwampProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTwampHistoryGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmCfgICMPTSProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmICMPTSHistoryGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmICMPTSResponderGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTWAMPResponderGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmICMPTSResponderStatsGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTwampResponderStatsGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmCfgIEProbeGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmTrackGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      },
+      {
+        "object": "adGenAOSnmNotificationGroup",
+        "module": "ADTRAN-AOS-NETWORKMONITOR"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmProbeTableNextIndexGroup": {
+    "name": "adGenAOSnmProbeTableNextIndexGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmProbeTableNextIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmProbeGroup": {
+    "name": "adGenAOSnmProbeGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmType"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmConfigProbeGroup": {
+    "name": "adGenAOSnmConfigProbeGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmCfgName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmAdminStatus"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmPollPeriod"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTimeoutPeriod"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmToleranceMode"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmFailTolerance"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmPassTolerance"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmToleranceTestSize"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmClearCounters"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmProbeStatusGroup": {
+    "name": "adGenAOSnmProbeStatusGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmStatusName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTestStatus"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTestsRun"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTestsFailed"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmStatsToleranceTestSize"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmStatsToleranceTestValue"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTimeSinceLastStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmCfgTwampProbeGroup": {
+    "name": "adGenAOSnmCfgTwampProbeGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmCfgTwName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDestHostname"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDestPort"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwSrcIP"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwSrcPort"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDscp"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwPaddingLen"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwPaddingFormat"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwPaddingPattern"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDataPadType"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwPktSendCnt"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwSendScheduleType"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwSendScheduleValue"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsInMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsInAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsInMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsInMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsInAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsInMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsOutMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsOutAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsOutMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsOutMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsOutAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsOutMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsRtMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsRtAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsRtMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsRtMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsRtAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpdvAbsRtMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwPktRtLossFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwPktRtLossPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwHistoryDepth"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTwampHistoryGroup": {
+    "name": "adGenAOSnmTwampHistoryGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwSeqNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwHistoryName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwStartTime"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwEndTime"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwLocalSyncState"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwLocalClkErr"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwRemoteSyncState"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwRemoteClkErr"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwLossRoundTrip"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwDelayRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvPosRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvNegRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwIpvAbsRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwPktSentCount"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmCfgICMPTSProbeGroup": {
+    "name": "adGenAOSnmCfgICMPTSProbeGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmCfgICMPTSName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDestHostname"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSSrcIP"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDscp"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSPaddingLen"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSPaddingFormat"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSPaddingPattern"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDataPadType"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSPktSendCnt"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSSendScheduleType"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSSendScheduleValue"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsInMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsInAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsInMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsInMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsInAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsInMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsOutMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsOutAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsOutMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsOutMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsOutAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsOutMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsRtMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsRtAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsRtMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsRtMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsRtAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpdvAbsRtMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtMinFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtAvgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtMaxFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtMinPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtAvgPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtMaxPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSPktRtLossFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSPktRtLossPass"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSHistoryDepth"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSHistoryGroup": {
+    "name": "adGenAOSnmICMPTSHistoryGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSSeqNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSHistoryName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSStartTime"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSEndTime"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSLossRoundTrip"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSDelayRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvPosRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvNegRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsInMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsInMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsInSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsInSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsInNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsOutMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsOutMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsOutSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsOutSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsOutNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsRtMin"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsRtMax"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsRtSum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsRtSum2"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSIpvAbsRtNum"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSPktSentCount"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponderGroup": {
+    "name": "adGenAOSnmICMPTSResponderGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSResponder"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTWAMPResponderGroup": {
+    "name": "adGenAOSnmTWAMPResponderGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTWAMPResponder"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmICMPTSResponderStatsGroup": {
+    "name": "adGenAOSnmICMPTSResponderStatsGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSResponderStatsIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSResponderPacketsReceived"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmICMPTSResponderPacketsSent"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmClearICMPTSResponderCounters"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTwampResponderStatsGroup": {
+    "name": "adGenAOSnmTwampResponderStatsGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwampResponderStatsIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwampResponderPacketsReceived"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwampResponderPacketsSent"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwampResponderSessionClosed"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwampResponderSessionOpened"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTwampResponderSessionRejected"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmClearTwampResponderCounters"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmCfgIEProbeGroup": {
+    "name": "adGenAOSnmCfgIEProbeGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmCfgIEName"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIEDestHostname"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIESrcIP"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIEPacketLength"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmIEPacketPattern"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTrackGroup": {
+    "name": "adGenAOSnmTrackGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackName"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmNotificationGroup": {
+    "name": "adGenAOSnmNotificationGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.7.1.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackStateChgFail"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackStateChgPass"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTrackStateChgFail": {
+    "name": "adGenAOSnmTrackStateChgFail",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackName"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSnmTrackStateChgPass": {
+    "name": "adGenAOSnmTrackStateChgPass",
+    "oid": "1.3.6.1.4.1.664.5.53.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackIndex"
+      },
+      {
+        "module": "ADTRAN-AOS-NETWORKMONITOR",
+        "object": "adGenAOSnmTrackName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-NETWORKMONITOR",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-NETWORKMONITOR"
+  }
+}

@@ -1,0 +1,1264 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARBOR-SMI": [
+      "arbornetworksProducts"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "peakflowDosMIB": {
+    "name": "peakflowDosMIB",
+    "oid": "1.3.6.1.4.1.9694.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-17 00:00",
+        "description": "Add pdosAnomalyIpVersion to Anomaly notifications"
+      },
+      {
+        "revision": "2014-06-24 00:00",
+        "description": "Add pdosAnomalyIpVersion"
+      },
+      {
+        "revision": "2013-08-19 00:00",
+        "description": "Updated contact information"
+      },
+      {
+        "revision": "2010-05-20 00:00",
+        "description": "Correct values of max-access for objets."
+      },
+      {
+        "revision": "2009-03-30 00:00",
+        "description": "Update contact group name."
+      },
+      {
+        "revision": "2008-11-13 00:00",
+        "description": "Update company address."
+      },
+      {
+        "revision": "2008-05-08 00:00",
+        "description": "Updated SIZE of pdosAnomalyTcpFlags to be (0..8)."
+      },
+      {
+        "revision": "2008-04-24 00:00",
+        "description": "Add pdosAnomalyProto to dnsMisuseAnomaly trap"
+      },
+      {
+        "revision": "2008-01-08 00:00",
+        "description": "Clean up use of pdosAnomalyProto and pdosTcpFlags"
+      },
+      {
+        "revision": "2007-12-14 00:00",
+        "description": "Add udpMisuseAnomaly."
+      },
+      {
+        "revision": "2005-11-23 00:00",
+        "description": "Update status of obsolete OIDs."
+      },
+      {
+        "revision": "2005-09-12 00:00",
+        "description": "Apply fixes from validation."
+      },
+      {
+        "revision": "2005-08-26 00:00",
+        "description": "Adjust trap variable order to match what is sent."
+      },
+      {
+        "revision": "2005-05-09 00:00",
+        "description": "Add pdosAnomalyClassification to add DoS alert classification."
+      },
+      {
+        "revision": "2005-02-11 00:00",
+        "description": "Increase size of interfaces entry from 512 to 1024 characters"
+      },
+      {
+        "revision": "2004-11-10 00:00",
+        "description": "Add pdosAnomalyRouterInterfacesChange to add input/output interfaces."
+      },
+      {
+        "revision": "2004-10-26 00:00",
+        "description": "Change pdosAnomalyLinkPercent to an Unsigned32 with no range support."
+      },
+      {
+        "revision": "2001-05-01 00:00",
+        "description": "Initial writing and import."
+      }
+    ]
+  },
+  "peakflowDosCMI": {
+    "name": "peakflowDosCMI",
+    "oid": "1.3.6.1.4.1.9694.1.1.1",
+    "class": "objectidentity"
+  },
+  "peakflowDosMgr": {
+    "name": "peakflowDosMgr",
+    "oid": "1.3.6.1.4.1.9694.1.1.2",
+    "class": "objectidentity"
+  },
+  "peakflowDosTraps": {
+    "name": "peakflowDosTraps",
+    "oid": "1.3.6.1.4.1.9694.1.1.3",
+    "class": "objectidentity"
+  },
+  "pdosUrl": {
+    "name": "pdosUrl",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyId": {
+    "name": "pdosAnomalyId",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyDirection": {
+    "name": "pdosAnomalyDirection",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyResource": {
+    "name": "pdosAnomalyResource",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosHeartbeatSource": {
+    "name": "pdosHeartbeatSource",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "internalErrorLocation": {
+    "name": "internalErrorLocation",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "internalErrorReason": {
+    "name": "internalErrorReason",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "pdosAnomalyProto": {
+    "name": "pdosAnomalyProto",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyLinkPercent": {
+    "name": "pdosAnomalyLinkPercent",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyAlertCnt": {
+    "name": "pdosAnomalyAlertCnt",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "pdosAnomalyStart": {
+    "name": "pdosAnomalyStart",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyDuration": {
+    "name": "pdosAnomalyDuration",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyTcpFlags": {
+    "name": "pdosAnomalyTcpFlags",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyRouter": {
+    "name": "pdosAnomalyRouter",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyRouterInterfaces": {
+    "name": "pdosAnomalyRouterInterfaces",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyClassification": {
+    "name": "pdosAnomalyClassification",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pdosAnomalyIpVersion": {
+    "name": "pdosAnomalyIpVersion",
+    "oid": "1.3.6.1.4.1.9694.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "peakflowDosTrapsEnumerate": {
+    "name": "peakflowDosTrapsEnumerate",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0",
+    "class": "objectidentity"
+  },
+  "bandwidthAnomaly": {
+    "name": "bandwidthAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "tcpflagsAnomaly": {
+    "name": "tcpflagsAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyTcpFlags"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "protocolAnomaly": {
+    "name": "protocolAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      }
+    ],
+    "status": "current"
+  },
+  "heartbeatLoss": {
+    "name": "heartbeatLoss",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosHeartbeatSource"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "internalError": {
+    "name": "internalError",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "internalErrorLocation"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "internalErrorReason"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "anomalyDone": {
+    "name": "anomalyDone",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "netflowMissing": {
+    "name": "netflowMissing",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouter"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "netflowMissingDone": {
+    "name": "netflowMissingDone",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouter"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "icmpMisuseAnomaly": {
+    "name": "icmpMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      }
+    ],
+    "status": "current"
+  },
+  "tcpNullMisuseAnomaly": {
+    "name": "tcpNullMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyTcpFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "tcpSynMisuseAnomaly": {
+    "name": "tcpSynMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyTcpFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "ipNullMisuseAnomaly": {
+    "name": "ipNullMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "ipFragMisuseAnomaly": {
+    "name": "ipFragMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      }
+    ],
+    "status": "current"
+  },
+  "ipPrivateMisuseAnomaly": {
+    "name": "ipPrivateMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "heartbeatLossDone": {
+    "name": "heartbeatLossDone",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosHeartbeatSource"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "tcpRstMisuseAnomaly": {
+    "name": "tcpRstMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyTcpFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "totalTrafficMisuseAnomaly": {
+    "name": "totalTrafficMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "fingerprintAnomaly": {
+    "name": "fingerprintAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsMisuseAnomaly": {
+    "name": "dnsMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      }
+    ],
+    "status": "current"
+  },
+  "udpMisuseAnomaly": {
+    "name": "udpMisuseAnomaly",
+    "oid": "1.3.6.1.4.1.9694.1.1.3.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyId"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyIpVersion"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyResource"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyLinkPercent"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyRouterInterfaces"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyProto"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-PEAKFLOW-DOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PEAKFLOW-DOS-MIB"
+  }
+}

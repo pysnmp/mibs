@@ -1,0 +1,1614 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "OperationalState",
+      "AdminState",
+      "SecondaryState",
+      "VlanEthertype",
+      "VlanPriority",
+      "VlanId"
+    ],
+    "CM-ENTITY-MIB": [
+      "neIndex"
+    ],
+    "CM-PROTECTION-MIB": [
+      "CmProtUnitState",
+      "CmProtUnitType"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "Dot1agCfmMDLevel"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
+    ]
+  },
+  "f3ErpMIB": {
+    "name": "f3ErpMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.25",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-13 00:00",
+        "description": " Notes from release 201209130000Z, (1)MIB version ready for release FSP150CC 5.6CC."
+      }
+    ]
+  },
+  "G8032Version": {
+    "name": "G8032Version",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RPLRole": {
+    "name": "RPLRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "neighbor": 2,
+          "owner": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RingPortStatus": {
+    "name": "RingPortStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unblocked": 1,
+          "unblockedSF": 2,
+          "unblockedSD": 3,
+          "blockedRPL": 4,
+          "blockedSF": 5,
+          "blockedSD": 6,
+          "blockedMS": 7,
+          "blockedFS": 8,
+          "blockedPending": 9,
+          "subringInterConnect": 10,
+          "subringInterConnectSF": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RingNodeState": {
+    "name": "RingNodeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "protection": 2,
+          "manual": 3,
+          "forced": 4,
+          "pending": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RAPSRequest": {
+    "name": "RAPSRequest",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRequest": 1,
+          "manual": 2,
+          "forced": 3,
+          "signailFail": 4,
+          "signailDegrade": 5,
+          "notApplicable": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ERPGroupAction": {
+    "name": "ERPGroupAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "forcedSwitch": 2,
+          "manualSwitch": 3,
+          "clearSwitch": 4,
+          "resetStats": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RapsInterconnectionNode": {
+    "name": "RapsInterconnectionNode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "primary": 2,
+          "secondary": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RapsMultipleFailure": {
+    "name": "RapsMultipleFailure",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "primary": 2,
+          "secondary": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3ErpConfigObjects": {
+    "name": "f3ErpConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1",
+    "class": "objectidentity"
+  },
+  "f3ErpStatsObjects": {
+    "name": "f3ErpStatsObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2",
+    "class": "objectidentity"
+  },
+  "f3ErpConformance": {
+    "name": "f3ErpConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.3",
+    "class": "objectidentity"
+  },
+  "f3ErpGroupTable": {
+    "name": "f3ErpGroupTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ErpGroupEntry": {
+    "name": "f3ErpGroupEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ErpGroupIndex": {
+    "name": "f3ErpGroupIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ErpGroupAdminState": {
+    "name": "f3ErpGroupAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupOperationalState": {
+    "name": "f3ErpGroupOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupSecondaryState": {
+    "name": "f3ErpGroupSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupRapsRingId": {
+    "name": "f3ErpGroupRapsRingId",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRapsNodeId": {
+    "name": "f3ErpGroupRapsNodeId",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRapsVlanId": {
+    "name": "f3ErpGroupRapsVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRapsVlanPrio": {
+    "name": "f3ErpGroupRapsVlanPrio",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRapsVlanEtherType": {
+    "name": "f3ErpGroupRapsVlanEtherType",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRapsMdLevel": {
+    "name": "f3ErpGroupRapsMdLevel",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMDLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupCompatibleVersion": {
+    "name": "f3ErpGroupCompatibleVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "G8032Version",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ErpGroupRevertive": {
+    "name": "f3ErpGroupRevertive",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupSubRingWithoutVirtChan": {
+    "name": "f3ErpGroupSubRingWithoutVirtChan",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupGuardTime": {
+    "name": "f3ErpGroupGuardTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupWaitToRestore": {
+    "name": "f3ErpGroupWaitToRestore",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupHoldOffTime": {
+    "name": "f3ErpGroupHoldOffTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRingPort0": {
+    "name": "f3ErpGroupRingPort0",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRingPort0MEP": {
+    "name": "f3ErpGroupRingPort0MEP",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRingPort0Role": {
+    "name": "f3ErpGroupRingPort0Role",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RPLRole",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRingPort1": {
+    "name": "f3ErpGroupRingPort1",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRingPort1MEP": {
+    "name": "f3ErpGroupRingPort1MEP",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRingPort1Role": {
+    "name": "f3ErpGroupRingPort1Role",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RPLRole",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupProtectMgmtTunnel": {
+    "name": "f3ErpGroupProtectMgmtTunnel",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupNodeState": {
+    "name": "f3ErpGroupNodeState",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RingNodeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupWTRRemainingTime": {
+    "name": "f3ErpGroupWTRRemainingTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupTxRapsRequest": {
+    "name": "f3ErpGroupTxRapsRequest",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RAPSRequest",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupTxRapsRplBlocked": {
+    "name": "f3ErpGroupTxRapsRplBlocked",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupTxRapsDNF": {
+    "name": "f3ErpGroupTxRapsDNF",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupTxRapsBPR": {
+    "name": "f3ErpGroupTxRapsBPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpGroupAction": {
+    "name": "f3ErpGroupAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ERPGroupAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ErpGroupActionObject": {
+    "name": "f3ErpGroupActionObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ErpGroupUserLabel": {
+    "name": "f3ErpGroupUserLabel",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupStorageType": {
+    "name": "f3ErpGroupStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRowStatus": {
+    "name": "f3ErpGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupInterconnectionErp": {
+    "name": "f3ErpGroupInterconnectionErp",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ErpGroupInterconnectPropagateTc": {
+    "name": "f3ErpGroupInterconnectPropagateTc",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ErpGroupRapsVirtualChannelMep": {
+    "name": "f3ErpGroupRapsVirtualChannelMep",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ErpGroupMaxFpNum": {
+    "name": "f3ErpGroupMaxFpNum",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ErpGroupRapsInterconnectionNode": {
+    "name": "f3ErpGroupRapsInterconnectionNode",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RapsInterconnectionNode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupRapsMultipleFailure": {
+    "name": "f3ErpGroupRapsMultipleFailure",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RapsMultipleFailure",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3ErpGroupProtectedFlowTable": {
+    "name": "f3ErpGroupProtectedFlowTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ErpGroupProtectedFlowEntry": {
+    "name": "f3ErpGroupProtectedFlowEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupProtectedFlow",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ErpGroupProtectedFlow": {
+    "name": "f3ErpGroupProtectedFlow",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitTable": {
+    "name": "f3ErpUnitTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ErpUnitEntry": {
+    "name": "f3ErpUnitEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ErpUnitIndex": {
+    "name": "f3ErpUnitIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ErpUnitPort": {
+    "name": "f3ErpUnitPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortMEP": {
+    "name": "f3ErpUnitPortMEP",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortRole": {
+    "name": "f3ErpUnitPortRole",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RPLRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortStatus": {
+    "name": "f3ErpUnitPortStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RingPortStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortRxRapsRequest": {
+    "name": "f3ErpUnitPortRxRapsRequest",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RAPSRequest",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortRxRapsRplBlocked": {
+    "name": "f3ErpUnitPortRxRapsRplBlocked",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortRxRapsDNF": {
+    "name": "f3ErpUnitPortRxRapsDNF",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortRxRapsBPR": {
+    "name": "f3ErpUnitPortRxRapsBPR",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortRxRapsNodeId": {
+    "name": "f3ErpUnitPortRxRapsNodeId",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitPortRapsFp": {
+    "name": "f3ErpUnitPortRapsFp",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitStatsTable": {
+    "name": "f3ErpUnitStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ErpUnitStatsEntry": {
+    "name": "f3ErpUnitStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ErpUnitNumBlockedStateTrans": {
+    "name": "f3ErpUnitNumBlockedStateTrans",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsPDUsTx": {
+    "name": "f3ErpUnitRapsPDUsTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsPDUsRx": {
+    "name": "f3ErpUnitRapsPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsPDUsDiscarded": {
+    "name": "f3ErpUnitRapsPDUsDiscarded",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsNoReqPDUsTx": {
+    "name": "f3ErpUnitRapsNoReqPDUsTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsNoReqRBPDUsTx": {
+    "name": "f3ErpUnitRapsNoReqRBPDUsTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsSignalFailPDUsTx": {
+    "name": "f3ErpUnitRapsSignalFailPDUsTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsManualSwitchPDUsTx": {
+    "name": "f3ErpUnitRapsManualSwitchPDUsTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsForcedSwitchPDUsTx": {
+    "name": "f3ErpUnitRapsForcedSwitchPDUsTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsEventPDUsTx": {
+    "name": "f3ErpUnitRapsEventPDUsTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsNoReqPDUsRx": {
+    "name": "f3ErpUnitRapsNoReqPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsNoReqRBPDUsRx": {
+    "name": "f3ErpUnitRapsNoReqRBPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsSignalFailPDUsRx": {
+    "name": "f3ErpUnitRapsSignalFailPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsManualSwitchPDUsRx": {
+    "name": "f3ErpUnitRapsManualSwitchPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsForcedSwitchPDUsRx": {
+    "name": "f3ErpUnitRapsForcedSwitchPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsEventPDUsRx": {
+    "name": "f3ErpUnitRapsEventPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsInvalidOamVersionPDUsRx": {
+    "name": "f3ErpUnitRapsInvalidOamVersionPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsRsvdRequestPDUsRx": {
+    "name": "f3ErpUnitRapsRsvdRequestPDUsRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpUnitRapsRsvdEventSubcode": {
+    "name": "f3ErpUnitRapsRsvdEventSubcode",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ErpCompliances": {
+    "name": "f3ErpCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.3.1",
+    "class": "objectidentity"
+  },
+  "f3ErpGroups": {
+    "name": "f3ErpGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.3.2",
+    "class": "objectidentity"
+  },
+  "f3ErpCompliance": {
+    "name": "f3ErpCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3ErpGroupGroup",
+        "module": "F3-ERP-MIB"
+      },
+      {
+        "object": "f3ErpUnitGroup",
+        "module": "F3-ERP-MIB"
+      },
+      {
+        "object": "f3ErpUnitStatsGroup",
+        "module": "F3-ERP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ErpGroupGroup": {
+    "name": "f3ErpGroupGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupAdminState"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupOperationalState"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupSecondaryState"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsRingId"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsNodeId"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsVlanId"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsVlanPrio"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsVlanEtherType"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsMdLevel"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupCompatibleVersion"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRevertive"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupSubRingWithoutVirtChan"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupGuardTime"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupWaitToRestore"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupHoldOffTime"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRingPort0"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRingPort0MEP"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRingPort0Role"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRingPort1"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRingPort1MEP"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRingPort1Role"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupProtectMgmtTunnel"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupNodeState"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupWTRRemainingTime"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupTxRapsRequest"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupTxRapsRplBlocked"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupTxRapsDNF"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupTxRapsBPR"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupAction"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupActionObject"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupUserLabel"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupStorageType"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRowStatus"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupProtectedFlow"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupInterconnectionErp"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupInterconnectPropagateTc"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsVirtualChannelMep"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupMaxFpNum"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsInterconnectionNode"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpGroupRapsMultipleFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ErpUnitGroup": {
+    "name": "f3ErpUnitGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPort"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortMEP"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortRole"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortStatus"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortRxRapsRequest"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortRxRapsRplBlocked"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortRxRapsDNF"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortRxRapsBPR"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortRxRapsNodeId"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitPortRapsFp"
+      }
+    ],
+    "status": "current"
+  },
+  "f3ErpUnitStatsGroup": {
+    "name": "f3ErpUnitStatsGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.25.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitNumBlockedStateTrans"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsPDUsTx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsPDUsDiscarded"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsNoReqPDUsTx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsNoReqRBPDUsTx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsSignalFailPDUsTx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsManualSwitchPDUsTx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsForcedSwitchPDUsTx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsEventPDUsTx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsNoReqPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsNoReqRBPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsSignalFailPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsManualSwitchPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsForcedSwitchPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsEventPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsInvalidOamVersionPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsRsvdRequestPDUsRx"
+      },
+      {
+        "module": "F3-ERP-MIB",
+        "object": "f3ErpUnitRapsRsvdEventSubcode"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-ERP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-ERP-MIB"
+  }
+}

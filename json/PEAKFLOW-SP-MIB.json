@@ -1,0 +1,3395 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARBOR-SMI": [
+      "arbornetworksProducts"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "PEAKFLOW-DOS-MIB": [
+      "pdosAnomalyDirection",
+      "pdosAnomalyDuration",
+      "pdosUrl",
+      "pdosAnomalyStart",
+      "pdosAnomalyClassification"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "peakflowSPMIB": {
+    "name": "peakflowSPMIB",
+    "oid": "1.3.6.1.4.1.9694.1.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-12-06 00:00",
+        "description": "Added spTMSMultiDiversionPrefix. Deprecated mitigationTMSStart trap and created a new trap mitigationTMSStartV2 which includes a new spTMSMultiDiversionPrefix object."
+      },
+      {
+        "revision": "2016-01-11 00:00",
+        "description": "Increase SIZE of spLicenseErrDescription"
+      },
+      {
+        "revision": "2015-11-20 00:00",
+        "description": "Add trap for Cloud Signaling Fault"
+      },
+      {
+        "revision": "2014-04-04 00:00",
+        "description": "Add spGreTunnelName to greDown and greDownDone"
+      },
+      {
+        "revision": "2013-12-04 00:00",
+        "description": "Add spInterfaceSpeedHC, a 64-bit version of spInterfaceSpeed. Add spInterfaceUsageHC, a 64-bit version of spInterfaceUsage."
+      },
+      {
+        "revision": "2013-10-03 00:00",
+        "description": "Add deviceTotalFlowsHC, a 64-bit version of deviceTotalFlows. Deprecate deviceTotalFlows."
+      },
+      {
+        "revision": "2013-08-19 00:00",
+        "description": "Updated contact information"
+      },
+      {
+        "revision": "2013-01-15 00:00",
+        "description": "Add traps concerning license limits"
+      },
+      {
+        "revision": "2012-07-30 00:00",
+        "description": "Add spTMSMultiPrefix object type. Update mitigationTMSStart trap to include spTMSMultiPrefix object."
+      },
+      {
+        "revision": "2012-05-13 00:00",
+        "description": "Add spDetector object type. Update collectorDown trap to include spDetector object."
+      },
+      {
+        "revision": "2011-06-03 00:00",
+        "description": "Added cloud signaling alert notification"
+      },
+      {
+        "revision": "2010-06-08 00:00",
+        "description": "Removed duration from trafficAutoMitigation"
+      },
+      {
+        "revision": "2010-05-20 00:00",
+        "description": "Add detected country data to Profiled network alert traps. Add notifications for routing failover alerts. Update max-access of notification related objects with their proper status."
+      },
+      {
+        "revision": "2009-09-24 00:00",
+        "description": "Add trap types for DoS Network Profiled and Host alerts. Import from INET-ADDRESS-MIB for using InetAddressType and InetAddress for Internet addresses."
+      },
+      {
+        "revision": "2009-04-01 00:00",
+        "description": "Update obsolete traps."
+      },
+      {
+        "revision": "2009-03-30 00:00",
+        "description": "Update contact group name."
+      },
+      {
+        "revision": "2009-02-02 00:00",
+        "description": "Add trap types for service threshold alerts."
+      },
+      {
+        "revision": "2008-12-16 00:00",
+        "description": "Add trap types for fingerprint threshold alerts."
+      },
+      {
+        "revision": "2008-11-13 00:00",
+        "description": "Update company address."
+      },
+      {
+        "revision": "2008-05-19 00:00",
+        "description": "Increased size of spTMSCommunity to 255 octets."
+      },
+      {
+        "revision": "2008-02-19 00:00",
+        "description": "Add trap types for device system error alerts."
+      },
+      {
+        "revision": "2008-02-11 00:00",
+        "description": "Add trap types for spcomm and gre alerts."
+      },
+      {
+        "revision": "2007-08-07 00:00",
+        "description": "Use flowspec OBJECTS in mitigationFlowspecStart instead of blackhole OBJECTS. Clean up MIB compilation errors."
+      },
+      {
+        "revision": "2006-04-26 00:00",
+        "description": "Add trap type for DPI DNS baseline alerts."
+      },
+      {
+        "revision": "2006-03-23 00:00",
+        "description": "Revise pollable SP device management types."
+      },
+      {
+        "revision": "2005-11-14 00:00",
+        "description": "Add pollable SP device management types."
+      },
+      {
+        "revision": "2005-10-19 00:00",
+        "description": "Add trap types for fingerprint sharing events."
+      },
+      {
+        "revision": "2005-09-12 00:00",
+        "description": "Apply fixes from validation."
+      },
+      {
+        "revision": "2005-08-23 00:00",
+        "description": "Change spHijackASPath references to spHijackAttr."
+      },
+      {
+        "revision": "2005-05-17 01:00",
+        "description": "Change spAnomalyRouter references to spRouter."
+      },
+      {
+        "revision": "2005-05-17 00:00",
+        "description": "Add trap type for hardware failure."
+      },
+      {
+        "revision": "2005-02-11 00:00",
+        "description": "Add trap types for managed object usage alerts."
+      },
+      {
+        "revision": "2004-12-10 00:00",
+        "description": "Add trap types bgpInstabilityDone and interfaceUsageDone for ending bgp instability and interface usage alerts."
+      },
+      {
+        "revision": "2004-03-30 00:00",
+        "description": "Increase spInterface name to 256 characters from 64."
+      },
+      {
+        "revision": "2002-08-28 00:00",
+        "description": "Initial writing and import."
+      }
+    ]
+  },
+  "peakflowSPCMI": {
+    "name": "peakflowSPCMI",
+    "oid": "1.3.6.1.4.1.9694.1.4.1",
+    "class": "objectidentity"
+  },
+  "peakflowSPMgr": {
+    "name": "peakflowSPMgr",
+    "oid": "1.3.6.1.4.1.9694.1.4.2",
+    "class": "objectidentity"
+  },
+  "peakflowSPTraps": {
+    "name": "peakflowSPTraps",
+    "oid": "1.3.6.1.4.1.9694.1.4.3",
+    "class": "objectidentity"
+  },
+  "spCollector": {
+    "name": "spCollector",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spRouter": {
+    "name": "spRouter",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInterface": {
+    "name": "spInterface",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInterfaceIndex": {
+    "name": "spInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDuration": {
+    "name": "spDuration",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBGPEvent": {
+    "name": "spBGPEvent",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBGPInstability": {
+    "name": "spBGPInstability",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBGPTrapName": {
+    "name": "spBGPTrapName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBGPTrapEvent": {
+    "name": "spBGPTrapEvent",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBGPTrapPrefix": {
+    "name": "spBGPTrapPrefix",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBGPTrapOldAttributes": {
+    "name": "spBGPTrapOldAttributes",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBGPTrapNewAttributes": {
+    "name": "spBGPTrapNewAttributes",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInterfaceSpeed": {
+    "name": "spInterfaceSpeed",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInterfaceUsage": {
+    "name": "spInterfaceUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spReportURL": {
+    "name": "spReportURL",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spReportName": {
+    "name": "spReportName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spReportID": {
+    "name": "spReportID",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spAlertID": {
+    "name": "spAlertID",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spHijackRoute": {
+    "name": "spHijackRoute",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spHijackAttr": {
+    "name": "spHijackAttr",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spHijackLocal": {
+    "name": "spHijackLocal",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spUsername": {
+    "name": "spUsername",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spVersion": {
+    "name": "spVersion",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spUsageType": {
+    "name": "spUsageType",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spManagedObject": {
+    "name": "spManagedObject",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spManagedObjectFamily": {
+    "name": "spManagedObjectFamily",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spThreshold": {
+    "name": "spThreshold",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spUsage": {
+    "name": "spUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spUnit": {
+    "name": "spUnit",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spHardwareFailureDescription": {
+    "name": "spHardwareFailureDescription",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spFingerprintName": {
+    "name": "spFingerprintName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spFingerprintFeedback": {
+    "name": "spFingerprintFeedback",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spFingerprintSender": {
+    "name": "spFingerprintSender",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spFingerprintMessage": {
+    "name": "spFingerprintMessage",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spMitigationID": {
+    "name": "spMitigationID",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDNSName": {
+    "name": "spDNSName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDNSExpected": {
+    "name": "spDNSExpected",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDNSObserved": {
+    "name": "spDNSObserved",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDNSObservedMean": {
+    "name": "spDNSObservedMean",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDNSObservedMax": {
+    "name": "spDNSObservedMax",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spMitigationName": {
+    "name": "spMitigationName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spScriptCommand": {
+    "name": "spScriptCommand",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spScriptHost": {
+    "name": "spScriptHost",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spScriptPort": {
+    "name": "spScriptPort",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spScriptStart": {
+    "name": "spScriptStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spTMSPrefix": {
+    "name": "spTMSPrefix",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spTMSCommunity": {
+    "name": "spTMSCommunity",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spTMSTimeout": {
+    "name": "spTMSTimeout",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spThirdPartyZone": {
+    "name": "spThirdPartyZone",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spThirdPartyAddr": {
+    "name": "spThirdPartyAddr",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spMitigationStart": {
+    "name": "spMitigationStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBlackholeCommunity": {
+    "name": "spBlackholeCommunity",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBlackholeTimeout": {
+    "name": "spBlackholeTimeout",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBlackholePrefix": {
+    "name": "spBlackholePrefix",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spBlackholeNexthop": {
+    "name": "spBlackholeNexthop",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spFlowspecCommunity": {
+    "name": "spFlowspecCommunity",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spFlowspecTimeout": {
+    "name": "spFlowspecTimeout",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spCommFailureDestination": {
+    "name": "spCommFailureDestination",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spCommFailureDescription": {
+    "name": "spCommFailureDescription",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spGreTunnelDestination": {
+    "name": "spGreTunnelDestination",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spSystemErrorType": {
+    "name": "spSystemErrorType",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spSystemErrorDescription": {
+    "name": "spSystemErrorDescription",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spServiceName": {
+    "name": "spServiceName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spServiceElement": {
+    "name": "spServiceElement",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spApplicationName": {
+    "name": "spApplicationName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spAlertDetectionSignatures": {
+    "name": "spAlertDetectionSignatures",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spManagedObjects": {
+    "name": "spManagedObjects",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInetAddressType": {
+    "name": "spInetAddressType",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInetAddress": {
+    "name": "spInetAddress",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spImpactBps": {
+    "name": "spImpactBps",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spImpactPps": {
+    "name": "spImpactPps",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDetectedCountries": {
+    "name": "spDetectedCountries",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 152
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spRoutingFailoverInterfaces": {
+    "name": "spRoutingFailoverInterfaces",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spPravail": {
+    "name": "spPravail",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spDetector": {
+    "name": "spDetector",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spTMSMultiPrefix": {
+    "name": "spTMSMultiPrefix",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spLicenseErrType": {
+    "name": "spLicenseErrType",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spLicenseErrCount": {
+    "name": "spLicenseErrCount",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spLicenseErrLimit": {
+    "name": "spLicenseErrLimit",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spLicenseErrDescription": {
+    "name": "spLicenseErrDescription",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInterfaceSpeedHC": {
+    "name": "spInterfaceSpeedHC",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spInterfaceUsageHC": {
+    "name": "spInterfaceUsageHC",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spGreTunnelName": {
+    "name": "spGreTunnelName",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spCloudSignalFaultDescription": {
+    "name": "spCloudSignalFaultDescription",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "spTMSMultiDiversionPrefix": {
+    "name": "spTMSMultiDiversionPrefix",
+    "oid": "1.3.6.1.4.1.9694.1.4.1.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "deviceHealth": {
+    "name": "deviceHealth",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1",
+    "class": "objectidentity"
+  },
+  "deviceCpuLoadAvg1min": {
+    "name": "deviceCpuLoadAvg1min",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCpuLoadAvg5min": {
+    "name": "deviceCpuLoadAvg5min",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceCpuLoadAvg15min": {
+    "name": "deviceCpuLoadAvg15min",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceDiskUsage": {
+    "name": "deviceDiskUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePhysicalMemory": {
+    "name": "devicePhysicalMemory",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePhysicalMemoryInUse": {
+    "name": "devicePhysicalMemoryInUse",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePhysicalMemoryUsage": {
+    "name": "devicePhysicalMemoryUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceSwapSpace": {
+    "name": "deviceSwapSpace",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceSwapSpaceInUse": {
+    "name": "deviceSwapSpaceInUse",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceSwapSpaceUsage": {
+    "name": "deviceSwapSpaceUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceTotalFlows": {
+    "name": "deviceTotalFlows",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "deviceTotalFlowsHC": {
+    "name": "deviceTotalFlowsHC",
+    "oid": "1.3.6.1.4.1.9694.1.4.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "peakflowSPTrapsEnumerate": {
+    "name": "peakflowSPTrapsEnumerate",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0",
+    "class": "objectidentity"
+  },
+  "flowDown": {
+    "name": "flowDown",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      }
+    ],
+    "status": "current"
+  },
+  "flowUp": {
+    "name": "flowUp",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpDown": {
+    "name": "snmpDown",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpUp": {
+    "name": "snmpUp",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpDown": {
+    "name": "bgpDown",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpUp": {
+    "name": "bgpUp",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      }
+    ],
+    "status": "current"
+  },
+  "collectorDown": {
+    "name": "collectorDown",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDetector"
+      }
+    ],
+    "status": "current"
+  },
+  "collectorUp": {
+    "name": "collectorUp",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      }
+    ],
+    "status": "current"
+  },
+  "collectorStart": {
+    "name": "collectorStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bgpInstability": {
+    "name": "bgpInstability",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBGPInstability"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpInstabilityDone": {
+    "name": "bgpInstabilityDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      }
+    ],
+    "status": "current"
+  },
+  "bgpTrap": {
+    "name": "bgpTrap",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBGPTrapName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBGPTrapEvent"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBGPTrapPrefix"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBGPTrapOldAttributes"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBGPTrapNewAttributes"
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceUsage": {
+    "name": "interfaceUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterface"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterfaceIndex"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterfaceSpeed"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsageType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterfaceUsage"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterfaceSpeedHC"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterfaceUsageHC"
+      }
+    ],
+    "status": "current"
+  },
+  "interfaceUsageDone": {
+    "name": "interfaceUsageDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterface"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInterfaceIndex"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsageType"
+      }
+    ],
+    "status": "current"
+  },
+  "autoclassifyStart": {
+    "name": "autoclassifyStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsername"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "configChange": {
+    "name": "configChange",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsername"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "notificationLimit": {
+    "name": "notificationLimit",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "reportDone": {
+    "name": "reportDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spReportName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spReportID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spReportURL"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "bgpHijack": {
+    "name": "bgpHijack",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRouter"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spHijackRoute"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spHijackAttr"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spHijackLocal"
+      }
+    ],
+    "status": "current"
+  },
+  "managedObjectUsage": {
+    "name": "managedObjectUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObjectFamily"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsageType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThreshold"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsage"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "managedObjectUsageDone": {
+    "name": "managedObjectUsageDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObjectFamily"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsageType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "hardwareFailure": {
+    "name": "hardwareFailure",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spHardwareFailureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "hardwareFailureDone": {
+    "name": "hardwareFailureDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spHardwareFailureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "fingerprintFeedback": {
+    "name": "fingerprintFeedback",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFingerprintName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFingerprintFeedback"
+      }
+    ],
+    "status": "current"
+  },
+  "fingerprintReceive": {
+    "name": "fingerprintReceive",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFingerprintName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFingerprintSender"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFingerprintMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsBaseline": {
+    "name": "dnsBaseline",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDNSName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDNSExpected"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDNSObserved"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsBaselineDone": {
+    "name": "dnsBaselineDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDNSName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDNSExpected"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDNSObservedMean"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDNSObservedMax"
+      }
+    ],
+    "status": "current"
+  },
+  "alertScript": {
+    "name": "alertScript",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spScriptCommand"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spScriptHost"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spScriptPort"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spScriptStart"
+      }
+    ],
+    "status": "current"
+  },
+  "mitigationDone": {
+    "name": "mitigationDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      }
+    ],
+    "status": "current"
+  },
+  "mitigationTMSStart": {
+    "name": "mitigationTMSStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSPrefix"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSCommunity"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSTimeout"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationStart"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSMultiPrefix"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "mitigationThirdPartyStart": {
+    "name": "mitigationThirdPartyStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThirdPartyZone"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThirdPartyAddr"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationStart"
+      }
+    ],
+    "status": "current"
+  },
+  "mitigationBlackholeStart": {
+    "name": "mitigationBlackholeStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBlackholeCommunity"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBlackholeTimeout"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBlackholePrefix"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spBlackholeNexthop"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationStart"
+      }
+    ],
+    "status": "current"
+  },
+  "mitigationFlowspecStart": {
+    "name": "mitigationFlowspecStart",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFlowspecCommunity"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFlowspecTimeout"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationStart"
+      }
+    ],
+    "status": "current"
+  },
+  "spcommFailure": {
+    "name": "spcommFailure",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCommFailureDestination"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCommFailureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "spcommFailureDone": {
+    "name": "spcommFailureDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCommFailureDestination"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCommFailureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "greDown": {
+    "name": "greDown",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spGreTunnelDestination"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spGreTunnelName"
+      }
+    ],
+    "status": "current"
+  },
+  "greDownDone": {
+    "name": "greDownDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spGreTunnelDestination"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spGreTunnelName"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceSystemError": {
+    "name": "deviceSystemError",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spSystemErrorType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThreshold"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spSystemErrorDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceSystemErrorDone": {
+    "name": "deviceSystemErrorDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spSystemErrorType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThreshold"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spSystemErrorDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "fingerprintUsage": {
+    "name": "fingerprintUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFingerprintName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsageType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThreshold"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsage"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "fingerprintUsageDone": {
+    "name": "fingerprintUsageDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spFingerprintName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsageType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "serviceUsage": {
+    "name": "serviceUsage",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spServiceName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsageType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spApplicationName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spServiceElement"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThreshold"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "serviceUsageDone": {
+    "name": "serviceUsageDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spServiceName"
+      }
+    ],
+    "status": "current"
+  },
+  "dosNetworkProfiledAlert": {
+    "name": "dosNetworkProfiledAlert",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactBps"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactPps"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDetectedCountries"
+      }
+    ],
+    "status": "current"
+  },
+  "dosNetworkProfiledAlertDone": {
+    "name": "dosNetworkProfiledAlertDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactBps"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactPps"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spDetectedCountries"
+      }
+    ],
+    "status": "current"
+  },
+  "dosHostDetectionAlert": {
+    "name": "dosHostDetectionAlert",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertDetectionSignatures"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInetAddress"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInetAddressType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactBps"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactPps"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObjects"
+      }
+    ],
+    "status": "current"
+  },
+  "dosHostDetectionAlertDone": {
+    "name": "dosHostDetectionAlertDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertDetectionSignatures"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDirection"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyStart"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyDuration"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInetAddress"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spInetAddressType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactBps"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spImpactPps"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosAnomalyClassification"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObjects"
+      }
+    ],
+    "status": "current"
+  },
+  "routingFailover": {
+    "name": "routingFailover",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      }
+    ],
+    "status": "current"
+  },
+  "routingFailoverInterfaceDownAlert": {
+    "name": "routingFailoverInterfaceDownAlert",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spRoutingFailoverInterfaces"
+      }
+    ],
+    "status": "current"
+  },
+  "routingFailoverInterfaceDownAlertDone": {
+    "name": "routingFailoverInterfaceDownAlertDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-DOS-MIB",
+        "object": "pdosUrl"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCollector"
+      }
+    ],
+    "status": "current"
+  },
+  "trafficAutoMitigation": {
+    "name": "trafficAutoMitigation",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      }
+    ],
+    "status": "current"
+  },
+  "cloudSignalingMitigationRequest": {
+    "name": "cloudSignalingMitigationRequest",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spPravail"
+      }
+    ],
+    "status": "current"
+  },
+  "licenseError": {
+    "name": "licenseError",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spLicenseErrType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spLicenseErrCount"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThreshold"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spLicenseErrDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "licenseErrorDone": {
+    "name": "licenseErrorDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spLicenseErrType"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spThreshold"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spLicenseErrLimit"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spLicenseErrDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "cloudSignalingFault": {
+    "name": "cloudSignalingFault",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertId"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spPravail"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCloudSignalFaultDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "cloudSignalingFaultDone": {
+    "name": "cloudSignalingFaultDone",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertId"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spPravail"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spCloudSignalFaultDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "mitigationTMSStartV2": {
+    "name": "mitigationTMSStartV2",
+    "oid": "1.3.6.1.4.1.9694.1.4.3.0.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationName"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spAlertID"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spManagedObject"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSPrefix"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSCommunity"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSTimeout"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spMitigationStart"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSMultiPrefix"
+      },
+      {
+        "module": "PEAKFLOW-SP-MIB",
+        "object": "spTMSMultiDiversionPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-PEAKFLOW-SP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PEAKFLOW-SP-MIB"
+  }
+}

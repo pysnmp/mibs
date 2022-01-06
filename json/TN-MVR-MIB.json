@@ -1,0 +1,903 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex",
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnMVRMIB": {
+    "name": "tnMVRMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.50",
+    "class": "moduleidentity"
+  },
+  "tnMVRMIBNotifications": {
+    "name": "tnMVRMIBNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.50.1",
+    "class": "objectidentity"
+  },
+  "tnMVRMIBObjects": {
+    "name": "tnMVRMIBObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2",
+    "class": "objectidentity"
+  },
+  "tnMVRMIBConformance": {
+    "name": "tnMVRMIBConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.50.3",
+    "class": "objectidentity"
+  },
+  "tnMVRMIBMgmt": {
+    "name": "tnMVRMIBMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1",
+    "class": "objectidentity"
+  },
+  "tnMVRModeTable": {
+    "name": "tnMVRModeTable",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRModeEntry": {
+    "name": "tnMVRModeEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMVRMode": {
+    "name": "tnMVRMode",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRStatisticsClear": {
+    "name": "tnMVRStatisticsClear",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRInterfaceTable": {
+    "name": "tnMVRInterfaceTable",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRInterfaceEntry": {
+    "name": "tnMVRInterfaceEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMVRVID": {
+    "name": "tnMVRVID",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRName": {
+    "name": "tnMVRName",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRInterfaceMode": {
+    "name": "tnMVRInterfaceMode",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "compatible": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRInterfaceTagging": {
+    "name": "tnMVRInterfaceTagging",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untagged": 1,
+          "tagged": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRInterfacePriority": {
+    "name": "tnMVRInterfacePriority",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRInterfaceLLQI": {
+    "name": "tnMVRInterfaceLLQI",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31744
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRInactivePortList": {
+    "name": "tnMVRInactivePortList",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRSourcePortList": {
+    "name": "tnMVRSourcePortList",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRReceiverPortList": {
+    "name": "tnMVRReceiverPortList",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRInterfaceRowStatus": {
+    "name": "tnMVRInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnMVRImmediateLeaveTable": {
+    "name": "tnMVRImmediateLeaveTable",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRImmediateLeaveEntry": {
+    "name": "tnMVRImmediateLeaveEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMVRImmediateLeaveEnabled": {
+    "name": "tnMVRImmediateLeaveEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRChannelConfigTable": {
+    "name": "tnMVRChannelConfigTable",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRChannelConfigEntry": {
+    "name": "tnMVRChannelConfigEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRChannelVID",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRChannelStartEndAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRChannelStartAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMVRChannelVID": {
+    "name": "tnMVRChannelVID",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRChannelStartEndAddrType": {
+    "name": "tnMVRChannelStartEndAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRChannelStartAddr": {
+    "name": "tnMVRChannelStartAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRChannelEndAddr": {
+    "name": "tnMVRChannelEndAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRChannelName": {
+    "name": "tnMVRChannelName",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnMVRChannelRowStatus": {
+    "name": "tnMVRChannelRowStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnMVRStatisticsTable": {
+    "name": "tnMVRStatisticsTable",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRStatisticsEntry": {
+    "name": "tnMVRStatisticsEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRStatisticsVID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMVRStatisticsVID": {
+    "name": "tnMVRStatisticsVID",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRIGMPQueriesRx": {
+    "name": "tnMVRIGMPQueriesRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRMLDQueriesRx": {
+    "name": "tnMVRMLDQueriesRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRIGMPQueriesTx": {
+    "name": "tnMVRIGMPQueriesTx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRMLDQueriesTx": {
+    "name": "tnMVRMLDQueriesTx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRIGMPv1JoinsRx": {
+    "name": "tnMVRIGMPv1JoinsRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRIGMPv2ReportsRx": {
+    "name": "tnMVRIGMPv2ReportsRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRMLDv1ReportsRx": {
+    "name": "tnMVRMLDv1ReportsRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRIGMPv3ReportsRx": {
+    "name": "tnMVRIGMPv3ReportsRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRMLDv2ReportsRx": {
+    "name": "tnMVRMLDv2ReportsRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRIGMPv2LeavesRx": {
+    "name": "tnMVRIGMPv2LeavesRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRMLDv1LeavesRx": {
+    "name": "tnMVRMLDv1LeavesRx",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRGroupInfoTable": {
+    "name": "tnMVRGroupInfoTable",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRGroupInfoEntry": {
+    "name": "tnMVRGroupInfoEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRGroupVID",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRGroupAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMVRGroupVID": {
+    "name": "tnMVRGroupVID",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRGroupAddrType": {
+    "name": "tnMVRGroupAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRGroupAddr": {
+    "name": "tnMVRGroupAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRGroupPortMembers": {
+    "name": "tnMVRGroupPortMembers",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRSFMTable": {
+    "name": "tnMVRSFMTable",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMEntry": {
+    "name": "tnMVRSFMEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRSFMVID",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRSFMGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRSFMGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRSFMIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRSFMMode",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRSFMSourceAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN-MVR-MIB",
+        "object": "tnMVRSFMSourceAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnMVRSFMVID": {
+    "name": "tnMVRSFMVID",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMGroupAddrType": {
+    "name": "tnMVRSFMGroupAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMGroupAddr": {
+    "name": "tnMVRSFMGroupAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMIfIndex": {
+    "name": "tnMVRSFMIfIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMMode": {
+    "name": "tnMVRSFMMode",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMSourceAddrType": {
+    "name": "tnMVRSFMSourceAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMSourceAddr": {
+    "name": "tnMVRSFMSourceAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnMVRSFMType": {
+    "name": "tnMVRSFMType",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allow": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnMVRSFMHardwareFilter": {
+    "name": "tnMVRSFMHardwareFilter",
+    "oid": "1.3.6.1.4.1.868.2.5.50.2.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-MVR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-MVR-MIB"
+  }
+}

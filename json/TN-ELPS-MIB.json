@@ -1,0 +1,731 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-CFM-MIB": [
+      "Dot1agCfmMepId"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TN-PROTECTION-MIB": [
+      "tnProtectionMIB"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnElpsMib": {
+    "name": "tnElpsMib",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2",
+    "class": "objectidentity"
+  },
+  "tnElpsMibNotifications": {
+    "name": "tnElpsMibNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.0",
+    "class": "objectidentity"
+  },
+  "tnElpsMibObjects": {
+    "name": "tnElpsMibObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1",
+    "class": "objectidentity"
+  },
+  "tnElpsMibConformance": {
+    "name": "tnElpsMibConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.2",
+    "class": "objectidentity"
+  },
+  "tnElpsCfgMgmt": {
+    "name": "tnElpsCfgMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1",
+    "class": "objectidentity"
+  },
+  "tnElpsStateMgmt": {
+    "name": "tnElpsStateMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2",
+    "class": "objectidentity"
+  },
+  "tnElpsLinkOverMgmt": {
+    "name": "tnElpsLinkOverMgmt",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.3",
+    "class": "objectidentity"
+  },
+  "TnElpsProtSwitchState": {
+    "name": "TnElpsProtSwitchState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "noRequestW": 2,
+          "noRequestP": 3,
+          "lockout": 4,
+          "forcedSwitch": 5,
+          "signalFailW": 6,
+          "signalFailP": 7,
+          "manualSwitchW": 8,
+          "manualSwitchP": 9,
+          "waitToRestore": 10,
+          "exerciseW": 11,
+          "exerciseP": 12,
+          "reverseRequestW": 13,
+          "reverseRequestP": 14,
+          "doNotRevert": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TnElpsDefectState": {
+    "name": "TnElpsDefectState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "signalOk": 1,
+          "signalFail": 2,
+          "signalDegrade": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TnElpsRequestType": {
+    "name": "TnElpsRequestType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRequest": 1,
+          "doNotRevert": 2,
+          "reverseRequest": 3,
+          "exercise": 4,
+          "wait2Restore": 5,
+          "manualSwitch": 6,
+          "signalDegrade": 7,
+          "signalFailForWorking": 8,
+          "forcedWwitch": 9,
+          "signalFailForProtection": 10,
+          "lockoutOfProtection": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tnElpsAlarmUp": {
+    "name": "tnElpsAlarmUp",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsProtectionState"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsWFlowState"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsPFlowState"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsArchitectureMismatch"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsAPSOnWorking"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsSwitchingIncomplete"
+      }
+    ],
+    "status": "current"
+  },
+  "tnElpsAlarmDown": {
+    "name": "tnElpsAlarmDown",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsProtectionState"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsWFlowState"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsPFlowState"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsArchitectureMismatch"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsAPSOnWorking"
+      },
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsSwitchingIncomplete"
+      }
+    ],
+    "status": "current"
+  },
+  "tnElpsCfgTable": {
+    "name": "tnElpsCfgTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnElpsCfgEntry": {
+    "name": "tnElpsCfgEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnElpsInstance": {
+    "name": "tnElpsInstance",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnElpsDomain": {
+    "name": "tnElpsDomain",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsArchitecture": {
+    "name": "tnElpsArchitecture",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePlusOne": 1,
+          "oneForOne": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsWFlowPortId": {
+    "name": "tnElpsWFlowPortId",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsPFlowPortId": {
+    "name": "tnElpsPFlowPortId",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsWSfMepId": {
+    "name": "tnElpsWSfMepId",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsPSfMepId": {
+    "name": "tnElpsPSfMepId",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsApsMepId": {
+    "name": "tnElpsApsMepId",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsConfigured": {
+    "name": "tnElpsConfigured",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsDirection": {
+    "name": "tnElpsDirection",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unidirectional": 1,
+          "bidirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsApsEnable": {
+    "name": "tnElpsApsEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsRevertiveEnable": {
+    "name": "tnElpsRevertiveEnable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsWTRTime": {
+    "name": "tnElpsWTRTime",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "t10sec": 1,
+          "t30sec": 2,
+          "t5min": 3,
+          "t6min": 4,
+          "t7min": 5,
+          "t8min": 6,
+          "t9min": 7,
+          "t10min": 8,
+          "t11min": 9,
+          "t12min": 10
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsHoldOffTime": {
+    "name": "tnElpsHoldOffTime",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "t100ms": 1,
+          "t200ms": 2,
+          "t300ms": 3,
+          "t400ms": 4,
+          "t500ms": 5,
+          "t600ms": 6,
+          "t700ms": 7,
+          "t800ms": 8,
+          "t900ms": 9,
+          "t1s": 10,
+          "t2s": 11,
+          "t3s": 12,
+          "t4s": 13,
+          "t5s": 14,
+          "t6s": 15,
+          "t7s": 16,
+          "t8s": 17,
+          "t9s": 18,
+          "t10s": 19
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsCmd": {
+    "name": "tnElpsCmd",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "clear": 1,
+          "lockOut": 2,
+          "forcedSwitch": 3,
+          "manualSwitchP": 4,
+          "manualSwitchW": 5,
+          "exercise": 6,
+          "freeze": 7,
+          "lockOutLocal": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsStatus": {
+    "name": "tnElpsStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tnElpsStateTable": {
+    "name": "tnElpsStateTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnElpsStateEntry": {
+    "name": "tnElpsStateEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnElpsProtectionState": {
+    "name": "tnElpsProtectionState",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnElpsProtSwitchState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsWFlowState": {
+    "name": "tnElpsWFlowState",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnElpsDefectState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsPFlowState": {
+    "name": "tnElpsPFlowState",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnElpsDefectState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsTransmitRequestType": {
+    "name": "tnElpsTransmitRequestType",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnElpsRequestType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsTransmitRequestedSignal": {
+    "name": "tnElpsTransmitRequestedSignal",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsTransmitBridgedSignal": {
+    "name": "tnElpsTransmitBridgedSignal",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsReceiveRequestType": {
+    "name": "tnElpsReceiveRequestType",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TnElpsRequestType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsReceiveRequestedSignal": {
+    "name": "tnElpsReceiveRequestedSignal",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsReceiveBridgedSignal": {
+    "name": "tnElpsReceiveBridgedSignal",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsArchitectureMismatch": {
+    "name": "tnElpsArchitectureMismatch",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsAPSOnWorking": {
+    "name": "tnElpsAPSOnWorking",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsSwitchingIncomplete": {
+    "name": "tnElpsSwitchingIncomplete",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsNoApsReceived": {
+    "name": "tnElpsNoApsReceived",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnElpsLinkOverTable": {
+    "name": "tnElpsLinkOverTable",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnElpsLinkOverEntry": {
+    "name": "tnElpsLinkOverEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-ELPS-MIB",
+        "object": "tnElpsInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnElpsLinkOverEnabled": {
+    "name": "tnElpsLinkOverEnabled",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnElpsLinkOverDeltaValue": {
+    "name": "tnElpsLinkOverDeltaValue",
+    "oid": "1.3.6.1.4.1.868.2.5.109.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-ELPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-ELPS-MIB"
+  }
+}

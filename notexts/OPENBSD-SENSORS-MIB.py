@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OPENBSD-SENSORS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-SENSORS-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:06:56 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:45:30 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 openBSD, = mibBuilder.importSymbols("OPENBSD-BASE-MIB", "openBSD")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, Counter64, ModuleIdentity, MibIdentifier, NotificationType, enterprises, iso, Gauge32, Unsigned32, ObjectIdentity, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "Counter64", "ModuleIdentity", "MibIdentifier", "NotificationType", "enterprises", "iso", "Gauge32", "Unsigned32", "ObjectIdentity", "TimeTicks", "Bits")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Gauge32, ObjectIdentity, IpAddress, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, ModuleIdentity, Bits, iso, Unsigned32, MibIdentifier, Counter32, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "IpAddress", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "ModuleIdentity", "Bits", "iso", "Unsigned32", "MibIdentifier", "Counter32", "TimeTicks", "Counter64")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 sensorsMIBObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 30155, 2))
 sensorsMIBObjects.setRevisions(('2012-09-20 00:00', '2012-01-31 00:00', '2008-12-23 00:00',))
@@ -37,4 +37,4 @@ sensorUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 6), OctetStri
 if mibBuilder.loadTexts: sensorUnits.setStatus('current')
 sensorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unspecified", 0), ("ok", 1), ("warn", 2), ("critical", 3), ("unknown", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sensorStatus.setStatus('current')
-mibBuilder.exportSymbols("OPENBSD-SENSORS-MIB", sensorDevice=sensorDevice, PYSNMP_MODULE_ID=sensorsMIBObjects, sensorUnits=sensorUnits, sensorType=sensorType, sensorEntry=sensorEntry, sensorNumber=sensorNumber, sensorValue=sensorValue, sensorStatus=sensorStatus, sensorDescr=sensorDescr, sensorTable=sensorTable, sensors=sensors, sensorsMIBObjects=sensorsMIBObjects, sensorIndex=sensorIndex)
+mibBuilder.exportSymbols("OPENBSD-SENSORS-MIB", sensorValue=sensorValue, sensorStatus=sensorStatus, sensorDescr=sensorDescr, sensors=sensors, PYSNMP_MODULE_ID=sensorsMIBObjects, sensorEntry=sensorEntry, sensorIndex=sensorIndex, sensorType=sensorType, sensorsMIBObjects=sensorsMIBObjects, sensorUnits=sensorUnits, sensorTable=sensorTable, sensorNumber=sensorNumber, sensorDevice=sensorDevice)

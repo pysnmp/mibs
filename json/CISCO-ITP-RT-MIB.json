@@ -1,0 +1,637 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcLinksetId",
+      "CItpTcPointCode",
+      "CItpTcTableLoadStatus",
+      "CItpTcQos",
+      "CItpTcRouteTableName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoItpRtMIB": {
+    "name": "ciscoItpRtMIB",
+    "oid": "1.3.6.1.4.1.9.9.228",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-07-10 00:00",
+        "description": "Updated description to provide overview and additional information. The ability to allow multiple instances of Signalling Points to run in the same device has introduce a new index structure. All objects in this MIB will be deprecated and replaced by objects in the CISCO-ITP-GACT-MIB.my MIB."
+      },
+      {
+        "revision": "2002-01-07 00:00",
+        "description": "The following objects were added to provide information on time and status of route table loads using the file format. cItpRtConfigLoad cItpRtConfigLoadStatus The following objects were added to provide information on route state changes. cItpRtStateChangeCount cItpRtStateChangeNotifEnabled cItpRtMaxDynamicRoutes cItpRtChangeNotifWindowTime cItpRtChangeNotifMaxPerWindow cItpRtNotifInfoSuppressedFlag cItpRtNotifInfoStateChanges cItpRouteStateChange"
+      },
+      {
+        "revision": "2001-08-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cItpRouteNotifications": {
+    "name": "cItpRouteNotifications",
+    "oid": "1.3.6.1.4.1.9.9.228.0",
+    "class": "objectidentity"
+  },
+  "cItpRtMIBObjects": {
+    "name": "cItpRtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.228.1",
+    "class": "objectidentity"
+  },
+  "cItpRtMIBConformance": {
+    "name": "cItpRtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.228.2",
+    "class": "objectidentity"
+  },
+  "cItpRtScalars": {
+    "name": "cItpRtScalars",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1",
+    "class": "objectidentity"
+  },
+  "cItpRtTables": {
+    "name": "cItpRtTables",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2",
+    "class": "objectidentity"
+  },
+  "cItpRtNotificationsInfo": {
+    "name": "cItpRtNotificationsInfo",
+    "oid": "1.3.6.1.4.1.9.9.228.1.3",
+    "class": "objectidentity"
+  },
+  "cItpRtConfigLastChanged": {
+    "name": "cItpRtConfigLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRtConfigLoad": {
+    "name": "cItpRtConfigLoad",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRtConfigLoadStatus": {
+    "name": "cItpRtConfigLoadStatus",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTableLoadStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRtStateChangeCount": {
+    "name": "cItpRtStateChangeCount",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRtStateChangeNotifEnabled": {
+    "name": "cItpRtStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpRtChangeNotifDelayTime": {
+    "name": "cItpRtChangeNotifDelayTime",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpRtMaxDynamicRoutes": {
+    "name": "cItpRtMaxDynamicRoutes",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpRtChangeNotifWindowTime": {
+    "name": "cItpRtChangeNotifWindowTime",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpRtChangeNotifMaxPerWindow": {
+    "name": "cItpRtChangeNotifMaxPerWindow",
+    "oid": "1.3.6.1.4.1.9.9.228.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpRouteTable": {
+    "name": "cItpRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpRouteTableEntry": {
+    "name": "cItpRouteTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteTableName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteDpc",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteDestLsCost",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteDestLinkset",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpRouteTableName": {
+    "name": "cItpRouteTableName",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpRouteDpc": {
+    "name": "cItpRouteDpc",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpRouteDestLsCost": {
+    "name": "cItpRouteDestLsCost",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpRouteDestLinkset": {
+    "name": "cItpRouteDestLinkset",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinksetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpRouteMask": {
+    "name": "cItpRouteMask",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpRouteQos": {
+    "name": "cItpRouteQos",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcQos",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRouteStatus": {
+    "name": "cItpRouteStatus",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "available": 2,
+          "restricted": 3,
+          "unavailable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRouteNonAdjStatus": {
+    "name": "cItpRouteNonAdjStatus",
+    "oid": "1.3.6.1.4.1.9.9.228.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "allowed": 2,
+          "restricted": 3,
+          "prohibited": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRtNotifInfoSuppressedFlag": {
+    "name": "cItpRtNotifInfoSuppressedFlag",
+    "oid": "1.3.6.1.4.1.9.9.228.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRtNotifInfoStateChanges": {
+    "name": "cItpRtNotifInfoStateChanges",
+    "oid": "1.3.6.1.4.1.9.9.228.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 480
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpRouteStateChange": {
+    "name": "cItpRouteStateChange",
+    "oid": "1.3.6.1.4.1.9.9.228.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtStateChangeCount"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtNotifInfoSuppressedFlag"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtNotifInfoStateChanges"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpRtMIBCompliances": {
+    "name": "cItpRtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.228.2.1",
+    "class": "objectidentity"
+  },
+  "cItpRtMIBGroups": {
+    "name": "cItpRtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.228.2.2",
+    "class": "objectidentity"
+  },
+  "cItpRtMIBCompliance": {
+    "name": "cItpRtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.228.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cItpRtScalarGroup",
+        "module": "CISCO-ITP-RT-MIB"
+      },
+      {
+        "object": "cItpRouteGroup",
+        "module": "CISCO-ITP-RT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpRtMIBComplianceRev1": {
+    "name": "cItpRtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.228.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cItpRtScalarGroup",
+        "module": "CISCO-ITP-RT-MIB"
+      },
+      {
+        "object": "cItpRouteGroup",
+        "module": "CISCO-ITP-RT-MIB"
+      },
+      {
+        "object": "cItpRtNotificationsGroup",
+        "module": "CISCO-ITP-RT-MIB"
+      },
+      {
+        "object": "cItpRtScalarGroupRev1",
+        "module": "CISCO-ITP-RT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpRtScalarGroup": {
+    "name": "cItpRtScalarGroup",
+    "oid": "1.3.6.1.4.1.9.9.228.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtConfigLastChanged"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpRouteGroup": {
+    "name": "cItpRouteGroup",
+    "oid": "1.3.6.1.4.1.9.9.228.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteQos"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteStatus"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteNonAdjStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpRtNotificationsGroup": {
+    "name": "cItpRtNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.228.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRouteStateChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpRtScalarGroupRev1": {
+    "name": "cItpRtScalarGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.228.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtConfigLoad"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtConfigLoadStatus"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtStateChangeCount"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtChangeNotifDelayTime"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtMaxDynamicRoutes"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtChangeNotifWindowTime"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtChangeNotifMaxPerWindow"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtNotifInfoSuppressedFlag"
+      },
+      {
+        "module": "CISCO-ITP-RT-MIB",
+        "object": "cItpRtNotifInfoStateChanges"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-RT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-RT-MIB"
+  }
+}

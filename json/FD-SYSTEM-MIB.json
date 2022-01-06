@@ -1,0 +1,2228 @@
+{
+  "imports": {
+    "class": "imports",
+    "EPON-EOC-MIB": [
+      "DeviceStatus",
+      "epon",
+      "DeviceType",
+      "LedStatus",
+      "DeviceOperation"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "systemInfo": {
+    "name": "systemInfo",
+    "oid": "1.3.6.1.4.1.34592.1.3.1",
+    "class": "moduleidentity"
+  },
+  "sysBaseInfo": {
+    "name": "sysBaseInfo",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "sysModel": {
+    "name": "sysModel",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysDesc": {
+    "name": "sysDesc",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLocation": {
+    "name": "sysLocation",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysContact": {
+    "name": "sysContact",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysMajAlarmLed": {
+    "name": "sysMajAlarmLed",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysCriAlarmLed": {
+    "name": "sysCriAlarmLed",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAlarmDesc": {
+    "name": "sysAlarmDesc",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysCpuUtilization": {
+    "name": "sysCpuUtilization",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysMTU": {
+    "name": "sysMTU",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1518,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysConfig": {
+    "name": "sysConfig",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "consolePortSpd": {
+    "name": "consolePortSpd",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bps2400": 1,
+          "bps4800": 2,
+          "bps9600": 3,
+          "bps19200": 4,
+          "bps38400": 5,
+          "bps57600": 6,
+          "bps115200": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manageIpAddr": {
+    "name": "manageIpAddr",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manageNetMask": {
+    "name": "manageNetMask",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "manageGateway": {
+    "name": "manageGateway",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpReadCommunity": {
+    "name": "snmpReadCommunity",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpRWCommunity": {
+    "name": "snmpRWCommunity",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapDstIpAddr1": {
+    "name": "trapDstIpAddr1",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapDstIpAddr2": {
+    "name": "trapDstIpAddr2",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapDstIpAddr3": {
+    "name": "trapDstIpAddr3",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapDstIpAddr4": {
+    "name": "trapDstIpAddr4",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysOperate": {
+    "name": "sysOperate",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outbandIpAddr": {
+    "name": "outbandIpAddr",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outbandNetMask": {
+    "name": "outbandNetMask",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysConfigurations": {
+    "name": "sysConfigurations",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15",
+    "class": "objectidentity"
+  },
+  "cfgAutoBackup": {
+    "name": "cfgAutoBackup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.1",
+    "class": "objectidentity"
+  },
+  "sysAutoBackupEnable": {
+    "name": "sysAutoBackupEnable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAutoBackupType": {
+    "name": "sysAutoBackupType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "olt": 1,
+          "onu": 2,
+          "all": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAutoBackupInterval": {
+    "name": "sysAutoBackupInterval",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 365
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysAutoBackupServer": {
+    "name": "sysAutoBackupServer",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgBackup": {
+    "name": "cfgBackup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.2",
+    "class": "objectidentity"
+  },
+  "sysCfgBackupType": {
+    "name": "sysCfgBackupType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "olt": 1,
+          "onu": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysCfgBackupServer": {
+    "name": "sysCfgBackupServer",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfgRestore": {
+    "name": "cfgRestore",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.3",
+    "class": "objectidentity"
+  },
+  "sysCfgRestoreType": {
+    "name": "sysCfgRestoreType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "olt": 1,
+          "onu": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysCfgRestoreServer": {
+    "name": "sysCfgRestoreServer",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysCfgRestoreFilename": {
+    "name": "sysCfgRestoreFilename",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.15.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLog": {
+    "name": "sysLog",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.16",
+    "class": "objectidentity"
+  },
+  "sysLogLevel": {
+    "name": "sysLogLevel",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogTable": {
+    "name": "sysLogTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysLogEntry": {
+    "name": "sysLogEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysLogEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysLogEntryIndex": {
+    "name": "sysLogEntryIndex",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onuOnOffLine": 1,
+          "onuDyingGaspAlarm": 2,
+          "onuUniLoopBackAlarm": 3,
+          "all": 127
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysLogEntryEnable": {
+    "name": "sysLogEntryEnable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "date": {
+    "name": "date",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.2.17",
+    "class": "objectidentity"
+  },
+  "chassisInfo": {
+    "name": "chassisInfo",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "chassisType": {
+    "name": "chassisType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisFactorySerial": {
+    "name": "chassisFactorySerial",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisRevision": {
+    "name": "chassisRevision",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chassisTemperature": {
+    "name": "chassisTemperature",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerStatusBit": {
+    "name": "powerStatusBit",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanStatusBit": {
+    "name": "fanStatusBit",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardModule": {
+    "name": "cardModule",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5",
+    "class": "objectidentity"
+  },
+  "mainCard": {
+    "name": "mainCard",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1",
+    "class": "objectidentity"
+  },
+  "mainCardType": {
+    "name": "mainCardType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mainCardFactorySerial": {
+    "name": "mainCardFactorySerial",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mainCardHWRevision": {
+    "name": "mainCardHWRevision",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mainCardSWVersion": {
+    "name": "mainCardSWVersion",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mainCardRunningStatus": {
+    "name": "mainCardRunningStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mainCardRunningTime": {
+    "name": "mainCardRunningTime",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mainCardOperate": {
+    "name": "mainCardOperate",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ponCard": {
+    "name": "ponCard",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2",
+    "class": "objectidentity"
+  },
+  "ponCardTable": {
+    "name": "ponCardTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ponCardEntry": {
+    "name": "ponCardEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ponCardSlotId": {
+    "name": "ponCardSlotId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ponCardType": {
+    "name": "ponCardType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ponCardFactorySerial": {
+    "name": "ponCardFactorySerial",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ponCardHwRev": {
+    "name": "ponCardHwRev",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ponCardFwVer": {
+    "name": "ponCardFwVer",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ponCardRunningStatus": {
+    "name": "ponCardRunningStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ponCardRuningTime": {
+    "name": "ponCardRuningTime",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ponCardOperate": {
+    "name": "ponCardOperate",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DeviceOperation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ponCardUpgradeStat": {
+    "name": "ponCardUpgradeStat",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.5.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "booting": 1,
+          "normalRun": 2,
+          "rcvFileIng": 3,
+          "rcvFileOk": 4,
+          "rcvFileErr": 5,
+          "upgrading": 6,
+          "upgradeOk": 7,
+          "upgradeErr": 8,
+          "upgradeOlt": 9,
+          "upgradeOnu": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAuth": {
+    "name": "onuAuth",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6",
+    "class": "objectidentity"
+  },
+  "authMethod": {
+    "name": "authMethod",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blackList": 1,
+          "whiteList": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nonAuthOper": {
+    "name": "nonAuthOper",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearNonAuthMacList": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAuthMacCfgTable": {
+    "name": "onuAuthMacCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthMacCfgEntry": {
+    "name": "onuAuthMacCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "authMacEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "authMacEntryId": {
+    "name": "authMacEntryId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "beginMacAddr": {
+    "name": "beginMacAddr",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "endMacAddr": {
+    "name": "endMacAddr",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "macAttr": {
+    "name": "macAttr",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blackMac": 1,
+          "whiteMac": 2,
+          "obsolete": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthMacRowStatus": {
+    "name": "onuAuthMacRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nonAuthOnuListTable": {
+    "name": "nonAuthOnuListTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nonAuthOnuListEntry": {
+    "name": "nonAuthOnuListEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "nonAuthOnuMacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nonAuthOnuMacIndex": {
+    "name": "nonAuthOnuMacIndex",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nonAuthOnuMac": {
+    "name": "nonAuthOnuMac",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nonAuthOnuTries": {
+    "name": "nonAuthOnuTries",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oltId": {
+    "name": "oltId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "authMethodV2": {
+    "name": "authMethodV2",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "mac": 1,
+          "loid": 2,
+          "hybrid": 3,
+          "blacklist": 4,
+          "whitelist": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAuthBlacklistMacCfgTable": {
+    "name": "onuAuthBlacklistMacCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthBlacklistMacCfgEntry": {
+    "name": "onuAuthBlacklistMacCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "authBlacklistMacEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "authBlacklistMacEntryId": {
+    "name": "authBlacklistMacEntryId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthBlacklistMacAddr": {
+    "name": "onuAuthBlacklistMacAddr",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthBlacklistMacCfgRowStatus": {
+    "name": "onuAuthBlacklistMacCfgRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthWhitelistMacCfgTable": {
+    "name": "onuAuthWhitelistMacCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthWhitelistMacCfgEntry": {
+    "name": "onuAuthWhitelistMacCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "oltId",
+        "implied": 0
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "authWhitelistMacEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "authWhitelistMacEntryId": {
+    "name": "authWhitelistMacEntryId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthWhitelistMacAddr": {
+    "name": "onuAuthWhitelistMacAddr",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthWhitelistMacCfgRowStatus": {
+    "name": "onuAuthWhitelistMacCfgRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthLoidCfgTable": {
+    "name": "onuAuthLoidCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthLoidCfgEntry": {
+    "name": "onuAuthLoidCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "authLoidEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "authLoidEntryId": {
+    "name": "authLoidEntryId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthLoidStrings": {
+    "name": "onuAuthLoidStrings",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthPasswordStrings": {
+    "name": "onuAuthPasswordStrings",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthLoidCfgRowStatus": {
+    "name": "onuAuthLoidCfgRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.6.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "userManage": {
+    "name": "userManage",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7",
+    "class": "objectidentity"
+  },
+  "userManageTable": {
+    "name": "userManageTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "userManageEntry": {
+    "name": "userManageEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "userId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "userId": {
+    "name": "userId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "userPassword": {
+    "name": "userPassword",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "userPermission": {
+    "name": "userPermission",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userAccessDeviceMap": {
+    "name": "userAccessDeviceMap",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "loginTimeout": {
+    "name": "loginTimeout",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userEntryRowStatus": {
+    "name": "userEntryRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "upgrade": {
+    "name": "upgrade",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8",
+    "class": "objectidentity"
+  },
+  "ftpServerIp": {
+    "name": "ftpServerIp",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ftpServerUserName": {
+    "name": "ftpServerUserName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ftpServerUserPasswd": {
+    "name": "ftpServerUserPasswd",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ftpOperFileName": {
+    "name": "ftpOperFileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ftpOperTarget": {
+    "name": "ftpOperTarget",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ctrlCardImage": 1,
+          "ponCardImage": 2,
+          "oltApp": 3,
+          "oltPers": 4,
+          "oltBoot": 5,
+          "onuApp": 6,
+          "onuPers": 7,
+          "onuBoot": 8,
+          "otherSpecifiedFile": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dwLoadFileCrcCheck": {
+    "name": "dwLoadFileCrcCheck",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "checkCrc": 1,
+          "dontCheckCrc": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dwLoadFileCrcValue": {
+    "name": "dwLoadFileCrcValue",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "operDeviceMap": {
+    "name": "operDeviceMap",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgradeStatus": {
+    "name": "upgradeStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "paraErr": 1,
+          "initFtpErr": 2,
+          "transmitting": 3,
+          "transmitErr": 4,
+          "transmitOk": 5,
+          "upgrading": 6,
+          "upgradeErr": 7,
+          "upgradeOk": 8,
+          "uploading": 9,
+          "uploadErr": 10,
+          "uploadOk": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upgradeOperation": {
+    "name": "upgradeOperation",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadFile": 1,
+          "upgrade": 2,
+          "reboot": 3,
+          "uploadFile": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ftpProgress": {
+    "name": "ftpProgress",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fdSysConformance": {
+    "name": "fdSysConformance",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13",
+    "class": "objectidentity"
+  },
+  "fdSystemGroups": {
+    "name": "fdSystemGroups",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.1",
+    "class": "objectidentity"
+  },
+  "sysBaseManageGroup": {
+    "name": "sysBaseManageGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysModel"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysDesc"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysContact"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysMajAlarmLed"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysCriAlarmLed"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysAlarmDesc"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "consolePortSpd"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "manageIpAddr"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "manageNetMask"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "manageGateway"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "snmpReadCommunity"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "snmpRWCommunity"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "trapDstIpAddr1"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "trapDstIpAddr2"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "trapDstIpAddr3"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "trapDstIpAddr4"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysLogEntryEnable"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysLogLevel"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysCfgRestoreServer"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysCfgRestoreType"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysCfgBackupServer"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysCfgBackupType"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysCfgRestoreFilename"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "outbandNetMask"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "outbandIpAddr"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysOperate"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysCpuUtilization"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysMTU"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysAutoBackupEnable"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysAutoBackupType"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysAutoBackupInterval"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "sysAutoBackupServer"
+      }
+    ],
+    "status": "current"
+  },
+  "chassisInfoGroup": {
+    "name": "chassisInfoGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "chassisType"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "chassisFactorySerial"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "chassisRevision"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "chassisTemperature"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "powerStatusBit"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "fanStatusBit"
+      }
+    ],
+    "status": "current"
+  },
+  "cardModuleGroup": {
+    "name": "cardModuleGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "mainCardType"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "mainCardFactorySerial"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "mainCardHWRevision"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "mainCardSWVersion"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "mainCardRunningStatus"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "mainCardRunningTime"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "mainCardOperate"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardType"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardFactorySerial"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardHwRev"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardFwVer"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardRunningStatus"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardRuningTime"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardOperate"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ponCardUpgradeStat"
+      }
+    ],
+    "status": "current"
+  },
+  "onuAuthGroup": {
+    "name": "onuAuthGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "authMethod"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "nonAuthOper"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "beginMacAddr"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "endMacAddr"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "macAttr"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthMacRowStatus"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "nonAuthOnuMac"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "nonAuthOnuTries"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthLoidCfgRowStatus"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthPasswordStrings"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthLoidStrings"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthWhitelistMacCfgRowStatus"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthWhitelistMacAddr"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthBlacklistMacCfgRowStatus"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "oltId"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "onuAuthBlacklistMacAddr"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "authMethodV2"
+      }
+    ],
+    "status": "current"
+  },
+  "userManageGroup": {
+    "name": "userManageGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "userPassword"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "userPermission"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "userAccessDeviceMap"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "loginTimeout"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "userEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "systemUpgradeGroup": {
+    "name": "systemUpgradeGroup",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ftpServerIp"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ftpServerUserName"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ftpServerUserPasswd"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ftpOperFileName"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "dwLoadFileCrcCheck"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "dwLoadFileCrcValue"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "operDeviceMap"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "upgradeStatus"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ftpProgress"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "upgradeOperation"
+      },
+      {
+        "module": "FD-SYSTEM-MIB",
+        "object": "ftpOperTarget"
+      }
+    ],
+    "status": "current"
+  },
+  "fdSystemCompliances": {
+    "name": "fdSystemCompliances",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.2",
+    "class": "objectidentity"
+  },
+  "fdSystemCompliance": {
+    "name": "fdSystemCompliance",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.13.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "sysBaseManageGroup",
+        "module": "FD-SYSTEM-MIB"
+      },
+      {
+        "object": "chassisInfoGroup",
+        "module": "FD-SYSTEM-MIB"
+      },
+      {
+        "object": "cardModuleGroup",
+        "module": "FD-SYSTEM-MIB"
+      },
+      {
+        "object": "onuAuthGroup",
+        "module": "FD-SYSTEM-MIB"
+      },
+      {
+        "object": "userManageGroup",
+        "module": "FD-SYSTEM-MIB"
+      },
+      {
+        "object": "systemUpgradeGroup",
+        "module": "FD-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FD-SYSTEM-MIB"
+  }
+}

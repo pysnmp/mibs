@@ -1,0 +1,3156 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eip": {
+    "name": "eip",
+    "oid": "1.3.6.1.4.1.2440",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.2440.1",
+    "class": "objectidentity"
+  },
+  "eipHw": {
+    "name": "eipHw",
+    "oid": "1.3.6.1.4.1.2440.1.14",
+    "class": "objectidentity"
+  },
+  "eipHwAppliance": {
+    "name": "eipHwAppliance",
+    "oid": "1.3.6.1.4.1.2440.1.14.1",
+    "class": "objectidentity"
+  },
+  "eipHwHdd": {
+    "name": "eipHwHdd",
+    "oid": "1.3.6.1.4.1.2440.1.14.2",
+    "class": "objectidentity"
+  },
+  "eipHwTemp": {
+    "name": "eipHwTemp",
+    "oid": "1.3.6.1.4.1.2440.1.14.3",
+    "class": "objectidentity"
+  },
+  "eipHwFan": {
+    "name": "eipHwFan",
+    "oid": "1.3.6.1.4.1.2440.1.14.4",
+    "class": "objectidentity"
+  },
+  "eipHwPsu": {
+    "name": "eipHwPsu",
+    "oid": "1.3.6.1.4.1.2440.1.14.5",
+    "class": "objectidentity"
+  },
+  "eipHwPower": {
+    "name": "eipHwPower",
+    "oid": "1.3.6.1.4.1.2440.1.14.6",
+    "class": "objectidentity"
+  },
+  "eipHwRaid": {
+    "name": "eipHwRaid",
+    "oid": "1.3.6.1.4.1.2440.1.14.7",
+    "class": "objectidentity"
+  },
+  "eipHwCpu": {
+    "name": "eipHwCpu",
+    "oid": "1.3.6.1.4.1.2440.1.14.8",
+    "class": "objectidentity"
+  },
+  "eipHwMem": {
+    "name": "eipHwMem",
+    "oid": "1.3.6.1.4.1.2440.1.14.9",
+    "class": "objectidentity"
+  },
+  "eipHwChassis": {
+    "name": "eipHwChassis",
+    "oid": "1.3.6.1.4.1.2440.1.14.10",
+    "class": "objectidentity"
+  },
+  "eipNet": {
+    "name": "eipNet",
+    "oid": "1.3.6.1.4.1.2440.1.15",
+    "class": "objectidentity"
+  },
+  "eipNetCfg": {
+    "name": "eipNetCfg",
+    "oid": "1.3.6.1.4.1.2440.1.15.1",
+    "class": "objectidentity"
+  },
+  "eipNetCarp": {
+    "name": "eipNetCarp",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1",
+    "class": "objectidentity"
+  },
+  "eipNetCarpIf": {
+    "name": "eipNetCarpIf",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1",
+    "class": "objectidentity"
+  },
+  "eipNetLagg": {
+    "name": "eipNetLagg",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.2",
+    "class": "objectidentity"
+  },
+  "eipNetStat": {
+    "name": "eipNetStat",
+    "oid": "1.3.6.1.4.1.2440.1.15.2",
+    "class": "objectidentity"
+  },
+  "eipNetStatHttp": {
+    "name": "eipNetStatHttp",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.1",
+    "class": "objectidentity"
+  },
+  "eipNetStatDns": {
+    "name": "eipNetStatDns",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.2",
+    "class": "objectidentity"
+  },
+  "eipNetStatDhcp": {
+    "name": "eipNetStatDhcp",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.3",
+    "class": "objectidentity"
+  },
+  "eipNetStatDb": {
+    "name": "eipNetStatDb",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.4",
+    "class": "objectidentity"
+  },
+  "eipNetStatSnmp": {
+    "name": "eipNetStatSnmp",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.5",
+    "class": "objectidentity"
+  },
+  "eipSvc": {
+    "name": "eipSvc",
+    "oid": "1.3.6.1.4.1.2440.1.16",
+    "class": "objectidentity"
+  },
+  "eipSvcSyslog": {
+    "name": "eipSvcSyslog",
+    "oid": "1.3.6.1.4.1.2440.1.16.1",
+    "class": "objectidentity"
+  },
+  "eipSvcSsh": {
+    "name": "eipSvcSsh",
+    "oid": "1.3.6.1.4.1.2440.1.16.2",
+    "class": "objectidentity"
+  },
+  "eipSvcApache": {
+    "name": "eipSvcApache",
+    "oid": "1.3.6.1.4.1.2440.1.16.3",
+    "class": "objectidentity"
+  },
+  "eipSvcIpmServer": {
+    "name": "eipSvcIpmServer",
+    "oid": "1.3.6.1.4.1.2440.1.16.4",
+    "class": "objectidentity"
+  },
+  "eipSvcDatabase": {
+    "name": "eipSvcDatabase",
+    "oid": "1.3.6.1.4.1.2440.1.16.5",
+    "class": "objectidentity"
+  },
+  "eipSvcDhcp": {
+    "name": "eipSvcDhcp",
+    "oid": "1.3.6.1.4.1.2440.1.16.6",
+    "class": "objectidentity"
+  },
+  "eipSvcDhcpMs": {
+    "name": "eipSvcDhcpMs",
+    "oid": "1.3.6.1.4.1.2440.1.16.7",
+    "class": "objectidentity"
+  },
+  "eipSvcDns": {
+    "name": "eipSvcDns",
+    "oid": "1.3.6.1.4.1.2440.1.16.8",
+    "class": "objectidentity"
+  },
+  "eipSvcGuardian": {
+    "name": "eipSvcGuardian",
+    "oid": "1.3.6.1.4.1.2440.1.16.9",
+    "class": "objectidentity"
+  },
+  "eipSvcQuagga": {
+    "name": "eipSvcQuagga",
+    "oid": "1.3.6.1.4.1.2440.1.16.10",
+    "class": "objectidentity"
+  },
+  "eipSvcNtp": {
+    "name": "eipSvcNtp",
+    "oid": "1.3.6.1.4.1.2440.1.16.11",
+    "class": "objectidentity"
+  },
+  "eipSvcTftp": {
+    "name": "eipSvcTftp",
+    "oid": "1.3.6.1.4.1.2440.1.16.12",
+    "class": "objectidentity"
+  },
+  "eipSvcSnmp": {
+    "name": "eipSvcSnmp",
+    "oid": "1.3.6.1.4.1.2440.1.16.13",
+    "class": "objectidentity"
+  },
+  "eipSvcSendmail": {
+    "name": "eipSvcSendmail",
+    "oid": "1.3.6.1.4.1.2440.1.16.14",
+    "class": "objectidentity"
+  },
+  "eipSds": {
+    "name": "eipSds",
+    "oid": "1.3.6.1.4.1.2440.1.17",
+    "class": "objectidentity"
+  },
+  "eipSdsVersion": {
+    "name": "eipSdsVersion",
+    "oid": "1.3.6.1.4.1.2440.1.17.1",
+    "class": "objectidentity"
+  },
+  "eipSdsMember": {
+    "name": "eipSdsMember",
+    "oid": "1.3.6.1.4.1.2440.1.17.2",
+    "class": "objectidentity"
+  },
+  "eipCompliances": {
+    "name": "eipCompliances",
+    "oid": "1.3.6.1.4.1.2440.1.1000",
+    "class": "objectidentity"
+  },
+  "eipMainCompliance": {
+    "name": "eipMainCompliance",
+    "oid": "1.3.6.1.4.1.2440.1.1000.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "eipNetStatIn",
+        "module": "EIP-MON-MIB"
+      },
+      {
+        "object": "eipNetStatOut",
+        "module": "EIP-MON-MIB"
+      },
+      {
+        "object": "eipSvcStatus",
+        "module": "EIP-MON-MIB"
+      },
+      {
+        "object": "eipSvcCpu",
+        "module": "EIP-MON-MIB"
+      },
+      {
+        "object": "eipSvcMem",
+        "module": "EIP-MON-MIB"
+      },
+      {
+        "object": "eipSvcDiskIoRead",
+        "module": "EIP-MON-MIB"
+      },
+      {
+        "object": "eipSvcDiskIoWrite",
+        "module": "EIP-MON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "eipHwApplianceModel": {
+    "name": "eipHwApplianceModel",
+    "oid": "1.3.6.1.4.1.2440.1.14.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwApplianceSerial": {
+    "name": "eipHwApplianceSerial",
+    "oid": "1.3.6.1.4.1.2440.1.14.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwApplianceBiosVersion": {
+    "name": "eipHwApplianceBiosVersion",
+    "oid": "1.3.6.1.4.1.2440.1.14.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddFreeRoot": {
+    "name": "eipHwHddFreeRoot",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddUsedRootPercent": {
+    "name": "eipHwHddUsedRootPercent",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddFreeTmp": {
+    "name": "eipHwHddFreeTmp",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddUsedTmpPercent": {
+    "name": "eipHwHddUsedTmpPercent",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddFreeVar": {
+    "name": "eipHwHddFreeVar",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddUsedVarPercent": {
+    "name": "eipHwHddUsedVarPercent",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddFreeData1": {
+    "name": "eipHwHddFreeData1",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddUsedData1Percent": {
+    "name": "eipHwHddUsedData1Percent",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddUsedSwap": {
+    "name": "eipHwHddUsedSwap",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddUsedSwapPercent": {
+    "name": "eipHwHddUsedSwapPercent",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwHddIoLoad": {
+    "name": "eipHwHddIoLoad",
+    "oid": "1.3.6.1.4.1.2440.1.14.2.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwTempCpu": {
+    "name": "eipHwTempCpu",
+    "oid": "1.3.6.1.4.1.2440.1.14.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwTempCpuCoreMax": {
+    "name": "eipHwTempCpuCoreMax",
+    "oid": "1.3.6.1.4.1.2440.1.14.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwTempCpuCoreMin": {
+    "name": "eipHwTempCpuCoreMin",
+    "oid": "1.3.6.1.4.1.2440.1.14.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwTempInlet": {
+    "name": "eipHwTempInlet",
+    "oid": "1.3.6.1.4.1.2440.1.14.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwTempBaseboard": {
+    "name": "eipHwTempBaseboard",
+    "oid": "1.3.6.1.4.1.2440.1.14.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwTempRaidController": {
+    "name": "eipHwTempRaidController",
+    "oid": "1.3.6.1.4.1.2440.1.14.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan1Speed": {
+    "name": "eipHwFan1Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan2Speed": {
+    "name": "eipHwFan2Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan3Speed": {
+    "name": "eipHwFan3Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan4Speed": {
+    "name": "eipHwFan4Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan5Speed": {
+    "name": "eipHwFan5Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan6Speed": {
+    "name": "eipHwFan6Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan7Speed": {
+    "name": "eipHwFan7Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwFan8Speed": {
+    "name": "eipHwFan8Speed",
+    "oid": "1.3.6.1.4.1.2440.1.14.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwPsuRedundancy": {
+    "name": "eipHwPsuRedundancy",
+    "oid": "1.3.6.1.4.1.2440.1.14.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "ok": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwPsu1Status": {
+    "name": "eipHwPsu1Status",
+    "oid": "1.3.6.1.4.1.2440.1.14.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "ok": 1,
+          "present": 2,
+          "notpresent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwPsu2Status": {
+    "name": "eipHwPsu2Status",
+    "oid": "1.3.6.1.4.1.2440.1.14.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "ok": 1,
+          "present": 2,
+          "notpresent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwPowerInstant": {
+    "name": "eipHwPowerInstant",
+    "oid": "1.3.6.1.4.1.2440.1.14.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "W",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwPowerCumulative": {
+    "name": "eipHwPowerCumulative",
+    "oid": "1.3.6.1.4.1.2440.1.14.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kWh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwPowerPeak": {
+    "name": "eipHwPowerPeak",
+    "oid": "1.3.6.1.4.1.2440.1.14.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "W",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwPowerPeakAmperage": {
+    "name": "eipHwPowerPeakAmperage",
+    "oid": "1.3.6.1.4.1.2440.1.14.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwRaidController": {
+    "name": "eipHwRaidController",
+    "oid": "1.3.6.1.4.1.2440.1.14.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwRaidStatus": {
+    "name": "eipHwRaidStatus",
+    "oid": "1.3.6.1.4.1.2440.1.14.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "ok": 1,
+          "degraded": 2,
+          "offline": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwRaidDisks": {
+    "name": "eipHwRaidDisks",
+    "oid": "1.3.6.1.4.1.2440.1.14.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwRaidDisksCritical": {
+    "name": "eipHwRaidDisksCritical",
+    "oid": "1.3.6.1.4.1.2440.1.14.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwRaidDisksFailed": {
+    "name": "eipHwRaidDisksFailed",
+    "oid": "1.3.6.1.4.1.2440.1.14.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwRaidBbuStatus": {
+    "name": "eipHwRaidBbuStatus",
+    "oid": "1.3.6.1.4.1.2440.1.14.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "ok": 1,
+          "degraded": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwRaidBbuCharge": {
+    "name": "eipHwRaidBbuCharge",
+    "oid": "1.3.6.1.4.1.2440.1.14.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwCpuLoadInt": {
+    "name": "eipHwCpuLoadInt",
+    "oid": "1.3.6.1.4.1.2440.1.14.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwCpuCoreNumber": {
+    "name": "eipHwCpuCoreNumber",
+    "oid": "1.3.6.1.4.1.2440.1.14.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwMemUsed": {
+    "name": "eipHwMemUsed",
+    "oid": "1.3.6.1.4.1.2440.1.14.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipHwChassisIntrusion": {
+    "name": "eipHwChassisIntrusion",
+    "oid": "1.3.6.1.4.1.2440.1.14.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatIn": {
+    "name": "eipNetStatIn",
+    "oid": "1.3.6.1.4.1.2440.1.15.201",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatHttpInOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatHttpInPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDnsInOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDnsInPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDhcpInOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDhcpInPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDbInOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDbInPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatSnmpInOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatSnmpInPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "eipNetStatOut": {
+    "name": "eipNetStatOut",
+    "oid": "1.3.6.1.4.1.2440.1.15.202",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatHttpOutOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatHttpOutPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDnsOutOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDnsOutPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDhcpOutOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDhcpOutPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDbOutOctets"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatDbOutPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatSnmpOutPkts"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetStatSnmpOutPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "eipNetCarpIfNumber": {
+    "name": "eipNetCarpIfNumber",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetCarpIfTable": {
+    "name": "eipNetCarpIfTable",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eipNetCarpIfEntry": {
+    "name": "eipNetCarpIfEntry",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipNetCarpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eipNetCarpIfIndex": {
+    "name": "eipNetCarpIfIndex",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetCarpIfDescr": {
+    "name": "eipNetCarpIfDescr",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetCarpIfVhid": {
+    "name": "eipNetCarpIfVhid",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetCarpIfDev": {
+    "name": "eipNetCarpIfDev",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetCarpIfAdvbase": {
+    "name": "eipNetCarpIfAdvbase",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetCarpIfAdvskew": {
+    "name": "eipNetCarpIfAdvskew",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetCarpIfState": {
+    "name": "eipNetCarpIfState",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 0,
+          "backup": 1,
+          "master": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetLaggStatus": {
+    "name": "eipNetLaggStatus",
+    "oid": "1.3.6.1.4.1.2440.1.15.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "ok": 1,
+          "failed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatHttpInOctets": {
+    "name": "eipNetStatHttpInOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatHttpInPkts": {
+    "name": "eipNetStatHttpInPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatHttpOutOctets": {
+    "name": "eipNetStatHttpOutOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatHttpOutPkts": {
+    "name": "eipNetStatHttpOutPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDnsInOctets": {
+    "name": "eipNetStatDnsInOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDnsInPkts": {
+    "name": "eipNetStatDnsInPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDnsOutOctets": {
+    "name": "eipNetStatDnsOutOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDnsOutPkts": {
+    "name": "eipNetStatDnsOutPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDhcpInOctets": {
+    "name": "eipNetStatDhcpInOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDhcpInPkts": {
+    "name": "eipNetStatDhcpInPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDhcpOutOctets": {
+    "name": "eipNetStatDhcpOutOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDhcpOutPkts": {
+    "name": "eipNetStatDhcpOutPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDbInOctets": {
+    "name": "eipNetStatDbInOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDbInPkts": {
+    "name": "eipNetStatDbInPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDbOutOctets": {
+    "name": "eipNetStatDbOutOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatDbOutPkts": {
+    "name": "eipNetStatDbOutPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatSnmpInOctets": {
+    "name": "eipNetStatSnmpInOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatSnmpInPkts": {
+    "name": "eipNetStatSnmpInPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatSnmpOutOctets": {
+    "name": "eipNetStatSnmpOutOctets",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipNetStatSnmpOutPkts": {
+    "name": "eipNetStatSnmpOutPkts",
+    "oid": "1.3.6.1.4.1.2440.1.15.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcStatus": {
+    "name": "eipSvcStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.201",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSyslogStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSshStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcApacheStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcIpmServerStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDatabaseStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpMsStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDnsStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcGuardianStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcQuaggaStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcNtpStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcTftpStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSnmpStatus"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSendmailStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "eipSvcCpu": {
+    "name": "eipSvcCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.202",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSyslogCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSshCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcApacheCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcIpmServerCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDatabaseCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpMsCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDnsCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcGuardianCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcQuaggaCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcNtpCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcTftpCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSnmpCpu"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSendmailCpu"
+      }
+    ],
+    "status": "current"
+  },
+  "eipSvcMem": {
+    "name": "eipSvcMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.203",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSyslogMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSshMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcApacheMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcIpmServerMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDatabaseMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpMsMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDnsMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcGuardianMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcQuaggaMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcNtpMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcTftpMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSnmpMem"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSendmailMem"
+      }
+    ],
+    "status": "current"
+  },
+  "eipSvcDiskIoRead": {
+    "name": "eipSvcDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.204",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSyslogDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSshDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcApacheDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcIpmServerDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDatabaseDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpMsDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDnsDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcGuardianDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcQuaggaDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcNtpDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcTftpDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSnmpDiskIoRead"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSendmailDiskIoRead"
+      }
+    ],
+    "status": "current"
+  },
+  "eipSvcDiskIoWrite": {
+    "name": "eipSvcDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.205",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSyslogDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSshDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcApacheDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcIpmServerDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDatabaseDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpMsDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDnsDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcGuardianDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcQuaggaDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcNtpDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcTftpDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSnmpDiskIoWrite"
+      },
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcSendmailDiskIoWrite"
+      }
+    ],
+    "status": "current"
+  },
+  "eipSvcSyslogStatus": {
+    "name": "eipSvcSyslogStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSyslogCpu": {
+    "name": "eipSvcSyslogCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSyslogMem": {
+    "name": "eipSvcSyslogMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSyslogDiskIoRead": {
+    "name": "eipSvcSyslogDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSyslogDiskIoWrite": {
+    "name": "eipSvcSyslogDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSshStatus": {
+    "name": "eipSvcSshStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSshCpu": {
+    "name": "eipSvcSshCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSshMem": {
+    "name": "eipSvcSshMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSshDiskIoRead": {
+    "name": "eipSvcSshDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSshDiskIoWrite": {
+    "name": "eipSvcSshDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSshConnections": {
+    "name": "eipSvcSshConnections",
+    "oid": "1.3.6.1.4.1.2440.1.16.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcApacheStatus": {
+    "name": "eipSvcApacheStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcApacheCpu": {
+    "name": "eipSvcApacheCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcApacheMem": {
+    "name": "eipSvcApacheMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcApacheDiskIoRead": {
+    "name": "eipSvcApacheDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcApacheDiskIoWrite": {
+    "name": "eipSvcApacheDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcApacheConnections": {
+    "name": "eipSvcApacheConnections",
+    "oid": "1.3.6.1.4.1.2440.1.16.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerStatus": {
+    "name": "eipSvcIpmServerStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerCpu": {
+    "name": "eipSvcIpmServerCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerMem": {
+    "name": "eipSvcIpmServerMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerDiskIoRead": {
+    "name": "eipSvcIpmServerDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerDiskIoWrite": {
+    "name": "eipSvcIpmServerDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerUserSessions": {
+    "name": "eipSvcIpmServerUserSessions",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerThreads": {
+    "name": "eipSvcIpmServerThreads",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "threads",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcIpmServerDbQueries": {
+    "name": "eipSvcIpmServerDbQueries",
+    "oid": "1.3.6.1.4.1.2440.1.16.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "queries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseStatus": {
+    "name": "eipSvcDatabaseStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseCpu": {
+    "name": "eipSvcDatabaseCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseMem": {
+    "name": "eipSvcDatabaseMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseDiskIoRead": {
+    "name": "eipSvcDatabaseDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseDiskIoWrite": {
+    "name": "eipSvcDatabaseDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseReplicationStatus": {
+    "name": "eipSvcDatabaseReplicationStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "active": 1,
+          "initializing": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseReplicationOffset": {
+    "name": "eipSvcDatabaseReplicationOffset",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseReplicationLastReplay": {
+    "name": "eipSvcDatabaseReplicationLastReplay",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseBackends": {
+    "name": "eipSvcDatabaseBackends",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseDeadlocks": {
+    "name": "eipSvcDatabaseDeadlocks",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDatabaseBloat": {
+    "name": "eipSvcDatabaseBloat",
+    "oid": "1.3.6.1.4.1.2440.1.16.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpStatus": {
+    "name": "eipSvcDhcpStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpCpu": {
+    "name": "eipSvcDhcpCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpMem": {
+    "name": "eipSvcDhcpMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpDiskIoRead": {
+    "name": "eipSvcDhcpDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpDiskIoWrite": {
+    "name": "eipSvcDhcpDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpFailoverNumber": {
+    "name": "eipSvcDhcpFailoverNumber",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpFailoverTable": {
+    "name": "eipSvcDhcpFailoverTable",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eipSvcDhcpFailoverEntry": {
+    "name": "eipSvcDhcpFailoverEntry",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EIP-MON-MIB",
+        "object": "eipSvcDhcpFailoverIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eipSvcDhcpFailoverIndex": {
+    "name": "eipSvcDhcpFailoverIndex",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpFailoverName": {
+    "name": "eipSvcDhcpFailoverName",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpFailoverStatus": {
+    "name": "eipSvcDhcpFailoverStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "startup": 1,
+          "normal": 2,
+          "communicationsInterrupted": 3,
+          "partnerDown": 4,
+          "potentialConflict": 5,
+          "recover": 6,
+          "paused": 7,
+          "shutdown": 8,
+          "recoverDone": 9,
+          "resolutionInterrupted": 10,
+          "conflictDone": 11,
+          "recoverWait": 254
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpMsStatus": {
+    "name": "eipSvcDhcpMsStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpMsCpu": {
+    "name": "eipSvcDhcpMsCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpMsMem": {
+    "name": "eipSvcDhcpMsMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpMsDiskIoRead": {
+    "name": "eipSvcDhcpMsDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDhcpMsDiskIoWrite": {
+    "name": "eipSvcDhcpMsDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDnsStatus": {
+    "name": "eipSvcDnsStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDnsCpu": {
+    "name": "eipSvcDnsCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDnsMem": {
+    "name": "eipSvcDnsMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDnsDiskIoRead": {
+    "name": "eipSvcDnsDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDnsDiskIoWrite": {
+    "name": "eipSvcDnsDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcDnsEngine": {
+    "name": "eipSvcDnsEngine",
+    "oid": "1.3.6.1.4.1.2440.1.16.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcGuardianStatus": {
+    "name": "eipSvcGuardianStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcGuardianCpu": {
+    "name": "eipSvcGuardianCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcGuardianMem": {
+    "name": "eipSvcGuardianMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcGuardianDiskIoRead": {
+    "name": "eipSvcGuardianDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcGuardianDiskIoWrite": {
+    "name": "eipSvcGuardianDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcQuaggaStatus": {
+    "name": "eipSvcQuaggaStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcQuaggaCpu": {
+    "name": "eipSvcQuaggaCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcQuaggaMem": {
+    "name": "eipSvcQuaggaMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcQuaggaDiskIoRead": {
+    "name": "eipSvcQuaggaDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcQuaggaDiskIoWrite": {
+    "name": "eipSvcQuaggaDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcNtpStatus": {
+    "name": "eipSvcNtpStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcNtpCpu": {
+    "name": "eipSvcNtpCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcNtpMem": {
+    "name": "eipSvcNtpMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcNtpDiskIoRead": {
+    "name": "eipSvcNtpDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcNtpDiskIoWrite": {
+    "name": "eipSvcNtpDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcTftpStatus": {
+    "name": "eipSvcTftpStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcTftpCpu": {
+    "name": "eipSvcTftpCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcTftpMem": {
+    "name": "eipSvcTftpMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcTftpDiskIoRead": {
+    "name": "eipSvcTftpDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcTftpDiskIoWrite": {
+    "name": "eipSvcTftpDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSnmpStatus": {
+    "name": "eipSvcSnmpStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSnmpCpu": {
+    "name": "eipSvcSnmpCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSnmpMem": {
+    "name": "eipSvcSnmpMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSnmpDiskIoRead": {
+    "name": "eipSvcSnmpDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSnmpDiskIoWrite": {
+    "name": "eipSvcSnmpDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSendmailStatus": {
+    "name": "eipSvcSendmailStatus",
+    "oid": "1.3.6.1.4.1.2440.1.16.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "running": 1,
+          "misconfigured": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSendmailCpu": {
+    "name": "eipSvcSendmailCpu",
+    "oid": "1.3.6.1.4.1.2440.1.16.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSendmailMem": {
+    "name": "eipSvcSendmailMem",
+    "oid": "1.3.6.1.4.1.2440.1.16.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSendmailDiskIoRead": {
+    "name": "eipSvcSendmailDiskIoRead",
+    "oid": "1.3.6.1.4.1.2440.1.16.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSendmailDiskIoWrite": {
+    "name": "eipSvcSendmailDiskIoWrite",
+    "oid": "1.3.6.1.4.1.2440.1.16.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSvcSendmailQueueSize": {
+    "name": "eipSvcSendmailQueueSize",
+    "oid": "1.3.6.1.4.1.2440.1.16.14.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSdsVersionOs": {
+    "name": "eipSdsVersionOs",
+    "oid": "1.3.6.1.4.1.2440.1.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "i386": 0,
+          "amd64": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSdsVersionNumber": {
+    "name": "eipSdsVersionNumber",
+    "oid": "1.3.6.1.4.1.2440.1.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSdsVersionDate": {
+    "name": "eipSdsVersionDate",
+    "oid": "1.3.6.1.4.1.2440.1.17.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSdsMemberRole": {
+    "name": "eipSdsMemberRole",
+    "oid": "1.3.6.1.4.1.2440.1.17.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 0,
+          "master": 1,
+          "hotStandby": 2,
+          "masterRecovered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eipSdsMemberStatus": {
+    "name": "eipSdsMemberStatus",
+    "oid": "1.3.6.1.4.1.2440.1.17.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "notConfigured": 1,
+          "upgrading": 2,
+          "initStandby": 3,
+          "invalidCredentials": 4,
+          "remoteManaged": 5,
+          "timeout": 6,
+          "splitBrain": 7,
+          "replicationStopped": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/efficientip/EIP-MON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EIP-MON-MIB"
+  }
+}

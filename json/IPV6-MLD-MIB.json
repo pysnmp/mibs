@@ -1,0 +1,570 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "mldMIB": {
+    "name": "mldMIB",
+    "oid": "1.3.6.1.2.1.91",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-01-25 00:00",
+        "description": "Initial version, published as RFC 3019."
+      }
+    ]
+  },
+  "mldMIBObjects": {
+    "name": "mldMIBObjects",
+    "oid": "1.3.6.1.2.1.91.1",
+    "class": "objectidentity"
+  },
+  "mldInterfaceTable": {
+    "name": "mldInterfaceTable",
+    "oid": "1.3.6.1.2.1.91.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mldInterfaceEntry": {
+    "name": "mldInterfaceEntry",
+    "oid": "1.3.6.1.2.1.91.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mldInterfaceIfIndex": {
+    "name": "mldInterfaceIfIndex",
+    "oid": "1.3.6.1.2.1.91.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mldInterfaceQueryInterval": {
+    "name": "mldInterfaceQueryInterval",
+    "oid": "1.3.6.1.2.1.91.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 125,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldInterfaceStatus": {
+    "name": "mldInterfaceStatus",
+    "oid": "1.3.6.1.2.1.91.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldInterfaceVersion": {
+    "name": "mldInterfaceVersion",
+    "oid": "1.3.6.1.2.1.91.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldInterfaceQuerier": {
+    "name": "mldInterfaceQuerier",
+    "oid": "1.3.6.1.2.1.91.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldInterfaceQueryMaxRespDelay": {
+    "name": "mldInterfaceQueryMaxRespDelay",
+    "oid": "1.3.6.1.2.1.91.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldInterfaceJoins": {
+    "name": "mldInterfaceJoins",
+    "oid": "1.3.6.1.2.1.91.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldInterfaceGroups": {
+    "name": "mldInterfaceGroups",
+    "oid": "1.3.6.1.2.1.91.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldInterfaceRobustness": {
+    "name": "mldInterfaceRobustness",
+    "oid": "1.3.6.1.2.1.91.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldInterfaceLastListenQueryIntvl": {
+    "name": "mldInterfaceLastListenQueryIntvl",
+    "oid": "1.3.6.1.2.1.91.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldInterfaceProxyIfIndex": {
+    "name": "mldInterfaceProxyIfIndex",
+    "oid": "1.3.6.1.2.1.91.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldInterfaceQuerierUpTime": {
+    "name": "mldInterfaceQuerierUpTime",
+    "oid": "1.3.6.1.2.1.91.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldInterfaceQuerierExpiryTime": {
+    "name": "mldInterfaceQuerierExpiryTime",
+    "oid": "1.3.6.1.2.1.91.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldCacheTable": {
+    "name": "mldCacheTable",
+    "oid": "1.3.6.1.2.1.91.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mldCacheEntry": {
+    "name": "mldCacheEntry",
+    "oid": "1.3.6.1.2.1.91.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldCacheAddress",
+        "implied": 0
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldCacheIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mldCacheAddress": {
+    "name": "mldCacheAddress",
+    "oid": "1.3.6.1.2.1.91.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mldCacheIfIndex": {
+    "name": "mldCacheIfIndex",
+    "oid": "1.3.6.1.2.1.91.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mldCacheSelf": {
+    "name": "mldCacheSelf",
+    "oid": "1.3.6.1.2.1.91.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldCacheLastReporter": {
+    "name": "mldCacheLastReporter",
+    "oid": "1.3.6.1.2.1.91.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldCacheUpTime": {
+    "name": "mldCacheUpTime",
+    "oid": "1.3.6.1.2.1.91.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldCacheExpiryTime": {
+    "name": "mldCacheExpiryTime",
+    "oid": "1.3.6.1.2.1.91.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mldCacheStatus": {
+    "name": "mldCacheStatus",
+    "oid": "1.3.6.1.2.1.91.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mldMIBConformance": {
+    "name": "mldMIBConformance",
+    "oid": "1.3.6.1.2.1.91.2",
+    "class": "objectidentity"
+  },
+  "mldMIBCompliances": {
+    "name": "mldMIBCompliances",
+    "oid": "1.3.6.1.2.1.91.2.1",
+    "class": "objectidentity"
+  },
+  "mldMIBGroups": {
+    "name": "mldMIBGroups",
+    "oid": "1.3.6.1.2.1.91.2.2",
+    "class": "objectidentity"
+  },
+  "mldHostMIBCompliance": {
+    "name": "mldHostMIBCompliance",
+    "oid": "1.3.6.1.2.1.91.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mldBaseMIBGroup",
+        "module": "IPV6-MLD-MIB"
+      },
+      {
+        "object": "mldHostMIBGroup",
+        "module": "IPV6-MLD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mldRouterMIBCompliance": {
+    "name": "mldRouterMIBCompliance",
+    "oid": "1.3.6.1.2.1.91.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mldBaseMIBGroup",
+        "module": "IPV6-MLD-MIB"
+      },
+      {
+        "object": "mldRouterMIBGroup",
+        "module": "IPV6-MLD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mldBaseMIBGroup": {
+    "name": "mldBaseMIBGroup",
+    "oid": "1.3.6.1.2.1.91.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldCacheSelf"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldCacheStatus"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mldRouterMIBGroup": {
+    "name": "mldRouterMIBGroup",
+    "oid": "1.3.6.1.2.1.91.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldCacheUpTime"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldCacheExpiryTime"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceQueryInterval"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceJoins"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceGroups"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldCacheLastReporter"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceQuerierUpTime"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceQuerierExpiryTime"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceQuerier"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceVersion"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceQueryMaxRespDelay"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceRobustness"
+      },
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceLastListenQueryIntvl"
+      }
+    ],
+    "status": "current"
+  },
+  "mldHostMIBGroup": {
+    "name": "mldHostMIBGroup",
+    "oid": "1.3.6.1.2.1.91.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceQuerier"
+      }
+    ],
+    "status": "current"
+  },
+  "mldProxyMIBGroup": {
+    "name": "mldProxyMIBGroup",
+    "oid": "1.3.6.1.2.1.91.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPV6-MLD-MIB",
+        "object": "mldInterfaceProxyIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-MLD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IPV6-MLD-MIB"
+  }
+}

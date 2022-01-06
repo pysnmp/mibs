@@ -1,0 +1,1405 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifAlias"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "rad": {
+    "name": "rad",
+    "oid": "1.3.6.1.4.1.164",
+    "class": "objectidentity"
+  },
+  "radGen": {
+    "name": "radGen",
+    "oid": "1.3.6.1.4.1.164.6",
+    "class": "objectidentity"
+  },
+  "systems": {
+    "name": "systems",
+    "oid": "1.3.6.1.4.1.164.6.1",
+    "class": "objectidentity"
+  },
+  "agnt": {
+    "name": "agnt",
+    "oid": "1.3.6.1.4.1.164.6.2",
+    "class": "objectidentity"
+  },
+  "agnHwVersion": {
+    "name": "agnHwVersion",
+    "oid": "1.3.6.1.4.1.164.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnTrapMask": {
+    "name": "agnTrapMask",
+    "oid": "1.3.6.1.4.1.164.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnTrapValue": {
+    "name": "agnTrapValue",
+    "oid": "1.3.6.1.4.1.164.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "agnChangeCnt": {
+    "name": "agnChangeCnt",
+    "oid": "1.3.6.1.4.1.164.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agnSpecific": {
+    "name": "agnSpecific",
+    "oid": "1.3.6.1.4.1.164.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agnConfigMsg": {
+    "name": "agnConfigMsg",
+    "oid": "1.3.6.1.4.1.164.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mngTrapIpTable": {
+    "name": "mngTrapIpTable",
+    "oid": "1.3.6.1.4.1.164.6.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mngEntry": {
+    "name": "mngEntry",
+    "oid": "1.3.6.1.4.1.164.6.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAD-MIB",
+        "object": "mngID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mngID": {
+    "name": "mngID",
+    "oid": "1.3.6.1.4.1.164.6.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mngIP": {
+    "name": "mngIP",
+    "oid": "1.3.6.1.4.1.164.6.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mngIPMask": {
+    "name": "mngIPMask",
+    "oid": "1.3.6.1.4.1.164.6.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mngTrapMask": {
+    "name": "mngTrapMask",
+    "oid": "1.3.6.1.4.1.164.6.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mngAlarmTrapMask": {
+    "name": "mngAlarmTrapMask",
+    "oid": "1.3.6.1.4.1.164.6.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mngSnmpTrapUdpPort": {
+    "name": "mngSnmpTrapUdpPort",
+    "oid": "1.3.6.1.4.1.164.6.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnIndication": {
+    "name": "agnIndication",
+    "oid": "1.3.6.1.4.1.164.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "faulty": 1,
+          "warning": 2,
+          "normal": 3,
+          "minor": 4,
+          "major": 5,
+          "event": 6,
+          "critical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agnMonitorModeCmd": {
+    "name": "agnMonitorModeCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnLed": {
+    "name": "agnLed",
+    "oid": "1.3.6.1.4.1.164.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapTable": {
+    "name": "trapTable",
+    "oid": "1.3.6.1.4.1.164.6.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapEntry": {
+    "name": "trapEntry",
+    "oid": "1.3.6.1.4.1.164.6.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAD-MIB",
+        "object": "trapID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "trapID": {
+    "name": "trapID",
+    "oid": "1.3.6.1.4.1.164.6.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapVal": {
+    "name": "trapVal",
+    "oid": "1.3.6.1.4.1.164.6.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapTimeSinceOccurrence": {
+    "name": "trapTimeSinceOccurrence",
+    "oid": "1.3.6.1.4.1.164.6.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileTransfer": {
+    "name": "fileTransfer",
+    "oid": "1.3.6.1.4.1.164.6.2.12",
+    "class": "objectidentity"
+  },
+  "fileServerIP": {
+    "name": "fileServerIP",
+    "oid": "1.3.6.1.4.1.164.6.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileName": {
+    "name": "fileName",
+    "oid": "1.3.6.1.4.1.164.6.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileTransCmd": {
+    "name": "fileTransCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swDwnLoad": 1,
+          "configDwnLoad": 2,
+          "configUpLoad": 3,
+          "coProcDwnLoad": 4,
+          "stateUpLoad": 5,
+          "dwnLoadUserFile": 6,
+          "upLoadUserFile": 7,
+          "swDwnLoadAndReset": 8,
+          "swUpLoad": 9,
+          "swDwnLoad2BkupStorage": 10,
+          "bootDwnLoad": 11,
+          "bootUpLoad": 12,
+          "swUpLoadFromBkupStorage": 13,
+          "licenseDwnLoad": 14,
+          "configDwnLoadToDefaultFile": 15,
+          "noOp": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpRetryTimeOut": {
+    "name": "tftpRetryTimeOut",
+    "oid": "1.3.6.1.4.1.164.6.2.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpTotalTimeOut": {
+    "name": "tftpTotalTimeOut",
+    "oid": "1.3.6.1.4.1.164.6.2.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpStatus": {
+    "name": "tftpStatus",
+    "oid": "1.3.6.1.4.1.164.6.2.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 2,
+          "connecting": 3,
+          "transferringData": 4,
+          "endedTimeOut": 5,
+          "endedOk": 6,
+          "error": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noOp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpError": {
+    "name": "tftpError",
+    "oid": "1.3.6.1.4.1.164.6.2.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileTransferToSubSystems": {
+    "name": "fileTransferToSubSystems",
+    "oid": "1.3.6.1.4.1.164.6.2.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileNameWithinProduct": {
+    "name": "fileNameWithinProduct",
+    "oid": "1.3.6.1.4.1.164.6.2.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "intSwdlTable": {
+    "name": "intSwdlTable",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intSwdlEntry": {
+    "name": "intSwdlEntry",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAD-MIB",
+        "object": "intSwdlObjIdx",
+        "implied": 0
+      },
+      {
+        "module": "RAD-MIB",
+        "object": "intSwdlFileIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "intSwdlObjIdx": {
+    "name": "intSwdlObjIdx",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSwdlFileIdx": {
+    "name": "intSwdlFileIdx",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSwdlFileName": {
+    "name": "intSwdlFileName",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSwdlFileSwVer": {
+    "name": "intSwdlFileSwVer",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSwdlSwDate": {
+    "name": "intSwdlSwDate",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSwdlSize": {
+    "name": "intSwdlSize",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSwdlCmd": {
+    "name": "intSwdlCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "intSwdlToSubSystem": {
+    "name": "intSwdlToSubSystem",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "intSwdlCardType": {
+    "name": "intSwdlCardType",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "gstm1": 220,
+          "goc3": 221,
+          "gstm1D": 222,
+          "goc3D": 223,
+          "serverE1": 270,
+          "serverT1": 271,
+          "serverE1Pw": 272,
+          "serverT1Pw": 273,
+          "gigabitEth": 280,
+          "channelizedT3Pw1": 290,
+          "cesT128": 300,
+          "cesE128": 301,
+          "cesT1Pw28": 302,
+          "cesE1Pw28": 303,
+          "vmxE1VeDe": 310,
+          "vmxE1VeDi": 311,
+          "vmxE1ViDe": 312,
+          "vmxE1ViDi": 313,
+          "vmxT1VeDe": 314,
+          "vmxT1VeDi": 315,
+          "vmxT1ViDe": 316,
+          "vmxT1ViDi": 317,
+          "vc12E1UeNe": 318,
+          "vc12E1UeNi": 319,
+          "vc12E1UiNe": 320,
+          "vc12E1UiNi": 321,
+          "vc12T1UeNe": 322,
+          "vc12T1UeNi": 323,
+          "vc12T1UiNe": 324,
+          "vc12T1UiNi": 325
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSwdlFlashIdx": {
+    "name": "intSwdlFlashIdx",
+    "oid": "1.3.6.1.4.1.164.6.2.12.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swdlStatusTable": {
+    "name": "swdlStatusTable",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swdlStatusEntry": {
+    "name": "swdlStatusEntry",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAD-MIB",
+        "object": "swdlStatusTypeIdx",
+        "implied": 0
+      },
+      {
+        "module": "RAD-MIB",
+        "object": "swdlStatusIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swdlStatusTypeIdx": {
+    "name": "swdlStatusTypeIdx",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swdlStatusIdx": {
+    "name": "swdlStatusIdx",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swdlStatusFileName": {
+    "name": "swdlStatusFileName",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swdlStatusSlot": {
+    "name": "swdlStatusSlot",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swdlStatusSubSystem": {
+    "name": "swdlStatusSubSystem",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swdlStatusStatus": {
+    "name": "swdlStatusStatus",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swdlStatusTime": {
+    "name": "swdlStatusTime",
+    "oid": "1.3.6.1.4.1.164.6.2.12.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clearDwldStatusLog": {
+    "name": "clearDwldStatusLog",
+    "oid": "1.3.6.1.4.1.164.6.2.12.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoFileTransfer": {
+    "name": "autoFileTransfer",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13",
+    "class": "objectidentity"
+  },
+  "autoFileTransferTable": {
+    "name": "autoFileTransferTable",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "autoFileTransferEntry": {
+    "name": "autoFileTransferEntry",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RAD-MIB",
+        "object": "autoFileTransferType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "autoFileTransferType": {
+    "name": "autoFileTransferType",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmsBuffer": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "autoFileTransferServerIp": {
+    "name": "autoFileTransferServerIp",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoFileTransferFileName": {
+    "name": "autoFileTransferFileName",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoFileTransferScheduling": {
+    "name": "autoFileTransferScheduling",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "now": 2,
+          "recurrence": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoFileTransferTimeRecurrence": {
+    "name": "autoFileTransferTimeRecurrence",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoFileTransferOccurrenceRecurrence": {
+    "name": "autoFileTransferOccurrenceRecurrence",
+    "oid": "1.3.6.1.4.1.164.6.2.12.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileTransferServerPort": {
+    "name": "fileTransferServerPort",
+    "oid": "1.3.6.1.4.1.164.6.2.12.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileTransferProtocol": {
+    "name": "fileTransferProtocol",
+    "oid": "1.3.6.1.4.1.164.6.2.12.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "sftp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemReset": {
+    "name": "systemReset",
+    "oid": "1.3.6.1.4.1.164.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 3,
+          "resetConfig": 4,
+          "resetMapping": 5,
+          "resetStandby": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTiming": {
+    "name": "systemTiming",
+    "oid": "1.3.6.1.4.1.164.6.2.14",
+    "class": "objectidentity"
+  },
+  "systemDate": {
+    "name": "systemDate",
+    "oid": "1.3.6.1.4.1.164.6.2.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTime": {
+    "name": "systemTime",
+    "oid": "1.3.6.1.4.1.164.6.2.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemTimeElapsed": {
+    "name": "systemTimeElapsed",
+    "oid": "1.3.6.1.4.1.164.6.2.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemResetAllStatsCmd": {
+    "name": "systemResetAllStatsCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemClearTablesCmd": {
+    "name": "systemClearTablesCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "tempCnfgTables": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemParameter": {
+    "name": "systemParameter",
+    "oid": "1.3.6.1.4.1.164.6.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnGlobalAlarmMask": {
+    "name": "agnGlobalAlarmMask",
+    "oid": "1.3.6.1.4.1.164.6.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmSeverity": {
+    "name": "alarmSeverity",
+    "oid": "1.3.6.1.4.1.164.6.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "event": 3,
+          "minor": 4,
+          "major": 5,
+          "warning": 6,
+          "critical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmState": {
+    "name": "alarmState",
+    "oid": "1.3.6.1.4.1.164.6.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agnTestStatus": {
+    "name": "agnTestStatus",
+    "oid": "1.3.6.1.4.1.164.6.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSaveAndResetAllStatsCmd": {
+    "name": "systemSaveAndResetAllStatsCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemDefaultGateway": {
+    "name": "systemDefaultGateway",
+    "oid": "1.3.6.1.4.1.164.6.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnSendTrapParameter": {
+    "name": "agnSendTrapParameter",
+    "oid": "1.3.6.1.4.1.164.6.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnDeviceCapabilities": {
+    "name": "agnDeviceCapabilities",
+    "oid": "1.3.6.1.4.1.164.6.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agnStoreCmd": {
+    "name": "agnStoreCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "inFlash": 3,
+          "asDefConfigFile": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnSwVersionSwapCmd": {
+    "name": "agnSwVersionSwapCmd",
+    "oid": "1.3.6.1.4.1.164.6.2.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "mainAndBackup": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "agnTrapDelay": {
+    "name": "agnTrapDelay",
+    "oid": "1.3.6.1.4.1.164.6.2.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemsEvents": {
+    "name": "systemsEvents",
+    "oid": "1.3.6.1.4.1.164.6.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "tftpStatusChangeTrap": {
+    "name": "tftpStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.164.6.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAD-MIB",
+        "object": "tftpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "agnStatusChangeTrap": {
+    "name": "agnStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.164.6.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAD-MIB",
+        "object": "agnIndication"
+      }
+    ],
+    "status": "current"
+  },
+  "swdlStatusResult": {
+    "name": "swdlStatusResult",
+    "oid": "1.3.6.1.4.1.164.6.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAD-MIB",
+        "object": "swdlStatusFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "intSwdlSlotFileMismatch": {
+    "name": "intSwdlSlotFileMismatch",
+    "oid": "1.3.6.1.4.1.164.6.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RAD-MIB",
+        "object": "intSwdlFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/RAD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAD-MIB"
+  }
+}

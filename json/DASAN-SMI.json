@@ -1,0 +1,175 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "enterprises",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dasan": {
+    "name": "dasan",
+    "oid": "1.3.6.1.4.1.6296",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1901-04-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dasanEvents": {
+    "name": "dasanEvents",
+    "oid": "1.3.6.1.4.1.6296.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanProducts": {
+    "name": "dasanProducts",
+    "oid": "1.3.6.1.4.1.6296.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "local": {
+    "name": "local",
+    "oid": "1.3.6.1.4.1.6296.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "temporary": {
+    "name": "temporary",
+    "oid": "1.3.6.1.4.1.6296.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "pakmon": {
+    "name": "pakmon",
+    "oid": "1.3.6.1.4.1.6296.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "workgroup": {
+    "name": "workgroup",
+    "oid": "1.3.6.1.4.1.6296.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "otherEnterprises": {
+    "name": "otherEnterprises",
+    "oid": "1.3.6.1.4.1.6296.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanAgentCapability": {
+    "name": "dasanAgentCapability",
+    "oid": "1.3.6.1.4.1.6296.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanConfig": {
+    "name": "dasanConfig",
+    "oid": "1.3.6.1.4.1.6296.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanMgmt": {
+    "name": "dasanMgmt",
+    "oid": "1.3.6.1.4.1.6296.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanExperiment": {
+    "name": "dasanExperiment",
+    "oid": "1.3.6.1.4.1.6296.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanAdmin": {
+    "name": "dasanAdmin",
+    "oid": "1.3.6.1.4.1.6296.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanModules": {
+    "name": "dasanModules",
+    "oid": "1.3.6.1.4.1.6296.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lightstream": {
+    "name": "lightstream",
+    "oid": "1.3.6.1.4.1.6296.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanworks": {
+    "name": "dasanworks",
+    "oid": "1.3.6.1.4.1.6296.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "newport": {
+    "name": "newport",
+    "oid": "1.3.6.1.4.1.6296.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanPartnerProducts": {
+    "name": "dasanPartnerProducts",
+    "oid": "1.3.6.1.4.1.6296.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dasanPolicy": {
+    "name": "dasanPolicy",
+    "oid": "1.3.6.1.4.1.6296.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sleMgmt": {
+    "name": "sleMgmt",
+    "oid": "1.3.6.1.4.1.6296.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sleV2Mgmt": {
+    "name": "sleV2Mgmt",
+    "oid": "1.3.6.1.4.1.6296.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dsShe": {
+    "name": "dsShe",
+    "oid": "1.3.6.1.4.1.6296.6.2",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-SMI",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DASAN-SMI"
+  }
+}

@@ -1,0 +1,3447 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "RUCKUS-ROOT-MIB": [
+      "ruckusZDWLANModule"
+    ],
+    "RUCKUS-TC-MIB": [
+      "RuckusRateLimiting",
+      "RuckusAdminStatus",
+      "RuckusRadioMode",
+      "RuckusSSID",
+      "RuckusdB"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruckusZDWLANMIB": {
+    "name": "ruckusZDWLANMIB",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1",
+    "class": "moduleidentity"
+  },
+  "ruckusZDWLANObjects": {
+    "name": "ruckusZDWLANObjects",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusZDWLANInfo": {
+    "name": "ruckusZDWLANInfo",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "ruckusZDWLANTable": {
+    "name": "ruckusZDWLANTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANEntry": {
+    "name": "ruckusZDWLANEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANIndex": {
+    "name": "ruckusZDWLANIndex",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.200",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANSSID": {
+    "name": "ruckusZDWLANSSID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuckusSSID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDescription": {
+    "name": "ruckusZDWLANDescription",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAuthentication": {
+    "name": "ruckusZDWLANAuthentication",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANEncryption": {
+    "name": "ruckusZDWLANEncryption",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANIsGuest": {
+    "name": "ruckusZDWLANIsGuest",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANSSIDBcastDisable": {
+    "name": "ruckusZDWLANSSIDBcastDisable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVlanID": {
+    "name": "ruckusZDWLANVlanID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRateLimitingUp": {
+    "name": "ruckusZDWLANRateLimitingUp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRateLimitingDown": {
+    "name": "ruckusZDWLANRateLimitingDown",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANTunnelWLAN": {
+    "name": "ruckusZDWLANTunnelWLAN",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANNumVAP": {
+    "name": "ruckusZDWLANNumVAP",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANNumSta": {
+    "name": "ruckusZDWLANNumSta",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRxPkts": {
+    "name": "ruckusZDWLANRxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRxBytes": {
+    "name": "ruckusZDWLANRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANTxPkts": {
+    "name": "ruckusZDWLANTxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANTxBytes": {
+    "name": "ruckusZDWLANTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAuthTotal": {
+    "name": "ruckusZDWLANAuthTotal",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAuthResp": {
+    "name": "ruckusZDWLANAuthResp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAuthSuccessTotal": {
+    "name": "ruckusZDWLANAuthSuccessTotal",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAuthFail": {
+    "name": "ruckusZDWLANAuthFail",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAssocTotal": {
+    "name": "ruckusZDWLANAssocTotal",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAssocResp": {
+    "name": "ruckusZDWLANAssocResp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANReassocReq": {
+    "name": "ruckusZDWLANReassocReq",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANReassocResp": {
+    "name": "ruckusZDWLANReassocResp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAssocSuccess": {
+    "name": "ruckusZDWLANAssocSuccess",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAssocFail": {
+    "name": "ruckusZDWLANAssocFail",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAssocDenied": {
+    "name": "ruckusZDWLANAssocDenied",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDiassocAbnormal": {
+    "name": "ruckusZDWLANDiassocAbnormal",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDiassocCapacity": {
+    "name": "ruckusZDWLANDiassocCapacity",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDiassocLeave": {
+    "name": "ruckusZDWLANDiassocLeave",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDiassocMisc": {
+    "name": "ruckusZDWLANDiassocMisc",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRxByteRate": {
+    "name": "ruckusZDWLANRxByteRate",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANTxByteRate": {
+    "name": "ruckusZDWLANTxByteRate",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRxDataFrameOnLan": {
+    "name": "ruckusZDWLANRxDataFrameOnLan",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRxByteOnLan": {
+    "name": "ruckusZDWLANRxByteOnLan",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANTxByteOnLan": {
+    "name": "ruckusZDWLANTxByteOnLan",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDownDropFrame": {
+    "name": "ruckusZDWLANDownDropFrame",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDownRetxFrame": {
+    "name": "ruckusZDWLANDownRetxFrame",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDownTotalFrame": {
+    "name": "ruckusZDWLANDownTotalFrame",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANDownTotalErrFrame": {
+    "name": "ruckusZDWLANDownTotalErrFrame",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANUpTotalFrame": {
+    "name": "ruckusZDWLANUpTotalFrame",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANUpDropFrame": {
+    "name": "ruckusZDWLANUpDropFrame",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANUpRetxFrame": {
+    "name": "ruckusZDWLANUpRetxFrame",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANNAME": {
+    "name": "ruckusZDWLANNAME",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.1.1.1.108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuckusSSID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPInfo": {
+    "name": "ruckusZDWLANAPInfo",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "ruckusZDWLANAPTable": {
+    "name": "ruckusZDWLANAPTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEntry": {
+    "name": "ruckusZDWLANAPEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANAPMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANAPMacAddr": {
+    "name": "ruckusZDWLANAPMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPDescription": {
+    "name": "ruckusZDWLANAPDescription",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPStatus": {
+    "name": "ruckusZDWLANAPStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 0,
+          "connected": 1,
+          "approvalPending": 2,
+          "upgradingFirmware": 3,
+          "provisioning": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPModel": {
+    "name": "ruckusZDWLANAPModel",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPSerialNumber": {
+    "name": "ruckusZDWLANAPSerialNumber",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPUptime": {
+    "name": "ruckusZDWLANAPUptime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPSWversion": {
+    "name": "ruckusZDWLANAPSWversion",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPHWversion": {
+    "name": "ruckusZDWLANAPHWversion",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIPAddr": {
+    "name": "ruckusZDWLANAPIPAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPNumRadios": {
+    "name": "ruckusZDWLANAPNumRadios",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPNumVAP": {
+    "name": "ruckusZDWLANAPNumVAP",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPNumSta": {
+    "name": "ruckusZDWLANAPNumSta",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPNumRogues": {
+    "name": "ruckusZDWLANAPNumRogues",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPConnectionMode": {
+    "name": "ruckusZDWLANAPConnectionMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layer2": 0,
+          "layer3": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMeshEnable": {
+    "name": "ruckusZDWLANAPMeshEnable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMeshHops": {
+    "name": "ruckusZDWLANAPMeshHops",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMeshType": {
+    "name": "ruckusZDWLANAPMeshType",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "root": 1,
+          "mesh": 2,
+          "forming": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXByte": {
+    "name": "ruckusZDWLANAPLANStatsRXByte",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXPkt": {
+    "name": "ruckusZDWLANAPLANStatsRXPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXPktErr": {
+    "name": "ruckusZDWLANAPLANStatsRXPktErr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXPKTSucc": {
+    "name": "ruckusZDWLANAPLANStatsRXPKTSucc",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsTXByte": {
+    "name": "ruckusZDWLANAPLANStatsTXByte",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsTXPkt": {
+    "name": "ruckusZDWLANAPLANStatsTXPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMemUtil": {
+    "name": "ruckusZDWLANAPMemUtil",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMemTotal": {
+    "name": "ruckusZDWLANAPMemTotal",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPCPUUtil": {
+    "name": "ruckusZDWLANAPCPUUtil",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPFWSize": {
+    "name": "ruckusZDWLANAPFWSize",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPFWAvail": {
+    "name": "ruckusZDWLANAPFWAvail",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMultipleVlanCapability": {
+    "name": "ruckusZDWLANAPMultipleVlanCapability",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAP11bCapable": {
+    "name": "ruckusZDWLANAP11bCapable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAP11gCapable": {
+    "name": "ruckusZDWLANAP11gCapable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMultiModeAccessStatus": {
+    "name": "ruckusZDWLANAPMultiModeAccessStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthStateChange": {
+    "name": "ruckusZDWLANAPEthStateChange",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPSyncConf": {
+    "name": "ruckusZDWLANAPSyncConf",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPUpgrade": {
+    "name": "ruckusZDWLANAPUpgrade",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPFirstJoinTime": {
+    "name": "ruckusZDWLANAPFirstJoinTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLastBootTime": {
+    "name": "ruckusZDWLANAPLastBootTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLastUpgradeTime": {
+    "name": "ruckusZDWLANAPLastUpgradeTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLastConfSyncTime": {
+    "name": "ruckusZDWLANAPLastConfSyncTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXPKTBcast": {
+    "name": "ruckusZDWLANAPLANStatsRXPKTBcast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXPKTMcast": {
+    "name": "ruckusZDWLANAPLANStatsRXPKTMcast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXPKTUcast": {
+    "name": "ruckusZDWLANAPLANStatsRXPKTUcast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsTXPKTBcast": {
+    "name": "ruckusZDWLANAPLANStatsTXPKTBcast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsTXPKTMcast": {
+    "name": "ruckusZDWLANAPLANStatsTXPKTMcast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsTXPKTUcast": {
+    "name": "ruckusZDWLANAPLANStatsTXPKTUcast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsDropped": {
+    "name": "ruckusZDWLANAPLANStatsDropped",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMeshUpPortCntUpdown": {
+    "name": "ruckusZDWLANAPMeshUpPortCntUpdown",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPMeshDownPortCntUpdown": {
+    "name": "ruckusZDWLANAPMeshDownPortCntUpdown",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPTxFrameDropped": {
+    "name": "ruckusZDWLANAPTxFrameDropped",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPTxFrameError": {
+    "name": "ruckusZDWLANAPTxFrameError",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPCoverageTech": {
+    "name": "ruckusZDWLANAPCoverageTech",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "indoor": 1,
+          "indoor-distribute": 2,
+          "outdoor": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPStaTxBytes": {
+    "name": "ruckusZDWLANAPStaTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPStaRxBytes": {
+    "name": "ruckusZDWLANAPStaRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPNetmask": {
+    "name": "ruckusZDWLANAPNetmask",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPGateway": {
+    "name": "ruckusZDWLANAPGateway",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPDNS1": {
+    "name": "ruckusZDWLANAPDNS1",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPDNS2": {
+    "name": "ruckusZDWLANAPDNS2",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPTotalUser": {
+    "name": "ruckusZDWLANAPTotalUser",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsRXByteRate": {
+    "name": "ruckusZDWLANAPLANStatsRXByteRate",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPLANStatsTXByteRate": {
+    "name": "ruckusZDWLANAPLANStatsTXByteRate",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.1.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTable": {
+    "name": "ruckusZDWLANAPRadioStatsTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsEntry": {
+    "name": "ruckusZDWLANAPRadioStatsEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANAPRadioStatsAPMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANAPRadioStatsRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAPMacAddr": {
+    "name": "ruckusZDWLANAPRadioStatsAPMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsRadioIndex": {
+    "name": "ruckusZDWLANAPRadioStatsRadioIndex",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsRadioType": {
+    "name": "ruckusZDWLANAPRadioStatsRadioType",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radio11bg": 0,
+          "radio11a": 1,
+          "radio11ng": 2,
+          "radio11na": 3,
+          "radio11ac": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsChannel": {
+    "name": "ruckusZDWLANAPRadioStatsChannel",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTxPower": {
+    "name": "ruckusZDWLANAPRadioStatsTxPower",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 0,
+          "half": 1,
+          "quarter": 2,
+          "eighth": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsMeshEnable": {
+    "name": "ruckusZDWLANAPRadioStatsMeshEnable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsNumVAP": {
+    "name": "ruckusZDWLANAPRadioStatsNumVAP",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsNumSta": {
+    "name": "ruckusZDWLANAPRadioStatsNumSta",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAvgStaRSSI": {
+    "name": "ruckusZDWLANAPRadioStatsAvgStaRSSI",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsRxPkts": {
+    "name": "ruckusZDWLANAPRadioStatsRxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsRxBytes": {
+    "name": "ruckusZDWLANAPRadioStatsRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsRxMulticast": {
+    "name": "ruckusZDWLANAPRadioStatsRxMulticast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTxPkts": {
+    "name": "ruckusZDWLANAPRadioStatsTxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTxBytes": {
+    "name": "ruckusZDWLANAPRadioStatsTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTxMulticast": {
+    "name": "ruckusZDWLANAPRadioStatsTxMulticast",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTxFail": {
+    "name": "ruckusZDWLANAPRadioStatsTxFail",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTxRetries": {
+    "name": "ruckusZDWLANAPRadioStatsTxRetries",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsPowerMgmt": {
+    "name": "ruckusZDWLANAPRadioStatsPowerMgmt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsMaxSta": {
+    "name": "ruckusZDWLANAPRadioStatsMaxSta",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsFrameErrorRate": {
+    "name": "ruckusZDWLANAPRadioStatsFrameErrorRate",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "1/10000",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsFrameRetryRate": {
+    "name": "ruckusZDWLANAPRadioStatsFrameRetryRate",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "1/10000",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsMonitoredTime": {
+    "name": "ruckusZDWLANAPRadioStatsMonitoredTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTotalAssocTime": {
+    "name": "ruckusZDWLANAPRadioStatsTotalAssocTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAuthReq": {
+    "name": "ruckusZDWLANAPRadioStatsAuthReq",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAuthResp": {
+    "name": "ruckusZDWLANAPRadioStatsAuthResp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAuthSuccess": {
+    "name": "ruckusZDWLANAPRadioStatsAuthSuccess",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAuthFail": {
+    "name": "ruckusZDWLANAPRadioStatsAuthFail",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAssocReq": {
+    "name": "ruckusZDWLANAPRadioStatsAssocReq",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAssocResp": {
+    "name": "ruckusZDWLANAPRadioStatsAssocResp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsReassocReq": {
+    "name": "ruckusZDWLANAPRadioStatsReassocReq",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsReassocResp": {
+    "name": "ruckusZDWLANAPRadioStatsReassocResp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAssocSuccess": {
+    "name": "ruckusZDWLANAPRadioStatsAssocSuccess",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAssocFail": {
+    "name": "ruckusZDWLANAPRadioStatsAssocFail",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAssocDenied": {
+    "name": "ruckusZDWLANAPRadioStatsAssocDenied",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsDiassocAbnormal": {
+    "name": "ruckusZDWLANAPRadioStatsDiassocAbnormal",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsDiassocCapacity": {
+    "name": "ruckusZDWLANAPRadioStatsDiassocCapacity",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsDiassocLeave": {
+    "name": "ruckusZDWLANAPRadioStatsDiassocLeave",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsDiassocMisc": {
+    "name": "ruckusZDWLANAPRadioStatsDiassocMisc",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsResourceUtil": {
+    "name": "ruckusZDWLANAPRadioStatsResourceUtil",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsRxSignalFrm": {
+    "name": "ruckusZDWLANAPRadioStatsRxSignalFrm",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTxSignalFrm": {
+    "name": "ruckusZDWLANAPRadioStatsTxSignalFrm",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsTotalSignalFrm": {
+    "name": "ruckusZDWLANAPRadioStatsTotalSignalFrm",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsAntennaGain": {
+    "name": "ruckusZDWLANAPRadioStatsAntennaGain",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsBeaconPeriod": {
+    "name": "ruckusZDWLANAPRadioStatsBeaconPeriod",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsRTSThreshold": {
+    "name": "ruckusZDWLANAPRadioStatsRTSThreshold",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPRadioStatsFragThreshold": {
+    "name": "ruckusZDWLANAPRadioStatsFragThreshold",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaInfo": {
+    "name": "ruckusZDWLANStaInfo",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3",
+    "class": "objectidentity"
+  },
+  "ruckusZDWLANStaTable": {
+    "name": "ruckusZDWLANStaTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANStaEntry": {
+    "name": "ruckusZDWLANStaEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANStaMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANStaMacAddr": {
+    "name": "ruckusZDWLANStaMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaAPMacAddr": {
+    "name": "ruckusZDWLANStaAPMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaBSSID": {
+    "name": "ruckusZDWLANStaBSSID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaSSID": {
+    "name": "ruckusZDWLANStaSSID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuckusSSID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaUser": {
+    "name": "ruckusZDWLANStaUser",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaRadioType": {
+    "name": "ruckusZDWLANStaRadioType",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radio11a": 0,
+          "radio11b": 1,
+          "radio11g": 2,
+          "radio11ng": 3,
+          "radio11na": 4,
+          "radio11ac": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaChannel": {
+    "name": "ruckusZDWLANStaChannel",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaIPAddr": {
+    "name": "ruckusZDWLANStaIPAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaAvgRSSI": {
+    "name": "ruckusZDWLANStaAvgRSSI",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaRxPkts": {
+    "name": "ruckusZDWLANStaRxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaRxBytes": {
+    "name": "ruckusZDWLANStaRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaTxPkts": {
+    "name": "ruckusZDWLANStaTxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaTxBytes": {
+    "name": "ruckusZDWLANStaTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaRetries": {
+    "name": "ruckusZDWLANStaRetries",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaAssocTime": {
+    "name": "ruckusZDWLANStaAssocTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaRxError": {
+    "name": "ruckusZDWLANStaRxError",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaTxSuccess": {
+    "name": "ruckusZDWLANStaTxSuccess",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANSta11bgReassoc": {
+    "name": "ruckusZDWLANSta11bgReassoc",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaAssocTimestamp": {
+    "name": "ruckusZDWLANStaAssocTimestamp",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaRetryBytes": {
+    "name": "ruckusZDWLANStaRetryBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaSNR": {
+    "name": "ruckusZDWLANStaSNR",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaRxDrop": {
+    "name": "ruckusZDWLANStaRxDrop",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaTxDrop": {
+    "name": "ruckusZDWLANStaTxDrop",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaTxError": {
+    "name": "ruckusZDWLANStaTxError",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaVlanID": {
+    "name": "ruckusZDWLANStaVlanID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaAuthMode": {
+    "name": "ruckusZDWLANStaAuthMode",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANStaSignalStrength": {
+    "name": "ruckusZDWLANStaSignalStrength",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaTable": {
+    "name": "ruckusZDWiredStaTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWiredStaEntry": {
+    "name": "ruckusZDWiredStaEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWiredStaMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWiredStaMacAddr": {
+    "name": "ruckusZDWiredStaMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaAPMacAddr": {
+    "name": "ruckusZDWiredStaAPMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaIPAddr": {
+    "name": "ruckusZDWiredStaIPAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaIPV6Addr": {
+    "name": "ruckusZDWiredStaIPV6Addr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaVlanID": {
+    "name": "ruckusZDWiredStaVlanID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaUserName": {
+    "name": "ruckusZDWiredStaUserName",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaAuthState": {
+    "name": "ruckusZDWiredStaAuthState",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "Unauthorized": 0,
+          "Authorized": 1,
+          "Authorized-as-guest": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaAssocTime": {
+    "name": "ruckusZDWiredStaAssocTime",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaRxPkts": {
+    "name": "ruckusZDWiredStaRxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaRxBytes": {
+    "name": "ruckusZDWiredStaRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaTxPkts": {
+    "name": "ruckusZDWiredStaTxPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWiredStaTxBytes": {
+    "name": "ruckusZDWiredStaTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueInfo": {
+    "name": "ruckusZDWLANRogueInfo",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4",
+    "class": "objectidentity"
+  },
+  "ruckusZDWLANRogueTable": {
+    "name": "ruckusZDWLANRogueTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueEntry": {
+    "name": "ruckusZDWLANRogueEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANRogueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANRogueIndex": {
+    "name": "ruckusZDWLANRogueIndex",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.200",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueMacAddr": {
+    "name": "ruckusZDWLANRogueMacAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueSSID": {
+    "name": "ruckusZDWLANRogueSSID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuckusSSID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueRadioType": {
+    "name": "ruckusZDWLANRogueRadioType",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radio11bg": 0,
+          "radio11a": 1,
+          "radio11ng": 2,
+          "radio11na": 3,
+          "radio11ac": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueChannel": {
+    "name": "ruckusZDWLANRogueChannel",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueRSSI": {
+    "name": "ruckusZDWLANRogueRSSI",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueType": {
+    "name": "ruckusZDWLANRogueType",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 0,
+          "ad-hoc": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueEncrypted": {
+    "name": "ruckusZDWLANRogueEncrypted",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 0,
+          "encrypted": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANRogueSignalStrength": {
+    "name": "ruckusZDWLANRogueSignalStrength",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapTable": {
+    "name": "ruckusZDWLANVapTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANVapEntry": {
+    "name": "ruckusZDWLANVapEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANVapBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANVapBSSID": {
+    "name": "ruckusZDWLANVapBSSID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapPAPAddr": {
+    "name": "ruckusZDWLANVapPAPAddr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapSSID": {
+    "name": "ruckusZDWLANVapSSID",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuckusSSID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapLanRxBytes": {
+    "name": "ruckusZDWLANVapLanRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapLanTxBytes": {
+    "name": "ruckusZDWLANVapLanTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanRxBytes": {
+    "name": "ruckusZDWLANVapWlanRxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanTxBytes": {
+    "name": "ruckusZDWLANVapWlanTxBytes",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanRxErrorPkt": {
+    "name": "ruckusZDWLANVapWlanRxErrorPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanRxUnicastPkt": {
+    "name": "ruckusZDWLANVapWlanRxUnicastPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanTxUnicastPkt": {
+    "name": "ruckusZDWLANVapWlanTxUnicastPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanRxPkt": {
+    "name": "ruckusZDWLANVapWlanRxPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanRxDropPkt": {
+    "name": "ruckusZDWLANVapWlanRxDropPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanTxErrPkt": {
+    "name": "ruckusZDWLANVapWlanTxErrPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanTxPkt": {
+    "name": "ruckusZDWLANVapWlanTxPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANVapWlanTxDropPkt": {
+    "name": "ruckusZDWLANVapWlanTxDropPkt",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANIfTable": {
+    "name": "ruckusZDWLANIfTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANIfEntry": {
+    "name": "ruckusZDWLANIfEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANAPMac",
+        "implied": 0
+      },
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANAPIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANAPMac": {
+    "name": "ruckusZDWLANAPMac",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfIndex": {
+    "name": "ruckusZDWLANAPIfIndex",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfDescr": {
+    "name": "ruckusZDWLANAPIfDescr",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfType": {
+    "name": "ruckusZDWLANAPIfType",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfMtu": {
+    "name": "ruckusZDWLANAPIfMtu",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfSpeed": {
+    "name": "ruckusZDWLANAPIfSpeed",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfPhysAddress": {
+    "name": "ruckusZDWLANAPIfPhysAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfAdminStatus": {
+    "name": "ruckusZDWLANAPIfAdminStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfOperStatus": {
+    "name": "ruckusZDWLANAPIfOperStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "dormant": 5,
+          "notPresent": 6,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfInOctets": {
+    "name": "ruckusZDWLANAPIfInOctets",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfInUcastPkts": {
+    "name": "ruckusZDWLANAPIfInUcastPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfInNUcastPkts": {
+    "name": "ruckusZDWLANAPIfInNUcastPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfInDiscards": {
+    "name": "ruckusZDWLANAPIfInDiscards",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfInErrors": {
+    "name": "ruckusZDWLANAPIfInErrors",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfInUnknownProtos": {
+    "name": "ruckusZDWLANAPIfInUnknownProtos",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfOutOctets": {
+    "name": "ruckusZDWLANAPIfOutOctets",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfOutUcastPkts": {
+    "name": "ruckusZDWLANAPIfOutUcastPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfOutNUcastPkts": {
+    "name": "ruckusZDWLANAPIfOutNUcastPkts",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfOutDiscards": {
+    "name": "ruckusZDWLANAPIfOutDiscards",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfOutErrors": {
+    "name": "ruckusZDWLANAPIfOutErrors",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfName": {
+    "name": "ruckusZDWLANAPIfName",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPIfNameDefined": {
+    "name": "ruckusZDWLANAPIfNameDefined",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthStatusTable": {
+    "name": "ruckusZDWLANAPEthStatusTable",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthStatusEntry": {
+    "name": "ruckusZDWLANAPEthStatusEntry",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANAPMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "RUCKUS-ZD-WLAN-MIB",
+        "object": "ruckusZDWLANAPEthPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDWLANAPMacAddress": {
+    "name": "ruckusZDWLANAPMacAddress",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthPortId": {
+    "name": "ruckusZDWLANAPEthPortId",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthIfname": {
+    "name": "ruckusZDWLANAPEthIfname",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthDot1xStatus": {
+    "name": "ruckusZDWLANAPEthDot1xStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auth": 1,
+          "supp": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthLogicalStatus": {
+    "name": "ruckusZDWLANAPEthLogicalStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthPhyStatus": {
+    "name": "ruckusZDWLANAPEthPhyStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthPhyIfSpeed": {
+    "name": "ruckusZDWLANAPEthPhyIfSpeed",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthPhyLinkStatus": {
+    "name": "ruckusZDWLANAPEthPhyLinkStatus",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ruckusZDWLANAPEthLabel": {
+    "name": "ruckusZDWLANAPEthLabel",
+    "oid": "1.3.6.1.4.1.25053.1.2.2.1.1.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-WLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-ZD-WLAN-MIB"
+  }
+}

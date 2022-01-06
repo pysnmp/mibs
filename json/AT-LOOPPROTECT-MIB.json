@@ -1,0 +1,224 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atLoopProtect": {
+    "name": "atLoopProtect",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-06-19 00:00",
+        "description": "Add MAC address thrash-limiting support"
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      },
+      {
+        "revision": "2010-06-15 01:00",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2008-08-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "atLoopProtectTrap": {
+    "name": "atLoopProtectTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.0",
+    "class": "objectidentity"
+  },
+  "atLoopProtectDetectedLoopBlockedTrap": {
+    "name": "atLoopProtectDetectedLoopBlockedTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectIfIndex"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectVlanId"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectAction"
+      }
+    ],
+    "status": "current"
+  },
+  "atLoopProtectRecoverLoopBlockedTrap": {
+    "name": "atLoopProtectRecoverLoopBlockedTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectIfIndex"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectVlanId"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectAction"
+      }
+    ],
+    "status": "current"
+  },
+  "atLoopProtectDetectedByLoopDetectionTrap": {
+    "name": "atLoopProtectDetectedByLoopDetectionTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectIfIndex"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectVlanId"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectRxLDFIfIndex"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectRxLDFVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "atLoopProtectDetectedByThrashLimitTrap": {
+    "name": "atLoopProtectDetectedByThrashLimitTrap",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectIfIndex"
+      },
+      {
+        "module": "AT-LOOPPROTECT-MIB",
+        "object": "atLoopProtectVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "atLoopProtectAction": {
+    "name": "atLoopProtectAction",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atLoopProtectAction-LearnDisable": 0,
+          "atLoopProtectAction-LearnEnable": 1,
+          "atLoopProtectAction-PortDisable": 2,
+          "atLoopProtectAction-PortEnable": 3,
+          "atLoopProtectAction-LinkDown": 4,
+          "atLoopProtectAction-LinkUp": 5,
+          "atLoopProtectAction-VlanDisable": 6,
+          "atLoopProtectAction-VlanEnable": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "atLoopProtectIfIndex": {
+    "name": "atLoopProtectIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atLoopProtectVlanId": {
+    "name": "atLoopProtectVlanId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atLoopProtectRxLDFIfIndex": {
+    "name": "atLoopProtectRxLDFIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atLoopProtectRxLDFVlanId": {
+    "name": "atLoopProtectRxLDFVlanId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.54.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-LOOPPROTECT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-LOOPPROTECT-MIB"
+  }
+}

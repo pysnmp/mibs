@@ -1,0 +1,939 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenVR"
+    ],
+    "NETSCREEN-TRAP-MIB": [
+      "netscreenTrapDesc",
+      "netscreenTrapType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nsBgp": {
+    "name": "nsBgp",
+    "oid": "1.3.6.1.4.1.3224.18.3",
+    "class": "moduleidentity"
+  },
+  "nsBgpInfoTable": {
+    "name": "nsBgpInfoTable",
+    "oid": "1.3.6.1.4.1.3224.18.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "nsBgpInfoEntry": {
+    "name": "nsBgpInfoEntry",
+    "oid": "1.3.6.1.4.1.3224.18.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgpInfoVRID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "nsBgpInfoVersion": {
+    "name": "nsBgpInfoVersion",
+    "oid": "1.3.6.1.4.1.3224.18.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpInfoLocalAs": {
+    "name": "nsBgpInfoLocalAs",
+    "oid": "1.3.6.1.4.1.3224.18.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpInfoIdentifier": {
+    "name": "nsBgpInfoIdentifier",
+    "oid": "1.3.6.1.4.1.3224.18.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpInfoVRID": {
+    "name": "nsBgpInfoVRID",
+    "oid": "1.3.6.1.4.1.3224.18.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerTable": {
+    "name": "nsBgpPeerTable",
+    "oid": "1.3.6.1.4.1.3224.18.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "nsBgpPeerEntry": {
+    "name": "nsBgpPeerEntry",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgpPeerRemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgpPeerVRID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "nsBgpPeerIdentifier": {
+    "name": "nsBgpPeerIdentifier",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerState": {
+    "name": "nsBgpPeerState",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerAdminStatus": {
+    "name": "nsBgpPeerAdminStatus",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerNegotiatedVersion": {
+    "name": "nsBgpPeerNegotiatedVersion",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerLocalAddr": {
+    "name": "nsBgpPeerLocalAddr",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerLocalPort": {
+    "name": "nsBgpPeerLocalPort",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerRemoteAddr": {
+    "name": "nsBgpPeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerRemotePort": {
+    "name": "nsBgpPeerRemotePort",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerRemoteAs": {
+    "name": "nsBgpPeerRemoteAs",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerInUpdates": {
+    "name": "nsBgpPeerInUpdates",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerOutUpdates": {
+    "name": "nsBgpPeerOutUpdates",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerInTotalMessages": {
+    "name": "nsBgpPeerInTotalMessages",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerOutTotalMessages": {
+    "name": "nsBgpPeerOutTotalMessages",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerLastError": {
+    "name": "nsBgpPeerLastError",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerFsmEstablishedTransitions": {
+    "name": "nsBgpPeerFsmEstablishedTransitions",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerFsmEstablishedTime": {
+    "name": "nsBgpPeerFsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerConnectRetryInterval": {
+    "name": "nsBgpPeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerHoldTime": {
+    "name": "nsBgpPeerHoldTime",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerKeepAlive": {
+    "name": "nsBgpPeerKeepAlive",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerHoldTimeConfigured": {
+    "name": "nsBgpPeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerKeepAliveConfigured": {
+    "name": "nsBgpPeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerMinASOriginationInterval": {
+    "name": "nsBgpPeerMinASOriginationInterval",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerMinRouteAdvertisementInterval": {
+    "name": "nsBgpPeerMinRouteAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerInUpdateElapsedTime": {
+    "name": "nsBgpPeerInUpdateElapsedTime",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpPeerVRID": {
+    "name": "nsBgpPeerVRID",
+    "oid": "1.3.6.1.4.1.3224.18.3.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrTable": {
+    "name": "nsBgp4PathAttrTable",
+    "oid": "1.3.6.1.4.1.3224.18.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrEntry": {
+    "name": "nsBgp4PathAttrEntry",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgp4PathAttrIpAddrPrefix",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgp4PathAttrIpAddrPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgp4PathAttrPeer",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgp4PathAttrVRID",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrPeer": {
+    "name": "nsBgp4PathAttrPeer",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrIpAddrPrefixLen": {
+    "name": "nsBgp4PathAttrIpAddrPrefixLen",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrIpAddrPrefix": {
+    "name": "nsBgp4PathAttrIpAddrPrefix",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrOrigin": {
+    "name": "nsBgp4PathAttrOrigin",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrASPathSegment": {
+    "name": "nsBgp4PathAttrASPathSegment",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrNextHop": {
+    "name": "nsBgp4PathAttrNextHop",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrMultiExitDisc": {
+    "name": "nsBgp4PathAttrMultiExitDisc",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrLocalPref": {
+    "name": "nsBgp4PathAttrLocalPref",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrAtomicAggregate": {
+    "name": "nsBgp4PathAttrAtomicAggregate",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lessSpecificRrouteNotSelected": 1,
+          "lessSpecificRouteSelected": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrAggregatorAS": {
+    "name": "nsBgp4PathAttrAggregatorAS",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrAggregatorAddr": {
+    "name": "nsBgp4PathAttrAggregatorAddr",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrCalcLocalPref": {
+    "name": "nsBgp4PathAttrCalcLocalPref",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrBest": {
+    "name": "nsBgp4PathAttrBest",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 1,
+          "true": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrUnknown": {
+    "name": "nsBgp4PathAttrUnknown",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgp4PathAttrVRID": {
+    "name": "nsBgp4PathAttrVRID",
+    "oid": "1.3.6.1.4.1.3224.18.3.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "nsBgpTraps": {
+    "name": "nsBgpTraps",
+    "oid": "1.3.6.1.4.1.3224.18.3.7",
+    "class": "objectidentity"
+  },
+  "nsBgpEstablished": {
+    "name": "nsBgpEstablished",
+    "oid": "1.3.6.1.4.1.3224.18.3.7.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapType"
+      },
+      {
+        "module": "NETSCREEN-TRAP-MIB",
+        "object": "netscreenTrapDesc"
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgpPeerIdentifier"
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgpPeerVRID"
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgpPeerLastError"
+      },
+      {
+        "module": "NETSCREEN-BGP4-MIB",
+        "object": "nsBgpPeerState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-BGP4-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-BGP4-MIB"
+  }
+}

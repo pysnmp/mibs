@@ -1,0 +1,1775 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "dlinkSwNtpMIB": {
+    "name": "dlinkSwNtpMIB",
+    "oid": "1.3.6.1.4.1.171.14.182",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-09-15 00:00",
+        "description": "This is the first version of the MIB file. "
+      }
+    ]
+  },
+  "dNtpMIBNotifications": {
+    "name": "dNtpMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.182.0",
+    "class": "objectidentity"
+  },
+  "dNtpMIBObjects": {
+    "name": "dNtpMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.182.1",
+    "class": "objectidentity"
+  },
+  "dNtpMIBConformance": {
+    "name": "dNtpMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.182.2",
+    "class": "objectidentity"
+  },
+  "dNtpCtrl": {
+    "name": "dNtpCtrl",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1",
+    "class": "objectidentity"
+  },
+  "dNtpServiceEnabled": {
+    "name": "dNtpServiceEnabled",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAuthenticateEnabled": {
+    "name": "dNtpAuthenticateEnabled",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpUpdateCalendarEnabled": {
+    "name": "dNtpUpdateCalendarEnabled",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpMaxAssociations": {
+    "name": "dNtpMaxAssociations",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpBroadcastDelay": {
+    "name": "dNtpBroadcastDelay",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999999
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpControlKey": {
+    "name": "dNtpControlKey",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpRequestKey": {
+    "name": "dNtpRequestKey",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpMasterStratum": {
+    "name": "dNtpMasterStratum",
+    "oid": "1.3.6.1.4.1.171.14.182.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupTable": {
+    "name": "dNtpAccessGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAccessGroupEntry": {
+    "name": "dNtpAccessGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupVrfName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupIpAddressPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpAccessGroupVrfName": {
+    "name": "dNtpAccessGroupVrfName",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAccessGroupIpAddressType": {
+    "name": "dNtpAccessGroupIpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv6z": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAccessGroupIpAddress": {
+    "name": "dNtpAccessGroupIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAccessGroupIpAddressPrefixLength": {
+    "name": "dNtpAccessGroupIpAddressPrefixLength",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAccessGroupIgnore": {
+    "name": "dNtpAccessGroupIgnore",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupNoModify": {
+    "name": "dNtpAccessGroupNoModify",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupNoQuery": {
+    "name": "dNtpAccessGroupNoQuery",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupNoPeer": {
+    "name": "dNtpAccessGroupNoPeer",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupNoServe": {
+    "name": "dNtpAccessGroupNoServe",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupNoTrust": {
+    "name": "dNtpAccessGroupNoTrust",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupVersion": {
+    "name": "dNtpAccessGroupVersion",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAccessGroupRowStatus": {
+    "name": "dNtpAccessGroupRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.2.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpAccessInterfaceTable": {
+    "name": "dNtpAccessInterfaceTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAccessInterfaceEntry": {
+    "name": "dNtpAccessInterfaceEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpAccessInterfaceIfIndex": {
+    "name": "dNtpAccessInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.182.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAccessInterfaceEnabled": {
+    "name": "dNtpAccessInterfaceEnabled",
+    "oid": "1.3.6.1.4.1.171.14.182.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAuthenticationKeyTable": {
+    "name": "dNtpAuthenticationKeyTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAuthenticationKeyEntry": {
+    "name": "dNtpAuthenticationKeyEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAuthenticationKeyId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpAuthenticationKeyId": {
+    "name": "dNtpAuthenticationKeyId",
+    "oid": "1.3.6.1.4.1.171.14.182.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpAuthenticationKeyType": {
+    "name": "dNtpAuthenticationKeyType",
+    "oid": "1.3.6.1.4.1.171.14.182.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpAuthenticationKeyValue": {
+    "name": "dNtpAuthenticationKeyValue",
+    "oid": "1.3.6.1.4.1.171.14.182.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpAuthenticationKeyTrusted": {
+    "name": "dNtpAuthenticationKeyTrusted",
+    "oid": "1.3.6.1.4.1.171.14.182.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpAuthenticationKeyStatus": {
+    "name": "dNtpAuthenticationKeyStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.4.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastClientTable": {
+    "name": "dNtpCfgBroadcastClientTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastClientEntry": {
+    "name": "dNtpCfgBroadcastClientEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgBroadcastClientIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpCfgBroadcastClientIfIndex": {
+    "name": "dNtpCfgBroadcastClientIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.182.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastClientKeyId": {
+    "name": "dNtpCfgBroadcastClientKeyId",
+    "oid": "1.3.6.1.4.1.171.14.182.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastClientStatus": {
+    "name": "dNtpCfgBroadcastClientStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.5.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastServerTable": {
+    "name": "dNtpCfgBroadcastServerTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastServerEntry": {
+    "name": "dNtpCfgBroadcastServerEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgBroadcastServerIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpCfgBroadcastServerIfIndex": {
+    "name": "dNtpCfgBroadcastServerIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.182.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastServerVersion": {
+    "name": "dNtpCfgBroadcastServerVersion",
+    "oid": "1.3.6.1.4.1.171.14.182.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastServerKeyId": {
+    "name": "dNtpCfgBroadcastServerKeyId",
+    "oid": "1.3.6.1.4.1.171.14.182.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgBroadcastServerStatus": {
+    "name": "dNtpCfgBroadcastServerStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.6.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpCfgMulticastClientTable": {
+    "name": "dNtpCfgMulticastClientTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastClientEntry": {
+    "name": "dNtpCfgMulticastClientEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastClientIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastClientIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastClientIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpCfgMulticastClientIfIndex": {
+    "name": "dNtpCfgMulticastClientIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.182.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastClientIpAddressType": {
+    "name": "dNtpCfgMulticastClientIpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.182.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastClientIpAddress": {
+    "name": "dNtpCfgMulticastClientIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.182.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastClientKeyId": {
+    "name": "dNtpCfgMulticastClientKeyId",
+    "oid": "1.3.6.1.4.1.171.14.182.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgMulticastClientStatus": {
+    "name": "dNtpCfgMulticastClientStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.7.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerTable": {
+    "name": "dNtpCfgMulticastServerTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerEntry": {
+    "name": "dNtpCfgMulticastServerEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastServerIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastServerIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastServerIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerIfIndex": {
+    "name": "dNtpCfgMulticastServerIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerIpAddressType": {
+    "name": "dNtpCfgMulticastServerIpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerIpAddress": {
+    "name": "dNtpCfgMulticastServerIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerVersion": {
+    "name": "dNtpCfgMulticastServerVersion",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerKeyId": {
+    "name": "dNtpCfgMulticastServerKeyId",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerTtl": {
+    "name": "dNtpCfgMulticastServerTtl",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgMulticastServerStatus": {
+    "name": "dNtpCfgMulticastServerStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.8.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpCfgPeerTable": {
+    "name": "dNtpCfgPeerTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgPeerEntry": {
+    "name": "dNtpCfgPeerEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerVrfName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpCfgPeerVrfName": {
+    "name": "dNtpCfgPeerVrfName",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgPeerIpAddressType": {
+    "name": "dNtpCfgPeerIpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv6z": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgPeerIpAddress": {
+    "name": "dNtpCfgPeerIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgPeerVersion": {
+    "name": "dNtpCfgPeerVersion",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgPeerKeyId": {
+    "name": "dNtpCfgPeerKeyId",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgPeerPrefer": {
+    "name": "dNtpCfgPeerPrefer",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgPeerMinPoll": {
+    "name": "dNtpCfgPeerMinPoll",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgPeerMaxPoll": {
+    "name": "dNtpCfgPeerMaxPoll",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgPeerStatus": {
+    "name": "dNtpCfgPeerStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.9.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpCfgSrvTable": {
+    "name": "dNtpCfgSrvTable",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgSrvEntry": {
+    "name": "dNtpCfgSrvEntry",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvVrfName",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpCfgSrvVrfName": {
+    "name": "dNtpCfgSrvVrfName",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgSrvIpAddressType": {
+    "name": "dNtpCfgSrvIpAddressType",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv6z": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgSrvIpAddress": {
+    "name": "dNtpCfgSrvIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dNtpCfgSrvVersion": {
+    "name": "dNtpCfgSrvVersion",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgSrvKeyId": {
+    "name": "dNtpCfgSrvKeyId",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgSrvPrefer": {
+    "name": "dNtpCfgSrvPrefer",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgSrvMinPoll": {
+    "name": "dNtpCfgSrvMinPoll",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgSrvMaxPoll": {
+    "name": "dNtpCfgSrvMaxPoll",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dNtpCfgSrvStatus": {
+    "name": "dNtpCfgSrvStatus",
+    "oid": "1.3.6.1.4.1.171.14.182.1.10.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dNtpCompliances": {
+    "name": "dNtpCompliances",
+    "oid": "1.3.6.1.4.1.171.14.182.2.1",
+    "class": "objectidentity"
+  },
+  "dNtpCompliance": {
+    "name": "dNtpCompliance",
+    "oid": "1.3.6.1.4.1.171.14.182.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dNtpCtrlGroup",
+        "module": "DLINKSW-NTP-MIB"
+      },
+      {
+        "object": "dNtpCtrlGroup",
+        "module": "DLINKSW-NTP-MIB"
+      },
+      {
+        "object": "dNtpAclGroup",
+        "module": "DLINKSW-NTP-MIB"
+      },
+      {
+        "object": "dNtpBroadcastGroup",
+        "module": "DLINKSW-NTP-MIB"
+      },
+      {
+        "object": "dNtpMulticastGroup",
+        "module": "DLINKSW-NTP-MIB"
+      },
+      {
+        "object": "dNtpPeerCfgGroup",
+        "module": "DLINKSW-NTP-MIB"
+      },
+      {
+        "object": "dNtpSrvCfgGroup",
+        "module": "DLINKSW-NTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpGroups": {
+    "name": "dNtpGroups",
+    "oid": "1.3.6.1.4.1.171.14.182.2.2",
+    "class": "objectidentity"
+  },
+  "dNtpCtrlGroup": {
+    "name": "dNtpCtrlGroup",
+    "oid": "1.3.6.1.4.1.171.14.182.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpServiceEnabled"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAuthenticateEnabled"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessInterfaceEnabled"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpMaxAssociations"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpControlKey"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpRequestKey"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpMasterStratum"
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpAclGroup": {
+    "name": "dNtpAclGroup",
+    "oid": "1.3.6.1.4.1.171.14.182.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupIgnore"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupNoModify"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupNoQuery"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupNoPeer"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupNoServe"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupNoTrust"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupVersion"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessGroupRowStatus"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpAccessInterfaceEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpBroadcastGroup": {
+    "name": "dNtpBroadcastGroup",
+    "oid": "1.3.6.1.4.1.171.14.182.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpBroadcastDelay"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgBroadcastClientKeyId"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgBroadcastClientStatus"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgBroadcastServerVersion"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgBroadcastServerKeyId"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgBroadcastServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpMulticastGroup": {
+    "name": "dNtpMulticastGroup",
+    "oid": "1.3.6.1.4.1.171.14.182.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastClientKeyId"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastClientStatus"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastServerVersion"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastServerKeyId"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastServerTtl"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgMulticastServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpPeerCfgGroup": {
+    "name": "dNtpPeerCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.182.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerVersion"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerKeyId"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerPrefer"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerMinPoll"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerMaxPoll"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgPeerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dNtpSrvCfgGroup": {
+    "name": "dNtpSrvCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.182.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvVersion"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvKeyId"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvPrefer"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvMinPoll"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvMaxPoll"
+      },
+      {
+        "module": "DLINKSW-NTP-MIB",
+        "object": "dNtpCfgSrvStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-NTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-NTP-MIB"
+  }
+}

@@ -1,0 +1,1245 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-DEVICE-MIB": [
+      "hwSlotIndex",
+      "hwFrameIndex"
+    ],
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "HUAWEI-TC-MIB": [
+      "HWPCBType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwLoadBackup": {
+    "name": "hwLoadBackup",
+    "oid": "1.3.6.1.4.1.2011.6.6",
+    "class": "moduleidentity"
+  },
+  "hwLoadBackupMon": {
+    "name": "hwLoadBackupMon",
+    "oid": "1.3.6.1.4.1.2011.6.6.1",
+    "class": "objectidentity"
+  },
+  "hwLoadParaTable": {
+    "name": "hwLoadParaTable",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLoadParaEntry": {
+    "name": "hwLoadParaEntry",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwLoadServerIpAddr": {
+    "name": "hwLoadServerIpAddr",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadMode": {
+    "name": "hwLoadMode",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "modem": 2,
+          "ftp": 3,
+          "smbLoadAnyBoards": 4,
+          "other": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadFileName": {
+    "name": "hwLoadFileName",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadContent": {
+    "name": "hwLoadContent",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "program": 1,
+          "configuration": 2,
+          "patch": 3,
+          "shellMacro": 4,
+          "resLocal": 5,
+          "resGeneral": 6,
+          "cpeDrive": 7,
+          "programDatabase": 8,
+          "programBios": 9,
+          "programApp": 10,
+          "logicFpga": 11,
+          "logicCpld": 12,
+          "logicPci": 13,
+          "logicAfc": 14,
+          "programMicroCode": 15,
+          "programFirmware": 16,
+          "programHelp": 17,
+          "programDataFlow": 18,
+          "programBootFile": 19,
+          "logciPa": 20,
+          "webExp": 21,
+          "webNev": 22,
+          "webHelp": 23,
+          "programBsp": 24,
+          "configurationIni": 40,
+          "configurationEfs": 41,
+          "configurationCli": 42,
+          "programCurrent": 45,
+          "programOther": 46,
+          "license": 49,
+          "programchipset": 50,
+          "programExtendedBios": 51
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadBoardType": {
+    "name": "hwLoadBoardType",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWPCBType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPortId": {
+    "name": "hwPortId",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadProcess": {
+    "name": "hwLoadProcess",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLoadUserName": {
+    "name": "hwLoadUserName",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadPassword": {
+    "name": "hwLoadPassword",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBackupParaTable": {
+    "name": "hwBackupParaTable",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBackupParaEntry": {
+    "name": "hwBackupParaEntry",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBackupServerIpAddr": {
+    "name": "hwBackupServerIpAddr",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBackupMode": {
+    "name": "hwBackupMode",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "modem": 2,
+          "ftp": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBackupFileName": {
+    "name": "hwBackupFileName",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBackupContent": {
+    "name": "hwBackupContent",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configuration": 1,
+          "shellMacro": 2,
+          "log": 3,
+          "bill": 4,
+          "alarm": 5,
+          "program": 15,
+          "reslocal": 16,
+          "resgeneral": 17,
+          "patch": 18,
+          "programDatabase": 19,
+          "programBios": 20,
+          "programApp": 21,
+          "logicFpga": 22,
+          "logicCpld": 23,
+          "logicPci": 24,
+          "logicAfc": 25,
+          "programMicroCode": 26,
+          "programFireware": 27,
+          "programDataFlow": 28,
+          "programBootFile": 29,
+          "logciPa": 30,
+          "webExp": 31,
+          "webNev": 32,
+          "webHelp": 33,
+          "programBsp": 34,
+          "configurationIni": 40,
+          "configurationEfs": 41,
+          "configurationCli": 42,
+          "programCurrent": 45,
+          "programOther": 46,
+          "bcdcInfo": 47,
+          "license": 49,
+          "programExtendedBios": 51,
+          "boardinfo": 60
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBackupProcess": {
+    "name": "hwBackupProcess",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBackupUserName": {
+    "name": "hwBackupUserName",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBackupPassword": {
+    "name": "hwBackupPassword",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBackupBoardType": {
+    "name": "hwBackupBoardType",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWPCBType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPatch": {
+    "name": "hwPatch",
+    "oid": "1.3.6.1.4.1.2011.6.6.2",
+    "class": "objectidentity"
+  },
+  "hwPatchTable": {
+    "name": "hwPatchTable",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchEntry": {
+    "name": "hwPatchEntry",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchId": {
+    "name": "hwPatchId",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchDescription": {
+    "name": "hwPatchDescription",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchFuncNum": {
+    "name": "hwPatchFuncNum",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchTextLen": {
+    "name": "hwPatchTextLen",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchDataLen": {
+    "name": "hwPatchDataLen",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchType": {
+    "name": "hwPatchType",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "temporary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchAdminStatus": {
+    "name": "hwPatchAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "deactive": 2,
+          "remove": 3,
+          "running": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPatchOperState": {
+    "name": "hwPatchOperState",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "patchActive": 1,
+          "patchDeActive": 2,
+          "patchInit": 3,
+          "patchRunning": 4,
+          "patchload": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStatTable": {
+    "name": "hwPatchStatTable",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPatchStatEntry": {
+    "name": "hwPatchStatEntry",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchStatNumMax": {
+    "name": "hwPatchStatNumMax",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStatTextMax": {
+    "name": "hwPatchStatTextMax",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStatDataMax": {
+    "name": "hwPatchStatDataMax",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStatTextUsed": {
+    "name": "hwPatchStatTextUsed",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPatchStatDataUsed": {
+    "name": "hwPatchStatDataUsed",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpTraps": {
+    "name": "snmpTraps",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3",
+    "class": "objectidentity"
+  },
+  "hwLoadAndBackupTrapsOID": {
+    "name": "hwLoadAndBackupTrapsOID",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0",
+    "class": "objectidentity"
+  },
+  "hwBackupFailAlarm": {
+    "name": "hwBackupFailAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapBackupResult"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLoadFailAlarm": {
+    "name": "hwLoadFailAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapLoadResult"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBackupFailAlarmSuccess": {
+    "name": "hwBackupFailAlarmSuccess",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLoadFailAlarmSuccess": {
+    "name": "hwLoadFailAlarmSuccess",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCopyAndSaveFail": {
+    "name": "hwCopyAndSaveFail",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveResult"
+      }
+    ],
+    "status": "current"
+  },
+  "hwCopyAndSaveSuccess": {
+    "name": "hwCopyAndSaveSuccess",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwConfigurationChangedEvent": {
+    "name": "hwConfigurationChangedEvent",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwConfEventCause"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapCauseOids": {
+    "name": "hwTrapCauseOids",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1",
+    "class": "objectidentity"
+  },
+  "hwTrapLoadBackupResult": {
+    "name": "hwTrapLoadBackupResult",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "hwTrapLoadResult": {
+    "name": "hwTrapLoadResult",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTrapBackupResult": {
+    "name": "hwTrapBackupResult",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwCopyAndSaveResult": {
+    "name": "hwCopyAndSaveResult",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyInProgress": 1,
+          "copyOperationSuccess": 2,
+          "copyInvalidOperation": 3,
+          "copyInvalidProtocol": 4,
+          "copyInvalidSourceName": 5,
+          "copyInvalidDestName": 6,
+          "copyInvalidServerAddress": 7,
+          "copyDeviceBusy": 8,
+          "copyDeviceOpenError": 9,
+          "copyDeviceError": 10,
+          "copyDeviceNotProgrammable": 11,
+          "copyDeviceFull": 12,
+          "copyFileOpenError": 13,
+          "copyFileTransferError": 14,
+          "copyFileChecksumError": 15,
+          "copyNoMemory": 16,
+          "copyUnknownFailure": 17
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTrapEventCauses": {
+    "name": "hwTrapEventCauses",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "hwConfEventCause": {
+    "name": "hwConfEventCause",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "confChangedDirect": 1,
+          "confSaved": 2,
+          "confChangedDuration": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBackupAndRestoreConfig": {
+    "name": "hwBackupAndRestoreConfig",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.4",
+    "class": "objectidentity"
+  },
+  "hwBackupAndRestore": {
+    "name": "hwBackupAndRestore",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyMemToFlash": 1,
+          "copyFlashToMem": 2,
+          "copyMemToHardDisk": 3,
+          "copyHardDiskToMem": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwLoadBackupConformance": {
+    "name": "hwLoadBackupConformance",
+    "oid": "1.3.6.1.4.1.2011.6.6.3",
+    "class": "objectidentity"
+  },
+  "hwLoadBackupCompliances": {
+    "name": "hwLoadBackupCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.1",
+    "class": "objectidentity"
+  },
+  "hwLoadBackupCompliance": {
+    "name": "hwLoadBackupCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwLoadParaTableGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      },
+      {
+        "object": "hwBackupParaTableGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      },
+      {
+        "object": "hwTrapEventCausesGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      },
+      {
+        "object": "hwTrapLoadBackupResultGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      },
+      {
+        "object": "hwTrapLoadBackupTrapsGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      },
+      {
+        "object": "hwBackupAndRestoreConfigGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      },
+      {
+        "object": "hwPatchTableGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      },
+      {
+        "object": "hwPatchStatTableGroup",
+        "module": "HUAWEI-LOAD-BACKUP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLoadBackupObjectGroups": {
+    "name": "hwLoadBackupObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2",
+    "class": "objectidentity"
+  },
+  "hwLoadParaTableGroup": {
+    "name": "hwLoadParaTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadServerIpAddr"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadMode"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadFileName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadContent"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadBoardType"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPortId"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadProcess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadUserName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBackupParaTableGroup": {
+    "name": "hwBackupParaTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupServerIpAddr"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupMode"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupFileName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupContent"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupProcess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupUserName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupPassword"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupBoardType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapEventCausesGroup": {
+    "name": "hwTrapEventCausesGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwConfEventCause"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapLoadBackupResultGroup": {
+    "name": "hwTrapLoadBackupResultGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapLoadResult"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapBackupResult"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveResult"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTrapLoadBackupTrapsGroup": {
+    "name": "hwTrapLoadBackupTrapsGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupFailAlarm"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadFailAlarm"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupFailAlarmSuccess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadFailAlarmSuccess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveFail"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveSuccess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwConfigurationChangedEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBackupAndRestoreConfigGroup": {
+    "name": "hwBackupAndRestoreConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupAndRestore"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchTableGroup": {
+    "name": "hwPatchTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchDescription"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchFuncNum"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchTextLen"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchDataLen"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchType"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchAdminStatus"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPatchStatTableGroup": {
+    "name": "hwPatchStatTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatNumMax"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatTextMax"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatDataMax"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatTextUsed"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatDataUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-LOAD-BACKUP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-LOAD-BACKUP-MIB"
+  }
+}

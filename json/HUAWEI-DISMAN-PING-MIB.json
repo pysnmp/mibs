@@ -1,0 +1,1171 @@
+{
+  "imports": {
+    "class": "imports",
+    "DISMAN-PING-MIB": [
+      "pingCtlEntry",
+      "pingCtlOwnerIndex",
+      "pingCtlTestName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "mib-2",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "TimeStamp",
+      "Unsigned32"
+    ]
+  },
+  "hwDismanPing": {
+    "name": "hwDismanPing",
+    "oid": "1.3.6.1.4.1.2011.5.25.28",
+    "class": "moduleidentity"
+  },
+  "hwPingObjects": {
+    "name": "hwPingObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1",
+    "class": "objectidentity"
+  },
+  "InetAddress": {
+    "name": "InetAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "hwPingImplementationTypeDomains": {
+    "name": "hwPingImplementationTypeDomains",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2",
+    "class": "objectidentity"
+  },
+  "hwpingUdpEcho": {
+    "name": "hwpingUdpEcho",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwpingTcpconnect": {
+    "name": "hwpingTcpconnect",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwpingjitter": {
+    "name": "hwpingjitter",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwpingHttp": {
+    "name": "hwpingHttp",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwpingdlsw": {
+    "name": "hwpingdlsw",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwpingdhcp": {
+    "name": "hwpingdhcp",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwpingftp": {
+    "name": "hwpingftp",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwPingMIBVersion": {
+    "name": "hwPingMIBVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingCtlTable": {
+    "name": "hwPingCtlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPingCtlEntry": {
+    "name": "hwPingCtlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwPingCtlEntry",
+      "module": "HUAWEI-DISMAN-PING-MIB",
+      "object": "pingCtlEntry"
+    },
+    "status": "current"
+  },
+  "hwpingCtlTargetPort": {
+    "name": "hwpingCtlTargetPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlSourcePort": {
+    "name": "hwpingCtlSourcePort",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlTTL": {
+    "name": "hwpingCtlTTL",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlJitterAdminInterval": {
+    "name": "hwpingCtlJitterAdminInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlJitterAdminNumPackets": {
+    "name": "hwpingCtlJitterAdminNumPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlHttpOperationType": {
+    "name": "hwpingCtlHttpOperationType",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "post": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlHttpOperationString": {
+    "name": "hwpingCtlHttpOperationString",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlFtpOperationType": {
+    "name": "hwpingCtlFtpOperationType",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "put": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "get",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlFtpUsername": {
+    "name": "hwpingCtlFtpUsername",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlFtpPassword": {
+    "name": "hwpingCtlFtpPassword",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlFtpOperationString": {
+    "name": "hwpingCtlFtpOperationString",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingCtlVPNInstance": {
+    "name": "hwpingCtlVPNInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwpingResultsTable": {
+    "name": "hwpingResultsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwpingResultsEntry": {
+    "name": "hwpingResultsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwpingResultsRttNumDisconnects": {
+    "name": "hwpingResultsRttNumDisconnects",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsRttTimeouts": {
+    "name": "hwpingResultsRttTimeouts",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsRttBusies": {
+    "name": "hwpingResultsRttBusies",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsRttNoConnections": {
+    "name": "hwpingResultsRttNoConnections",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsRttDrops": {
+    "name": "hwpingResultsRttDrops",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsRttSequenceErrors": {
+    "name": "hwpingResultsRttSequenceErrors",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsRttStatsErrors": {
+    "name": "hwpingResultsRttStatsErrors",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsMaxDelaySD": {
+    "name": "hwpingResultsMaxDelaySD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsMaxDelayDS": {
+    "name": "hwpingResultsMaxDelayDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwpingResultsLostPacketRatio": {
+    "name": "hwpingResultsLostPacketRatio",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsTable": {
+    "name": "hwPingJitterStatsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPingJitterStatsEntry": {
+    "name": "hwPingJitterStatsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPingJitterStatsNumOfRTT": {
+    "name": "hwPingJitterStatsNumOfRTT",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMinOfPositivesSD": {
+    "name": "hwPingJitterStatsMinOfPositivesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMaxOfPositivesSD": {
+    "name": "hwPingJitterStatsMaxOfPositivesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsNumOfPositivesSD": {
+    "name": "hwPingJitterStatsNumOfPositivesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSumOfPositivesSD": {
+    "name": "hwPingJitterStatsSumOfPositivesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSum2PositivesSD": {
+    "name": "hwPingJitterStatsSum2PositivesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMinOfNegativesSD": {
+    "name": "hwPingJitterStatsMinOfNegativesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMaxOfNegativesSD": {
+    "name": "hwPingJitterStatsMaxOfNegativesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsNumOfNegativesSD": {
+    "name": "hwPingJitterStatsNumOfNegativesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSumOfNegativesSD": {
+    "name": "hwPingJitterStatsSumOfNegativesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSum2NegativesSD": {
+    "name": "hwPingJitterStatsSum2NegativesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMinOfPositivesDS": {
+    "name": "hwPingJitterStatsMinOfPositivesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMaxOfPositivesDS": {
+    "name": "hwPingJitterStatsMaxOfPositivesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsNumOfPositivesDS": {
+    "name": "hwPingJitterStatsNumOfPositivesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSumOfPositivesDS": {
+    "name": "hwPingJitterStatsSumOfPositivesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSum2PositivesDS": {
+    "name": "hwPingJitterStatsSum2PositivesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMinOfNegativesDS": {
+    "name": "hwPingJitterStatsMinOfNegativesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsMaxOfNegativesDS": {
+    "name": "hwPingJitterStatsMaxOfNegativesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsNumOfNegativesDS": {
+    "name": "hwPingJitterStatsNumOfNegativesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSumOfNegativesDS": {
+    "name": "hwPingJitterStatsSumOfNegativesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsSum2NegativesDS": {
+    "name": "hwPingJitterStatsSum2NegativesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsPacketLossSD": {
+    "name": "hwPingJitterStatsPacketLossSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsPacketLossDS": {
+    "name": "hwPingJitterStatsPacketLossDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsAvePositivesSD": {
+    "name": "hwPingJitterStatsAvePositivesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsAveNegativesSD": {
+    "name": "hwPingJitterStatsAveNegativesSD",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsAvePositivesDS": {
+    "name": "hwPingJitterStatsAvePositivesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsAveNegativesDS": {
+    "name": "hwPingJitterStatsAveNegativesDS",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingJitterStatsPktLossUnknown": {
+    "name": "hwPingJitterStatsPktLossUnknown",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPingAgentEnable": {
+    "name": "hwPingAgentEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPingTcpServerTable": {
+    "name": "hwPingTcpServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPingTcpServerEntry": {
+    "name": "hwPingTcpServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingTcpServerIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingTcpServerPort",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwpingTcpServerVPNInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPingTcpServerIpAddress": {
+    "name": "hwPingTcpServerIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPingTcpServerPort": {
+    "name": "hwPingTcpServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwpingTcpServerVPNInstance": {
+    "name": "hwpingTcpServerVPNInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwpingTcpServerRowStatus": {
+    "name": "hwpingTcpServerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPingUdpServerTable": {
+    "name": "hwPingUdpServerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPingUdpServerEntry": {
+    "name": "hwPingUdpServerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingUdpServerIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingUdpServerPort",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwpingUdpServerVPNInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPingUdpServerIpAddress": {
+    "name": "hwPingUdpServerIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPingUdpServerPort": {
+    "name": "hwPingUdpServerPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwpingUdpServerVPNInstance": {
+    "name": "hwpingUdpServerVPNInstance",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwpingUdpServerRowStatus": {
+    "name": "hwpingUdpServerRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPingServerEnable": {
+    "name": "hwPingServerEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DISMAN-PING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-DISMAN-PING-MIB"
+  }
+}

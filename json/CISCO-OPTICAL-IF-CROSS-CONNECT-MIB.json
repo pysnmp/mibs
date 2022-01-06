@@ -1,0 +1,531 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoOpticalIfCrossConnectMIB": {
+    "name": "ciscoOpticalIfCrossConnectMIB",
+    "oid": "1.3.6.1.4.1.9.10.68",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-13 00:00",
+        "description": "Added two objects, coifccCcL2HAttenuation and coifccCcH2LAttenuation to coifccCrossConnectTable. These new objects indicate signal attenuation on a given cross-connect. Changed coifccCcKind in coifccCrossConnectTable from read-only to read-create."
+      },
+      {
+        "revision": "2001-04-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "coifccMIBObjects": {
+    "name": "coifccMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.68.1",
+    "class": "objectidentity"
+  },
+  "coifccMIBConformance": {
+    "name": "coifccMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.68.2",
+    "class": "objectidentity"
+  },
+  "CoifccCrossConnectOperStatus": {
+    "name": "CoifccCrossConnectOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "dormant": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "coifccInterface": {
+    "name": "coifccInterface",
+    "oid": "1.3.6.1.4.1.9.10.68.1.1",
+    "class": "objectidentity"
+  },
+  "coifccCrossConnect": {
+    "name": "coifccCrossConnect",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2",
+    "class": "objectidentity"
+  },
+  "coifccInterfaceTable": {
+    "name": "coifccInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.10.68.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coifccInterfaceEntry": {
+    "name": "coifccInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.10.68.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coifccIfCrossConnectIdentifier": {
+    "name": "coifccIfCrossConnectIdentifier",
+    "oid": "1.3.6.1.4.1.9.10.68.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483547
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCcIndexNext": {
+    "name": "coifccCcIndexNext",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCcLastChange": {
+    "name": "coifccCcLastChange",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCrossConnectTable": {
+    "name": "coifccCrossConnectTable",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coifccCrossConnectEntry": {
+    "name": "coifccCrossConnectEntry",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcLowIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcHighIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coifccCcIndex": {
+    "name": "coifccCcIndex",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coifccCcLowIfIndex": {
+    "name": "coifccCcLowIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coifccCcHighIfIndex": {
+    "name": "coifccCcHighIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coifccCcSwitchType": {
+    "name": "coifccCcSwitchType",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "electricalCrossConnect": 2,
+          "opticalCrossConnect": 3,
+          "autoSelect": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoSelect",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coifccCcKind": {
+    "name": "coifccCcKind",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "provisioned": 1,
+          "automatic": 2,
+          "dynamic": 3,
+          "protection": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coifccCcCreationTime": {
+    "name": "coifccCcCreationTime",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCcL2HOperStatus": {
+    "name": "coifccCcL2HOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoifccCrossConnectOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCcH2LOperStatus": {
+    "name": "coifccCcH2LOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoifccCrossConnectOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCcL2HLastChange": {
+    "name": "coifccCcL2HLastChange",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCcH2LLastChange": {
+    "name": "coifccCcH2LLastChange",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coifccCcRowStatus": {
+    "name": "coifccCcRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coifccCcL2HAttenuation": {
+    "name": "coifccCcL2HAttenuation",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -400,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "1/10ths of dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coifccCcH2LAttenuation": {
+    "name": "coifccCcH2LAttenuation",
+    "oid": "1.3.6.1.4.1.9.10.68.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -400,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "1/10ths of dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coifccMIBCompliances": {
+    "name": "coifccMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.68.2.1",
+    "class": "objectidentity"
+  },
+  "coifccMIBGroups": {
+    "name": "coifccMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.68.2.2",
+    "class": "objectidentity"
+  },
+  "coifccMIBCompliance": {
+    "name": "coifccMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.68.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coifccInterfaceGroup",
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB"
+      },
+      {
+        "object": "coifccCrossConnectGroup",
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "coifccMIBComplianceRev1": {
+    "name": "coifccMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.68.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coifccInterfaceGroup",
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB"
+      },
+      {
+        "object": "coifccCrossConnectGroup",
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "coifccInterfaceGroup": {
+    "name": "coifccInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.10.68.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccIfCrossConnectIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "coifccCrossConnectGroup": {
+    "name": "coifccCrossConnectGroup",
+    "oid": "1.3.6.1.4.1.9.10.68.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcIndexNext"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcLastChange"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcSwitchType"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcKind"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcCreationTime"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcL2HOperStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcH2LOperStatus"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcL2HLastChange"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcH2LLastChange"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "coifccAttenuationGroup": {
+    "name": "coifccAttenuationGroup",
+    "oid": "1.3.6.1.4.1.9.10.68.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcL2HAttenuation"
+      },
+      {
+        "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+        "object": "coifccCcH2LAttenuation"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OPTICAL-IF-CROSS-CONNECT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-OPTICAL-IF-CROSS-CONNECT-MIB"
+  }
+}

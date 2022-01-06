@@ -1,0 +1,2461 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDigitalMediaSystemsMIB": {
+    "name": "ciscoDigitalMediaSystemsMIB",
+    "oid": "1.3.6.1.4.1.9.9.655",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-09-07 00:00",
+        "description": "Changed textual description for replacement field cdmsLicensedFeatureLimitRev1 to be consistent with field values. This was missed in last submitted version and caught during code review."
+      },
+      {
+        "revision": "2011-07-29 00:00",
+        "description": "Resubmitting MIB with changes"
+      },
+      {
+        "revision": "2009-10-12 00:00",
+        "description": "Added support for High Availability (HA)."
+      },
+      {
+        "revision": "2008-05-15 00:00",
+        "description": "Initial version of this module."
+      }
+    ]
+  },
+  "CDmsUserAuthenMethod": {
+    "name": "CDmsUserAuthenMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "radius": 3,
+          "tacacsPlus": 4,
+          "kerberos": 5,
+          "local": 6,
+          "ldap": 7,
+          "ntlm": 8,
+          "sdi": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CDmsServerType": {
+    "name": "CDmsServerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dnsServer": 2,
+          "ldapServer": 3,
+          "snmpServer": 4,
+          "smtpServer": 5,
+          "syslogServer": 6,
+          "aaaServer": 7,
+          "ntpServer": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CDmsElementType": {
+    "name": "CDmsElementType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "encoder": 2,
+          "videoPortal": 3,
+          "mediaPlayer": 4,
+          "transCoder": 5,
+          "storageServer": 6,
+          "streamingServer": 7,
+          "dmm": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CDmsFunctionalStatus": {
+    "name": "CDmsFunctionalStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "initialize": 2,
+          "active": 3,
+          "shutdown": 4,
+          "standby": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CDmsEmailAddress": {
+    "name": "CDmsEmailAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CDmsLicensedFeature": {
+    "name": "CDmsLicensedFeature",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "base": 2,
+          "deskTopVideo": 3,
+          "liveWebcastEnabler": 4,
+          "digitalSignage": 5,
+          "enterpriseTv": 6,
+          "snmpManagement": 7,
+          "digitalMediaPlayer": 8,
+          "digitalMediaPlayerAuthorPack": 9,
+          "digitalMedialPlayerProofOfPlayPack": 10,
+          "clustering": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoDmsMonitorMIBNotifs": {
+    "name": "ciscoDmsMonitorMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.655.0",
+    "class": "objectidentity"
+  },
+  "ciscoDmsMonitorMIBObjects": {
+    "name": "ciscoDmsMonitorMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.655.1",
+    "class": "objectidentity"
+  },
+  "ciscoDmsMonitorMIBConform": {
+    "name": "ciscoDmsMonitorMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.655.2",
+    "class": "objectidentity"
+  },
+  "cdmsSystem": {
+    "name": "cdmsSystem",
+    "oid": "1.3.6.1.4.1.9.9.655.1.1",
+    "class": "objectidentity"
+  },
+  "cdmsFeatures": {
+    "name": "cdmsFeatures",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2",
+    "class": "objectidentity"
+  },
+  "cdmsInventory": {
+    "name": "cdmsInventory",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3",
+    "class": "objectidentity"
+  },
+  "cdmsServers": {
+    "name": "cdmsServers",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4",
+    "class": "objectidentity"
+  },
+  "cdmsDamServices": {
+    "name": "cdmsDamServices",
+    "oid": "1.3.6.1.4.1.9.9.655.1.5",
+    "class": "objectidentity"
+  },
+  "cdmsSecurity": {
+    "name": "cdmsSecurity",
+    "oid": "1.3.6.1.4.1.9.9.655.1.6",
+    "class": "objectidentity"
+  },
+  "cdmsUserGroup": {
+    "name": "cdmsUserGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.1.7",
+    "class": "objectidentity"
+  },
+  "cdmsEvents": {
+    "name": "cdmsEvents",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8",
+    "class": "objectidentity"
+  },
+  "cdmsNotifControl": {
+    "name": "cdmsNotifControl",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13",
+    "class": "objectidentity"
+  },
+  "cdmsHa": {
+    "name": "cdmsHa",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10",
+    "class": "objectidentity"
+  },
+  "cdmsMajorVersion": {
+    "name": "cdmsMajorVersion",
+    "oid": "1.3.6.1.4.1.9.9.655.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsMinorVersion": {
+    "name": "cdmsMinorVersion",
+    "oid": "1.3.6.1.4.1.9.9.655.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsPatchVersion": {
+    "name": "cdmsPatchVersion",
+    "oid": "1.3.6.1.4.1.9.9.655.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsAdministrator": {
+    "name": "cdmsAdministrator",
+    "oid": "1.3.6.1.4.1.9.9.655.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsEmailAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsFeatureSummary": {
+    "name": "cdmsFeatureSummary",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.1",
+    "class": "objectidentity"
+  },
+  "cdmsLicensableFeatures": {
+    "name": "cdmsLicensableFeatures",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsLicensedFeatures": {
+    "name": "cdmsLicensedFeatures",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsLastLicenseUpdate": {
+    "name": "cdmsLastLicenseUpdate",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsLicensedFeatureTable": {
+    "name": "cdmsLicensedFeatureTable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsLicensedFeatureEntry": {
+    "name": "cdmsLicensedFeatureEntry",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLicensedFeature",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLicensedFeatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdmsLicensedFeature": {
+    "name": "cdmsLicensedFeature",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsLicensedFeature",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsLicensedFeatureIndex": {
+    "name": "cdmsLicensedFeatureIndex",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsLicensedFeatureLimit": {
+    "name": "cdmsLicensedFeatureLimit",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cdmsLicensedFeatureDescription": {
+    "name": "cdmsLicensedFeatureDescription",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsLicensedFeatureInstallDate": {
+    "name": "cdmsLicensedFeatureInstallDate",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsLicensedFeatureLimitRev1": {
+    "name": "cdmsLicensedFeatureLimitRev1",
+    "oid": "1.3.6.1.4.1.9.9.655.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -3,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsInventoryGlobalCounters": {
+    "name": "cdmsInventoryGlobalCounters",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.1",
+    "class": "objectidentity"
+  },
+  "cdmsNumMediaIngestionDevices": {
+    "name": "cdmsNumMediaIngestionDevices",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Encoders",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumMediaPlayerDevices": {
+    "name": "cdmsNumMediaPlayerDevices",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Media Players",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumVideoPortalDevices": {
+    "name": "cdmsNumVideoPortalDevices",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Video Portals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsInventoryTable": {
+    "name": "cdmsInventoryTable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsInventoryEntry": {
+    "name": "cdmsInventoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdmsInventoryElementType": {
+    "name": "cdmsInventoryElementType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsElementType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsInventoryElementId": {
+    "name": "cdmsInventoryElementId",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsInventoryElementMacAddress": {
+    "name": "cdmsInventoryElementMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsInventoryElementAddrType": {
+    "name": "cdmsInventoryElementAddrType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsInventoryElementAddress": {
+    "name": "cdmsInventoryElementAddress",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsInventoryElementMetadata": {
+    "name": "cdmsInventoryElementMetadata",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsInventoryElementState": {
+    "name": "cdmsInventoryElementState",
+    "oid": "1.3.6.1.4.1.9.9.655.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsFunctionalStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsServerTable": {
+    "name": "cdmsServerTable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsServerEntry": {
+    "name": "cdmsServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsServerType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsServerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdmsServerType": {
+    "name": "cdmsServerType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsServerType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsServerAddrType": {
+    "name": "cdmsServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsServerAddress": {
+    "name": "cdmsServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsServerState": {
+    "name": "cdmsServerState",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsFunctionalStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsServerStatus": {
+    "name": "cdmsServerStatus",
+    "oid": "1.3.6.1.4.1.9.9.655.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdmsDamGlobalCounters": {
+    "name": "cdmsDamGlobalCounters",
+    "oid": "1.3.6.1.4.1.9.9.655.1.5.1",
+    "class": "objectidentity"
+  },
+  "cdmsNumContentElements": {
+    "name": "cdmsNumContentElements",
+    "oid": "1.3.6.1.4.1.9.9.655.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "content elements",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsSecurityGlobalCounters": {
+    "name": "cdmsSecurityGlobalCounters",
+    "oid": "1.3.6.1.4.1.9.9.655.1.6.1",
+    "class": "objectidentity"
+  },
+  "cdmsNumAuthenRequests": {
+    "name": "cdmsNumAuthenRequests",
+    "oid": "1.3.6.1.4.1.9.9.655.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumAuthenRequestsApproved": {
+    "name": "cdmsNumAuthenRequestsApproved",
+    "oid": "1.3.6.1.4.1.9.9.655.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumAuthenRequestsDeclined": {
+    "name": "cdmsNumAuthenRequestsDeclined",
+    "oid": "1.3.6.1.4.1.9.9.655.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsSecurityConfiguration": {
+    "name": "cdmsSecurityConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.655.1.6.2",
+    "class": "objectidentity"
+  },
+  "cdmsAuthenticationMode": {
+    "name": "cdmsAuthenticationMode",
+    "oid": "1.3.6.1.4.1.9.9.655.1.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsUserAuthenMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsHaClusterInfo": {
+    "name": "cdmsHaClusterInfo",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.1",
+    "class": "objectidentity"
+  },
+  "cdmsHaClusterComposition": {
+    "name": "cdmsHaClusterComposition",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2",
+    "class": "objectidentity"
+  },
+  "cdmsHaClusterStatus": {
+    "name": "cdmsHaClusterStatus",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3",
+    "class": "objectidentity"
+  },
+  "cdmsHaClusterEnabled": {
+    "name": "cdmsHaClusterEnabled",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterName": {
+    "name": "cdmsHaClusterName",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsHaDmmCluster": {
+    "name": "cdmsHaDmmCluster",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1",
+    "class": "objectidentity"
+  },
+  "cdmsHaVpCluster": {
+    "name": "cdmsHaVpCluster",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2",
+    "class": "objectidentity"
+  },
+  "cdmsHaClusterNumTotalDmms": {
+    "name": "cdmsHaClusterNumTotalDmms",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "Nodes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterNumActiveDmms": {
+    "name": "cdmsHaClusterNumActiveDmms",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "Nodes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterDmmVipType": {
+    "name": "cdmsHaClusterDmmVipType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterDmmVip": {
+    "name": "cdmsHaClusterDmmVip",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaDmmClusterMemberTable": {
+    "name": "cdmsHaDmmClusterMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaDmmClusterMemberEntry": {
+    "name": "cdmsHaDmmClusterMemberEntry",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaDmmClusterMemberAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaDmmClusterMemberAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdmsHaDmmClusterMemberAddrType": {
+    "name": "cdmsHaDmmClusterMemberAddrType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaDmmClusterMemberAddress": {
+    "name": "cdmsHaDmmClusterMemberAddress",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaDmmClusterMemberIsPrimary": {
+    "name": "cdmsHaDmmClusterMemberIsPrimary",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaDmmClusterMemberOperState": {
+    "name": "cdmsHaDmmClusterMemberOperState",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsFunctionalStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaVpClusterNumClusters": {
+    "name": "cdmsHaVpClusterNumClusters",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberTable": {
+    "name": "cdmsHaVpClusterMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberEntry": {
+    "name": "cdmsHaVpClusterMemberEntry",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterMemberClusterName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterMemberVipType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterMemberVip",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterMemberAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterMemberAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberClusterName": {
+    "name": "cdmsHaVpClusterMemberClusterName",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberVipType": {
+    "name": "cdmsHaVpClusterMemberVipType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberVip": {
+    "name": "cdmsHaVpClusterMemberVip",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberAddrType": {
+    "name": "cdmsHaVpClusterMemberAddrType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberAddress": {
+    "name": "cdmsHaVpClusterMemberAddress",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberIsPrimary": {
+    "name": "cdmsHaVpClusterMemberIsPrimary",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaVpClusterMemberOperState": {
+    "name": "cdmsHaVpClusterMemberOperState",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsFunctionalStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterLastDmmStatusChangeTime": {
+    "name": "cdmsHaClusterLastDmmStatusChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterLastDmmStatusChangeAddrType": {
+    "name": "cdmsHaClusterLastDmmStatusChangeAddrType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterLastDmmStatusChangeAddress": {
+    "name": "cdmsHaClusterLastDmmStatusChangeAddress",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterLastVpStatusChangeTime": {
+    "name": "cdmsHaClusterLastVpStatusChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterLastVpStatusChangeCluster": {
+    "name": "cdmsHaClusterLastVpStatusChangeCluster",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterLastStatusChangeVpAddrType": {
+    "name": "cdmsHaClusterLastStatusChangeVpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterLastVpStatusChangeVpAddress": {
+    "name": "cdmsHaClusterLastVpStatusChangeVpAddress",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterStatusHistory": {
+    "name": "cdmsHaClusterStatusHistory",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8",
+    "class": "objectidentity"
+  },
+  "cdmsHaClusterHistoryMaxRecords": {
+    "name": "cdmsHaClusterHistoryMaxRecords",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsHaClusterHistoryTable": {
+    "name": "cdmsHaClusterHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaClusterHistoryEntry": {
+    "name": "cdmsHaClusterHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdmsHaClusterHistId": {
+    "name": "cdmsHaClusterHistId",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdmsHaClusterHistTimestamp": {
+    "name": "cdmsHaClusterHistTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterHistClusterName": {
+    "name": "cdmsHaClusterHistClusterName",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterHistNodeType": {
+    "name": "cdmsHaClusterHistNodeType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsElementType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterHistNodeNewStatus": {
+    "name": "cdmsHaClusterHistNodeNewStatus",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDmsFunctionalStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterHistNodeAddrType": {
+    "name": "cdmsHaClusterHistNodeAddrType",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsHaClusterHistNodeAddr": {
+    "name": "cdmsHaClusterHistNodeAddr",
+    "oid": "1.3.6.1.4.1.9.9.655.1.10.3.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumUsers": {
+    "name": "cdmsNumUsers",
+    "oid": "1.3.6.1.4.1.9.9.655.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Users",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumActiveDmmUsers": {
+    "name": "cdmsNumActiveDmmUsers",
+    "oid": "1.3.6.1.4.1.9.9.655.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Users",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumActiveVpUsers": {
+    "name": "cdmsNumActiveVpUsers",
+    "oid": "1.3.6.1.4.1.9.9.655.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Users",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsLastUserLastChange": {
+    "name": "cdmsLastUserLastChange",
+    "oid": "1.3.6.1.4.1.9.9.655.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsEventConfiguration": {
+    "name": "cdmsEventConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.1",
+    "class": "objectidentity"
+  },
+  "cdmsEventStatistics": {
+    "name": "cdmsEventStatistics",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.2",
+    "class": "objectidentity"
+  },
+  "cdmsNumEvents": {
+    "name": "cdmsNumEvents",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumEventRate": {
+    "name": "cdmsNumEventRate",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Events per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumAlarms": {
+    "name": "cdmsNumAlarms",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Alarms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumAlarmRate": {
+    "name": "cdmsNumAlarmRate",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Alarms per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumNotifications": {
+    "name": "cdmsNumNotifications",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsNumNotificationRate": {
+    "name": "cdmsNumNotificationRate",
+    "oid": "1.3.6.1.4.1.9.9.655.1.8.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Notifications per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdmsMediaPlayerRegisteredEnable": {
+    "name": "cdmsMediaPlayerRegisteredEnable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsMediaPlayerUpEnable": {
+    "name": "cdmsMediaPlayerUpEnable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsMediaPlayerDownEnable": {
+    "name": "cdmsMediaPlayerDownEnable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsMediaPlayerAddrTakenEnable": {
+    "name": "cdmsMediaPlayerAddrTakenEnable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsHaClusterNodeUpEnable": {
+    "name": "cdmsHaClusterNodeUpEnable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsHaClusterNodeDownEnable": {
+    "name": "cdmsHaClusterNodeDownEnable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdmsHaClusterConfigChangeEnable": {
+    "name": "cdmsHaClusterConfigChangeEnable",
+    "oid": "1.3.6.1.4.1.9.9.655.1.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDmsMediaPlayerRegistered": {
+    "name": "ciscoDmsMediaPlayerRegistered",
+    "oid": "1.3.6.1.4.1.9.9.655.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumMediaPlayerDevices"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementMacAddress"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsMediaPlayerUp": {
+    "name": "ciscoDmsMediaPlayerUp",
+    "oid": "1.3.6.1.4.1.9.9.655.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumMediaPlayerDevices"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementMacAddress"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsMediaPlayerDown": {
+    "name": "ciscoDmsMediaPlayerDown",
+    "oid": "1.3.6.1.4.1.9.9.655.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumMediaPlayerDevices"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsMediaPlayerAddrTaken": {
+    "name": "ciscoDmsMediaPlayerAddrTaken",
+    "oid": "1.3.6.1.4.1.9.9.655.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsHaClusterNodeUp": {
+    "name": "ciscoDmsHaClusterNodeUp",
+    "oid": "1.3.6.1.4.1.9.9.655.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistClusterName"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsHaClusterNodeDown": {
+    "name": "ciscoDmsHaClusterNodeDown",
+    "oid": "1.3.6.1.4.1.9.9.655.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistClusterName"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cdmsDmsHaClusterConfigChange": {
+    "name": "cdmsDmsHaClusterConfigChange",
+    "oid": "1.3.6.1.4.1.9.9.655.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistClusterName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsMonitorMIBCompliances": {
+    "name": "ciscoDmsMonitorMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.655.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDmsMonitorMIBGroups": {
+    "name": "ciscoDmsMonitorMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDmsMonitorMIBCompliance": {
+    "name": "ciscoDmsMonitorMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.655.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDmsSystemGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsFeatureGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsInventoryGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsFeatureAdvancedGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsServerGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDamGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsSecurityGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsUserGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsEventGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsHaGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsHaAdvancedGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsNotificationCntlGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsNotificationsGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsAdvancedNotificationsGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDmsMonitorMIBComplianceRev1": {
+    "name": "ciscoDmsMonitorMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.655.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDmsSystemGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsFeatureGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsInventoryGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsFeatureAdvancedGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsServerGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDamGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsSecurityGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsUserGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsEventGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsNotificationCntlGroupRev1",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsNotificationsGroupRev1",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsAdvancedNotificationsGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      },
+      {
+        "object": "ciscoDmsHaGroup",
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsSystemGroup": {
+    "name": "ciscoDmsSystemGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMajorVersion"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMinorVersion"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsPatchVersion"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsAdministrator"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsFeatureGroup": {
+    "name": "ciscoDmsFeatureGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLicensableFeatures"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLicensedFeatures"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLastLicenseUpdate"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLicensedFeatureLimit"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLicensedFeatureDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsFeatureAdvancedGroup": {
+    "name": "ciscoDmsFeatureAdvancedGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLicensedFeatureInstallDate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsInventoryGroup": {
+    "name": "ciscoDmsInventoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumMediaIngestionDevices"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumMediaPlayerDevices"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumVideoPortalDevices"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementMacAddress"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementAddress"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementMetadata"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsInventoryElementState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsServerGroup": {
+    "name": "ciscoDmsServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsServerState"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDamGroup": {
+    "name": "ciscoDamGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumContentElements"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsSecurityGroup": {
+    "name": "ciscoDmsSecurityGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumAuthenRequests"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumAuthenRequestsApproved"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumAuthenRequestsDeclined"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsAuthenticationMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsUserGroup": {
+    "name": "ciscoDmsUserGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumUsers"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumActiveDmmUsers"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumActiveVpUsers"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsLastUserLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsEventGroup": {
+    "name": "ciscoDmsEventGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumEvents"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumEventRate"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumAlarms"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumAlarmRate"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumNotifications"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsNumNotificationRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsNotificationCntlGroup": {
+    "name": "ciscoDmsNotificationCntlGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerRegisteredEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerUpEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerDownEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerAddrTakenEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDmsNotificationsGroup": {
+    "name": "ciscoDmsNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerRegistered"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerUp"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerDown"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerAddrTaken"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDmsAdvancedNotificationsGroup": {
+    "name": "ciscoDmsAdvancedNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsDmsHaClusterConfigChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsHaGroup": {
+    "name": "ciscoDmsHaGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterNodeUpEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterNodeDownEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterConfigChangeEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterEnabled"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterName"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterNumTotalDmms"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterNumActiveDmms"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterDmmVipType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterDmmVip"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaDmmClusterMemberIsPrimary"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaDmmClusterMemberOperState"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterNumClusters"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterMemberIsPrimary"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaVpClusterMemberOperState"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterLastDmmStatusChangeTime"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterLastDmmStatusChangeAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterLastDmmStatusChangeAddress"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterLastVpStatusChangeTime"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterLastVpStatusChangeCluster"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterLastStatusChangeVpAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterLastVpStatusChangeVpAddress"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistoryMaxRecords"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsHaAdvancedGroup": {
+    "name": "ciscoDmsHaAdvancedGroup",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistTimestamp"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistClusterName"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeNewStatus"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeAddrType"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistNodeAddr"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterHistoryMaxRecords"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsNotificationCntlGroupRev1": {
+    "name": "ciscoDmsNotificationCntlGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerRegisteredEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerUpEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerDownEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsMediaPlayerAddrTakenEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterNodeUpEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterNodeDownEnable"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "cdmsHaClusterConfigChangeEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDmsNotificationsGroupRev1": {
+    "name": "ciscoDmsNotificationsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.655.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerRegistered"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerUp"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerDown"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsMediaPlayerAddrTaken"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsHaClusterNodeUp"
+      },
+      {
+        "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+        "object": "ciscoDmsHaClusterNodeDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"
+  }
+}

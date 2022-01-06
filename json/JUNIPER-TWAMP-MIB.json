@@ -1,0 +1,1087 @@
+{
+  "imports": {
+    "class": "imports",
+    "DISMAN-PING-MIB": [
+      "pingCtlOwnerIndex",
+      "pingProbeHistoryIndex",
+      "pingCtlTestName"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "JUNIPER-SMI": [
+      "jnxTwampNotificationPrefix",
+      "jnxTwampMibRoot"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxTwampMib": {
+    "name": "jnxTwampMib",
+    "oid": "1.3.6.1.4.1.2636.3.77.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-01 00:00",
+        "description": "Initial definition."
+      }
+    ]
+  },
+  "JnxTwampClientCollectionType": {
+    "name": "JnxTwampClientCollectionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "currentTest": 1,
+          "lastCompletedTest": 2,
+          "movingAverage": 3,
+          "allTests": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxTwampClientMeasurementType": {
+    "name": "JnxTwampClientMeasurementType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roundTripTime": 1,
+          "rttJitter": 2,
+          "rttInterarrivalJitter": 3,
+          "egress": 4,
+          "egressJitter": 5,
+          "egressInterarrivalJitter": 6,
+          "ingress": 7,
+          "ingressJitter": 8,
+          "ingressInterarrivalJitter": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxTwampClientMeasurementSet": {
+    "name": "JnxTwampClientMeasurementSet",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roundTripTime": 1,
+          "posRttJitter": 2,
+          "negRttJitter": 3,
+          "egress": 4,
+          "posEgressJitter": 5,
+          "negEgressJitter": 6,
+          "ingress": 7,
+          "posIngressJitter": 8,
+          "negIngressJitter": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxTwampPercentType": {
+    "name": "JnxTwampPercentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "displayhint": "d-6",
+    "status": "current"
+  },
+  "jnxTwampClientNode": {
+    "name": "jnxTwampClientNode",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxTwampRpmIdentity": {
+    "name": "jnxTwampRpmIdentity",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rpm": 1,
+          "twamp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientResultsSampleTable": {
+    "name": "jnxTwampClientResultsSampleTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientResultsSampleEntry": {
+    "name": "jnxTwampClientResultsSampleEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampResSampleType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampResSampleType": {
+    "name": "jnxTwampResSampleType",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampClientMeasurementType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampResSampleValue": {
+    "name": "jnxTwampResSampleValue",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResSampleDate": {
+    "name": "jnxTwampResSampleDate",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientResultsSummaryTable": {
+    "name": "jnxTwampClientResultsSummaryTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientResultsSummaryEntry": {
+    "name": "jnxTwampClientResultsSummaryEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampResSumCollection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampResSumCollection": {
+    "name": "jnxTwampResSumCollection",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampClientCollectionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampResSumSent": {
+    "name": "jnxTwampResSumSent",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResSumReceived": {
+    "name": "jnxTwampResSumReceived",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResSumPercentLost": {
+    "name": "jnxTwampResSumPercentLost",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampPercentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResSumDate": {
+    "name": "jnxTwampResSumDate",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientResultsCalculatedTable": {
+    "name": "jnxTwampClientResultsCalculatedTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientResultsCalculatedEntry": {
+    "name": "jnxTwampClientResultsCalculatedEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampResSumCollection",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampResCalcSet",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampResCalcSet": {
+    "name": "jnxTwampResCalcSet",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampClientMeasurementSet",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampResCalcSamples": {
+    "name": "jnxTwampResCalcSamples",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResCalcMin": {
+    "name": "jnxTwampResCalcMin",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResCalcMax": {
+    "name": "jnxTwampResCalcMax",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResCalcAverage": {
+    "name": "jnxTwampResCalcAverage",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResCalcPkToPk": {
+    "name": "jnxTwampResCalcPkToPk",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResCalcStdDev": {
+    "name": "jnxTwampResCalcStdDev",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampResCalcSum": {
+    "name": "jnxTwampResCalcSum",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientHistorySampleTable": {
+    "name": "jnxTwampClientHistorySampleTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientHistorySampleEntry": {
+    "name": "jnxTwampClientHistorySampleEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingProbeHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampHistSampleType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampHistSampleType": {
+    "name": "jnxTwampHistSampleType",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampClientMeasurementType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampHistSampleValue": {
+    "name": "jnxTwampHistSampleValue",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientHistorySummaryTable": {
+    "name": "jnxTwampClientHistorySummaryTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientHistorySummaryEntry": {
+    "name": "jnxTwampClientHistorySummaryEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingProbeHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampHistSumCollection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampHistSumCollection": {
+    "name": "jnxTwampHistSumCollection",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampClientCollectionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampHistSumSent": {
+    "name": "jnxTwampHistSumSent",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistSumReceived": {
+    "name": "jnxTwampHistSumReceived",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistSumPercentLost": {
+    "name": "jnxTwampHistSumPercentLost",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampPercentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientHistoryCalculatedTable": {
+    "name": "jnxTwampClientHistoryCalculatedTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientHistoryCalculatedEntry": {
+    "name": "jnxTwampClientHistoryCalculatedEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingProbeHistoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampHistSumCollection",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampHistCalcSet",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampHistCalcSet": {
+    "name": "jnxTwampHistCalcSet",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxTwampClientMeasurementSet",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampHistCalcSamples": {
+    "name": "jnxTwampHistCalcSamples",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistCalcMin": {
+    "name": "jnxTwampHistCalcMin",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistCalcMax": {
+    "name": "jnxTwampHistCalcMax",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistCalcAverage": {
+    "name": "jnxTwampHistCalcAverage",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistCalcPkToPk": {
+    "name": "jnxTwampHistCalcPkToPk",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistCalcStdDev": {
+    "name": "jnxTwampHistCalcStdDev",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampHistCalcSum": {
+    "name": "jnxTwampHistCalcSum",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientControlConnectionTable": {
+    "name": "jnxTwampClientControlConnectionTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientCCEntry": {
+    "name": "jnxTwampClientCCEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampClientControlConnectionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampClientControlConnectionID": {
+    "name": "jnxTwampClientControlConnectionID",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientCCName": {
+    "name": "jnxTwampClientCCName",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientCCStatus": {
+    "name": "jnxTwampClientCCStatus",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "stopped": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientServerAddress": {
+    "name": "jnxTwampClientServerAddress",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientServerPort": {
+    "name": "jnxTwampClientServerPort",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTSConfiguredCount": {
+    "name": "jnxTwampClientTSConfiguredCount",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTSActiveCount": {
+    "name": "jnxTwampClientTSActiveCount",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientAuthMode": {
+    "name": "jnxTwampClientAuthMode",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "authenticated": 2,
+          "encrypted": 3,
+          "controlOnlyEncrypted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTestSessionsTable": {
+    "name": "jnxTwampClientTestSessionsTable",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientTSEntry": {
+    "name": "jnxTwampClientTSEntry",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampClientTestSessionID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampClientTestSessionID": {
+    "name": "jnxTwampClientTestSessionID",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxTwampClientTSName": {
+    "name": "jnxTwampClientTSName",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTSStatus": {
+    "name": "jnxTwampClientTSStatus",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "stopped": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTSSenderAddress": {
+    "name": "jnxTwampClientTSSenderAddress",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTSSenderPort": {
+    "name": "jnxTwampClientTSSenderPort",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTSReflectorAddress": {
+    "name": "jnxTwampClientTSReflectorAddress",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxTwampClientTSReflectorPort": {
+    "name": "jnxTwampClientTSReflectorPort",
+    "oid": "1.3.6.1.4.1.2636.3.77.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "twampNotifications": {
+    "name": "twampNotifications",
+    "oid": "1.3.6.1.4.1.2636.4.27.1",
+    "class": "objectidentity"
+  },
+  "jnxTwampClientControlConnectionClosed": {
+    "name": "jnxTwampClientControlConnectionClosed",
+    "oid": "1.3.6.1.4.1.2636.4.27.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampClientCCName"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxTwampClientTestIterationFinished": {
+    "name": "jnxTwampClientTestIterationFinished",
+    "oid": "1.3.6.1.4.1.2636.4.27.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-TWAMP-MIB",
+        "object": "jnxTwampClientCCName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-TWAMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-TWAMP-MIB"
+  }
+}

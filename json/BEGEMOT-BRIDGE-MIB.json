@@ -1,0 +1,1351 @@
+{
+  "imports": {
+    "class": "imports",
+    "BEGEMOT-MIB": [
+      "begemot"
+    ],
+    "BRIDGE-MIB": [
+      "Timeout",
+      "BridgeId"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "begemotBridge": {
+    "name": "begemotBridge",
+    "oid": "1.3.6.1.4.1.12325.1.205",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-06 00:00",
+        "description": "Third revision adds begemotBridgeBasePortPrivate object."
+      },
+      {
+        "revision": "2006-11-21 00:00",
+        "description": "Second revision adds support for monitoring RSTP specific variables."
+      },
+      {
+        "revision": "2006-07-27 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "BridgeIfName": {
+    "name": "BridgeIfName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "16a",
+    "status": "current"
+  },
+  "BridgeIfNameOrEmpty": {
+    "name": "BridgeIfNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "16a",
+    "status": "current"
+  },
+  "BridgePortId": {
+    "name": "BridgePortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "1x.1x",
+    "status": "current"
+  },
+  "begemotBridgeNotifications": {
+    "name": "begemotBridgeNotifications",
+    "oid": "1.3.6.1.4.1.12325.1.205.0",
+    "class": "objectidentity"
+  },
+  "begemotBridgeBase": {
+    "name": "begemotBridgeBase",
+    "oid": "1.3.6.1.4.1.12325.1.205.1",
+    "class": "objectidentity"
+  },
+  "begemotBridgeStp": {
+    "name": "begemotBridgeStp",
+    "oid": "1.3.6.1.4.1.12325.1.205.2",
+    "class": "objectidentity"
+  },
+  "begemotBridgeTp": {
+    "name": "begemotBridgeTp",
+    "oid": "1.3.6.1.4.1.12325.1.205.3",
+    "class": "objectidentity"
+  },
+  "begemotBridgePf": {
+    "name": "begemotBridgePf",
+    "oid": "1.3.6.1.4.1.12325.1.205.4",
+    "class": "objectidentity"
+  },
+  "begemotBridgeConfigObjects": {
+    "name": "begemotBridgeConfigObjects",
+    "oid": "1.3.6.1.4.1.12325.1.205.5",
+    "class": "objectidentity"
+  },
+  "begemotBridgeBaseTable": {
+    "name": "begemotBridgeBaseTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeBaseEntry": {
+    "name": "begemotBridgeBaseEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBaseName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotBridgeBaseName": {
+    "name": "begemotBridgeBaseName",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeIfName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBaseAddress": {
+    "name": "begemotBridgeBaseAddress",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBaseNumPorts": {
+    "name": "begemotBridgeBaseNumPorts",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBaseType": {
+    "name": "begemotBridgeBaseType",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "transparent-only": 2,
+          "sourceroute-only": 3,
+          "srt": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBaseStatus": {
+    "name": "begemotBridgeBaseStatus",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotBridgeBasePortTable": {
+    "name": "begemotBridgeBasePortTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeBasePortEntry": {
+    "name": "begemotBridgeBasePortEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBaseName",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBasePortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotBridgeBasePort": {
+    "name": "begemotBridgeBasePort",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBasePortIfIndex": {
+    "name": "begemotBridgeBasePortIfIndex",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBaseSpanEnabled": {
+    "name": "begemotBridgeBaseSpanEnabled",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeBasePortDelayExceededDiscards": {
+    "name": "begemotBridgeBasePortDelayExceededDiscards",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBasePortMtuExceededDiscards": {
+    "name": "begemotBridgeBasePortMtuExceededDiscards",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeBasePortStatus": {
+    "name": "begemotBridgeBasePortStatus",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "begemotBridgeBasePortPrivate": {
+    "name": "begemotBridgeBasePortPrivate",
+    "oid": "1.3.6.1.4.1.12325.1.205.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpTable": {
+    "name": "begemotBridgeStpTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeStpEntry": {
+    "name": "begemotBridgeStpEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "begemotBridgeStpEntry",
+      "module": "BEGEMOT-BRIDGE-MIB",
+      "object": "begemotBridgeBaseEntry"
+    },
+    "status": "current"
+  },
+  "begemotBridgeStpProtocolSpecification": {
+    "name": "begemotBridgeStpProtocolSpecification",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "decLb100": 2,
+          "ieee8021d": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPriority": {
+    "name": "begemotBridgeStpPriority",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpTimeSinceTopologyChange": {
+    "name": "begemotBridgeStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpTopChanges": {
+    "name": "begemotBridgeStpTopChanges",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpDesignatedRoot": {
+    "name": "begemotBridgeStpDesignatedRoot",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpRootCost": {
+    "name": "begemotBridgeStpRootCost",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpRootPort": {
+    "name": "begemotBridgeStpRootPort",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpMaxAge": {
+    "name": "begemotBridgeStpMaxAge",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpHelloTime": {
+    "name": "begemotBridgeStpHelloTime",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpHoldTime": {
+    "name": "begemotBridgeStpHoldTime",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpForwardDelay": {
+    "name": "begemotBridgeStpForwardDelay",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpBridgeMaxAge": {
+    "name": "begemotBridgeStpBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpBridgeHelloTime": {
+    "name": "begemotBridgeStpBridgeHelloTime",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpBridgeForwardDelay": {
+    "name": "begemotBridgeStpBridgeForwardDelay",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpVersion": {
+    "name": "begemotBridgeStpVersion",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stpCompatible": 0,
+          "rstp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rstp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpTxHoldCount": {
+    "name": "begemotBridgeStpTxHoldCount",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpPortTable": {
+    "name": "begemotBridgeStpPortTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeStpPortEntry": {
+    "name": "begemotBridgeStpPortEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBaseName",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBasePortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotBridgeStpPort": {
+    "name": "begemotBridgeStpPort",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortPriority": {
+    "name": "begemotBridgeStpPortPriority",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpPortState": {
+    "name": "begemotBridgeStpPortState",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortEnable": {
+    "name": "begemotBridgeStpPortEnable",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpPortPathCost": {
+    "name": "begemotBridgeStpPortPathCost",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpPortDesignatedRoot": {
+    "name": "begemotBridgeStpPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortDesignatedCost": {
+    "name": "begemotBridgeStpPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortDesignatedBridge": {
+    "name": "begemotBridgeStpPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortDesignatedPort": {
+    "name": "begemotBridgeStpPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgePortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortForwardTransitions": {
+    "name": "begemotBridgeStpPortForwardTransitions",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpExtPortTable": {
+    "name": "begemotBridgeStpExtPortTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeStpExtPortEntry": {
+    "name": "begemotBridgeStpExtPortEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "begemotBridgeStpExtPortEntry",
+      "module": "BEGEMOT-BRIDGE-MIB",
+      "object": "begemotBridgeStpPortEntry"
+    },
+    "status": "current"
+  },
+  "begemotBridgeStpPortProtocolMigration": {
+    "name": "begemotBridgeStpPortProtocolMigration",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpPortAdminEdgePort": {
+    "name": "begemotBridgeStpPortAdminEdgePort",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpPortOperEdgePort": {
+    "name": "begemotBridgeStpPortOperEdgePort",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortAdminPointToPoint": {
+    "name": "begemotBridgeStpPortAdminPointToPoint",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 0,
+          "forceFalse": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeStpPortOperPointToPoint": {
+    "name": "begemotBridgeStpPortOperPointToPoint",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeStpPortAdminPathCost": {
+    "name": "begemotBridgeStpPortAdminPathCost",
+    "oid": "1.3.6.1.4.1.12325.1.205.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeTpTable": {
+    "name": "begemotBridgeTpTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeTpEntry": {
+    "name": "begemotBridgeTpEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "begemotBridgeTpEntry",
+      "module": "BEGEMOT-BRIDGE-MIB",
+      "object": "begemotBridgeBaseEntry"
+    },
+    "status": "current"
+  },
+  "begemotBridgeTpLearnedEntryDiscards": {
+    "name": "begemotBridgeTpLearnedEntryDiscards",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpAgingTime": {
+    "name": "begemotBridgeTpAgingTime",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeTpMaxAddresses": {
+    "name": "begemotBridgeTpMaxAddresses",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeTpFdbTable": {
+    "name": "begemotBridgeTpFdbTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeTpFdbEntry": {
+    "name": "begemotBridgeTpFdbEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBaseName",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeTpFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotBridgeTpFdbAddress": {
+    "name": "begemotBridgeTpFdbAddress",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpFdbPort": {
+    "name": "begemotBridgeTpFdbPort",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpFdbStatus": {
+    "name": "begemotBridgeTpFdbStatus",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpPortTable": {
+    "name": "begemotBridgeTpPortTable",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "begemotBridgeTpPortEntry": {
+    "name": "begemotBridgeTpPortEntry",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBaseName",
+        "implied": 0
+      },
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBasePortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "begemotBridgeTpPort": {
+    "name": "begemotBridgeTpPort",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpPortMaxInfo": {
+    "name": "begemotBridgeTpPortMaxInfo",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpPortInFrames": {
+    "name": "begemotBridgeTpPortInFrames",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpPortOutFrames": {
+    "name": "begemotBridgeTpPortOutFrames",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgeTpPortInDiscards": {
+    "name": "begemotBridgeTpPortInDiscards",
+    "oid": "1.3.6.1.4.1.12325.1.205.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "begemotBridgePfilStatus": {
+    "name": "begemotBridgePfilStatus",
+    "oid": "1.3.6.1.4.1.12325.1.205.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgePfilMembers": {
+    "name": "begemotBridgePfilMembers",
+    "oid": "1.3.6.1.4.1.12325.1.205.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgePfilIpOnly": {
+    "name": "begemotBridgePfilIpOnly",
+    "oid": "1.3.6.1.4.1.12325.1.205.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeLayer2PfStatus": {
+    "name": "begemotBridgeLayer2PfStatus",
+    "oid": "1.3.6.1.4.1.12325.1.205.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeDefaultBridgeIf": {
+    "name": "begemotBridgeDefaultBridgeIf",
+    "oid": "1.3.6.1.4.1.12325.1.205.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeIfNameOrEmpty",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "bridge0",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeDataUpdate": {
+    "name": "begemotBridgeDataUpdate",
+    "oid": "1.3.6.1.4.1.12325.1.205.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeDataPoll": {
+    "name": "begemotBridgeDataPoll",
+    "oid": "1.3.6.1.4.1.12325.1.205.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "begemotBridgeNewRoot": {
+    "name": "begemotBridgeNewRoot",
+    "oid": "1.3.6.1.4.1.12325.1.205.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBaseName"
+      }
+    ],
+    "status": "current"
+  },
+  "begemotBridgeTopologyChange": {
+    "name": "begemotBridgeTopologyChange",
+    "oid": "1.3.6.1.4.1.12325.1.205.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BEGEMOT-BRIDGE-MIB",
+        "object": "begemotBridgeBaseName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BEGEMOT-BRIDGE-MIB"
+  }
+}

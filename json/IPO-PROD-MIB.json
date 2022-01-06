@@ -1,0 +1,1185 @@
+{
+  "imports": {
+    "class": "imports",
+    "AVAYAGEN-MIB": [
+      "products"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "Counter64",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ipoProdMIB": {
+    "name": "ipoProdMIB",
+    "oid": "1.3.6.1.4.1.6889.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-08-06 00:00",
+        "description": "Rev 1.00.26 J Modules are now part of IP500v2."
+      },
+      {
+        "revision": "2014-05-30 00:00",
+        "description": "Rev 1.00.25 Additional IOD for IP500v2 Select and IP Office Server Edition Expansion Select Mode."
+      },
+      {
+        "revision": "2014-02-27 00:00",
+        "description": "Rev 1.00.24 Additional IOD for IP 500 UCM V2 module"
+      },
+      {
+        "revision": "2013-12-10 00:00",
+        "description": "Rev 1.00.23 Update description for Unified Communications Module"
+      },
+      {
+        "revision": "2012-07-23 00:00",
+        "description": "Rev 1.00.22 Additional IOD for IP 500 ATM4U V2 module."
+      },
+      {
+        "revision": "2012-03-26 00:00",
+        "description": "Rev 1.00.21 Additional IOD for IP 500 VCM module."
+      },
+      {
+        "revision": "2011-11-14 11:28",
+        "description": "Rev 1.00.20 Additional OID for IP Office Server Edition Expansion Mode."
+      },
+      {
+        "revision": "2011-08-11 16:58",
+        "description": "Rev 1.00.19 Added new C110 UCP Module."
+      },
+      {
+        "revision": "2011-02-10 14:57",
+        "description": "Rev 1.00.18 Added new OID for TCM 8 card."
+      },
+      {
+        "revision": "2011-02-01 14:57",
+        "description": "Rev 1.00.17 Added new OID for DS30A Expansion module."
+      },
+      {
+        "revision": "2011-01-11 16:30",
+        "description": "Rev 1.00.16 Avaya Inside OIDs removed. Additional OIDs added for Norstar, Branch and Quick IP Office modes."
+      },
+      {
+        "revision": "2010-06-09 15:15",
+        "description": "Rev 1.00.15 Added new OID for Combo Card VCM sub module."
+      },
+      {
+        "revision": "2010-04-28 16:26",
+        "description": "Rev 1.00.14 Added new OID for Avaya Inside."
+      },
+      {
+        "revision": "2009-08-26 17:13",
+        "description": "Rev 1.00.13 Added new OIDs for IP500v2, combo card and ETR card."
+      },
+      {
+        "revision": "2009-08-05 10:48",
+        "description": "Rev 1.00.12 Added a new OID for IP500 4 Port Expansion Module."
+      },
+      {
+        "revision": "2006-08-16 11:00",
+        "description": "Rev 1.00.11 Corrected PRI module defined for IP500 and revised description for Ethernet wAN link ports to make common across units."
+      },
+      {
+        "revision": "2006-08-02 17:52",
+        "description": "Rev 1.00.10 Added a new OID for Universal PRI module and revised descriptions for LAN ports used on IP412."
+      },
+      {
+        "revision": "2006-07-13 22:20",
+        "description": "Rev 1.00.09 Added further OIDs for missing modules. Replaced references to IP408 with IP500"
+      },
+      {
+        "revision": "2006-06-10 14:16",
+        "description": "Rev 1.00.08 Added new OIDs for IP500 chassis and plug-in cards."
+      },
+      {
+        "revision": "2006-06-07 10:14",
+        "description": "Rev 1.00.07 Added new OID for generic IP Office License dongle."
+      },
+      {
+        "revision": "2006-05-24 16:20",
+        "description": "Rev 1.00.06 Added new OID for revised variant of ATM4U trunk module."
+      },
+      {
+        "revision": "2006-05-24 16:15",
+        "description": "Rev 1.00.05 Corrected descriptions of E1 R2 modules/ports."
+      },
+      {
+        "revision": "2006-04-04 00:00",
+        "description": "Rev 1.00.04 Added new OIDs for revised (v2) variants of DS and POTS expansion modules."
+      },
+      {
+        "revision": "2004-08-06 00:00",
+        "description": "Rev 1.00.03 Added SOG family products."
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Rev 1.00.02 Revised for external publication."
+      },
+      {
+        "revision": "2004-01-06 00:00",
+        "description": "Rev 1.0.1 New OIDs added for revised 403 and 406 variants."
+      },
+      {
+        "revision": "2003-10-10 00:00",
+        "description": "Rev 1.0.0 The first published version of this MIB module."
+      }
+    ]
+  },
+  "ipoProdControllers": {
+    "name": "ipoProdControllers",
+    "oid": "1.3.6.1.4.1.6889.1.2.1",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModules": {
+    "name": "ipoProdExpModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.2",
+    "class": "objectidentity"
+  },
+  "ipoProdSlots": {
+    "name": "ipoProdSlots",
+    "oid": "1.3.6.1.4.1.6889.1.2.3",
+    "class": "objectidentity"
+  },
+  "ipoProdSlotModules": {
+    "name": "ipoProdSlotModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4",
+    "class": "objectidentity"
+  },
+  "ipoProdPorts": {
+    "name": "ipoProdPorts",
+    "oid": "1.3.6.1.4.1.6889.1.2.5",
+    "class": "objectidentity"
+  },
+  "ipoProdDongleModules": {
+    "name": "ipoProdDongleModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.6",
+    "class": "objectidentity"
+  },
+  "ipoProdSubModules": {
+    "name": "ipoProdSubModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.7",
+    "class": "objectidentity"
+  },
+  "ipoProdUCModules": {
+    "name": "ipoProdUCModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.8",
+    "class": "objectidentity"
+  },
+  "ipoProd401Family": {
+    "name": "ipoProd401Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "ipoProd403Family": {
+    "name": "ipoProd403Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "ipoProd406Family": {
+    "name": "ipoProd406Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "ipoProd412Family": {
+    "name": "ipoProd412Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "ipoProdSmallOfficeEditionFamily": {
+    "name": "ipoProdSmallOfficeEditionFamily",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.5",
+    "class": "objectidentity"
+  },
+  "ipoProdR403Family": {
+    "name": "ipoProdR403Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.6",
+    "class": "objectidentity"
+  },
+  "ipoProdR406Family": {
+    "name": "ipoProdR406Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.7",
+    "class": "objectidentity"
+  },
+  "ipoProdSogFamily": {
+    "name": "ipoProdSogFamily",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.8",
+    "class": "objectidentity"
+  },
+  "ipoProd500Family": {
+    "name": "ipoProd500Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.9",
+    "class": "objectidentity"
+  },
+  "ipoProd500v2Family": {
+    "name": "ipoProd500v2Family",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10",
+    "class": "objectidentity"
+  },
+  "ipoProd401DT2": {
+    "name": "ipoProd401DT2",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd401DT4": {
+    "name": "ipoProd401DT4",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd401DS2": {
+    "name": "ipoProd401DS2",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd401DS4": {
+    "name": "ipoProd401DS4",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd403DT": {
+    "name": "ipoProd403DT",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd403DS": {
+    "name": "ipoProd403DS",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd406": {
+    "name": "ipoProd406",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd412": {
+    "name": "ipoProd412",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSmallOfficeEditionPOTS4": {
+    "name": "ipoProdSmallOfficeEditionPOTS4",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSmallOfficeEditionPOTS8": {
+    "name": "ipoProdSmallOfficeEditionPOTS8",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSmallOfficeEditionDT8": {
+    "name": "ipoProdSmallOfficeEditionDT8",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSmallOfficeEditionDS8": {
+    "name": "ipoProdSmallOfficeEditionDS8",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdR403DT": {
+    "name": "ipoProdR403DT",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdR403DS": {
+    "name": "ipoProdR403DS",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdR406": {
+    "name": "ipoProdR406",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdR406DT": {
+    "name": "ipoProdR406DT",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdR406DS": {
+    "name": "ipoProdR406DS",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdR406Full": {
+    "name": "ipoProdR406Full",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSogSOEPOTS4": {
+    "name": "ipoProdSogSOEPOTS4",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSogSOEPOTS8": {
+    "name": "ipoProdSogSOEPOTS8",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSogSOEDT8": {
+    "name": "ipoProdSogSOEDT8",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.8.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSogSOEDS8": {
+    "name": "ipoProdSogSOEDS8",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.8.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500Slot4": {
+    "name": "ipoProd500Slot4",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500Slot8": {
+    "name": "ipoProd500Slot8",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.9.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2IPOffice": {
+    "name": "ipoProd500v2IPOffice",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2Partner": {
+    "name": "ipoProd500v2Partner",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2Norstar": {
+    "name": "ipoProd500v2Norstar",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2Branch": {
+    "name": "ipoProd500v2Branch",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2Quick": {
+    "name": "ipoProd500v2Quick",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2SEditionExpansion": {
+    "name": "ipoProd500v2SEditionExpansion",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2IPOfficeSelect": {
+    "name": "ipoProd500v2IPOfficeSelect",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProd500v2SEditionExpansionSelect": {
+    "name": "ipoProd500v2SEditionExpansionSelect",
+    "oid": "1.3.6.1.4.1.6889.1.2.1.10.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDT": {
+    "name": "ipoProdExpModDT",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModDS": {
+    "name": "ipoProdExpModDS",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModPhone": {
+    "name": "ipoProdExpModPhone",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.3",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModS0": {
+    "name": "ipoProdExpModS0",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.4",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModAnalog": {
+    "name": "ipoProdExpModAnalog",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.5",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModWAN": {
+    "name": "ipoProdExpModWAN",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.6",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModRDS": {
+    "name": "ipoProdExpModRDS",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.7",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModRPhone": {
+    "name": "ipoProdExpModRPhone",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.8",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModDSA": {
+    "name": "ipoProdExpModDSA",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.9",
+    "class": "objectidentity"
+  },
+  "ipoProdExpModDT16": {
+    "name": "ipoProdExpModDT16",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDT30": {
+    "name": "ipoProdExpModDT30",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDS16": {
+    "name": "ipoProdExpModDS16",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDS30": {
+    "name": "ipoProdExpModDS30",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModPhone8": {
+    "name": "ipoProdExpModPhone8",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModPhone16": {
+    "name": "ipoProdExpModPhone16",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModPhone30": {
+    "name": "ipoProdExpModPhone30",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModS08": {
+    "name": "ipoProdExpModS08",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModS016": {
+    "name": "ipoProdExpModS016",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModATM8": {
+    "name": "ipoProdExpModATM8",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModATM16": {
+    "name": "ipoProdExpModATM16",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModWAN3": {
+    "name": "ipoProdExpModWAN3",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModRDS16": {
+    "name": "ipoProdExpModRDS16",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModRDS30": {
+    "name": "ipoProdExpModRDS30",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModRPhone8": {
+    "name": "ipoProdExpModRPhone8",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModRPhone16": {
+    "name": "ipoProdExpModRPhone16",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModRPhone30": {
+    "name": "ipoProdExpModRPhone30",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.8.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDSA16RJ21": {
+    "name": "ipoProdExpModDSA16RJ21",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDSA30RJ21": {
+    "name": "ipoProdExpModDSA30RJ21",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.9.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDSA16RJ45": {
+    "name": "ipoProdExpModDSA16RJ45",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.9.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpModDSA30RJ45": {
+    "name": "ipoProdExpModDSA30RJ45",
+    "oid": "1.3.6.1.4.1.6889.1.2.2.9.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotVCM": {
+    "name": "ipoProdSlotVCM",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotModems": {
+    "name": "ipoProdSlotModems",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotVmailMemory": {
+    "name": "ipoProdSlotVmailMemory",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotWAN": {
+    "name": "ipoProdSlotWAN",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotPCCard": {
+    "name": "ipoProdSlotPCCard",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotTrunks": {
+    "name": "ipoProdSlotTrunks",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotExpansion": {
+    "name": "ipoProdSlotExpansion",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlot500Generic": {
+    "name": "ipoProdSlot500Generic",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotMezzanine": {
+    "name": "ipoProdSlotMezzanine",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotCarrierVCM": {
+    "name": "ipoProdSlotCarrierVCM",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSlotCarrierTrunk": {
+    "name": "ipoProdSlotCarrierTrunk",
+    "oid": "1.3.6.1.4.1.6889.1.2.3.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntegralModules": {
+    "name": "ipoProdIntegralModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "ipoProdTrunkModules": {
+    "name": "ipoProdTrunkModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2",
+    "class": "objectidentity"
+  },
+  "ipoProdPCCardModules": {
+    "name": "ipoProdPCCardModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.3",
+    "class": "objectidentity"
+  },
+  "ipoProdCarrierModules": {
+    "name": "ipoProdCarrierModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.4",
+    "class": "objectidentity"
+  },
+  "ipoProdPhonePortModules": {
+    "name": "ipoProdPhonePortModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.5",
+    "class": "objectidentity"
+  },
+  "ipoProdVCMModules": {
+    "name": "ipoProdVCMModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.6",
+    "class": "objectidentity"
+  },
+  "ipoProdExpansionModules": {
+    "name": "ipoProdExpansionModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.7",
+    "class": "objectidentity"
+  },
+  "ipoProdUCPModules": {
+    "name": "ipoProdUCPModules",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.8",
+    "class": "objectidentity"
+  },
+  "ipoProdIntModVCM": {
+    "name": "ipoProdIntModVCM",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1",
+    "class": "objectidentity"
+  },
+  "ipoProdIntModModem": {
+    "name": "ipoProdIntModModem",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.2",
+    "class": "objectidentity"
+  },
+  "ipoProdIntModWAN": {
+    "name": "ipoProdIntModWAN",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.3",
+    "class": "objectidentity"
+  },
+  "ipoProdIntModMem": {
+    "name": "ipoProdIntModMem",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.4",
+    "class": "objectidentity"
+  },
+  "ipoProdIntModVCM3": {
+    "name": "ipoProdIntModVCM3",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM5": {
+    "name": "ipoProdIntModVCM5",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM6": {
+    "name": "ipoProdIntModVCM6",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM8": {
+    "name": "ipoProdIntModVCM8",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM10": {
+    "name": "ipoProdIntModVCM10",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM12": {
+    "name": "ipoProdIntModVCM12",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM16": {
+    "name": "ipoProdIntModVCM16",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM20": {
+    "name": "ipoProdIntModVCM20",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM30": {
+    "name": "ipoProdIntModVCM30",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM24": {
+    "name": "ipoProdIntModVCM24",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModVCM4": {
+    "name": "ipoProdIntModVCM4",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModModemDual": {
+    "name": "ipoProdIntModModemDual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModModemMulti": {
+    "name": "ipoProdIntModModemMulti",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModWANModule": {
+    "name": "ipoProdIntModWANModule",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdIntModMemVmail": {
+    "name": "ipoProdIntModMemVmail",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.1.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkAnalogQuad": {
+    "name": "ipoProdTrunkAnalogQuad",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkBRIQuad": {
+    "name": "ipoProdTrunkBRIQuad",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkE1PRISingle": {
+    "name": "ipoProdTrunkE1PRISingle",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkE1PRIDual": {
+    "name": "ipoProdTrunkE1PRIDual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkJ1PRISingle": {
+    "name": "ipoProdTrunkJ1PRISingle",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkJ1PRIDual": {
+    "name": "ipoProdTrunkJ1PRIDual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkT1PRISingle": {
+    "name": "ipoProdTrunkT1PRISingle",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkT1PRIDual": {
+    "name": "ipoProdTrunkT1PRIDual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkIndex": {
+    "name": "ipoProdTrunkIndex",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkR2Single": {
+    "name": "ipoProdTrunkR2Single",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkR2Dual": {
+    "name": "ipoProdTrunkR2Dual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkR2CoAxSingle": {
+    "name": "ipoProdTrunkR2CoAxSingle",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkR2CoAxDual": {
+    "name": "ipoProdTrunkR2CoAxDual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkRAnalogQuad": {
+    "name": "ipoProdTrunkRAnalogQuad",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunk500AnalogQuad": {
+    "name": "ipoProdTrunk500AnalogQuad",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunk500BRIDual": {
+    "name": "ipoProdTrunk500BRIDual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunk500BRIQuad": {
+    "name": "ipoProdTrunk500BRIQuad",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkUniversalPRIDS0Single": {
+    "name": "ipoProdTrunkUniversalPRIDS0Single",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunkUniversalPRIDS0Dual": {
+    "name": "ipoProdTrunkUniversalPRIDS0Dual",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdTrunk500AnalogQuadV2": {
+    "name": "ipoProdTrunk500AnalogQuadV2",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.2.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPCCardMemVmail": {
+    "name": "ipoProdPCCardMemVmail",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPCCardWLAN": {
+    "name": "ipoProdPCCardWLAN",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdCarrier": {
+    "name": "ipoProdCarrier",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPhonePortPOT8": {
+    "name": "ipoProdPhonePortPOT8",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPhonePortDS8": {
+    "name": "ipoProdPhonePortDS8",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPhonePortPOT2": {
+    "name": "ipoProdPhonePortPOT2",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPhonePortCombo": {
+    "name": "ipoProdPhonePortCombo",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPhonePortETR6": {
+    "name": "ipoProdPhonePortETR6",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPhonePortTCM8": {
+    "name": "ipoProdPhonePortTCM8",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdVCMMod32": {
+    "name": "ipoProdVCMMod32",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdVCMMod64": {
+    "name": "ipoProdVCMMod64",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdVCMMod32V2": {
+    "name": "ipoProdVCMMod32V2",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.6.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdVCMMod64V2": {
+    "name": "ipoProdVCMMod64V2",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.6.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdExpMod4Port": {
+    "name": "ipoProdExpMod4Port",
+    "oid": "1.3.6.1.4.1.6889.1.2.4.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortBRI": {
+    "name": "ipoProdPortBRI",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortE1PRI": {
+    "name": "ipoProdPortE1PRI",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortJ1PRI": {
+    "name": "ipoProdPortJ1PRI",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortT1PRI": {
+    "name": "ipoProdPortT1PRI",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortR2": {
+    "name": "ipoProdPortR2",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortR2CoAx": {
+    "name": "ipoProdPortR2CoAx",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortWAN": {
+    "name": "ipoProdPortWAN",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortAnalog": {
+    "name": "ipoProdPortAnalog",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortPower": {
+    "name": "ipoProdPortPower",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortDT": {
+    "name": "ipoProdPortDT",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortDS": {
+    "name": "ipoProdPortDS",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortPOT": {
+    "name": "ipoProdPortPOT",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortS0": {
+    "name": "ipoProdPortS0",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortLAN": {
+    "name": "ipoProdPortLAN",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortWLAN": {
+    "name": "ipoProdPortWLAN",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortDTE": {
+    "name": "ipoProdPortDTE",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortUSB": {
+    "name": "ipoProdPortUSB",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortAudio": {
+    "name": "ipoProdPortAudio",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortEtherWANLink": {
+    "name": "ipoProdPortEtherWANLink",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortExtOP": {
+    "name": "ipoProdPortExtOP",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortNet1": {
+    "name": "ipoProdPortNet1",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdPortNet2": {
+    "name": "ipoProdPortNet2",
+    "oid": "1.3.6.1.4.1.6889.1.2.5.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdGenericDongle": {
+    "name": "ipoProdGenericDongle",
+    "oid": "1.3.6.1.4.1.6889.1.2.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdSubModVCM10": {
+    "name": "ipoProdSubModVCM10",
+    "oid": "1.3.6.1.4.1.6889.1.2.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdC110UCM": {
+    "name": "ipoProdC110UCM",
+    "oid": "1.3.6.1.4.1.6889.1.2.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipoProdC110UCMV2": {
+    "name": "ipoProdC110UCMV2",
+    "oid": "1.3.6.1.4.1.6889.1.2.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/IPO-PROD-MIB.mib",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IPO-PROD-MIB"
+  }
+}

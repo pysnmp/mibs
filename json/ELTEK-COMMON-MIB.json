@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64",
+      "mib-2",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "eltek": {
+    "name": "eltek",
+    "oid": "1.3.6.1.4.1.12148",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-03 08:25",
+        "description": "Updates in miscellaneous info fields."
+      },
+      {
+        "revision": "2010-10-29 08:29",
+        "description": "Added traps and OID's for SolarChargers. Added reading of values on programmable inputs of IO Monitor."
+      },
+      {
+        "revision": "2009-03-12 15:15",
+        "description": "Added support for external IO monitor and Load monitor units. Changes are done in the MIB to accomodate the v2c standard."
+      },
+      {
+        "revision": "2008-01-30 11:49",
+        "description": "Some OIDs were added to this revision. Since all new stuff are additions and no existing information was moved, this V3 revision stays in branch 9. enjoy!"
+      },
+      {
+        "revision": "2007-06-22 11:27",
+        "description": "Branch 9, contains mainly changes in the Traps format. The traps now meets SNMP v2c specification."
+      },
+      {
+        "revision": "2005-09-07 12:38",
+        "description": "added battery test and boost start/stop and ac voltages"
+      },
+      {
+        "revision": "2005-06-28 11:30",
+        "description": "First revision"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltek/ELTEK-COMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:28:42 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ELTEK-COMMON-MIB"
+  }
+}

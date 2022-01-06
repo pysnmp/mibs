@@ -1,0 +1,486 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctAtmfLanEmulation"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "CtLaneDebugLevel": {
+    "name": "CtLaneDebugLevel",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user": 1,
+          "all": 2,
+          "error": 3,
+          "warning": 4,
+          "informational": 5,
+          "detailed": 6,
+          "trace": 7
+        }
+      }
+    }
+  },
+  "ElanLocalIndex": {
+    "name": "ElanLocalIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "ctLeClient": {
+    "name": "ctLeClient",
+    "oid": "1.3.6.1.4.1.52.4.3.5.1",
+    "class": "objectidentity"
+  },
+  "ctElan": {
+    "name": "ctElan",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2",
+    "class": "objectidentity"
+  },
+  "ctLes": {
+    "name": "ctLes",
+    "oid": "1.3.6.1.4.1.52.4.3.5.3",
+    "class": "objectidentity"
+  },
+  "ctBus": {
+    "name": "ctBus",
+    "oid": "1.3.6.1.4.1.52.4.3.5.4",
+    "class": "objectidentity"
+  },
+  "ctElanConfGroup": {
+    "name": "ctElanConfGroup",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1",
+    "class": "objectidentity"
+  },
+  "ctElanConfTable": {
+    "name": "ctElanConfTable",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctElanConfEntry": {
+    "name": "ctElanConfEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ELAN-MIB",
+        "object": "ctElanConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctElanConfIndex": {
+    "name": "ctElanConfIndex",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ElanLocalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctElanConfUnitNumber": {
+    "name": "ctElanConfUnitNumber",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctElanConfPolicy": {
+    "name": "ctElanConfPolicy",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secure": 1,
+          "nonsecure": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nonsecure",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanConfDelPolicyWithElan": {
+    "name": "ctElanConfDelPolicyWithElan",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanConfRowStatus": {
+    "name": "ctElanConfRowStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanSFDSPeerTable": {
+    "name": "ctElanSFDSPeerTable",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ctElanSFDSPeerEntry": {
+    "name": "ctElanSFDSPeerEntry",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-ELAN-MIB",
+        "object": "ctElanSFDSPeerIP",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctElanSFDSPeerIP": {
+    "name": "ctElanSFDSPeerIP",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctElanSFDSPeerRowStatus": {
+    "name": "ctElanSFDSPeerRowStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanConfDirectoryServicesIP": {
+    "name": "ctElanConfDirectoryServicesIP",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctElanDSStatus": {
+    "name": "ctElanDSStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "connectionLost": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctElanUNIVersion": {
+    "name": "ctElanUNIVersion",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "uni30": 2,
+          "uni31": 3,
+          "uni40": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctElanLaneDbgOutputFile": {
+    "name": "ctElanLaneDbgOutputFile",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanLaneDbgConnectionServices": {
+    "name": "ctElanLaneDbgConnectionServices",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "user",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanLaneDbgDatabaseManagement": {
+    "name": "ctElanLaneDbgDatabaseManagement",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "user",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanCtLaneDbgSNMP": {
+    "name": "ctElanCtLaneDbgSNMP",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "user",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanLaneDbgLECS": {
+    "name": "ctElanLaneDbgLECS",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "user",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanCtLaneDbgLES": {
+    "name": "ctElanCtLaneDbgLES",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtLaneDebugLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "user",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ctElanHotStandbyStatus": {
+    "name": "ctElanHotStandbyStatus",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 1,
+          "active": 2,
+          "standby": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ctElanConfHotStandbyIP": {
+    "name": "ctElanConfHotStandbyIP",
+    "oid": "1.3.6.1.4.1.52.4.3.5.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ELAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-ELAN-MIB"
+  }
+}

@@ -1,0 +1,1298 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtDHCPMib": {
+    "name": "prvtDHCPMib",
+    "oid": "1.3.6.1.4.1.738.1.5.105",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-16 00:00",
+        "description": "Fixed spelling errors and changed the contact info."
+      },
+      {
+        "revision": "2003-05-06 00:00",
+        "description": "Move to SMI-V2."
+      },
+      {
+        "revision": "2002-05-30 00:00",
+        "description": "Initial version. This revision enables monitoring of the DHCP server status only."
+      }
+    ]
+  },
+  "prvtDHCPObjects": {
+    "name": "prvtDHCPObjects",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1",
+    "class": "objectidentity"
+  },
+  "prvtDHCPNotifications": {
+    "name": "prvtDHCPNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.105.2",
+    "class": "objectidentity"
+  },
+  "dhcpPackets": {
+    "name": "dhcpPackets",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1",
+    "class": "objectidentity"
+  },
+  "dhcpRanges": {
+    "name": "dhcpRanges",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2",
+    "class": "objectidentity"
+  },
+  "dhcpSubnets": {
+    "name": "dhcpSubnets",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3",
+    "class": "objectidentity"
+  },
+  "dhcpHosts": {
+    "name": "dhcpHosts",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4",
+    "class": "objectidentity"
+  },
+  "dhcpOptions": {
+    "name": "dhcpOptions",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5",
+    "class": "objectidentity"
+  },
+  "dhcpPorts": {
+    "name": "dhcpPorts",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.6",
+    "class": "objectidentity"
+  },
+  "dhcpVlans": {
+    "name": "dhcpVlans",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.7",
+    "class": "objectidentity"
+  },
+  "dhcpMiscSettings": {
+    "name": "dhcpMiscSettings",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8",
+    "class": "objectidentity"
+  },
+  "dhcpRRSettings": {
+    "name": "dhcpRRSettings",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.9",
+    "class": "objectidentity"
+  },
+  "dhcpStaticHosts": {
+    "name": "dhcpStaticHosts",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1",
+    "class": "objectidentity"
+  },
+  "dhcpDynamicHosts": {
+    "name": "dhcpDynamicHosts",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2",
+    "class": "objectidentity"
+  },
+  "dhcpStatusTotalNoOfDiscovers": {
+    "name": "dhcpStatusTotalNoOfDiscovers",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStatusTotalNoOfRequests": {
+    "name": "dhcpStatusTotalNoOfRequests",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStatusTotalNoOfReleases": {
+    "name": "dhcpStatusTotalNoOfReleases",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStatusTotalNoOfOffers": {
+    "name": "dhcpStatusTotalNoOfOffers",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStatusTotalNoOfAcks": {
+    "name": "dhcpStatusTotalNoOfAcks",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStatusTotalNoOfNacks": {
+    "name": "dhcpStatusTotalNoOfNacks",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStatusTotalNoOfDeclines": {
+    "name": "dhcpStatusTotalNoOfDeclines",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRangeTable": {
+    "name": "dhcpRangeTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpRangeEntry": {
+    "name": "dhcpRangeEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpRangeStartIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpRangeStartIp": {
+    "name": "dhcpRangeStartIp",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpRangeStopIp": {
+    "name": "dhcpRangeStopIp",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpRangeNoAddInUse": {
+    "name": "dhcpRangeNoAddInUse",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRangeNoAddFree": {
+    "name": "dhcpRangeNoAddFree",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRangeCircuitID": {
+    "name": "dhcpRangeCircuitID",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpRangeCircuitIDType": {
+    "name": "dhcpRangeCircuitIDType",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "string": 1,
+          "hex": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpRangeRangeName": {
+    "name": "dhcpRangeRangeName",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpRangeSubnetIp": {
+    "name": "dhcpRangeSubnetIp",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRangeSubnetName": {
+    "name": "dhcpRangeSubnetName",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRangeRowStatus": {
+    "name": "dhcpRangeRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpSubnetTable": {
+    "name": "dhcpSubnetTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpSubnetEntry": {
+    "name": "dhcpSubnetEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpSubnetIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpSubnetIp": {
+    "name": "dhcpSubnetIp",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpSubnetMask": {
+    "name": "dhcpSubnetMask",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpSubnetName": {
+    "name": "dhcpSubnetName",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpSubnetNoAddInUse": {
+    "name": "dhcpSubnetNoAddInUse",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpSubnetNoAddFree": {
+    "name": "dhcpSubnetNoAddFree",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpSubnetRowStatus": {
+    "name": "dhcpSubnetRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpStaticHostsTable": {
+    "name": "dhcpStaticHostsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpStaticHostsEntry": {
+    "name": "dhcpStaticHostsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpStaticHostIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpStaticHostIPAddress": {
+    "name": "dhcpStaticHostIPAddress",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpStaticHostName": {
+    "name": "dhcpStaticHostName",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpStaticHostConnected": {
+    "name": "dhcpStaticHostConnected",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStaticHostMACAddr": {
+    "name": "dhcpStaticHostMACAddr",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpStaticHostFilename": {
+    "name": "dhcpStaticHostFilename",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpStaticHostBootpIP": {
+    "name": "dhcpStaticHostBootpIP",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpStaticHostServer": {
+    "name": "dhcpStaticHostServer",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpStatisHostSnoofPort": {
+    "name": "dhcpStatisHostSnoofPort",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpStaticHostRowStatus": {
+    "name": "dhcpStaticHostRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpLeaseStateTable": {
+    "name": "dhcpLeaseStateTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpLeaseStateEntry": {
+    "name": "dhcpLeaseStateEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpLeaseIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpLeaseIp": {
+    "name": "dhcpLeaseIp",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpLeaseName": {
+    "name": "dhcpLeaseName",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpLeaseETime": {
+    "name": "dhcpLeaseETime",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpLeaseMac": {
+    "name": "dhcpLeaseMac",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpLeaseSnoofPort": {
+    "name": "dhcpLeaseSnoofPort",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpOptionsTable": {
+    "name": "dhcpOptionsTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpOptionsEntry": {
+    "name": "dhcpOptionsEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpOptionsSubnetIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpOptionsSubnetIp": {
+    "name": "dhcpOptionsSubnetIp",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpOptionsMaxLTime": {
+    "name": "dhcpOptionsMaxLTime",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsDfltLTime": {
+    "name": "dhcpOptionsDfltLTime",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsRouter": {
+    "name": "dhcpOptionsRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsBrcstAddr": {
+    "name": "dhcpOptionsBrcstAddr",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsSubnetMask": {
+    "name": "dhcpOptionsSubnetMask",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsDomainName": {
+    "name": "dhcpOptionsDomainName",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsMeritDump": {
+    "name": "dhcpOptionsMeritDump",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsRootPath": {
+    "name": "dhcpOptionsRootPath",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsBootStSrv": {
+    "name": "dhcpOptionsBootStSrv",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsBootFileName": {
+    "name": "dhcpOptionsBootFileName",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsDNSServer1": {
+    "name": "dhcpOptionsDNSServer1",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsDNSServer2": {
+    "name": "dhcpOptionsDNSServer2",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsDNSServer3": {
+    "name": "dhcpOptionsDNSServer3",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsDNSServer4": {
+    "name": "dhcpOptionsDNSServer4",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsDNSServer5": {
+    "name": "dhcpOptionsDNSServer5",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsLogServer1": {
+    "name": "dhcpOptionsLogServer1",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsLogServer2": {
+    "name": "dhcpOptionsLogServer2",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsLogServer3": {
+    "name": "dhcpOptionsLogServer3",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsLogServer4": {
+    "name": "dhcpOptionsLogServer4",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsLogServer5": {
+    "name": "dhcpOptionsLogServer5",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsWinsServer1": {
+    "name": "dhcpOptionsWinsServer1",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsWinsServer2": {
+    "name": "dhcpOptionsWinsServer2",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsWinsServer3": {
+    "name": "dhcpOptionsWinsServer3",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsWinsServer4": {
+    "name": "dhcpOptionsWinsServer4",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpOptionsWinsServer5": {
+    "name": "dhcpOptionsWinsServer5",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpDBExpire": {
+    "name": "dhcpDBExpire",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpTFTPServer": {
+    "name": "dhcpTFTPServer",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpFTPServer": {
+    "name": "dhcpFTPServer",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpFTPServerUser": {
+    "name": "dhcpFTPServerUser",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpFTPServerPass": {
+    "name": "dhcpFTPServerPass",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRemoteDBDelay": {
+    "name": "dhcpRemoteDBDelay",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpRemoteDBFilename": {
+    "name": "dhcpRemoteDBFilename",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpUnknownCircuitIDPolicy": {
+    "name": "dhcpUnknownCircuitIDPolicy",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpEnableServer": {
+    "name": "dhcpEnableServer",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dhcpPortTable": {
+    "name": "dhcpPortTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpPortEntry": {
+    "name": "dhcpPortEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpPort": {
+    "name": "dhcpPort",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpMaxPortIP": {
+    "name": "dhcpMaxPortIP",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpPortSnoof": {
+    "name": "dhcpPortSnoof",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpPortServiceEnable": {
+    "name": "dhcpPortServiceEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpVlanTable": {
+    "name": "dhcpVlanTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpVlanEntry": {
+    "name": "dhcpVlanEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpVlanID": {
+    "name": "dhcpVlanID",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpVlanEnable": {
+    "name": "dhcpVlanEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dhcpRRTable": {
+    "name": "dhcpRRTable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dhcpRREntry": {
+    "name": "dhcpRREntry",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-DHCP-MIB",
+        "object": "dhcpRRif",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dhcpRRif": {
+    "name": "dhcpRRif",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dhcpRREnable": {
+    "name": "dhcpRREnable",
+    "oid": "1.3.6.1.4.1.738.1.5.105.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-DHCP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-DHCP-MIB"
+  }
+}

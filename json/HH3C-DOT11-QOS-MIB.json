@@ -1,0 +1,649 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-DOT11-REF-MIB": [
+      "Hh3cDot11ObjectIDType",
+      "Hh3cDot11QosAcType",
+      "Hh3cDot11RadioElementIndex",
+      "hh3cDot11",
+      "Hh3cDot11RadioScopeType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cDot11QoS": {
+    "name": "hh3cDot11QoS",
+    "oid": "1.3.6.1.4.1.25506.2.75.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-07-23 12:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "Hh3cDot11WMMSVPMapAC": {
+    "name": "Hh3cDot11WMMSVPMapAC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acbk": 1,
+          "acbe": 2,
+          "acvi": 3,
+          "acvo": 4,
+          "disable": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cDot11WMMCACPolicy": {
+    "name": "Hh3cDot11WMMCACPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channelUtilization": 1,
+          "userNumber": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cDot11WmmCfgGroup": {
+    "name": "hh3cDot11WmmCfgGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1",
+    "class": "objectidentity"
+  },
+  "hh3cDot11RadioWmmCfgTable": {
+    "name": "hh3cDot11RadioWmmCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmCfgEntry": {
+    "name": "hh3cDot11RadioWmmCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11WmmRadioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WmmRadioIndex": {
+    "name": "hh3cDot11WmmRadioIndex",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11RadioElementIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmEnabled": {
+    "name": "hh3cDot11RadioWmmEnabled",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioSVPMapToAC": {
+    "name": "hh3cDot11RadioSVPMapToAC",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WMMSVPMapAC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioCacPolicy": {
+    "name": "hh3cDot11RadioCacPolicy",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11WMMCACPolicy",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioCacChlUtlValue": {
+    "name": "hh3cDot11RadioCacChlUtlValue",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioCacUserNum": {
+    "name": "hh3cDot11RadioCacUserNum",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 124
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmEdcaCfgTable": {
+    "name": "hh3cDot11RadioWmmEdcaCfgTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmEdcaCfgEntry": {
+    "name": "hh3cDot11RadioWmmEdcaCfgEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11WmmRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11RadioWmmAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmAC": {
+    "name": "hh3cDot11RadioWmmAC",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11QosAcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmAifsn": {
+    "name": "hh3cDot11RadioWmmAifsn",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmEcwMin": {
+    "name": "hh3cDot11RadioWmmEcwMin",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmEcwMax": {
+    "name": "hh3cDot11RadioWmmEcwMax",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmTxoplimit": {
+    "name": "hh3cDot11RadioWmmTxoplimit",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmNoAck": {
+    "name": "hh3cDot11RadioWmmNoAck",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11StationWmmEdcaTable": {
+    "name": "hh3cDot11StationWmmEdcaTable",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11StationWmmEdcaEntry": {
+    "name": "hh3cDot11StationWmmEdcaEntry",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11WmmRadioIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11StationWmmAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11StationWmmAC": {
+    "name": "hh3cDot11StationWmmAC",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11QosAcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11StationWmmAifsn": {
+    "name": "hh3cDot11StationWmmAifsn",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11StationWmmEcwMin": {
+    "name": "hh3cDot11StationWmmEcwMin",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11StationWmmEcwMax": {
+    "name": "hh3cDot11StationWmmEcwMax",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11StationWmmTxoplimit": {
+    "name": "hh3cDot11StationWmmTxoplimit",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11StationWmmCacEnabled": {
+    "name": "hh3cDot11StationWmmCacEnabled",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WmmResetGroup": {
+    "name": "hh3cDot11WmmResetGroup",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cDot11WmmResetRadioByAP": {
+    "name": "hh3cDot11WmmResetRadioByAP",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11WmmResetStationByAP": {
+    "name": "hh3cDot11WmmResetStationByAP",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmEdcaCfg2Table": {
+    "name": "hh3cDot11RadioWmmEdcaCfg2Table",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11RadioWmmEdcaCfg2Entry": {
+    "name": "hh3cDot11RadioWmmEdcaCfg2Entry",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11WMMAPSerialID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11WMMRdId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-DOT11-QOS-MIB",
+        "object": "hh3cDot11RdWmmAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cDot11WMMAPSerialID": {
+    "name": "hh3cDot11WMMAPSerialID",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11ObjectIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11WMMRdId": {
+    "name": "hh3cDot11WMMRdId",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11RadioScopeType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11RdWmmAC": {
+    "name": "hh3cDot11RdWmmAC",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cDot11QosAcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cDot11RdWmmAifsn": {
+    "name": "hh3cDot11RdWmmAifsn",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RdWmmEcwMin": {
+    "name": "hh3cDot11RdWmmEcwMin",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RdWmmEcwMax": {
+    "name": "hh3cDot11RdWmmEcwMax",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cDot11RdWmmTxoplimit": {
+    "name": "hh3cDot11RdWmmTxoplimit",
+    "oid": "1.3.6.1.4.1.25506.2.75.9.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-DOT11-QOS-MIB"
+  }
+}

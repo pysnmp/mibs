@@ -1,0 +1,3127 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-GGSN-MIB": [
+      "cGgsnNotifPdpImsi",
+      "cGgsnNotifPdpMsisdn"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "cGgsnSAMIB": {
+    "name": "cGgsnSAMIB",
+    "oid": "1.3.6.1.4.1.9.9.497",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-06 00:00",
+        "description": "The following changes have been made. [1] Modified description for the following. cGgsnSADccaTriggerSgsnChange, cGgsnSADccaTriggerQosChange, cGgsnSADccaTriggerPlmnChange, cGgsnSADccaTriggerRatChange, cGgsnSADccaTriggerUserLocChange, cGgsnSADccaClci. [2] Added the enumeration 'none' to object cGgsnSADccaClci and changed its default value to 'none'."
+      },
+      {
+        "revision": "2009-12-16 00:00",
+        "description": "Added new TEXTUAL-CONVENTION CGgsnCsgPathState. Added the following objects to cGgsnSACsgTable. cGgsnSACsgAaaAcctGroup, cGgsnSACsgPathState, cGgsnSACsgNumPdps. Added cggsnSACsgStatisticsTable and the following objects to the table. cGgsnSACsgStatsOutboundMsgs, cGgsnSACsgStatsOutboundOctets, cGgsnSACsgStatsInboundMsgs, cGgsnSACsgStatsInboundOctets, cGgsnSACsgStatsServiceAuthReqs, cGgsnSACsgStatsServiceAuthResps, cGgsnSACsgStatsServiceReAuthReqs, cGgsnSACsgStatsQuotaReturns, cGgsnSACsgStatsQuotaReturnReqs, cGgsnSACsgStatsQuotaReturnAccept, cGgsnSACsgStatsServiceStopMsgs, cGgsnSACsgStatsServiceStopReqs, cGgsnSACsgStatsQuotaPushMsgs, cGgsnSACsgStatsQuotaPushRsps, cGgsnSACsgStatsGtpAcks. deprecated the following objects cGgsnSACsgOutboundMsgs, cGgsnSACsgOutboundOctets, cGgsnSACsgInboundMsgs, cGgsnSACsgInboundOctets, cGgsnSACsgServiceAuthReqs, cGgsnSACsgServiceAuthResps, cGgsnSACsgServiceReAuthReqs, cGgsnSACsgQuotaReturns, cGgsnSACsgQuotaReturnReqs, cGgsnSACsgQuotaPushResps, cGgsnSACsgServiceStopMsgs, cGgsnSACsgServiceStopReqs, cGgsnSACsgQuotaPushMsgs, cGgsnSACsgQuotaPushRsps, cGgsnSACsgGtpAcks. Deprecated cGgsnSACsgStateUpNotif and cGgsnSACsgStateDownNotif. Added new notifications cGgsnSACsgR100StateUpNotif and cGgsnSACsgR100StateDownNotif and added below objects to the notifications cGgsnSANotifCsgName cGgsnSANotifCsgRealAddressType cGgsnSANotifCsgRealAddress cGgsnSANotifCsgVirtualAddrType cGgsnSANotifCsgVirtualAddress cGgsnSANotifCsgPort. Deprecated OBJECT-GROUPs cGgsnSAStatisticsGroup and cGgsnSANotifGroup. Added following OBJECT-GROUPs cGgsnSAConfigurationsGroupR100, cGgsnSAStatisticsGroupR100, cGgsnSANotifInfoGroupR100, cGgsnSANotifGroupR100. Created new MODULE-COMPLIANCE cGgsnSAMIBComplianceRev4."
+      },
+      {
+        "revision": "2009-09-17 00:00",
+        "description": "Added cGgsnSAQuotaServerSvcMsgEnabled to cGgsnSAQuotaServerEntry. Added following OBJECT-GROUP cGgsnSAConfigurationsGroupSup1 Added MODULE-COMPLIANCE cGgsnSAMIBComplianceRev3, which deprecates cGgsnSAMIBComplianceRev2."
+      },
+      {
+        "revision": "2008-12-10 00:00",
+        "description": "Added cGgsnSADccaTriggerUserLocChange to cGgsnSADccaProfileTable."
+      },
+      {
+        "revision": "2006-05-04 17:00",
+        "description": "Added following objects to cGgsnSADccaProfileTable: cGgsnSADccaTriggerPlmnChange, cGgsnSADccaTriggerRatChange. Added following group to cGgsnSAMIBGroups: cGgsnSAExtConfigurationsGroup. Added following compliance to cGgsnSAMIBCompliances: cGgsnSAMIBComplianceRev1."
+      },
+      {
+        "revision": "2005-10-11 09:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CGgsnCsgPathState": {
+    "name": "CGgsnCsgPathState",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "down": 0,
+        "up": 1
+      }
+    },
+    "status": "current"
+  },
+  "cGgsnSAMIBObjects": {
+    "name": "cGgsnSAMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.497.1",
+    "class": "objectidentity"
+  },
+  "cGgsnSAStatistics": {
+    "name": "cGgsnSAStatistics",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1",
+    "class": "objectidentity"
+  },
+  "cGgsnSACsgStatistics": {
+    "name": "cGgsnSACsgStatistics",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1",
+    "class": "objectidentity"
+  },
+  "cGgsnSAQuotaServerStatistics": {
+    "name": "cGgsnSAQuotaServerStatistics",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2",
+    "class": "objectidentity"
+  },
+  "cGgsnSAServiceAwareStatistics": {
+    "name": "cGgsnSAServiceAwareStatistics",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3",
+    "class": "objectidentity"
+  },
+  "cGgsnSANotifMgmt": {
+    "name": "cGgsnSANotifMgmt",
+    "oid": "1.3.6.1.4.1.9.9.497.1.2",
+    "class": "objectidentity"
+  },
+  "cGgsnSAConfigurations": {
+    "name": "cGgsnSAConfigurations",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3",
+    "class": "objectidentity"
+  },
+  "cGgsnSANotifInfo": {
+    "name": "cGgsnSANotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.497.1.4",
+    "class": "objectidentity"
+  },
+  "cGgsnSACsgOutboundMsgs": {
+    "name": "cGgsnSACsgOutboundMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgOutboundOctets": {
+    "name": "cGgsnSACsgOutboundOctets",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgInboundMsgs": {
+    "name": "cGgsnSACsgInboundMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgInboundOctets": {
+    "name": "cGgsnSACsgInboundOctets",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgServiceAuthReqs": {
+    "name": "cGgsnSACsgServiceAuthReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgServiceAuthResps": {
+    "name": "cGgsnSACsgServiceAuthResps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgServiceReAuthReqs": {
+    "name": "cGgsnSACsgServiceReAuthReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgQuotaReturns": {
+    "name": "cGgsnSACsgQuotaReturns",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgQuotaReturnReqs": {
+    "name": "cGgsnSACsgQuotaReturnReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgQuotaPushResps": {
+    "name": "cGgsnSACsgQuotaPushResps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgServiceStopMsgs": {
+    "name": "cGgsnSACsgServiceStopMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgServiceStopReqs": {
+    "name": "cGgsnSACsgServiceStopReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgQuotaPushMsgs": {
+    "name": "cGgsnSACsgQuotaPushMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgQuotaPushRsps": {
+    "name": "cGgsnSACsgQuotaPushRsps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cGgsnSACsgGtpAcks": {
+    "name": "cGgsnSACsgGtpAcks",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cggsnSACsgStatisticsTable": {
+    "name": "cggsnSACsgStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsOutboundMsgs": {
+    "name": "cGgsnSACsgStatsOutboundMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsOutboundOctets": {
+    "name": "cGgsnSACsgStatsOutboundOctets",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsInboundMsgs": {
+    "name": "cGgsnSACsgStatsInboundMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsInboundOctets": {
+    "name": "cGgsnSACsgStatsInboundOctets",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsServiceAuthReqs": {
+    "name": "cGgsnSACsgStatsServiceAuthReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsServiceAuthResps": {
+    "name": "cGgsnSACsgStatsServiceAuthResps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsServiceReAuthReqs": {
+    "name": "cGgsnSACsgStatsServiceReAuthReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsQuotaReturns": {
+    "name": "cGgsnSACsgStatsQuotaReturns",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsQuotaReturnReqs": {
+    "name": "cGgsnSACsgStatsQuotaReturnReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsQuotaReturnAccept": {
+    "name": "cGgsnSACsgStatsQuotaReturnAccept",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsServiceStopMsgs": {
+    "name": "cGgsnSACsgStatsServiceStopMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsServiceStopReqs": {
+    "name": "cGgsnSACsgStatsServiceStopReqs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsQuotaPushMsgs": {
+    "name": "cGgsnSACsgStatsQuotaPushMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsQuotaPushRsps": {
+    "name": "cGgsnSACsgStatsQuotaPushRsps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgStatsGtpAcks": {
+    "name": "cGgsnSACsgStatsGtpAcks",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsRcvdRequests": {
+    "name": "cGgsnSAQsRcvdRequests",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsRcvdResponses": {
+    "name": "cGgsnSAQsRcvdResponses",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsSentRequests": {
+    "name": "cGgsnSAQsSentRequests",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsSentResponses": {
+    "name": "cGgsnSAQsSentResponses",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsRcvdPathRequests": {
+    "name": "cGgsnSAQsRcvdPathRequests",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsRcvdPathResponses": {
+    "name": "cGgsnSAQsRcvdPathResponses",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsSentPathRequests": {
+    "name": "cGgsnSAQsSentPathRequests",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsSentPathResponses": {
+    "name": "cGgsnSAQsSentPathResponses",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsRcvdNegativeResponses": {
+    "name": "cGgsnSAQsRcvdNegativeResponses",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsRequestsUnreplied": {
+    "name": "cGgsnSAQsRequestsUnreplied",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsSeqnumFailures": {
+    "name": "cGgsnSAQsSeqnumFailures",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsDroppedMsgs": {
+    "name": "cGgsnSAQsDroppedMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsUnknownMsgs": {
+    "name": "cGgsnSAQsUnknownMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsUnknownResponses": {
+    "name": "cGgsnSAQsUnknownResponses",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsIEErrorMsgs": {
+    "name": "cGgsnSAQsIEErrorMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsBadSrcAddressMsgs": {
+    "name": "cGgsnSAQsBadSrcAddressMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsVersionUnSupportedMsgs": {
+    "name": "cGgsnSAQsVersionUnSupportedMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsMandTlvMissingMsgs": {
+    "name": "cGgsnSAQsMandTlvMissingMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsMandTlvIncorrectMsgs": {
+    "name": "cGgsnSAQsMandTlvIncorrectMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsInvalidMsgFormats": {
+    "name": "cGgsnSAQsInvalidMsgFormats",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQsNoResponseToMsgs": {
+    "name": "cGgsnSAQsNoResponseToMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSANumServiceAwareApns": {
+    "name": "cGgsnSANumServiceAwareApns",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalGgsnEvents": {
+    "name": "cGgsnSATotalGgsnEvents",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalCsgEvents": {
+    "name": "cGgsnSATotalCsgEvents",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalDccaEvents": {
+    "name": "cGgsnSATotalDccaEvents",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalCreatedCategories": {
+    "name": "cGgsnSATotalCreatedCategories",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalCreatedSyncObjs": {
+    "name": "cGgsnSATotalCreatedSyncObjs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACategoryFsmRtnErrors": {
+    "name": "cGgsnSACategoryFsmRtnErrors",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalServiceAuthMsgs": {
+    "name": "cGgsnSATotalServiceAuthMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalServiceStopMsgs": {
+    "name": "cGgsnSATotalServiceStopMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalQuotaGranted": {
+    "name": "cGgsnSATotalQuotaGranted",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalBlackListCategories": {
+    "name": "cGgsnSATotalBlackListCategories",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalRAREvents": {
+    "name": "cGgsnSATotalRAREvents",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalDeletePdps": {
+    "name": "cGgsnSATotalDeletePdps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAFinalConvertToPostpaidPdps": {
+    "name": "cGgsnSAFinalConvertToPostpaidPdps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalGgsnFailures": {
+    "name": "cGgsnSATotalGgsnFailures",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalCsgFailures": {
+    "name": "cGgsnSATotalCsgFailures",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalDccaFailures": {
+    "name": "cGgsnSATotalDccaFailures",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalDeletedCategories": {
+    "name": "cGgsnSATotalDeletedCategories",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalDeletedSyncObjects": {
+    "name": "cGgsnSATotalDeletedSyncObjects",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalQuotaPushAcks": {
+    "name": "cGgsnSATotalQuotaPushAcks",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalServiceReAuthMsgs": {
+    "name": "cGgsnSATotalServiceReAuthMsgs",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalQuotaReturns": {
+    "name": "cGgsnSATotalQuotaReturns",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalTerminateCategories": {
+    "name": "cGgsnSATotalTerminateCategories",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalUnknownCategories": {
+    "name": "cGgsnSATotalUnknownCategories",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalRatingChanges": {
+    "name": "cGgsnSATotalRatingChanges",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalPostpaidConversions": {
+    "name": "cGgsnSATotalPostpaidConversions",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalDummyQuotas": {
+    "name": "cGgsnSATotalDummyQuotas",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalPrepaidUsers": {
+    "name": "cGgsnSATotalPrepaidUsers",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSATotalPostpaidUsers": {
+    "name": "cGgsnSATotalPostpaidUsers",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSARejDccaFailures": {
+    "name": "cGgsnSARejDccaFailures",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSARejCsgFailures": {
+    "name": "cGgsnSARejCsgFailures",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgNotifEnabled": {
+    "name": "cGgsnSACsgNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.497.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnSADccaNotifEnabled": {
+    "name": "cGgsnSADccaNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.497.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnSAServiceAware": {
+    "name": "cGgsnSAServiceAware",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnSADccaProfileTable": {
+    "name": "cGgsnSADccaProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSADccaProfileEntry": {
+    "name": "cGgsnSADccaProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSADccaProfileName": {
+    "name": "cGgsnSADccaProfileName",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSADccaAuthorization": {
+    "name": "cGgsnSADccaAuthorization",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaCcfh": {
+    "name": "cGgsnSADccaCcfh",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terminate": 1,
+          "retryTerminate": 2,
+          "continue": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "terminate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaDestinationRealm": {
+    "name": "cGgsnSADccaDestinationRealm",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaSessionFailover": {
+    "name": "cGgsnSADccaSessionFailover",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaTxTimeout": {
+    "name": "cGgsnSADccaTxTimeout",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaTriggerSgsnChange": {
+    "name": "cGgsnSADccaTriggerSgsnChange",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaTriggerQosChange": {
+    "name": "cGgsnSADccaTriggerQosChange",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaRowStatus": {
+    "name": "cGgsnSADccaRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaTriggerPlmnChange": {
+    "name": "cGgsnSADccaTriggerPlmnChange",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaTriggerRatChange": {
+    "name": "cGgsnSADccaTriggerRatChange",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaTriggerUserLocChange": {
+    "name": "cGgsnSADccaTriggerUserLocChange",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSADccaClci": {
+    "name": "cGgsnSADccaClci",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "a3Gpp": 1,
+          "clci": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cGgsnSACsgTable": {
+    "name": "cGgsnSACsgTable",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSACsgEntry": {
+    "name": "cGgsnSACsgEntry",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cggsnSACsgStatisticsEntry": {
+    "name": "cggsnSACsgStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.497.1.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cggsnSACsgStatisticsEntry",
+      "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+      "object": "cGgsnSACsgEntry"
+    },
+    "status": "current"
+  },
+  "cGgsnSACsgGroupName": {
+    "name": "cGgsnSACsgGroupName",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSACsgRealAddressType": {
+    "name": "cGgsnSACsgRealAddressType",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgRealAddress1": {
+    "name": "cGgsnSACsgRealAddress1",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgRealAddress2": {
+    "name": "cGgsnSACsgRealAddress2",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgVirtualAddressType": {
+    "name": "cGgsnSACsgVirtualAddressType",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgVirtualAddress": {
+    "name": "cGgsnSACsgVirtualAddress",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgPort": {
+    "name": "cGgsnSACsgPort",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3386,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgRowStatus": {
+    "name": "cGgsnSACsgRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgAaaAcctGroup": {
+    "name": "cGgsnSACsgAaaAcctGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSACsgPathState": {
+    "name": "cGgsnSACsgPathState",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CGgsnCsgPathState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSACsgNumPdps": {
+    "name": "cGgsnSACsgNumPdps",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerTable": {
+    "name": "cGgsnSAQuotaServerTable",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerEntry": {
+    "name": "cGgsnSAQuotaServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerName": {
+    "name": "cGgsnSAQuotaServerName",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerInterface": {
+    "name": "cGgsnSAQuotaServerInterface",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerCsgGroup": {
+    "name": "cGgsnSAQuotaServerCsgGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerEchoInterval": {
+    "name": "cGgsnSAQuotaServerEchoInterval",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerN3Requests": {
+    "name": "cGgsnSAQuotaServerN3Requests",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerT3Response": {
+    "name": "cGgsnSAQuotaServerT3Response",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerRowStatus": {
+    "name": "cGgsnSAQuotaServerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSAQuotaServerSvcMsgEnabled": {
+    "name": "cGgsnSAQuotaServerSvcMsgEnabled",
+    "oid": "1.3.6.1.4.1.9.9.497.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cGgsnSANotifCsgRealAddressType": {
+    "name": "cGgsnSANotifCsgRealAddressType",
+    "oid": "1.3.6.1.4.1.9.9.497.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnSANotifCsgRealAddress": {
+    "name": "cGgsnSANotifCsgRealAddress",
+    "oid": "1.3.6.1.4.1.9.9.497.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnSANotifCsgVirtualAddrType": {
+    "name": "cGgsnSANotifCsgVirtualAddrType",
+    "oid": "1.3.6.1.4.1.9.9.497.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnSANotifCsgVirtualAddress": {
+    "name": "cGgsnSANotifCsgVirtualAddress",
+    "oid": "1.3.6.1.4.1.9.9.497.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnSANotifCsgPort": {
+    "name": "cGgsnSANotifCsgPort",
+    "oid": "1.3.6.1.4.1.9.9.497.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3386,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnSANotifCsgName": {
+    "name": "cGgsnSANotifCsgName",
+    "oid": "1.3.6.1.4.1.9.9.497.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cGgsnSAMIBNotificationPrefix": {
+    "name": "cGgsnSAMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.497.2",
+    "class": "objectidentity"
+  },
+  "cGgsnSANotifications": {
+    "name": "cGgsnSANotifications",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0",
+    "class": "objectidentity"
+  },
+  "cGgsnSACsgStateUpNotif": {
+    "name": "cGgsnSACsgStateUpNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddressType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgPort"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSACsgStateDownNotif": {
+    "name": "cGgsnSACsgStateDownNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddressType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgPort"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSADccaEndUsrServDeniedNotif": {
+    "name": "cGgsnSADccaEndUsrServDeniedNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpMsisdn"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSADccaCreditLimReachedNotif": {
+    "name": "cGgsnSADccaCreditLimReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpMsisdn"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSADccaUserUnknownNotif": {
+    "name": "cGgsnSADccaUserUnknownNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpMsisdn"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSADccaRatingFailed": {
+    "name": "cGgsnSADccaRatingFailed",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpMsisdn"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSADccaAuthRejectedNotif": {
+    "name": "cGgsnSADccaAuthRejectedNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpImsi"
+      },
+      {
+        "module": "CISCO-GGSN-MIB",
+        "object": "cGgsnNotifPdpMsisdn"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSACsgR100StateUpNotif": {
+    "name": "cGgsnSACsgR100StateUpNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgName"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddressType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSACsgR100StateDownNotif": {
+    "name": "cGgsnSACsgR100StateDownNotif",
+    "oid": "1.3.6.1.4.1.9.9.497.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgName"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddressType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAMIBConformance": {
+    "name": "cGgsnSAMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.497.3",
+    "class": "objectidentity"
+  },
+  "cGgsnSAMIBCompliances": {
+    "name": "cGgsnSAMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.497.3.1",
+    "class": "objectidentity"
+  },
+  "cGgsnSAMIBGroups": {
+    "name": "cGgsnSAMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2",
+    "class": "objectidentity"
+  },
+  "cGgsnSAMIBCompliance": {
+    "name": "cGgsnSAMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.497.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnSAConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAStatisticsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifInfoGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifMgmtGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSAMIBComplianceRev1": {
+    "name": "cGgsnSAMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.497.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnSAConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAExtConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAStatisticsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifInfoGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifMgmtGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSAMIBComplianceRev2": {
+    "name": "cGgsnSAMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.497.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnSAConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAExtConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAExtConfigurationsGroupSup1",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAStatisticsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifInfoGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifMgmtGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSAMIBComplianceRev3": {
+    "name": "cGgsnSAMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.497.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnSAConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAExtConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAExtConfigurationsGroupSup1",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAStatisticsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifInfoGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifMgmtGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAConfigurationsGroupSup1",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSAMIBComplianceRev4": {
+    "name": "cGgsnSAMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.497.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cGgsnSAConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAExtConfigurationsGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAExtConfigurationsGroupSup1",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifInfoGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifMgmtGroup",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAConfigurationsGroupSup1",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAConfigurationsGroupR100",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSAStatisticsGroupR100",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifInfoGroupR100",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      },
+      {
+        "object": "cGgsnSANotifGroupR100",
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAConfigurationsGroup": {
+    "name": "cGgsnSAConfigurationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaAuthorization"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaCcfh"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaDestinationRealm"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaSessionFailover"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaTxTimeout"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaTriggerSgsnChange"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaTriggerQosChange"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaClci"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAServiceAware"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgRealAddressType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgRealAddress1"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgRealAddress2"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgVirtualAddressType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgVirtualAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgPort"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerRowStatus"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerInterface"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerCsgGroup"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerEchoInterval"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerN3Requests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerT3Response"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAStatisticsGroup": {
+    "name": "cGgsnSAStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgOutboundMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgOutboundOctets"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgInboundMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgInboundOctets"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgServiceAuthReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgServiceAuthResps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgServiceReAuthReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgQuotaReturns"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgQuotaReturnReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgQuotaPushResps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgServiceStopMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgServiceStopReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgQuotaPushMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgQuotaPushRsps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgGtpAcks"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdPathRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdPathResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentPathRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentPathResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdNegativeResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRequestsUnreplied"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSeqnumFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsDroppedMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsUnknownMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsUnknownResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsIEErrorMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsBadSrcAddressMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsVersionUnSupportedMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsMandTlvMissingMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsMandTlvIncorrectMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsInvalidMsgFormats"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsNoResponseToMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANumServiceAwareApns"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalGgsnEvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCsgEvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDccaEvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCreatedCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCreatedSyncObjs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACategoryFsmRtnErrors"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalServiceAuthMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalServiceStopMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalQuotaGranted"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalBlackListCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalRAREvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDeletePdps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAFinalConvertToPostpaidPdps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalGgsnFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCsgFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDccaFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDeletedCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDeletedSyncObjects"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalQuotaPushAcks"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalServiceReAuthMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalQuotaReturns"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalTerminateCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalUnknownCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalRatingChanges"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalPostpaidConversions"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDummyQuotas"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalPrepaidUsers"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalPostpaidUsers"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSARejDccaFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSARejCsgFailures"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSANotifGroup": {
+    "name": "cGgsnSANotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStateUpNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStateDownNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaEndUsrServDeniedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaCreditLimReachedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaUserUnknownNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaRatingFailed"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaAuthRejectedNotif"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cGgsnSANotifInfoGroup": {
+    "name": "cGgsnSANotifInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddressType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgRealAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddrType"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgVirtualAddress"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSANotifMgmtGroup": {
+    "name": "cGgsnSANotifMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgNotifEnabled"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAExtConfigurationsGroup": {
+    "name": "cGgsnSAExtConfigurationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaTriggerPlmnChange"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaTriggerRatChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAExtConfigurationsGroupSup1": {
+    "name": "cGgsnSAExtConfigurationsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaTriggerUserLocChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAConfigurationsGroupSup1": {
+    "name": "cGgsnSAConfigurationsGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQuotaServerSvcMsgEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAConfigurationsGroupR100": {
+    "name": "cGgsnSAConfigurationsGroupR100",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgAaaAcctGroup"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgPathState"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgNumPdps"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSAStatisticsGroupR100": {
+    "name": "cGgsnSAStatisticsGroupR100",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdPathRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdPathResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentPathRequests"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSentPathResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRcvdNegativeResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsRequestsUnreplied"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsSeqnumFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsDroppedMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsUnknownMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsUnknownResponses"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsIEErrorMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsBadSrcAddressMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsVersionUnSupportedMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsMandTlvMissingMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsMandTlvIncorrectMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsInvalidMsgFormats"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAQsNoResponseToMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANumServiceAwareApns"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalGgsnEvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCsgEvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDccaEvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCreatedCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCreatedSyncObjs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACategoryFsmRtnErrors"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalServiceAuthMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalServiceStopMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalQuotaGranted"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalBlackListCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalRAREvents"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDeletePdps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSAFinalConvertToPostpaidPdps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalGgsnFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalCsgFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDccaFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDeletedCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDeletedSyncObjects"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalQuotaPushAcks"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalServiceReAuthMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalQuotaReturns"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalTerminateCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalUnknownCategories"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalRatingChanges"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalPostpaidConversions"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalDummyQuotas"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalPrepaidUsers"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSATotalPostpaidUsers"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSARejDccaFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSARejCsgFailures"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsOutboundMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsOutboundOctets"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsInboundMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsInboundOctets"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsServiceAuthReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsServiceAuthResps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsServiceReAuthReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsQuotaReturns"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsQuotaReturnReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsQuotaReturnAccept"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsServiceStopMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsServiceStopReqs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsQuotaPushMsgs"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsQuotaPushRsps"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgStatsGtpAcks"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSANotifInfoGroupR100": {
+    "name": "cGgsnSANotifInfoGroupR100",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSANotifCsgName"
+      }
+    ],
+    "status": "current"
+  },
+  "cGgsnSANotifGroupR100": {
+    "name": "cGgsnSANotifGroupR100",
+    "oid": "1.3.6.1.4.1.9.9.497.3.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaEndUsrServDeniedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaCreditLimReachedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaUserUnknownNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaRatingFailed"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSADccaAuthRejectedNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgR100StateUpNotif"
+      },
+      {
+        "module": "CISCO-GGSN-SERVICE-AWARE-MIB",
+        "object": "cGgsnSACsgR100StateDownNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GGSN-SERVICE-AWARE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-GGSN-SERVICE-AWARE-MIB"
+  }
+}

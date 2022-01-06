@@ -1,0 +1,1516 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELLEMC-OS10-SMI-MIB": [
+      "os10Experiment"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetPortNumber",
+      "InetAutonomousSystemNumber",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
+    ]
+  },
+  "os10Bgp4V2Mib": {
+    "name": "os10Bgp4V2Mib",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-07-04 12:00",
+        "description": "Dell EMC Networking OS10 Experiment object IDs added."
+      },
+      {
+        "revision": "2014-01-24 00:00",
+        "description": "This MIB updates and replaces the BGP MIB defined in RFC 4273."
+      }
+    ]
+  },
+  "Os10Bgp4V2IdentifierTC": {
+    "name": "Os10Bgp4V2IdentifierTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.",
+    "status": "current"
+  },
+  "Os10Bgp4V2AddressFamilyIdentifierTC": {
+    "name": "Os10Bgp4V2AddressFamilyIdentifierTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Os10Bgp4V2SubsequentAddressFamilyIdentifierTC": {
+    "name": "Os10Bgp4V2SubsequentAddressFamilyIdentifierTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2,
+          "mpls": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "os10bgp4V2Notifications": {
+    "name": "os10bgp4V2Notifications",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.0",
+    "class": "objectidentity"
+  },
+  "os10bgp4V2Objects": {
+    "name": "os10bgp4V2Objects",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1",
+    "class": "objectidentity"
+  },
+  "os10bgp4V2Conformance": {
+    "name": "os10bgp4V2Conformance",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.2",
+    "class": "objectidentity"
+  },
+  "os10bgp4V2DiscontinuityTable": {
+    "name": "os10bgp4V2DiscontinuityTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2DiscontinuityEntry": {
+    "name": "os10bgp4V2DiscontinuityEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10bgp4V2DiscontinuityTime": {
+    "name": "os10bgp4V2DiscontinuityTime",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerTable": {
+    "name": "os10bgp4V2PeerTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerEntry": {
+    "name": "os10bgp4V2PeerEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerInstance",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10bgp4V2PeerInstance": {
+    "name": "os10bgp4V2PeerInstance",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLocalAddrType": {
+    "name": "os10bgp4V2PeerLocalAddrType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLocalAddr": {
+    "name": "os10bgp4V2PeerLocalAddr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerRemoteAddrType": {
+    "name": "os10bgp4V2PeerRemoteAddrType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerRemoteAddr": {
+    "name": "os10bgp4V2PeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLocalPort": {
+    "name": "os10bgp4V2PeerLocalPort",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLocalAs": {
+    "name": "os10bgp4V2PeerLocalAs",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLocalIdentifier": {
+    "name": "os10bgp4V2PeerLocalIdentifier",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10Bgp4V2IdentifierTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerRemotePort": {
+    "name": "os10bgp4V2PeerRemotePort",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerRemoteAs": {
+    "name": "os10bgp4V2PeerRemoteAs",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerRemoteIdentifier": {
+    "name": "os10bgp4V2PeerRemoteIdentifier",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10Bgp4V2IdentifierTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerAdminStatus": {
+    "name": "os10bgp4V2PeerAdminStatus",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halted": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerState": {
+    "name": "os10bgp4V2PeerState",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerDescription": {
+    "name": "os10bgp4V2PeerDescription",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerErrorsTable": {
+    "name": "os10bgp4V2PeerErrorsTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerErrorsEntry": {
+    "name": "os10bgp4V2PeerErrorsEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "os10bgp4V2PeerErrorsEntry",
+      "module": "DELLEMC-OS10-BGP4V2-MIB",
+      "object": "os10bgp4V2PeerEntry"
+    },
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorCodeReceived": {
+    "name": "os10bgp4V2PeerLastErrorCodeReceived",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorSubCodeReceived": {
+    "name": "os10bgp4V2PeerLastErrorSubCodeReceived",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorReceivedTime": {
+    "name": "os10bgp4V2PeerLastErrorReceivedTime",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorReceivedText": {
+    "name": "os10bgp4V2PeerLastErrorReceivedText",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorReceivedData": {
+    "name": "os10bgp4V2PeerLastErrorReceivedData",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4075
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorCodeSent": {
+    "name": "os10bgp4V2PeerLastErrorCodeSent",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorSubCodeSent": {
+    "name": "os10bgp4V2PeerLastErrorSubCodeSent",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorSentTime": {
+    "name": "os10bgp4V2PeerLastErrorSentTime",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorSentText": {
+    "name": "os10bgp4V2PeerLastErrorSentText",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerLastErrorSentData": {
+    "name": "os10bgp4V2PeerLastErrorSentData",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4075
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerEventTimesTable": {
+    "name": "os10bgp4V2PeerEventTimesTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerEventTimesEntry": {
+    "name": "os10bgp4V2PeerEventTimesEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "os10bgp4V2PeerEventTimesEntry",
+      "module": "DELLEMC-OS10-BGP4V2-MIB",
+      "object": "os10bgp4V2PeerEntry"
+    },
+    "status": "current"
+  },
+  "os10bgp4V2PeerFsmEstablishedTime": {
+    "name": "os10bgp4V2PeerFsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerInUpdatesElapsedTime": {
+    "name": "os10bgp4V2PeerInUpdatesElapsedTime",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerConfiguredTimersTable": {
+    "name": "os10bgp4V2PeerConfiguredTimersTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerConfiguredTimersEntry": {
+    "name": "os10bgp4V2PeerConfiguredTimersEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "os10bgp4V2PeerConfiguredTimersEntry",
+      "module": "DELLEMC-OS10-BGP4V2-MIB",
+      "object": "os10bgp4V2PeerEntry"
+    },
+    "status": "current"
+  },
+  "os10bgp4V2PeerConnectRetryInterval": {
+    "name": "os10bgp4V2PeerConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerHoldTimeConfigured": {
+    "name": "os10bgp4V2PeerHoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerKeepAliveConfigured": {
+    "name": "os10bgp4V2PeerKeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerMinASOrigInterval": {
+    "name": "os10bgp4V2PeerMinASOrigInterval",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerMinRouteAdverInterval": {
+    "name": "os10bgp4V2PeerMinRouteAdverInterval",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerNegotiatedTimersTable": {
+    "name": "os10bgp4V2PeerNegotiatedTimersTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerNegotiatedTimersEntry": {
+    "name": "os10bgp4V2PeerNegotiatedTimersEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "os10bgp4V2PeerNegotiatedTimersEntry",
+      "module": "DELLEMC-OS10-BGP4V2-MIB",
+      "object": "os10bgp4V2PeerEntry"
+    },
+    "status": "current"
+  },
+  "os10bgp4V2PeerHoldTime": {
+    "name": "os10bgp4V2PeerHoldTime",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerKeepAlive": {
+    "name": "os10bgp4V2PeerKeepAlive",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerCountersTable": {
+    "name": "os10bgp4V2PeerCountersTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PeerCountersEntry": {
+    "name": "os10bgp4V2PeerCountersEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "os10bgp4V2PeerCountersEntry",
+      "module": "DELLEMC-OS10-BGP4V2-MIB",
+      "object": "os10bgp4V2PeerEntry"
+    },
+    "status": "current"
+  },
+  "os10bgp4V2PeerInUpdates": {
+    "name": "os10bgp4V2PeerInUpdates",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerOutUpdates": {
+    "name": "os10bgp4V2PeerOutUpdates",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerInTotalMessages": {
+    "name": "os10bgp4V2PeerInTotalMessages",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerOutTotalMessages": {
+    "name": "os10bgp4V2PeerOutTotalMessages",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PeerFsmEstablishedTransitions": {
+    "name": "os10bgp4V2PeerFsmEstablishedTransitions",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PrefixGaugesTable": {
+    "name": "os10bgp4V2PrefixGaugesTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PrefixGaugesEntry": {
+    "name": "os10bgp4V2PrefixGaugesEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerInstance",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PrefixGaugesAfi",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PrefixGaugesSafi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10bgp4V2PrefixGaugesAfi": {
+    "name": "os10bgp4V2PrefixGaugesAfi",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10Bgp4V2AddressFamilyIdentifierTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PrefixGaugesSafi": {
+    "name": "os10bgp4V2PrefixGaugesSafi",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10Bgp4V2SubsequentAddressFamilyIdentifierTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2PrefixInPrefixes": {
+    "name": "os10bgp4V2PrefixInPrefixes",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PrefixInPrefixesAccepted": {
+    "name": "os10bgp4V2PrefixInPrefixesAccepted",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2PrefixOutPrefixes": {
+    "name": "os10bgp4V2PrefixOutPrefixes",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriTable": {
+    "name": "os10bgp4V2NlriTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2NlriEntry": {
+    "name": "os10bgp4V2NlriEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerInstance",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriAfi",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriSafi",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriPrefix",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10bgp4V2NlriIndex": {
+    "name": "os10bgp4V2NlriIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAfi": {
+    "name": "os10bgp4V2NlriAfi",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10Bgp4V2AddressFamilyIdentifierTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2NlriSafi": {
+    "name": "os10bgp4V2NlriSafi",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10Bgp4V2SubsequentAddressFamilyIdentifierTC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2NlriPrefixType": {
+    "name": "os10bgp4V2NlriPrefixType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2NlriPrefix": {
+    "name": "os10bgp4V2NlriPrefix",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2NlriPrefixLen": {
+    "name": "os10bgp4V2NlriPrefixLen",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2NlriBest": {
+    "name": "os10bgp4V2NlriBest",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriCalcLocalPref": {
+    "name": "os10bgp4V2NlriCalcLocalPref",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriOrigin": {
+    "name": "os10bgp4V2NlriOrigin",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igp": 1,
+          "egp": 2,
+          "incomplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriNextHopAddrType": {
+    "name": "os10bgp4V2NlriNextHopAddrType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriNextHopAddr": {
+    "name": "os10bgp4V2NlriNextHopAddr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriLinkLocalNextHopAddrType": {
+    "name": "os10bgp4V2NlriLinkLocalNextHopAddrType",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriLinkLocalNextHopAddr": {
+    "name": "os10bgp4V2NlriLinkLocalNextHopAddr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriLocalPrefPresent": {
+    "name": "os10bgp4V2NlriLocalPrefPresent",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriLocalPref": {
+    "name": "os10bgp4V2NlriLocalPref",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriMedPresent": {
+    "name": "os10bgp4V2NlriMedPresent",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriMed": {
+    "name": "os10bgp4V2NlriMed",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAtomicAggregate": {
+    "name": "os10bgp4V2NlriAtomicAggregate",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAggregatorPresent": {
+    "name": "os10bgp4V2NlriAggregatorPresent",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAggregatorAS": {
+    "name": "os10bgp4V2NlriAggregatorAS",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAggregatorAddr": {
+    "name": "os10bgp4V2NlriAggregatorAddr",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Os10Bgp4V2IdentifierTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAsPathCalcLength": {
+    "name": "os10bgp4V2NlriAsPathCalcLength",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAsPathString": {
+    "name": "os10bgp4V2NlriAsPathString",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriAsPath": {
+    "name": "os10bgp4V2NlriAsPath",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 4072
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2NlriPathAttrUnknown": {
+    "name": "os10bgp4V2NlriPathAttrUnknown",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.9.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4072
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2AdjRibsOutTable": {
+    "name": "os10bgp4V2AdjRibsOutTable",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "os10bgp4V2AdjRibsOutEntry": {
+    "name": "os10bgp4V2AdjRibsOutEntry",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerInstance",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriAfi",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriSafi",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriPrefix",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2NlriPrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2PeerRemoteAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELLEMC-OS10-BGP4V2-MIB",
+        "object": "os10bgp4V2AdjRibsOutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "os10bgp4V2AdjRibsOutIndex": {
+    "name": "os10bgp4V2AdjRibsOutIndex",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "os10bgp4V2AdjRibsOutRoute": {
+    "name": "os10bgp4V2AdjRibsOutRoute",
+    "oid": "1.3.6.1.4.1.674.11000.5000.200.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLEMC-OS10-BGP4V2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELLEMC-OS10-BGP4V2-MIB"
+  }
+}

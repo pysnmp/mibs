@@ -1,0 +1,206 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ruggedcom": {
+    "name": "ruggedcom",
+    "oid": "1.3.6.1.4.1.15004",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-02 09:00",
+        "description": "Added Added specific ros product branch ruggedcomMC."
+      },
+      {
+        "revision": "2012-06-01 17:00",
+        "description": "Added Added specific rox2 products branch ruggedcomRX1XXXrox2X."
+      },
+      {
+        "revision": "2010-05-27 10:30",
+        "description": "Updated ruggedcomProducts branches - added ruggedcomMX5000."
+      },
+      {
+        "revision": "2010-03-12 10:30",
+        "description": "Updated ruggedcomProducts branches."
+      },
+      {
+        "revision": "2008-12-17 13:00",
+        "description": "Removed inclusion of OBJECT-TYPE and Interger32. Included OBJECT-IDENTITY."
+      },
+      {
+        "revision": "2006-09-09 09:00",
+        "description": "Updated CONTACT-INFO."
+      },
+      {
+        "revision": "2003-02-18 14:00",
+        "description": "The initial version of RuggedCom enterprise structure of management information."
+      }
+    ]
+  },
+  "ruggedcomExperiment": {
+    "name": "ruggedcomExperiment",
+    "oid": "1.3.6.1.4.1.15004.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ruggedcomProducts": {
+    "name": "ruggedcomProducts",
+    "oid": "1.3.6.1.4.1.15004.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ruggedcomRX1XXX": {
+    "name": "ruggedcomRX1XXX",
+    "oid": "1.3.6.1.4.1.15004.2.4",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1000": {
+    "name": "ruggedcomRX1000",
+    "oid": "1.3.6.1.4.1.15004.2.4.1",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1100": {
+    "name": "ruggedcomRX1100",
+    "oid": "1.3.6.1.4.1.15004.2.4.2",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX5XXX": {
+    "name": "ruggedcomRX5XXX",
+    "oid": "1.3.6.1.4.1.15004.2.5",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX5000": {
+    "name": "ruggedcomRX5000",
+    "oid": "1.3.6.1.4.1.15004.2.5.1",
+    "class": "objectidentity"
+  },
+  "ruggedcomMX5000": {
+    "name": "ruggedcomMX5000",
+    "oid": "1.3.6.1.4.1.15004.2.5.2",
+    "class": "objectidentity"
+  },
+  "ruggedmaxProducts": {
+    "name": "ruggedmaxProducts",
+    "oid": "1.3.6.1.4.1.15004.2.6",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX15XX": {
+    "name": "ruggedcomRX15XX",
+    "oid": "1.3.6.1.4.1.15004.2.8",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1500": {
+    "name": "ruggedcomRX1500",
+    "oid": "1.3.6.1.4.1.15004.2.8.1",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1501": {
+    "name": "ruggedcomRX1501",
+    "oid": "1.3.6.1.4.1.15004.2.8.2",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1510": {
+    "name": "ruggedcomRX1510",
+    "oid": "1.3.6.1.4.1.15004.2.8.11",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1511": {
+    "name": "ruggedcomRX1511",
+    "oid": "1.3.6.1.4.1.15004.2.8.12",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1512": {
+    "name": "ruggedcomRX1512",
+    "oid": "1.3.6.1.4.1.15004.2.8.13",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1XXXrox2X": {
+    "name": "ruggedcomRX1XXXrox2X",
+    "oid": "1.3.6.1.4.1.15004.2.9",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1000rox2X": {
+    "name": "ruggedcomRX1000rox2X",
+    "oid": "1.3.6.1.4.1.15004.2.9.1",
+    "class": "objectidentity"
+  },
+  "ruggedcomRX1100rox2X": {
+    "name": "ruggedcomRX1100rox2X",
+    "oid": "1.3.6.1.4.1.15004.2.9.2",
+    "class": "objectidentity"
+  },
+  "ruggedcomAirModule": {
+    "name": "ruggedcomAirModule",
+    "oid": "1.3.6.1.4.1.15004.2.10",
+    "class": "objectidentity"
+  },
+  "ruggedcomMC": {
+    "name": "ruggedcomMC",
+    "oid": "1.3.6.1.4.1.15004.2.11",
+    "class": "objectidentity"
+  },
+  "ruggedcomOtherEnterprises": {
+    "name": "ruggedcomOtherEnterprises",
+    "oid": "1.3.6.1.4.1.15004.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ruggedcomMgmt": {
+    "name": "ruggedcomMgmt",
+    "oid": "1.3.6.1.4.1.15004.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ruggedcomTraps": {
+    "name": "ruggedcomTraps",
+    "oid": "1.3.6.1.4.1.15004.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ruggedcomAgentCapabilities": {
+    "name": "ruggedcomAgentCapabilities",
+    "oid": "1.3.6.1.4.1.15004.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ruggedcomAgentCapability": {
+    "name": "ruggedcomAgentCapability",
+    "oid": "1.3.6.1.4.1.15004.6.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ros/RUGGEDCOM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUGGEDCOM-MIB"
+  }
+}

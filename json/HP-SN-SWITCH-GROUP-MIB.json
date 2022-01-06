@@ -1,0 +1,7060 @@
+{
+  "imports": {
+    "class": "imports",
+    "HP-SN-ROOT-MIB": [
+      "snSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "PhysAddress": {
+    "name": "PhysAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "MacAddress": {
+    "name": "MacAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "Timeout": {
+    "name": "Timeout",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "PortMask": {
+    "name": "PortMask",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "InterfaceId": {
+    "name": "InterfaceId",
+    "class": "type",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    }
+  },
+  "snSwInfo": {
+    "name": "snSwInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1",
+    "class": "objectidentity"
+  },
+  "snVLanInfo": {
+    "name": "snVLanInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2",
+    "class": "objectidentity"
+  },
+  "snSwPortInfo": {
+    "name": "snSwPortInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3",
+    "class": "objectidentity"
+  },
+  "snFdbInfo": {
+    "name": "snFdbInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4",
+    "class": "objectidentity"
+  },
+  "snPortStpInfo": {
+    "name": "snPortStpInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5",
+    "class": "objectidentity"
+  },
+  "snTrunkInfo": {
+    "name": "snTrunkInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6",
+    "class": "objectidentity"
+  },
+  "snSwSummary": {
+    "name": "snSwSummary",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.7",
+    "class": "objectidentity"
+  },
+  "snDhcpGatewayListInfo": {
+    "name": "snDhcpGatewayListInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.8",
+    "class": "objectidentity"
+  },
+  "snDnsInfo": {
+    "name": "snDnsInfo",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.9",
+    "class": "objectidentity"
+  },
+  "snMacFilter": {
+    "name": "snMacFilter",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10",
+    "class": "objectidentity"
+  },
+  "snNTP": {
+    "name": "snNTP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11",
+    "class": "objectidentity"
+  },
+  "snRadius": {
+    "name": "snRadius",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12",
+    "class": "objectidentity"
+  },
+  "snTacacs": {
+    "name": "snTacacs",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13",
+    "class": "objectidentity"
+  },
+  "snQos": {
+    "name": "snQos",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14",
+    "class": "objectidentity"
+  },
+  "snAAA": {
+    "name": "snAAA",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15",
+    "class": "objectidentity"
+  },
+  "snCAR": {
+    "name": "snCAR",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.16",
+    "class": "objectidentity"
+  },
+  "snVLanCAR": {
+    "name": "snVLanCAR",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.17",
+    "class": "objectidentity"
+  },
+  "snNetFlow": {
+    "name": "snNetFlow",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18",
+    "class": "objectidentity"
+  },
+  "snSFlow": {
+    "name": "snSFlow",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19",
+    "class": "objectidentity"
+  },
+  "snFDP": {
+    "name": "snFDP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20",
+    "class": "objectidentity"
+  },
+  "snVsrp": {
+    "name": "snVsrp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.21",
+    "class": "objectidentity"
+  },
+  "snSwGroupOperMode": {
+    "name": "snSwGroupOperMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noVLan": 1,
+          "vlanByPort": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwGroupIpL3SwMode": {
+    "name": "snSwGroupIpL3SwMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwGroupIpMcastMode": {
+    "name": "snSwGroupIpMcastMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwGroupDefaultCfgMode": {
+    "name": "snSwGroupDefaultCfgMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "nonDefault": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwGroupSwitchAgeTime": {
+    "name": "snSwGroupSwitchAgeTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanGroupVlanCurEntry": {
+    "name": "snVLanGroupVlanCurEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanGroupSetAllVLan": {
+    "name": "snVLanGroupSetAllVLan",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortSetAll": {
+    "name": "snSwPortSetAll",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdbTableCurEntry": {
+    "name": "snFdbTableCurEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdbTableStationFlush": {
+    "name": "snFdbTableStationFlush",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "error": 2,
+          "flush": 3,
+          "flushing": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPortStpSetAll": {
+    "name": "snPortStpSetAll",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwProbePortNum": {
+    "name": "snSwProbePortNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSw8021qTagMode": {
+    "name": "snSw8021qTagMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwGlobalStpMode": {
+    "name": "snSwGlobalStpMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwIpMcastQuerierMode": {
+    "name": "snSwIpMcastQuerierMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "querier": 1,
+          "nonQuerier": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwViolatorPortNumber": {
+    "name": "snSwViolatorPortNumber",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwViolatorMacAddress": {
+    "name": "snSwViolatorMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanGroupVlanMaxEntry": {
+    "name": "snVLanGroupVlanMaxEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwEosBufferSize": {
+    "name": "snSwEosBufferSize",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortEntrySize": {
+    "name": "snVLanByPortEntrySize",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortEntrySize": {
+    "name": "snSwPortEntrySize",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdbStationEntrySize": {
+    "name": "snFdbStationEntrySize",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpEntrySize": {
+    "name": "snPortStpEntrySize",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwEnableBridgeNewRootTrap": {
+    "name": "snSwEnableBridgeNewRootTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwEnableBridgeTopoChangeTrap": {
+    "name": "snSwEnableBridgeTopoChangeTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwEnableLockedAddrViolationTrap": {
+    "name": "snSwEnableLockedAddrViolationTrap",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwIpxL3SwMode": {
+    "name": "snSwIpxL3SwMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetMaxSubnets": {
+    "name": "snVLanByIpSubnetMaxSubnets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetMaxNetworks": {
+    "name": "snVLanByIpxNetMaxNetworks",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwProtocolVLanMode": {
+    "name": "snSwProtocolVLanMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacStationVLanId": {
+    "name": "snMacStationVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwClearCounters": {
+    "name": "snSwClearCounters",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 0,
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSw8021qTagType": {
+    "name": "snSw8021qTagType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 33024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwBroadcastLimit": {
+    "name": "snSwBroadcastLimit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwMaxMacFilterPerSystem": {
+    "name": "snSwMaxMacFilterPerSystem",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwMaxMacFilterPerPort": {
+    "name": "snSwMaxMacFilterPerPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwDefaultVLanId": {
+    "name": "snSwDefaultVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwGlobalAutoNegotiate": {
+    "name": "snSwGlobalAutoNegotiate",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "negFullAuto": 2,
+          "other": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "negFullAuto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwQosMechanism": {
+    "name": "snSwQosMechanism",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 0,
+          "weighted": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "weighted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwSingleStpMode": {
+    "name": "snSwSingleStpMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwFastStpMode": {
+    "name": "snSwFastStpMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortTable": {
+    "name": "snVLanByPortTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "snVLanByPortEntry": {
+    "name": "snVLanByPortEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortVLanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snVLanByPortVLanIndex": {
+    "name": "snVLanByPortVLanIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortVLanId": {
+    "name": "snVLanByPortVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortPortMask": {
+    "name": "snVLanByPortPortMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortQos": {
+    "name": "snVLanByPortQos",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpMode": {
+    "name": "snVLanByPortStpMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpPriority": {
+    "name": "snVLanByPortStpPriority",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpGroupMaxAge": {
+    "name": "snVLanByPortStpGroupMaxAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpGroupHelloTime": {
+    "name": "snVLanByPortStpGroupHelloTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpGroupForwardDelay": {
+    "name": "snVLanByPortStpGroupForwardDelay",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortRowStatus": {
+    "name": "snVLanByPortRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortOperState": {
+    "name": "snVLanByPortOperState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActivated": 0,
+          "activated": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortBaseNumPorts": {
+    "name": "snVLanByPortBaseNumPorts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortBaseType": {
+    "name": "snVLanByPortBaseType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "transparent-only": 2,
+          "sourceroute-only": 3,
+          "srt": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpProtocolSpecification": {
+    "name": "snVLanByPortStpProtocolSpecification",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "decLb100": 2,
+          "ieee8021d": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpMaxAge": {
+    "name": "snVLanByPortStpMaxAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpHelloTime": {
+    "name": "snVLanByPortStpHelloTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpHoldTime": {
+    "name": "snVLanByPortStpHoldTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpForwardDelay": {
+    "name": "snVLanByPortStpForwardDelay",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpTimeSinceTopologyChange": {
+    "name": "snVLanByPortStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpTopChanges": {
+    "name": "snVLanByPortStpTopChanges",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpRootCost": {
+    "name": "snVLanByPortStpRootCost",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpRootPort": {
+    "name": "snVLanByPortStpRootPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortStpDesignatedRoot": {
+    "name": "snVLanByPortStpDesignatedRoot",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortBaseBridgeAddress": {
+    "name": "snVLanByPortBaseBridgeAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByPortVLanName": {
+    "name": "snVLanByPortVLanName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortRouterIntf": {
+    "name": "snVLanByPortRouterIntf",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortChassisPortMask": {
+    "name": "snVLanByPortChassisPortMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortPortList": {
+    "name": "snVLanByPortPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByPortMemberTable": {
+    "name": "snVLanByPortMemberTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snVLanByPortMemberEntry": {
+    "name": "snVLanByPortMemberEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortMemberVLanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortMemberPortId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snVLanByPortMemberVLanId": {
+    "name": "snVLanByPortMemberVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortMemberPortId": {
+    "name": "snVLanByPortMemberPortId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortMemberRowStatus": {
+    "name": "snVLanByPortMemberRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgTable": {
+    "name": "snVLanByPortCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgEntry": {
+    "name": "snVLanByPortCfgEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByPortCfgVLanId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgVLanId": {
+    "name": "snVLanByPortCfgVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgQos": {
+    "name": "snVLanByPortCfgQos",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpMode": {
+    "name": "snVLanByPortCfgStpMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpPriority": {
+    "name": "snVLanByPortCfgStpPriority",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpGroupMaxAge": {
+    "name": "snVLanByPortCfgStpGroupMaxAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpGroupHelloTime": {
+    "name": "snVLanByPortCfgStpGroupHelloTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpGroupForwardDelay": {
+    "name": "snVLanByPortCfgStpGroupForwardDelay",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgBaseNumPorts": {
+    "name": "snVLanByPortCfgBaseNumPorts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgBaseType": {
+    "name": "snVLanByPortCfgBaseType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "transparent-only": 2,
+          "sourceroute-only": 3,
+          "srt": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpProtocolSpecification": {
+    "name": "snVLanByPortCfgStpProtocolSpecification",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "decLb100": 2,
+          "ieee8021d": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpMaxAge": {
+    "name": "snVLanByPortCfgStpMaxAge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpHelloTime": {
+    "name": "snVLanByPortCfgStpHelloTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpHoldTime": {
+    "name": "snVLanByPortCfgStpHoldTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpForwardDelay": {
+    "name": "snVLanByPortCfgStpForwardDelay",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpTimeSinceTopologyChange": {
+    "name": "snVLanByPortCfgStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpTopChanges": {
+    "name": "snVLanByPortCfgStpTopChanges",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpRootCost": {
+    "name": "snVLanByPortCfgStpRootCost",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpRootPort": {
+    "name": "snVLanByPortCfgStpRootPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgStpDesignatedRoot": {
+    "name": "snVLanByPortCfgStpDesignatedRoot",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgBaseBridgeAddress": {
+    "name": "snVLanByPortCfgBaseBridgeAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgVLanName": {
+    "name": "snVLanByPortCfgVLanName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgRouterIntf": {
+    "name": "snVLanByPortCfgRouterIntf",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByPortCfgRowStatus": {
+    "name": "snVLanByPortCfgRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolTable": {
+    "name": "snVLanByProtocolTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolEntry": {
+    "name": "snVLanByProtocolEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByProtocolVLanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snVLanByProtocolVLanId": {
+    "name": "snVLanByProtocolVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolIndex": {
+    "name": "snVLanByProtocolIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipx": 2,
+          "appleTalk": 3,
+          "decNet": 4,
+          "netBios": 5,
+          "others": 6,
+          "ipv6": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolDynamic": {
+    "name": "snVLanByProtocolDynamic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolStaticMask": {
+    "name": "snVLanByProtocolStaticMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByProtocolExcludeMask": {
+    "name": "snVLanByProtocolExcludeMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByProtocolRouterIntf": {
+    "name": "snVLanByProtocolRouterIntf",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolRowStatus": {
+    "name": "snVLanByProtocolRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolDynamicMask": {
+    "name": "snVLanByProtocolDynamicMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByProtocolChassisStaticMask": {
+    "name": "snVLanByProtocolChassisStaticMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByProtocolChassisExcludeMask": {
+    "name": "snVLanByProtocolChassisExcludeMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByProtocolChassisDynamicMask": {
+    "name": "snVLanByProtocolChassisDynamicMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByProtocolVLanName": {
+    "name": "snVLanByProtocolVLanName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolStaticPortList": {
+    "name": "snVLanByProtocolStaticPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolExcludePortList": {
+    "name": "snVLanByProtocolExcludePortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByProtocolDynamicPortList": {
+    "name": "snVLanByProtocolDynamicPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetTable": {
+    "name": "snVLanByIpSubnetTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetEntry": {
+    "name": "snVLanByIpSubnetEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByIpSubnetVLanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByIpSubnetIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByIpSubnetSubnetMask",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetVLanId": {
+    "name": "snVLanByIpSubnetVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetIpAddress": {
+    "name": "snVLanByIpSubnetIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetSubnetMask": {
+    "name": "snVLanByIpSubnetSubnetMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetDynamic": {
+    "name": "snVLanByIpSubnetDynamic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetStaticMask": {
+    "name": "snVLanByIpSubnetStaticMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpSubnetExcludeMask": {
+    "name": "snVLanByIpSubnetExcludeMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpSubnetRouterIntf": {
+    "name": "snVLanByIpSubnetRouterIntf",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetRowStatus": {
+    "name": "snVLanByIpSubnetRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetDynamicMask": {
+    "name": "snVLanByIpSubnetDynamicMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByIpSubnetChassisStaticMask": {
+    "name": "snVLanByIpSubnetChassisStaticMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpSubnetChassisExcludeMask": {
+    "name": "snVLanByIpSubnetChassisExcludeMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpSubnetChassisDynamicMask": {
+    "name": "snVLanByIpSubnetChassisDynamicMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByIpSubnetVLanName": {
+    "name": "snVLanByIpSubnetVLanName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetStaticPortList": {
+    "name": "snVLanByIpSubnetStaticPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetExcludePortList": {
+    "name": "snVLanByIpSubnetExcludePortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpSubnetDynamicPortList": {
+    "name": "snVLanByIpSubnetDynamicPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetTable": {
+    "name": "snVLanByIpxNetTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetEntry": {
+    "name": "snVLanByIpxNetEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByIpxNetVLanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByIpxNetNetworkNum",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByIpxNetFrameType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetVLanId": {
+    "name": "snVLanByIpxNetVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetNetworkNum": {
+    "name": "snVLanByIpxNetNetworkNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetFrameType": {
+    "name": "snVLanByIpxNetFrameType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "ipxEthernet8022": 1,
+          "ipxEthernet8023": 2,
+          "ipxEthernetII": 3,
+          "ipxEthernetSnap": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetDynamic": {
+    "name": "snVLanByIpxNetDynamic",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetStaticMask": {
+    "name": "snVLanByIpxNetStaticMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpxNetExcludeMask": {
+    "name": "snVLanByIpxNetExcludeMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpxNetRouterIntf": {
+    "name": "snVLanByIpxNetRouterIntf",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetRowStatus": {
+    "name": "snVLanByIpxNetRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetDynamicMask": {
+    "name": "snVLanByIpxNetDynamicMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByIpxNetChassisStaticMask": {
+    "name": "snVLanByIpxNetChassisStaticMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpxNetChassisExcludeMask": {
+    "name": "snVLanByIpxNetChassisExcludeMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByIpxNetChassisDynamicMask": {
+    "name": "snVLanByIpxNetChassisDynamicMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "snVLanByIpxNetVLanName": {
+    "name": "snVLanByIpxNetVLanName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetStaticPortList": {
+    "name": "snVLanByIpxNetStaticPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetExcludePortList": {
+    "name": "snVLanByIpxNetExcludePortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByIpxNetDynamicPortList": {
+    "name": "snVLanByIpxNetDynamicPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByATCableTable": {
+    "name": "snVLanByATCableTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snVLanByATCableEntry": {
+    "name": "snVLanByATCableEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByATCableVLanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snVLanByATCableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snVLanByATCableVLanId": {
+    "name": "snVLanByATCableVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByATCableIndex": {
+    "name": "snVLanByATCableIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snVLanByATCableRouterIntf": {
+    "name": "snVLanByATCableRouterIntf",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByATCableRowStatus": {
+    "name": "snVLanByATCableRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByATCableChassisStaticMask": {
+    "name": "snVLanByATCableChassisStaticMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "snVLanByATCableVLanName": {
+    "name": "snVLanByATCableVLanName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snVLanByATCableStaticPortList": {
+    "name": "snVLanByATCableStaticPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoTable": {
+    "name": "snSwPortInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snSwPortInfoEntry": {
+    "name": "snSwPortInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snSwPortInfoPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snSwPortInfoPortNum": {
+    "name": "snSwPortInfoPortNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortInfoMonitorMode": {
+    "name": "snSwPortInfoMonitorMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "input": 1,
+          "output": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoTagMode": {
+    "name": "snSwPortInfoTagMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tagged": 1,
+          "untagged": 2,
+          "auto": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoChnMode": {
+    "name": "snSwPortInfoChnMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "halfDuplex": 1,
+          "fullDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoSpeed": {
+    "name": "snSwPortInfoSpeed",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "sAutoSense": 1,
+          "s10M": 2,
+          "s100M": 3,
+          "s1G": 4,
+          "s45M": 5,
+          "s155M": 6,
+          "s10G": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoMediaType": {
+    "name": "snSwPortInfoMediaType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "m100BaseTX": 2,
+          "m100BaseFX": 3,
+          "m1000BaseFX": 4,
+          "mT3": 5,
+          "m155ATM": 6,
+          "m1000BaseTX": 7,
+          "m622ATM": 8,
+          "m155POS": 9,
+          "m622POS": 10,
+          "m2488POS": 11,
+          "m10000BaseFX": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortInfoConnectorType": {
+    "name": "snSwPortInfoConnectorType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "copper": 2,
+          "fiber": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortInfoAdminStatus": {
+    "name": "snSwPortInfoAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoLinkStatus": {
+    "name": "snSwPortInfoLinkStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortInfoPortQos": {
+    "name": "snSwPortInfoPortQos",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoPhysAddress": {
+    "name": "snSwPortInfoPhysAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInFrames": {
+    "name": "snSwPortStatsInFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutFrames": {
+    "name": "snSwPortStatsOutFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsAlignErrors": {
+    "name": "snSwPortStatsAlignErrors",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsFCSErrors": {
+    "name": "snSwPortStatsFCSErrors",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsMultiColliFrames": {
+    "name": "snSwPortStatsMultiColliFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsFrameTooLongs": {
+    "name": "snSwPortStatsFrameTooLongs",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsTxColliFrames": {
+    "name": "snSwPortStatsTxColliFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsRxColliFrames": {
+    "name": "snSwPortStatsRxColliFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsFrameTooShorts": {
+    "name": "snSwPortStatsFrameTooShorts",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortLockAddressCount": {
+    "name": "snSwPortLockAddressCount",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortStpPortEnable": {
+    "name": "snSwPortStpPortEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortDhcpGateListId": {
+    "name": "snSwPortDhcpGateListId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortName": {
+    "name": "snSwPortName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInBcastFrames": {
+    "name": "snSwPortStatsInBcastFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutBcastFrames": {
+    "name": "snSwPortStatsOutBcastFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInMcastFrames": {
+    "name": "snSwPortStatsInMcastFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutMcastFrames": {
+    "name": "snSwPortStatsOutMcastFrames",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInDiscard": {
+    "name": "snSwPortStatsInDiscard",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutDiscard": {
+    "name": "snSwPortStatsOutDiscard",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsMacStations": {
+    "name": "snSwPortStatsMacStations",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortCacheGroupId": {
+    "name": "snSwPortCacheGroupId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortTransGroupId": {
+    "name": "snSwPortTransGroupId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoAutoNegotiate": {
+    "name": "snSwPortInfoAutoNegotiate",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "negFullAuto": 2,
+          "global": 3,
+          "other": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "global",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoFlowControl": {
+    "name": "snSwPortInfoFlowControl",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortInfoGigType": {
+    "name": "snSwPortInfoGigType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "m1000BaseSX": 0,
+          "m1000BaseLX": 1,
+          "m1000BaseLH": 2,
+          "m1000BaseLHA": 3,
+          "m1000BaseLHB": 4,
+          "m1000BaseTX": 5,
+          "m10000BaseSR": 6,
+          "m10000BaseLR": 7,
+          "m10000BaseER": 8,
+          "notApplicable": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsLinkChange": {
+    "name": "snSwPortStatsLinkChange",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortIfIndex": {
+    "name": "snSwPortIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortDescr": {
+    "name": "snSwPortDescr",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortInOctets": {
+    "name": "snSwPortInOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortOutOctets": {
+    "name": "snSwPortOutOctets",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInBitsPerSec": {
+    "name": "snSwPortStatsInBitsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutBitsPerSec": {
+    "name": "snSwPortStatsOutBitsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInPktsPerSec": {
+    "name": "snSwPortStatsInPktsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutPktsPerSec": {
+    "name": "snSwPortStatsOutPktsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInUtilization": {
+    "name": "snSwPortStatsInUtilization",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutUtilization": {
+    "name": "snSwPortStatsOutUtilization",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortFastSpanPortEnable": {
+    "name": "snSwPortFastSpanPortEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortFastSpanUplinkEnable": {
+    "name": "snSwPortFastSpanUplinkEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortVlanId": {
+    "name": "snSwPortVlanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortRouteOnly": {
+    "name": "snSwPortRouteOnly",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortPresent": {
+    "name": "snSwPortPresent",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortGBICStatus": {
+    "name": "snSwPortGBICStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gbic": 1,
+          "miniGBIC": 2,
+          "empty": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsInKiloBitsPerSec": {
+    "name": "snSwPortStatsInKiloBitsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortStatsOutKiloBitsPerSec": {
+    "name": "snSwPortStatsOutKiloBitsPerSec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSwPortLoadInterval": {
+    "name": "snSwPortLoadInterval",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwPortTagType": {
+    "name": "snSwPortTagType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 33024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snInterfaceId": {
+    "name": "snInterfaceId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.2",
+    "class": "objectidentity"
+  },
+  "snInterfaceLookupTable": {
+    "name": "snInterfaceLookupTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snInterfaceLookupEntry": {
+    "name": "snInterfaceLookupEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snInterfaceLookupInterfaceId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snInterfaceLookupInterfaceId": {
+    "name": "snInterfaceLookupInterfaceId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snInterfaceLookupIfIndex": {
+    "name": "snInterfaceLookupIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snIfIndexLookupTable": {
+    "name": "snIfIndexLookupTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snIfIndexLookupEntry": {
+    "name": "snIfIndexLookupEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snIfIndexLookupIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snIfIndexLookupIfIndex": {
+    "name": "snIfIndexLookupIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snIfIndexLookupInterfaceId": {
+    "name": "snIfIndexLookupInterfaceId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdbTable": {
+    "name": "snFdbTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdbEntry": {
+    "name": "snFdbEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snFdbStationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snFdbStationIndex": {
+    "name": "snFdbStationIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdbStationAddr": {
+    "name": "snFdbStationAddr",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdbStationPort": {
+    "name": "snFdbStationPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdbVLanId": {
+    "name": "snFdbVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdbStationQos": {
+    "name": "snFdbStationQos",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level1": 1,
+          "level2": 2,
+          "level3": 3,
+          "level4": 4,
+          "level5": 5,
+          "level6": 6,
+          "level7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdbStationType": {
+    "name": "snFdbStationType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 0,
+          "host": 1,
+          "router": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdbRowStatus": {
+    "name": "snFdbRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPortStpTable": {
+    "name": "snPortStpTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snPortStpEntry": {
+    "name": "snPortStpEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snPortStpVLanId",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snPortStpPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snPortStpVLanId": {
+    "name": "snPortStpVLanId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpPortNum": {
+    "name": "snPortStpPortNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpPortPriority": {
+    "name": "snPortStpPortPriority",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPortStpPathCost": {
+    "name": "snPortStpPathCost",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snPortStpOperState": {
+    "name": "snPortStpOperState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActivated": 0,
+          "activated": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpPortEnable": {
+    "name": "snPortStpPortEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snPortStpPortForwardTransitions": {
+    "name": "snPortStpPortForwardTransitions",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snPortStpPortState": {
+    "name": "snPortStpPortState",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpPortDesignatedCost": {
+    "name": "snPortStpPortDesignatedCost",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpPortDesignatedRoot": {
+    "name": "snPortStpPortDesignatedRoot",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpPortDesignatedBridge": {
+    "name": "snPortStpPortDesignatedBridge",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snPortStpPortDesignatedPort": {
+    "name": "snPortStpPortDesignatedPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snTrunkTable": {
+    "name": "snTrunkTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snTrunkEntry": {
+    "name": "snTrunkEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snTrunkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snTrunkIndex": {
+    "name": "snTrunkIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snTrunkPortMask": {
+    "name": "snTrunkPortMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTrunkType": {
+    "name": "snTrunkType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1,
+          "server": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMSTrunkTable": {
+    "name": "snMSTrunkTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snMSTrunkEntry": {
+    "name": "snMSTrunkEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snMSTrunkPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snMSTrunkPortIndex": {
+    "name": "snMSTrunkPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snMSTrunkPortList": {
+    "name": "snMSTrunkPortList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMSTrunkType": {
+    "name": "snMSTrunkType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1,
+          "server": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMSTrunkRowStatus": {
+    "name": "snMSTrunkRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSwSummaryMode": {
+    "name": "snSwSummaryMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snDhcpGatewayListTable": {
+    "name": "snDhcpGatewayListTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snDhcpGatewayListEntry": {
+    "name": "snDhcpGatewayListEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snDhcpGatewayListId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snDhcpGatewayListId": {
+    "name": "snDhcpGatewayListId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snDhcpGatewayListAddrList": {
+    "name": "snDhcpGatewayListAddrList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snDhcpGatewayListRowStatus": {
+    "name": "snDhcpGatewayListRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snDnsDomainName": {
+    "name": "snDnsDomainName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snDnsGatewayIpAddrList": {
+    "name": "snDnsGatewayIpAddrList",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterTable": {
+    "name": "snMacFilterTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snMacFilterEntry": {
+    "name": "snMacFilterEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snMacFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snMacFilterIndex": {
+    "name": "snMacFilterIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snMacFilterAction": {
+    "name": "snMacFilterAction",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterSourceMac": {
+    "name": "snMacFilterSourceMac",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterSourceMask": {
+    "name": "snMacFilterSourceMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterDestMac": {
+    "name": "snMacFilterDestMac",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterDestMask": {
+    "name": "snMacFilterDestMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterOperator": {
+    "name": "snMacFilterOperator",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equal": 0,
+          "notEqual": 1,
+          "less": 2,
+          "greater": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterFrameType": {
+    "name": "snMacFilterFrameType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notUsed": 0,
+          "ethernet": 1,
+          "llc": 2,
+          "snap": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterFrameTypeNum": {
+    "name": "snMacFilterFrameTypeNum",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterRowStatus": {
+    "name": "snMacFilterRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterPortAccessTable": {
+    "name": "snMacFilterPortAccessTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snMacFilterPortAccessEntry": {
+    "name": "snMacFilterPortAccessEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snMacFilterPortAccessPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snMacFilterPortAccessPortIndex": {
+    "name": "snMacFilterPortAccessPortIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snMacFilterPortAccessFilters": {
+    "name": "snMacFilterPortAccessFilters",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snMacFilterPortAccessRowStatus": {
+    "name": "snMacFilterPortAccessRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNTPGeneral": {
+    "name": "snNTPGeneral",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.1",
+    "class": "objectidentity"
+  },
+  "snNTPPollInterval": {
+    "name": "snNTPPollInterval",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNTPTimeZone": {
+    "name": "snNTPTimeZone",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alaska": 0,
+          "aleutian": 1,
+          "arizona": 2,
+          "central": 3,
+          "eastIndiana": 4,
+          "eastern": 5,
+          "hawaii": 6,
+          "michigan": 7,
+          "mountain": 8,
+          "pacific": 9,
+          "samoa": 10,
+          "gmtPlus12": 11,
+          "gmtPlus11": 12,
+          "gmtPlus10": 13,
+          "gmtPlus9": 14,
+          "gmtPlus8": 15,
+          "gmtPlus7": 16,
+          "gmtPlus6": 17,
+          "gmtPlus5": 18,
+          "gmtPlus4": 19,
+          "gmtPlus3": 20,
+          "gmtPlus2": 21,
+          "gmtPlus1": 22,
+          "gmt": 23,
+          "gmtMinus1": 24,
+          "gmtMinus2": 25,
+          "gmtMinus3": 26,
+          "gmtMinus4": 27,
+          "gmtMinus5": 28,
+          "gmtMinus6": 29,
+          "gmtMinus7": 30,
+          "gmtMinus8": 31,
+          "gmtMinus9": 32,
+          "gmtMinus10": 33,
+          "gmtMinus11": 34,
+          "gmtMinus12": 35
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "gmt",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNTPSummerTimeEnable": {
+    "name": "snNTPSummerTimeEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNTPSystemClock": {
+    "name": "snNTPSystemClock",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNTPSync": {
+    "name": "snNTPSync",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "synchronize": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNTPServerTable": {
+    "name": "snNTPServerTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snNTPServerEntry": {
+    "name": "snNTPServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snNTPServerIp",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snNTPServerIp": {
+    "name": "snNTPServerIp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snNTPServerVersion": {
+    "name": "snNTPServerVersion",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNTPServerRowStatus": {
+    "name": "snNTPServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusGeneral": {
+    "name": "snRadiusGeneral",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1",
+    "class": "objectidentity"
+  },
+  "snRadiusSNMPAccess": {
+    "name": "snRadiusSNMPAccess",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snRadiusEnableTelnetAuth": {
+    "name": "snRadiusEnableTelnetAuth",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusRetransmit": {
+    "name": "snRadiusRetransmit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusTimeOut": {
+    "name": "snRadiusTimeOut",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusDeadTime": {
+    "name": "snRadiusDeadTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusKey": {
+    "name": "snRadiusKey",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusLoginMethod": {
+    "name": "snRadiusLoginMethod",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusEnableMethod": {
+    "name": "snRadiusEnableMethod",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusWebServerMethod": {
+    "name": "snRadiusWebServerMethod",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusSNMPServerMethod": {
+    "name": "snRadiusSNMPServerMethod",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusServerTable": {
+    "name": "snRadiusServerTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snRadiusServerEntry": {
+    "name": "snRadiusServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snRadiusServerIp",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snRadiusServerIp": {
+    "name": "snRadiusServerIp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snRadiusServerAuthPort": {
+    "name": "snRadiusServerAuthPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1645,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusServerAcctPort": {
+    "name": "snRadiusServerAcctPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1646,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusServerRowStatus": {
+    "name": "snRadiusServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusServerRowKey": {
+    "name": "snRadiusServerRowKey",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snRadiusServerUsage": {
+    "name": "snRadiusServerUsage",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.12.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "authentication-only": 2,
+          "authorization-only": 3,
+          "accounting-only": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsGeneral": {
+    "name": "snTacacsGeneral",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.1",
+    "class": "objectidentity"
+  },
+  "snTacacsRetransmit": {
+    "name": "snTacacsRetransmit",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsTimeOut": {
+    "name": "snTacacsTimeOut",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsDeadTime": {
+    "name": "snTacacsDeadTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsKey": {
+    "name": "snTacacsKey",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsSNMPAccess": {
+    "name": "snTacacsSNMPAccess",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snTacacsServerTable": {
+    "name": "snTacacsServerTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snTacacsServerEntry": {
+    "name": "snTacacsServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snTacacsServerIp",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snTacacsServerIp": {
+    "name": "snTacacsServerIp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snTacacsServerAuthPort": {
+    "name": "snTacacsServerAuthPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsServerRowStatus": {
+    "name": "snTacacsServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsServerRowKey": {
+    "name": "snTacacsServerRowKey",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snTacacsServerUsage": {
+    "name": "snTacacsServerUsage",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.13.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "authentication-only": 2,
+          "authorization-only": 3,
+          "accounting-only": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snQosProfileTable": {
+    "name": "snQosProfileTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snQosProfileEntry": {
+    "name": "snQosProfileEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snQosProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snQosProfileIndex": {
+    "name": "snQosProfileIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snQosProfileName": {
+    "name": "snQosProfileName",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snQosProfileRequestedBandwidth": {
+    "name": "snQosProfileRequestedBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snQosProfileCalculatedBandwidth": {
+    "name": "snQosProfileCalculatedBandwidth",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snQosBindTable": {
+    "name": "snQosBindTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snQosBindEntry": {
+    "name": "snQosBindEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snQosBindIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snQosBindIndex": {
+    "name": "snQosBindIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snQosBindPriority": {
+    "name": "snQosBindPriority",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snQosBindProfileIndex": {
+    "name": "snQosBindProfileIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAuthentication": {
+    "name": "snAuthentication",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.1",
+    "class": "objectidentity"
+  },
+  "snAuthorization": {
+    "name": "snAuthorization",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.2",
+    "class": "objectidentity"
+  },
+  "snAccounting": {
+    "name": "snAccounting",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.3",
+    "class": "objectidentity"
+  },
+  "snAuthorizationCommandMethods": {
+    "name": "snAuthorizationCommandMethods",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAuthorizationCommandLevel": {
+    "name": "snAuthorizationCommandLevel",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level4": 4,
+          "level5": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAuthorizationExec": {
+    "name": "snAuthorizationExec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAccountingCommandMethods": {
+    "name": "snAccountingCommandMethods",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAccountingCommandLevel": {
+    "name": "snAccountingCommandLevel",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level0": 0,
+          "level4": 4,
+          "level5": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAccountingExec": {
+    "name": "snAccountingExec",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snAccountingSystem": {
+    "name": "snAccountingSystem",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.15.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowGlb": {
+    "name": "snNetFlowGlb",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.1",
+    "class": "objectidentity"
+  },
+  "snNetFlowGblEnable": {
+    "name": "snNetFlowGblEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowGblVersion": {
+    "name": "snNetFlowGblVersion",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version5": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "version5",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowGblProtocolDisable": {
+    "name": "snNetFlowGblProtocolDisable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowGblActiveTimeout": {
+    "name": "snNetFlowGblActiveTimeout",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowGblInactiveTimeout": {
+    "name": "snNetFlowGblInactiveTimeout",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowCollectorTable": {
+    "name": "snNetFlowCollectorTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snNetFlowCollectorEntry": {
+    "name": "snNetFlowCollectorEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snNetFlowCollectorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snNetFlowCollectorIndex": {
+    "name": "snNetFlowCollectorIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snNetFlowCollectorIp": {
+    "name": "snNetFlowCollectorIp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowCollectorUdpPort": {
+    "name": "snNetFlowCollectorUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowCollectorSourceInterface": {
+    "name": "snNetFlowCollectorSourceInterface",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowCollectorRowStatus": {
+    "name": "snNetFlowCollectorRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationTable": {
+    "name": "snNetFlowAggregationTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationEntry": {
+    "name": "snNetFlowAggregationEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snNetFlowAggregationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationIndex": {
+    "name": "snNetFlowAggregationIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "as": 1,
+          "protocolPort": 2,
+          "destPrefix": 3,
+          "sourcePrefix": 4,
+          "prefix": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationIp": {
+    "name": "snNetFlowAggregationIp",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationUdpPort": {
+    "name": "snNetFlowAggregationUdpPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationSourceInterface": {
+    "name": "snNetFlowAggregationSourceInterface",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationNumberOfCacheEntries": {
+    "name": "snNetFlowAggregationNumberOfCacheEntries",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationActiveTimeout": {
+    "name": "snNetFlowAggregationActiveTimeout",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationInactiveTimeout": {
+    "name": "snNetFlowAggregationInactiveTimeout",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationEnable": {
+    "name": "snNetFlowAggregationEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowAggregationRowStatus": {
+    "name": "snNetFlowAggregationRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snNetFlowIfTable": {
+    "name": "snNetFlowIfTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snNetFlowIfEntry": {
+    "name": "snNetFlowIfEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snNetFlowIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snNetFlowIfIndex": {
+    "name": "snNetFlowIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snNetFlowIfFlowSwitching": {
+    "name": "snNetFlowIfFlowSwitching",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.18.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSFlowGlb": {
+    "name": "snSFlowGlb",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19.1",
+    "class": "objectidentity"
+  },
+  "snSflowCollectorTable": {
+    "name": "snSflowCollectorTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snSflowCollectorEntry": {
+    "name": "snSflowCollectorEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snSflowCollectorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snSflowCollectorIndex": {
+    "name": "snSflowCollectorIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snSflowCollectorIP": {
+    "name": "snSflowCollectorIP",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSflowCollectorUDPPort": {
+    "name": "snSflowCollectorUDPPort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snSflowCollectorRowStatus": {
+    "name": "snSflowCollectorRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.19.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSuch": 0,
+          "other": 1,
+          "valid": 2,
+          "delete": 3,
+          "create": 4,
+          "modify": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdpMIBObjects": {
+    "name": "snFdpMIBObjects",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1",
+    "class": "objectidentity"
+  },
+  "snFdpInterface": {
+    "name": "snFdpInterface",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.1",
+    "class": "objectidentity"
+  },
+  "snFdpCache": {
+    "name": "snFdpCache",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2",
+    "class": "objectidentity"
+  },
+  "snFdpGlobal": {
+    "name": "snFdpGlobal",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.3",
+    "class": "objectidentity"
+  },
+  "snFdpCachedAddr": {
+    "name": "snFdpCachedAddr",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4",
+    "class": "objectidentity"
+  },
+  "snFdpInterfaceTable": {
+    "name": "snFdpInterfaceTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpInterfaceEntry": {
+    "name": "snFdpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snFdpInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snFdpInterfaceIfIndex": {
+    "name": "snFdpInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpInterfaceFdpEnable": {
+    "name": "snFdpInterfaceFdpEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdpInterfaceCdpEnable": {
+    "name": "snFdpInterfaceCdpEnable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdpCacheTable": {
+    "name": "snFdpCacheTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpCacheEntry": {
+    "name": "snFdpCacheEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snFdpCacheIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snFdpCacheDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snFdpCacheIfIndex": {
+    "name": "snFdpCacheIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpCacheDeviceIndex": {
+    "name": "snFdpCacheDeviceIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpCacheDeviceId": {
+    "name": "snFdpCacheDeviceId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheAddressType": {
+    "name": "snFdpCacheAddressType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipx": 2,
+          "appletalk": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheAddress": {
+    "name": "snFdpCacheAddress",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheVersion": {
+    "name": "snFdpCacheVersion",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheDevicePort": {
+    "name": "snFdpCacheDevicePort",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCachePlatform": {
+    "name": "snFdpCachePlatform",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheCapabilities": {
+    "name": "snFdpCacheCapabilities",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheVendorId": {
+    "name": "snFdpCacheVendorId",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fdp": 1,
+          "cdp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheIsAggregateVlan": {
+    "name": "snFdpCacheIsAggregateVlan",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheTagType": {
+    "name": "snFdpCacheTagType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCachePortVlanMask": {
+    "name": "snFdpCachePortVlanMask",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCachePortTagMode": {
+    "name": "snFdpCachePortTagMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untagged": 1,
+          "tagged": 2,
+          "dual": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCacheDefaultTrafficeVlanIdForDualMode": {
+    "name": "snFdpCacheDefaultTrafficeVlanIdForDualMode",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpGlobalRun": {
+    "name": "snFdpGlobalRun",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdpGlobalMessageInterval": {
+    "name": "snFdpGlobalMessageInterval",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdpGlobalHoldTime": {
+    "name": "snFdpGlobalHoldTime",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdpGlobalCdpRun": {
+    "name": "snFdpGlobalCdpRun",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snFdpCachedAddressTable": {
+    "name": "snFdpCachedAddressTable",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpCachedAddressEntry": {
+    "name": "snFdpCachedAddressEntry",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snFdpCachedAddrIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snFdpCachedAddrDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "HP-SN-SWITCH-GROUP-MIB",
+        "object": "snFdpCachedAddrDeviceAddrEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "snFdpCachedAddrIfIndex": {
+    "name": "snFdpCachedAddrIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpCachedAddrDeviceIndex": {
+    "name": "snFdpCachedAddrDeviceIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpCachedAddrDeviceAddrEntryIndex": {
+    "name": "snFdpCachedAddrDeviceAddrEntryIndex",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "snFdpCachedAddrType": {
+    "name": "snFdpCachedAddrType",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipx": 2,
+          "appletalk": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "snFdpCachedAddrValue": {
+    "name": "snFdpCachedAddrValue",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.12.1.3.20.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HP-SN-SWITCH-GROUP-MIB"
+  }
+}

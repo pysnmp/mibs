@@ -1,0 +1,946 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "enterprises",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "OnOff": {
+    "name": "OnOff",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    }
+  },
+  "OutputType": {
+    "name": "OutputType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onOff": 0,
+          "rts": 1,
+          "dtr": 2
+        }
+      }
+    }
+  },
+  "OutputMode": {
+    "name": "OutputMode",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 0,
+          "autoAlarm": 1,
+          "autoTriggerEq": 2,
+          "autoTriggerHi": 3,
+          "autoTriggerLo": 4
+        }
+      }
+    }
+  },
+  "UnitType": {
+    "name": "UnitType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 0,
+          "fahrenheit": 1,
+          "kelvin": 2,
+          "percent": 3,
+          "volt": 4,
+          "miliAmper": 5,
+          "noUnit": 6,
+          "pulse": 7,
+          "switch": 8,
+          "dewPoint": 9,
+          "absoluteHumidity": 10,
+          "pressure": 11,
+          "universal": 12
+        }
+      }
+    }
+  },
+  "InputAlarmSetup": {
+    "name": "InputAlarmSetup",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "activeOff": 1,
+          "activeOn": 2
+        }
+      }
+    }
+  },
+  "InputAlarmState": {
+    "name": "InputAlarmState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "alarm": 1
+        }
+      }
+    }
+  },
+  "SensorState": {
+    "name": "SensorState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "normal": 1,
+          "alarmstate": 2,
+          "alarm": 3
+        }
+      }
+    }
+  },
+  "SensorID": {
+    "name": "SensorID",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    }
+  },
+  "IOName": {
+    "name": "IOName",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    }
+  },
+  "SensorName": {
+    "name": "SensorName",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    }
+  },
+  "SensorValue": {
+    "name": "SensorValue",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "SensorString": {
+    "name": "SensorString",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    }
+  },
+  "SensorUnitString": {
+    "name": "SensorUnitString",
+    "class": "type",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    }
+  },
+  "SensorFlags": {
+    "name": "SensorFlags",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "TimeStamp": {
+    "name": "TimeStamp",
+    "class": "type",
+    "type": {
+      "type": "TimeTicks",
+      "class": "type"
+    }
+  },
+  "hwgroup": {
+    "name": "hwgroup",
+    "oid": "1.3.6.1.4.1.21796",
+    "class": "objectidentity"
+  },
+  "charonII": {
+    "name": "charonII",
+    "oid": "1.3.6.1.4.1.21796.3",
+    "class": "objectidentity"
+  },
+  "poseidon": {
+    "name": "poseidon",
+    "oid": "1.3.6.1.4.1.21796.3.3",
+    "class": "objectidentity"
+  },
+  "info": {
+    "name": "info",
+    "oid": "1.3.6.1.4.1.21796.3.3.70",
+    "class": "objectidentity"
+  },
+  "setup": {
+    "name": "setup",
+    "oid": "1.3.6.1.4.1.21796.3.3.99",
+    "class": "objectidentity"
+  },
+  "inpTable": {
+    "name": "inpTable",
+    "oid": "1.3.6.1.4.1.21796.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inpEntry": {
+    "name": "inpEntry",
+    "oid": "1.3.6.1.4.1.21796.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POSEIDON-MIB",
+        "object": "inpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inpIndex": {
+    "name": "inpIndex",
+    "oid": "1.3.6.1.4.1.21796.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inpValue": {
+    "name": "inpValue",
+    "oid": "1.3.6.1.4.1.21796.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inpName": {
+    "name": "inpName",
+    "oid": "1.3.6.1.4.1.21796.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IOName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inpAlarmSetup": {
+    "name": "inpAlarmSetup",
+    "oid": "1.3.6.1.4.1.21796.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputAlarmSetup",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inpAlarmState": {
+    "name": "inpAlarmState",
+    "oid": "1.3.6.1.4.1.21796.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputAlarmState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outTable": {
+    "name": "outTable",
+    "oid": "1.3.6.1.4.1.21796.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outEntry": {
+    "name": "outEntry",
+    "oid": "1.3.6.1.4.1.21796.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POSEIDON-MIB",
+        "object": "outIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outIndex": {
+    "name": "outIndex",
+    "oid": "1.3.6.1.4.1.21796.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outValue": {
+    "name": "outValue",
+    "oid": "1.3.6.1.4.1.21796.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outName": {
+    "name": "outName",
+    "oid": "1.3.6.1.4.1.21796.3.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IOName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outType": {
+    "name": "outType",
+    "oid": "1.3.6.1.4.1.21796.3.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OutputType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outMode": {
+    "name": "outMode",
+    "oid": "1.3.6.1.4.1.21796.3.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OutputMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensTable": {
+    "name": "sensTable",
+    "oid": "1.3.6.1.4.1.21796.3.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensEntry": {
+    "name": "sensEntry",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POSEIDON-MIB",
+        "object": "sensIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sensIndex": {
+    "name": "sensIndex",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensName": {
+    "name": "sensName",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensState": {
+    "name": "sensState",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensString": {
+    "name": "sensString",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensValue": {
+    "name": "sensValue",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensValueRaw": {
+    "name": "sensValueRaw",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensID": {
+    "name": "sensID",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensUnit": {
+    "name": "sensUnit",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensUnitString": {
+    "name": "sensUnitString",
+    "oid": "1.3.6.1.4.1.21796.3.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorUnitString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsAlarm": {
+    "name": "tsAlarm",
+    "oid": "1.3.6.1.4.1.21796.3.3.50",
+    "class": "objectidentity"
+  },
+  "tsAlarmsPresent": {
+    "name": "tsAlarmsPresent",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsAlarmTable": {
+    "name": "tsAlarmTable",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tsAlarmEntry": {
+    "name": "tsAlarmEntry",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POSEIDON-MIB",
+        "object": "tsAlarmIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tsAlarmIdx": {
+    "name": "tsAlarmIdx",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tsAlarmId": {
+    "name": "tsAlarmId",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsAlarmDescr": {
+    "name": "tsAlarmDescr",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inputStateAlarm": 1,
+          "temperatureOutOfRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsAlarmSensName": {
+    "name": "tsAlarmSensName",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsAlarmTime": {
+    "name": "tsAlarmTime",
+    "oid": "1.3.6.1.4.1.21796.3.3.50.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "infoAddressMAC": {
+    "name": "infoAddressMAC",
+    "oid": "1.3.6.1.4.1.21796.3.3.70.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensSetup": {
+    "name": "sensSetup",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1",
+    "class": "objectidentity"
+  },
+  "unitType": {
+    "name": "unitType",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensSetupTable": {
+    "name": "sensSetupTable",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensSetupEntry": {
+    "name": "sensSetupEntry",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "POSEIDON-MIB",
+        "object": "sensSetupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sensSetupIndex": {
+    "name": "sensSetupIndex",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensSetupName": {
+    "name": "sensSetupName",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensFlags": {
+    "name": "sensFlags",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensLimitMin": {
+    "name": "sensLimitMin",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensLimitMax": {
+    "name": "sensLimitMax",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensHysteresis": {
+    "name": "sensHysteresis",
+    "oid": "1.3.6.1.4.1.21796.3.3.99.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inpAlarmStateChanged": {
+    "name": "inpAlarmStateChanged",
+    "oid": "1.3.6.1.4.1.21796.3.30.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "infoAddressMAC"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "inpName"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "inpValue"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "inpAlarmState"
+      }
+    ]
+  },
+  "sensAlarmStateChanged": {
+    "name": "sensAlarmStateChanged",
+    "oid": "1.3.6.1.4.1.21796.3.30.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "infoAddressMAC"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "sensName"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "sensID"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "sensState"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "sensValue"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "sensUnit"
+      }
+    ]
+  },
+  "tsTrapAlarmStart": {
+    "name": "tsTrapAlarmStart",
+    "oid": "1.3.6.1.4.1.21796.3.30.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "infoAddressMAC"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "tsAlarmId"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "tsAlarmDescr"
+      }
+    ]
+  },
+  "tsTrapAlarmEnd": {
+    "name": "tsTrapAlarmEnd",
+    "oid": "1.3.6.1.4.1.21796.3.30.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "infoAddressMAC"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "tsAlarmId"
+      },
+      {
+        "module": "POSEIDON-MIB",
+        "object": "tsAlarmDescr"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/POSEIDON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "POSEIDON-MIB"
+  }
+}

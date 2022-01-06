@@ -1,0 +1,879 @@
+{
+  "imports": {
+    "class": "imports",
+    "RIELLO-MIB": [
+      "rielloMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mtsMIB": {
+    "name": "mtsMIB",
+    "oid": "1.3.6.1.4.1.5491.12",
+    "class": "objectidentity"
+  },
+  "mtsIdent": {
+    "name": "mtsIdent",
+    "oid": "1.3.6.1.4.1.5491.12.1",
+    "class": "objectidentity"
+  },
+  "mtsIdentManufacturer": {
+    "name": "mtsIdentManufacturer",
+    "oid": "1.3.6.1.4.1.5491.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentModel": {
+    "name": "mtsIdentModel",
+    "oid": "1.3.6.1.4.1.5491.12.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentSoftwareVersion": {
+    "name": "mtsIdentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.5491.12.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentIOConfiguration": {
+    "name": "mtsIdentIOConfiguration",
+    "oid": "1.3.6.1.4.1.5491.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentType": {
+    "name": "mtsIdentType",
+    "oid": "1.3.6.1.4.1.5491.12.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentInputSockets": {
+    "name": "mtsIdentInputSockets",
+    "oid": "1.3.6.1.4.1.5491.12.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentOutputSockets": {
+    "name": "mtsIdentOutputSockets",
+    "oid": "1.3.6.1.4.1.5491.12.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentNominalCurrent": {
+    "name": "mtsIdentNominalCurrent",
+    "oid": "1.3.6.1.4.1.5491.12.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentNominalVoltage": {
+    "name": "mtsIdentNominalVoltage",
+    "oid": "1.3.6.1.4.1.5491.12.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsIdentNominalFrequency": {
+    "name": "mtsIdentNominalFrequency",
+    "oid": "1.3.6.1.4.1.5491.12.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsStatus": {
+    "name": "mtsStatus",
+    "oid": "1.3.6.1.4.1.5491.12.2",
+    "class": "objectidentity"
+  },
+  "mtsS1Frequency": {
+    "name": "mtsS1Frequency",
+    "oid": "1.3.6.1.4.1.5491.12.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1VoltageL1": {
+    "name": "mtsS1VoltageL1",
+    "oid": "1.3.6.1.4.1.5491.12.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1VoltageL2": {
+    "name": "mtsS1VoltageL2",
+    "oid": "1.3.6.1.4.1.5491.12.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1VoltageL3": {
+    "name": "mtsS1VoltageL3",
+    "oid": "1.3.6.1.4.1.5491.12.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2Frequency": {
+    "name": "mtsS2Frequency",
+    "oid": "1.3.6.1.4.1.5491.12.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2VoltageL1": {
+    "name": "mtsS2VoltageL1",
+    "oid": "1.3.6.1.4.1.5491.12.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2VoltageL2": {
+    "name": "mtsS2VoltageL2",
+    "oid": "1.3.6.1.4.1.5491.12.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2VoltageL3": {
+    "name": "mtsS2VoltageL3",
+    "oid": "1.3.6.1.4.1.5491.12.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsPhaseDifference": {
+    "name": "mtsPhaseDifference",
+    "oid": "1.3.6.1.4.1.5491.12.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsLoadL1": {
+    "name": "mtsLoadL1",
+    "oid": "1.3.6.1.4.1.5491.12.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsLoadL2": {
+    "name": "mtsLoadL2",
+    "oid": "1.3.6.1.4.1.5491.12.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsLoadL3": {
+    "name": "mtsLoadL3",
+    "oid": "1.3.6.1.4.1.5491.12.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsOutputCurrentL1": {
+    "name": "mtsOutputCurrentL1",
+    "oid": "1.3.6.1.4.1.5491.12.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsOutputCurrentL2": {
+    "name": "mtsOutputCurrentL2",
+    "oid": "1.3.6.1.4.1.5491.12.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsOutputCurrentL3": {
+    "name": "mtsOutputCurrentL3",
+    "oid": "1.3.6.1.4.1.5491.12.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsTemperature": {
+    "name": "mtsTemperature",
+    "oid": "1.3.6.1.4.1.5491.12.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsSoundOff": {
+    "name": "mtsSoundOff",
+    "oid": "1.3.6.1.4.1.5491.12.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsTestInProgress": {
+    "name": "mtsTestInProgress",
+    "oid": "1.3.6.1.4.1.5491.12.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsAuxPower2fail": {
+    "name": "mtsAuxPower2fail",
+    "oid": "1.3.6.1.4.1.5491.12.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsAuxPower1fail": {
+    "name": "mtsAuxPower1fail",
+    "oid": "1.3.6.1.4.1.5491.12.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsSynchrobad": {
+    "name": "mtsSynchrobad",
+    "oid": "1.3.6.1.4.1.5491.12.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsPreferredSource": {
+    "name": "mtsPreferredSource",
+    "oid": "1.3.6.1.4.1.5491.12.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsTransferhinibit": {
+    "name": "mtsTransferhinibit",
+    "oid": "1.3.6.1.4.1.5491.12.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsNonSynchInibit": {
+    "name": "mtsNonSynchInibit",
+    "oid": "1.3.6.1.4.1.5491.12.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsSourceS2bad": {
+    "name": "mtsSourceS2bad",
+    "oid": "1.3.6.1.4.1.5491.12.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsSourceS1bad": {
+    "name": "mtsSourceS1bad",
+    "oid": "1.3.6.1.4.1.5491.12.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsOnSourceS2": {
+    "name": "mtsOnSourceS2",
+    "oid": "1.3.6.1.4.1.5491.12.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsOnSourceS1": {
+    "name": "mtsOnSourceS1",
+    "oid": "1.3.6.1.4.1.5491.12.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsLocked": {
+    "name": "mtsLocked",
+    "oid": "1.3.6.1.4.1.5491.12.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsOutputSwitchOff": {
+    "name": "mtsOutputSwitchOff",
+    "oid": "1.3.6.1.4.1.5491.12.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2Blackout": {
+    "name": "mtsS2Blackout",
+    "oid": "1.3.6.1.4.1.5491.12.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2PhaseseqNotok": {
+    "name": "mtsS2PhaseseqNotok",
+    "oid": "1.3.6.1.4.1.5491.12.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2VoltOutoftolerance": {
+    "name": "mtsS2VoltOutoftolerance",
+    "oid": "1.3.6.1.4.1.5491.12.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1SCRAlternateLoss": {
+    "name": "mtsS1SCRAlternateLoss",
+    "oid": "1.3.6.1.4.1.5491.12.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1InputSWOff": {
+    "name": "mtsS1InputSWOff",
+    "oid": "1.3.6.1.4.1.5491.12.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1Frequencybad": {
+    "name": "mtsS1Frequencybad",
+    "oid": "1.3.6.1.4.1.5491.12.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1Balancebad": {
+    "name": "mtsS1Balancebad",
+    "oid": "1.3.6.1.4.1.5491.12.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1Blackout": {
+    "name": "mtsS1Blackout",
+    "oid": "1.3.6.1.4.1.5491.12.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1PhaseseqNotok": {
+    "name": "mtsS1PhaseseqNotok",
+    "oid": "1.3.6.1.4.1.5491.12.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1VoltOutoftolerance": {
+    "name": "mtsS1VoltOutoftolerance",
+    "oid": "1.3.6.1.4.1.5491.12.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsUserlogin": {
+    "name": "mtsUserlogin",
+    "oid": "1.3.6.1.4.1.5491.12.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsAlarmTemperature": {
+    "name": "mtsAlarmTemperature",
+    "oid": "1.3.6.1.4.1.5491.12.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsAlarmOverload": {
+    "name": "mtsAlarmOverload",
+    "oid": "1.3.6.1.4.1.5491.12.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsGeneralFailure": {
+    "name": "mtsGeneralFailure",
+    "oid": "1.3.6.1.4.1.5491.12.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2InputMCCBtrip": {
+    "name": "mtsS2InputMCCBtrip",
+    "oid": "1.3.6.1.4.1.5491.12.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS1InputMCCBtrip": {
+    "name": "mtsS1InputMCCBtrip",
+    "oid": "1.3.6.1.4.1.5491.12.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsServicelogin": {
+    "name": "mtsServicelogin",
+    "oid": "1.3.6.1.4.1.5491.12.2.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsOutputSCRalternanceloss": {
+    "name": "mtsOutputSCRalternanceloss",
+    "oid": "1.3.6.1.4.1.5491.12.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsManBypassS2": {
+    "name": "mtsManBypassS2",
+    "oid": "1.3.6.1.4.1.5491.12.2.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsManBypassS1": {
+    "name": "mtsManBypassS1",
+    "oid": "1.3.6.1.4.1.5491.12.2.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsManTransferS2": {
+    "name": "mtsManTransferS2",
+    "oid": "1.3.6.1.4.1.5491.12.2.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsManTransferS1": {
+    "name": "mtsManTransferS1",
+    "oid": "1.3.6.1.4.1.5491.12.2.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2SCRalternanceloss": {
+    "name": "mtsS2SCRalternanceloss",
+    "oid": "1.3.6.1.4.1.5491.12.2.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2InputSWoff": {
+    "name": "mtsS2InputSWoff",
+    "oid": "1.3.6.1.4.1.5491.12.2.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2Frequencybad": {
+    "name": "mtsS2Frequencybad",
+    "oid": "1.3.6.1.4.1.5491.12.2.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsS2Balancebad": {
+    "name": "mtsS2Balancebad",
+    "oid": "1.3.6.1.4.1.5491.12.2.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mtsTraps": {
+    "name": "mtsTraps",
+    "oid": "1.3.6.1.4.1.5491.12.4",
+    "class": "objectidentity"
+  },
+  "mtsNormal": {
+    "name": "mtsNormal",
+    "oid": "1.3.6.1.4.1.5491.12.40.1",
+    "class": "notificationtype"
+  },
+  "mtsAnomaly": {
+    "name": "mtsAnomaly",
+    "oid": "1.3.6.1.4.1.5491.12.40.2",
+    "class": "notificationtype"
+  },
+  "mtsFault": {
+    "name": "mtsFault",
+    "oid": "1.3.6.1.4.1.5491.12.40.3",
+    "class": "notificationtype"
+  },
+  "mtsLock": {
+    "name": "mtsLock",
+    "oid": "1.3.6.1.4.1.5491.12.40.4",
+    "class": "notificationtype"
+  },
+  "mtsManualBypassEnabled": {
+    "name": "mtsManualBypassEnabled",
+    "oid": "1.3.6.1.4.1.5491.12.40.5",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/riello/RIELLOMTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RIELLOMTS-MIB"
+  }
+}

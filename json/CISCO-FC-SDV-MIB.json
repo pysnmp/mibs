@@ -1,0 +1,557 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "DomainIdOrZero",
+      "FcNameIdOrZero",
+      "FcAddressId"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "CISCO-ZS-MIB": [
+      "FcList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoFcSdvMIB": {
+    "name": "ciscoFcSdvMIB",
+    "oid": "1.3.6.1.4.1.9.9.593",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFcSdvMIBNotifs": {
+    "name": "ciscoFcSdvMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.593.0",
+    "class": "objectidentity"
+  },
+  "ciscoFcSdvMIBObjects": {
+    "name": "ciscoFcSdvMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.593.1",
+    "class": "objectidentity"
+  },
+  "ciscoFcSdvMIBConform": {
+    "name": "ciscoFcSdvMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.593.2",
+    "class": "objectidentity"
+  },
+  "cFcSdvConfig": {
+    "name": "cFcSdvConfig",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1",
+    "class": "objectidentity"
+  },
+  "CiscoFcSdvDevIdType": {
+    "name": "CiscoFcSdvDevIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleDevPWWN": 1,
+          "singleDevDevAlias": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoFcSdvDevId": {
+    "name": "CiscoFcSdvDevId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoFcSdvRealDevMapType": {
+    "name": "CiscoFcSdvRealDevMapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primaryDevMap": 1,
+          "secondaryDevMap": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cFcSdvVirtDeviceTable": {
+    "name": "cFcSdvVirtDeviceTable",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cFcSdvVirtDeviceEntry": {
+    "name": "cFcSdvVirtDeviceEntry",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cFcSdvVdIndex": {
+    "name": "cFcSdvVdIndex",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cFcSdvVdName": {
+    "name": "cFcSdvVdName",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVdVirtDomain": {
+    "name": "cFcSdvVdVirtDomain",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVdFcId": {
+    "name": "cFcSdvVdFcId",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVdPwwn": {
+    "name": "cFcSdvVdPwwn",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cFcSdvVdNwwn": {
+    "name": "cFcSdvVdNwwn",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cFcSdvVdAssignedFcId": {
+    "name": "cFcSdvVdAssignedFcId",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cFcSdvVdRealDevMapList": {
+    "name": "cFcSdvVdRealDevMapList",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cFcSdvVdStorageType": {
+    "name": "cFcSdvVdStorageType",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVdRowStatus": {
+    "name": "cFcSdvVdRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVirtRealDevMapTable": {
+    "name": "cFcSdvVirtRealDevMapTable",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cFcSdvVirtRealDevMapEntry": {
+    "name": "cFcSdvVirtRealDevMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVirtRealDevMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cFcSdvVirtRealDevMapIndex": {
+    "name": "cFcSdvVirtRealDevMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cFcSdvVirtRealDeviceIdType": {
+    "name": "cFcSdvVirtRealDeviceIdType",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoFcSdvDevIdType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "singleDevPWWN",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVirtRealDeviceId": {
+    "name": "cFcSdvVirtRealDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoFcSdvDevId",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVirtRealDevMapType": {
+    "name": "cFcSdvVirtRealDevMapType",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoFcSdvRealDevMapType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "secondaryDevMap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVirtRealDevMapStorageType": {
+    "name": "cFcSdvVirtRealDevMapStorageType",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cFcSdvVirtRealDevMapRowStatus": {
+    "name": "cFcSdvVirtRealDevMapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.593.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFcSdvMIBCompliances": {
+    "name": "ciscoFcSdvMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.593.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFcSdvMIBGroups": {
+    "name": "ciscoFcSdvMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.593.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFcSdvMIBCompliance": {
+    "name": "ciscoFcSdvMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.593.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFcSdvConfigGroup",
+        "module": "CISCO-FC-SDV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFcSdvConfigGroup": {
+    "name": "ciscoFcSdvConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.593.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdName"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdVirtDomain"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdFcId"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdPwwn"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdNwwn"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdAssignedFcId"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdStorageType"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdRealDevMapList"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVdRowStatus"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVirtRealDeviceIdType"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVirtRealDeviceId"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVirtRealDevMapType"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVirtRealDevMapStorageType"
+      },
+      {
+        "module": "CISCO-FC-SDV-MIB",
+        "object": "cFcSdvVirtRealDevMapRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-SDV-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FC-SDV-MIB"
+  }
+}

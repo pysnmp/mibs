@@ -1,0 +1,5513 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-CES-PORT-MIB": [
+      "cienaCesPortPgIdMappingNotifSlotIndex",
+      "cienaCesPortPgIdMappingNotifShelfIndex",
+      "cienaCesPortPgIdMappingNotifChassisIndex",
+      "cienaCesLogicalPortConfigPortName",
+      "cienaCesPortPgIdMappingNotifPortNumber"
+    ],
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesDataplaneMIB": {
+    "name": "cienaCesDataplaneMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2017-04-11 00:00",
+        "description": "Added the following traps: cienaCesDpTsMeterFloodContainerTotalThresholdExceeded cienaCesDpTsMeterFloodContainerTotalThresholdNormal Added the following objects: cienaCesDpTsMeterFloodContainerAttachmentTotalRateState"
+      },
+      {
+        "revision": "2016-03-06 00:00",
+        "description": "Added cienaCesDpPortShapingSubscriptionExceedsOperSpeed and cienaCesDpPortShapingSubscriptionWithinOperSpeed traps"
+      },
+      {
+        "revision": "2015-11-03 00:00",
+        "description": "Added Queue-Group-Instance identifer for Sub Port"
+      },
+      {
+        "revision": "2015-10-27 00:00",
+        "description": "Added l2pt mac translation attribute for Access Flow"
+      },
+      {
+        "revision": "2015-10-10 00:00",
+        "description": "Updated name of cir to controlPlaneUsedCir in Scheduler Instance"
+      },
+      {
+        "revision": "2015-09-22 00:00",
+        "description": "Converted cirWeight to cirPercent and added eirPercent"
+      },
+      {
+        "revision": "2015-08-21 00:00",
+        "description": "Added tap-point attribute to scheduler-instance. Added cir-policy, eir-policy, cirWeight to scheduler-profile Added cirWeight to queues of queue-group-profile Added cir to scheduler-instance"
+      },
+      {
+        "revision": "2015-06-25 00:00",
+        "description": "Added object - cienaCesDpSubPortEgressGeneratorMac for generator MAC address of the egress reflector"
+      },
+      {
+        "revision": "2015-05-08 00:00",
+        "description": "Adding variable for learn limit in virtual-switch Rlan table as cienaCesDpVirtualSwitchRlanLearnLimit."
+      },
+      {
+        "revision": "2014-08-28 00:00",
+        "description": "Added root-scheduler shaper overspeed attribute"
+      },
+      {
+        "revision": "2014-06-03 00:00",
+        "description": "Adjusted range for cienaCesDpVirtualSwitchRlanIndex object to allow value 0."
+      },
+      {
+        "revision": "2014-04-14 00:00",
+        "description": "Defined cienaCesDpTsMeterProfileColorMode at cienaCesDpTsMeterProfileEntry 7. Defined cienaCesDpTsQCAProfileWREDMaxQueueSize at cienaCesDpTsQCAProfileWREDEntry 4. Defined cienaCesDpTsQCAProfileWREDMinQueueGuarantee at cienaCesDpTsQCAProfileWREDEntry 5. Defined enumeration l2Rcos(26) under cienaCesDpTrafficClassTermPresentType."
+      },
+      {
+        "revision": "2014-02-07 00:00",
+        "description": "Add new shaper-compensation for Queue-Group-Profile"
+      },
+      {
+        "revision": "2013-09-13 00:00",
+        "description": "Add new rcosPolicy for Dscp+Mpls-TC, add new l4-application traffic-class-term"
+      },
+      {
+        "revision": "2013-09-04 00:00",
+        "description": "Add missing liAttach Types"
+      },
+      {
+        "revision": "2013-08-12 00:00",
+        "description": "New L2-CFT Profile table added. Also reference to L2-CFT profile table entry from VS-table. Also new per-L2-CFT-Profile L2-CFT-Protocol table added which is analaguous to old per-VS L2-CFT Protocol table"
+      },
+      {
+        "revision": "2013-08-07 00:00",
+        "description": "Fixed MIB errors"
+      },
+      {
+        "revision": "2013-08-06 00:00",
+        "description": "New PFG Profile table added. Also reference to PFG profile table entry from VS-table."
+      },
+      {
+        "revision": "2013-07-26 00:00",
+        "description": "New MEF Coupling Flag object added to cienaCesDpTsMeterProfile."
+      },
+      {
+        "revision": "2013-07-25 00:00",
+        "description": "New objects are added to cienaCesDpTsMeterFloodContainerNotifAttrs. New tables are added for traffic services namely cienaCesDpTsMeterProfile,cienaCesDpTsCosMapRcos, cienaCesDpTsCosMapFcos, cienaCesDpTsShaperProfile, cienaCesDpTsQCongestionAvoidanceProfile,cienaCesDpTsQRCOSQMap, cienaCesDpTsQGroupProfile,cienaCesDpTsQGroupInstance, cienaCesDpTsQSchedulerProfile and cienaCesDpTsQSchedulerInstance under. cienaCesDpSubPort, cienaCesDpVirtualSwitch, cienaCesDpTrafficClassTerm,cienaCesDpQosFlow, cienaCesDpAccessFlow ,cienaCesDpPbtTransit and cienaCesDpCpuSubInterface are added as new nodes under cienaCesDpMIBObjects."
+      },
+      {
+        "revision": "2011-01-06 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesDpMIBObjects": {
+    "name": "cienaCesDpMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsMeterFloodContainerNotifAttrs": {
+    "name": "cienaCesDpTsMeterFloodContainerNotifAttrs",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsMeter": {
+    "name": "cienaCesDpTsMeter",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsMeterProfile": {
+    "name": "cienaCesDpTsMeterProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsCosMap": {
+    "name": "cienaCesDpTsCosMap",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsCosMapRcos": {
+    "name": "cienaCesDpTsCosMapRcos",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsCosMapFcos": {
+    "name": "cienaCesDpTsCosMapFcos",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsShaper": {
+    "name": "cienaCesDpTsShaper",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsShaperProfile": {
+    "name": "cienaCesDpTsShaperProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsQ": {
+    "name": "cienaCesDpTsQ",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsQCongestionAvoidanceProfile": {
+    "name": "cienaCesDpTsQCongestionAvoidanceProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsQRCOSQMap": {
+    "name": "cienaCesDpTsQRCOSQMap",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsQGroupProfile": {
+    "name": "cienaCesDpTsQGroupProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsQGroupInstance": {
+    "name": "cienaCesDpTsQGroupInstance",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.4",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsQSchedulerProfile": {
+    "name": "cienaCesDpTsQSchedulerProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTsQSchedulerInstance": {
+    "name": "cienaCesDpTsQSchedulerInstance",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6",
+    "class": "objectidentity"
+  },
+  "cienaCesDpTrafficClassTerm": {
+    "name": "cienaCesDpTrafficClassTerm",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6",
+    "class": "objectidentity"
+  },
+  "cienaCesDpSubPort": {
+    "name": "cienaCesDpSubPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7",
+    "class": "objectidentity"
+  },
+  "cienaCesDpVirtualSwitch": {
+    "name": "cienaCesDpVirtualSwitch",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8",
+    "class": "objectidentity"
+  },
+  "cienaCesDpQosFlow": {
+    "name": "cienaCesDpQosFlow",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9",
+    "class": "objectidentity"
+  },
+  "cienaCesDpAccessFlow": {
+    "name": "cienaCesDpAccessFlow",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10",
+    "class": "objectidentity"
+  },
+  "cienaCesDpPbtTransit": {
+    "name": "cienaCesDpPbtTransit",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11",
+    "class": "objectidentity"
+  },
+  "cienaCesDpCpuSubInterface": {
+    "name": "cienaCesDpCpuSubInterface",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12",
+    "class": "objectidentity"
+  },
+  "cienaCesDpPfgProfile": {
+    "name": "cienaCesDpPfgProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13",
+    "class": "objectidentity"
+  },
+  "cienaCesDpL2CftProfile": {
+    "name": "cienaCesDpL2CftProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14",
+    "class": "objectidentity"
+  },
+  "cienaCesDpMIBNotificationPrefix": {
+    "name": "cienaCesDpMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.7",
+    "class": "objectidentity"
+  },
+  "cienaCesDpMIBNotifications": {
+    "name": "cienaCesDpMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0",
+    "class": "objectidentity"
+  },
+  "DpTsAttachType": {
+    "name": "DpTsAttachType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "tunnelEncapPbt": 2,
+          "tunnelDecapPbt": 3,
+          "tunnelGroupPbt": 4,
+          "transitPbt": 5,
+          "tunnelEncapMpls": 6,
+          "tunnelDecapMpls": 7,
+          "tunnelGroupMpls": 8,
+          "transitMpls": 9,
+          "subPort": 10,
+          "qosFlow": 11,
+          "accessFlow": 12,
+          "servicePbt": 13,
+          "servicePbb": 14,
+          "vcMpls": 15,
+          "serviceMplsMesh": 16,
+          "cpuInterface": 17,
+          "cpuSubInterface": 18,
+          "ettp": 19,
+          "lspEncapMpls": 20,
+          "lspDecapMpls": 21,
+          "l3Interface": 22,
+          "l3Adjacency": 23,
+          "unknown": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrivateForwardGroupPolicy": {
+    "name": "PrivateForwardGroupPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "talkToA": 1,
+          "talkToB": 2,
+          "talkToC": 3,
+          "talkToAB": 4,
+          "talkToAC": 5,
+          "talkToBC": 6,
+          "talkToABC": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DpCouplingFlag": {
+    "name": "DpCouplingFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DpIngressMeterPolicy": {
+    "name": "DpIngressMeterPolicy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonhierarchical": 1,
+          "hierarchical": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DpSchedulingType": {
+    "name": "DpSchedulingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "mdrr": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileTable": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileEntry": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileIndex": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileName": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerNotifProfileIndex": {
+    "name": "cienaCesDpTsMeterFloodContainerNotifProfileIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileRate1": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileRate1",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileRate2": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileRate2",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileRate3": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileRate3",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileUnknownUnicastRateId": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileUnknownUnicastRateId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLimit": 1,
+          "rateId1": 2,
+          "rateId2": 3,
+          "rateId3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileL2BroadcastRateId": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileL2BroadcastRateId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLimit": 1,
+          "rateId1": 2,
+          "rateId2": 3,
+          "rateId3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerProfileL2UnknownMulticastRateId": {
+    "name": "cienaCesDpTsMeterFloodContainerProfileL2UnknownMulticastRateId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLimit": 1,
+          "rateId1": 2,
+          "rateId2": 3,
+          "rateId3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentTable": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentEntry": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentLiType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentLiType": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentLiType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpTsAttachType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentLiIndex": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType": {
+    "name": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpTsAttachType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex": {
+    "name": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentUcastRateState": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentUcastRateState",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentL2BcastRateState": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentL2BcastRateState",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentL2McastRateState": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentL2McastRateState",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentTotalBandwidth": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentTotalBandwidth",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentUsedBandwidth": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentUsedBandwidth",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerAttachmentTotalRateState": {
+    "name": "cienaCesDpTsMeterFloodContainerAttachmentTotalRateState",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileTable": {
+    "name": "cienaCesDpTsMeterProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileEntry": {
+    "name": "cienaCesDpTsMeterProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileIndex": {
+    "name": "cienaCesDpTsMeterProfileIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileName": {
+    "name": "cienaCesDpTsMeterProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileCIR": {
+    "name": "cienaCesDpTsMeterProfileCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileCBS": {
+    "name": "cienaCesDpTsMeterProfileCBS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileEIR": {
+    "name": "cienaCesDpTsMeterProfileEIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileEBS": {
+    "name": "cienaCesDpTsMeterProfileEBS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileColorMode": {
+    "name": "cienaCesDpTsMeterProfileColorMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "color-mode-none": 0,
+          "color-blind": 1,
+          "color-aware": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "color-aware",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileCouplingFlag": {
+    "name": "cienaCesDpTsMeterProfileCouplingFlag",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpCouplingFlag",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentTable": {
+    "name": "cienaCesDpTsMeterProfileAttachmentTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentEntry": {
+    "name": "cienaCesDpTsMeterProfileAttachmentEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterProfileAttachmentLiType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterProfileAttachmentLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentLiType": {
+    "name": "cienaCesDpTsMeterProfileAttachmentLiType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpTsAttachType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentLiIndex": {
+    "name": "cienaCesDpTsMeterProfileAttachmentLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentTotalCIR": {
+    "name": "cienaCesDpTsMeterProfileAttachmentTotalCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentTotalEIR": {
+    "name": "cienaCesDpTsMeterProfileAttachmentTotalEIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentUsedCIR": {
+    "name": "cienaCesDpTsMeterProfileAttachmentUsedCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterProfileAttachmentMaxUsedEIR": {
+    "name": "cienaCesDpTsMeterProfileAttachmentMaxUsedEIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosProfileTable": {
+    "name": "cienaCesDpTsCosMapRcosProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosProfileEntry": {
+    "name": "cienaCesDpTsCosMapRcosProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsCosMapRcosProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosProfileId": {
+    "name": "cienaCesDpTsCosMapRcosProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosProfileName": {
+    "name": "cienaCesDpTsCosMapRcosProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosFixedRCoSValue": {
+    "name": "cienaCesDpTsCosMapRcosFixedRCoSValue",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosFixedRcolour": {
+    "name": "cienaCesDpTsCosMapRcosFixedRcolour",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "yellow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosCosMapId": {
+    "name": "cienaCesDpTsCosMapRcosCosMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosCosMapName": {
+    "name": "cienaCesDpTsCosMapRcosCosMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapTable": {
+    "name": "cienaCesDpTsCosMapRcosMapTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapEntry": {
+    "name": "cienaCesDpTsCosMapRcosMapEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsCosMapRcosMapId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapId": {
+    "name": "cienaCesDpTsCosMapRcosMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapName": {
+    "name": "cienaCesDpTsCosMapRcosMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapL2RCoS": {
+    "name": "cienaCesDpTsCosMapRcosMapL2RCoS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapL2RColour": {
+    "name": "cienaCesDpTsCosMapRcosMapL2RColour",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapL3DscpRCoS": {
+    "name": "cienaCesDpTsCosMapRcosMapL3DscpRCoS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapL3DscpRColour": {
+    "name": "cienaCesDpTsCosMapRcosMapL3DscpRColour",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapExpRCoS": {
+    "name": "cienaCesDpTsCosMapRcosMapExpRCoS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapRcosMapExpRColour": {
+    "name": "cienaCesDpTsCosMapRcosMapExpRColour",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosMapTable": {
+    "name": "cienaCesDpTsCosMapFcosMapTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosMapEntry": {
+    "name": "cienaCesDpTsCosMapFcosMapEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsCosMapFcosMapId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosMapId": {
+    "name": "cienaCesDpTsCosMapFcosMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosMapName": {
+    "name": "cienaCesDpTsCosMapFcosMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosL2CoS": {
+    "name": "cienaCesDpTsCosMapFcosL2CoS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosL2Dei": {
+    "name": "cienaCesDpTsCosMapFcosL2Dei",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosL3Dscp": {
+    "name": "cienaCesDpTsCosMapFcosL3Dscp",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsCosMapFcosExp": {
+    "name": "cienaCesDpTsCosMapFcosExp",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileTable": {
+    "name": "cienaCesDpTsShaperProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileEntry": {
+    "name": "cienaCesDpTsShaperProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsShaperProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileIndex": {
+    "name": "cienaCesDpTsShaperProfileIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileName": {
+    "name": "cienaCesDpTsShaperProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileCIR": {
+    "name": "cienaCesDpTsShaperProfileCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileCBS": {
+    "name": "cienaCesDpTsShaperProfileCBS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentTable": {
+    "name": "cienaCesDpTsShaperProfileAttachmentTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentEntry": {
+    "name": "cienaCesDpTsShaperProfileAttachmentEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsShaperProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsShaperProfileAttachmentLiType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsShaperProfileAttachmentLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentLiType": {
+    "name": "cienaCesDpTsShaperProfileAttachmentLiType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpTsAttachType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentLiIndex": {
+    "name": "cienaCesDpTsShaperProfileAttachmentLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentTotalCIR": {
+    "name": "cienaCesDpTsShaperProfileAttachmentTotalCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentTotalEIR": {
+    "name": "cienaCesDpTsShaperProfileAttachmentTotalEIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentUsedCIR": {
+    "name": "cienaCesDpTsShaperProfileAttachmentUsedCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsShaperProfileAttachmentMaxUsedEIR": {
+    "name": "cienaCesDpTsShaperProfileAttachmentMaxUsedEIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDTable": {
+    "name": "cienaCesDpTsQCAProfileWREDTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDEntry": {
+    "name": "cienaCesDpTsQCAProfileWREDEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQCAProfileWREDId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDId": {
+    "name": "cienaCesDpTsQCAProfileWREDId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDName": {
+    "name": "cienaCesDpTsQCAProfileWREDName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDDropRateExponent": {
+    "name": "cienaCesDpTsQCAProfileWREDDropRateExponent",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDMaxQueueSize": {
+    "name": "cienaCesDpTsQCAProfileWREDMaxQueueSize",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDMinQueueGuarantee": {
+    "name": "cienaCesDpTsQCAProfileWREDMinQueueGuarantee",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDCurveTable": {
+    "name": "cienaCesDpTsQCAProfileWREDCurveTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDCurveEntry": {
+    "name": "cienaCesDpTsQCAProfileWREDCurveEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQCAProfileWREDId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQCAProfileWREDCurveId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDCurveId": {
+    "name": "cienaCesDpTsQCAProfileWREDCurveId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDCurveLowerThreshold": {
+    "name": "cienaCesDpTsQCAProfileWREDCurveLowerThreshold",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDCurveUpperThreshold": {
+    "name": "cienaCesDpTsQCAProfileWREDCurveUpperThreshold",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQCAProfileWREDCurveMaxDropProbability": {
+    "name": "cienaCesDpTsQCAProfileWREDCurveMaxDropProbability",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapTable": {
+    "name": "cienaCesDpTsQRCOSQMapTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapEntry": {
+    "name": "cienaCesDpTsQRCOSQMapEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQRCOSQMapId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapId": {
+    "name": "cienaCesDpTsQRCOSQMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapName": {
+    "name": "cienaCesDpTsQRCOSQMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapQueueTable": {
+    "name": "cienaCesDpTsQRCOSQMapQueueTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapQueueEntry": {
+    "name": "cienaCesDpTsQRCOSQMapQueueEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQRCOSQMapId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQRCOSQMapQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapQueueId": {
+    "name": "cienaCesDpTsQRCOSQMapQueueId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapQueueNumber": {
+    "name": "cienaCesDpTsQRCOSQMapQueueNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "queue-0": 0,
+          "queue-1": 1,
+          "queue-2": 2,
+          "queue-3": 3,
+          "queue-4": 4,
+          "queue-5": 5,
+          "queue-6": 6,
+          "queue-7": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapGreenCurveTable": {
+    "name": "cienaCesDpTsQRCOSQMapGreenCurveTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapGreenCurveEntry": {
+    "name": "cienaCesDpTsQRCOSQMapGreenCurveEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQRCOSQMapId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQRCOSQMapGreenCurveId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapGreenCurveId": {
+    "name": "cienaCesDpTsQRCOSQMapGreenCurveId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapGreenCurveNumber": {
+    "name": "cienaCesDpTsQRCOSQMapGreenCurveNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wred-curve-1": 1,
+          "wred-curve-2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "wred-curve-1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapYellowCurveTable": {
+    "name": "cienaCesDpTsQRCOSQMapYellowCurveTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapYellowCurveEntry": {
+    "name": "cienaCesDpTsQRCOSQMapYellowCurveEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQRCOSQMapId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQRCOSQMapYellowCurveId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapYellowCurveId": {
+    "name": "cienaCesDpTsQRCOSQMapYellowCurveId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQRCOSQMapYellowCurveNumber": {
+    "name": "cienaCesDpTsQRCOSQMapYellowCurveNumber",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wred-curve-1": 1,
+          "wred-curve-2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "wred-curve-2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileTable": {
+    "name": "cienaCesDpTsQGroupProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileEntry": {
+    "name": "cienaCesDpTsQGroupProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQGroupProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileId": {
+    "name": "cienaCesDpTsQGroupProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileName": {
+    "name": "cienaCesDpTsQGroupProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueCount": {
+    "name": "cienaCesDpTsQGroupProfileQueueCount",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileRCOSQMapId": {
+    "name": "cienaCesDpTsQGroupProfileRCOSQMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileShaperCompensation": {
+    "name": "cienaCesDpTsQGroupProfileShaperCompensation",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueTable": {
+    "name": "cienaCesDpTsQGroupProfileQueueTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueEntry": {
+    "name": "cienaCesDpTsQGroupProfileQueueEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQGroupProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQGroupProfileQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueIndex": {
+    "name": "cienaCesDpTsQGroupProfileQueueIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueCAPId": {
+    "name": "cienaCesDpTsQGroupProfileQueueCAPId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueCIR": {
+    "name": "cienaCesDpTsQGroupProfileQueueCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueCBS": {
+    "name": "cienaCesDpTsQGroupProfileQueueCBS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueEIR": {
+    "name": "cienaCesDpTsQGroupProfileQueueEIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueEBS": {
+    "name": "cienaCesDpTsQGroupProfileQueueEBS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueCirPercent": {
+    "name": "cienaCesDpTsQGroupProfileQueueCirPercent",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupProfileQueueEirPercent": {
+    "name": "cienaCesDpTsQGroupProfileQueueEirPercent",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupInstanceTable": {
+    "name": "cienaCesDpTsQGroupInstanceTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupInstanceEntry": {
+    "name": "cienaCesDpTsQGroupInstanceEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQGroupInstancePgid",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQGroupProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQGroupInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupInstancePgid": {
+    "name": "cienaCesDpTsQGroupInstancePgid",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupInstanceIndex": {
+    "name": "cienaCesDpTsQGroupInstanceIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupInstanceParentSchedId": {
+    "name": "cienaCesDpTsQGroupInstanceParentSchedId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQGroupInstanceParentInstanceId": {
+    "name": "cienaCesDpTsQGroupInstanceParentInstanceId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileTable": {
+    "name": "cienaCesDpTsQSchedulerProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileEntry": {
+    "name": "cienaCesDpTsQSchedulerProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQSchedulerProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileId": {
+    "name": "cienaCesDpTsQSchedulerProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileName": {
+    "name": "cienaCesDpTsQSchedulerProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileSchedulerAlgorithm": {
+    "name": "cienaCesDpTsQSchedulerProfileSchedulerAlgorithm",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "strictPriority": 1,
+          "weightedFairQueuing": 2,
+          "roundRobin": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "strictPriority",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileCIR": {
+    "name": "cienaCesDpTsQSchedulerProfileCIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileCBS": {
+    "name": "cienaCesDpTsQSchedulerProfileCBS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileEIR": {
+    "name": "cienaCesDpTsQSchedulerProfileEIR",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileEBS": {
+    "name": "cienaCesDpTsQSchedulerProfileEBS",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileScheduledUcastWt": {
+    "name": "cienaCesDpTsQSchedulerProfileScheduledUcastWt",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileScheduledMcastWt": {
+    "name": "cienaCesDpTsQSchedulerProfileScheduledMcastWt",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileTapPointCount": {
+    "name": "cienaCesDpTsQSchedulerProfileTapPointCount",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileShaperOverSpeed": {
+    "name": "cienaCesDpTsQSchedulerProfileShaperOverSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileCirPolicy": {
+    "name": "cienaCesDpTsQSchedulerProfileCirPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "autoAdjustDisabled": 1,
+          "cirAsPercent": 2,
+          "childCirAsPercent": 3,
+          "childCirSum": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoAdjustDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileEirPolicy": {
+    "name": "cienaCesDpTsQSchedulerProfileEirPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "autoAdjustDisabled": 1,
+          "eirAsPercent": 2,
+          "childEirAsPercent": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoAdjustDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileCirPercent": {
+    "name": "cienaCesDpTsQSchedulerProfileCirPercent",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerProfileEirPercent": {
+    "name": "cienaCesDpTsQSchedulerProfileEirPercent",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerTapPointTable": {
+    "name": "cienaCesDpTsQSchedulerTapPointTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerTapPointEntry": {
+    "name": "cienaCesDpTsQSchedulerTapPointEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQSchedulerProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQSchedulerTapPointIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerTapPointIndex": {
+    "name": "cienaCesDpTsQSchedulerTapPointIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerTapPointPriority": {
+    "name": "cienaCesDpTsQSchedulerTapPointPriority",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerTapPointWeight": {
+    "name": "cienaCesDpTsQSchedulerTapPointWeight",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstanceTable": {
+    "name": "cienaCesDpTsQSchedulerInstanceTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstanceEntry": {
+    "name": "cienaCesDpTsQSchedulerInstanceEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQSchedulerInstancePgid",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQSchedulerProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsQSchedulerInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstancePgid": {
+    "name": "cienaCesDpTsQSchedulerInstancePgid",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstanceIndex": {
+    "name": "cienaCesDpTsQSchedulerInstanceIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstanceParentSchedId": {
+    "name": "cienaCesDpTsQSchedulerInstanceParentSchedId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstanceParentInstanceId": {
+    "name": "cienaCesDpTsQSchedulerInstanceParentInstanceId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstanceParentTapPoint": {
+    "name": "cienaCesDpTsQSchedulerInstanceParentTapPoint",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsQSchedulerInstanceControlPlaneUsedCir": {
+    "name": "cienaCesDpTsQSchedulerInstanceControlPlaneUsedCir",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.5.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortTable": {
+    "name": "cienaCesDpSubPortTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEntry": {
+    "name": "cienaCesDpSubPortEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpSubPortLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpSubPortLiIndex": {
+    "name": "cienaCesDpSubPortLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cienaCesDpSubPortName": {
+    "name": "cienaCesDpSubPortName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortClassifierPrecedence": {
+    "name": "cienaCesDpSubPortClassifierPrecedence",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortParentIfId": {
+    "name": "cienaCesDpSubPortParentIfId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortVirtualSwitchIndex": {
+    "name": "cienaCesDpSubPortVirtualSwitchIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortRlanIndex": {
+    "name": "cienaCesDpSubPortRlanIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortVirtualSwitchName": {
+    "name": "cienaCesDpSubPortVirtualSwitchName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressMeterProfileId": {
+    "name": "cienaCesDpSubPortIngressMeterProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressMeterProfileName": {
+    "name": "cienaCesDpSubPortIngressMeterProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubportIngressMeterPolicy": {
+    "name": "cienaCesDpSubportIngressMeterPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpIngressMeterPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonhierarchical",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressFloodContainerId": {
+    "name": "cienaCesDpSubPortIngressFloodContainerId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressFloodContainerName": {
+    "name": "cienaCesDpSubPortIngressFloodContainerName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressRcosProfileId": {
+    "name": "cienaCesDpSubPortIngressRcosProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressRcosProfileName": {
+    "name": "cienaCesDpSubPortIngressRcosProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressRcosPolicy": {
+    "name": "cienaCesDpSubPortIngressRcosPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "fixed": 2,
+          "dot1dToRcosTag1": 3,
+          "dot1dToRcosTag2": 4,
+          "dscpToRcos": 5,
+          "dscpMplsTcToRcos": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot1dToRcosTag1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressFcosMapId": {
+    "name": "cienaCesDpSubPortIngressFcosMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressFcosMapName": {
+    "name": "cienaCesDpSubPortIngressFcosMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEgressFcosMapId": {
+    "name": "cienaCesDpSubPortEgressFcosMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEgressFcosMapName": {
+    "name": "cienaCesDpSubPortEgressFcosMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEgressL2PtTransform": {
+    "name": "cienaCesDpSubPortEgressL2PtTransform",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressL2Transform": {
+    "name": "cienaCesDpSubPortIngressL2Transform",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEgressL2Transform": {
+    "name": "cienaCesDpSubPortEgressL2Transform",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortIngressL3TransformPolicy": {
+    "name": "cienaCesDpSubPortIngressL3TransformPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leave": 1,
+          "mappedDscp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "leave",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEgressL3TransformPolicy": {
+    "name": "cienaCesDpSubPortEgressL3TransformPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leave": 1,
+          "mappedDscp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "leave",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortPrivateFwdGroup": {
+    "name": "cienaCesDpSubPortPrivateFwdGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "groupA": 1,
+          "groupB": 2,
+          "groupC": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "groupA",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortFilterPolicy": {
+    "name": "cienaCesDpSubPortFilterPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allow": 1,
+          "deny": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allow",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortLogicalRingIndex": {
+    "name": "cienaCesDpSubPortLogicalRingIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortVirtualRingIndex": {
+    "name": "cienaCesDpSubPortVirtualRingIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEgressReflectorMac": {
+    "name": "cienaCesDpSubPortEgressReflectorMac",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortEgressGeneratorMac": {
+    "name": "cienaCesDpSubPortEgressGeneratorMac",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortQueueGroupProfileId": {
+    "name": "cienaCesDpSubPortQueueGroupProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortQueueGroupProfileName": {
+    "name": "cienaCesDpSubPortQueueGroupProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpSubPortQueueGroupInstanceId": {
+    "name": "cienaCesDpSubPortQueueGroupInstanceId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.7.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchTable": {
+    "name": "cienaCesDpVirtualSwitchTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchEntry": {
+    "name": "cienaCesDpVirtualSwitchEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchIndex": {
+    "name": "cienaCesDpVirtualSwitchIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanIndex": {
+    "name": "cienaCesDpVirtualSwitchRlanIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanTable": {
+    "name": "cienaCesDpVirtualSwitchRlanTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanEntry": {
+    "name": "cienaCesDpVirtualSwitchRlanEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchRlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanName": {
+    "name": "cienaCesDpVirtualSwitchRlanName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanMcastForwardingMode": {
+    "name": "cienaCesDpVirtualSwitchRlanMcastForwardingMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "l2Enhanced": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftStatus": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftL2ControlRcos": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftL2ControlRcos",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 48,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanMacLearningStatus": {
+    "name": "cienaCesDpVirtualSwitchRlanMacLearningStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanPrivateFwdGroupStatus": {
+    "name": "cienaCesDpVirtualSwitchRlanPrivateFwdGroupStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanPrivateFwdGroupAPolicy": {
+    "name": "cienaCesDpVirtualSwitchRlanPrivateFwdGroupAPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateForwardGroupPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "talkToABC",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanPrivateFwdGroupBPolicy": {
+    "name": "cienaCesDpVirtualSwitchRlanPrivateFwdGroupBPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateForwardGroupPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "talkToABC",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanPrivateFwdGroupCPolicy": {
+    "name": "cienaCesDpVirtualSwitchRlanPrivateFwdGroupCPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateForwardGroupPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "talkToABC",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanDescription": {
+    "name": "cienaCesDpVirtualSwitchRlanDescription",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanPfgProfileId": {
+    "name": "cienaCesDpVirtualSwitchRlanPfgProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanPfgProfileName": {
+    "name": "cienaCesDpVirtualSwitchRlanPfgProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftProfileId": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftProfileName": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanLearnLimit": {
+    "name": "cienaCesDpVirtualSwitchRlanLearnLimit",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanIfTable": {
+    "name": "cienaCesDpVirtualSwitchRlanIfTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanIfEntry": {
+    "name": "cienaCesDpVirtualSwitchRlanIfEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchRlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchRlanIfLiType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchRlanIfLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanIfLiType": {
+    "name": "cienaCesDpVirtualSwitchRlanIfLiType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpTsAttachType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanIfLiIndex": {
+    "name": "cienaCesDpVirtualSwitchRlanIfLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanIfLportIngress": {
+    "name": "cienaCesDpVirtualSwitchRlanIfLportIngress",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanIfLportEgress": {
+    "name": "cienaCesDpVirtualSwitchRlanIfLportEgress",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftProtocolTable": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftProtocolTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftProtocolEntry": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftProtocolEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchRlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpVirtualSwitchRlanL2CftProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftProtocolType": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftProtocolType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ciscoCdp": 1,
+          "ciscoDtp": 2,
+          "ciscoPagp": 3,
+          "ciscoUdld": 4,
+          "ciscoVtp": 5,
+          "ciscoPvst": 6,
+          "ciscoStpUplinkFast": 7,
+          "vlanBridge": 8,
+          "rstp": 9,
+          "lacp": 10,
+          "lacpMarker": 11,
+          "oam": 12,
+          "lldp": 13,
+          "i8021x": 14,
+          "gmrp": 15,
+          "gvrp": 16,
+          "brigeBlock": 17,
+          "allBridgesBlock": 18,
+          "garpBlock": 19,
+          "elmi": 20,
+          "ptpPeerDelay": 21
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpVirtualSwitchRlanL2CftProtocolDisposition": {
+    "name": "cienaCesDpVirtualSwitchRlanL2CftProtocolDisposition",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 1,
+          "discard": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forward",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermTable": {
+    "name": "cienaCesDpTrafficClassTermTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermEntry": {
+    "name": "cienaCesDpTrafficClassTermEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTrafficClassType",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTrafficClassId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTrafficClassElemId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTrafficClassTermPresentType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassType": {
+    "name": "cienaCesDpTrafficClassType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "subPort": 1,
+          "qosFlow": 2,
+          "accessFlow": 3,
+          "transitPbt": 4,
+          "servicePbt": 5,
+          "tunnelDecapPbt": 6,
+          "vcMpls": 7,
+          "named": 8
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassId": {
+    "name": "cienaCesDpTrafficClassId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassElemId": {
+    "name": "cienaCesDpTrafficClassElemId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermPresentType": {
+    "name": "cienaCesDpTrafficClassTermPresentType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "trafficClassElement": 1,
+          "vid1": 2,
+          "l2Pcp1": 3,
+          "vid2": 4,
+          "l2Pcp2": 5,
+          "vlanUntaggedData": 6,
+          "l2Control": 7,
+          "cMacSa": 8,
+          "cMacDa": 9,
+          "ipSrcIp": 10,
+          "ipDstIp": 11,
+          "ipProtoType": 12,
+          "ipDscp": 13,
+          "ipL4SrcPort": 14,
+          "ipL4DstPort": 15,
+          "mplsVcLabel": 16,
+          "mplsVcExp": 17,
+          "mplsTunLabel": 18,
+          "mplsTunExp": 19,
+          "baseEtype": 20,
+          "bvid": 21,
+          "bPcp": 22,
+          "isid": 23,
+          "isidPcp": 24,
+          "any": 25,
+          "l2Rcos": 26,
+          "ipL4Application": 27
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermStartValue32": {
+    "name": "cienaCesDpTrafficClassTermStartValue32",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermEndOrMaskValue32": {
+    "name": "cienaCesDpTrafficClassTermEndOrMaskValue32",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermStartValueMac": {
+    "name": "cienaCesDpTrafficClassTermStartValueMac",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermMaskValueMac": {
+    "name": "cienaCesDpTrafficClassTermMaskValueMac",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermStartValueIp": {
+    "name": "cienaCesDpTrafficClassTermStartValueIp",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTrafficClassTermMaskValueIp": {
+    "name": "cienaCesDpTrafficClassTermMaskValueIp",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowTable": {
+    "name": "cienaCesDpQosFlowTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowEntry": {
+    "name": "cienaCesDpQosFlowEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpQosFlowLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpQosFlowLiIndex": {
+    "name": "cienaCesDpQosFlowLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowName": {
+    "name": "cienaCesDpQosFlowName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowClassifierPrecedence": {
+    "name": "cienaCesDpQosFlowClassifierPrecedence",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowParentIfId": {
+    "name": "cienaCesDpQosFlowParentIfId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowParentIfType": {
+    "name": "cienaCesDpQosFlowParentIfType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpTsAttachType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowIngressMeterProfileId": {
+    "name": "cienaCesDpQosFlowIngressMeterProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowIngressMeterProfileName": {
+    "name": "cienaCesDpQosFlowIngressMeterProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowIngressMeterPolicy": {
+    "name": "cienaCesDpQosFlowIngressMeterPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpIngressMeterPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonhierarchical",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowIngressRcosProfileId": {
+    "name": "cienaCesDpQosFlowIngressRcosProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowIngressRcosProfileName": {
+    "name": "cienaCesDpQosFlowIngressRcosProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpQosFlowIngressRcosPolicy": {
+    "name": "cienaCesDpQosFlowIngressRcosPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.9.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "fixed": 2,
+          "dot1dToRcosTag1": 3,
+          "dot1dToRcosTag2": 4,
+          "dscpToRcos": 5,
+          "dscpMplsTcToRcos": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot1dToRcosTag1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowTable": {
+    "name": "cienaCesDpAccessFlowTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowEntry": {
+    "name": "cienaCesDpAccessFlowEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpAccessFlowLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowLiIndex": {
+    "name": "cienaCesDpAccessFlowLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowName": {
+    "name": "cienaCesDpAccessFlowName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowClassifierPrecedence": {
+    "name": "cienaCesDpAccessFlowClassifierPrecedence",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowParentIfId": {
+    "name": "cienaCesDpAccessFlowParentIfId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowParentIfType": {
+    "name": "cienaCesDpAccessFlowParentIfType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpTsAttachType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpAccessFlowFilterPolicy": {
+    "name": "cienaCesDpAccessFlowFilterPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allow": 1,
+          "deny": 2,
+          "l2ptmactranslation": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitTable": {
+    "name": "cienaCesDpPbtTransitTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitEntry": {
+    "name": "cienaCesDpPbtTransitEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpPbtTransitLiIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitLiIndex": {
+    "name": "cienaCesDpPbtTransitLiIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitName": {
+    "name": "cienaCesDpPbtTransitName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitParentIfId": {
+    "name": "cienaCesDpPbtTransitParentIfId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressMeterProfileId": {
+    "name": "cienaCesDpPbtTransitIngressMeterProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressMeterProfileName": {
+    "name": "cienaCesDpPbtTransitIngressMeterProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressFloodContainerId": {
+    "name": "cienaCesDpPbtTransitIngressFloodContainerId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressFloodContainerName": {
+    "name": "cienaCesDpPbtTransitIngressFloodContainerName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressRcosProfileId": {
+    "name": "cienaCesDpPbtTransitIngressRcosProfileId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressRcosProfileName": {
+    "name": "cienaCesDpPbtTransitIngressRcosProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressRcosPolicy": {
+    "name": "cienaCesDpPbtTransitIngressRcosPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "fixed": 2,
+          "bvidPcpToRcos": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bvidPcpToRcos",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressFcosMapId": {
+    "name": "cienaCesDpPbtTransitIngressFcosMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressFcosMapName": {
+    "name": "cienaCesDpPbtTransitIngressFcosMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitEgressFcosMapId": {
+    "name": "cienaCesDpPbtTransitEgressFcosMapId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitEgressFcosMapName": {
+    "name": "cienaCesDpPbtTransitEgressFcosMapName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressBvidTransform": {
+    "name": "cienaCesDpPbtTransitIngressBvidTransform",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitEgressBvidTransform": {
+    "name": "cienaCesDpPbtTransitEgressBvidTransform",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitVirtualSwitchId": {
+    "name": "cienaCesDpPbtTransitVirtualSwitchId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitRlanId": {
+    "name": "cienaCesDpPbtTransitRlanId",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitVirtualSwitchName": {
+    "name": "cienaCesDpPbtTransitVirtualSwitchName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitPrivateFwdGroup": {
+    "name": "cienaCesDpPbtTransitPrivateFwdGroup",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "groupA": 1,
+          "groupB": 2,
+          "groupC": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "groupA",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPbtTransitIngressMeterPolicy": {
+    "name": "cienaCesDpPbtTransitIngressMeterPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.11.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DpIngressMeterPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonhierarchical",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceTable": {
+    "name": "cienaCesDpCpuSubInterfaceTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceEntry": {
+    "name": "cienaCesDpCpuSubInterfaceEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpCpuSubInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceIndex": {
+    "name": "cienaCesDpCpuSubInterfaceIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceName": {
+    "name": "cienaCesDpCpuSubInterfaceName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceEgressL2Transform": {
+    "name": "cienaCesDpCpuSubInterfaceEgressL2Transform",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceIngressL2Transform": {
+    "name": "cienaCesDpCpuSubInterfaceIngressL2Transform",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceEgressL3TransformPolicy": {
+    "name": "cienaCesDpCpuSubInterfaceEgressL3TransformPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leave": 1,
+          "mappedDscp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "leave",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceEgressRCosPolicy": {
+    "name": "cienaCesDpCpuSubInterfaceEgressRCosPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed-cos": 1,
+          "none": 99
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fixed-cos",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceEgressRCosProfileIndex": {
+    "name": "cienaCesDpCpuSubInterfaceEgressRCosProfileIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceEgressRCosProfile": {
+    "name": "cienaCesDpCpuSubInterfaceEgressRCosProfile",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceVirtualSwitchIndex": {
+    "name": "cienaCesDpCpuSubInterfaceVirtualSwitchIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceRlanIndex": {
+    "name": "cienaCesDpCpuSubInterfaceRlanIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpCpuSubInterfaceVirtualSwitchName": {
+    "name": "cienaCesDpCpuSubInterfaceVirtualSwitchName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.12.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPfgProfileTable": {
+    "name": "cienaCesDpPfgProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpPfgProfileEntry": {
+    "name": "cienaCesDpPfgProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpPfgProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpPfgProfileIndex": {
+    "name": "cienaCesDpPfgProfileIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpPfgProfileName": {
+    "name": "cienaCesDpPfgProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPfgProfileAPolicy": {
+    "name": "cienaCesDpPfgProfileAPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateForwardGroupPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "talkToABC",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPfgProfileBPolicy": {
+    "name": "cienaCesDpPfgProfileBPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateForwardGroupPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "talkToABC",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpPfgProfileCPolicy": {
+    "name": "cienaCesDpPfgProfileCPolicy",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrivateForwardGroupPolicy",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "talkToABC",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileTable": {
+    "name": "cienaCesDpL2CftProfileTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileEntry": {
+    "name": "cienaCesDpL2CftProfileEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpL2CftProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileIndex": {
+    "name": "cienaCesDpL2CftProfileIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileName": {
+    "name": "cienaCesDpL2CftProfileName",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileL2ControlRcos": {
+    "name": "cienaCesDpL2CftProfileL2ControlRcos",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 48,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileL2CftProtocolTable": {
+    "name": "cienaCesDpL2CftProfileL2CftProtocolTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileL2CftProtocolEntry": {
+    "name": "cienaCesDpL2CftProfileL2CftProtocolEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpL2CftProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpL2CftProfileL2CftProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileL2CftProtocolType": {
+    "name": "cienaCesDpL2CftProfileL2CftProtocolType",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ciscoCdp": 1,
+          "ciscoDtp": 2,
+          "ciscoPagp": 3,
+          "ciscoUdld": 4,
+          "ciscoVtp": 5,
+          "ciscoPvst": 6,
+          "ciscoStpUplinkFast": 7,
+          "vlanBridge": 8,
+          "rstp": 9,
+          "lacp": 10,
+          "lacpMarker": 11,
+          "oam": 12,
+          "lldp": 13,
+          "i8021x": 14,
+          "gmrp": 15,
+          "gvrp": 16,
+          "isis": 17,
+          "esmc": 18,
+          "bridgeReserved0C0D": 19,
+          "bridgeReserved0B0F": 20,
+          "brigeBlock": 21,
+          "allBridgesBlock": 22,
+          "garpBlock": 23
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesDpL2CftProfileL2CftProtocolDisposition": {
+    "name": "cienaCesDpL2CftProfileL2CftProtocolDisposition",
+    "oid": "1.3.6.1.4.1.1271.2.1.7.1.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 1,
+          "discard": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forward",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerUcastThresholdExceeded": {
+    "name": "cienaCesDpTsMeterFloodContainerUcastThresholdExceeded",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerUcastThresholdNormal": {
+    "name": "cienaCesDpTsMeterFloodContainerUcastThresholdNormal",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerBcastThresholdExceeded": {
+    "name": "cienaCesDpTsMeterFloodContainerBcastThresholdExceeded",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerBcastThresholdNormal": {
+    "name": "cienaCesDpTsMeterFloodContainerBcastThresholdNormal",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerL2McastThresholdExceeded": {
+    "name": "cienaCesDpTsMeterFloodContainerL2McastThresholdExceeded",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerL2McastThresholdNormal": {
+    "name": "cienaCesDpTsMeterFloodContainerL2McastThresholdNormal",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDataplaneEgressReflectorEnabled": {
+    "name": "cienaCesDataplaneEgressReflectorEnabled",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpSubPortName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpSubPortLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpSubPortEgressReflectorMac"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpSubPortEgressGeneratorMac"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDataplaneEgressReflectorDisabled": {
+    "name": "cienaCesDataplaneEgressReflectorDisabled",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpSubPortName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpSubPortLiIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpPortShapingSubscriptionExceedsOperSpeed": {
+    "name": "cienaCesDpPortShapingSubscriptionExceedsOperSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpPortShapingSubscriptionWithinOperSpeed": {
+    "name": "cienaCesDpPortShapingSubscriptionWithinOperSpeed",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifChassisIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifShelfIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifSlotIndex"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesPortPgIdMappingNotifPortNumber"
+      },
+      {
+        "module": "CIENA-CES-PORT-MIB",
+        "object": "cienaCesLogicalPortConfigPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerTotalThresholdExceeded": {
+    "name": "cienaCesDpTsMeterFloodContainerTotalThresholdExceeded",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesDpTsMeterFloodContainerTotalThresholdNormal": {
+    "name": "cienaCesDpTsMeterFloodContainerTotalThresholdNormal",
+    "oid": "1.3.6.1.4.1.1271.2.2.7.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifProfileIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiType"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerNotifAttachmentLiIndex"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerProfileName"
+      },
+      {
+        "module": "CIENA-CES-DATAPLANE-MIB",
+        "object": "cienaCesDpTsMeterFloodContainerAttachmentInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DATAPLANE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-DATAPLANE-MIB"
+  }
+}

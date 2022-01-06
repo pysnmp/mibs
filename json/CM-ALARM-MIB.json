@@ -1,0 +1,2425 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "TrapAlarmSeverity",
+      "fsp150cm"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "cmEthernetNetPortIndex",
+      "cmEthernetAccPortIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TimeStamp",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "cmAlarmMIB": {
+    "name": "cmAlarmMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-03-01 00:00",
+        "description": " Notes from release 202003010000Z (1) Added new literal to CmAlarmEntityType l3ptpport(234) Notes from release 202002200000Z (1) added new TEXTUAL-CONVENTION to CmConditionType - invalid-syscfg Notes from release 202001300000Z (1) Added new literals to CmConditionType - spoofing-pps - spoofing-loc Notes from release 202001140000Z (1) Added new literals to CmConditionType - jamming - spoofing Notes from release 201911240000Z (1) Added new literals to CmConditionType invalidsymkeypeering(401), auto-asymmetry-delay-fail(402), no-certificate(403), certificate-expired-soon(404), bpvc(405), crcf(406), oofc(407), psuinputfail1(408), psuinputfail2(409) Notes from release 201909130000Z (1) Added new literals to CmAlarmEntityType - irig-card - irg-port-group Notes from release 201908140000Z (1) add ed new literals to CmAlarmEntityType. - oneru-xg120pro-sh-shelf, - eth-xg-120pro-sh-card Notes from release 201907080000Z, (1) Added new TEXTUAL-CONVENTION to CmConditionType - jamming, spoofing Notes from release 201903070000Z (1) Added new literals to CmAlarmEntityType. - oneru-xg118proac-sh-shelf, - eth-xg-118proac-sh-card Notes from release 201903050000Z (1) Added new literals to CmAlarmEntityType. - ntp-clock (2) Added new literals to CmConditionType local-cooling-fail Notes from release 201809240000Z (1) Added new literals to CmAlarmEntityType. - oneru-xg118pro-sh-shelf, - eth-xg-118pro-sh-card Notes from release 201804190000Z (1) Added new literals to CmAlarmEntityType. - oneru-xg116pro-h-shelf, - eth-xg-116pro-h-card Notes from release 201802020000Z (1) Added new literals to CmConditionType. (2) Added new literals to CmAlarmEntityType. Notes from release 201708220000Z (1) CmAlarmEntityType: Added literals oneru-osa5430-shelf, eth-csm-card, threeru-osa5440-shelf Notes from release 201703170000Z (1) CmConditionType: Added literals gatewayNotReachable, pdop-mask-cross Notes from release 201703080000Z (1) CmConditionType: Added literals pps-not-generated, min-sat-1-thrshld-crossed, min-sat-2-thrshld-crossed Notes from release 201612190000Z (1) CmConditionType: Added literals bmcaError, freeze, gpsFwUpgrade (2) CmAlarmEntityType: Added literals osa-ge-4s, elpgroup Notes from release 201605240000Z (1) added ge112proVm device (selves and cards) to CmAlarmEntityType Notes from release 201603150000Z (1) added ge114proVm devices (H/CH/SCH/ selves and cards) to CmAlarmEntityType (2) added server-card to CmAlarmEntityType Notes from release 201512210000Z (1) Added new literal to CmConditionType (Release 8.1CC - XG210), erpRingSegmentation Notes from release 201502040000Z (1) added oneru-xg210c-shelf, eth-xg-210c-card, ge-8sc-cc to CmAlarmEntityType (2) added macSecKeyExchangeFail, macSecPasswordMissing, macSecRamCleared, noRouteResources to CmConditionType Notes from release 201502010000Z (i) Added literals to CmAlarmEntityType (Release 7.1sp - OSA5411), oneru-osa5411-shelf, eth-osa5411-card Notes from release 201408280000Z (i) Added new literal trafficResourceLimitExceeded to CmConditionType Notes from release 201407180000Z, (i) Added new CmLoopbackType literals, oduAis, opuAis, otuAis, otnProtMsmtch, otnProtPrtclFail, oduBdi, otuBdi, lossCharSync, berHigh, laserFail, laserCurrentAbnormal, oduLock, autoShutdown, localFault, otuLof, otuLom, oduOci, opuPlm, oduSd, otuSd, opuSf, optPowerHighRx, optPowerLowRx, optPowerHighTx, optPowerLowTx, oduTim, otuTim (ii) Added new CmAlarmEntityType literals, oneru-otn210-shelf, eth-otn-210-card Notes from release 201404170000Z (i) Added new literal xfpWaveLengthMismatch to CmConditionType Notes from release 201205170000Z (i) Alarm Entity Types for PWE3, PTP (ii) Condition Types for PWE3, PTP, ELMI Notes from release 201112070000Z (i) Added f3EnvAlarmInputTable with objects f3EnvAlarmInputIndex, f3EnvAlarmInputDescr, f3EnvAlarmInputCondType, f3EnvAlarmInputNotifCode, f3EnvAlarmInputMode Notes from release 201012140000Z (i) Added objects cmAlmTestAlarmEntity, cmAlmTestAlarmAction Notes from release 201010270000Z (i) Added objects cmSysAlmAdditionalInfoObject, cmSysAlmAdditionalInfoName, cmSysCondAdditionalInfoObject, cmSysCondAdditionalInfoName (ii) Added objects cmNetworkElementAlmAdditionalInfoObject, cmNetworkElementAlmAdditionalInfoName, cmNetworkElementCondAdditionalInfoObject, cmNetworkElementCondAdditionalInfoName Notes from release 201006070000Z Added literals to CmConditionType TC (Release 4.3CC - GE201), syncreflck, syncreffrc, syncrefman, syncrefwtr, syncrefsw, lcpfail, lcploopback, authservernotreachable, excessiveinterrupts Added literals to CmAlarmEntityType TC (Release 4.3CC - GE201), oneru-ge201-shelf, eth-ge-201-card, oneru-ge201se-shelf, eth-ge-201se-card Notes from release 200903160000Z This release is applicable to the FSP150CC Release 4.1 devices GE101 and GE206. (1)Textual Convention CmAlarmEntityType is updated with additional enumeration literals, 1ru-h1-shelf, 1ru-f1-shelf, eth-ge-101-card, eth-ge-206-card, cfmmep, sync, bitsinport, bitsoutport (2)Textual Convention CmConditionType is updated with additional enumeration literals, crossconnectccm, erroneousccm, someremotemepccm, somemacstatus, somerdi, ais, syncref, esmcfail, qlmismatch, freqoff, los, lof, qlsqlch, frngsync, fstsync, hldovrsync, losloc, wtr, allsyncref, qlinvalid, snmpdghostunresolved, snmpdghostresourcesbusy, bwexceedednegspeed, shaperbtd, sfpnonqualified, avghldovrfrqnotrdy (3)Added new objects cmSysAlmObject, cmSysAlmObjectName, cmSysCondObject, cmSysCondObjectName Notes from release 200803030000Z, (1)MIB version ready for release FSP150CM 3.1."
+      }
+    ]
+  },
+  "alarmObjects": {
+    "name": "alarmObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1",
+    "class": "objectidentity"
+  },
+  "alarmNotifications": {
+    "name": "alarmNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.2",
+    "class": "objectidentity"
+  },
+  "alarmConformance": {
+    "name": "alarmConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.3",
+    "class": "objectidentity"
+  },
+  "CmServiceEffect": {
+    "name": "CmServiceEffect",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "nonServiceAffecting": 1,
+          "serviceAffecting": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmLocation": {
+    "name": "CmLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "both": 1,
+          "farEnd": 2,
+          "nearEnd": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmDirection": {
+    "name": "CmDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "bidirectional": 1,
+          "bothDirections": 2,
+          "notApplicable": 3,
+          "receiveDirectionOnly": 4,
+          "transmitDirectionOnly": 5,
+          "uniDirectional": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmConditionType": {
+    "name": "CmConditionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "acoopr": 1,
+          "hwinitedsysboot": 2,
+          "userinitednemireboot": 3,
+          "userinitedsysboot": 4,
+          "userinitedsysbootdefaultdb": 5,
+          "userinitedsysbootdbrestore": 6,
+          "userinitedsysrebootswact": 7,
+          "sysrecoveryfailed": 8,
+          "primntpsvrFailed": 9,
+          "bckupntpsvrFailed": 10,
+          "swdl-ftip": 11,
+          "swdl-ftfail": 12,
+          "swdl-ftpass": 13,
+          "swdl-instip": 14,
+          "swdl-instfail": 15,
+          "swdl-instpass": 16,
+          "swdl-actip": 17,
+          "swdl-actfail": 18,
+          "swdl-actpass": 19,
+          "swdl-valip": 20,
+          "swdl-valfail": 21,
+          "swdl-valpass": 22,
+          "db-ftip": 23,
+          "db-ftfail": 24,
+          "db-ftpass": 25,
+          "ctneqpt": 26,
+          "eqptflt": 27,
+          "forced": 28,
+          "lockout": 29,
+          "manualswitch": 30,
+          "wkswtopr": 31,
+          "wkswbk": 32,
+          "mismatch": 33,
+          "psu1fail": 34,
+          "psu2fail": 35,
+          "eqptremoved": 36,
+          "autonegunknown": 37,
+          "dyinggasp": 38,
+          "efmfail": 39,
+          "efmrce": 40,
+          "efmrld": 41,
+          "efmrls": 42,
+          "lnkdeactivated": 43,
+          "lnkdownunisolated": 44,
+          "lnkdowncablefault": 45,
+          "lnkdowncableremoved": 46,
+          "lnkdownautonegfailed": 47,
+          "lnkdownlpbkfault": 48,
+          "lnkdowncabletestfault": 49,
+          "lnkdown": 50,
+          "rfi": 51,
+          "rxjabber": 52,
+          "sfpmismatch": 53,
+          "sfpremoved": 54,
+          "sfptxfault": 55,
+          "sfpinserted": 56,
+          "fan-a": 57,
+          "fan-b": 58,
+          "overtemp": 59,
+          "undertemp": 60,
+          "overvoltage": 61,
+          "undervoltage": 62,
+          "shelfrmvd": 63,
+          "rmtefmlpbkfail": 64,
+          "inpwrflt": 65,
+          "crossconnectccm": 66,
+          "erroneousccm": 67,
+          "someremotemepccm": 68,
+          "somemacstatus": 69,
+          "somerdi": 70,
+          "ais": 71,
+          "syncref": 72,
+          "esmcfail": 73,
+          "qlmismatch": 74,
+          "freqoff": 75,
+          "los": 76,
+          "lof": 77,
+          "qlsqlch": 78,
+          "frngsync": 79,
+          "fstsync": 80,
+          "hldovrsync": 81,
+          "losloc": 82,
+          "wtr": 83,
+          "allsyncref": 84,
+          "qlinvalid": 85,
+          "snmpdghostunresolved": 86,
+          "snmpdghostresourcesbusy": 87,
+          "bwexceedednegspeed": 88,
+          "shaperbtd": 89,
+          "sfpnonqualified": 90,
+          "avghldovrfrqnotrdy": 91,
+          "lnkdownmasterslavecfg": 92,
+          "pwrnoinputunitfault": 93,
+          "ipaddrconflict": 94,
+          "nomoreresources": 95,
+          "syncreflck": 96,
+          "syncreffrc": 97,
+          "syncrefman": 98,
+          "syncrefwtr": 99,
+          "syncrefsw": 100,
+          "lcpfail": 101,
+          "lcploopback": 102,
+          "authservernotreachable": 103,
+          "excessiveinterrupts": 104,
+          "dbdowngradeip": 105,
+          "testalarm": 106,
+          "gen-filexfer-ip": 107,
+          "gen-filexfer-fail": 108,
+          "gen-filexfer-pass": 109,
+          "gen-oper-ip": 110,
+          "gen-oper-fail": 111,
+          "gen-oper-pass": 112,
+          "trafficfail": 113,
+          "clockfail": 114,
+          "rdncyswitchover": 115,
+          "rdncyswvermismatch": 116,
+          "rdncyoutofsync": 117,
+          "rdncylockout": 118,
+          "rdncymaintenance": 119,
+          "xfptxfault": 120,
+          "xfpmismatch": 121,
+          "xfpnonqualified": 122,
+          "xfpremoved": 123,
+          "xfpinserted": 124,
+          "lagmbrfail": 125,
+          "swdl-proip": 126,
+          "swdl-propass": 127,
+          "swdl-profail": 128,
+          "db-proip": 129,
+          "db-propass": 130,
+          "db-profail": 131,
+          "swdl-rvtip": 132,
+          "swdl-rvtpass": 133,
+          "swdl-rvtfail": 134,
+          "db-corruption": 135,
+          "bpmismatch": 136,
+          "popr-oovar": 137,
+          "popr-oorange": 138,
+          "popr-genfail": 139,
+          "popr-sfpnqual": 140,
+          "popr-rta": 141,
+          "modemmea": 142,
+          "modemnonqualified": 143,
+          "modemremoved": 144,
+          "nosimcard": 145,
+          "env-genfail": 146,
+          "env-misc": 147,
+          "env-batterydischarge": 148,
+          "env-batteryfail": 149,
+          "env-coolingfanfail": 150,
+          "env-enginefail": 151,
+          "env-fusefail": 152,
+          "env-hightemp": 153,
+          "env-intrusion": 154,
+          "env-lowbatteryvoltage": 155,
+          "env-lowtemp": 156,
+          "env-opendoor": 157,
+          "env-powerfail": 158,
+          "intctneqpt": 159,
+          "syncnotready": 160,
+          "vcgfail": 161,
+          "loa": 162,
+          "plct": 163,
+          "tlct": 164,
+          "plcr": 165,
+          "tlcr": 166,
+          "sqnc": 167,
+          "ais-l": 168,
+          "rfi-l": 169,
+          "rei-l": 170,
+          "exc-l": 171,
+          "deg-l": 172,
+          "tim-s": 173,
+          "ais-p": 174,
+          "lop-p": 175,
+          "tim-p": 176,
+          "uneq-p": 177,
+          "plm-p": 178,
+          "lom-p": 179,
+          "exc-p": 180,
+          "deg-p": 181,
+          "rei-p": 182,
+          "rfi-p": 183,
+          "lcascrc": 184,
+          "sqm": 185,
+          "lom": 186,
+          "gidmismatch": 187,
+          "mnd": 188,
+          "ais-v": 189,
+          "lop-v": 190,
+          "tim-v": 191,
+          "uneq-v": 192,
+          "plm-v": 193,
+          "exc-v": 194,
+          "deg-v": 195,
+          "rei-v": 196,
+          "rfi-v": 197,
+          "rmtinitlpbk": 198,
+          "rai": 199,
+          "rei": 200,
+          "idle": 201,
+          "csf": 202,
+          "gfplfd": 203,
+          "gfpuplmismatch": 204,
+          "gfpexhmismatch": 205,
+          "vcat-lom": 206,
+          "fragileecc": 207,
+          "elmi-seqnummismatch": 208,
+          "elmi-notoper": 209,
+          "pw-rlofs": 210,
+          "pw-lof": 211,
+          "pw-latefrm": 212,
+          "pw-jbovrn": 213,
+          "allsoocsfailed": 214,
+          "tsholdoverfrqnotready": 215,
+          "tsfreerun": 216,
+          "tsholdover": 217,
+          "ptsflossofsync": 218,
+          "ptsflossofannounce": 219,
+          "ptsfunusable": 220,
+          "unresolvedsatop": 221,
+          "rdi-v": 222,
+          "autonegBypass": 223,
+          "forcedOffline": 224,
+          "hwcfginconsistent": 225,
+          "sjmtiemaskcross": 226,
+          "sjoffsetfail": 227,
+          "sjnotimelock": 228,
+          "sjnofreqlock": 229,
+          "sjmtiemargincross": 230,
+          "sjtestreferencefail": 231,
+          "sjtestsourcefail": 232,
+          "sjtestnotimestamp": 233,
+          "sjtestnomessages": 234,
+          "gpsantennafail": 235,
+          "ampNoPeer": 236,
+          "ampProvFail": 237,
+          "ampCfgFail": 238,
+          "ltpFailure": 239,
+          "ltpInprogress": 240,
+          "pse-power-threshold-exceeded": 241,
+          "pse-power-fail": 242,
+          "pse-poweroff-overcurrent": 243,
+          "pse-poweroff-overvoltage": 244,
+          "pse-poweroff-overload": 245,
+          "pse-poweroff-overtemp": 246,
+          "pse-poweroff-short": 247,
+          "erpFoPPM": 248,
+          "erpFoPTO": 249,
+          "erpBlockPort0RPL": 250,
+          "erpBlockPort0SF": 251,
+          "erpBlockPort0MS": 252,
+          "erpBlockPort0FS": 253,
+          "erpBlockPort0WTR": 254,
+          "erpBlockPort1RPL": 255,
+          "erpBlockPort1SF": 256,
+          "erpBlockPort1MS": 257,
+          "erpBlockPort1FS": 258,
+          "erpBlockPort1WTR": 259,
+          "ipv6addr-conflict": 260,
+          "macAddrlearntblFull": 261,
+          "timeClockNotLocked": 262,
+          "timeNotTraceAble": 263,
+          "timeFreqNotTraceAble": 264,
+          "timeHoldOver": 265,
+          "timeFreqLock": 266,
+          "timeRefLock": 267,
+          "timeRefUnavailable": 268,
+          "timeRefDegraded": 269,
+          "timeRefFrc": 270,
+          "tsTimeFrun": 271,
+          "tsTimeHoldOver": 272,
+          "timeRefUnavailableWTR": 273,
+          "timeRefDegradedWTR": 274,
+          "rmtInitSat": 275,
+          "lldpRemoteTblChg": 276,
+          "soocLck": 277,
+          "ampProvSuccess": 278,
+          "ampCfgSuccess": 279,
+          "soocSW": 280,
+          "soocWTR": 281,
+          "sjtealert": 282,
+          "dataExportFtpFail": 283,
+          "xfpWaveLengthMismatch": 284,
+          "cpmrUpgrading": 285,
+          "beaconLightFailure": 286,
+          "manualSwitchClear": 287,
+          "loopbackActive": 288,
+          "loopbackRequest": 289,
+          "trafficResourceLimitExceeded": 290,
+          "oduAis": 291,
+          "opuAis": 292,
+          "otuAis": 293,
+          "otnProtMsmtch": 294,
+          "otnProtPrtclFail": 295,
+          "oduBdi": 296,
+          "otuBdi": 297,
+          "lossCharSync": 298,
+          "berHigh": 299,
+          "laserFail": 300,
+          "laserCurrentAbnormal": 301,
+          "oduLock": 302,
+          "autoShutdown": 303,
+          "localFault": 304,
+          "otuLof": 305,
+          "otuLom": 306,
+          "oduOci": 307,
+          "opuPlm": 308,
+          "oduSd": 309,
+          "otuSd": 310,
+          "opuSf": 311,
+          "optPowerHighRx": 312,
+          "optPowerLowRx": 313,
+          "optPowerHighTx": 314,
+          "optPowerLowTx": 315,
+          "oduTim": 316,
+          "otuTim": 317,
+          "sjConstTeThrshld": 318,
+          "sjInstTeThrshld": 319,
+          "timeRefSW": 320,
+          "aadcfailed": 321,
+          "ptpfreqfrun": 322,
+          "ptptimefrun": 323,
+          "ptpfreqhldovr": 324,
+          "ptptimehldovr": 325,
+          "ptptimenottraceable": 326,
+          "ptpfreqnottraceable": 327,
+          "synctimeout": 328,
+          "announcetimeout": 329,
+          "delayresptimeout": 330,
+          "multiplepeers": 331,
+          "wrongdomain": 332,
+          "nosatellitercv": 333,
+          "trafficipifoutage": 334,
+          "ptpportstatechanged": 335,
+          "physicalSelfLpbk": 336,
+          "cfCardRWFail": 337,
+          "maxexpectedslaves": 338,
+          "external-alarm": 339,
+          "maskcrossed": 340,
+          "oof": 341,
+          "signalfail": 342,
+          "timenottai": 343,
+          "perffuncfailure": 344,
+          "ptpportnotoper": 345,
+          "leapsecondexpected": 346,
+          "keyExchangeFail": 347,
+          "keyExchangeAuthPasswordMissing": 348,
+          "secureRamCleared": 349,
+          "noRouteResources": 350,
+          "tamperSwitchOpen": 351,
+          "bfdSessionDown": 352,
+          "destinationUnresolved": 353,
+          "sjmaxtethrshld": 354,
+          "trafficArpTableFull": 355,
+          "erpRingSegmentation": 356,
+          "gpsrcvrfail": 357,
+          "noActiveRoute": 358,
+          "vxlanDMac2DIPTableFull": 359,
+          "bwExceedLagMemberPortSpeed": 360,
+          "greRemoteUnreachable": 361,
+          "bweexceedsportspeed": 362,
+          "servicediscarded": 363,
+          "bmcaError": 364,
+          "freeze": 365,
+          "gpsFwUpgrade": 366,
+          "storageWearout": 367,
+          "pps-not-generated": 368,
+          "min-sat-1-thrshld-crossed": 369,
+          "min-sat-2-thrshld-crossed": 370,
+          "gatewayNotReachable": 371,
+          "pdop-mask-cross": 372,
+          "nc-initInProgress": 373,
+          "primaryNtpSvr-auth-failed": 374,
+          "backupNtpSvr-auth-failed": 375,
+          "clock-class-mismatch": 376,
+          "hpg-switch-force": 377,
+          "hpg-switch-lockout": 378,
+          "hpg-switch-to-3gpp-path": 379,
+          "hpg-switch-to-fixed-path": 380,
+          "bgp-linkdown": 381,
+          "ospf-neighbour-lost": 382,
+          "traffic-ndptable-full": 383,
+          "dup-link-local-address": 384,
+          "dup-unicast-address": 385,
+          "ztp-failed": 386,
+          "ztp-in-progress": 387,
+          "nc-runningConfigLocked": 388,
+          "pwrnoinput2": 389,
+          "keyExchangeStopped": 390,
+          "security-error": 391,
+          "pppoe-connection-failed": 392,
+          "no-ipv6route-resource": 393,
+          "sfp-firmware-revision-mismatch": 394,
+          "vrrp-new-master": 395,
+          "nontpkeys": 396,
+          "timesrcunavailable": 397,
+          "syncsrcunavailable": 398,
+          "local-cooling-fail": 399,
+          "jamming": 400,
+          "spoofing": 401,
+          "httpsSslCertExpiryPending": 402,
+          "httpsSslCertExpired": 403,
+          "srgb-collision": 404,
+          "sid-collision": 405,
+          "sr-index-out-of-range": 406,
+          "novalidsymkeybroadcast": 407,
+          "patch-panel-mismatch": 408,
+          "fan-fail": 409,
+          "invalidsymkeypeering": 410,
+          "auto-asymmetry-delay-fail": 411,
+          "no-certificate": 412,
+          "certificate-expired-soon": 413,
+          "bpvc": 414,
+          "crcf": 415,
+          "oofc": 416,
+          "psuinputfail1": 417,
+          "psuinputfail2": 418,
+          "time-clock-degraded-system-time": 419,
+          "spoofing-pps": 420,
+          "spoofing-loc": 421,
+          "invalid-syscfg": 422
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmConditionDescr": {
+    "name": "CmConditionDescr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CmAlarmEntityType": {
+    "name": "CmAlarmEntityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "hubshelf": 2,
+          "cpmrshelf": 3,
+          "eth-10-100-1000-ntucard": 4,
+          "eth-cpmr-card": 5,
+          "nemi-card": 6,
+          "scu-card": 7,
+          "fan": 8,
+          "powersupply": 9,
+          "accessport": 10,
+          "networkport": 11,
+          "oneru-ge101-shelf": 12,
+          "oneru-ge206-shelf": 13,
+          "eth-ge-101-card": 14,
+          "eth-ge-206-card": 15,
+          "cfmmep": 16,
+          "sync": 17,
+          "bitsinport": 18,
+          "bitsoutport": 19,
+          "cfmqosshaper": 20,
+          "dcnport": 21,
+          "oneru-ge201-shelf": 22,
+          "eth-ge-201-card": 23,
+          "oneru-ge201se-shelf": 24,
+          "eth-ge-201se-card": 25,
+          "oneru-ge206f-shelf": 26,
+          "eth-ge-206f-card": 27,
+          "lag": 28,
+          "eth-1-10gcard": 29,
+          "redundancygroup": 30,
+          "protectiongroup": 31,
+          "stucard": 32,
+          "ethertrafficport": 33,
+          "eth-10-gecard": 34,
+          "swf-140gcard": 35,
+          "aggregationshelf": 36,
+          "sticard": 37,
+          "amicard": 38,
+          "usb3gmodem": 39,
+          "oneru-ge112-shelf": 40,
+          "eth-ge-112-card": 41,
+          "oneru-ge114-shelf": 42,
+          "eth-ge-114-card": 43,
+          "oneru-ge206v-shelf": 44,
+          "eth-ge-206v-card": 45,
+          "ge-4e-cc": 46,
+          "ge-4s-cc": 47,
+          "oneru-xg210-shelf": 48,
+          "eth-xg-210-card": 49,
+          "xg-1x-cc": 50,
+          "xg-1s-cc": 51,
+          "scu-t-card": 52,
+          "eth-10-100-1000-ntecard": 53,
+          "slot": 54,
+          "ocnstmport": 55,
+          "e1t1port": 56,
+          "stsvcpath": 57,
+          "vtvcpath": 58,
+          "vcg": 59,
+          "e3t3port": 60,
+          "vc4": 61,
+          "vc3": 62,
+          "vc12": 63,
+          "sts3c": 64,
+          "sts1": 65,
+          "vt15": 66,
+          "t3": 67,
+          "e3": 68,
+          "t1": 69,
+          "e1": 70,
+          "stm1-4-et": 71,
+          "eotdmtrafficport": 72,
+          "pwe3-ocnstm-card": 73,
+          "pwe3-e1t1-card": 74,
+          "satop": 75,
+          "telecom-slave": 76,
+          "sooc": 77,
+          "eth-1-10ghcard": 78,
+          "eth-10-gehcard": 79,
+          "port-10mhz": 80,
+          "ppsport": 81,
+          "timeofdayport": 82,
+          "oneru-t1804-shelf": 83,
+          "eth-t1804-card": 84,
+          "oneru-t3204-shelf": 85,
+          "eth-t3204-card": 86,
+          "eotdmnetworkport": 87,
+          "oneru-syncprobe-shelf": 88,
+          "eth-ge-syncprobe-card": 89,
+          "sj-clockprobe": 90,
+          "sj-ptpclockprobe": 91,
+          "sj-ptpnetworkprobe": 92,
+          "gps-receiverport": 93,
+          "ampConfig": 94,
+          "ge-8s-cc": 95,
+          "oneru-ge114h-shelf": 96,
+          "eth-ge-114h-card": 97,
+          "oneru-ge114ph-shelf": 98,
+          "eth-ge-114ph-card": 99,
+          "psegroup": 100,
+          "pseport": 101,
+          "erpGroup": 102,
+          "eth-fe-36e-card": 103,
+          "mpflow": 104,
+          "oneru-ge114sh-shelf": 105,
+          "eth-ge-114sh-card": 106,
+          "oneru-ge114s-shelf": 107,
+          "eth-ge-114s-card": 108,
+          "timeclock": 109,
+          "satResponderSession": 110,
+          "stu-h-card": 111,
+          "sti-h-card": 112,
+          "ge-8e-cc": 113,
+          "oneru-otn210-shelf": 114,
+          "eth-otn-210-card": 115,
+          "ptpclock": 116,
+          "ptpport": 117,
+          "oneru-osa5411-shelf": 118,
+          "eth-osa5411-card": 119,
+          "oneru-ge112pro-shelf": 120,
+          "eth-ge-112pro-card": 121,
+          "oneru-ge112pro-m-shelf": 122,
+          "eth-ge-112pro-m-card": 123,
+          "oneru-ge114pro-shelf": 124,
+          "eth-ge-114pro-card": 125,
+          "oneru-ge114pro-c-shelf": 126,
+          "eth-ge-114pro-c-card": 127,
+          "oneru-ge114pro-sh-shelf": 128,
+          "eth-ge-114pro-sh-card": 129,
+          "oneru-ge114pro-csh-shelf": 130,
+          "eth-ge-114pro-csh-card": 131,
+          "connectGuardFlow": 132,
+          "trafficIpIF": 133,
+          "vrf": 134,
+          "oneru-ge114pro-he-shelf": 135,
+          "eth-ge-114pro-he-card": 136,
+          "oneru-ge112pro-h-shelf": 137,
+          "eth-ge-112pro-h-card": 138,
+          "dhcpRelayAgent": 139,
+          "oneru-xg210c-shelf": 140,
+          "eth-xg-210c-card": 141,
+          "ge-8sc-cc": 142,
+          "oneru-osa5420-shelf": 143,
+          "eth-osa5420-card": 144,
+          "oneru-osa5421-shelf": 145,
+          "eth-osa5421-card": 146,
+          "mci": 147,
+          "bits-x16": 148,
+          "bfdSession": 149,
+          "eomplsPw": 150,
+          "oneru-ge114g-shelf": 151,
+          "eth-ge-114g-card": 152,
+          "wifidongleport": 153,
+          "oneru-ge114proVm-h-shelf": 154,
+          "eth-ge-114proVm-h-card": 155,
+          "oneru-ge114proVm-ch-shelf": 156,
+          "eth-ge-114proVm-ch-card": 157,
+          "oneru-ge114proVm-csh-shelf": 158,
+          "eth-ge-114proVm-csh-card": 159,
+          "server-card": 160,
+          "oneru-xg116pro-shelf": 161,
+          "eth-xg-116pro-card": 162,
+          "oneru-xg120pro-shelf": 163,
+          "eth-xg-120pro-card": 164,
+          "pps-x16": 165,
+          "clk-x16": 166,
+          "todandpps-x16": 167,
+          "vxlanSegment": 168,
+          "vtep": 169,
+          "ge101pro-shelf": 170,
+          "eth-ge-101pro-card": 171,
+          "greTunnel": 172,
+          "go102pro-s-shelf": 173,
+          "go102pro-sp-shelf": 174,
+          "onru-cx101pro-30a-shelf": 175,
+          "onru-cx102pro-30a-shelf": 176,
+          "eth-go102pro-s-card": 177,
+          "eth-go102pro-sp-card": 178,
+          "eth-cx101pro-30a-card": 179,
+          "eth-cx102pro-30a-card": 180,
+          "osa-ge-4s": 181,
+          "elpgroup": 182,
+          "oneru-ge112proVm-shelf": 183,
+          "eth-ge-112proVm-card": 184,
+          "hybrid-path-group": 191,
+          "ge102pro-h-shelf": 192,
+          "eth-ge-102pro-h-card": 193,
+          "ge102pro-efmh-shelf": 194,
+          "eth-ge-102pro-efmh-card": 195,
+          "traffic-bgprouter-peer": 196,
+          "traffic-ipv6-interface": 197,
+          "oneru-xg116pro-h-shelf": 198,
+          "eth-xg-116pro-h-card": 199,
+          "go102pro-sm-shelf": 200,
+          "eth-go102pro-sm-card": 201,
+          "vrrp-router": 202,
+          "ru1-osa5430-shelf": 203,
+          "eth-csm-osa-card": 204,
+          "ru3-osa5440-shelf": 205,
+          "eth-osa5440-card": 206,
+          "aux-osa": 207,
+          "bits-x16-enhanced": 208,
+          "osa-ge-4s-protected": 209,
+          "syncprotectiongroup": 210,
+          "timeclockprotectiongroup": 211,
+          "mciprotectiongroup": 212,
+          "oneru-xg118pro-sh-shelf": 213,
+          "eth-xg-118pro-sh-card": 214,
+          "ntp-clock": 215,
+          "oneru-xg118proac-sh-shelf": 216,
+          "eth-xg-118proac-sh-card": 217,
+          "oneru-ge114proVm-sh-shelf": 218,
+          "eth-ge-114proVm-sh-card": 219,
+          "oneru-ge104-shelf": 220,
+          "eth-ge-104-card": 221,
+          "segment-routing": 222,
+          "oneru-xg120pro-sh-shelf": 223,
+          "eth-xg-120pro-sh-card": 224,
+          "irig-card": 225,
+          "irig-port-group": 226,
+          "nci": 227,
+          "ru1-osa5422-shelf": 228,
+          "ru1-softsync-shelf": 229,
+          "eth-osa5422-card": 230,
+          "eth-softsync-card": 231,
+          "mb-gnss-card": 232,
+          "composite-clock-card": 233,
+          "l3ptpport": 234
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmCondEffectType": {
+    "name": "CmCondEffectType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sc": 1,
+          "tc": 2,
+          "cl": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TestAlarmAction": {
+    "name": "TestAlarmAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "raise": 1,
+          "clear": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnvAlarmInputMode": {
+    "name": "EnvAlarmInputMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "alarmopen": 2,
+          "alarmclosed": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cmAlarmScalars": {
+    "name": "cmAlarmScalars",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.1",
+    "class": "objectidentity"
+  },
+  "cmAlmLastChange": {
+    "name": "cmAlmLastChange",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmAlmIndex": {
+    "name": "cmAlmIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmAlmTestAlarmEntity": {
+    "name": "cmAlmTestAlarmEntity",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAlmTestAlarmAction": {
+    "name": "cmAlmTestAlarmAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAlarmAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmSysAlmTable": {
+    "name": "cmSysAlmTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmSysAlmEntry": {
+    "name": "cmSysAlmEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmSysAlmNotifCode": {
+    "name": "cmSysAlmNotifCode",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmType": {
+    "name": "cmSysAlmType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmSrvEff": {
+    "name": "cmSysAlmSrvEff",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmServiceEffect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmTime": {
+    "name": "cmSysAlmTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmLocation": {
+    "name": "cmSysAlmLocation",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmDirection": {
+    "name": "cmSysAlmDirection",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmDescr": {
+    "name": "cmSysAlmDescr",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionDescr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmObject": {
+    "name": "cmSysAlmObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmObjectName": {
+    "name": "cmSysAlmObjectName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmAdditionalInfoObject": {
+    "name": "cmSysAlmAdditionalInfoObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysAlmAdditionalInfoName": {
+    "name": "cmSysAlmAdditionalInfoName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondTable": {
+    "name": "cmSysCondTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmSysCondEntry": {
+    "name": "cmSysCondEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmSysCondIndex": {
+    "name": "cmSysCondIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondNotifCode": {
+    "name": "cmSysCondNotifCode",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondType": {
+    "name": "cmSysCondType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondSrvEff": {
+    "name": "cmSysCondSrvEff",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmServiceEffect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondTime": {
+    "name": "cmSysCondTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondLocation": {
+    "name": "cmSysCondLocation",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondDirection": {
+    "name": "cmSysCondDirection",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondDescr": {
+    "name": "cmSysCondDescr",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionDescr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondEffType": {
+    "name": "cmSysCondEffType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmCondEffectType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondObject": {
+    "name": "cmSysCondObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondObjectName": {
+    "name": "cmSysCondObjectName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondAdditionalInfoObject": {
+    "name": "cmSysCondAdditionalInfoObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysCondAdditionalInfoName": {
+    "name": "cmSysCondAdditionalInfoName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmTable": {
+    "name": "cmNetworkElementAlmTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmNetworkElementAlmEntry": {
+    "name": "cmNetworkElementAlmEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmNetworkElementAlmNotifCode": {
+    "name": "cmNetworkElementAlmNotifCode",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmType": {
+    "name": "cmNetworkElementAlmType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmSrvEff": {
+    "name": "cmNetworkElementAlmSrvEff",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmServiceEffect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmTime": {
+    "name": "cmNetworkElementAlmTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmLocation": {
+    "name": "cmNetworkElementAlmLocation",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmDirection": {
+    "name": "cmNetworkElementAlmDirection",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmDescr": {
+    "name": "cmNetworkElementAlmDescr",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionDescr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmObject": {
+    "name": "cmNetworkElementAlmObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmObjectName": {
+    "name": "cmNetworkElementAlmObjectName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmAdditionalInfoObject": {
+    "name": "cmNetworkElementAlmAdditionalInfoObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementAlmAdditionalInfoName": {
+    "name": "cmNetworkElementAlmAdditionalInfoName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondTable": {
+    "name": "cmNetworkElementCondTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmNetworkElementCondEntry": {
+    "name": "cmNetworkElementCondEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmNetworkElementCondIndex": {
+    "name": "cmNetworkElementCondIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondNotifCode": {
+    "name": "cmNetworkElementCondNotifCode",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondType": {
+    "name": "cmNetworkElementCondType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondSrvEff": {
+    "name": "cmNetworkElementCondSrvEff",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmServiceEffect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondTime": {
+    "name": "cmNetworkElementCondTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondLocation": {
+    "name": "cmNetworkElementCondLocation",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondDirection": {
+    "name": "cmNetworkElementCondDirection",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondDescr": {
+    "name": "cmNetworkElementCondDescr",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionDescr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondObject": {
+    "name": "cmNetworkElementCondObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondObjectName": {
+    "name": "cmNetworkElementCondObjectName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondEffType": {
+    "name": "cmNetworkElementCondEffType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmCondEffectType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondAdditionalInfoObject": {
+    "name": "cmNetworkElementCondAdditionalInfoObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNetworkElementCondAdditionalInfoName": {
+    "name": "cmNetworkElementCondAdditionalInfoName",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentTable": {
+    "name": "cmAlarmSeverityAssignmentTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentEntry": {
+    "name": "cmAlarmSeverityAssignmentEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentEntityType",
+        "implied": 0
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentCondType",
+        "implied": 0
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentSrvEff",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentEntityType": {
+    "name": "cmAlarmSeverityAssignmentEntityType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmAlarmEntityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentCondType": {
+    "name": "cmAlarmSeverityAssignmentCondType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentSrvEff": {
+    "name": "cmAlarmSeverityAssignmentSrvEff",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmServiceEffect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentLocation": {
+    "name": "cmAlarmSeverityAssignmentLocation",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentNotifCode": {
+    "name": "cmAlarmSeverityAssignmentNotifCode",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmAlarmSeverityAssignmentDirection": {
+    "name": "cmAlarmSeverityAssignmentDirection",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EnvAlarmInputTable": {
+    "name": "f3EnvAlarmInputTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EnvAlarmInputEntry": {
+    "name": "f3EnvAlarmInputEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "f3EnvAlarmInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3EnvAlarmInputIndex": {
+    "name": "f3EnvAlarmInputIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3EnvAlarmInputDescr": {
+    "name": "f3EnvAlarmInputDescr",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EnvAlarmInputCondType": {
+    "name": "f3EnvAlarmInputCondType",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EnvAlarmInputNotifCode": {
+    "name": "f3EnvAlarmInputNotifCode",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EnvAlarmInputMode": {
+    "name": "f3EnvAlarmInputMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnvAlarmInputMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3EnvAlarmInputAlmHoldOffEnabled": {
+    "name": "f3EnvAlarmInputAlmHoldOffEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmSysAlmTrap": {
+    "name": "cmSysAlmTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmSrvEff"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmAdditionalInfoName"
+      }
+    ],
+    "status": "current"
+  },
+  "cmNetworkElementAlmTrap": {
+    "name": "cmNetworkElementAlmTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmSrvEff"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmAdditionalInfoName"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSysEvent": {
+    "name": "cmSysEvent",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondEffType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondAdditionalInfoName"
+      }
+    ],
+    "status": "current"
+  },
+  "cmNetworkElementEvent": {
+    "name": "cmNetworkElementEvent",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondEffType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondAdditionalInfoName"
+      }
+    ],
+    "status": "current"
+  },
+  "cmAlmCompliances": {
+    "name": "cmAlmCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.3.1",
+    "class": "objectidentity"
+  },
+  "cmAlmGroups": {
+    "name": "cmAlmGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.3.2",
+    "class": "objectidentity"
+  },
+  "cmAlmCompliance": {
+    "name": "cmAlmCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmAlmObjectGroup",
+        "module": "CM-ALARM-MIB"
+      },
+      {
+        "object": "cmAlmNotifGroup",
+        "module": "CM-ALARM-MIB"
+      },
+      {
+        "object": "f3EnvAlarmInputGroup",
+        "module": "CM-ALARM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmAlmObjectGroup": {
+    "name": "cmAlmObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmLastChange"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmTestAlarmEntity"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlmTestAlarmAction"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmSrvEff"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmAdditionalInfoName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondSrvEff"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondEffType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysCondAdditionalInfoName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmSrvEff"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmAdditionalInfoName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondSrvEff"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondTime"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondDirection"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondObjectName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondEffType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondAdditionalInfoObject"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementCondAdditionalInfoName"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentEntityType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentCondType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentSrvEff"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentLocation"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmAlarmSeverityAssignmentDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "cmAlmNotifGroup": {
+    "name": "cmAlmNotifGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysAlmTrap"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementAlmTrap"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmSysEvent"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "cmNetworkElementEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "f3EnvAlarmInputGroup": {
+    "name": "f3EnvAlarmInputGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.6.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "f3EnvAlarmInputIndex"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "f3EnvAlarmInputDescr"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "f3EnvAlarmInputCondType"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "f3EnvAlarmInputNotifCode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "f3EnvAlarmInputMode"
+      },
+      {
+        "module": "CM-ALARM-MIB",
+        "object": "f3EnvAlarmInputAlmHoldOffEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CM-ALARM-MIB"
+  }
+}

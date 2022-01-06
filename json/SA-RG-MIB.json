@@ -1,0 +1,3426 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressIPv6",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "enterprises",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "sa": {
+    "name": "sa",
+    "oid": "1.3.6.1.4.1.1429",
+    "class": "objectidentity"
+  },
+  "saModules": {
+    "name": "saModules",
+    "oid": "1.3.6.1.4.1.1429.79",
+    "class": "objectidentity"
+  },
+  "saRg": {
+    "name": "saRg",
+    "oid": "1.3.6.1.4.1.1429.79.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-26 00:00",
+        "description": "Initial release of reduced-set module for releases based on BFC 5.7.x."
+      }
+    ]
+  },
+  "SaRgTimeZone": {
+    "name": "SaRgTimeZone",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gmtMinusTwelveEniwetokKwajalein": 1,
+          "gmtMinusElevenMidwayIslandSamoa": 2,
+          "gmtMinusTenHawaii": 3,
+          "gmtMinusNineAlaska": 4,
+          "gmtMinusEightPacificTimeCanadaTijuana": 5,
+          "gmtMinusSevenArizona": 6,
+          "gmtMinusSevenMountainTimeCanada": 7,
+          "gmtMinusSixCentralAmerica": 8,
+          "gmtMinusSixCentralTimeCanada": 9,
+          "gmtMinusSixMexicoCity": 10,
+          "gmtMinusSixSaskatchewan": 11,
+          "gmtMinusFiveBogotaLimaQuito": 12,
+          "gmtMinusFiveEasternTimeCanada": 13,
+          "gmtMinusFiveIndianaEast": 14,
+          "gmtMinusFourAtlanticTimeCanada": 15,
+          "gmtMinusFourCaracasLaPaz": 16,
+          "gmtMinusFourSantiago": 17,
+          "gmtMinusThreeThirtyNewfoundland": 18,
+          "gmtMinusThreeBrasilia": 19,
+          "gmtMinusThreeBuenosAiresGeorgetown": 20,
+          "gmtMinusThreeGreenland": 21,
+          "gmtMinusTwoMid-Atlantic": 22,
+          "gmtMinusOneAzores": 23,
+          "gmtMinusOneCapeVerdeIs": 24,
+          "gmtZeroCasablancaMonrovia": 25,
+          "gmtZeroDublinEdinburghLisbonLondon": 26,
+          "gmtPlusOneAmsterdamBerlinRomeStockholmVienna": 27,
+          "gmtPlusOneBelgradeBratislavaBudapestLjubljanaPrague": 28,
+          "gmtPlusOneBrusselsCopenhagenMadridParis": 29,
+          "gmtPlusOneSarajevoSkopjeSofijaVilniusWarsawZagreb": 30,
+          "gmtPlusOneWestCentralAfrica": 31,
+          "gmtPlusTwoAthensIstanbilMinsk": 32,
+          "gmtPlusTwoBucharest": 33,
+          "gmtPlusTwoHelsinkiRigaTallinn": 34,
+          "gmtPlusTwoJerusalem": 35,
+          "gmtPlusThreeBaghdad": 36,
+          "gmtPlusThreeMoscowStPetersburgVolgograd": 37,
+          "gmtPlusThreeNairobi": 38,
+          "gmtPlusThreeThirtyTehran": 39,
+          "gmtPlusFourAbuDhabiMuscat": 40,
+          "gmtPlusFourThirtyKabul": 41,
+          "gmtPlusFiveEkaterinburg": 42,
+          "gmtPlusFiveThirtyCalcuttaChennaiMumbaiNewDelhi": 43,
+          "gmtPlusFiveFourtyFiveKathmandu": 44,
+          "gmtPlusSixAlmatyNovosibirsk": 45,
+          "gmtPlusSixAstanaDhaka": 46,
+          "gmtPlusSixThirtyRangoon": 47,
+          "gmtPlusSevenBangkokHanoiJakarta": 48,
+          "gmtPlusSevenKrasnoyarsk": 49,
+          "gmtPlusEightBeijingChongqingHongKongUrumqi": 50,
+          "gmtPlusEightIrkustkUlaanBataar": 51,
+          "gmtPlusEightKualaLumpurSingapore": 52,
+          "gmtPlusEightTaipei": 53,
+          "gmtPlusNineOsakaSapporoTokyo": 54,
+          "gmtPlusNineSeoul": 55,
+          "gmtPlusNineThirtyAdelaide": 56,
+          "gmtPlusTenBrisbane": 57,
+          "gmtPlusTenVladivostok": 58,
+          "gmtPlusElevenMagadanSolomonIsNewCaledonia": 59,
+          "gmtPlusTwelveAucklandWellington": 60,
+          "gmtPlusTwelveFiji": 61,
+          "gmtPlusThirteenNukuAlofa": 62
+        }
+      }
+    },
+    "status": "current"
+  },
+  "saRgDevice": {
+    "name": "saRgDevice",
+    "oid": "1.3.6.1.4.1.1429.79.2.1",
+    "class": "objectidentity"
+  },
+  "saRgDeviceBase": {
+    "name": "saRgDeviceBase",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1",
+    "class": "objectidentity"
+  },
+  "saRgDeviceMode": {
+    "name": "saRgDeviceMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "multiSsid": 1,
+          "ipv4": 3,
+          "ipv6": 4,
+          "dualstack": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceResetDefaultEnable": {
+    "name": "saRgDeviceResetDefaultEnable",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceRemoteWebAccessPort": {
+    "name": "saRgDeviceRemoteWebAccessPort",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8080,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceLanLanIsolation": {
+    "name": "saRgDeviceLanLanIsolation",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceLanWlanIsolation": {
+    "name": "saRgDeviceLanWlanIsolation",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceIpv6Trans": {
+    "name": "saRgDeviceIpv6Trans",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "dslite": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIpv6Passthrough": {
+    "name": "saRgDeviceIpv6Passthrough",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceFactoryReset": {
+    "name": "saRgDeviceFactoryReset",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.1.1002",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "routerAndWifi": 1,
+          "routerOnly": 2,
+          "wifi": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceTimeSetup": {
+    "name": "saRgDeviceTimeSetup",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5",
+    "class": "objectidentity"
+  },
+  "saRgDeviceTimeSetupNtpEnabled": {
+    "name": "saRgDeviceTimeSetupNtpEnabled",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceTimeSetupNtpServerTable": {
+    "name": "saRgDeviceTimeSetupNtpServerTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDeviceTimeSetupNtpServerEntry": {
+    "name": "saRgDeviceTimeSetupNtpServerEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgDeviceTimeSetupNtpServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDeviceTimeSetupNtpServerIndex": {
+    "name": "saRgDeviceTimeSetupNtpServerIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDeviceTimeSetupNtpServerAddress": {
+    "name": "saRgDeviceTimeSetupNtpServerAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceTimeSetupZone": {
+    "name": "saRgDeviceTimeSetupZone",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SaRgTimeZone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceTimeSetupDst": {
+    "name": "saRgDeviceTimeSetupDst",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDeviceIanaContent": {
+    "name": "saRgDeviceIanaContent",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7",
+    "class": "objectidentity"
+  },
+  "saRgDeviceIanaIAID": {
+    "name": "saRgDeviceIanaIAID",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIanaT1": {
+    "name": "saRgDeviceIanaT1",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIanaT2": {
+    "name": "saRgDeviceIanaT2",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIanaTable": {
+    "name": "saRgDeviceIanaTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDeviceIanaEntry": {
+    "name": "saRgDeviceIanaEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgDeviceIanaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDeviceIanaIndex": {
+    "name": "saRgDeviceIanaIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDeviceIanaValue": {
+    "name": "saRgDeviceIanaValue",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIanaPreferredLifetime": {
+    "name": "saRgDeviceIanaPreferredLifetime",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIanaValidLifetime": {
+    "name": "saRgDeviceIanaValidLifetime",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIapdContent": {
+    "name": "saRgDeviceIapdContent",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8",
+    "class": "objectidentity"
+  },
+  "saRgDeviceIapdIAID": {
+    "name": "saRgDeviceIapdIAID",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIapdT1": {
+    "name": "saRgDeviceIapdT1",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIapdT2": {
+    "name": "saRgDeviceIapdT2",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIapdTable": {
+    "name": "saRgDeviceIapdTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDeviceIapdEntry": {
+    "name": "saRgDeviceIapdEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgDeviceIapdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDeviceIapdIndex": {
+    "name": "saRgDeviceIapdIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDeviceIapdPreferredLifetime": {
+    "name": "saRgDeviceIapdPreferredLifetime",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIapdValidLifetime": {
+    "name": "saRgDeviceIapdValidLifetime",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIapdPrefixLength": {
+    "name": "saRgDeviceIapdPrefixLength",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDeviceIapdPrefixValue": {
+    "name": "saRgDeviceIapdPrefixValue",
+    "oid": "1.3.6.1.4.1.1429.79.2.1.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDot11": {
+    "name": "saRgDot11",
+    "oid": "1.3.6.1.4.1.1429.79.2.2",
+    "class": "objectidentity"
+  },
+  "saRgDot11MgmtBase": {
+    "name": "saRgDot11MgmtBase",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.1",
+    "class": "objectidentity"
+  },
+  "saRgDot11OnOffPushButtonTime": {
+    "name": "saRgDot11OnOffPushButtonTime",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11Bss": {
+    "name": "saRgDot11Bss",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2",
+    "class": "objectidentity"
+  },
+  "saRgDot11BssTable": {
+    "name": "saRgDot11BssTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11BssEntry": {
+    "name": "saRgDot11BssEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11BssId": {
+    "name": "saRgDot11BssId",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDot11BssEnable": {
+    "name": "saRgDot11BssEnable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "enableOnline": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssSsid": {
+    "name": "saRgDot11BssSsid",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssSecurityMode": {
+    "name": "saRgDot11BssSecurityMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "wep": 1,
+          "wpaPsk": 2,
+          "wpa2Psk": 3,
+          "wpaEnterprise": 4,
+          "wpa2Enterprise": 5,
+          "wpaWpa2Psk": 7,
+          "wpaWpa2Enterprise": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssClosedNetwork": {
+    "name": "saRgDot11BssClosedNetwork",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssAccessMode": {
+    "name": "saRgDot11BssAccessMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowAny": 0,
+          "allowList": 1,
+          "denyList": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssMaxNumSta": {
+    "name": "saRgDot11BssMaxNumSta",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssUserStatus": {
+    "name": "saRgDot11BssUserStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDot11BssApIsolation": {
+    "name": "saRgDot11BssApIsolation",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssSecSsidTrafficPriority": {
+    "name": "saRgDot11BssSecSsidTrafficPriority",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "acBk": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDot11BssRejectPriSsidSta": {
+    "name": "saRgDot11BssRejectPriSsidSta",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDot11BssPrimary": {
+    "name": "saRgDot11BssPrimary",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.3",
+    "class": "objectidentity"
+  },
+  "saRgDot11BssPrimarySsidType": {
+    "name": "saRgDot11BssPrimarySsidType",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac6char": 1,
+          "mac6char-prefix": 2,
+          "mac4char-prefix": 3,
+          "prefix-force": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11BssPrimarySsidPrefix": {
+    "name": "saRgDot11BssPrimarySsidPrefix",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11Privacy": {
+    "name": "saRgDot11Privacy",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3",
+    "class": "objectidentity"
+  },
+  "saRgDot11WpaTable": {
+    "name": "saRgDot11WpaTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11WpaEntry": {
+    "name": "saRgDot11WpaEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11WpaAlgorithm": {
+    "name": "saRgDot11WpaAlgorithm",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tkip": 0,
+          "aes": 1,
+          "tkipPlusAes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11WpaPreSharedKey": {
+    "name": "saRgDot11WpaPreSharedKey",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11WpaGroupRekeyInterval": {
+    "name": "saRgDot11WpaGroupRekeyInterval",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11RadiusTable": {
+    "name": "saRgDot11RadiusTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11RadiusEntry": {
+    "name": "saRgDot11RadiusEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11RadiusAddressType": {
+    "name": "saRgDot11RadiusAddressType",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11RadiusAddress": {
+    "name": "saRgDot11RadiusAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11RadiusPort": {
+    "name": "saRgDot11RadiusPort",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11RadiusKey": {
+    "name": "saRgDot11RadiusKey",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11RadiusReAuthInterval": {
+    "name": "saRgDot11RadiusReAuthInterval",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11WepTable": {
+    "name": "saRgDot11WepTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11WepEntry": {
+    "name": "saRgDot11WepEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11WepDefaultKey": {
+    "name": "saRgDot11WepDefaultKey",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11WepEncryptionMode": {
+    "name": "saRgDot11WepEncryptionMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wep64": 0,
+          "wep128": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11WepPassPhrase": {
+    "name": "saRgDot11WepPassPhrase",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11Wep64BitKeyTable": {
+    "name": "saRgDot11Wep64BitKeyTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11Wep64BitKeyEntry": {
+    "name": "saRgDot11Wep64BitKeyEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgDot11Wep64BitKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11Wep64BitKeyIndex": {
+    "name": "saRgDot11Wep64BitKeyIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11Wep64BitKeyValue": {
+    "name": "saRgDot11Wep64BitKeyValue",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11Wep128BitKeyTable": {
+    "name": "saRgDot11Wep128BitKeyTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11Wep128BitKeyEntry": {
+    "name": "saRgDot11Wep128BitKeyEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgDot11Wep128BitKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11Wep128BitKeyIndex": {
+    "name": "saRgDot11Wep128BitKeyIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11Wep128BitKeyValue": {
+    "name": "saRgDot11Wep128BitKeyValue",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 13,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11PrivacyWps": {
+    "name": "saRgDot11PrivacyWps",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.6",
+    "class": "objectidentity"
+  },
+  "saRgDot11PrivacyWpsPushButtonTime": {
+    "name": "saRgDot11PrivacyWpsPushButtonTime",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11Client": {
+    "name": "saRgDot11Client",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.4",
+    "class": "objectidentity"
+  },
+  "saRgDot11ClientTable": {
+    "name": "saRgDot11ClientTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11ClientEntry": {
+    "name": "saRgDot11ClientEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgDot11ClientIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11ClientIndex": {
+    "name": "saRgDot11ClientIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11ClientStation": {
+    "name": "saRgDot11ClientStation",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDot11ExtMgmt": {
+    "name": "saRgDot11ExtMgmt",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.6",
+    "class": "objectidentity"
+  },
+  "saRgDot11ExtMgmtTable": {
+    "name": "saRgDot11ExtMgmtTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgDot11ExtMgmtEntry": {
+    "name": "saRgDot11ExtMgmtEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgDot11ExtMbssUserControl": {
+    "name": "saRgDot11ExtMbssUserControl",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          },
+          {
+            "min": 65536,
+            "max": 16711680
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11ExtMbssUseNonvol": {
+    "name": "saRgDot11ExtMbssUseNonvol",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11ExtMbssAdminControl": {
+    "name": "saRgDot11ExtMbssAdminControl",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          },
+          {
+            "min": 65536,
+            "max": 16711680
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDot11ExtActualChannel": {
+    "name": "saRgDot11ExtActualChannel",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgDot11ApplySettings": {
+    "name": "saRgDot11ApplySettings",
+    "oid": "1.3.6.1.4.1.1429.79.2.2.1001",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmt": {
+    "name": "saRgIpMgmt",
+    "oid": "1.3.6.1.4.1.1429.79.2.3",
+    "class": "objectidentity"
+  },
+  "saRgIpMgmtLanTable": {
+    "name": "saRgIpMgmtLanTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanEntry": {
+    "name": "saRgIpMgmtLanEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtLanMode": {
+    "name": "saRgIpMgmtLanMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridge": 1,
+          "router": 2,
+          "l2tpv2-client": 3,
+          "mixed": 4,
+          "vlan": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanNetwork": {
+    "name": "saRgIpMgmtLanNetwork",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanNetworksAllow": {
+    "name": "saRgIpMgmtLanNetworksAllow",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "anyPrivateClass": 1,
+          "anyClass": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanSubnetMask": {
+    "name": "saRgIpMgmtLanSubnetMask",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffff00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanGateway": {
+    "name": "saRgIpMgmtLanGateway",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcpServer": {
+    "name": "saRgIpMgmtLanDhcpServer",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanNapt": {
+    "name": "saRgIpMgmtLanNapt",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanTypeOfService": {
+    "name": "saRgIpMgmtLanTypeOfService",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcp125Option": {
+    "name": "saRgIpMgmtLanDhcp125Option",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "addSsidName": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanUpnp": {
+    "name": "saRgIpMgmtLanUpnp",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcpOption43": {
+    "name": "saRgIpMgmtLanDhcpOption43",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcpServerTable": {
+    "name": "saRgIpMgmtLanDhcpServerTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcpServerEntry": {
+    "name": "saRgIpMgmtLanDhcpServerEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcpServerPoolStart": {
+    "name": "saRgIpMgmtLanDhcpServerPoolStart",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcpServerPoolEnd": {
+    "name": "saRgIpMgmtLanDhcpServerPoolEnd",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanDhcpServerLeaseTime": {
+    "name": "saRgIpMgmtLanDhcpServerLeaseTime",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrTable": {
+    "name": "saRgIpMgmtLanAddrTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrEntry": {
+    "name": "saRgIpMgmtLanAddrEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgIpMgmtLanAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrIndex": {
+    "name": "saRgIpMgmtLanAddrIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrIp": {
+    "name": "saRgIpMgmtLanAddrIp",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrPhysAddr": {
+    "name": "saRgIpMgmtLanAddrPhysAddr",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrLeaseCreateTime": {
+    "name": "saRgIpMgmtLanAddrLeaseCreateTime",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrLeaseExpireTime": {
+    "name": "saRgIpMgmtLanAddrLeaseExpireTime",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrHostName": {
+    "name": "saRgIpMgmtLanAddrHostName",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrClientId": {
+    "name": "saRgIpMgmtLanAddrClientId",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtLanAddrInterface": {
+    "name": "saRgIpMgmtLanAddrInterface",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtDnsServerTable": {
+    "name": "saRgIpMgmtDnsServerTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtDnsServerEntry": {
+    "name": "saRgIpMgmtDnsServerEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgIpMgmtDnsServerOrder",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtDnsServerIp": {
+    "name": "saRgIpMgmtDnsServerIp",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtDhcpFixedIpTable": {
+    "name": "saRgIpMgmtDhcpFixedIpTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtDhcpFixedIpEntry": {
+    "name": "saRgIpMgmtDhcpFixedIpEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgIpMgmtDhcpFixedIpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtDhcpFixedIpIndex": {
+    "name": "saRgIpMgmtDhcpFixedIpIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtDhcpFixedIpRowStatus": {
+    "name": "saRgIpMgmtDhcpFixedIpRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtDhcpFixedIpAddress": {
+    "name": "saRgIpMgmtDhcpFixedIpAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtDhcpFixedIpPhysAddr": {
+    "name": "saRgIpMgmtDhcpFixedIpPhysAddr",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "saRgIpMgmtDhcpFixedIpHostName": {
+    "name": "saRgIpMgmtDhcpFixedIpHostName",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteTable": {
+    "name": "saRgIpMgmtStaticRouteTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteEntry": {
+    "name": "saRgIpMgmtStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgIpMgmtStaticRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteIndex": {
+    "name": "saRgIpMgmtStaticRouteIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteRowStatus": {
+    "name": "saRgIpMgmtStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteNetwork": {
+    "name": "saRgIpMgmtStaticRouteNetwork",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteSubnetMask": {
+    "name": "saRgIpMgmtStaticRouteSubnetMask",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteGateway": {
+    "name": "saRgIpMgmtStaticRouteGateway",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtStaticRouteRipAdvertise": {
+    "name": "saRgIpMgmtStaticRouteRipAdvertise",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtWanAddr": {
+    "name": "saRgIpMgmtWanAddr",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9",
+    "class": "objectidentity"
+  },
+  "saRgIpMgmtWanAddrBase": {
+    "name": "saRgIpMgmtWanAddrBase",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.1",
+    "class": "objectidentity"
+  },
+  "saRgIpMgmtWanMode": {
+    "name": "saRgIpMgmtWanMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp": 1,
+          "static": 2,
+          "dualIp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtWanMtu": {
+    "name": "saRgIpMgmtWanMtu",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtWanTtl": {
+    "name": "saRgIpMgmtWanTtl",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "hops",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtWanAddrStatic": {
+    "name": "saRgIpMgmtWanAddrStatic",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.3",
+    "class": "objectidentity"
+  },
+  "saRgIpMgmtWanStaticNetwork": {
+    "name": "saRgIpMgmtWanStaticNetwork",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtWanStaticSubnetMask": {
+    "name": "saRgIpMgmtWanStaticSubnetMask",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtWanStaticGateway": {
+    "name": "saRgIpMgmtWanStaticGateway",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtWanAddrDualIp": {
+    "name": "saRgIpMgmtWanAddrDualIp",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.4",
+    "class": "objectidentity"
+  },
+  "saRgIpMgmtWanDualIpAddr": {
+    "name": "saRgIpMgmtWanDualIpAddr",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgIpMgmtWanDualIpRipAdvertised": {
+    "name": "saRgIpMgmtWanDualIpRipAdvertised",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.9.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanExtraSubnetTable": {
+    "name": "saRgIpMgmtLanExtraSubnetTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanExtraSubnetEntry": {
+    "name": "saRgIpMgmtLanExtraSubnetEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtLanExtraSubnetIndex": {
+    "name": "saRgIpMgmtLanExtraSubnetIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secondSubnet": 1,
+          "thirdSubnet": 2,
+          "fourthSubnet": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanExtraSubnetRowStatus": {
+    "name": "saRgIpMgmtLanExtraSubnetRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanExtraSubnetIpAddress": {
+    "name": "saRgIpMgmtLanExtraSubnetIpAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanExtraSubnetSubnetMask": {
+    "name": "saRgIpMgmtLanExtraSubnetSubnetMask",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffff00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanExtraSubnetGateway": {
+    "name": "saRgIpMgmtLanExtraSubnetGateway",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtLanPortControl": {
+    "name": "saRgIpMgmtLanPortControl",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.13",
+    "class": "objectidentity"
+  },
+  "saRgIpMgmtLanPortControlTable": {
+    "name": "saRgIpMgmtLanPortControlTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanPortControlEntry": {
+    "name": "saRgIpMgmtLanPortControlEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgIpMgmtLanPortControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgIpMgmtLanPortControlIndex": {
+    "name": "saRgIpMgmtLanPortControlIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgIpMgmtLanPortMode": {
+    "name": "saRgIpMgmtLanPortMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridge": 1,
+          "router": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgIpMgmtApplySettings": {
+    "name": "saRgIpMgmtApplySettings",
+    "oid": "1.3.6.1.4.1.1429.79.2.3.1001",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewall": {
+    "name": "saRgFirewall",
+    "oid": "1.3.6.1.4.1.1429.79.2.4",
+    "class": "objectidentity"
+  },
+  "saRgFirewallReport": {
+    "name": "saRgFirewallReport",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4",
+    "class": "objectidentity"
+  },
+  "saRgFirewallReportEventTable": {
+    "name": "saRgFirewallReportEventTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallReportEventEntry": {
+    "name": "saRgFirewallReportEventEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgFirewallReportEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgFirewallReportEventIndex": {
+    "name": "saRgFirewallReportEventIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallReportEventDescription": {
+    "name": "saRgFirewallReportEventDescription",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgFirewallReportEventCount": {
+    "name": "saRgFirewallReportEventCount",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgFirewallReportEventLastOccurance": {
+    "name": "saRgFirewallReportEventLastOccurance",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgFirewallReportEventTarget": {
+    "name": "saRgFirewallReportEventTarget",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgFirewallReportEventSource": {
+    "name": "saRgFirewallReportEventSource",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "saRgFirewallReportMgmt": {
+    "name": "saRgFirewallReportMgmt",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.2",
+    "class": "objectidentity"
+  },
+  "saRgFirewallReportMgmtClearLog": {
+    "name": "saRgFirewallReportMgmtClearLog",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallReportEmailLogNow": {
+    "name": "saRgFirewallReportEmailLogNow",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallReportEmail": {
+    "name": "saRgFirewallReportEmail",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.3",
+    "class": "objectidentity"
+  },
+  "saRgFirewallReportEmailEnable": {
+    "name": "saRgFirewallReportEmailEnable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallReportEmailAddress": {
+    "name": "saRgFirewallReportEmailAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallReportEmailSmtpServer": {
+    "name": "saRgFirewallReportEmailSmtpServer",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallReportEmailUsername": {
+    "name": "saRgFirewallReportEmailUsername",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallReportEmailPassword": {
+    "name": "saRgFirewallReportEmailPassword",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallRules": {
+    "name": "saRgFirewallRules",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5",
+    "class": "objectidentity"
+  },
+  "saRgFirewallIpFilterTable": {
+    "name": "saRgFirewallIpFilterTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallIpFilterEntry": {
+    "name": "saRgFirewallIpFilterEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgFirewallIpFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgFirewallIpFilterIndex": {
+    "name": "saRgFirewallIpFilterIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallIpFilterRowStatus": {
+    "name": "saRgFirewallIpFilterRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallIpFilterAddressStart": {
+    "name": "saRgFirewallIpFilterAddressStart",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallIpFilterAddressEnd": {
+    "name": "saRgFirewallIpFilterAddressEnd",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFilterTable": {
+    "name": "saRgFirewallPortFilterTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallPortFilterEntry": {
+    "name": "saRgFirewallPortFilterEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgFirewallPortFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgFirewallPortFilterIndex": {
+    "name": "saRgFirewallPortFilterIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallPortFilterRowStatus": {
+    "name": "saRgFirewallPortFilterRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFilterPortStart": {
+    "name": "saRgFirewallPortFilterPortStart",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFilterPortEnd": {
+    "name": "saRgFirewallPortFilterPortEnd",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFilterProto": {
+    "name": "saRgFirewallPortFilterProto",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2,
+          "udpTcp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallMacFilterTable": {
+    "name": "saRgFirewallMacFilterTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallMacFilterEntry": {
+    "name": "saRgFirewallMacFilterEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgFirewallMacFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgFirewallMacFilterIndex": {
+    "name": "saRgFirewallMacFilterIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallMacFilterRowStatus": {
+    "name": "saRgFirewallMacFilterRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallMacFilterAddress": {
+    "name": "saRgFirewallMacFilterAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallMacFilterEnable": {
+    "name": "saRgFirewallMacFilterEnable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallMacFilterMode": {
+    "name": "saRgFirewallMacFilterMode",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 0,
+          "permit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdTable": {
+    "name": "saRgFirewallPortFwdTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdEntry": {
+    "name": "saRgFirewallPortFwdEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgFirewallPortFwdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgFirewallPortFwdIndex": {
+    "name": "saRgFirewallPortFwdIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdRowStatus": {
+    "name": "saRgFirewallPortFwdRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdToAddress": {
+    "name": "saRgFirewallPortFwdToAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdPortStart": {
+    "name": "saRgFirewallPortFwdPortStart",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdPortEnd": {
+    "name": "saRgFirewallPortFwdPortEnd",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdProto": {
+    "name": "saRgFirewallPortFwdProto",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2,
+          "udpTcp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdExternalPortStart": {
+    "name": "saRgFirewallPortFwdExternalPortStart",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortFwdExternalPortEnd": {
+    "name": "saRgFirewallPortFwdExternalPortEnd",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigTable": {
+    "name": "saRgFirewallPortTrigTable",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigEntry": {
+    "name": "saRgFirewallPortTrigEntry",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SA-RG-MIB",
+        "object": "saRgFirewallPortTrigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "saRgFirewallPortTrigIndex": {
+    "name": "saRgFirewallPortTrigIndex",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigRowStatus": {
+    "name": "saRgFirewallPortTrigRowStatus",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigTriggerPortStart": {
+    "name": "saRgFirewallPortTrigTriggerPortStart",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigTriggerPortEnd": {
+    "name": "saRgFirewallPortTrigTriggerPortEnd",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigTargetPortStart": {
+    "name": "saRgFirewallPortTrigTargetPortStart",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigTargetPortEnd": {
+    "name": "saRgFirewallPortTrigTargetPortEnd",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallPortTrigProto": {
+    "name": "saRgFirewallPortTrigProto",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2,
+          "udpTcp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgFirewallApplySettings": {
+    "name": "saRgFirewallApplySettings",
+    "oid": "1.3.6.1.4.1.1429.79.2.4.1001",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDslite": {
+    "name": "saRgDslite",
+    "oid": "1.3.6.1.4.1.1429.79.2.12",
+    "class": "objectidentity"
+  },
+  "saRgDsliteOption": {
+    "name": "saRgDsliteOption",
+    "oid": "1.3.6.1.4.1.1429.79.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "option-64": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDsliteAftrName": {
+    "name": "saRgDsliteAftrName",
+    "oid": "1.3.6.1.4.1.1429.79.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDsliteAftrAddress": {
+    "name": "saRgDsliteAftrAddress",
+    "oid": "1.3.6.1.4.1.1429.79.2.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDsliteTcpMssClamping": {
+    "name": "saRgDsliteTcpMssClamping",
+    "oid": "1.3.6.1.4.1.1429.79.2.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1420
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "saRgDsliteApplySettings": {
+    "name": "saRgDsliteApplySettings",
+    "oid": "1.3.6.1.4.1.1429.79.2.12.1001",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/SA-RG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SA-RG-MIB"
+  }
+}

@@ -1,0 +1,5817 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "serverscheck": {
+    "name": "serverscheck",
+    "oid": "1.3.6.1.4.1.17095",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.17095.1",
+    "class": "objectidentity"
+  },
+  "productname": {
+    "name": "productname",
+    "oid": "1.3.6.1.4.1.17095.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productversion": {
+    "name": "productversion",
+    "oid": "1.3.6.1.4.1.17095.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productdate": {
+    "name": "productdate",
+    "oid": "1.3.6.1.4.1.17095.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productusername": {
+    "name": "productusername",
+    "oid": "1.3.6.1.4.1.17095.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productuserloc": {
+    "name": "productuserloc",
+    "oid": "1.3.6.1.4.1.17095.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productnetip": {
+    "name": "productnetip",
+    "oid": "1.3.6.1.4.1.17095.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productnetgateway": {
+    "name": "productnetgateway",
+    "oid": "1.3.6.1.4.1.17095.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productnetpridns": {
+    "name": "productnetpridns",
+    "oid": "1.3.6.1.4.1.17095.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "productnetsecdns": {
+    "name": "productnetsecdns",
+    "oid": "1.3.6.1.4.1.17095.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "setup": {
+    "name": "setup",
+    "oid": "1.3.6.1.4.1.17095.2",
+    "class": "objectidentity"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.17095.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "trapEntry": {
+    "name": "trapEntry",
+    "oid": "1.3.6.1.4.1.17095.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ServersCheck",
+        "object": "trapReceiverNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "trapReceiverNumber": {
+    "name": "trapReceiverNumber",
+    "oid": "1.3.6.1.4.1.17095.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "trapEnabled": {
+    "name": "trapEnabled",
+    "oid": "1.3.6.1.4.1.17095.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "trapReceiverIPAddress": {
+    "name": "trapReceiverIPAddress",
+    "oid": "1.3.6.1.4.1.17095.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "trapCommunity": {
+    "name": "trapCommunity",
+    "oid": "1.3.6.1.4.1.17095.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "control": {
+    "name": "control",
+    "oid": "1.3.6.1.4.1.17095.3",
+    "class": "objectidentity"
+  },
+  "sensor1name": {
+    "name": "sensor1name",
+    "oid": "1.3.6.1.4.1.17095.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor1Value": {
+    "name": "sensor1Value",
+    "oid": "1.3.6.1.4.1.17095.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor1LastErrMsg": {
+    "name": "sensor1LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor1LastErrTime": {
+    "name": "sensor1LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2name": {
+    "name": "sensor2name",
+    "oid": "1.3.6.1.4.1.17095.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2Value": {
+    "name": "sensor2Value",
+    "oid": "1.3.6.1.4.1.17095.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2LastErrMsg": {
+    "name": "sensor2LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2LastErrTime": {
+    "name": "sensor2LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3name": {
+    "name": "sensor3name",
+    "oid": "1.3.6.1.4.1.17095.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3Value": {
+    "name": "sensor3Value",
+    "oid": "1.3.6.1.4.1.17095.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3LastErrMsg": {
+    "name": "sensor3LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3LastErrTime": {
+    "name": "sensor3LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4name": {
+    "name": "sensor4name",
+    "oid": "1.3.6.1.4.1.17095.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4Value": {
+    "name": "sensor4Value",
+    "oid": "1.3.6.1.4.1.17095.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4LastErrMsg": {
+    "name": "sensor4LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4LastErrTime": {
+    "name": "sensor4LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5name": {
+    "name": "sensor5name",
+    "oid": "1.3.6.1.4.1.17095.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5Value": {
+    "name": "sensor5Value",
+    "oid": "1.3.6.1.4.1.17095.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5LastErrMsg": {
+    "name": "sensor5LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5LastErrTime": {
+    "name": "sensor5LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6name": {
+    "name": "sensor6name",
+    "oid": "1.3.6.1.4.1.17095.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6Value": {
+    "name": "sensor6Value",
+    "oid": "1.3.6.1.4.1.17095.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6LastErrMsg": {
+    "name": "sensor6LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6LastErrTime": {
+    "name": "sensor6LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7name": {
+    "name": "sensor7name",
+    "oid": "1.3.6.1.4.1.17095.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7Value": {
+    "name": "sensor7Value",
+    "oid": "1.3.6.1.4.1.17095.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7LastErrMsg": {
+    "name": "sensor7LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7LastErrTime": {
+    "name": "sensor7LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8name": {
+    "name": "sensor8name",
+    "oid": "1.3.6.1.4.1.17095.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8Value": {
+    "name": "sensor8Value",
+    "oid": "1.3.6.1.4.1.17095.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8LastErrMsg": {
+    "name": "sensor8LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8LastErrTime": {
+    "name": "sensor8LastErrTime",
+    "oid": "1.3.6.1.4.1.17095.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapalerts": {
+    "name": "trapalerts",
+    "oid": "1.3.6.1.4.1.17095.4",
+    "class": "objectidentity"
+  },
+  "sensor1TrapErrMsg": {
+    "name": "sensor1TrapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2TrapErrMsg": {
+    "name": "sensor2TrapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3TrapErrMsg": {
+    "name": "sensor3TrapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4TrapErrMsg": {
+    "name": "sensor4TrapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5TrapErrMsg": {
+    "name": "sensor5TrapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6TrapErrMsg": {
+    "name": "sensor6TrapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensorAlert": {
+    "name": "sensorAlert",
+    "oid": "1.3.6.1.4.1.170950.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ServersCheck",
+        "object": "sensor1TrapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "sensor2TrapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "sensor3TrapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "sensor4TrapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "sensor5TrapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "sensor6TrapErrMsg"
+      }
+    ]
+  },
+  "iotrapalerts": {
+    "name": "iotrapalerts",
+    "oid": "1.3.6.1.4.1.17095.5",
+    "class": "objectidentity"
+  },
+  "iosensorINPUT1trapErrMsg": {
+    "name": "iosensorINPUT1trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT2trapErrMsg": {
+    "name": "iosensorINPUT2trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT3trapErrMsg": {
+    "name": "iosensorINPUT3trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT4trapErrMsg": {
+    "name": "iosensorINPUT4trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT5trapErrMsg": {
+    "name": "iosensorINPUT5trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT6trapErrMsg": {
+    "name": "iosensorINPUT6trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT7trapErrMsg": {
+    "name": "iosensorINPUT7trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT8trapErrMsg": {
+    "name": "iosensorINPUT8trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT9trapErrMsg": {
+    "name": "iosensorINPUT9trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT10trapErrMsg": {
+    "name": "iosensorINPUT10trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT11trapErrMsg": {
+    "name": "iosensorINPUT11trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT12trapErrMsg": {
+    "name": "iosensorINPUT12trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT13trapErrMsg": {
+    "name": "iosensorINPUT13trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT14trapErrMsg": {
+    "name": "iosensorINPUT14trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT15trapErrMsg": {
+    "name": "iosensorINPUT15trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorINPUT16trapErrMsg": {
+    "name": "iosensorINPUT16trapErrMsg",
+    "oid": "1.3.6.1.4.1.17095.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "iosensorAlert": {
+    "name": "iosensorAlert",
+    "oid": "1.3.6.1.4.1.170950.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT1trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT2trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT3trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT4trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT5trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT6trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT7trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT8trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT9trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT10trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT11trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT12trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT13trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT14trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT15trapErrMsg"
+      },
+      {
+        "module": "ServersCheck",
+        "object": "iosensorINPUT16trapErrMsg"
+      }
+    ]
+  },
+  "input": {
+    "name": "input",
+    "oid": "1.3.6.1.4.1.17095.6",
+    "class": "objectidentity"
+  },
+  "input1name": {
+    "name": "input1name",
+    "oid": "1.3.6.1.4.1.17095.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input1Value": {
+    "name": "input1Value",
+    "oid": "1.3.6.1.4.1.17095.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input1LastErrMsg": {
+    "name": "input1LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input2name": {
+    "name": "input2name",
+    "oid": "1.3.6.1.4.1.17095.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input2Value": {
+    "name": "input2Value",
+    "oid": "1.3.6.1.4.1.17095.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input2LastErrMsg": {
+    "name": "input2LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input3name": {
+    "name": "input3name",
+    "oid": "1.3.6.1.4.1.17095.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input3Value": {
+    "name": "input3Value",
+    "oid": "1.3.6.1.4.1.17095.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input3LastErrMsg": {
+    "name": "input3LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input4name": {
+    "name": "input4name",
+    "oid": "1.3.6.1.4.1.17095.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input4Value": {
+    "name": "input4Value",
+    "oid": "1.3.6.1.4.1.17095.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input4LastErrMsg": {
+    "name": "input4LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input5name": {
+    "name": "input5name",
+    "oid": "1.3.6.1.4.1.17095.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input5Value": {
+    "name": "input5Value",
+    "oid": "1.3.6.1.4.1.17095.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input5LastErrMsg": {
+    "name": "input5LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input6name": {
+    "name": "input6name",
+    "oid": "1.3.6.1.4.1.17095.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input6Value": {
+    "name": "input6Value",
+    "oid": "1.3.6.1.4.1.17095.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input6LastErrMsg": {
+    "name": "input6LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input7name": {
+    "name": "input7name",
+    "oid": "1.3.6.1.4.1.17095.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input7Value": {
+    "name": "input7Value",
+    "oid": "1.3.6.1.4.1.17095.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input7LastErrMsg": {
+    "name": "input7LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input8name": {
+    "name": "input8name",
+    "oid": "1.3.6.1.4.1.17095.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input8Value": {
+    "name": "input8Value",
+    "oid": "1.3.6.1.4.1.17095.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input8LastErrMsg": {
+    "name": "input8LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input9name": {
+    "name": "input9name",
+    "oid": "1.3.6.1.4.1.17095.6.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input9Value": {
+    "name": "input9Value",
+    "oid": "1.3.6.1.4.1.17095.6.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input9LastErrMsg": {
+    "name": "input9LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input10name": {
+    "name": "input10name",
+    "oid": "1.3.6.1.4.1.17095.6.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input10Value": {
+    "name": "input10Value",
+    "oid": "1.3.6.1.4.1.17095.6.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input10LastErrMsg": {
+    "name": "input10LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input11name": {
+    "name": "input11name",
+    "oid": "1.3.6.1.4.1.17095.6.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input11Value": {
+    "name": "input11Value",
+    "oid": "1.3.6.1.4.1.17095.6.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input11LastErrMsg": {
+    "name": "input11LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input12name": {
+    "name": "input12name",
+    "oid": "1.3.6.1.4.1.17095.6.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input12Value": {
+    "name": "input12Value",
+    "oid": "1.3.6.1.4.1.17095.6.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input12LastErrMsg": {
+    "name": "input12LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input13name": {
+    "name": "input13name",
+    "oid": "1.3.6.1.4.1.17095.6.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input13Value": {
+    "name": "input13Value",
+    "oid": "1.3.6.1.4.1.17095.6.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input13LastErrMsg": {
+    "name": "input13LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input14name": {
+    "name": "input14name",
+    "oid": "1.3.6.1.4.1.17095.6.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input14Value": {
+    "name": "input14Value",
+    "oid": "1.3.6.1.4.1.17095.6.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input14LastErrMsg": {
+    "name": "input14LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input15name": {
+    "name": "input15name",
+    "oid": "1.3.6.1.4.1.17095.6.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input15Value": {
+    "name": "input15Value",
+    "oid": "1.3.6.1.4.1.17095.6.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input15LastErrMsg": {
+    "name": "input15LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input16name": {
+    "name": "input16name",
+    "oid": "1.3.6.1.4.1.17095.6.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input16Value": {
+    "name": "input16Value",
+    "oid": "1.3.6.1.4.1.17095.6.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "input16LastErrMsg": {
+    "name": "input16LastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.6.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "output": {
+    "name": "output",
+    "oid": "1.3.6.1.4.1.17095.7",
+    "class": "objectidentity"
+  },
+  "output1State": {
+    "name": "output1State",
+    "oid": "1.3.6.1.4.1.17095.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "output2State": {
+    "name": "output2State",
+    "oid": "1.3.6.1.4.1.17095.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "output3State": {
+    "name": "output3State",
+    "oid": "1.3.6.1.4.1.17095.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "output4State": {
+    "name": "output4State",
+    "oid": "1.3.6.1.4.1.17095.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensorTable": {
+    "name": "sensorTable",
+    "oid": "1.3.6.1.4.1.17095.11",
+    "class": "objectidentity"
+  },
+  "sensor1": {
+    "name": "sensor1",
+    "oid": "1.3.6.1.4.1.17095.11.1",
+    "class": "objectidentity"
+  },
+  "sensor2": {
+    "name": "sensor2",
+    "oid": "1.3.6.1.4.1.17095.11.2",
+    "class": "objectidentity"
+  },
+  "sensor3": {
+    "name": "sensor3",
+    "oid": "1.3.6.1.4.1.17095.11.3",
+    "class": "objectidentity"
+  },
+  "sensor4": {
+    "name": "sensor4",
+    "oid": "1.3.6.1.4.1.17095.11.4",
+    "class": "objectidentity"
+  },
+  "sensor5": {
+    "name": "sensor5",
+    "oid": "1.3.6.1.4.1.17095.11.5",
+    "class": "objectidentity"
+  },
+  "sensor6": {
+    "name": "sensor6",
+    "oid": "1.3.6.1.4.1.17095.11.6",
+    "class": "objectidentity"
+  },
+  "sensor7": {
+    "name": "sensor7",
+    "oid": "1.3.6.1.4.1.17095.11.7",
+    "class": "objectidentity"
+  },
+  "sensor8": {
+    "name": "sensor8",
+    "oid": "1.3.6.1.4.1.17095.11.8",
+    "class": "objectidentity"
+  },
+  "sensor9": {
+    "name": "sensor9",
+    "oid": "1.3.6.1.4.1.17095.11.9",
+    "class": "objectidentity"
+  },
+  "sensor10": {
+    "name": "sensor10",
+    "oid": "1.3.6.1.4.1.17095.11.10",
+    "class": "objectidentity"
+  },
+  "sensor11": {
+    "name": "sensor11",
+    "oid": "1.3.6.1.4.1.17095.11.11",
+    "class": "objectidentity"
+  },
+  "sensor12": {
+    "name": "sensor12",
+    "oid": "1.3.6.1.4.1.17095.11.12",
+    "class": "objectidentity"
+  },
+  "sensor13": {
+    "name": "sensor13",
+    "oid": "1.3.6.1.4.1.17095.11.13",
+    "class": "objectidentity"
+  },
+  "sensor14": {
+    "name": "sensor14",
+    "oid": "1.3.6.1.4.1.17095.11.14",
+    "class": "objectidentity"
+  },
+  "sensor15": {
+    "name": "sensor15",
+    "oid": "1.3.6.1.4.1.17095.11.15",
+    "class": "objectidentity"
+  },
+  "sensor16": {
+    "name": "sensor16",
+    "oid": "1.3.6.1.4.1.17095.11.16",
+    "class": "objectidentity"
+  },
+  "sensor17": {
+    "name": "sensor17",
+    "oid": "1.3.6.1.4.1.17095.11.17",
+    "class": "objectidentity"
+  },
+  "sensor18": {
+    "name": "sensor18",
+    "oid": "1.3.6.1.4.1.17095.11.18",
+    "class": "objectidentity"
+  },
+  "sensor19": {
+    "name": "sensor19",
+    "oid": "1.3.6.1.4.1.17095.11.19",
+    "class": "objectidentity"
+  },
+  "sensor20": {
+    "name": "sensor20",
+    "oid": "1.3.6.1.4.1.17095.11.20",
+    "class": "objectidentity"
+  },
+  "sensor21": {
+    "name": "sensor21",
+    "oid": "1.3.6.1.4.1.17095.11.21",
+    "class": "objectidentity"
+  },
+  "sensor22": {
+    "name": "sensor22",
+    "oid": "1.3.6.1.4.1.17095.11.22",
+    "class": "objectidentity"
+  },
+  "sensor23": {
+    "name": "sensor23",
+    "oid": "1.3.6.1.4.1.17095.11.23",
+    "class": "objectidentity"
+  },
+  "sensor24": {
+    "name": "sensor24",
+    "oid": "1.3.6.1.4.1.17095.11.24",
+    "class": "objectidentity"
+  },
+  "sensor25": {
+    "name": "sensor25",
+    "oid": "1.3.6.1.4.1.17095.11.25",
+    "class": "objectidentity"
+  },
+  "sensor26": {
+    "name": "sensor26",
+    "oid": "1.3.6.1.4.1.17095.11.26",
+    "class": "objectidentity"
+  },
+  "sensor27": {
+    "name": "sensor27",
+    "oid": "1.3.6.1.4.1.17095.11.27",
+    "class": "objectidentity"
+  },
+  "sensor28": {
+    "name": "sensor28",
+    "oid": "1.3.6.1.4.1.17095.11.28",
+    "class": "objectidentity"
+  },
+  "sensor29": {
+    "name": "sensor29",
+    "oid": "1.3.6.1.4.1.17095.11.29",
+    "class": "objectidentity"
+  },
+  "sensor30": {
+    "name": "sensor30",
+    "oid": "1.3.6.1.4.1.17095.11.30",
+    "class": "objectidentity"
+  },
+  "sensor31": {
+    "name": "sensor31",
+    "oid": "1.3.6.1.4.1.17095.11.31",
+    "class": "objectidentity"
+  },
+  "sensor32": {
+    "name": "sensor32",
+    "oid": "1.3.6.1.4.1.17095.11.32",
+    "class": "objectidentity"
+  },
+  "sensor1Name": {
+    "name": "sensor1Name",
+    "oid": "1.3.6.1.4.1.17095.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2Name": {
+    "name": "sensor2Name",
+    "oid": "1.3.6.1.4.1.17095.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3Name": {
+    "name": "sensor3Name",
+    "oid": "1.3.6.1.4.1.17095.11.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4Name": {
+    "name": "sensor4Name",
+    "oid": "1.3.6.1.4.1.17095.11.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5Name": {
+    "name": "sensor5Name",
+    "oid": "1.3.6.1.4.1.17095.11.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6Name": {
+    "name": "sensor6Name",
+    "oid": "1.3.6.1.4.1.17095.11.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7Name": {
+    "name": "sensor7Name",
+    "oid": "1.3.6.1.4.1.17095.11.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8Name": {
+    "name": "sensor8Name",
+    "oid": "1.3.6.1.4.1.17095.11.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor9Name": {
+    "name": "sensor9Name",
+    "oid": "1.3.6.1.4.1.17095.11.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor10Name": {
+    "name": "sensor10Name",
+    "oid": "1.3.6.1.4.1.17095.11.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor11Name": {
+    "name": "sensor11Name",
+    "oid": "1.3.6.1.4.1.17095.11.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor12Name": {
+    "name": "sensor12Name",
+    "oid": "1.3.6.1.4.1.17095.11.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor13Name": {
+    "name": "sensor13Name",
+    "oid": "1.3.6.1.4.1.17095.11.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor14Name": {
+    "name": "sensor14Name",
+    "oid": "1.3.6.1.4.1.17095.11.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor15Name": {
+    "name": "sensor15Name",
+    "oid": "1.3.6.1.4.1.17095.11.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor16Name": {
+    "name": "sensor16Name",
+    "oid": "1.3.6.1.4.1.17095.11.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor17Name": {
+    "name": "sensor17Name",
+    "oid": "1.3.6.1.4.1.17095.11.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor18Name": {
+    "name": "sensor18Name",
+    "oid": "1.3.6.1.4.1.17095.11.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor19Name": {
+    "name": "sensor19Name",
+    "oid": "1.3.6.1.4.1.17095.11.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor20Name": {
+    "name": "sensor20Name",
+    "oid": "1.3.6.1.4.1.17095.11.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor21Name": {
+    "name": "sensor21Name",
+    "oid": "1.3.6.1.4.1.17095.11.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor22Name": {
+    "name": "sensor22Name",
+    "oid": "1.3.6.1.4.1.17095.11.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor23Name": {
+    "name": "sensor23Name",
+    "oid": "1.3.6.1.4.1.17095.11.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor24Name": {
+    "name": "sensor24Name",
+    "oid": "1.3.6.1.4.1.17095.11.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor25Name": {
+    "name": "sensor25Name",
+    "oid": "1.3.6.1.4.1.17095.11.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor26Name": {
+    "name": "sensor26Name",
+    "oid": "1.3.6.1.4.1.17095.11.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor27Name": {
+    "name": "sensor27Name",
+    "oid": "1.3.6.1.4.1.17095.11.27.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor28Name": {
+    "name": "sensor28Name",
+    "oid": "1.3.6.1.4.1.17095.11.28.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor29Name": {
+    "name": "sensor29Name",
+    "oid": "1.3.6.1.4.1.17095.11.29.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor30Name": {
+    "name": "sensor30Name",
+    "oid": "1.3.6.1.4.1.17095.11.30.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor31Name": {
+    "name": "sensor31Name",
+    "oid": "1.3.6.1.4.1.17095.11.31.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor32Name": {
+    "name": "sensor32Name",
+    "oid": "1.3.6.1.4.1.17095.11.32.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor1value": {
+    "name": "sensor1value",
+    "oid": "1.3.6.1.4.1.17095.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2value": {
+    "name": "sensor2value",
+    "oid": "1.3.6.1.4.1.17095.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3value": {
+    "name": "sensor3value",
+    "oid": "1.3.6.1.4.1.17095.11.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4value": {
+    "name": "sensor4value",
+    "oid": "1.3.6.1.4.1.17095.11.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5value": {
+    "name": "sensor5value",
+    "oid": "1.3.6.1.4.1.17095.11.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6value": {
+    "name": "sensor6value",
+    "oid": "1.3.6.1.4.1.17095.11.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7value": {
+    "name": "sensor7value",
+    "oid": "1.3.6.1.4.1.17095.11.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8value": {
+    "name": "sensor8value",
+    "oid": "1.3.6.1.4.1.17095.11.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor9value": {
+    "name": "sensor9value",
+    "oid": "1.3.6.1.4.1.17095.11.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor10value": {
+    "name": "sensor10value",
+    "oid": "1.3.6.1.4.1.17095.11.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor11value": {
+    "name": "sensor11value",
+    "oid": "1.3.6.1.4.1.17095.11.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor12value": {
+    "name": "sensor12value",
+    "oid": "1.3.6.1.4.1.17095.11.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor13value": {
+    "name": "sensor13value",
+    "oid": "1.3.6.1.4.1.17095.11.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor14value": {
+    "name": "sensor14value",
+    "oid": "1.3.6.1.4.1.17095.11.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor15value": {
+    "name": "sensor15value",
+    "oid": "1.3.6.1.4.1.17095.11.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor16value": {
+    "name": "sensor16value",
+    "oid": "1.3.6.1.4.1.17095.11.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor17value": {
+    "name": "sensor17value",
+    "oid": "1.3.6.1.4.1.17095.11.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor18value": {
+    "name": "sensor18value",
+    "oid": "1.3.6.1.4.1.17095.11.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor19value": {
+    "name": "sensor19value",
+    "oid": "1.3.6.1.4.1.17095.11.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor20value": {
+    "name": "sensor20value",
+    "oid": "1.3.6.1.4.1.17095.11.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor21value": {
+    "name": "sensor21value",
+    "oid": "1.3.6.1.4.1.17095.11.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor22value": {
+    "name": "sensor22value",
+    "oid": "1.3.6.1.4.1.17095.11.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor23value": {
+    "name": "sensor23value",
+    "oid": "1.3.6.1.4.1.17095.11.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor24value": {
+    "name": "sensor24value",
+    "oid": "1.3.6.1.4.1.17095.11.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor25value": {
+    "name": "sensor25value",
+    "oid": "1.3.6.1.4.1.17095.11.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor26value": {
+    "name": "sensor26value",
+    "oid": "1.3.6.1.4.1.17095.11.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor27value": {
+    "name": "sensor27value",
+    "oid": "1.3.6.1.4.1.17095.11.27.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor28value": {
+    "name": "sensor28value",
+    "oid": "1.3.6.1.4.1.17095.11.28.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor29value": {
+    "name": "sensor29value",
+    "oid": "1.3.6.1.4.1.17095.11.29.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor30value": {
+    "name": "sensor30value",
+    "oid": "1.3.6.1.4.1.17095.11.30.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor31value": {
+    "name": "sensor31value",
+    "oid": "1.3.6.1.4.1.17095.11.31.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor32value": {
+    "name": "sensor32value",
+    "oid": "1.3.6.1.4.1.17095.11.32.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor1ErrState": {
+    "name": "sensor1ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2ErrState": {
+    "name": "sensor2ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3ErrState": {
+    "name": "sensor3ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4ErrState": {
+    "name": "sensor4ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5ErrState": {
+    "name": "sensor5ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6ErrState": {
+    "name": "sensor6ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7ErrState": {
+    "name": "sensor7ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8ErrState": {
+    "name": "sensor8ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor9ErrState": {
+    "name": "sensor9ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor10ErrState": {
+    "name": "sensor10ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor11ErrState": {
+    "name": "sensor11ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor12ErrState": {
+    "name": "sensor12ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor13ErrState": {
+    "name": "sensor13ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor14ErrState": {
+    "name": "sensor14ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor15ErrState": {
+    "name": "sensor15ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor16ErrState": {
+    "name": "sensor16ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor17ErrState": {
+    "name": "sensor17ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor18ErrState": {
+    "name": "sensor18ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor19ErrState": {
+    "name": "sensor19ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor20ErrState": {
+    "name": "sensor20ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor21ErrState": {
+    "name": "sensor21ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor22ErrState": {
+    "name": "sensor22ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor23ErrState": {
+    "name": "sensor23ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor24ErrState": {
+    "name": "sensor24ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor25ErrState": {
+    "name": "sensor25ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor26ErrState": {
+    "name": "sensor26ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor27ErrState": {
+    "name": "sensor27ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.27.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor28ErrState": {
+    "name": "sensor28ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.28.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor29ErrState": {
+    "name": "sensor29ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.29.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor30ErrState": {
+    "name": "sensor30ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.30.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor31ErrState": {
+    "name": "sensor31ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.31.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor32ErrState": {
+    "name": "sensor32ErrState",
+    "oid": "1.3.6.1.4.1.17095.11.32.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor1lastErrTime": {
+    "name": "sensor1lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2lastErrTime": {
+    "name": "sensor2lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3lastErrTime": {
+    "name": "sensor3lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4lastErrTime": {
+    "name": "sensor4lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5lastErrTime": {
+    "name": "sensor5lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6lastErrTime": {
+    "name": "sensor6lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7lastErrTime": {
+    "name": "sensor7lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8lastErrTime": {
+    "name": "sensor8lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor9lastErrTime": {
+    "name": "sensor9lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor10lastErrTime": {
+    "name": "sensor10lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor11lastErrTime": {
+    "name": "sensor11lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor12lastErrTime": {
+    "name": "sensor12lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor13lastErrTime": {
+    "name": "sensor13lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor14lastErrTime": {
+    "name": "sensor14lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor15lastErrTime": {
+    "name": "sensor15lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor16lastErrTime": {
+    "name": "sensor16lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.16.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor17lastErrTime": {
+    "name": "sensor17lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor18lastErrTime": {
+    "name": "sensor18lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor19lastErrTime": {
+    "name": "sensor19lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor20lastErrTime": {
+    "name": "sensor20lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor21lastErrTime": {
+    "name": "sensor21lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor22lastErrTime": {
+    "name": "sensor22lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor23lastErrTime": {
+    "name": "sensor23lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor24lastErrTime": {
+    "name": "sensor24lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor25lastErrTime": {
+    "name": "sensor25lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.25.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor26lastErrTime": {
+    "name": "sensor26lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.26.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor27lastErrTime": {
+    "name": "sensor27lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.27.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor28lastErrTime": {
+    "name": "sensor28lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.28.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor29lastErrTime": {
+    "name": "sensor29lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.29.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor30lastErrTime": {
+    "name": "sensor30lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.30.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor31lastErrTime": {
+    "name": "sensor31lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.31.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor32lastErrTime": {
+    "name": "sensor32lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.11.32.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor1lastErrMsg": {
+    "name": "sensor1lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor2lastErrMsg": {
+    "name": "sensor2lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor3lastErrMsg": {
+    "name": "sensor3lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor4lastErrMsg": {
+    "name": "sensor4lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor5lastErrMsg": {
+    "name": "sensor5lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor6lastErrMsg": {
+    "name": "sensor6lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor7lastErrMsg": {
+    "name": "sensor7lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor8lastErrMsg": {
+    "name": "sensor8lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor9lastErrMsg": {
+    "name": "sensor9lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor10lastErrMsg": {
+    "name": "sensor10lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor11lastErrMsg": {
+    "name": "sensor11lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor12lastErrMsg": {
+    "name": "sensor12lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor13lastErrMsg": {
+    "name": "sensor13lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor14lastErrMsg": {
+    "name": "sensor14lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor15lastErrMsg": {
+    "name": "sensor15lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor16lastErrMsg": {
+    "name": "sensor16lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.16.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor17lastErrMsg": {
+    "name": "sensor17lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor18lastErrMsg": {
+    "name": "sensor18lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.18.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor19lastErrMsg": {
+    "name": "sensor19lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.19.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor20lastErrMsg": {
+    "name": "sensor20lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor21lastErrMsg": {
+    "name": "sensor21lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor22lastErrMsg": {
+    "name": "sensor22lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor23lastErrMsg": {
+    "name": "sensor23lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor24lastErrMsg": {
+    "name": "sensor24lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.24.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor25lastErrMsg": {
+    "name": "sensor25lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.25.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor26lastErrMsg": {
+    "name": "sensor26lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.26.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor27lastErrMsg": {
+    "name": "sensor27lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.27.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor28lastErrMsg": {
+    "name": "sensor28lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.28.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor29lastErrMsg": {
+    "name": "sensor29lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.29.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor30lastErrMsg": {
+    "name": "sensor30lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.30.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor31lastErrMsg": {
+    "name": "sensor31lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.31.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sensor32lastErrMsg": {
+    "name": "sensor32lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.11.32.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensorTable": {
+    "name": "daisySensorTable",
+    "oid": "1.3.6.1.4.1.17095.13",
+    "class": "objectidentity"
+  },
+  "daisySensor1": {
+    "name": "daisySensor1",
+    "oid": "1.3.6.1.4.1.17095.13.1",
+    "class": "objectidentity"
+  },
+  "daisySensor2": {
+    "name": "daisySensor2",
+    "oid": "1.3.6.1.4.1.17095.13.2",
+    "class": "objectidentity"
+  },
+  "daisySensor3": {
+    "name": "daisySensor3",
+    "oid": "1.3.6.1.4.1.17095.13.3",
+    "class": "objectidentity"
+  },
+  "daisySensor4": {
+    "name": "daisySensor4",
+    "oid": "1.3.6.1.4.1.17095.13.4",
+    "class": "objectidentity"
+  },
+  "daisySensor5": {
+    "name": "daisySensor5",
+    "oid": "1.3.6.1.4.1.17095.13.5",
+    "class": "objectidentity"
+  },
+  "daisySensor6": {
+    "name": "daisySensor6",
+    "oid": "1.3.6.1.4.1.17095.13.6",
+    "class": "objectidentity"
+  },
+  "daisySensor7": {
+    "name": "daisySensor7",
+    "oid": "1.3.6.1.4.1.17095.13.7",
+    "class": "objectidentity"
+  },
+  "daisySensor8": {
+    "name": "daisySensor8",
+    "oid": "1.3.6.1.4.1.17095.13.8",
+    "class": "objectidentity"
+  },
+  "daisySensor9": {
+    "name": "daisySensor9",
+    "oid": "1.3.6.1.4.1.17095.13.9",
+    "class": "objectidentity"
+  },
+  "daisySensor10": {
+    "name": "daisySensor10",
+    "oid": "1.3.6.1.4.1.17095.13.10",
+    "class": "objectidentity"
+  },
+  "daisySensor11": {
+    "name": "daisySensor11",
+    "oid": "1.3.6.1.4.1.17095.13.11",
+    "class": "objectidentity"
+  },
+  "daisySensor12": {
+    "name": "daisySensor12",
+    "oid": "1.3.6.1.4.1.17095.13.12",
+    "class": "objectidentity"
+  },
+  "daisySensor13": {
+    "name": "daisySensor13",
+    "oid": "1.3.6.1.4.1.17095.13.13",
+    "class": "objectidentity"
+  },
+  "daisySensor14": {
+    "name": "daisySensor14",
+    "oid": "1.3.6.1.4.1.17095.13.14",
+    "class": "objectidentity"
+  },
+  "daisySensor15": {
+    "name": "daisySensor15",
+    "oid": "1.3.6.1.4.1.17095.13.15",
+    "class": "objectidentity"
+  },
+  "daisySensor16": {
+    "name": "daisySensor16",
+    "oid": "1.3.6.1.4.1.17095.13.16",
+    "class": "objectidentity"
+  },
+  "daisySensor17": {
+    "name": "daisySensor17",
+    "oid": "1.3.6.1.4.1.17095.13.17",
+    "class": "objectidentity"
+  },
+  "daisySensor18": {
+    "name": "daisySensor18",
+    "oid": "1.3.6.1.4.1.17095.13.18",
+    "class": "objectidentity"
+  },
+  "daisySensor19": {
+    "name": "daisySensor19",
+    "oid": "1.3.6.1.4.1.17095.13.19",
+    "class": "objectidentity"
+  },
+  "daisySensor20": {
+    "name": "daisySensor20",
+    "oid": "1.3.6.1.4.1.17095.13.20",
+    "class": "objectidentity"
+  },
+  "daisySensor21": {
+    "name": "daisySensor21",
+    "oid": "1.3.6.1.4.1.17095.13.21",
+    "class": "objectidentity"
+  },
+  "daisySensor22": {
+    "name": "daisySensor22",
+    "oid": "1.3.6.1.4.1.17095.13.22",
+    "class": "objectidentity"
+  },
+  "daisySensor23": {
+    "name": "daisySensor23",
+    "oid": "1.3.6.1.4.1.17095.13.23",
+    "class": "objectidentity"
+  },
+  "daisySensor24": {
+    "name": "daisySensor24",
+    "oid": "1.3.6.1.4.1.17095.13.24",
+    "class": "objectidentity"
+  },
+  "daisySensor25": {
+    "name": "daisySensor25",
+    "oid": "1.3.6.1.4.1.17095.13.25",
+    "class": "objectidentity"
+  },
+  "daisySensor26": {
+    "name": "daisySensor26",
+    "oid": "1.3.6.1.4.1.17095.13.26",
+    "class": "objectidentity"
+  },
+  "daisySensor27": {
+    "name": "daisySensor27",
+    "oid": "1.3.6.1.4.1.17095.13.27",
+    "class": "objectidentity"
+  },
+  "daisySensor28": {
+    "name": "daisySensor28",
+    "oid": "1.3.6.1.4.1.17095.13.28",
+    "class": "objectidentity"
+  },
+  "daisySensor29": {
+    "name": "daisySensor29",
+    "oid": "1.3.6.1.4.1.17095.13.29",
+    "class": "objectidentity"
+  },
+  "daisySensor30": {
+    "name": "daisySensor30",
+    "oid": "1.3.6.1.4.1.17095.13.30",
+    "class": "objectidentity"
+  },
+  "daisySensor31": {
+    "name": "daisySensor31",
+    "oid": "1.3.6.1.4.1.17095.13.31",
+    "class": "objectidentity"
+  },
+  "daisySensor32": {
+    "name": "daisySensor32",
+    "oid": "1.3.6.1.4.1.17095.13.32",
+    "class": "objectidentity"
+  },
+  "daisySensor1Name": {
+    "name": "daisySensor1Name",
+    "oid": "1.3.6.1.4.1.17095.13.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor2Name": {
+    "name": "daisySensor2Name",
+    "oid": "1.3.6.1.4.1.17095.13.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor3Name": {
+    "name": "daisySensor3Name",
+    "oid": "1.3.6.1.4.1.17095.13.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor4Name": {
+    "name": "daisySensor4Name",
+    "oid": "1.3.6.1.4.1.17095.13.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor5Name": {
+    "name": "daisySensor5Name",
+    "oid": "1.3.6.1.4.1.17095.13.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor6Name": {
+    "name": "daisySensor6Name",
+    "oid": "1.3.6.1.4.1.17095.13.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor7Name": {
+    "name": "daisySensor7Name",
+    "oid": "1.3.6.1.4.1.17095.13.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor8Name": {
+    "name": "daisySensor8Name",
+    "oid": "1.3.6.1.4.1.17095.13.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor9Name": {
+    "name": "daisySensor9Name",
+    "oid": "1.3.6.1.4.1.17095.13.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor10Name": {
+    "name": "daisySensor10Name",
+    "oid": "1.3.6.1.4.1.17095.13.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor11Name": {
+    "name": "daisySensor11Name",
+    "oid": "1.3.6.1.4.1.17095.13.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor12Name": {
+    "name": "daisySensor12Name",
+    "oid": "1.3.6.1.4.1.17095.13.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor13Name": {
+    "name": "daisySensor13Name",
+    "oid": "1.3.6.1.4.1.17095.13.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor14Name": {
+    "name": "daisySensor14Name",
+    "oid": "1.3.6.1.4.1.17095.13.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor15Name": {
+    "name": "daisySensor15Name",
+    "oid": "1.3.6.1.4.1.17095.13.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor16Name": {
+    "name": "daisySensor16Name",
+    "oid": "1.3.6.1.4.1.17095.13.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor17Name": {
+    "name": "daisySensor17Name",
+    "oid": "1.3.6.1.4.1.17095.13.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor18Name": {
+    "name": "daisySensor18Name",
+    "oid": "1.3.6.1.4.1.17095.13.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor19Name": {
+    "name": "daisySensor19Name",
+    "oid": "1.3.6.1.4.1.17095.13.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor20Name": {
+    "name": "daisySensor20Name",
+    "oid": "1.3.6.1.4.1.17095.13.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor21Name": {
+    "name": "daisySensor21Name",
+    "oid": "1.3.6.1.4.1.17095.13.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor22Name": {
+    "name": "daisySensor22Name",
+    "oid": "1.3.6.1.4.1.17095.13.22.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor23Name": {
+    "name": "daisySensor23Name",
+    "oid": "1.3.6.1.4.1.17095.13.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor24Name": {
+    "name": "daisySensor24Name",
+    "oid": "1.3.6.1.4.1.17095.13.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor25Name": {
+    "name": "daisySensor25Name",
+    "oid": "1.3.6.1.4.1.17095.13.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor26Name": {
+    "name": "daisySensor26Name",
+    "oid": "1.3.6.1.4.1.17095.13.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor27Name": {
+    "name": "daisySensor27Name",
+    "oid": "1.3.6.1.4.1.17095.13.27.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor28Name": {
+    "name": "daisySensor28Name",
+    "oid": "1.3.6.1.4.1.17095.13.28.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor29Name": {
+    "name": "daisySensor29Name",
+    "oid": "1.3.6.1.4.1.17095.13.29.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor30Name": {
+    "name": "daisySensor30Name",
+    "oid": "1.3.6.1.4.1.17095.13.30.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor31Name": {
+    "name": "daisySensor31Name",
+    "oid": "1.3.6.1.4.1.17095.13.31.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor32Name": {
+    "name": "daisySensor32Name",
+    "oid": "1.3.6.1.4.1.17095.13.32.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor1value": {
+    "name": "daisySensor1value",
+    "oid": "1.3.6.1.4.1.17095.13.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor2value": {
+    "name": "daisySensor2value",
+    "oid": "1.3.6.1.4.1.17095.13.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor3value": {
+    "name": "daisySensor3value",
+    "oid": "1.3.6.1.4.1.17095.13.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor4value": {
+    "name": "daisySensor4value",
+    "oid": "1.3.6.1.4.1.17095.13.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor5value": {
+    "name": "daisySensor5value",
+    "oid": "1.3.6.1.4.1.17095.13.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor6value": {
+    "name": "daisySensor6value",
+    "oid": "1.3.6.1.4.1.17095.13.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor7value": {
+    "name": "daisySensor7value",
+    "oid": "1.3.6.1.4.1.17095.13.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor8value": {
+    "name": "daisySensor8value",
+    "oid": "1.3.6.1.4.1.17095.13.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor9value": {
+    "name": "daisySensor9value",
+    "oid": "1.3.6.1.4.1.17095.13.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor10value": {
+    "name": "daisySensor10value",
+    "oid": "1.3.6.1.4.1.17095.13.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor11value": {
+    "name": "daisySensor11value",
+    "oid": "1.3.6.1.4.1.17095.13.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor12value": {
+    "name": "daisySensor12value",
+    "oid": "1.3.6.1.4.1.17095.13.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor13value": {
+    "name": "daisySensor13value",
+    "oid": "1.3.6.1.4.1.17095.13.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor14value": {
+    "name": "daisySensor14value",
+    "oid": "1.3.6.1.4.1.17095.13.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor15value": {
+    "name": "daisySensor15value",
+    "oid": "1.3.6.1.4.1.17095.13.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor16value": {
+    "name": "daisySensor16value",
+    "oid": "1.3.6.1.4.1.17095.13.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor17value": {
+    "name": "daisySensor17value",
+    "oid": "1.3.6.1.4.1.17095.13.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor18value": {
+    "name": "daisySensor18value",
+    "oid": "1.3.6.1.4.1.17095.13.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor19value": {
+    "name": "daisySensor19value",
+    "oid": "1.3.6.1.4.1.17095.13.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor20value": {
+    "name": "daisySensor20value",
+    "oid": "1.3.6.1.4.1.17095.13.20.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor21value": {
+    "name": "daisySensor21value",
+    "oid": "1.3.6.1.4.1.17095.13.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor22value": {
+    "name": "daisySensor22value",
+    "oid": "1.3.6.1.4.1.17095.13.22.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor23value": {
+    "name": "daisySensor23value",
+    "oid": "1.3.6.1.4.1.17095.13.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor24value": {
+    "name": "daisySensor24value",
+    "oid": "1.3.6.1.4.1.17095.13.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor25value": {
+    "name": "daisySensor25value",
+    "oid": "1.3.6.1.4.1.17095.13.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor26value": {
+    "name": "daisySensor26value",
+    "oid": "1.3.6.1.4.1.17095.13.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor27value": {
+    "name": "daisySensor27value",
+    "oid": "1.3.6.1.4.1.17095.13.27.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor28value": {
+    "name": "daisySensor28value",
+    "oid": "1.3.6.1.4.1.17095.13.28.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor29value": {
+    "name": "daisySensor29value",
+    "oid": "1.3.6.1.4.1.17095.13.29.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor30value": {
+    "name": "daisySensor30value",
+    "oid": "1.3.6.1.4.1.17095.13.30.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor31value": {
+    "name": "daisySensor31value",
+    "oid": "1.3.6.1.4.1.17095.13.31.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor32value": {
+    "name": "daisySensor32value",
+    "oid": "1.3.6.1.4.1.17095.13.32.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor1ErrState": {
+    "name": "daisySensor1ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor2ErrState": {
+    "name": "daisySensor2ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor3ErrState": {
+    "name": "daisySensor3ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor4ErrState": {
+    "name": "daisySensor4ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor5ErrState": {
+    "name": "daisySensor5ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor6ErrState": {
+    "name": "daisySensor6ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor7ErrState": {
+    "name": "daisySensor7ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor8ErrState": {
+    "name": "daisySensor8ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor9ErrState": {
+    "name": "daisySensor9ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor10ErrState": {
+    "name": "daisySensor10ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor11ErrState": {
+    "name": "daisySensor11ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor12ErrState": {
+    "name": "daisySensor12ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor13ErrState": {
+    "name": "daisySensor13ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor14ErrState": {
+    "name": "daisySensor14ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor15ErrState": {
+    "name": "daisySensor15ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor16ErrState": {
+    "name": "daisySensor16ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor17ErrState": {
+    "name": "daisySensor17ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor18ErrState": {
+    "name": "daisySensor18ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor19ErrState": {
+    "name": "daisySensor19ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor20ErrState": {
+    "name": "daisySensor20ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor21ErrState": {
+    "name": "daisySensor21ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor22ErrState": {
+    "name": "daisySensor22ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.22.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor23ErrState": {
+    "name": "daisySensor23ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.23.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor24ErrState": {
+    "name": "daisySensor24ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.24.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor25ErrState": {
+    "name": "daisySensor25ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor26ErrState": {
+    "name": "daisySensor26ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor27ErrState": {
+    "name": "daisySensor27ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.27.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor28ErrState": {
+    "name": "daisySensor28ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.28.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor29ErrState": {
+    "name": "daisySensor29ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.29.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor30ErrState": {
+    "name": "daisySensor30ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.30.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor31ErrState": {
+    "name": "daisySensor31ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.31.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor32ErrState": {
+    "name": "daisySensor32ErrState",
+    "oid": "1.3.6.1.4.1.17095.13.32.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor1lastErrTime": {
+    "name": "daisySensor1lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor2lastErrTime": {
+    "name": "daisySensor2lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor3lastErrTime": {
+    "name": "daisySensor3lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor4lastErrTime": {
+    "name": "daisySensor4lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor5lastErrTime": {
+    "name": "daisySensor5lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor6lastErrTime": {
+    "name": "daisySensor6lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor7lastErrTime": {
+    "name": "daisySensor7lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor8lastErrTime": {
+    "name": "daisySensor8lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor9lastErrTime": {
+    "name": "daisySensor9lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor10lastErrTime": {
+    "name": "daisySensor10lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor11lastErrTime": {
+    "name": "daisySensor11lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor12lastErrTime": {
+    "name": "daisySensor12lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor13lastErrTime": {
+    "name": "daisySensor13lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor14lastErrTime": {
+    "name": "daisySensor14lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor15lastErrTime": {
+    "name": "daisySensor15lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor16lastErrTime": {
+    "name": "daisySensor16lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.16.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor17lastErrTime": {
+    "name": "daisySensor17lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor18lastErrTime": {
+    "name": "daisySensor18lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.18.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor19lastErrTime": {
+    "name": "daisySensor19lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor20lastErrTime": {
+    "name": "daisySensor20lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.20.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor21lastErrTime": {
+    "name": "daisySensor21lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor22lastErrTime": {
+    "name": "daisySensor22lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.22.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor23lastErrTime": {
+    "name": "daisySensor23lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.23.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor24lastErrTime": {
+    "name": "daisySensor24lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.24.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor25lastErrTime": {
+    "name": "daisySensor25lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.25.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor26lastErrTime": {
+    "name": "daisySensor26lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.26.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor27lastErrTime": {
+    "name": "daisySensor27lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.27.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor28lastErrTime": {
+    "name": "daisySensor28lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.28.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor29lastErrTime": {
+    "name": "daisySensor29lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.29.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor30lastErrTime": {
+    "name": "daisySensor30lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.30.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor31lastErrTime": {
+    "name": "daisySensor31lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.31.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor32lastErrTime": {
+    "name": "daisySensor32lastErrTime",
+    "oid": "1.3.6.1.4.1.17095.13.32.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor1lastErrMsg": {
+    "name": "daisySensor1lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor2lastErrMsg": {
+    "name": "daisySensor2lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor3lastErrMsg": {
+    "name": "daisySensor3lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor4lastErrMsg": {
+    "name": "daisySensor4lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor5lastErrMsg": {
+    "name": "daisySensor5lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor6lastErrMsg": {
+    "name": "daisySensor6lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor7lastErrMsg": {
+    "name": "daisySensor7lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor8lastErrMsg": {
+    "name": "daisySensor8lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor9lastErrMsg": {
+    "name": "daisySensor9lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor10lastErrMsg": {
+    "name": "daisySensor10lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor11lastErrMsg": {
+    "name": "daisySensor11lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor12lastErrMsg": {
+    "name": "daisySensor12lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor13lastErrMsg": {
+    "name": "daisySensor13lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor14lastErrMsg": {
+    "name": "daisySensor14lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor15lastErrMsg": {
+    "name": "daisySensor15lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor16lastErrMsg": {
+    "name": "daisySensor16lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.16.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor17lastErrMsg": {
+    "name": "daisySensor17lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor18lastErrMsg": {
+    "name": "daisySensor18lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.18.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor19lastErrMsg": {
+    "name": "daisySensor19lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.19.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor20lastErrMsg": {
+    "name": "daisySensor20lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.20.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor21lastErrMsg": {
+    "name": "daisySensor21lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor22lastErrMsg": {
+    "name": "daisySensor22lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.22.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor23lastErrMsg": {
+    "name": "daisySensor23lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.23.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor24lastErrMsg": {
+    "name": "daisySensor24lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.24.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor25lastErrMsg": {
+    "name": "daisySensor25lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.25.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor26lastErrMsg": {
+    "name": "daisySensor26lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.26.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor27lastErrMsg": {
+    "name": "daisySensor27lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.27.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor28lastErrMsg": {
+    "name": "daisySensor28lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.28.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor29lastErrMsg": {
+    "name": "daisySensor29lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.29.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor30lastErrMsg": {
+    "name": "daisySensor30lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.30.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor31lastErrMsg": {
+    "name": "daisySensor31lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.31.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "daisySensor32lastErrMsg": {
+    "name": "daisySensor32lastErrMsg",
+    "oid": "1.3.6.1.4.1.17095.13.32.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/serverscheck/ServersCheck",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ServersCheck"
+  }
+}

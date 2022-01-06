@@ -1,0 +1,2555 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "DS1-MIB": [
+      "dsx1LineStatus",
+      "dsx1LineIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPopMgmtMIB": {
+    "name": "ciscoPopMgmtMIB",
+    "oid": "1.3.6.1.4.1.9.10.19",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-21 00:00",
+        "description": "Imported dsx1LineIndex from DS1-MIB instead of RFC1406-MIB Changed SYNTAX of cpmDS1SlotIndex cpmDS1PortIndex cpmChannelIndex cpmDS1UsageSlotIndex cpmDS1UsagePortIndex cpmActiveCallSummaryIndex cpmCallHistorySummaryIndex cpmActiveModemSlot cpmActiveModemPort cpmActiveEntrySlot cpmActiveEntryPort cpmActiveEntryChannel from Integer32 to Integer32 (0..2147483647) Imported Unsigned32 from SNMPv2-SMI instead of CISCO-TC."
+      },
+      {
+        "revision": "2002-12-26 00:00",
+        "description": "Added voice(6) to object cpmCallType. Added Notification Group cpmNotificationGroupRev1"
+      },
+      {
+        "revision": "2000-11-29 00:00",
+        "description": "Added cpmCallVolume with objects: cpmCallVolSuccISDNDigital cpmCallVolAnalogCallClearedNormally"
+      },
+      {
+        "revision": "2000-03-03 00:00",
+        "description": "Extended cpmDs1DS0UsageTable with objects: cpmDS1TotalAnalogCalls cpmDS1TotalDigitalCalls cpmDS1TotalV110Calls cpmDS1TotalV120Calls cpmDS1TotalCalls cpmDS1TotalTimeInUse cpmDS1CurrentIdle cpmDS1CurrentOutOfService cpmDS1CurrentBusyout cpmDS1InOctets cpmDS1OutOctets cpmDS1InPackets cpmDS1OutPackets Added system level summary objects: cpmISDNCfgActiveDChannels cpmISDNCfgBChannelsTimeInUse cpmISDNCfgBChannelsTimeInUseAnalog cpmISDNCfgBChannelCalls cpmISDNCfgBChannelAnalogCalls cpmTotalISDNSyncPPPCalls Added DS0StatusTable with objects: cpmDS0OperStatus cpmDS0BusyoutAdminStatus cpmDS0BusyoutAllow cpmDS0BusyoutStatus cpmDS0BusyoutSource cpmDS0BusyoutTime cpmDS0ConfigFunction cpmDS0InterfaceIndex Added busyout notification and notification enable object: cpmDS0BusyoutNotification cpmDS0BusyoutNotifyEnable cpmDS1LoopbackNotifyConfig cpmDS1LoopbackNotifyEnable cpmDS1LoopbackNotification "
+      },
+      {
+        "revision": "1998-02-02 00:00",
+        "description": "Added objects: cpmISDNCfgBChanInUseForVoice cpmCASCfgBChanInUseForVoice Added enumeration-type: voice"
+      },
+      {
+        "revision": "1997-10-21 00:00",
+        "description": "Added objects: cpmDS1DS0UsageTable cpmActiveDS0sHighWaterMark cpmSW56CfgBChannelsInUse"
+      },
+      {
+        "revision": "1997-05-01 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPopMgmtMIBObjects": {
+    "name": "ciscoPopMgmtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.19.1",
+    "class": "objectidentity"
+  },
+  "cpmDS0Usage": {
+    "name": "cpmDS0Usage",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1",
+    "class": "objectidentity"
+  },
+  "cpmCallFailure": {
+    "name": "cpmCallFailure",
+    "oid": "1.3.6.1.4.1.9.10.19.1.2",
+    "class": "objectidentity"
+  },
+  "cpmActiveCallSummary": {
+    "name": "cpmActiveCallSummary",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3",
+    "class": "objectidentity"
+  },
+  "cpmCallHistorySummary": {
+    "name": "cpmCallHistorySummary",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4",
+    "class": "objectidentity"
+  },
+  "cpmDS0Status": {
+    "name": "cpmDS0Status",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5",
+    "class": "objectidentity"
+  },
+  "cpmDS1LoopbackNotifyConfig": {
+    "name": "cpmDS1LoopbackNotifyConfig",
+    "oid": "1.3.6.1.4.1.9.10.19.1.6",
+    "class": "objectidentity"
+  },
+  "cpmCallVolume": {
+    "name": "cpmCallVolume",
+    "oid": "1.3.6.1.4.1.9.10.19.1.7",
+    "class": "objectidentity"
+  },
+  "cpmDS0UsageTable": {
+    "name": "cpmDS0UsageTable",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmDS0UsageEntry": {
+    "name": "cpmDS0UsageEntry",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1SlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1PortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmDS1SlotIndex": {
+    "name": "cpmDS1SlotIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmDS1PortIndex": {
+    "name": "cpmDS1PortIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmChannelIndex": {
+    "name": "cpmChannelIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmConfiguredType": {
+    "name": "cpmConfiguredType",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "isdn": 2,
+          "ct1": 3,
+          "ce1": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0CallType": {
+    "name": "cpmDS0CallType",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "unknown": 2,
+          "analog": 3,
+          "digital": 4,
+          "v110": 5,
+          "v120": 6,
+          "voice": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmL2Encapsulation": {
+    "name": "cpmL2Encapsulation",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "unknown": 2,
+          "ppp": 3,
+          "slip": 4,
+          "arap": 5,
+          "hdlc": 6,
+          "exec": 7,
+          "voice": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCallCount": {
+    "name": "cpmCallCount",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmTimeInUse": {
+    "name": "cpmTimeInUse",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmInOctets": {
+    "name": "cpmInOctets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmOutOctets": {
+    "name": "cpmOutOctets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmInPackets": {
+    "name": "cpmInPackets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmOutPackets": {
+    "name": "cpmOutPackets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmAssociatedInterface": {
+    "name": "cpmAssociatedInterface",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgBChanInUseForAnalog": {
+    "name": "cpmISDNCfgBChanInUseForAnalog",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgBChannelsInUse": {
+    "name": "cpmISDNCfgBChannelsInUse",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveDS0s": {
+    "name": "cpmActiveDS0s",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmPPPCalls": {
+    "name": "cpmPPPCalls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmV120Calls": {
+    "name": "cpmV120Calls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmV110Calls": {
+    "name": "cpmV110Calls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveDS0sHighWaterMark": {
+    "name": "cpmActiveDS0sHighWaterMark",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1DS0UsageTable": {
+    "name": "cpmDS1DS0UsageTable",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmDS1DS0UsageEntry": {
+    "name": "cpmDS1DS0UsageEntry",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1UsageSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1UsagePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmDS1UsageSlotIndex": {
+    "name": "cpmDS1UsageSlotIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmDS1UsagePortIndex": {
+    "name": "cpmDS1UsagePortIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmDS1ActiveDS0s": {
+    "name": "cpmDS1ActiveDS0s",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1ActiveDS0sHighWaterMark": {
+    "name": "cpmDS1ActiveDS0sHighWaterMark",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1TotalAnalogCalls": {
+    "name": "cpmDS1TotalAnalogCalls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1TotalDigitalCalls": {
+    "name": "cpmDS1TotalDigitalCalls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1TotalV110Calls": {
+    "name": "cpmDS1TotalV110Calls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1TotalV120Calls": {
+    "name": "cpmDS1TotalV120Calls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1TotalCalls": {
+    "name": "cpmDS1TotalCalls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1TotalTimeInUse": {
+    "name": "cpmDS1TotalTimeInUse",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1CurrentIdle": {
+    "name": "cpmDS1CurrentIdle",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1CurrentOutOfService": {
+    "name": "cpmDS1CurrentOutOfService",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1CurrentBusyout": {
+    "name": "cpmDS1CurrentBusyout",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1InOctets": {
+    "name": "cpmDS1InOctets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1OutOctets": {
+    "name": "cpmDS1OutOctets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1InPackets": {
+    "name": "cpmDS1InPackets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1OutPackets": {
+    "name": "cpmDS1OutPackets",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmSW56CfgBChannelsInUse": {
+    "name": "cpmSW56CfgBChannelsInUse",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgBChanInUseForVoice": {
+    "name": "cpmISDNCfgBChanInUseForVoice",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCASCfgBChanInUseForVoice": {
+    "name": "cpmCASCfgBChanInUseForVoice",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgActiveDChannels": {
+    "name": "cpmISDNCfgActiveDChannels",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgBChannelsTimeInUse": {
+    "name": "cpmISDNCfgBChannelsTimeInUse",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgBChannelsTimeInUseAnlg": {
+    "name": "cpmISDNCfgBChannelsTimeInUseAnlg",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgBChannelCalls": {
+    "name": "cpmISDNCfgBChannelCalls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCfgBChannelAnalogCalls": {
+    "name": "cpmISDNCfgBChannelAnalogCalls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmTotalISDNSyncPPPCalls": {
+    "name": "cpmTotalISDNSyncPPPCalls",
+    "oid": "1.3.6.1.4.1.9.10.19.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0BusyoutNotifyEnable": {
+    "name": "cpmDS0BusyoutNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpmDS0StatusTable": {
+    "name": "cpmDS0StatusTable",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmDS0StatusEntry": {
+    "name": "cpmDS0StatusEntry",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cpmDS0StatusEntry",
+      "module": "CISCO-POP-MGMT-MIB",
+      "object": "cpmDS0UsageEntry"
+    },
+    "status": "current"
+  },
+  "cpmDS0OperStatus": {
+    "name": "cpmDS0OperStatus",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "down": 2,
+          "idle": 3,
+          "setup": 4,
+          "connected": 5,
+          "test": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0BusyoutAdminStatus": {
+    "name": "cpmDS0BusyoutAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noBusyout": 1,
+          "busyout": 2,
+          "busyoutImmediate": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpmDS0BusyoutAllow": {
+    "name": "cpmDS0BusyoutAllow",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0BusyoutStatus": {
+    "name": "cpmDS0BusyoutStatus",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noBusyout": 1,
+          "busyoutPending": 2,
+          "busiedOut": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0BusyoutSource": {
+    "name": "cpmDS0BusyoutSource",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "local": 2,
+          "internal": 3,
+          "remote": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0BusyoutTime": {
+    "name": "cpmDS0BusyoutTime",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0ConfigFunction": {
+    "name": "cpmDS0ConfigFunction",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "t1CcsSignallingChan": 2,
+          "t1CcsBearerChan": 3,
+          "e1CcsSignallingChan": 4,
+          "e1CcsBearerChan": 5,
+          "t1CasChan": 6,
+          "e1CasChan": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS0InterfaceIndex": {
+    "name": "cpmDS0InterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCallsRejected": {
+    "name": "cpmISDNCallsRejected",
+    "oid": "1.3.6.1.4.1.9.10.19.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmModemCallsRejected": {
+    "name": "cpmModemCallsRejected",
+    "oid": "1.3.6.1.4.1.9.10.19.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNCallsClearedAbnormally": {
+    "name": "cpmISDNCallsClearedAbnormally",
+    "oid": "1.3.6.1.4.1.9.10.19.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmModemCallsClearedAbnormally": {
+    "name": "cpmModemCallsClearedAbnormally",
+    "oid": "1.3.6.1.4.1.9.10.19.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmISDNNoResource": {
+    "name": "cpmISDNNoResource",
+    "oid": "1.3.6.1.4.1.9.10.19.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmModemNoResource": {
+    "name": "cpmModemNoResource",
+    "oid": "1.3.6.1.4.1.9.10.19.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCallVolSuccISDNDigital": {
+    "name": "cpmCallVolSuccISDNDigital",
+    "oid": "1.3.6.1.4.1.9.10.19.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCallVolAnalogCallClearedNormally": {
+    "name": "cpmCallVolAnalogCallClearedNormally",
+    "oid": "1.3.6.1.4.1.9.10.19.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveCallSummaryTable": {
+    "name": "cpmActiveCallSummaryTable",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmActiveCallSummaryEntry": {
+    "name": "cpmActiveCallSummaryEntry",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveCallStartTimeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveCallSummaryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmActiveCallStartTimeIndex": {
+    "name": "cpmActiveCallStartTimeIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmActiveCallSummaryIndex": {
+    "name": "cpmActiveCallSummaryIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmActiveUserID": {
+    "name": "cpmActiveUserID",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveUserIpAddr": {
+    "name": "cpmActiveUserIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveCallType": {
+    "name": "cpmActiveCallType",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "analog": 2,
+          "digital": 3,
+          "v110": 4,
+          "v120": 5,
+          "voice": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveModemSlot": {
+    "name": "cpmActiveModemSlot",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveModemPort": {
+    "name": "cpmActiveModemPort",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveCallDuration": {
+    "name": "cpmActiveCallDuration",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveEntrySlot": {
+    "name": "cpmActiveEntrySlot",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveEntryPort": {
+    "name": "cpmActiveEntryPort",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveEntryChannel": {
+    "name": "cpmActiveEntryChannel",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveRemotePhoneNumber": {
+    "name": "cpmActiveRemotePhoneNumber",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveLocalPhoneNumber": {
+    "name": "cpmActiveLocalPhoneNumber",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmActiveTTYNumber": {
+    "name": "cpmActiveTTYNumber",
+    "oid": "1.3.6.1.4.1.9.10.19.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCallHistorySummaryTableMaxLength": {
+    "name": "cpmCallHistorySummaryTableMaxLength",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpmCallHistorySummaryRetainTimer": {
+    "name": "cpmCallHistorySummaryRetainTimer",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpmCallHistorySummaryTable": {
+    "name": "cpmCallHistorySummaryTable",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCallHistorySummaryEntry": {
+    "name": "cpmCallHistorySummaryEntry",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallDisconnectTimeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallStartTimeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallHistorySummaryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCallDisconnectTimeIndex": {
+    "name": "cpmCallDisconnectTimeIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCallStartTimeIndex": {
+    "name": "cpmCallStartTimeIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmCallHistorySummaryIndex": {
+    "name": "cpmCallHistorySummaryIndex",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpmUserID": {
+    "name": "cpmUserID",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmUserIpAddr": {
+    "name": "cpmUserIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCallType": {
+    "name": "cpmCallType",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "analog": 2,
+          "digital": 3,
+          "v110": 4,
+          "v120": 5,
+          "voice": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmModemSlot": {
+    "name": "cpmModemSlot",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmModemPort": {
+    "name": "cpmModemPort",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmCallDuration": {
+    "name": "cpmCallDuration",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmEntrySlot": {
+    "name": "cpmEntrySlot",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmEntryPort": {
+    "name": "cpmEntryPort",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmEntryChannel": {
+    "name": "cpmEntryChannel",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmRemotePhoneNumber": {
+    "name": "cpmRemotePhoneNumber",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmLocalPhoneNumber": {
+    "name": "cpmLocalPhoneNumber",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmTTYNumber": {
+    "name": "cpmTTYNumber",
+    "oid": "1.3.6.1.4.1.9.10.19.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmDS1LoopbackNotifyEnable": {
+    "name": "cpmDS1LoopbackNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.10.19.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPopMgmtMIBNotificationPrefix": {
+    "name": "cPopMgmtMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.19.2",
+    "class": "objectidentity"
+  },
+  "cpmNotifications": {
+    "name": "cpmNotifications",
+    "oid": "1.3.6.1.4.1.9.10.19.2.0",
+    "class": "objectidentity"
+  },
+  "cpmDS0BusyoutNotification": {
+    "name": "cpmDS0BusyoutNotification",
+    "oid": "1.3.6.1.4.1.9.10.19.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutStatus"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutTime"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutSource"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0InterfaceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmDS1LoopbackNotification": {
+    "name": "cpmDS1LoopbackNotification",
+    "oid": "1.3.6.1.4.1.9.10.19.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DS1-MIB",
+        "object": "dsx1LineStatus"
+      },
+      {
+        "module": "DS1-MIB",
+        "object": "dsx1LineIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmMIBConformance": {
+    "name": "cpmMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.19.3",
+    "class": "objectidentity"
+  },
+  "cpmMIBCompliances": {
+    "name": "cpmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.19.3.1",
+    "class": "objectidentity"
+  },
+  "cpmMIBGroups": {
+    "name": "cpmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2",
+    "class": "objectidentity"
+  },
+  "cpmMIBCompliance": {
+    "name": "cpmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.19.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmDS0UsageGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallFailureGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmActiveCallSummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallHistorySummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpmMIBComplianceRev1": {
+    "name": "cpmMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.19.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmDS0UsageGroupRev1",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallFailureGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmActiveCallSummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallHistorySummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpmComplianceRev2": {
+    "name": "cpmComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.10.19.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmDS0UsageGroupRev2",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallFailureGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmActiveCallSummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallHistorySummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpmMIBComplianceRev3": {
+    "name": "cpmMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.10.19.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmDS0UsageGroupRev2",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallFailureGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmActiveCallSummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallHistorySummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmDS0StatusGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmDS1UsageGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmSystemGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmNotificationGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpmMIBComplianceRev4": {
+    "name": "cpmMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.10.19.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmDS0UsageGroupRev2",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallFailureGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmActiveCallSummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallHistorySummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallVolumeGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmDS0StatusGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmDS1UsageGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmSystemGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpmMIBComplianceRev5": {
+    "name": "cpmMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.10.19.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpmDS0UsageGroupRev2",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallFailureGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmActiveCallSummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallHistorySummaryGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmCallVolumeGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmDS0StatusGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmDS1UsageGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmSystemGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmDS1LoopbackNotifyConfigGroup",
+        "module": "CISCO-POP-MGMT-MIB"
+      },
+      {
+        "object": "cpmNotificationGroupRev1",
+        "module": "CISCO-POP-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmDS0UsageGroup": {
+    "name": "cpmDS0UsageGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmConfiguredType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0CallType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmL2Encapsulation"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallCount"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmTimeInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmInOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmOutOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmInPackets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmOutPackets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmAssociatedInterface"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChanInUseForAnalog"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChannelsInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveDS0s"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmPPPCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmV120Calls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmV110Calls"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpmCallFailureGroup": {
+    "name": "cpmCallFailureGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCallsRejected"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmModemCallsRejected"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCallsClearedAbnormally"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmModemCallsClearedAbnormally"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNNoResource"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmModemNoResource"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmActiveCallSummaryGroup": {
+    "name": "cpmActiveCallSummaryGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveUserID"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveCallType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveUserIpAddr"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveModemSlot"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveModemPort"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveCallDuration"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveEntrySlot"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveEntryPort"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveEntryChannel"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveRemotePhoneNumber"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveLocalPhoneNumber"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveTTYNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCallHistorySummaryGroup": {
+    "name": "cpmCallHistorySummaryGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallHistorySummaryTableMaxLength"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallHistorySummaryRetainTimer"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmUserID"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmUserIpAddr"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmModemSlot"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmModemPort"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallDuration"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmEntrySlot"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmEntryPort"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmEntryChannel"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmRemotePhoneNumber"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmLocalPhoneNumber"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmTTYNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmDS0UsageGroupRev1": {
+    "name": "cpmDS0UsageGroupRev1",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmConfiguredType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0CallType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmL2Encapsulation"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallCount"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmTimeInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmInOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmOutOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmInPackets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmOutPackets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmAssociatedInterface"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChanInUseForAnalog"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChannelsInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveDS0s"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmPPPCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmV120Calls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmV110Calls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveDS0sHighWaterMark"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1ActiveDS0s"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1ActiveDS0sHighWaterMark"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmSW56CfgBChannelsInUse"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cpmDS0UsageGroupRev2": {
+    "name": "cpmDS0UsageGroupRev2",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmConfiguredType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0CallType"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmL2Encapsulation"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallCount"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmTimeInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmInOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmOutOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmInPackets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmOutPackets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmAssociatedInterface"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChanInUseForAnalog"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChannelsInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveDS0s"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmPPPCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmV120Calls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmV110Calls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmActiveDS0sHighWaterMark"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1ActiveDS0s"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1ActiveDS0sHighWaterMark"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmSW56CfgBChannelsInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChanInUseForVoice"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCASCfgBChanInUseForVoice"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmDS1UsageGroup": {
+    "name": "cpmDS1UsageGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1TotalAnalogCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1TotalDigitalCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1TotalV110Calls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1TotalV120Calls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1TotalCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1TotalTimeInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1CurrentIdle"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1CurrentOutOfService"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1CurrentBusyout"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1InOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1OutOctets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1InPackets"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1OutPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmSystemGroup": {
+    "name": "cpmSystemGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgActiveDChannels"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChannelsTimeInUse"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChannelsTimeInUseAnlg"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChannelCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmISDNCfgBChannelAnalogCalls"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmTotalISDNSyncPPPCalls"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmDS0StatusGroup": {
+    "name": "cpmDS0StatusGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutNotifyEnable"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0OperStatus"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutAdminStatus"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutAllow"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutStatus"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutSource"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutTime"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0ConfigFunction"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0InterfaceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmNotificationGroup": {
+    "name": "cpmNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutNotification"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cpmDS1LoopbackNotifyConfigGroup": {
+    "name": "cpmDS1LoopbackNotifyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1LoopbackNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmCallVolumeGroup": {
+    "name": "cpmCallVolumeGroup",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallVolSuccISDNDigital"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmCallVolAnalogCallClearedNormally"
+      }
+    ],
+    "status": "current"
+  },
+  "cpmNotificationGroupRev1": {
+    "name": "cpmNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.10.19.3.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS0BusyoutNotification"
+      },
+      {
+        "module": "CISCO-POP-MGMT-MIB",
+        "object": "cpmDS1LoopbackNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-POP-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-POP-MGMT-MIB"
+  }
+}

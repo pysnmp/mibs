@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ADTRAN-AOS-VRRP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-VRRP-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:29:36 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:16:06 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 adGenAOSConformance, adGenAOSRouter = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSConformance", "adGenAOSRouter")
 adIdentity, = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentity")
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Unsigned32, MibIdentifier, Gauge32, ObjectIdentity, Counter32, iso, Integer32, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "MibIdentifier", "Gauge32", "ObjectIdentity", "Counter32", "iso", "Integer32", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "TimeTicks")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Integer32, Counter32, Bits, NotificationType, ObjectIdentity, iso, MibIdentifier, ModuleIdentity, Counter64, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter32", "Bits", "NotificationType", "ObjectIdentity", "iso", "MibIdentifier", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 adGenAOSVrrpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 2, 3))
 adGenAOSVrrpMib.setRevisions(('2014-07-29 00:00', '2014-04-17 00:00',))
@@ -86,4 +86,4 @@ adGenAOSVrrpNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 664, 5, 53,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     adGenAOSVrrpNotificationGroup = adGenAOSVrrpNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: adGenAOSVrrpNotificationGroup.setDescription('Traps which may be used to detect the change of state\n          in any of the virtual router instances.')
-mibBuilder.exportSymbols("ADTRAN-AOS-VRRP-MIB", PYSNMP_MODULE_ID=adGenAOSVrrpMib, adGenAOSVrrpEntry=adGenAOSVrrpEntry, adGenAOSVrrpId=adGenAOSVrrpId, adGenAOSVrrpTrap=adGenAOSVrrpTrap, adGenAOSVrrpMasterTrapCntl=adGenAOSVrrpMasterTrapCntl, adGenAOSVrrp=adGenAOSVrrp, adGenAOSVrrpGroups=adGenAOSVrrpGroups, adGenAOSVrrpConformance=adGenAOSVrrpConformance, adGenAOSVrrpTrapGroup=adGenAOSVrrpTrapGroup, adGenAOSVrrpReadOnlyCompliance=adGenAOSVrrpReadOnlyCompliance, adGenAOSVrrpCompliances=adGenAOSVrrpCompliances, adGenAOSVrrpTable=adGenAOSVrrpTable, adGenAOSVrrpPriority=adGenAOSVrrpPriority, adGenAOSVrrpVersion=adGenAOSVrrpVersion, adGenAOSVrrpMasterTrap=adGenAOSVrrpMasterTrap, adGenAOSVrrpNotificationGroup=adGenAOSVrrpNotificationGroup, adGenAOSVrrpMib=adGenAOSVrrpMib, adGenAOSVrrpInetAddrType=adGenAOSVrrpInetAddrType, adGenAOSVrrpTrapCfgGroup=adGenAOSVrrpTrapCfgGroup, adGenAOSVrrpObjectGroup=adGenAOSVrrpObjectGroup, adGenAOSVrrpTrapCntl=adGenAOSVrrpTrapCntl, adGenAOSVrrpFullCompliance=adGenAOSVrrpFullCompliance, adGenAOSVrrpOperStatus=adGenAOSVrrpOperStatus, adGenAOSVrrpInetAddr=adGenAOSVrrpInetAddr)
+mibBuilder.exportSymbols("ADTRAN-AOS-VRRP-MIB", adGenAOSVrrpTrap=adGenAOSVrrpTrap, adGenAOSVrrpMib=adGenAOSVrrpMib, adGenAOSVrrpPriority=adGenAOSVrrpPriority, adGenAOSVrrpGroups=adGenAOSVrrpGroups, adGenAOSVrrpId=adGenAOSVrrpId, adGenAOSVrrpMasterTrapCntl=adGenAOSVrrpMasterTrapCntl, adGenAOSVrrpInetAddrType=adGenAOSVrrpInetAddrType, adGenAOSVrrpCompliances=adGenAOSVrrpCompliances, adGenAOSVrrpFullCompliance=adGenAOSVrrpFullCompliance, adGenAOSVrrpNotificationGroup=adGenAOSVrrpNotificationGroup, adGenAOSVrrpOperStatus=adGenAOSVrrpOperStatus, adGenAOSVrrpTrapCntl=adGenAOSVrrpTrapCntl, adGenAOSVrrpInetAddr=adGenAOSVrrpInetAddr, adGenAOSVrrp=adGenAOSVrrp, PYSNMP_MODULE_ID=adGenAOSVrrpMib, adGenAOSVrrpVersion=adGenAOSVrrpVersion, adGenAOSVrrpTable=adGenAOSVrrpTable, adGenAOSVrrpMasterTrap=adGenAOSVrrpMasterTrap, adGenAOSVrrpConformance=adGenAOSVrrpConformance, adGenAOSVrrpReadOnlyCompliance=adGenAOSVrrpReadOnlyCompliance, adGenAOSVrrpEntry=adGenAOSVrrpEntry, adGenAOSVrrpObjectGroup=adGenAOSVrrpObjectGroup, adGenAOSVrrpTrapGroup=adGenAOSVrrpTrapGroup, adGenAOSVrrpTrapCfgGroup=adGenAOSVrrpTrapCfgGroup)

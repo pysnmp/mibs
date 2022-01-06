@@ -1,0 +1,1962 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CDMA-PDSN-MIB": [
+      "cCdmaServingPdsnHostname",
+      "cCdmaPcfSoRpRegStatsEntry",
+      "cCdmaPcfSoPppSetupStatsEntry"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCdmaPdsnExtMIB": {
+    "name": "ciscoCdmaPdsnExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.669",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-07-20 00:00",
+        "description": "+ Added new object ccpCdmaExtRegReqNoCIDAvailable to ccpCdmaExtRPRegReqErrors. + Added new object ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable to ccpCdmaExtPcfSoRpRegStatsEntry. + Added new groups ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01 and ciscoCdmaExtSystemPdsnGroupSupR02. + Added new compliance ciscoCdmaPdsnExtMIBComplianceRev3, which deprecates ciscoCdmaPdsnExtMIBComplianceRev2."
+      },
+      {
+        "revision": "2010-06-08 00:00",
+        "description": "+ Added new objects ccpCdmaExtRohcEnabled and ccpCdmaExtRohcAuxA10sCount to ccpCdmaExtSystemInfo. + Added new OBJECT IDENTIFIER ccpCdmaExtRohcStats to ccpCdmaExtPerformanceStats. + Added new group ciscoCdmaExtSystemPdsnGroupSupR01. + Added new compliance ciscoCdmaPdsnExtMIBComplianceRev2, which deprecates ciscoCdmaPdsnExtMIBComplianceRev1."
+      },
+      {
+        "revision": "2009-09-17 00:00",
+        "description": "+ Added following table ccpCdmaExtPcfSoPppSetupStatsTable. + Added ccpCdmaExtCacEnabled to ccpCdmaExtSystemInfo. + Added ciscoCdmaPdsnExtMIBComplianceRev1. + Added ciscoCdmaExtPdsnPcfSoPppGroup , ciscoCdmaExtSystemPdsnCacGroup."
+      },
+      {
+        "revision": "2008-08-08 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "ciscoCdmaPdsnExtMIBNotifs": {
+    "name": "ciscoCdmaPdsnExtMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.669.0",
+    "class": "objectidentity"
+  },
+  "ciscoCdmaPdsnExtMIBObjects": {
+    "name": "ciscoCdmaPdsnExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.669.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdmaPdsnExtMIBConformance": {
+    "name": "ciscoCdmaPdsnExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.669.2",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtSystemInfo": {
+    "name": "ccpCdmaExtSystemInfo",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtPerformanceStats": {
+    "name": "ccpCdmaExtPerformanceStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtRpErrors": {
+    "name": "ccpCdmaExtRpErrors",
+    "oid": "1.3.6.1.4.1.9.9.669.1.3",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtNotifObjects": {
+    "name": "ccpCdmaExtNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.669.1.4",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtRPRegReqErrors": {
+    "name": "ccpCdmaExtRPRegReqErrors",
+    "oid": "1.3.6.1.4.1.9.9.669.1.3.1",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtRsvpStats": {
+    "name": "ccpCdmaExtRsvpStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtQosStats": {
+    "name": "ccpCdmaExtQosStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.2",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtBandwidthPolicyStats": {
+    "name": "ccpCdmaExtBandwidthPolicyStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.3",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtRpRegStats": {
+    "name": "ccpCdmaExtRpRegStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.4",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtRpSessUpdStats": {
+    "name": "ccpCdmaExtRpSessUpdStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.5",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtPcfSoRpRegStats": {
+    "name": "ccpCdmaExtPcfSoRpRegStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtPcfSoPppSetupStats": {
+    "name": "ccpCdmaExtPcfSoPppSetupStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtRohcStats": {
+    "name": "ccpCdmaExtRohcStats",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8",
+    "class": "objectidentity"
+  },
+  "ccpCdmaExtTotalBandwidth": {
+    "name": "ccpCdmaExtTotalBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtAvailableBandwidth": {
+    "name": "ccpCdmaExtAvailableBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtAllocatedBandwidth": {
+    "name": "ccpCdmaExtAllocatedBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtSessionAuxConnectionsEnabled": {
+    "name": "ccpCdmaExtSessionAuxConnectionsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccpCdmaExtSessionMaxAuxConnectionsAllowed": {
+    "name": "ccpCdmaExtSessionMaxAuxConnectionsAllowed",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtSessionAuxConnectionsTotal": {
+    "name": "ccpCdmaExtSessionAuxConnectionsTotal",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPolicingEnabled": {
+    "name": "ccpCdmaExtPolicingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccpCdmaExtAuxSessionTotal": {
+    "name": "ccpCdmaExtAuxSessionTotal",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPolicingSessionTotal": {
+    "name": "ccpCdmaExtPolicingSessionTotal",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtDscpSession": {
+    "name": "ccpCdmaExtDscpSession",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtLoadHighReachedNotifEnabled": {
+    "name": "ccpCdmaExtLoadHighReachedNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccpCdmaExtCacEnabled": {
+    "name": "ccpCdmaExtCacEnabled",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcEnabled": {
+    "name": "ccpCdmaExtRohcEnabled",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcAuxA10sCount": {
+    "name": "ccpCdmaExtRohcAuxA10sCount",
+    "oid": "1.3.6.1.4.1.9.9.669.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRpReRegNewAuxConnections": {
+    "name": "ccpCdmaExtRpReRegNewAuxConnections",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRpReRegCloseAuxConnections": {
+    "name": "ccpCdmaExtRpReRegCloseAuxConnections",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRpReRegRemapFlows": {
+    "name": "ccpCdmaExtRpReRegRemapFlows",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRpRegNewAuxConnections": {
+    "name": "ccpCdmaExtRpRegNewAuxConnections",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRpSessionUpdSubQoses": {
+    "name": "ccpCdmaExtRpSessionUpdSubQoses",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpCreationSuccessTfts": {
+    "name": "ccpCdmaExtRsvpCreationSuccessTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "passes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpCreationFailureTfts": {
+    "name": "ccpCdmaExtRsvpCreationFailureTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpPacketFilterAddFailureTfts": {
+    "name": "ccpCdmaExtRsvpPacketFilterAddFailureTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpPacketFilterUnavailableTfts": {
+    "name": "ccpCdmaExtRsvpPacketFilterUnavailableTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpPacketFilterReplaceFailureTfts": {
+    "name": "ccpCdmaExtRsvpPacketFilterReplaceFailureTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts": {
+    "name": "ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpUnableToParseTfts": {
+    "name": "ccpCdmaExtRsvpUnableToParseTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpPrecedenceContentionTfts": {
+    "name": "ccpCdmaExtRsvpPrecedenceContentionTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpTreatmentUnsupportedTfts": {
+    "name": "ccpCdmaExtRsvpTreatmentUnsupportedTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpMaxPacketFiltersReachedTfts": {
+    "name": "ccpCdmaExtRsvpMaxPacketFiltersReachedTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRsvpUnAuthorizeTfts": {
+    "name": "ccpCdmaExtRsvpUnAuthorizeTfts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtBandwidthPolicyInstallSuccesses": {
+    "name": "ccpCdmaExtBandwidthPolicyInstallSuccesses",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "passes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtBandwidthPolicyInstallFailures": {
+    "name": "ccpCdmaExtBandwidthPolicyInstallFailures",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtBandwidthPolicyRemoves": {
+    "name": "ccpCdmaExtBandwidthPolicyRemoves",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "passes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtQosSuccesses": {
+    "name": "ccpCdmaExtQosSuccesses",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "passes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtQosFailures": {
+    "name": "ccpCdmaExtQosFailures",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtQosDscpRemarkedPkts": {
+    "name": "ccpCdmaExtQosDscpRemarkedPkts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcSuccessCount": {
+    "name": "ccpCdmaExtRohcSuccessCount",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "passes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcFailuresCount": {
+    "name": "ccpCdmaExtRohcFailuresCount",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcOutIpPkts": {
+    "name": "ccpCdmaExtRohcOutIpPkts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcOutIpBytes": {
+    "name": "ccpCdmaExtRohcOutIpBytes",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcDeCompSuccessCount": {
+    "name": "ccpCdmaExtRohcDeCompSuccessCount",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "passes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcDeCompFailuresCount": {
+    "name": "ccpCdmaExtRohcDeCompFailuresCount",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcDeCompOutIpPkts": {
+    "name": "ccpCdmaExtRohcDeCompOutIpPkts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRohcDeCompOutIpBytes": {
+    "name": "ccpCdmaExtRohcDeCompOutIpBytes",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRegReqBwUnavailableSess": {
+    "name": "ccpCdmaExtRegReqBwUnavailableSess",
+    "oid": "1.3.6.1.4.1.9.9.669.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRegReqMaxServiceFlows": {
+    "name": "ccpCdmaExtRegReqMaxServiceFlows",
+    "oid": "1.3.6.1.4.1.9.9.669.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRegReqUnSupportedSOs": {
+    "name": "ccpCdmaExtRegReqUnSupportedSOs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRegReqNonExistA10s": {
+    "name": "ccpCdmaExtRegReqNonExistA10s",
+    "oid": "1.3.6.1.4.1.9.9.669.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtRegReqNoCIDAvailable": {
+    "name": "ccpCdmaExtRegReqNoCIDAvailable",
+    "oid": "1.3.6.1.4.1.9.9.669.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsTable": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsEntry": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ccpCdmaExtPcfSoRpRegStatsEntry",
+      "module": "CISCO-CDMA-PDSN-EXT-MIB",
+      "object": "cCdmaPcfSoRpRegStatsEntry"
+    },
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoStatsTotalAuxConnections": {
+    "name": "ccpCdmaExtPcfSoStatsTotalAuxConnections",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsNewAuxConnections": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsNewAuxConnections",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections": {
+    "name": "ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections": {
+    "name": "ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpReRegStatsRemapFlows": {
+    "name": "ccpCdmaExtPcfSoRpReRegStatsRemapFlows",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsNonExistA10s": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsNonExistA10s",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable": {
+    "name": "ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppSetupStatsTable": {
+    "name": "ccpCdmaExtPcfSoPppSetupStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppSetupStatsEntry": {
+    "name": "ccpCdmaExtPcfSoPppSetupStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ccpCdmaExtPcfSoPppSetupStatsEntry",
+      "module": "CISCO-CDMA-PDSN-EXT-MIB",
+      "object": "cCdmaPcfSoPppSetupStatsEntry"
+    },
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls": {
+    "name": "ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppPreLCPPcfA10Rls": {
+    "name": "ccpCdmaExtPcfSoPppPreLCPPcfA10Rls",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppLcpOptionIssueFailures": {
+    "name": "ccpCdmaExtPcfSoPppLcpOptionIssueFailures",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans": {
+    "name": "ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppLcpFailuresUnknown": {
+    "name": "ccpCdmaExtPcfSoPppLcpFailuresUnknown",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs": {
+    "name": "ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppLcpPcfA10Rls": {
+    "name": "ccpCdmaExtPcfSoPppLcpPcfA10Rls",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppAuthFailures": {
+    "name": "ccpCdmaExtPcfSoPppAuthFailures",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppAuthAAATimeouts": {
+    "name": "ccpCdmaExtPcfSoPppAuthAAATimeouts",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppAuthFailuresUnknown": {
+    "name": "ccpCdmaExtPcfSoPppAuthFailuresUnknown",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppAuthMaxRetransFailures": {
+    "name": "ccpCdmaExtPcfSoPppAuthMaxRetransFailures",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs": {
+    "name": "ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppAuthPcfA10Rls": {
+    "name": "ccpCdmaExtPcfSoPppAuthPcfA10Rls",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppIpcpOptionIssueFailures": {
+    "name": "ccpCdmaExtPcfSoPppIpcpOptionIssueFailures",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans": {
+    "name": "ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppIpcpFailuresUnknown": {
+    "name": "ccpCdmaExtPcfSoPppIpcpFailuresUnknown",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs": {
+    "name": "ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppIpcpPcfA10Rls": {
+    "name": "ccpCdmaExtPcfSoPppIpcpPcfA10Rls",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppIpcpIpResourceFail": {
+    "name": "ccpCdmaExtPcfSoPppIpcpIpResourceFail",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegTotalReqs": {
+    "name": "ccpCdmaExtPcfSoPppRenegTotalReqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegByPdsnReqs": {
+    "name": "ccpCdmaExtPcfSoPppRenegByPdsnReqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegByMobileReqs": {
+    "name": "ccpCdmaExtPcfSoPppRenegByMobileReqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegSuccesses": {
+    "name": "ccpCdmaExtPcfSoPppRenegSuccesses",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegFailures": {
+    "name": "ccpCdmaExtPcfSoPppRenegFailures",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegConnectionsAborted": {
+    "name": "ccpCdmaExtPcfSoPppRenegConnectionsAborted",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegAddrMismatchReqs": {
+    "name": "ccpCdmaExtPcfSoPppRenegAddrMismatchReqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegAccessNwIdChanges": {
+    "name": "ccpCdmaExtPcfSoPppRenegAccessNwIdChanges",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegGreChangeReqs": {
+    "name": "ccpCdmaExtPcfSoPppRenegGreChangeReqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtPcfSoPppRenegOtherReasonReqs": {
+    "name": "ccpCdmaExtPcfSoPppRenegOtherReasonReqs",
+    "oid": "1.3.6.1.4.1.9.9.669.1.2.7.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccpCdmaExtNotifReason": {
+    "name": "ccpCdmaExtNotifReason",
+    "oid": "1.3.6.1.4.1.9.9.669.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bandwidth": 1,
+          "cputhreshold": 2,
+          "procthreshold": 3,
+          "iomemthreshold": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ccpCdmaExtNotifReasonCurrentValue": {
+    "name": "ccpCdmaExtNotifReasonCurrentValue",
+    "oid": "1.3.6.1.4.1.9.9.669.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoCdmaExtLoadLowReachedNotif": {
+    "name": "ciscoCdmaExtLoadLowReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.669.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-MIB",
+        "object": "cCdmaServingPdsnHostname"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtNotifReason"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtNotifReasonCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtLoadHighReachedNotif": {
+    "name": "ciscoCdmaExtLoadHighReachedNotif",
+    "oid": "1.3.6.1.4.1.9.9.669.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-MIB",
+        "object": "cCdmaServingPdsnHostname"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtNotifReason"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtNotifReasonCurrentValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaPdsnExtMIBCompliances": {
+    "name": "ciscoCdmaPdsnExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.669.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCdmaPdsnExtMIBGroups": {
+    "name": "ciscoCdmaPdsnExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCdmaPdsnExtMIBCompliance": {
+    "name": "ciscoCdmaPdsnExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.669.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdmaExtSystemPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoRpRegGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtNotifPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdmaPdsnExtMIBComplianceRev1": {
+    "name": "ciscoCdmaPdsnExtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.669.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdmaExtSystemPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoRpRegGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoPppGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtSystemPdsnCacGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtNotifPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdmaPdsnExtMIBComplianceRev2": {
+    "name": "ciscoCdmaPdsnExtMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.669.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdmaExtSystemPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoRpRegGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoPppGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtSystemPdsnCacGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtNotifPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtSystemPdsnGroupSupR01",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCdmaPdsnExtMIBComplianceRev3": {
+    "name": "ciscoCdmaPdsnExtMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.669.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCdmaExtSystemPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoRpRegGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoPppGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtSystemPdsnCacGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtNotifPdsnGroup",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtSystemPdsnGroupSupR01",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      },
+      {
+        "object": "ciscoCdmaExtSystemPdsnGroupSupR02",
+        "module": "CISCO-CDMA-PDSN-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtSystemPdsnGroup": {
+    "name": "ciscoCdmaExtSystemPdsnGroup",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpCreationFailureTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpPacketFilterAddFailureTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpPacketFilterUnavailableTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpPacketFilterReplaceFailureTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpUnableToParseTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpPrecedenceContentionTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpTreatmentUnsupportedTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpMaxPacketFiltersReachedTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpCreationSuccessTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRsvpUnAuthorizeTfts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtQosSuccesses"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtQosFailures"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtQosDscpRemarkedPkts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtAuxSessionTotal"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPolicingSessionTotal"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtDscpSession"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtBandwidthPolicyInstallFailures"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtBandwidthPolicyRemoves"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtBandwidthPolicyInstallSuccesses"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRpReRegNewAuxConnections"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRpReRegCloseAuxConnections"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRpReRegRemapFlows"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRpRegNewAuxConnections"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtNotifReason"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtNotifReasonCurrentValue"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtSessionAuxConnectionsTotal"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtAvailableBandwidth"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPolicingEnabled"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtTotalBandwidth"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtAllocatedBandwidth"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtSessionAuxConnectionsEnabled"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtLoadHighReachedNotifEnabled"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtSessionMaxAuxConnectionsAllowed"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRpSessionUpdSubQoses"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRegReqMaxServiceFlows"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRegReqUnSupportedSOs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRegReqNonExistA10s"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRegReqBwUnavailableSess"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtNotifPdsnGroup": {
+    "name": "ciscoCdmaExtNotifPdsnGroup",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ciscoCdmaExtLoadLowReachedNotif"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ciscoCdmaExtLoadHighReachedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtPdsnPcfSoRpRegGroup": {
+    "name": "ciscoCdmaExtPdsnPcfSoRpRegGroup",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoStatsTotalAuxConnections"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpRegStatsNewAuxConnections"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpReRegStatsRemapFlows"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpRegStatsNonExistA10s"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtSystemPdsnCacGroup": {
+    "name": "ciscoCdmaExtSystemPdsnCacGroup",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtCacEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtPdsnPcfSoPppGroup": {
+    "name": "ciscoCdmaExtPdsnPcfSoPppGroup",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppPreLCPPcfA10Rls"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppLcpOptionIssueFailures"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppLcpFailuresUnknown"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppLcpPcfA10Rls"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppAuthFailures"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppAuthAAATimeouts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppAuthMaxRetransFailures"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppAuthFailuresUnknown"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppAuthPcfA10Rls"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppIpcpOptionIssueFailures"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppIpcpFailuresUnknown"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppIpcpPcfA10Rls"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppIpcpIpResourceFail"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegTotalReqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegByPdsnReqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegByMobileReqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegSuccesses"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegFailures"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegConnectionsAborted"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegAddrMismatchReqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegAccessNwIdChanges"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegGreChangeReqs"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoPppRenegOtherReasonReqs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtSystemPdsnGroupSupR01": {
+    "name": "ciscoCdmaExtSystemPdsnGroupSupR01",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcEnabled"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcSuccessCount"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcFailuresCount"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcOutIpPkts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcOutIpBytes"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcDeCompSuccessCount"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcDeCompFailuresCount"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcDeCompOutIpPkts"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcDeCompOutIpBytes"
+      },
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRohcAuxA10sCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01": {
+    "name": "ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCdmaExtSystemPdsnGroupSupR02": {
+    "name": "ciscoCdmaExtSystemPdsnGroupSupR02",
+    "oid": "1.3.6.1.4.1.9.9.669.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CDMA-PDSN-EXT-MIB",
+        "object": "ccpCdmaExtRegReqNoCIDAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CDMA-PDSN-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CDMA-PDSN-EXT-MIB"
+  }
+}

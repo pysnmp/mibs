@@ -1,0 +1,1187 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEpmNotificationMIB": {
+    "name": "ciscoEpmNotificationMIB",
+    "oid": "1.3.6.1.4.1.9.9.311",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-07 00:00",
+        "description": "Updated the cenAlarmEntry to include new attributes. The new attributes carries information that adds more value to the already existing trap structure. The Management application computes events for a device via polling snmp mib objects on the device and/or by listening to SNMP Traps. Multiple events on a single device roll up into what is called an Alert - there can be only one alert for a given device at any given time. The objects contained in the cenAlarmEntry are the same for both Alert and Event based notification. The attribute cenAlarmMode added in this revision of the mib can be used to distinguish between the Alert based and event based notification. In case of event based notification, the cenAlertID would contain the alert id, as computed by the management system, to which the generated event has been rolled up. Traps generated from systems that support mutiple Partition, the cenPartitionNumber and cenPartitionName attributes will carry the exact partition details of the device for which the trap is generated. Through the management application user interface, the user can customize few attributes of the trap structure. Two attributes included in this mib revision that allows the user to customize each trap sent out are cenCustomerIdentification and cenCustomerRevision. ciscoEpmNotificationObjectsGroup, ciscoEpmNotificationAlarm, and ciscoEpmNotificationMIBCompliance have been deprecated in this revision. ciscoEpmNotificationAlarmRev1, ciscoEpmNotificationAlarmGroupRev1, ciscoEpmNotificationMIBComplianceRev1, and ciscoEpmNotificationObjectsGroupRev1 have been newly created in this revision."
+      },
+      {
+        "revision": "2003-08-21 00:00",
+        "description": "Included imports for Integer32, Unsigned32, and NOTIFICATION-GROUP."
+      },
+      {
+        "revision": "2002-07-28 14:20",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoEpmNotificationMIBNotifs": {
+    "name": "ciscoEpmNotificationMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.311.0",
+    "class": "objectidentity"
+  },
+  "ciscoEpmNotificationMIBObjects": {
+    "name": "ciscoEpmNotificationMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.311.1",
+    "class": "objectidentity"
+  },
+  "ciscoEpmNotificationMIBConform": {
+    "name": "ciscoEpmNotificationMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.311.2",
+    "class": "objectidentity"
+  },
+  "cenAlarmData": {
+    "name": "cenAlarmData",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1",
+    "class": "objectidentity"
+  },
+  "cenAlarmTableMaxLength": {
+    "name": "cenAlarmTableMaxLength",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cenAlarmTable": {
+    "name": "cenAlarmTable",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cenAlarmEntry": {
+    "name": "cenAlarmEntry",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cenAlarmIndex": {
+    "name": "cenAlarmIndex",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cenAlarmVersion": {
+    "name": "cenAlarmVersion",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmTimestamp": {
+    "name": "cenAlarmTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmUpdatedTimestamp": {
+    "name": "cenAlarmUpdatedTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmInstanceID": {
+    "name": "cenAlarmInstanceID",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmStatus": {
+    "name": "cenAlarmStatus",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmStatusDefinition": {
+    "name": "cenAlarmStatusDefinition",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmType": {
+    "name": "cenAlarmType",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "direct": 2,
+          "indirect": 3,
+          "mixed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmCategory": {
+    "name": "cenAlarmCategory",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmCategoryDefinition": {
+    "name": "cenAlarmCategoryDefinition",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmServerAddressType": {
+    "name": "cenAlarmServerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmServerAddress": {
+    "name": "cenAlarmServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmManagedObjectClass": {
+    "name": "cenAlarmManagedObjectClass",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmManagedObjectAddressType": {
+    "name": "cenAlarmManagedObjectAddressType",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmManagedObjectAddress": {
+    "name": "cenAlarmManagedObjectAddress",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmDescription": {
+    "name": "cenAlarmDescription",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmSeverity": {
+    "name": "cenAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmSeverityDefinition": {
+    "name": "cenAlarmSeverityDefinition",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmTriageValue": {
+    "name": "cenAlarmTriageValue",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenEventIDList": {
+    "name": "cenEventIDList",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenUserMessage1": {
+    "name": "cenUserMessage1",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenUserMessage2": {
+    "name": "cenUserMessage2",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenUserMessage3": {
+    "name": "cenUserMessage3",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlarmMode": {
+    "name": "cenAlarmMode",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "alert": 2,
+          "event": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenPartitionNumber": {
+    "name": "cenPartitionNumber",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenPartitionName": {
+    "name": "cenPartitionName",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenCustomerIdentification": {
+    "name": "cenCustomerIdentification",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenCustomerRevision": {
+    "name": "cenCustomerRevision",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cenAlertID": {
+    "name": "cenAlertID",
+    "oid": "1.3.6.1.4.1.9.9.311.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoEpmNotificationAlarm": {
+    "name": "ciscoEpmNotificationAlarm",
+    "oid": "1.3.6.1.4.1.9.9.311.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmVersion"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmUpdatedTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmInstanceID"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatus"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatusDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategory"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategoryDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectClass"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmDescription"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverity"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverityDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTriageValue"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenEventIDList"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage1"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage2"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage3"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEpmNotificationAlarmRev1": {
+    "name": "ciscoEpmNotificationAlarmRev1",
+    "oid": "1.3.6.1.4.1.9.9.311.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmVersion"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmUpdatedTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmInstanceID"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatus"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatusDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategory"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategoryDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectClass"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmDescription"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverity"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverityDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTriageValue"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenEventIDList"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage1"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage2"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage3"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmMode"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenPartitionNumber"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenPartitionName"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenCustomerIdentification"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenCustomerRevision"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlertID"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEpmNotificationMIBCompliances": {
+    "name": "ciscoEpmNotificationMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.311.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoEpmNotificationMIBGroups": {
+    "name": "ciscoEpmNotificationMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.311.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoEpmNotificationMIBCompliance": {
+    "name": "ciscoEpmNotificationMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.311.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoEpmNotificationObjectsGroup",
+        "module": "CISCO-EPM-NOTIFICATION-MIB"
+      },
+      {
+        "object": "ciscoEpmNotificationAlarmGroup",
+        "module": "CISCO-EPM-NOTIFICATION-MIB"
+      },
+      {
+        "object": "ciscoEpmAlarmConfigGroup",
+        "module": "CISCO-EPM-NOTIFICATION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEpmNotificationMIBComplianceRev1": {
+    "name": "ciscoEpmNotificationMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.311.2.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoEpmNotificationObjectsGroupRev1",
+        "module": "CISCO-EPM-NOTIFICATION-MIB"
+      },
+      {
+        "object": "ciscoEpmNotificationAlarmGroupRev1",
+        "module": "CISCO-EPM-NOTIFICATION-MIB"
+      },
+      {
+        "object": "ciscoEpmAlarmConfigGroup",
+        "module": "CISCO-EPM-NOTIFICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEpmNotificationAlarmGroup": {
+    "name": "ciscoEpmNotificationAlarmGroup",
+    "oid": "1.3.6.1.4.1.9.9.311.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "ciscoEpmNotificationAlarm"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEpmNotificationObjectsGroup": {
+    "name": "ciscoEpmNotificationObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.311.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmVersion"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmUpdatedTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmInstanceID"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatus"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatusDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategory"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategoryDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectClass"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmDescription"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverity"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverityDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTriageValue"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenEventIDList"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage1"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage2"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage3"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEpmAlarmConfigGroup": {
+    "name": "ciscoEpmAlarmConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.311.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTableMaxLength"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEpmNotificationAlarmGroupRev1": {
+    "name": "ciscoEpmNotificationAlarmGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.311.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "ciscoEpmNotificationAlarmRev1"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEpmNotificationObjectsGroupRev1": {
+    "name": "ciscoEpmNotificationObjectsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.311.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmVersion"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmUpdatedTimestamp"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmInstanceID"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatus"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmStatusDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategory"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmCategoryDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmServerAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectClass"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddressType"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmManagedObjectAddress"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmDescription"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverity"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmSeverityDefinition"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmTriageValue"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenEventIDList"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage1"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage2"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenUserMessage3"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlarmMode"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenPartitionNumber"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenPartitionName"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenCustomerIdentification"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenCustomerRevision"
+      },
+      {
+        "module": "CISCO-EPM-NOTIFICATION-MIB",
+        "object": "cenAlertID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-EPM-NOTIFICATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-EPM-NOTIFICATION-MIB"
+  }
+}

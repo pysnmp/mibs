@@ -1,0 +1,1305 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsFaultType",
+      "CucsManagedObjectDn",
+      "CucsFaultCode",
+      "CucsManagedObjectId",
+      "CucsFaultProbableCause",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsFaultSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsFaultBasePolicySoakingSeverity",
+      "CucsConditionCause",
+      "CucsConditionLifecycle",
+      "CucsTrigAdminState",
+      "CucsPolicyPolicyOwner",
+      "CucsConditionTag",
+      "CucsFaultBasePolicyClearAction",
+      "CucsTrigTrigOperState",
+      "CucsMoMoClassId",
+      "CucsConditionAckAction",
+      "CucsConditionRule",
+      "CucsConditionType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsFaultObjects": {
+    "name": "cucsFaultObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1",
+    "class": "moduleidentity"
+  },
+  "cucsFaultAffectedClassTable": {
+    "name": "cucsFaultAffectedClassTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultAffectedClassEntry": {
+    "name": "cucsFaultAffectedClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultAffectedClassInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultAffectedClassInstanceId": {
+    "name": "cucsFaultAffectedClassInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultAffectedClassDn": {
+    "name": "cucsFaultAffectedClassDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultAffectedClassRn": {
+    "name": "cucsFaultAffectedClassRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultAffectedClassMoClassId": {
+    "name": "cucsFaultAffectedClassMoClassId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsMoMoClassId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultHolderTable": {
+    "name": "cucsFaultHolderTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultHolderEntry": {
+    "name": "cucsFaultHolderEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultHolderInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultHolderInstanceId": {
+    "name": "cucsFaultHolderInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultHolderDn": {
+    "name": "cucsFaultHolderDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultHolderRn": {
+    "name": "cucsFaultHolderRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultHolderName": {
+    "name": "cucsFaultHolderName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultHolderTotalFaults": {
+    "name": "cucsFaultHolderTotalFaults",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultHolderIsPinningCleared": {
+    "name": "cucsFaultHolderIsPinningCleared",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultHolderLastPinTime": {
+    "name": "cucsFaultHolderLastPinTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultTable": {
+    "name": "cucsFaultTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultEntry": {
+    "name": "cucsFaultEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultIndex": {
+    "name": "cucsFaultIndex",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultDn": {
+    "name": "cucsFaultDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultRn": {
+    "name": "cucsFaultRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultAffectedObjectId": {
+    "name": "cucsFaultAffectedObjectId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultAffectedObjectDn": {
+    "name": "cucsFaultAffectedObjectDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultAck": {
+    "name": "cucsFaultAck",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultProbableCause": {
+    "name": "cucsFaultProbableCause",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultChangeSet": {
+    "name": "cucsFaultChangeSet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultCode": {
+    "name": "cucsFaultCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultCreationTime": {
+    "name": "cucsFaultCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultDescription": {
+    "name": "cucsFaultDescription",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultHighestSeverity": {
+    "name": "cucsFaultHighestSeverity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultId": {
+    "name": "cucsFaultId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultLastModificationTime": {
+    "name": "cucsFaultLastModificationTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultLc": {
+    "name": "cucsFaultLc",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionLifecycle",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultOccur": {
+    "name": "cucsFaultOccur",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultOrigSeverity": {
+    "name": "cucsFaultOrigSeverity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPrevSeverity": {
+    "name": "cucsFaultPrevSeverity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultRule": {
+    "name": "cucsFaultRule",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRule",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSeverity": {
+    "name": "cucsFaultSeverity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultTags": {
+    "name": "cucsFaultTags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultType": {
+    "name": "cucsFaultType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderTable": {
+    "name": "cucsFaultLocalTypedHolderTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderEntry": {
+    "name": "cucsFaultLocalTypedHolderEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultLocalTypedHolderInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderInstanceId": {
+    "name": "cucsFaultLocalTypedHolderInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderDn": {
+    "name": "cucsFaultLocalTypedHolderDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderRn": {
+    "name": "cucsFaultLocalTypedHolderRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderName": {
+    "name": "cucsFaultLocalTypedHolderName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderTotalFaults": {
+    "name": "cucsFaultLocalTypedHolderTotalFaults",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultLocalTypedHolderType": {
+    "name": "cucsFaultLocalTypedHolderType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyTable": {
+    "name": "cucsFaultPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultPolicyEntry": {
+    "name": "cucsFaultPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultPolicyInstanceId": {
+    "name": "cucsFaultPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultPolicyDn": {
+    "name": "cucsFaultPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyRn": {
+    "name": "cucsFaultPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyClearAction": {
+    "name": "cucsFaultPolicyClearAction",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultBasePolicyClearAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyClearInterval": {
+    "name": "cucsFaultPolicyClearInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyDescr": {
+    "name": "cucsFaultPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyFlapInterval": {
+    "name": "cucsFaultPolicyFlapInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyIntId": {
+    "name": "cucsFaultPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyName": {
+    "name": "cucsFaultPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyRetentionInterval": {
+    "name": "cucsFaultPolicyRetentionInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicySizeLimit": {
+    "name": "cucsFaultPolicySizeLimit",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyAckAction": {
+    "name": "cucsFaultPolicyAckAction",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionAckAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyPolicyLevel": {
+    "name": "cucsFaultPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyPolicyOwner": {
+    "name": "cucsFaultPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicySoakInterval": {
+    "name": "cucsFaultPolicySoakInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicySoakingSeverity": {
+    "name": "cucsFaultPolicySoakingSeverity",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFaultBasePolicySoakingSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultPolicyPinningExpirationInterval": {
+    "name": "cucsFaultPolicyPinningExpirationInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyTable": {
+    "name": "cucsFaultSuppressPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyEntry": {
+    "name": "cucsFaultSuppressPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultSuppressPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyInstanceId": {
+    "name": "cucsFaultSuppressPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyDn": {
+    "name": "cucsFaultSuppressPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyRn": {
+    "name": "cucsFaultSuppressPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyDescr": {
+    "name": "cucsFaultSuppressPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyIntId": {
+    "name": "cucsFaultSuppressPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyName": {
+    "name": "cucsFaultSuppressPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyPolicyLevel": {
+    "name": "cucsFaultSuppressPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyPolicyOwner": {
+    "name": "cucsFaultSuppressPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemTable": {
+    "name": "cucsFaultSuppressPolicyItemTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemEntry": {
+    "name": "cucsFaultSuppressPolicyItemEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultSuppressPolicyItemInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemInstanceId": {
+    "name": "cucsFaultSuppressPolicyItemInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemDn": {
+    "name": "cucsFaultSuppressPolicyItemDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemRn": {
+    "name": "cucsFaultSuppressPolicyItemRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemCause": {
+    "name": "cucsFaultSuppressPolicyItemCause",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemDescr": {
+    "name": "cucsFaultSuppressPolicyItemDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressPolicyItemType": {
+    "name": "cucsFaultSuppressPolicyItemType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskTable": {
+    "name": "cucsFaultSuppressTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskEntry": {
+    "name": "cucsFaultSuppressTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+        "object": "cucsFaultSuppressTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskInstanceId": {
+    "name": "cucsFaultSuppressTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskDn": {
+    "name": "cucsFaultSuppressTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskRn": {
+    "name": "cucsFaultSuppressTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskAdminState": {
+    "name": "cucsFaultSuppressTaskAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsTrigAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskAutoDelete": {
+    "name": "cucsFaultSuppressTaskAutoDelete",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskDescr": {
+    "name": "cucsFaultSuppressTaskDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskIgnoreCap": {
+    "name": "cucsFaultSuppressTaskIgnoreCap",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskIntId": {
+    "name": "cucsFaultSuppressTaskIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskName": {
+    "name": "cucsFaultSuppressTaskName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskOperScheduler": {
+    "name": "cucsFaultSuppressTaskOperScheduler",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskOperState": {
+    "name": "cucsFaultSuppressTaskOperState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsTrigTrigOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskOperSuppressPolicyName": {
+    "name": "cucsFaultSuppressTaskOperSuppressPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskPolicyLevel": {
+    "name": "cucsFaultSuppressTaskPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskPolicyOwner": {
+    "name": "cucsFaultSuppressTaskPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskScheduler": {
+    "name": "cucsFaultSuppressTaskScheduler",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsFaultSuppressTaskSuppressPolicyName": {
+    "name": "cucsFaultSuppressTaskSuppressPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FAULT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB"
+  }
+}

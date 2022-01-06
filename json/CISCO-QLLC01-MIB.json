@@ -1,0 +1,879 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snaqllc01": {
+    "name": "snaqllc01",
+    "oid": "1.3.6.1.4.1.9.10.6",
+    "class": "moduleidentity"
+  },
+  "qllc": {
+    "name": "qllc",
+    "oid": "1.3.6.1.4.1.9.10.6.1",
+    "class": "objectidentity"
+  },
+  "IfIndexType": {
+    "name": "IfIndexType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "X121Address": {
+    "name": "X121Address",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    }
+  },
+  "qllcLSAdminTable": {
+    "name": "qllcLSAdminTable",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qllcLSAdminEntry": {
+    "name": "qllcLSAdminEntry",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminLciVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qllcLSAdminIfIndex": {
+    "name": "qllcLSAdminIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qllcLSAdminLciVcIndex": {
+    "name": "qllcLSAdminLciVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qllcLSAdminCircuitType": {
+    "name": "qllcLSAdminCircuitType",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchedVC": 1,
+          "permanentVC": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qllcLSAdminRole": {
+    "name": "qllcLSAdminRole",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "peerToPeer": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qllcLSAdminX25Add": {
+    "name": "qllcLSAdminX25Add",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qllcLSAdminModulo": {
+    "name": "qllcLSAdminModulo",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modulo8": 1,
+          "modulo128": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "modulo8",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qllcLSAdminLgX25": {
+    "name": "qllcLSAdminLgX25",
+    "oid": "1.3.6.1.4.1.9.10.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "qllcLSOperTable": {
+    "name": "qllcLSOperTable",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qllcLSOperEntry": {
+    "name": "qllcLSOperEntry",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperLciVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qllcLSOperIfIndex": {
+    "name": "qllcLSOperIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSOperLciVcIndex": {
+    "name": "qllcLSOperLciVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSOperCircuitType": {
+    "name": "qllcLSOperCircuitType",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchedVC": 1,
+          "permanentVC": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSOperRole": {
+    "name": "qllcLSOperRole",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "peerToPeer": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSOperX25Add": {
+    "name": "qllcLSOperX25Add",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSOperModulo": {
+    "name": "qllcLSOperModulo",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modulo8": 1,
+          "modulo128": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "modulo8",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSOperState": {
+    "name": "qllcLSOperState",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lsStateInop": 1,
+          "lsStateClosed": 2,
+          "lsStateOpening": 3,
+          "lsStateClosing": 4,
+          "lsStateRecovery": 5,
+          "lsStateOpened": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSOperLgX25": {
+    "name": "qllcLSOperLgX25",
+    "oid": "1.3.6.1.4.1.9.10.6.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsTable": {
+    "name": "qllcLSStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "qllcLSStatsEntry": {
+    "name": "qllcLSStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsLciVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "qllcLSStatsIfIndex": {
+    "name": "qllcLSStatsIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsLciVcIndex": {
+    "name": "qllcLSStatsLciVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsXidIn": {
+    "name": "qllcLSStatsXidIn",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsXidOut": {
+    "name": "qllcLSStatsXidOut",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsTestIn": {
+    "name": "qllcLSStatsTestIn",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsTestOut": {
+    "name": "qllcLSStatsTestOut",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsQuenchOff": {
+    "name": "qllcLSStatsQuenchOff",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsQuenchOn": {
+    "name": "qllcLSStatsQuenchOn",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsInPaks": {
+    "name": "qllcLSStatsInPaks",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsOutPaks": {
+    "name": "qllcLSStatsOutPaks",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsInBytes": {
+    "name": "qllcLSStatsInBytes",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsOutBytes": {
+    "name": "qllcLSStatsOutBytes",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumRcvQsms": {
+    "name": "qllcLSStatsNumRcvQsms",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumSndQsms": {
+    "name": "qllcLSStatsNumSndQsms",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumRcvDiscs": {
+    "name": "qllcLSStatsNumRcvDiscs",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumSndDiscs": {
+    "name": "qllcLSStatsNumSndDiscs",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumRcvDms": {
+    "name": "qllcLSStatsNumRcvDms",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumSndDms": {
+    "name": "qllcLSStatsNumSndDms",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumRcvFrmrs": {
+    "name": "qllcLSStatsNumRcvFrmrs",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumSndFrmrs": {
+    "name": "qllcLSStatsNumSndFrmrs",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumDrops": {
+    "name": "qllcLSStatsNumDrops",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcLSStatsNumErrs": {
+    "name": "qllcLSStatsNumErrs",
+    "oid": "1.3.6.1.4.1.9.10.6.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "qllcMibConformance": {
+    "name": "qllcMibConformance",
+    "oid": "1.3.6.1.4.1.9.10.6.2",
+    "class": "objectidentity"
+  },
+  "qllcMibCompliances": {
+    "name": "qllcMibCompliances",
+    "oid": "1.3.6.1.4.1.9.10.6.2.1",
+    "class": "objectidentity"
+  },
+  "qllcMibGroups": {
+    "name": "qllcMibGroups",
+    "oid": "1.3.6.1.4.1.9.10.6.2.2",
+    "class": "objectidentity"
+  },
+  "qllcMibCompliance": {
+    "name": "qllcMibCompliance",
+    "oid": "1.3.6.1.4.1.9.10.6.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "qllcLSAdminGroup",
+        "module": "CISCO-QLLC01-MIB"
+      },
+      {
+        "object": "qllcLSOperGroup",
+        "module": "CISCO-QLLC01-MIB"
+      },
+      {
+        "object": "qllcLSStatsGroup",
+        "module": "CISCO-QLLC01-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "qllcLSAdminGroup": {
+    "name": "qllcLSAdminGroup",
+    "oid": "1.3.6.1.4.1.9.10.6.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminIfIndex"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminLciVcIndex"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminRole"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminCircuitType"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminX25Add"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminModulo"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSAdminLgX25"
+      }
+    ],
+    "status": "current"
+  },
+  "qllcLSOperGroup": {
+    "name": "qllcLSOperGroup",
+    "oid": "1.3.6.1.4.1.9.10.6.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperIfIndex"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperLciVcIndex"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperCircuitType"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperRole"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperX25Add"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperModulo"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperState"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSOperLgX25"
+      }
+    ],
+    "status": "current"
+  },
+  "qllcLSStatsGroup": {
+    "name": "qllcLSStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.6.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsIfIndex"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsLciVcIndex"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsXidIn"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsXidOut"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsTestIn"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsTestOut"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsQuenchOff"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsQuenchOn"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsInPaks"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsOutPaks"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsInBytes"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsOutBytes"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumRcvQsms"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumSndQsms"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumRcvDiscs"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumSndDiscs"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumRcvDms"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumSndDms"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumRcvFrmrs"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumSndFrmrs"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumDrops"
+      },
+      {
+        "module": "CISCO-QLLC01-MIB",
+        "object": "qllcLSStatsNumErrs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-QLLC01-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-QLLC01-MIB"
+  }
+}

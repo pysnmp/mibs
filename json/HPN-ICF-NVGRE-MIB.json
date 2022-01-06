@@ -1,0 +1,405 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfNvgre": {
+    "name": "hpnicfNvgre",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-11 09:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpnicfNvgreObjects": {
+    "name": "hpnicfNvgreObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1",
+    "class": "objectidentity"
+  },
+  "hpnicfNvgreScalarGroup": {
+    "name": "hpnicfNvgreScalarGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfNvgreNextNvgreID": {
+    "name": "hpnicfNvgreNextNvgreID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreConfigured": {
+    "name": "hpnicfNvgreConfigured",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreTable": {
+    "name": "hpnicfNvgreTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreEntry": {
+    "name": "hpnicfNvgreEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNvgreID": {
+    "name": "hpnicfNvgreID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreVsiIndex": {
+    "name": "hpnicfNvgreVsiIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNvgreRemoteMacCount": {
+    "name": "hpnicfNvgreRemoteMacCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreRowStatus": {
+    "name": "hpnicfNvgreRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelTable": {
+    "name": "hpnicfNvgreTunnelTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelEntry": {
+    "name": "hpnicfNvgreTunnelEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreID",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreTunnelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelID": {
+    "name": "hpnicfNvgreTunnelID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelRowStatus": {
+    "name": "hpnicfNvgreTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelOctets": {
+    "name": "hpnicfNvgreTunnelOctets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelPackets": {
+    "name": "hpnicfNvgreTunnelPackets",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelBoundTable": {
+    "name": "hpnicfNvgreTunnelBoundTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelBoundEntry": {
+    "name": "hpnicfNvgreTunnelBoundEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreTunnelID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNvgreTunnelBoundNvgreNum": {
+    "name": "hpnicfNvgreTunnelBoundNvgreNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreMacTable": {
+    "name": "hpnicfNvgreMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreMacEntry": {
+    "name": "hpnicfNvgreMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreVsiIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNvgreMacAddr": {
+    "name": "hpnicfNvgreMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreMacTunnelID": {
+    "name": "hpnicfNvgreMacTunnelID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreMacType": {
+    "name": "hpnicfNvgreMacType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "selfLearned": 1,
+          "staticConfigured": 2,
+          "protocolLearned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNvgreStaticMacTable": {
+    "name": "hpnicfNvgreStaticMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreStaticMacEntry": {
+    "name": "hpnicfNvgreStaticMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreVsiIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NVGRE-MIB",
+        "object": "hpnicfNvgreStaticMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNvgreStaticMacAddr": {
+    "name": "hpnicfNvgreStaticMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNvgreStaticMacTunnelID": {
+    "name": "hpnicfNvgreStaticMacTunnelID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNvgreStaticMacRowStatus": {
+    "name": "hpnicfNvgreStaticMacRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.156.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NVGRE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-NVGRE-MIB"
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDot11RadarMIB": {
+    "name": "ciscoDot11RadarMIB",
+    "oid": "1.3.6.1.4.1.9.9.627",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDot11RadarMIBNotifs": {
+    "name": "ciscoDot11RadarMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.627.0",
+    "class": "objectidentity"
+  },
+  "ciscoDot11RadarMIBObjects": {
+    "name": "ciscoDot11RadarMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.627.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11RadarMIBConform": {
+    "name": "ciscoDot11RadarMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.627.2",
+    "class": "objectidentity"
+  },
+  "cdrDot11RadarNotifConfig": {
+    "name": "cdrDot11RadarNotifConfig",
+    "oid": "1.3.6.1.4.1.9.9.627.1.1",
+    "class": "objectidentity"
+  },
+  "cdrDot11RadarDetectInfo": {
+    "name": "cdrDot11RadarDetectInfo",
+    "oid": "1.3.6.1.4.1.9.9.627.1.2",
+    "class": "objectidentity"
+  },
+  "cdrDot11NewFrequency": {
+    "name": "cdrDot11NewFrequency",
+    "oid": "1.3.6.1.4.1.9.9.627.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "units": "MHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDot11PreferFrequency": {
+    "name": "cdrDot11PreferFrequency",
+    "oid": "1.3.6.1.4.1.9.9.627.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "hex"
+      }
+    },
+    "units": "MHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrChannelSwitchLastTime": {
+    "name": "cdrChannelSwitchLastTime",
+    "oid": "1.3.6.1.4.1.9.9.627.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrChannelReturnLastTime": {
+    "name": "cdrChannelReturnLastTime",
+    "oid": "1.3.6.1.4.1.9.9.627.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrChannelSwitchNotifEnabled": {
+    "name": "cdrChannelSwitchNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.627.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdrChannelReturnNotifEnabled": {
+    "name": "cdrChannelReturnNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.627.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDot11RadarChannelSwitch": {
+    "name": "ciscoDot11RadarChannelSwitch",
+    "oid": "1.3.6.1.4.1.9.9.627.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrDot11NewFrequency"
+      },
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrChannelSwitchLastTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11RadarChannelReturn": {
+    "name": "ciscoDot11RadarChannelReturn",
+    "oid": "1.3.6.1.4.1.9.9.627.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrDot11PreferFrequency"
+      },
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrChannelReturnLastTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11RadarMIBCompliances": {
+    "name": "ciscoDot11RadarMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.627.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11RadarMIBGroups": {
+    "name": "ciscoDot11RadarMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.627.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11RadarCompliance": {
+    "name": "ciscoDot11RadarCompliance",
+    "oid": "1.3.6.1.4.1.9.9.627.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdrDot11RadarNotifObjectGroup",
+        "module": "CISCO-DOT11-RADAR-MIB"
+      },
+      {
+        "object": "ciscoDot11RadarDetectInfoGroup",
+        "module": "CISCO-DOT11-RADAR-MIB"
+      },
+      {
+        "object": "ciscoDot11RadarNotificationGroup",
+        "module": "CISCO-DOT11-RADAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdrDot11RadarNotifObjectGroup": {
+    "name": "cdrDot11RadarNotifObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.627.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrChannelSwitchNotifEnabled"
+      },
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrChannelReturnNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11RadarDetectInfoGroup": {
+    "name": "ciscoDot11RadarDetectInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.627.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrDot11NewFrequency"
+      },
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrDot11PreferFrequency"
+      },
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrChannelSwitchLastTime"
+      },
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "cdrChannelReturnLastTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11RadarNotificationGroup": {
+    "name": "ciscoDot11RadarNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.627.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "ciscoDot11RadarChannelSwitch"
+      },
+      {
+        "module": "CISCO-DOT11-RADAR-MIB",
+        "object": "ciscoDot11RadarChannelReturn"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-RADAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DOT11-RADAR-MIB"
+  }
+}

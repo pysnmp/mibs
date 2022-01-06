@@ -1,0 +1,195 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cObjectInfo": {
+    "name": "hh3cObjectInfo",
+    "oid": "1.3.6.1.4.1.25506.2.55",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-12-27 00:00",
+        "description": " The initial revision of this MIB module. "
+      }
+    ]
+  },
+  "hh3cObjectInformation": {
+    "name": "hh3cObjectInformation",
+    "oid": "1.3.6.1.4.1.25506.2.55.1",
+    "class": "objectidentity"
+  },
+  "hh3cObjectInfoTable": {
+    "name": "hh3cObjectInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.55.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cObjectInfoEntry": {
+    "name": "hh3cObjectInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.55.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-OBJECT-INFO-MIB",
+        "object": "hh3cObjectInfoOID",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-OBJECT-INFO-MIB",
+        "object": "hh3cObjectInfoType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-OBJECT-INFO-MIB",
+        "object": "hh3cObjectInfoTypeExtension",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cObjectInfoOID": {
+    "name": "hh3cObjectInfoOID",
+    "oid": "1.3.6.1.4.1.25506.2.55.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cObjectInfoType": {
+    "name": "hh3cObjectInfoType",
+    "oid": "1.3.6.1.4.1.25506.2.55.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "accessType": 2,
+          "dataType": 3,
+          "dataRange": 4,
+          "dataLength": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cObjectInfoTypeExtension": {
+    "name": "hh3cObjectInfoTypeExtension",
+    "oid": "1.3.6.1.4.1.25506.2.55.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cObjectInfoValue": {
+    "name": "hh3cObjectInfoValue",
+    "oid": "1.3.6.1.4.1.25506.2.55.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cObjectInfoMIBConformance": {
+    "name": "hh3cObjectInfoMIBConformance",
+    "oid": "1.3.6.1.4.1.25506.2.55.2",
+    "class": "objectidentity"
+  },
+  "hh3cObjectInfoMIBCompliances": {
+    "name": "hh3cObjectInfoMIBCompliances",
+    "oid": "1.3.6.1.4.1.25506.2.55.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cObjectInfoMIBCompliance": {
+    "name": "hh3cObjectInfoMIBCompliance",
+    "oid": "1.3.6.1.4.1.25506.2.55.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hh3cObjectInfoTableGroup",
+        "module": "HH3C-OBJECT-INFO-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cObjectInfoMIBGroups": {
+    "name": "hh3cObjectInfoMIBGroups",
+    "oid": "1.3.6.1.4.1.25506.2.55.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cObjectInfoTableGroup": {
+    "name": "hh3cObjectInfoTableGroup",
+    "oid": "1.3.6.1.4.1.25506.2.55.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HH3C-OBJECT-INFO-MIB",
+        "object": "hh3cObjectInfoValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-OBJECT-INFO-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-OBJECT-INFO-MIB"
+  }
+}

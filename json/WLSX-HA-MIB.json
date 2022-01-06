@@ -1,0 +1,895 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaHaConnectivityStatus",
+      "ArubaEnableValue",
+      "ArubaHaRole"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "TAddress",
+      "PhysAddress"
+    ]
+  },
+  "wlsxHaMIB": {
+    "name": "wlsxHaMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxHighAvalabilityInfoGroup": {
+    "name": "wlsxHighAvalabilityInfoGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1",
+    "class": "objectidentity"
+  },
+  "wlsxHighAvalabilityTraps": {
+    "name": "wlsxHighAvalabilityTraps",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2",
+    "class": "objectidentity"
+  },
+  "wlsxHighAvalabilityConfigTable": {
+    "name": "wlsxHighAvalabilityConfigTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxHighAvalabilityConfigEntry": {
+    "name": "wlsxHighAvalabilityConfigEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "haProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "haProfileName": {
+    "name": "haProfileName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "haMembership": {
+    "name": "haMembership",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haState": {
+    "name": "haState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haRole": {
+    "name": "haRole",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHaRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haPreemption": {
+    "name": "haPreemption",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haOversubscription": {
+    "name": "haOversubscription",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haStateSync": {
+    "name": "haStateSync",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haPresharedKey": {
+    "name": "haPresharedKey",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haIntercontrollerHbt": {
+    "name": "haIntercontrollerHbt",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haHbtThreshold": {
+    "name": "haHbtThreshold",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haHbtInterval": {
+    "name": "haHbtInterval",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHighAvalabilityApTable": {
+    "name": "wlsxHighAvalabilityApTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxHighAvalabilityApEntry": {
+    "name": "wlsxHighAvalabilityApEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "haProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "haActiveAPs": {
+    "name": "haActiveAPs",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haStandbyAPs": {
+    "name": "haStandbyAPs",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haTotalAPs": {
+    "name": "haTotalAPs",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxIntercontrollerHbtTable": {
+    "name": "wlsxIntercontrollerHbtTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxIntercontrollerHbtEntry": {
+    "name": "wlsxIntercontrollerHbtEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "haActiveCtrl",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "haActiveCtrl": {
+    "name": "haActiveCtrl",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "haActiveCtrlIp": {
+    "name": "haActiveCtrlIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haReferenceCnt": {
+    "name": "haReferenceCnt",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haTotalHbtRequestsSent": {
+    "name": "haTotalHbtRequestsSent",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haTotalHbtResponsesRcvd": {
+    "name": "haTotalHbtResponsesRcvd",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haLastMissedHbtCnt": {
+    "name": "haLastMissedHbtCnt",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haLastHbtMissedTime": {
+    "name": "haLastHbtMissedTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxStateSyncTable": {
+    "name": "wlsxStateSyncTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxStateSyncEntry": {
+    "name": "wlsxStateSyncEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "haProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "haActivePmkCacheEntries": {
+    "name": "haActivePmkCacheEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haReplicatedPmkCacheEntries": {
+    "name": "haReplicatedPmkCacheEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haTotalPmkCacheEntries": {
+    "name": "haTotalPmkCacheEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haActiveKeyCacheEntries": {
+    "name": "haActiveKeyCacheEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haReplicatedKeyCacheEntries": {
+    "name": "haReplicatedKeyCacheEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haTotalKeyCacheEntries": {
+    "name": "haTotalKeyCacheEntries",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHighAvalabilityTunnelTable": {
+    "name": "wlsxHighAvalabilityTunnelTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxHighAvalabilityTunnelEntry": {
+    "name": "wlsxHighAvalabilityTunnelEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "haProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "haActiveVapTunnels": {
+    "name": "haActiveVapTunnels",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haStandbyVapTunnels": {
+    "name": "haStandbyVapTunnels",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haTotalVapTunnels": {
+    "name": "haTotalVapTunnels",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "haAPHbtTunnels": {
+    "name": "haAPHbtTunnels",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaTrapObjectsGroup": {
+    "name": "wlsxHaTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1",
+    "class": "objectidentity"
+  },
+  "wlsxHaTrapDefinitionGroup": {
+    "name": "wlsxHaTrapDefinitionGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.2",
+    "class": "objectidentity"
+  },
+  "wlsxHaV4Status": {
+    "name": "wlsxHaV4Status",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaV4Role": {
+    "name": "wlsxHaV4Role",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHaRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaV6Status": {
+    "name": "wlsxHaV6Status",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaV6Role": {
+    "name": "wlsxHaV6Role",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHaRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaAPName": {
+    "name": "wlsxHaAPName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaActiveControllerIp": {
+    "name": "wlsxHaActiveControllerIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaStandbyControllerIp": {
+    "name": "wlsxHaStandbyControllerIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxTrapHaConnectivityStatus": {
+    "name": "wlsxTrapHaConnectivityStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaHaConnectivityStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxTrapHaIntercontrollerHbtMissCnt": {
+    "name": "wlsxTrapHaIntercontrollerHbtMissCnt",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxTrapHaHbtMissTimeStamp": {
+    "name": "wlsxTrapHaHbtMissTimeStamp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxTrapHaStandbyApCnt": {
+    "name": "wlsxTrapHaStandbyApCnt",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxHaState": {
+    "name": "wlsxHaState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaV4Status"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaV4Role"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaV6Status"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaV6Role"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxHaStandbyIpSentFailed": {
+    "name": "wlsxHaStandbyIpSentFailed",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaStandbyControllerIp"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaAPName"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxHaStandbyConnectivityState": {
+    "name": "wlsxHaStandbyConnectivityState",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaAPName"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaStandbyControllerIp"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxTrapHaConnectivityStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxHaIntercontrollerHbtMiss": {
+    "name": "wlsxHaIntercontrollerHbtMiss",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxTrapHaIntercontrollerHbtMissCnt"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaActiveControllerIp"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxTrapHaHbtMissTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxHaFailoverTrigger": {
+    "name": "wlsxHaFailoverTrigger",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaActiveControllerIp"
+      },
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxTrapHaStandbyApCnt"
+      }
+    ],
+    "status": "current"
+  },
+  "wlsxHaFailoverRequestFromAp": {
+    "name": "wlsxHaFailoverRequestFromAp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.20.2.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WLSX-HA-MIB",
+        "object": "wlsxHaAPName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-HA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-HA-MIB"
+  }
+}

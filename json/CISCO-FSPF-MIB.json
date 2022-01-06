@@ -1,0 +1,1943 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "DomainIdOrZero",
+      "DomainId"
+    ],
+    "CISCO-TC": [
+      "CiscoMilliSeconds",
+      "TimeIntervalMin",
+      "TimeIntervalSec"
+    ],
+    "CISCO-VSAN-MIB": [
+      "notifyVsanIndex",
+      "vsanIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFspfMIB": {
+    "name": "ciscoFspfMIB",
+    "oid": "1.3.6.1.4.1.9.9.287",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-10-08 00:00",
+        "description": "Added new object fspfLsrExternal to fspfLsrTable. Added a new compliance statement fspfMIBCompliance3."
+      },
+      {
+        "revision": "2003-04-13 00:00",
+        "description": "Added two new objects fspfLinkNumber and fspfLsrNumber. Added new conformance group fspfDatabaseGroupRev1 and compliance fspfMIBCompliance2. Added a new object fspfTotalCheckSum to fspfTable. Added new conformance group fspfGenericGroupRev1 and compliance fspfMIBCompliance1."
+      },
+      {
+        "revision": "2003-02-21 00:00",
+        "description": "Import Gauge32 from SNMPv2-SMI. Use CiscoMilliSeconds instead MilliSeconds from CISCO-TC."
+      },
+      {
+        "revision": "2002-11-21 00:00",
+        "description": "Changed descriptions of fspfSetToDefault and fspfIfSetToDefault to reflect that the fact that the adminStatus objects also set to default when the entry is set to default."
+      },
+      {
+        "revision": "2002-11-01 00:00",
+        "description": "Changed SYNTAX for fspfSpfHoldTime, fspfMinLsArrival and fspfMinLsInterval to CiscoMilliSeconds. Changed range for fspfIfDeadInterval"
+      },
+      {
+        "revision": "2002-10-04 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "fspfConfiguration": {
+    "name": "fspfConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.287.1",
+    "class": "objectidentity"
+  },
+  "fspfDatabase": {
+    "name": "fspfDatabase",
+    "oid": "1.3.6.1.4.1.9.9.287.2",
+    "class": "objectidentity"
+  },
+  "fspfNotificationPrefix": {
+    "name": "fspfNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.287.3",
+    "class": "objectidentity"
+  },
+  "fspfNotification": {
+    "name": "fspfNotification",
+    "oid": "1.3.6.1.4.1.9.9.287.3.0",
+    "class": "objectidentity"
+  },
+  "fspfMIBConformance": {
+    "name": "fspfMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.287.4",
+    "class": "objectidentity"
+  },
+  "FspfRegionId": {
+    "name": "FspfRegionId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FspfLsrType": {
+    "name": "FspfLsrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FspfLinkType": {
+    "name": "FspfLinkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FspfInterfaceState": {
+    "name": "FspfInterfaceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "init": 2,
+          "dbExchange": 3,
+          "dbAckwait": 4,
+          "dbWait": 5,
+          "full": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LastCreationTime": {
+    "name": "LastCreationTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "fspfTable": {
+    "name": "fspfTable",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fspfEntry": {
+    "name": "fspfEntry",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fspfRegionId": {
+    "name": "fspfRegionId",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspfRegionId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfDomainId": {
+    "name": "fspfDomainId",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfSpfDelay": {
+    "name": "fspfSpfDelay",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfSpfHoldTime": {
+    "name": "fspfSpfHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "MilliSeconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfMinLsArrival": {
+    "name": "fspfMinLsArrival",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "MilliSeconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfMinLsInterval": {
+    "name": "fspfMinLsInterval",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "MilliSeconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfLsRefreshTime": {
+    "name": "fspfLsRefreshTime",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "units": "Minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfMaxAge": {
+    "name": "fspfMaxAge",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "units": "Minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfMaxAgeCount": {
+    "name": "fspfMaxAgeCount",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfSpfComputations": {
+    "name": "fspfSpfComputations",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfChecksumErrors": {
+    "name": "fspfChecksumErrors",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsuRxPkts": {
+    "name": "fspfLsuRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsaRxPkts": {
+    "name": "fspfLsaRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsuTxPkts": {
+    "name": "fspfLsuTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsaTxPkts": {
+    "name": "fspfLsaTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfHelloTxPkts": {
+    "name": "fspfHelloTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfHelloRxPkts": {
+    "name": "fspfHelloRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfRetransmittedLsuTxPkts": {
+    "name": "fspfRetransmittedLsuTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfErrorRxPkts": {
+    "name": "fspfErrorRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsrs": {
+    "name": "fspfLsrs",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfCreateTime": {
+    "name": "fspfCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LastCreationTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfAdminStatus": {
+    "name": "fspfAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfOperStatus": {
+    "name": "fspfOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfSetToDefault": {
+    "name": "fspfSetToDefault",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfRowStatus": {
+    "name": "fspfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfTotalCheckSum": {
+    "name": "fspfTotalCheckSum",
+    "oid": "1.3.6.1.4.1.9.9.287.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfTable": {
+    "name": "fspfIfTable",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fspfIfEntry": {
+    "name": "fspfIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fspfIfCost": {
+    "name": "fspfIfCost",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfIfHelloInterval": {
+    "name": "fspfIfHelloInterval",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfIfDeadInterval": {
+    "name": "fspfIfDeadInterval",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfIfRetransmitInterval": {
+    "name": "fspfIfRetransmitInterval",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfIfLsuRxPkts": {
+    "name": "fspfIfLsuRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfLsaRxPkts": {
+    "name": "fspfIfLsaRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfLsuTxPkts": {
+    "name": "fspfIfLsuTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfLsaTxPkts": {
+    "name": "fspfIfLsaTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfHelloTxPkts": {
+    "name": "fspfIfHelloTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfHelloRxPkts": {
+    "name": "fspfIfHelloRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfRetransmittedLsuTxPkts": {
+    "name": "fspfIfRetransmittedLsuTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfErrorRxPkts": {
+    "name": "fspfIfErrorRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfInactivityExpirations": {
+    "name": "fspfIfInactivityExpirations",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfNbrState": {
+    "name": "fspfIfNbrState",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspfInterfaceState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfNbrDomainId": {
+    "name": "fspfIfNbrDomainId",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfNbrPortIndex": {
+    "name": "fspfIfNbrPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfAdminStatus": {
+    "name": "fspfIfAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfIfCreateTime": {
+    "name": "fspfIfCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LastCreationTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfIfSetToDefault": {
+    "name": "fspfIfSetToDefault",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "noOp": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfIfRowStatus": {
+    "name": "fspfIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.287.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fspfLsrTable": {
+    "name": "fspfLsrTable",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fspfLsrEntry": {
+    "name": "fspfLsrEntry",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrDomainId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fspfLsrDomainId": {
+    "name": "fspfLsrDomainId",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fspfLsrType": {
+    "name": "fspfLsrType",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspfLsrType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fspfLsrAdvDomainId": {
+    "name": "fspfLsrAdvDomainId",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsrAge": {
+    "name": "fspfLsrAge",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalSec",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsrIncarnationNumber": {
+    "name": "fspfLsrIncarnationNumber",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsrCheckSum": {
+    "name": "fspfLsrCheckSum",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsrLinks": {
+    "name": "fspfLsrLinks",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65355
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsrExternal": {
+    "name": "fspfLsrExternal",
+    "oid": "1.3.6.1.4.1.9.9.287.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLinkTable": {
+    "name": "fspfLinkTable",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fspfLinkEntry": {
+    "name": "fspfLinkEntry",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrDomainId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fspfLinkIndex": {
+    "name": "fspfLinkIndex",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fspfLinkNbrDomainId": {
+    "name": "fspfLinkNbrDomainId",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLinkPortIndex": {
+    "name": "fspfLinkPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLinkNbrPortIndex": {
+    "name": "fspfLinkNbrPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLinkType": {
+    "name": "fspfLinkType",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspfLinkType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLinkCost": {
+    "name": "fspfLinkCost",
+    "oid": "1.3.6.1.4.1.9.9.287.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLsrNumber": {
+    "name": "fspfLsrNumber",
+    "oid": "1.3.6.1.4.1.9.9.287.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfLinkNumber": {
+    "name": "fspfLinkNumber",
+    "oid": "1.3.6.1.4.1.9.9.287.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fspfNbrStateChangeNotifyEnable": {
+    "name": "fspfNbrStateChangeNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.287.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fspfIfPrevNbrState": {
+    "name": "fspfIfPrevNbrState",
+    "oid": "1.3.6.1.4.1.9.9.287.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FspfInterfaceState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fspfNbrStateChangeNotify": {
+    "name": "fspfNbrStateChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.287.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "notifyVsanIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfNbrDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfNbrState"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfPrevNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "fspfMIBCompliances": {
+    "name": "fspfMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.287.4.1",
+    "class": "objectidentity"
+  },
+  "fspfMIBGroups": {
+    "name": "fspfMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2",
+    "class": "objectidentity"
+  },
+  "fspfMIBCompliance": {
+    "name": "fspfMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.287.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fspfGenericGroup",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfIfGroup",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfDatabaseGroup",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfNotificationGroup",
+        "module": "CISCO-FSPF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fspfMIBCompliance1": {
+    "name": "fspfMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.287.4.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fspfGenericGroupRev1",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfIfGroup",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfDatabaseGroup",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfNotificationGroup",
+        "module": "CISCO-FSPF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fspfMIBCompliance2": {
+    "name": "fspfMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.287.4.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fspfGenericGroupRev1",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfIfGroup",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfDatabaseGroupRev1",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfNotificationGroup",
+        "module": "CISCO-FSPF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fspfMIBCompliance3": {
+    "name": "fspfMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.287.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fspfGenericGroupRev1",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfIfGroup",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfDatabaseGroupRev2",
+        "module": "CISCO-FSPF-MIB"
+      },
+      {
+        "object": "fspfNotificationGroup",
+        "module": "CISCO-FSPF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fspfGenericGroup": {
+    "name": "fspfGenericGroup",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfRegionId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSpfDelay"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSpfHoldTime"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMinLsArrival"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMinLsInterval"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsRefreshTime"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMaxAge"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMaxAgeCount"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSpfComputations"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfChecksumErrors"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsuRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsaRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsuTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsaTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfHelloTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfHelloRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfRetransmittedLsuTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfErrorRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrs"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfCreateTime"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfAdminStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfOperStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSetToDefault"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfRowStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfNbrStateChangeNotifyEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fspfIfGroup": {
+    "name": "fspfIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfCost"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfHelloInterval"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfDeadInterval"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfRetransmitInterval"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfLsuRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfLsaRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfLsuTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfLsaTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfHelloTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfHelloRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfRetransmittedLsuTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfErrorRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfInactivityExpirations"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfNbrState"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfNbrDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfNbrPortIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfAdminStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfCreateTime"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfSetToDefault"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfRowStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfIfPrevNbrState"
+      }
+    ],
+    "status": "current"
+  },
+  "fspfDatabaseGroup": {
+    "name": "fspfDatabaseGroup",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrAdvDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrAge"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrIncarnationNumber"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrCheckSum"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrLinks"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNbrDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkPortIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNbrPortIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkType"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkCost"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fspfNotificationGroup": {
+    "name": "fspfNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfNbrStateChangeNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "fspfGenericGroupRev1": {
+    "name": "fspfGenericGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfRegionId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSpfDelay"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSpfHoldTime"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMinLsArrival"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMinLsInterval"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsRefreshTime"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMaxAge"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfMaxAgeCount"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSpfComputations"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfChecksumErrors"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsuRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsaRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsuTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsaTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfHelloTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfHelloRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfRetransmittedLsuTxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfErrorRxPkts"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrs"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfCreateTime"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfAdminStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfOperStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfSetToDefault"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfRowStatus"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfTotalCheckSum"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfNbrStateChangeNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "fspfDatabaseGroupRev1": {
+    "name": "fspfDatabaseGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrAdvDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrAge"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrIncarnationNumber"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrCheckSum"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrLinks"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNbrDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkPortIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNbrPortIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkType"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkCost"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrNumber"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNumber"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fspfDatabaseGroupRev2": {
+    "name": "fspfDatabaseGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.287.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrAdvDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrAge"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrIncarnationNumber"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrCheckSum"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrLinks"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNbrDomainId"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkPortIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNbrPortIndex"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkType"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkCost"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrNumber"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLinkNumber"
+      },
+      {
+        "module": "CISCO-FSPF-MIB",
+        "object": "fspfLsrExternal"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FSPF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FSPF-MIB"
+  }
+}

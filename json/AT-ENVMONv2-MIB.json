@@ -1,0 +1,1930 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "DisplayStringUnsized"
+    ],
+    "AT-SYSINFO-MIB": [
+      "sysinfo"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "atEnvMonv2": {
+    "name": "atEnvMonv2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-10-30 00:00",
+        "description": "Swapped external PSU status failed/good states"
+      },
+      {
+        "revision": "2016-06-28 00:00",
+        "description": "Added support for level 1 and level 2 critical temperature events."
+      },
+      {
+        "revision": "2014-06-07 00:00",
+        "description": "Additions for Industrial Ethernet support (i.e. contact input, contact output, external PSU status)."
+      },
+      {
+        "revision": "2014-06-06 00:00",
+        "description": "Added more descriptions to FanStackMemberId, VoltageStackMemberId, TemperatureStackMemberId, PsbHostStackMemberId, PsbSensorStackMemberId, and FaultLedStackMemberId."
+      },
+      {
+        "revision": "2014-03-31 00:00",
+        "description": "Added support for critical temperature events"
+      },
+      {
+        "revision": "2012-09-21 00:00",
+        "description": "Added chassis switch (e.g. SBx8100) descriptions to stack-related MIB objects"
+      },
+      {
+        "revision": "2010-09-15 00:00",
+        "description": "Add atEnvMonv2PsbSensorReading field to atEnvMonv2PsbSensorEntry"
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      },
+      {
+        "revision": "2010-06-14 04:50",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2010-05-24 01:19",
+        "description": "OID of atEnvMonv2Traps reverted to 5 but deprecated. Added atEnvMonv2Notifications"
+      },
+      {
+        "revision": "2010-01-15 00:39",
+        "description": "Changed the OID value of atEnvMonv2Traps from 5 to 0 to meet RFC 3584 3.1"
+      },
+      {
+        "revision": "2008-11-26 00:00",
+        "description": "Removed recently added MIB objects that went against the original intent of the environment monitoring MIB."
+      },
+      {
+        "revision": "2008-09-24 00:00",
+        "description": "Appended v2 to all object names to clarify version number of this mib."
+      },
+      {
+        "revision": "2008-02-07 00:00",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "AtEnvMonv2PsbSensorType": {
+    "name": "AtEnvMonv2PsbSensorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psbSensorTypeInvalid": 0,
+          "fanSpeedDiscrete": 1,
+          "temperatureDiscrete": 2,
+          "voltageDiscrete": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "atEnvMonv2Notifications": {
+    "name": "atEnvMonv2Notifications",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0",
+    "class": "objectidentity"
+  },
+  "atEnvMonv2FanAlarmSetNotify": {
+    "name": "atEnvMonv2FanAlarmSetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanCurrentSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2FanAlarmClearedNotify": {
+    "name": "atEnvMonv2FanAlarmClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanCurrentSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2VoltAlarmSetNotify": {
+    "name": "atEnvMonv2VoltAlarmSetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageUpperThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2VoltAlarmClearedNotify": {
+    "name": "atEnvMonv2VoltAlarmClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageUpperThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempAlarmSetNotify": {
+    "name": "atEnvMonv2TempAlarmSetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureUpperThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempAlarmClearedNotify": {
+    "name": "atEnvMonv2TempAlarmClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureUpperThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2PsbAlarmSetNotify": {
+    "name": "atEnvMonv2PsbAlarmSetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorType"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2PsbAlarmClearedNotify": {
+    "name": "atEnvMonv2PsbAlarmClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorType"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputOpenNotify": {
+    "name": "atEnvMonv2ContactInputOpenNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputCloseNotify": {
+    "name": "atEnvMonv2ContactInputCloseNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUAlarmSetNotify": {
+    "name": "atEnvMonv2ExternalPSUAlarmSetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUAlarmClearedNotify": {
+    "name": "atEnvMonv2ExternalPSUAlarmClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempCriticalSetNotify": {
+    "name": "atEnvMonv2TempCriticalSetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempCriticalClearedNotify": {
+    "name": "atEnvMonv2TempCriticalClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempCriticalLevel1SetNotify": {
+    "name": "atEnvMonv2TempCriticalLevel1SetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempCriticalLevel1ClearedNotify": {
+    "name": "atEnvMonv2TempCriticalLevel1ClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempCriticalLevel2SetNotify": {
+    "name": "atEnvMonv2TempCriticalLevel2SetNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TempCriticalLevel2ClearedNotify": {
+    "name": "atEnvMonv2TempCriticalLevel2ClearedNotify",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2FanTable": {
+    "name": "atEnvMonv2FanTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2FanEntry": {
+    "name": "atEnvMonv2FanEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2FanStackMemberId": {
+    "name": "atEnvMonv2FanStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FanBoardIndex": {
+    "name": "atEnvMonv2FanBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FanIndex": {
+    "name": "atEnvMonv2FanIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FanDescription": {
+    "name": "atEnvMonv2FanDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FanCurrentSpeed": {
+    "name": "atEnvMonv2FanCurrentSpeed",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FanLowerThreshold": {
+    "name": "atEnvMonv2FanLowerThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FanStatus": {
+    "name": "atEnvMonv2FanStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "good": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageTable": {
+    "name": "atEnvMonv2VoltageTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageEntry": {
+    "name": "atEnvMonv2VoltageEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2VoltageStackMemberId": {
+    "name": "atEnvMonv2VoltageStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageBoardIndex": {
+    "name": "atEnvMonv2VoltageBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageIndex": {
+    "name": "atEnvMonv2VoltageIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageDescription": {
+    "name": "atEnvMonv2VoltageDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageCurrent": {
+    "name": "atEnvMonv2VoltageCurrent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageUpperThreshold": {
+    "name": "atEnvMonv2VoltageUpperThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageLowerThreshold": {
+    "name": "atEnvMonv2VoltageLowerThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2VoltageStatus": {
+    "name": "atEnvMonv2VoltageStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outOfRange": 1,
+          "inRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureTable": {
+    "name": "atEnvMonv2TemperatureTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureEntry": {
+    "name": "atEnvMonv2TemperatureEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureStackMemberId": {
+    "name": "atEnvMonv2TemperatureStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureBoardIndex": {
+    "name": "atEnvMonv2TemperatureBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureIndex": {
+    "name": "atEnvMonv2TemperatureIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureDescription": {
+    "name": "atEnvMonv2TemperatureDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureCurrent": {
+    "name": "atEnvMonv2TemperatureCurrent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureUpperThreshold": {
+    "name": "atEnvMonv2TemperatureUpperThreshold",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2TemperatureStatus": {
+    "name": "atEnvMonv2TemperatureStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outOfRange": 1,
+          "inRange": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbObjects": {
+    "name": "atEnvMonv2PsbObjects",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4",
+    "class": "objectidentity"
+  },
+  "atEnvMonv2PsbTable": {
+    "name": "atEnvMonv2PsbTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2PsbEntry": {
+    "name": "atEnvMonv2PsbEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbHostStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbHostBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbHostSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2PsbHostStackMemberId": {
+    "name": "atEnvMonv2PsbHostStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbHostBoardIndex": {
+    "name": "atEnvMonv2PsbHostBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbHostSlotIndex": {
+    "name": "atEnvMonv2PsbHostSlotIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbHeldBoardIndex": {
+    "name": "atEnvMonv2PsbHeldBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbHeldBoardId": {
+    "name": "atEnvMonv2PsbHeldBoardId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbDescription": {
+    "name": "atEnvMonv2PsbDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorTable": {
+    "name": "atEnvMonv2PsbSensorTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorEntry": {
+    "name": "atEnvMonv2PsbSensorEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorStackMemberId": {
+    "name": "atEnvMonv2PsbSensorStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorBoardIndex": {
+    "name": "atEnvMonv2PsbSensorBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorIndex": {
+    "name": "atEnvMonv2PsbSensorIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorType": {
+    "name": "atEnvMonv2PsbSensorType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtEnvMonv2PsbSensorType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorDescription": {
+    "name": "atEnvMonv2PsbSensorDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorStatus": {
+    "name": "atEnvMonv2PsbSensorStatus",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "good": 2,
+          "notPowered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2PsbSensorReading": {
+    "name": "atEnvMonv2PsbSensorReading",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2Traps": {
+    "name": "atEnvMonv2Traps",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5",
+    "class": "objectidentity"
+  },
+  "atEnvMonv2FanAlarmSetEvent": {
+    "name": "atEnvMonv2FanAlarmSetEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanCurrentSpeed"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2FanAlarmClearedEvent": {
+    "name": "atEnvMonv2FanAlarmClearedEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FanCurrentSpeed"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2VoltAlarmSetEvent": {
+    "name": "atEnvMonv2VoltAlarmSetEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageUpperThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageCurrent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2VoltAlarmClearedEvent": {
+    "name": "atEnvMonv2VoltAlarmClearedEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageUpperThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageLowerThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2VoltageCurrent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2TempAlarmSetEvent": {
+    "name": "atEnvMonv2TempAlarmSetEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureUpperThreshold"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureCurrent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2TempAlarmClearedEvent": {
+    "name": "atEnvMonv2TempAlarmClearedEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureDescription"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2TemperatureUpperThreshold"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2PsbAlarmSetEvent": {
+    "name": "atEnvMonv2PsbAlarmSetEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorType"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorDescription"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2PsbAlarmClearedEvent": {
+    "name": "atEnvMonv2PsbAlarmClearedEvent",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.5.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorStackMemberId"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorBoardIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorIndex"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorType"
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2PsbSensorDescription"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "atEnvMonv2FaultLedTable": {
+    "name": "atEnvMonv2FaultLedTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2FaultLedEntry": {
+    "name": "atEnvMonv2FaultLedEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2FaultLedStackMemberId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2FaultLedStackMemberId": {
+    "name": "atEnvMonv2FaultLedStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FaultLed1Flash": {
+    "name": "atEnvMonv2FaultLed1Flash",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "heatsinkFanFailure": 1,
+          "noFault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FaultLed2Flashes": {
+    "name": "atEnvMonv2FaultLed2Flashes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chassisFanFailure": 1,
+          "noFault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FaultLed3Flashes": {
+    "name": "atEnvMonv2FaultLed3Flashes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sensorFailure": 1,
+          "noFault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FaultLed4Flashes": {
+    "name": "atEnvMonv2FaultLed4Flashes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "xemInitialisationFailure": 1,
+          "noFault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FaultLed5Flashes": {
+    "name": "atEnvMonv2FaultLed5Flashes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2FaultLed6Flashes": {
+    "name": "atEnvMonv2FaultLed6Flashes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperatureFailure": 1,
+          "noFault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputTable": {
+    "name": "atEnvMonv2ContactInputTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputEntry": {
+    "name": "atEnvMonv2ContactInputEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputStackMemberId": {
+    "name": "atEnvMonv2ContactInputStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputBoardIndex": {
+    "name": "atEnvMonv2ContactInputBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputIndex": {
+    "name": "atEnvMonv2ContactInputIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputDescription": {
+    "name": "atEnvMonv2ContactInputDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactInputState": {
+    "name": "atEnvMonv2ContactInputState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "open": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactOutputTable": {
+    "name": "atEnvMonv2ContactOutputTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2ContactOutputEntry": {
+    "name": "atEnvMonv2ContactOutputEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactOutputStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactOutputBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ContactOutputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2ContactOutputStackMemberId": {
+    "name": "atEnvMonv2ContactOutputStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactOutputBoardIndex": {
+    "name": "atEnvMonv2ContactOutputBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactOutputIndex": {
+    "name": "atEnvMonv2ContactOutputIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactOutputDescription": {
+    "name": "atEnvMonv2ContactOutputDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ContactOutputState": {
+    "name": "atEnvMonv2ContactOutputState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "open": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUTable": {
+    "name": "atEnvMonv2ExternalPSUTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUEntry": {
+    "name": "atEnvMonv2ExternalPSUEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUStackMemberId",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUBoardIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ENVMONv2-MIB",
+        "object": "atEnvMonv2ExternalPSUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUStackMemberId": {
+    "name": "atEnvMonv2ExternalPSUStackMemberId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUBoardIndex": {
+    "name": "atEnvMonv2ExternalPSUBoardIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUIndex": {
+    "name": "atEnvMonv2ExternalPSUIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUDescription": {
+    "name": "atEnvMonv2ExternalPSUDescription",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atEnvMonv2ExternalPSUState": {
+    "name": "atEnvMonv2ExternalPSUState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.12.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "good": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-ENVMONv2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-ENVMONv2-MIB"
+  }
+}

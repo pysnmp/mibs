@@ -1,0 +1,446 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifGeneralInformationGroup"
+    ],
+    "LLDP-EXT-DOT1-V2-MIB": [
+      "lldpV2Xdot1MIB"
+    ],
+    "LLDP-V2-MIB": [
+      "lldpV2RemIndex",
+      "lldpV2PortConfigEntry",
+      "lldpV2RemTimeMark",
+      "lldpV2LocPortIfIndex",
+      "lldpV2RemLocalIfIndex",
+      "lldpV2RemLocalDestMACAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "lldpXDot1EvbExtensions": {
+    "name": "lldpXDot1EvbExtensions",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-21 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2017 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2014-12-15 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2014 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2012-02-15 00:00",
+        "description": "Initial version published as part of IEEE Std 802.1Qbg"
+      }
+    ]
+  },
+  "lldpXdot1StandAloneExtensions": {
+    "name": "lldpXdot1StandAloneExtensions",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbMIB": {
+    "name": "lldpXdot1EvbMIB",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbObjects": {
+    "name": "lldpXdot1EvbObjects",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbConfig": {
+    "name": "lldpXdot1EvbConfig",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbLocalData": {
+    "name": "lldpXdot1EvbLocalData",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbRemoteData": {
+    "name": "lldpXdot1EvbRemoteData",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbConfigEvbTable": {
+    "name": "lldpXdot1EvbConfigEvbTable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1EvbConfigEvbEntry": {
+    "name": "lldpXdot1EvbConfigEvbEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXdot1EvbConfigEvbEntry",
+      "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+      "object": "lldpV2PortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXdot1EvbConfigEvbTxEnable": {
+    "name": "lldpXdot1EvbConfigEvbTxEnable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXdot1EvbConfigCdcpTable": {
+    "name": "lldpXdot1EvbConfigCdcpTable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1EvbConfigCdcpEntry": {
+    "name": "lldpXdot1EvbConfigCdcpEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXdot1EvbConfigCdcpEntry",
+      "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+      "object": "lldpV2PortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXdot1EvbConfigCdcpTxEnable": {
+    "name": "lldpXdot1EvbConfigCdcpTxEnable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2Xdot1LocEvbTlvTable": {
+    "name": "lldpV2Xdot1LocEvbTlvTable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot1LocEvbTlvEntry": {
+    "name": "lldpV2Xdot1LocEvbTlvEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot1LocEvbTlvString": {
+    "name": "lldpV2Xdot1LocEvbTlvString",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 514
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot1LocCdcpTlvTable": {
+    "name": "lldpV2Xdot1LocCdcpTlvTable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot1LocCdcpTlvEntry": {
+    "name": "lldpV2Xdot1LocCdcpTlvEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot1LocCdcpTlvString": {
+    "name": "lldpV2Xdot1LocCdcpTlvString",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 514
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot1RemEvbTlvTable": {
+    "name": "lldpV2Xdot1RemEvbTlvTable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot1RemEvbTlvEntry": {
+    "name": "lldpV2Xdot1RemEvbTlvEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot1RemEvbTlvString": {
+    "name": "lldpV2Xdot1RemEvbTlvString",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 514
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot1RemCdcpTlvTable": {
+    "name": "lldpV2Xdot1RemCdcpTlvTable",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot1RemCdcpTlvEntry": {
+    "name": "lldpV2Xdot1RemCdcpTlvEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot1RemCdcpTlvString": {
+    "name": "lldpV2Xdot1RemCdcpTlvString",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 514
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1EvbConformance": {
+    "name": "lldpXdot1EvbConformance",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.2",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbCompliances": {
+    "name": "lldpXdot1EvbCompliances",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.2.1",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbGroups": {
+    "name": "lldpXdot1EvbGroups",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.2.2",
+    "class": "objectidentity"
+  },
+  "lldpXdot1EvbCompliance": {
+    "name": "lldpXdot1EvbCompliance",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpXdot1EvbGroup",
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB"
+      },
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1EvbGroup": {
+    "name": "lldpXdot1EvbGroup",
+    "oid": "1.3.111.2.802.1.1.13.1.5.32962.7.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+        "object": "lldpXdot1EvbConfigEvbTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+        "object": "lldpXdot1EvbConfigCdcpTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+        "object": "lldpV2Xdot1LocEvbTlvString"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+        "object": "lldpV2Xdot1LocCdcpTlvString"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+        "object": "lldpV2Xdot1RemEvbTlvString"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+        "object": "lldpV2Xdot1RemCdcpTlvString"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LLDP-EXT-DOT1-EVB-EXTENSIONS-MIB"
+  }
+}

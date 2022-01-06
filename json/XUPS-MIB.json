@@ -1,0 +1,5144 @@
+{
+  "imports": {
+    "class": "imports",
+    "EATON-EMP-MIB": [
+      "xupsEnvRemoteTempUpperLimit",
+      "xupsEnvRemoteHumidityUpperLimit",
+      "xupsEnvRemoteHumidity",
+      "xupsContactDescr",
+      "xupsContactIndex",
+      "xupsEnvRemoteTempLowerLimit",
+      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsContactState",
+      "xupsContactType",
+      "xupsEnvRemoteTemp"
+    ],
+    "EATON-OIDS": [
+      "eaton",
+      "xupsEnvironment"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "xupsMIB": {
+    "name": "xupsMIB",
+    "oid": "1.3.6.1.4.1.534.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-27 00:00",
+        "description": "xupsOutputSource data can monitor the ESS mode."
+      },
+      {
+        "revision": "2019-09-12 00:00",
+        "description": "Provide new data that reflects some battery alarm : xupsBatteryFailure, xupsBatteryNotPresent, xupsBatteryAged, xupsBatteryLowCapacity."
+      },
+      {
+        "revision": "2019-09-10 00:00",
+        "description": "Change the data xupsBatteryLastReplacedDate to read-only because the card sets it automatically when the battery replacement is detected."
+      },
+      {
+        "revision": "2019-04-12 00:00",
+        "description": "Provide the status of the main AC Input in xupsInputStatus. Provide the status of the AC Output in xupsOutputStatus and a new trap and alarm 'load not protected' in xupsOutputNotProtected."
+      },
+      {
+        "revision": "2019-03-05 00:00",
+        "description": "Provide more UPS identification data as xupsIdentPartNumber and xupsIdentSerialNumber. Provide a collection xupsAgent that contains identification data of the card : xupsAgentManufacturer, xupsAgentModel, xupsAgentSoftwareVersion, xupsAgentPartNumber, xupsAgentSerialNumber"
+      },
+      {
+        "revision": "2019-02-19 00:00",
+        "description": "To ensure consistency whith the measures done on the UPS, the data following are renamed : xupsInputAverageCurrent to xupsInputTotalCurrent, xupsOutputAverageCurrent to xupsOutputTotalCurrent, xupsBypassAverageCurrent to xupsBypassTotalCurrent."
+      },
+      {
+        "revision": "2018-09-12 00:00",
+        "description": "Add new data xupsInputId, xupsInputName, xupsInputCurrentHighPrecision in the table xupsInputTable. Add new sub collection xupsInputTotal with xupsInputAverageVoltage, xupsInputAverageCurrent, xupsInputTotalWatts, xupsInputTotalVA, xupsInputAveragePowerFactor inside. Add new data xupsOutputId, xupsOutputName, xupsOutputCurrentHighPrecision, xupsOutputPercentLoad, xupsOutputVA in the table xupsOutputTable. Add new sub collection xupsOutputTotal with xupsOutputAverageVoltage, xupsOutputAverageCurrent, xupsOutputTotalWatts, xupsOutputTotalVA, xupsOutputAveragePowerFactor inside. Add new data xupsBypassId, xupsBypassName, xupsBypassCurrentHighPrecision, xupsBypassWatts in the table xupsBypassTable. Add new sub collection xupsBypassTotal with xupsBypassTotalAverageVoltage, xupsBypassAverageCurrent, xupsBypassTotalWatts, xupsBypassTotalVA, xupsBypassTotalAverageFactor inside."
+      },
+      {
+        "revision": "2018-04-23 00:00",
+        "description": "Add new data xupsTestTrap, xupstdTestTrap that will allow to initiate a test trap sent out from the agent to the trap receivers."
+      },
+      {
+        "revision": "2012-11-26 15:13",
+        "description": "Add the identifier of measures xupsInputId, xupsOutputId and xupsBypassId, respectively in the table xupsInputTable, xupsOutputTable and xupsBypassTable."
+      },
+      {
+        "revision": "2012-04-03 00:00",
+        "description": "Add new data xupsOutputHourlyPowerUsage, xupsOutputCumulativePowerUsage, and xupsOutputCumulativePowerUsageTimer into the collection xupsOutput. Add new data xupsRecepHourlyPowerUsage, xupsRecepCumulativePowerUsage, and xupsRecepCumulativePowerUsageTimer into the collection xupsRecepTable."
+      },
+      {
+        "revision": "2011-02-25 00:00",
+        "description": "Add new data xupsSwitchable"
+      },
+      {
+        "revision": "2008-10-02 00:00",
+        "description": "Added new values of batteryDisconnected(6), batteryUnderTest(7), and checkBattery(8) to xupsBatteryAbmStatus."
+      },
+      {
+        "revision": "2007-05-03 00:00",
+        "description": "Added new value of pxg(5) to xupsSendTrapType for Power Xpert Gateway implementations."
+      },
+      {
+        "revision": "2007-03-13 00:00",
+        "description": "Initial SNMPv2-SMI-compliant Version of PowerMIB. Incorporates all revisions of the original xups MIB file through Version 3.13 21-May-04."
+      }
+    ]
+  },
+  "xupsIdent": {
+    "name": "xupsIdent",
+    "oid": "1.3.6.1.4.1.534.1.1",
+    "class": "objectidentity"
+  },
+  "xupsBattery": {
+    "name": "xupsBattery",
+    "oid": "1.3.6.1.4.1.534.1.2",
+    "class": "objectidentity"
+  },
+  "xupsInput": {
+    "name": "xupsInput",
+    "oid": "1.3.6.1.4.1.534.1.3",
+    "class": "objectidentity"
+  },
+  "xupsOutput": {
+    "name": "xupsOutput",
+    "oid": "1.3.6.1.4.1.534.1.4",
+    "class": "objectidentity"
+  },
+  "xupsBypass": {
+    "name": "xupsBypass",
+    "oid": "1.3.6.1.4.1.534.1.5",
+    "class": "objectidentity"
+  },
+  "xupsAlarm": {
+    "name": "xupsAlarm",
+    "oid": "1.3.6.1.4.1.534.1.7",
+    "class": "objectidentity"
+  },
+  "xupsTest": {
+    "name": "xupsTest",
+    "oid": "1.3.6.1.4.1.534.1.8",
+    "class": "objectidentity"
+  },
+  "xupsControl": {
+    "name": "xupsControl",
+    "oid": "1.3.6.1.4.1.534.1.9",
+    "class": "objectidentity"
+  },
+  "xupsConfig": {
+    "name": "xupsConfig",
+    "oid": "1.3.6.1.4.1.534.1.10",
+    "class": "objectidentity"
+  },
+  "xupsTrapControl": {
+    "name": "xupsTrapControl",
+    "oid": "1.3.6.1.4.1.534.1.11",
+    "class": "objectidentity"
+  },
+  "xupsRecep": {
+    "name": "xupsRecep",
+    "oid": "1.3.6.1.4.1.534.1.12",
+    "class": "objectidentity"
+  },
+  "xupsTopology": {
+    "name": "xupsTopology",
+    "oid": "1.3.6.1.4.1.534.1.13",
+    "class": "objectidentity"
+  },
+  "xupsAgent": {
+    "name": "xupsAgent",
+    "oid": "1.3.6.1.4.1.534.1.14",
+    "class": "objectidentity"
+  },
+  "xupsInputTotal": {
+    "name": "xupsInputTotal",
+    "oid": "1.3.6.1.4.1.534.1.3.8",
+    "class": "objectidentity"
+  },
+  "xupsOutputTotal": {
+    "name": "xupsOutputTotal",
+    "oid": "1.3.6.1.4.1.534.1.4.9",
+    "class": "objectidentity"
+  },
+  "xupsBypassTotal": {
+    "name": "xupsBypassTotal",
+    "oid": "1.3.6.1.4.1.534.1.5.4",
+    "class": "objectidentity"
+  },
+  "xupsIdentManufacturer": {
+    "name": "xupsIdentManufacturer",
+    "oid": "1.3.6.1.4.1.534.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsIdentModel": {
+    "name": "xupsIdentModel",
+    "oid": "1.3.6.1.4.1.534.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsIdentSoftwareVersion": {
+    "name": "xupsIdentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.534.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsIdentOemCode": {
+    "name": "xupsIdentOemCode",
+    "oid": "1.3.6.1.4.1.534.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsIdentPartNumber": {
+    "name": "xupsIdentPartNumber",
+    "oid": "1.3.6.1.4.1.534.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsIdentSerialNumber": {
+    "name": "xupsIdentSerialNumber",
+    "oid": "1.3.6.1.4.1.534.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatTimeRemaining": {
+    "name": "xupsBatTimeRemaining",
+    "oid": "1.3.6.1.4.1.534.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatVoltage": {
+    "name": "xupsBatVoltage",
+    "oid": "1.3.6.1.4.1.534.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Volts DC",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatCurrent": {
+    "name": "xupsBatCurrent",
+    "oid": "1.3.6.1.4.1.534.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Amps DC",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatCapacity": {
+    "name": "xupsBatCapacity",
+    "oid": "1.3.6.1.4.1.534.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatteryAbmStatus": {
+    "name": "xupsBatteryAbmStatus",
+    "oid": "1.3.6.1.4.1.534.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "batteryCharging": 1,
+          "batteryDischarging": 2,
+          "batteryFloating": 3,
+          "batteryResting": 4,
+          "unknown": 5,
+          "batteryDisconnected": 6,
+          "batteryUnderTest": 7,
+          "checkBattery": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatteryLastReplacedDate": {
+    "name": "xupsBatteryLastReplacedDate",
+    "oid": "1.3.6.1.4.1.534.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatteryFailure": {
+    "name": "xupsBatteryFailure",
+    "oid": "1.3.6.1.4.1.534.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatteryNotPresent": {
+    "name": "xupsBatteryNotPresent",
+    "oid": "1.3.6.1.4.1.534.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatteryAged": {
+    "name": "xupsBatteryAged",
+    "oid": "1.3.6.1.4.1.534.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBatteryLowCapacity": {
+    "name": "xupsBatteryLowCapacity",
+    "oid": "1.3.6.1.4.1.534.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputFrequency": {
+    "name": "xupsInputFrequency",
+    "oid": "1.3.6.1.4.1.534.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputLineBads": {
+    "name": "xupsInputLineBads",
+    "oid": "1.3.6.1.4.1.534.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputNumPhases": {
+    "name": "xupsInputNumPhases",
+    "oid": "1.3.6.1.4.1.534.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputTable": {
+    "name": "xupsInputTable",
+    "oid": "1.3.6.1.4.1.534.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsInputEntry": {
+    "name": "xupsInputEntry",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputPhase",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xupsInputPhase": {
+    "name": "xupsInputPhase",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputVoltage": {
+    "name": "xupsInputVoltage",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputCurrent": {
+    "name": "xupsInputCurrent",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputWatts": {
+    "name": "xupsInputWatts",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputId": {
+    "name": "xupsInputId",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phase1toN": 1,
+          "phase2toN": 2,
+          "phase3toN": 3,
+          "phase1to2": 4,
+          "phase2to3": 5,
+          "phase3to1": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputName": {
+    "name": "xupsInputName",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputCurrentHighPrecision": {
+    "name": "xupsInputCurrentHighPrecision",
+    "oid": "1.3.6.1.4.1.534.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS tenth of Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputSource": {
+    "name": "xupsInputSource",
+    "oid": "1.3.6.1.4.1.534.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "primaryUtility": 3,
+          "bypassFeed": 4,
+          "secondaryUtility": 5,
+          "generator": 6,
+          "flywheel": 7,
+          "fuelcell": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsDualInputStatus": {
+    "name": "xupsDualInputStatus",
+    "oid": "1.3.6.1.4.1.534.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bothSourcesBad": 1,
+          "primarySourceGood": 2,
+          "secondarySourceGood": 3,
+          "bothSourcesGood": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsSecondaryInputWatch": {
+    "name": "xupsSecondaryInputWatch",
+    "oid": "1.3.6.1.4.1.534.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsInputAverageVoltage": {
+    "name": "xupsInputAverageVoltage",
+    "oid": "1.3.6.1.4.1.534.1.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputTotalCurrent": {
+    "name": "xupsInputTotalCurrent",
+    "oid": "1.3.6.1.4.1.534.1.3.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS tenth of Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputTotalWatts": {
+    "name": "xupsInputTotalWatts",
+    "oid": "1.3.6.1.4.1.534.1.3.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputTotalVA": {
+    "name": "xupsInputTotalVA",
+    "oid": "1.3.6.1.4.1.534.1.3.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "VA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputAveragePowerFactor": {
+    "name": "xupsInputAveragePowerFactor",
+    "oid": "1.3.6.1.4.1.534.1.3.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsInputStatus": {
+    "name": "xupsInputStatus",
+    "oid": "1.3.6.1.4.1.534.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inputBad": 1,
+          "inputGood": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputLoad": {
+    "name": "xupsOutputLoad",
+    "oid": "1.3.6.1.4.1.534.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputFrequency": {
+    "name": "xupsOutputFrequency",
+    "oid": "1.3.6.1.4.1.534.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputNumPhases": {
+    "name": "xupsOutputNumPhases",
+    "oid": "1.3.6.1.4.1.534.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputTable": {
+    "name": "xupsOutputTable",
+    "oid": "1.3.6.1.4.1.534.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsOutputEntry": {
+    "name": "xupsOutputEntry",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputPhase",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xupsOutputPhase": {
+    "name": "xupsOutputPhase",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputVoltage": {
+    "name": "xupsOutputVoltage",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputCurrent": {
+    "name": "xupsOutputCurrent",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputWatts": {
+    "name": "xupsOutputWatts",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputId": {
+    "name": "xupsOutputId",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phase1toN": 1,
+          "phase2toN": 2,
+          "phase3toN": 3,
+          "phase1to2": 4,
+          "phase2to3": 5,
+          "phase3to1": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputName": {
+    "name": "xupsOutputName",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputCurrentHighPrecision": {
+    "name": "xupsOutputCurrentHighPrecision",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS tenth of Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputPercentLoad": {
+    "name": "xupsOutputPercentLoad",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputVA": {
+    "name": "xupsOutputVA",
+    "oid": "1.3.6.1.4.1.534.1.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "VA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputSource": {
+    "name": "xupsOutputSource",
+    "oid": "1.3.6.1.4.1.534.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "normal": 3,
+          "bypass": 4,
+          "battery": 5,
+          "booster": 6,
+          "reducer": 7,
+          "parallelCapacity": 8,
+          "parallelRedundant": 9,
+          "highEfficiencyMode": 10,
+          "maintenanceBypass": 11,
+          "essMode": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputHourlyPowerUsage": {
+    "name": "xupsOutputHourlyPowerUsage",
+    "oid": "1.3.6.1.4.1.534.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Wh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputCumulativePowerUsage": {
+    "name": "xupsOutputCumulativePowerUsage",
+    "oid": "1.3.6.1.4.1.534.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Wh",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsOutputCumulativePowerUsageTimer": {
+    "name": "xupsOutputCumulativePowerUsageTimer",
+    "oid": "1.3.6.1.4.1.534.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputAverageVoltage": {
+    "name": "xupsOutputAverageVoltage",
+    "oid": "1.3.6.1.4.1.534.1.4.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputTotalCurrent": {
+    "name": "xupsOutputTotalCurrent",
+    "oid": "1.3.6.1.4.1.534.1.4.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS tenth of Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputTotalWatts": {
+    "name": "xupsOutputTotalWatts",
+    "oid": "1.3.6.1.4.1.534.1.4.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputTotalVA": {
+    "name": "xupsOutputTotalVA",
+    "oid": "1.3.6.1.4.1.534.1.4.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "VA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputAveragePowerFactor": {
+    "name": "xupsOutputAveragePowerFactor",
+    "oid": "1.3.6.1.4.1.534.1.4.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOutputStatus": {
+    "name": "xupsOutputStatus",
+    "oid": "1.3.6.1.4.1.534.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outputNotPowered": 1,
+          "outputNotProtected": 2,
+          "outputProtected": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassFrequency": {
+    "name": "xupsBypassFrequency",
+    "oid": "1.3.6.1.4.1.534.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassNumPhases": {
+    "name": "xupsBypassNumPhases",
+    "oid": "1.3.6.1.4.1.534.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassTable": {
+    "name": "xupsBypassTable",
+    "oid": "1.3.6.1.4.1.534.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsBypassEntry": {
+    "name": "xupsBypassEntry",
+    "oid": "1.3.6.1.4.1.534.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassPhase",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xupsBypassPhase": {
+    "name": "xupsBypassPhase",
+    "oid": "1.3.6.1.4.1.534.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassVoltage": {
+    "name": "xupsBypassVoltage",
+    "oid": "1.3.6.1.4.1.534.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassId": {
+    "name": "xupsBypassId",
+    "oid": "1.3.6.1.4.1.534.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "phase1toN": 1,
+          "phase2toN": 2,
+          "phase3toN": 3,
+          "phase1to2": 4,
+          "phase2to3": 5,
+          "phase3to1": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassName": {
+    "name": "xupsBypassName",
+    "oid": "1.3.6.1.4.1.534.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassCurrentHighPrecision": {
+    "name": "xupsBypassCurrentHighPrecision",
+    "oid": "1.3.6.1.4.1.534.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS tenth of Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassWatts": {
+    "name": "xupsBypassWatts",
+    "oid": "1.3.6.1.4.1.534.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassAverageVoltage": {
+    "name": "xupsBypassAverageVoltage",
+    "oid": "1.3.6.1.4.1.534.1.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassTotalCurrent": {
+    "name": "xupsBypassTotalCurrent",
+    "oid": "1.3.6.1.4.1.534.1.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS tenth of Amps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassTotalWatts": {
+    "name": "xupsBypassTotalWatts",
+    "oid": "1.3.6.1.4.1.534.1.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassTotalVA": {
+    "name": "xupsBypassTotalVA",
+    "oid": "1.3.6.1.4.1.534.1.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "VA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBypassAveragePowerFactor": {
+    "name": "xupsBypassAveragePowerFactor",
+    "oid": "1.3.6.1.4.1.534.1.5.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsEnvAmbientTemp": {
+    "name": "xupsEnvAmbientTemp",
+    "oid": "1.3.6.1.4.1.534.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsEnvAmbientLowerLimit": {
+    "name": "xupsEnvAmbientLowerLimit",
+    "oid": "1.3.6.1.4.1.534.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsEnvAmbientUpperLimit": {
+    "name": "xupsEnvAmbientUpperLimit",
+    "oid": "1.3.6.1.4.1.534.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "degrees Centigrade",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsEnvAmbientHumidity": {
+    "name": "xupsEnvAmbientHumidity",
+    "oid": "1.3.6.1.4.1.534.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAlarms": {
+    "name": "xupsAlarms",
+    "oid": "1.3.6.1.4.1.534.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAlarmTable": {
+    "name": "xupsAlarmTable",
+    "oid": "1.3.6.1.4.1.534.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsAlarmEntry": {
+    "name": "xupsAlarmEntry",
+    "oid": "1.3.6.1.4.1.534.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xupsAlarmID": {
+    "name": "xupsAlarmID",
+    "oid": "1.3.6.1.4.1.534.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAlarmDescr": {
+    "name": "xupsAlarmDescr",
+    "oid": "1.3.6.1.4.1.534.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAlarmTime": {
+    "name": "xupsAlarmTime",
+    "oid": "1.3.6.1.4.1.534.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsOnBattery": {
+    "name": "xupsOnBattery",
+    "oid": "1.3.6.1.4.1.534.1.7.3",
+    "class": "objectidentity"
+  },
+  "xupsLowBattery": {
+    "name": "xupsLowBattery",
+    "oid": "1.3.6.1.4.1.534.1.7.4",
+    "class": "objectidentity"
+  },
+  "xupsUtilityPowerRestored": {
+    "name": "xupsUtilityPowerRestored",
+    "oid": "1.3.6.1.4.1.534.1.7.5",
+    "class": "objectidentity"
+  },
+  "xupsReturnFromLowBattery": {
+    "name": "xupsReturnFromLowBattery",
+    "oid": "1.3.6.1.4.1.534.1.7.6",
+    "class": "objectidentity"
+  },
+  "xupsOutputOverload": {
+    "name": "xupsOutputOverload",
+    "oid": "1.3.6.1.4.1.534.1.7.7",
+    "class": "objectidentity"
+  },
+  "xupsInternalFailure": {
+    "name": "xupsInternalFailure",
+    "oid": "1.3.6.1.4.1.534.1.7.8",
+    "class": "objectidentity"
+  },
+  "xupsBatteryDischarged": {
+    "name": "xupsBatteryDischarged",
+    "oid": "1.3.6.1.4.1.534.1.7.9",
+    "class": "objectidentity"
+  },
+  "xupsInverterFailure": {
+    "name": "xupsInverterFailure",
+    "oid": "1.3.6.1.4.1.534.1.7.10",
+    "class": "objectidentity"
+  },
+  "xupsOnBypass": {
+    "name": "xupsOnBypass",
+    "oid": "1.3.6.1.4.1.534.1.7.11",
+    "class": "objectidentity"
+  },
+  "xupsBypassNotAvailable": {
+    "name": "xupsBypassNotAvailable",
+    "oid": "1.3.6.1.4.1.534.1.7.12",
+    "class": "objectidentity"
+  },
+  "xupsOutputOff": {
+    "name": "xupsOutputOff",
+    "oid": "1.3.6.1.4.1.534.1.7.13",
+    "class": "objectidentity"
+  },
+  "xupsInputFailure": {
+    "name": "xupsInputFailure",
+    "oid": "1.3.6.1.4.1.534.1.7.14",
+    "class": "objectidentity"
+  },
+  "xupsBuildingAlarm": {
+    "name": "xupsBuildingAlarm",
+    "oid": "1.3.6.1.4.1.534.1.7.15",
+    "class": "objectidentity"
+  },
+  "xupsShutdownImminent": {
+    "name": "xupsShutdownImminent",
+    "oid": "1.3.6.1.4.1.534.1.7.16",
+    "class": "objectidentity"
+  },
+  "xupsOnInverter": {
+    "name": "xupsOnInverter",
+    "oid": "1.3.6.1.4.1.534.1.7.17",
+    "class": "objectidentity"
+  },
+  "xupsAlarmNumEvents": {
+    "name": "xupsAlarmNumEvents",
+    "oid": "1.3.6.1.4.1.534.1.7.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAlarmEventTable": {
+    "name": "xupsAlarmEventTable",
+    "oid": "1.3.6.1.4.1.534.1.7.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsAlarmEventEntry": {
+    "name": "xupsAlarmEventEntry",
+    "oid": "1.3.6.1.4.1.534.1.7.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmEventID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xupsAlarmEventID": {
+    "name": "xupsAlarmEventID",
+    "oid": "1.3.6.1.4.1.534.1.7.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 400
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsAlarmEventDateAndTime": {
+    "name": "xupsAlarmEventDateAndTime",
+    "oid": "1.3.6.1.4.1.534.1.7.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "xupsAlarmEventKind": {
+    "name": "xupsAlarmEventKind",
+    "oid": "1.3.6.1.4.1.534.1.7.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "occurred": 1,
+          "cleared": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "xupsAlarmEventDescr": {
+    "name": "xupsAlarmEventDescr",
+    "oid": "1.3.6.1.4.1.534.1.7.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "xupsAlarmEventMsg": {
+    "name": "xupsAlarmEventMsg",
+    "oid": "1.3.6.1.4.1.534.1.7.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsBreakerOpen": {
+    "name": "xupsBreakerOpen",
+    "oid": "1.3.6.1.4.1.534.1.7.20",
+    "class": "objectidentity"
+  },
+  "xupsAlarmEntryAdded": {
+    "name": "xupsAlarmEntryAdded",
+    "oid": "1.3.6.1.4.1.534.1.7.21",
+    "class": "objectidentity"
+  },
+  "xupsAlarmEntryRemoved": {
+    "name": "xupsAlarmEntryRemoved",
+    "oid": "1.3.6.1.4.1.534.1.7.22",
+    "class": "objectidentity"
+  },
+  "xupsAlarmBatteryBad": {
+    "name": "xupsAlarmBatteryBad",
+    "oid": "1.3.6.1.4.1.534.1.7.23",
+    "class": "objectidentity"
+  },
+  "xupsOutputOffAsRequested": {
+    "name": "xupsOutputOffAsRequested",
+    "oid": "1.3.6.1.4.1.534.1.7.24",
+    "class": "objectidentity"
+  },
+  "xupsDiagnosticTestFailed": {
+    "name": "xupsDiagnosticTestFailed",
+    "oid": "1.3.6.1.4.1.534.1.7.25",
+    "class": "objectidentity"
+  },
+  "xupsCommunicationsLost": {
+    "name": "xupsCommunicationsLost",
+    "oid": "1.3.6.1.4.1.534.1.7.26",
+    "class": "objectidentity"
+  },
+  "xupsUpsShutdownPending": {
+    "name": "xupsUpsShutdownPending",
+    "oid": "1.3.6.1.4.1.534.1.7.27",
+    "class": "objectidentity"
+  },
+  "xupsAlarmTestInProgress": {
+    "name": "xupsAlarmTestInProgress",
+    "oid": "1.3.6.1.4.1.534.1.7.28",
+    "class": "objectidentity"
+  },
+  "xupsAmbientTempBad": {
+    "name": "xupsAmbientTempBad",
+    "oid": "1.3.6.1.4.1.534.1.7.29",
+    "class": "objectidentity"
+  },
+  "xupsLossOfRedundancy": {
+    "name": "xupsLossOfRedundancy",
+    "oid": "1.3.6.1.4.1.534.1.7.30",
+    "class": "objectidentity"
+  },
+  "xupsAlarmTempBad": {
+    "name": "xupsAlarmTempBad",
+    "oid": "1.3.6.1.4.1.534.1.7.31",
+    "class": "objectidentity"
+  },
+  "xupsAlarmChargerFailed": {
+    "name": "xupsAlarmChargerFailed",
+    "oid": "1.3.6.1.4.1.534.1.7.32",
+    "class": "objectidentity"
+  },
+  "xupsAlarmFanFailure": {
+    "name": "xupsAlarmFanFailure",
+    "oid": "1.3.6.1.4.1.534.1.7.33",
+    "class": "objectidentity"
+  },
+  "xupsAlarmFuseFailure": {
+    "name": "xupsAlarmFuseFailure",
+    "oid": "1.3.6.1.4.1.534.1.7.34",
+    "class": "objectidentity"
+  },
+  "xupsPowerSwitchBad": {
+    "name": "xupsPowerSwitchBad",
+    "oid": "1.3.6.1.4.1.534.1.7.35",
+    "class": "objectidentity"
+  },
+  "xupsModuleFailure": {
+    "name": "xupsModuleFailure",
+    "oid": "1.3.6.1.4.1.534.1.7.36",
+    "class": "objectidentity"
+  },
+  "xupsOnAlternatePowerSource": {
+    "name": "xupsOnAlternatePowerSource",
+    "oid": "1.3.6.1.4.1.534.1.7.37",
+    "class": "objectidentity"
+  },
+  "xupsAltPowerNotAvailable": {
+    "name": "xupsAltPowerNotAvailable",
+    "oid": "1.3.6.1.4.1.534.1.7.38",
+    "class": "objectidentity"
+  },
+  "xupsNoticeCondition": {
+    "name": "xupsNoticeCondition",
+    "oid": "1.3.6.1.4.1.534.1.7.39",
+    "class": "objectidentity"
+  },
+  "xupsRemoteTempBad": {
+    "name": "xupsRemoteTempBad",
+    "oid": "1.3.6.1.4.1.534.1.7.40",
+    "class": "objectidentity"
+  },
+  "xupsRemoteHumidityBad": {
+    "name": "xupsRemoteHumidityBad",
+    "oid": "1.3.6.1.4.1.534.1.7.41",
+    "class": "objectidentity"
+  },
+  "xupsAlarmOutputBad": {
+    "name": "xupsAlarmOutputBad",
+    "oid": "1.3.6.1.4.1.534.1.7.42",
+    "class": "objectidentity"
+  },
+  "xupsAlarmAwaitingPower": {
+    "name": "xupsAlarmAwaitingPower",
+    "oid": "1.3.6.1.4.1.534.1.7.43",
+    "class": "objectidentity"
+  },
+  "xupsOnMaintenanceBypass": {
+    "name": "xupsOnMaintenanceBypass",
+    "oid": "1.3.6.1.4.1.534.1.7.44",
+    "class": "objectidentity"
+  },
+  "xupsOutputNotProtected": {
+    "name": "xupsOutputNotProtected",
+    "oid": "1.3.6.1.4.1.534.1.7.51",
+    "class": "objectidentity"
+  },
+  "xupsTestStart": {
+    "name": "xupsTestStart",
+    "oid": "1.3.6.1.4.1.534.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testBattery": 1,
+          "noTestStarted": 2,
+          "testSystem": 3,
+          "testSecondarySource": 4,
+          "flashLightsTest": 5,
+          "cancelTest": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsTestBatteryStatus": {
+    "name": "xupsTestBatteryStatus",
+    "oid": "1.3.6.1.4.1.534.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "passed": 2,
+          "failed": 3,
+          "inProgress": 4,
+          "notSupported": 5,
+          "inhibited": 6,
+          "scheduled": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsLastGeneralTest": {
+    "name": "xupsLastGeneralTest",
+    "oid": "1.3.6.1.4.1.534.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTestStarted": 2,
+          "testSystem": 3,
+          "testSecondarySource": 4,
+          "flashLightsTest": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsLastGeneralTestResult": {
+    "name": "xupsLastGeneralTestResult",
+    "oid": "1.3.6.1.4.1.534.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "passed": 2,
+          "failed": 3,
+          "inProgress": 4,
+          "notSupported": 5,
+          "inhibited": 6,
+          "scheduled": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsTestTrap": {
+    "name": "xupsTestTrap",
+    "oid": "1.3.6.1.4.1.534.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startTestTrap": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsControlOutputOffDelay": {
+    "name": "xupsControlOutputOffDelay",
+    "oid": "1.3.6.1.4.1.534.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsControlOutputOnDelay": {
+    "name": "xupsControlOutputOnDelay",
+    "oid": "1.3.6.1.4.1.534.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsControlOutputOffTrapDelay": {
+    "name": "xupsControlOutputOffTrapDelay",
+    "oid": "1.3.6.1.4.1.534.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsControlOutputOnTrapDelay": {
+    "name": "xupsControlOutputOnTrapDelay",
+    "oid": "1.3.6.1.4.1.534.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "xupsControlToBypassDelay": {
+    "name": "xupsControlToBypassDelay",
+    "oid": "1.3.6.1.4.1.534.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsLoadShedSecsWithRestart": {
+    "name": "xupsLoadShedSecsWithRestart",
+    "oid": "1.3.6.1.4.1.534.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsSwitchable": {
+    "name": "xupsSwitchable",
+    "oid": "1.3.6.1.4.1.534.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchable": 1,
+          "notSwitchable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsConfigOutputVoltage": {
+    "name": "xupsConfigOutputVoltage",
+    "oid": "1.3.6.1.4.1.534.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsConfigInputVoltage": {
+    "name": "xupsConfigInputVoltage",
+    "oid": "1.3.6.1.4.1.534.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsConfigOutputWatts": {
+    "name": "xupsConfigOutputWatts",
+    "oid": "1.3.6.1.4.1.534.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsConfigOutputFreq": {
+    "name": "xupsConfigOutputFreq",
+    "oid": "1.3.6.1.4.1.534.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsConfigDateAndTime": {
+    "name": "xupsConfigDateAndTime",
+    "oid": "1.3.6.1.4.1.534.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsConfigLowOutputVoltageLimit": {
+    "name": "xupsConfigLowOutputVoltageLimit",
+    "oid": "1.3.6.1.4.1.534.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsConfigHighOutputVoltageLimit": {
+    "name": "xupsConfigHighOutputVoltageLimit",
+    "oid": "1.3.6.1.4.1.534.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "RMS Volts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsConfigInstallDate": {
+    "name": "xupsConfigInstallDate",
+    "oid": "1.3.6.1.4.1.534.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsMaxTrapLevel": {
+    "name": "xupsMaxTrapLevel",
+    "oid": "1.3.6.1.4.1.534.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "critical": 2,
+          "major": 3,
+          "minor": 4,
+          "allTraps": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsSendTrapType": {
+    "name": "xupsSendTrapType",
+    "oid": "1.3.6.1.4.1.534.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stnd": 1,
+          "xups": 2,
+          "stndPlus": 3,
+          "xupsPlus": 4,
+          "pxg": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsTrapMessage": {
+    "name": "xupsTrapMessage",
+    "oid": "1.3.6.1.4.1.534.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsTrapSource": {
+    "name": "xupsTrapSource",
+    "oid": "1.3.6.1.4.1.534.1.11.4",
+    "class": "objectidentity"
+  },
+  "xupsHeartbeatMinsInterval": {
+    "name": "xupsHeartbeatMinsInterval",
+    "oid": "1.3.6.1.4.1.534.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsNumReceptacles": {
+    "name": "xupsNumReceptacles",
+    "oid": "1.3.6.1.4.1.534.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsRecepTable": {
+    "name": "xupsRecepTable",
+    "oid": "1.3.6.1.4.1.534.1.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xupsRecepEntry": {
+    "name": "xupsRecepEntry",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xupsRecepIndex": {
+    "name": "xupsRecepIndex",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsRecepStatus": {
+    "name": "xupsRecepStatus",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "pendingOff": 3,
+          "pendingOn": 4,
+          "unknown": 5,
+          "reserved": 6,
+          "failedClosed": 7,
+          "failedOpen": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsRecepOffDelaySecs": {
+    "name": "xupsRecepOffDelaySecs",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsRecepOnDelaySecs": {
+    "name": "xupsRecepOnDelaySecs",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsRecepAutoOffDelay": {
+    "name": "xupsRecepAutoOffDelay",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsRecepAutoOnDelay": {
+    "name": "xupsRecepAutoOnDelay",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsRecepShedSecsWithRestart": {
+    "name": "xupsRecepShedSecsWithRestart",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsRecepHourlyPowerUsage": {
+    "name": "xupsRecepHourlyPowerUsage",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Wh",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsRecepCumulativePowerUsage": {
+    "name": "xupsRecepCumulativePowerUsage",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Wh",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsRecepCumulativePowerUsageTimer": {
+    "name": "xupsRecepCumulativePowerUsageTimer",
+    "oid": "1.3.6.1.4.1.534.1.12.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsTopologyType": {
+    "name": "xupsTopologyType",
+    "oid": "1.3.6.1.4.1.534.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsTopoMachineCode": {
+    "name": "xupsTopoMachineCode",
+    "oid": "1.3.6.1.4.1.534.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsTopoUnitNumber": {
+    "name": "xupsTopoUnitNumber",
+    "oid": "1.3.6.1.4.1.534.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsTopoPowerStrategy": {
+    "name": "xupsTopoPowerStrategy",
+    "oid": "1.3.6.1.4.1.534.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highAlert": 1,
+          "standard": 2,
+          "enableHighEfficiency": 3,
+          "immediateHighEfficiency": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xupsAgentManufacturer": {
+    "name": "xupsAgentManufacturer",
+    "oid": "1.3.6.1.4.1.534.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAgentModel": {
+    "name": "xupsAgentModel",
+    "oid": "1.3.6.1.4.1.534.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAgentSoftwareVersion": {
+    "name": "xupsAgentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.534.1.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAgentPartNumber": {
+    "name": "xupsAgentPartNumber",
+    "oid": "1.3.6.1.4.1.534.1.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsAgentSerialNumber": {
+    "name": "xupsAgentSerialNumber",
+    "oid": "1.3.6.1.4.1.534.1.14.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xupsTrapDefined": {
+    "name": "xupsTrapDefined",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1",
+    "class": "objectidentity"
+  },
+  "xupsTrapOidDefined": {
+    "name": "xupsTrapOidDefined",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0",
+    "class": "objectidentity"
+  },
+  "xupstdControlOff": {
+    "name": "xupstdControlOff",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdControlOn": {
+    "name": "xupstdControlOn",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOnBattery": {
+    "name": "xupstdOnBattery",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdLowBattery": {
+    "name": "xupstdLowBattery",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdUtilityPowerRestored": {
+    "name": "xupstdUtilityPowerRestored",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdReturnFromLowBattery": {
+    "name": "xupstdReturnFromLowBattery",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOutputOverload": {
+    "name": "xupstdOutputOverload",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdInternalFailure": {
+    "name": "xupstdInternalFailure",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdBatteryDischarged": {
+    "name": "xupstdBatteryDischarged",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdInverterFailure": {
+    "name": "xupstdInverterFailure",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOnBypass": {
+    "name": "xupstdOnBypass",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdBypassNotAvailable": {
+    "name": "xupstdBypassNotAvailable",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOutputOff": {
+    "name": "xupstdOutputOff",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdInputFailure": {
+    "name": "xupstdInputFailure",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdBuildingAlarm": {
+    "name": "xupstdBuildingAlarm",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdShutdownImminent": {
+    "name": "xupstdShutdownImminent",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOnInverter": {
+    "name": "xupstdOnInverter",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdBreakerOpen": {
+    "name": "xupstdBreakerOpen",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmEntryAdded": {
+    "name": "xupstdAlarmEntryAdded",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmEntryRemoved": {
+    "name": "xupstdAlarmEntryRemoved",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmBatteryBad": {
+    "name": "xupstdAlarmBatteryBad",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOutputOffAsRequested": {
+    "name": "xupstdOutputOffAsRequested",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdDiagnosticTestFailed": {
+    "name": "xupstdDiagnosticTestFailed",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdCommunicationsLost": {
+    "name": "xupstdCommunicationsLost",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdUpsShutdownPending": {
+    "name": "xupstdUpsShutdownPending",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmTestInProgress": {
+    "name": "xupstdAlarmTestInProgress",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAmbientTempBad": {
+    "name": "xupstdAmbientTempBad",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsEnvAmbientTemp"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsEnvAmbientLowerLimit"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsEnvAmbientUpperLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdContactActiveNotice": {
+    "name": "xupstdContactActiveNotice",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactIndex"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactType"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactState"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdContactInactiveNotice": {
+    "name": "xupstdContactInactiveNotice",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactIndex"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactType"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactState"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsContactDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdLossOfRedundancy": {
+    "name": "xupstdLossOfRedundancy",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmTempBad": {
+    "name": "xupstdAlarmTempBad",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmChargerFailed": {
+    "name": "xupstdAlarmChargerFailed",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmFanFailure": {
+    "name": "xupstdAlarmFanFailure",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAlarmFuseFailure": {
+    "name": "xupstdAlarmFuseFailure",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdPowerSwitchBad": {
+    "name": "xupstdPowerSwitchBad",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdModuleFailure": {
+    "name": "xupstdModuleFailure",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOnAlternatePowerSource": {
+    "name": "xupstdOnAlternatePowerSource",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputSource"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAltPowerNotAvailable": {
+    "name": "xupstdAltPowerNotAvailable",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdNoticeCondition": {
+    "name": "xupstdNoticeCondition",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdRemoteTempBad": {
+    "name": "xupstdRemoteTempBad",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteTemp"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteTempLowerLimit"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteTempUpperLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdRemoteHumidityBad": {
+    "name": "xupstdRemoteHumidityBad",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteHumidity"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteHumidityLowerLimit"
+      },
+      {
+        "module": "EATON-EMP-MIB",
+        "object": "xupsEnvRemoteHumidityUpperLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdHeartbeat": {
+    "name": "xupstdHeartbeat",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputSource"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputSource"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarms"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdDiagnosticTestPassed": {
+    "name": "xupstdDiagnosticTestPassed",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTestBatteryStatus"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsLastGeneralTest"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsLastGeneralTestResult"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOutputBad": {
+    "name": "xupstdOutputBad",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAwaitingPower": {
+    "name": "xupstdAwaitingPower",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdOnMaintenanceBypass": {
+    "name": "xupstdOnMaintenanceBypass",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdCommEstablished": {
+    "name": "xupstdCommEstablished",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsIdentModel"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputSource"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdAgentDown": {
+    "name": "xupstdAgentDown",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.50",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "xupstdOutputNotProtected": {
+    "name": "xupstdOutputNotProtected",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdTestTrap": {
+    "name": "xupstdTestTrap",
+    "oid": "1.3.6.1.4.1.534.1.11.4.1.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsConformance": {
+    "name": "xupsConformance",
+    "oid": "1.3.6.1.4.1.534.1.100",
+    "class": "objectidentity"
+  },
+  "xupsIdentFullGroup": {
+    "name": "xupsIdentFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsIdentManufacturer"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsIdentModel"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsIdentSoftwareVersion"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsIdentOemCode"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsIdentPartNumber"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsIdentSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsBatteryFullGroup": {
+    "name": "xupsBatteryFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatTimeRemaining"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatCurrent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatCapacity"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatteryAbmStatus"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatteryLastReplacedDate"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatteryFailure"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatteryNotPresent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatteryAged"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBatteryLowCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsInputFullGroup": {
+    "name": "xupsInputFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputFrequency"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputLineBads"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputNumPhases"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputSource"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsDualInputStatus"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsSecondaryInputWatch"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsInputTableFullGroup": {
+    "name": "xupsInputTableFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputPhase"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputCurrent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputWatts"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputId"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputName"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputCurrentHighPrecision"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsOutputFullGroup": {
+    "name": "xupsOutputFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputLoad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputFrequency"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputNumPhases"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputSource"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputHourlyPowerUsage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputCumulativePowerUsage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputCumulativePowerUsageTimer"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsOutputTableFullGroup": {
+    "name": "xupsOutputTableFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputPhase"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputCurrent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputWatts"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputId"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputName"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputCurrentHighPrecision"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputPercentLoad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputVA"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsBypassFullGroup": {
+    "name": "xupsBypassFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassFrequency"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassNumPhases"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassPhase"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassVoltage"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsEnvironmentFullGroup": {
+    "name": "xupsEnvironmentFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsEnvAmbientTemp"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsEnvAmbientLowerLimit"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsEnvAmbientUpperLimit"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsEnvAmbientHumidity"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsAlarmFullGroup": {
+    "name": "xupsAlarmFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarms"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmID"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmTime"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsAlarmEventsFullGroup": {
+    "name": "xupsAlarmEventsFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmNumEvents"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmEventMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsTestFullGroup": {
+    "name": "xupsTestFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTestStart"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTestBatteryStatus"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsLastGeneralTest"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsLastGeneralTestResult"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTestTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsControlFullGroup": {
+    "name": "xupsControlFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsControlOutputOffDelay"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsControlOutputOnDelay"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsControlOutputOffTrapDelay"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsControlToBypassDelay"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsLoadShedSecsWithRestart"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsSwitchable"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsConfigFullGroup": {
+    "name": "xupsConfigFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigOutputVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigInputVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigOutputWatts"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigOutputFreq"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigDateAndTime"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigLowOutputVoltageLimit"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigHighOutputVoltageLimit"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsConfigInstallDate"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsTrapControlFullGroup": {
+    "name": "xupsTrapControlFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsMaxTrapLevel"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsSendTrapType"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTrapMessage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsHeartbeatMinsInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsRecepFullGroup": {
+    "name": "xupsRecepFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsNumReceptacles"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepIndex"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepStatus"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepOffDelaySecs"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepOnDelaySecs"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepAutoOffDelay"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepAutoOnDelay"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepShedSecsWithRestart"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepHourlyPowerUsage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepCumulativePowerUsage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsRecepCumulativePowerUsageTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsTopologyFullGroup": {
+    "name": "xupsTopologyFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTopologyType"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTopoMachineCode"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTopoUnitNumber"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsTopoPowerStrategy"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdNotifyGroup": {
+    "name": "xupstdNotifyGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.18",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdControlOff"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdControlOn"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOnBattery"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdLowBattery"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdUtilityPowerRestored"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdReturnFromLowBattery"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOutputOverload"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdInternalFailure"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdBatteryDischarged"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdInverterFailure"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOnBypass"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdBypassNotAvailable"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOutputOff"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdInputFailure"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdBuildingAlarm"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdShutdownImminent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOnInverter"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdBreakerOpen"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmEntryAdded"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmEntryRemoved"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmBatteryBad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOutputOffAsRequested"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdDiagnosticTestFailed"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdCommunicationsLost"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdUpsShutdownPending"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmTempBad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmTestInProgress"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAmbientTempBad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdLossOfRedundancy"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmChargerFailed"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmFanFailure"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAlarmFuseFailure"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdPowerSwitchBad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdModuleFailure"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOnAlternatePowerSource"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAltPowerNotAvailable"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdNoticeCondition"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdHeartbeat"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdDiagnosticTestPassed"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOutputBad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAwaitingPower"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOnMaintenanceBypass"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdCommEstablished"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdAgentDown"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdOutputNotProtected"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdTestTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "xupstdEMPNotifyGroup": {
+    "name": "xupstdEMPNotifyGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdContactActiveNotice"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdContactInactiveNotice"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdRemoteTempBad"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupstdRemoteHumidityBad"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsMibFullCompliance": {
+    "name": "xupsMibFullCompliance",
+    "oid": "1.3.6.1.4.1.534.1.100.20",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "xupsIdentFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsBatteryFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsInputFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsInputTableFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsOutputFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsOutputTableFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsBypassFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsEnvironmentFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsAlarmFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsAlarmEventsFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsTestFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsControlFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsConfigFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsTrapControlFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsRecepFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsTopologyFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupstdNotifyGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupstdEMPNotifyGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsBypassTableFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsInputTotalFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsOutputTotalFullGroup",
+        "module": "XUPS-MIB"
+      },
+      {
+        "object": "xupsBypassTotalFullGroup",
+        "module": "XUPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsDeprecatedGroup": {
+    "name": "xupsDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmEventDateAndTime"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmEventKind"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAlarmEventDescr"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsControlOutputOnTrapDelay"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "xupsBypassTableFullGroup": {
+    "name": "xupsBypassTableFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassId"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassName"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassCurrentHighPrecision"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassWatts"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsInputTotalFullGroup": {
+    "name": "xupsInputTotalFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputAverageVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputTotalCurrent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputTotalWatts"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputTotalVA"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsInputAveragePowerFactor"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsOutputTotalFullGroup": {
+    "name": "xupsOutputTotalFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputAverageVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputTotalCurrent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputTotalWatts"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputTotalVA"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsOutputAveragePowerFactor"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsBypassTotalFullGroup": {
+    "name": "xupsBypassTotalFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassAverageVoltage"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassTotalCurrent"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassTotalWatts"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassTotalVA"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsBypassAveragePowerFactor"
+      }
+    ],
+    "status": "current"
+  },
+  "xupsAgentFullGroup": {
+    "name": "xupsAgentFullGroup",
+    "oid": "1.3.6.1.4.1.534.1.100.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAgentManufacturer"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAgentModel"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAgentSoftwareVersion"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAgentPartNumber"
+      },
+      {
+        "module": "XUPS-MIB",
+        "object": "xupsAgentSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "XUPS-MIB"
+  }
+}

@@ -1,0 +1,3218 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CBP-TC-MIB": [
+      "CbpElementName"
+    ],
+    "CISCO-DYNAMIC-TEMPLATE-TC-MIB": [
+      "DynamicTemplateName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-SUBSCRIBER-IDENTITY-TC-MIB": [
+      "SubscriberVRF",
+      "SubSessionIdentity",
+      "SubSessionIdentities",
+      "SubscriberCircuitId",
+      "SubscriberAcctSessionId",
+      "SubscriberTunnelName",
+      "SubscriberUsername",
+      "SubscriberNasPort",
+      "SubscriberLocationName",
+      "SubscriberServiceName",
+      "SubscriberLabel",
+      "SubscriberDnis",
+      "SubscriberProtocolType",
+      "SubscriberRemoteId",
+      "SubscriberDomain",
+      "SubscriberPbhk",
+      "SubscriberDhcpClass",
+      "SubscriberMediaType"
+    ],
+    "CISCO-SUBSCRIBER-SESSION-TC-MIB": [
+      "SubSessionState",
+      "SubSessionRedundancyMode",
+      "SubSessionType"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfTotalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoSubscriberSessionMIB": {
+    "name": "ciscoSubscriberSessionMIB",
+    "oid": "1.3.6.1.4.1.9.9.786",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-08-08 00:00",
+        "description": "csubAggStatsThreshTable , csubAggStatsThreshGroup, csubAggStatsNotifGroup are newly added"
+      },
+      {
+        "revision": "2012-03-12 00:00",
+        "description": "SubscriberLoationName corrected to SubscriberLocationName"
+      },
+      {
+        "revision": "2011-09-12 00:00",
+        "description": "The initial version of the MIB module."
+      }
+    ]
+  },
+  "SubscriberJobIdentifier": {
+    "name": "SubscriberJobIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SubscriberJobIdentifierOrZero": {
+    "name": "SubscriberJobIdentifierOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSubscriberSessionMIBNotifs": {
+    "name": "ciscoSubscriberSessionMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.786.0",
+    "class": "objectidentity"
+  },
+  "ciscoSubscriberSessionMIBObjects": {
+    "name": "ciscoSubscriberSessionMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.786.1",
+    "class": "objectidentity"
+  },
+  "ciscoSubscriberSessionMIBConform": {
+    "name": "ciscoSubscriberSessionMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.786.2",
+    "class": "objectidentity"
+  },
+  "csubSession": {
+    "name": "csubSession",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1",
+    "class": "objectidentity"
+  },
+  "csubAggStats": {
+    "name": "csubAggStats",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2",
+    "class": "objectidentity"
+  },
+  "csubJob": {
+    "name": "csubJob",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3",
+    "class": "objectidentity"
+  },
+  "csubAggThresh": {
+    "name": "csubAggThresh",
+    "oid": "1.3.6.1.4.1.9.9.786.1.4",
+    "class": "objectidentity"
+  },
+  "csubSessionTable": {
+    "name": "csubSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubSessionEntry": {
+    "name": "csubSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubSessionType": {
+    "name": "csubSessionType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionIpAddrAssignment": {
+    "name": "csubSessionIpAddrAssignment",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "static": 3,
+          "localPool": 4,
+          "dhcpv4": 5,
+          "dhcpv6": 6,
+          "userProfileIpAddr": 7,
+          "userProfileIpSubnet": 8,
+          "userProfileNamedPool": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionState": {
+    "name": "csubSessionState",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionAuthenticated": {
+    "name": "csubSessionAuthenticated",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionRedundancyMode": {
+    "name": "csubSessionRedundancyMode",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionRedundancyMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionCreationTime": {
+    "name": "csubSessionCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDerivedCfg": {
+    "name": "csubSessionDerivedCfg",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionAvailableIdentities": {
+    "name": "csubSessionAvailableIdentities",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionIdentities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionSubscriberLabel": {
+    "name": "csubSessionSubscriberLabel",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionMacAddress": {
+    "name": "csubSessionMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNativeVrf": {
+    "name": "csubSessionNativeVrf",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberVRF",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNativeIpAddrType": {
+    "name": "csubSessionNativeIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNativeIpAddr": {
+    "name": "csubSessionNativeIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNativeIpMask": {
+    "name": "csubSessionNativeIpMask",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDomainVrf": {
+    "name": "csubSessionDomainVrf",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberVRF",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDomainIpAddrType": {
+    "name": "csubSessionDomainIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDomainIpAddr": {
+    "name": "csubSessionDomainIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDomainIpMask": {
+    "name": "csubSessionDomainIpMask",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionPbhk": {
+    "name": "csubSessionPbhk",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberPbhk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionRemoteId": {
+    "name": "csubSessionRemoteId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberRemoteId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionCircuitId": {
+    "name": "csubSessionCircuitId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberCircuitId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNasPort": {
+    "name": "csubSessionNasPort",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberNasPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDomain": {
+    "name": "csubSessionDomain",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionUsername": {
+    "name": "csubSessionUsername",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberUsername",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionAcctSessionId": {
+    "name": "csubSessionAcctSessionId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberAcctSessionId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDnis": {
+    "name": "csubSessionDnis",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberDnis",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionMedia": {
+    "name": "csubSessionMedia",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberMediaType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionMlpNegotiated": {
+    "name": "csubSessionMlpNegotiated",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionProtocol": {
+    "name": "csubSessionProtocol",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionDhcpClass": {
+    "name": "csubSessionDhcpClass",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberDhcpClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionTunnelName": {
+    "name": "csubSessionTunnelName",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberTunnelName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionLocationIdentifier": {
+    "name": "csubSessionLocationIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberLocationName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionServiceIdentifier": {
+    "name": "csubSessionServiceIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberServiceName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionLastChanged": {
+    "name": "csubSessionLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNativeIpAddrType2": {
+    "name": "csubSessionNativeIpAddrType2",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNativeIpAddr2": {
+    "name": "csubSessionNativeIpAddr2",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionNativeIpMask2": {
+    "name": "csubSessionNativeIpMask2",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionByTypeTable": {
+    "name": "csubSessionByTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubSessionByTypeEntry": {
+    "name": "csubSessionByTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionByType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubSessionByType": {
+    "name": "csubSessionByType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubSessionIfIndex": {
+    "name": "csubSessionIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.786.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTable": {
+    "name": "csubAggStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubAggStatsEntry": {
+    "name": "csubAggStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsPointType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsPoint",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsSessionType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsPointType": {
+    "name": "csubAggStatsPointType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "physical": 1,
+          "interface": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubAggStatsPoint": {
+    "name": "csubAggStatsPoint",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubAggStatsSessionType": {
+    "name": "csubAggStatsSessionType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubAggStatsPendingSessions": {
+    "name": "csubAggStatsPendingSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsUpSessions": {
+    "name": "csubAggStatsUpSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsAuthSessions": {
+    "name": "csubAggStatsAuthSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsUnAuthSessions": {
+    "name": "csubAggStatsUnAuthSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsLightWeightSessions": {
+    "name": "csubAggStatsLightWeightSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsRedSessions": {
+    "name": "csubAggStatsRedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsHighUpSessions": {
+    "name": "csubAggStatsHighUpSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsAvgSessionUptime": {
+    "name": "csubAggStatsAvgSessionUptime",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsAvgSessionRPM": {
+    "name": "csubAggStatsAvgSessionRPM",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsAvgSessionRPH": {
+    "name": "csubAggStatsAvgSessionRPH",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions per hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsThrottleEngagements": {
+    "name": "csubAggStatsThrottleEngagements",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "engagements",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTotalCreatedSessions": {
+    "name": "csubAggStatsTotalCreatedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTotalFailedSessions": {
+    "name": "csubAggStatsTotalFailedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTotalUpSessions": {
+    "name": "csubAggStatsTotalUpSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTotalAuthSessions": {
+    "name": "csubAggStatsTotalAuthSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTotalDiscSessions": {
+    "name": "csubAggStatsTotalDiscSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTotalLightWeightSessions": {
+    "name": "csubAggStatsTotalLightWeightSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsTotalFlowsUp": {
+    "name": "csubAggStatsTotalFlowsUp",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsDayCreatedSessions": {
+    "name": "csubAggStatsDayCreatedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsDayFailedSessions": {
+    "name": "csubAggStatsDayFailedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsDayUpSessions": {
+    "name": "csubAggStatsDayUpSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsDayAuthSessions": {
+    "name": "csubAggStatsDayAuthSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsDayDiscSessions": {
+    "name": "csubAggStatsDayDiscSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrTimeElapsed": {
+    "name": "csubAggStatsCurrTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrValidIntervals": {
+    "name": "csubAggStatsCurrValidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrInvalidIntervals": {
+    "name": "csubAggStatsCurrInvalidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrFlowsUp": {
+    "name": "csubAggStatsCurrFlowsUp",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrCreatedSessions": {
+    "name": "csubAggStatsCurrCreatedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrFailedSessions": {
+    "name": "csubAggStatsCurrFailedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrUpSessions": {
+    "name": "csubAggStatsCurrUpSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrAuthSessions": {
+    "name": "csubAggStatsCurrAuthSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsCurrDiscSessions": {
+    "name": "csubAggStatsCurrDiscSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsDiscontinuityTime": {
+    "name": "csubAggStatsDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsIntTable": {
+    "name": "csubAggStatsIntTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubAggStatsIntEntry": {
+    "name": "csubAggStatsIntEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsPointType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsPoint",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsSessionType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsIntNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsIntNumber": {
+    "name": "csubAggStatsIntNumber",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubAggStatsIntValid": {
+    "name": "csubAggStatsIntValid",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsIntCreatedSessions": {
+    "name": "csubAggStatsIntCreatedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsIntFailedSessions": {
+    "name": "csubAggStatsIntFailedSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsIntUpSessions": {
+    "name": "csubAggStatsIntUpSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsIntAuthSessions": {
+    "name": "csubAggStatsIntAuthSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsIntDiscSessions": {
+    "name": "csubAggStatsIntDiscSessions",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsThreshTable": {
+    "name": "csubAggStatsThreshTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubAggStatsThreshEntry": {
+    "name": "csubAggStatsThreshEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionRisingThresh",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubSessionRisingThresh": {
+    "name": "csubSessionRisingThresh",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubSessionFallingThresh": {
+    "name": "csubSessionFallingThresh",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubSessionDeltaPercentFallingThresh": {
+    "name": "csubSessionDeltaPercentFallingThresh",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubSessionThreshEvalInterval": {
+    "name": "csubSessionThreshEvalInterval",
+    "oid": "1.3.6.1.4.1.9.9.786.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubJobFinishedNotifyEnable": {
+    "name": "csubJobFinishedNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubJobIndexedAttributes": {
+    "name": "csubJobIndexedAttributes",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionIdentities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobIdNext": {
+    "name": "csubJobIdNext",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberJobIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobMaxNumber": {
+    "name": "csubJobMaxNumber",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "jobs",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubJobMaxLife": {
+    "name": "csubJobMaxLife",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubJobCount": {
+    "name": "csubJobCount",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "jobs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobTable": {
+    "name": "csubJobTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobEntry": {
+    "name": "csubJobEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobId": {
+    "name": "csubJobId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberJobIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobStatus": {
+    "name": "csubJobStatus",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobStorage": {
+    "name": "csubJobStorage",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobType": {
+    "name": "csubJobType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "query": 2,
+          "clear": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobControl": {
+    "name": "csubJobControl",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "start": 2,
+          "abort": 3,
+          "release": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobState": {
+    "name": "csubJobState",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "pending": 2,
+          "inProgress": 3,
+          "finished": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobStartedTime": {
+    "name": "csubJobStartedTime",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobFinishedTime": {
+    "name": "csubJobFinishedTime",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobFinishedReason": {
+    "name": "csubJobFinishedReason",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "other": 2,
+          "normal": 3,
+          "aborted": 4,
+          "insufficientResources": 5,
+          "error": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobMatchParamsTable": {
+    "name": "csubJobMatchParamsTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobMatchParamsEntry": {
+    "name": "csubJobMatchParamsEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobMatchIdentities": {
+    "name": "csubJobMatchIdentities",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionIdentities",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchOtherParams": {
+    "name": "csubJobMatchOtherParams",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "danglingDuration": 0,
+        "state": 1,
+        "authenticated": 2,
+        "redundancyMode": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchSubscriberLabel": {
+    "name": "csubJobMatchSubscriberLabel",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchMacAddress": {
+    "name": "csubJobMatchMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchNativeVrf": {
+    "name": "csubJobMatchNativeVrf",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberVRF",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchNativeIpAddrType": {
+    "name": "csubJobMatchNativeIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchNativeIpAddr": {
+    "name": "csubJobMatchNativeIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchNativeIpMask": {
+    "name": "csubJobMatchNativeIpMask",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDomainVrf": {
+    "name": "csubJobMatchDomainVrf",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberVRF",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDomainIpAddrType": {
+    "name": "csubJobMatchDomainIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDomainIpAddr": {
+    "name": "csubJobMatchDomainIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDomainIpMask": {
+    "name": "csubJobMatchDomainIpMask",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchPbhk": {
+    "name": "csubJobMatchPbhk",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberPbhk",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchRemoteId": {
+    "name": "csubJobMatchRemoteId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberRemoteId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchCircuitId": {
+    "name": "csubJobMatchCircuitId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberCircuitId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchNasPort": {
+    "name": "csubJobMatchNasPort",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberNasPort",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDomain": {
+    "name": "csubJobMatchDomain",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchUsername": {
+    "name": "csubJobMatchUsername",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberUsername",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchAcctSessionId": {
+    "name": "csubJobMatchAcctSessionId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberAcctSessionId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDnis": {
+    "name": "csubJobMatchDnis",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberDnis",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchMedia": {
+    "name": "csubJobMatchMedia",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberMediaType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchMlpNegotiated": {
+    "name": "csubJobMatchMlpNegotiated",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchProtocol": {
+    "name": "csubJobMatchProtocol",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberProtocolType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchServiceName": {
+    "name": "csubJobMatchServiceName",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbpElementName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDhcpClass": {
+    "name": "csubJobMatchDhcpClass",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberDhcpClass",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchTunnelName": {
+    "name": "csubJobMatchTunnelName",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberTunnelName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchDanglingDuration": {
+    "name": "csubJobMatchDanglingDuration",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchState": {
+    "name": "csubJobMatchState",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchAuthenticated": {
+    "name": "csubJobMatchAuthenticated",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobMatchRedundancyMode": {
+    "name": "csubJobMatchRedundancyMode",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.8.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionRedundancyMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobQueryParamsTable": {
+    "name": "csubJobQueryParamsTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobQueryParamsEntry": {
+    "name": "csubJobQueryParamsEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobQuerySortKey1": {
+    "name": "csubJobQuerySortKey1",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionIdentity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "subscriberLabel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobQuerySortKey2": {
+    "name": "csubJobQuerySortKey2",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionIdentity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobQuerySortKey3": {
+    "name": "csubJobQuerySortKey3",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubSessionIdentity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "csubJobQueryResultingReportSize": {
+    "name": "csubJobQueryResultingReportSize",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobQueueTable": {
+    "name": "csubJobQueueTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobQueueEntry": {
+    "name": "csubJobQueueEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobQueueNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobQueueNumber": {
+    "name": "csubJobQueueNumber",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobQueueJobId": {
+    "name": "csubJobQueueJobId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SubscriberJobIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubJobReportTable": {
+    "name": "csubJobReportTable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobReportEntry": {
+    "name": "csubJobReportEntry",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobReportId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobReportId": {
+    "name": "csubJobReportId",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csubJobReportSession": {
+    "name": "csubJobReportSession",
+    "oid": "1.3.6.1.4.1.9.9.786.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csubAggStatsThreshNotifEnable": {
+    "name": "csubAggStatsThreshNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.786.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csubJobFinishedNotify": {
+    "name": "csubJobFinishedNotify",
+    "oid": "1.3.6.1.4.1.9.9.786.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobStartedTime"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobFinishedTime"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobFinishedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "csubSessionRisingNotif": {
+    "name": "csubSessionRisingNotif",
+    "oid": "1.3.6.1.4.1.9.9.786.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionRisingThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "csubSessionFallingNotif": {
+    "name": "csubSessionFallingNotif",
+    "oid": "1.3.6.1.4.1.9.9.786.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionFallingThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "csubSessionDeltaPercentFallingThreshNotif": {
+    "name": "csubSessionDeltaPercentFallingThreshNotif",
+    "oid": "1.3.6.1.4.1.9.9.786.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDeltaPercentFallingThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSubscriberSessionMIBCompliances": {
+    "name": "ciscoSubscriberSessionMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.786.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSubscriberSessionMIBGroups": {
+    "name": "ciscoSubscriberSessionMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSubscriberSessionR1Compliance": {
+    "name": "ciscoSubscriberSessionR1Compliance",
+    "oid": "1.3.6.1.4.1.9.9.786.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csubSessionGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubAggStatsGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubJobGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubJobMatchParamsGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubJobQueryParamsGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubJobNotifGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubAggStatsCurrGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubAggStatsIntGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubAggStatsDayGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubJobQueueGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoSubscriberSessionR2Compliance": {
+    "name": "ciscoSubscriberSessionR2Compliance",
+    "oid": "1.3.6.1.4.1.9.9.786.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csubAggStatsThreshGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      },
+      {
+        "object": "csubAggStatsNotifGroup",
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csubSessionGroup": {
+    "name": "csubSessionGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionType"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionIpAddrAssignment"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionState"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionAuthenticated"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionRedundancyMode"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionCreationTime"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDerivedCfg"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionAvailableIdentities"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionSubscriberLabel"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionMacAddress"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionNativeVrf"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionNativeIpAddrType"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionNativeIpAddr"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionNativeIpMask"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDomainVrf"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDomainIpAddrType"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDomainIpAddr"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDomainIpMask"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionPbhk"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionRemoteId"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionCircuitId"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionNasPort"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDomain"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionUsername"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionAcctSessionId"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDnis"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionMedia"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionMlpNegotiated"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionProtocol"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDhcpClass"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionTunnelName"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsGroup": {
+    "name": "csubAggStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsPendingSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsAuthSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsRedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsHighUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsAvgSessionUptime"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsAvgSessionRPM"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsAvgSessionRPH"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsThrottleEngagements"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsTotalCreatedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsTotalFailedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsTotalUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsTotalAuthSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsTotalDiscSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsCurrGroup": {
+    "name": "csubAggStatsCurrGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrTimeElapsed"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrValidIntervals"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrInvalidIntervals"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrCreatedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrFailedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrAuthSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsCurrDiscSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsIntGroup": {
+    "name": "csubAggStatsIntGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsIntValid"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsIntCreatedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsIntFailedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsIntUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsIntAuthSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsIntDiscSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsDayGroup": {
+    "name": "csubAggStatsDayGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsDayCreatedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsDayFailedSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsDayUpSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsDayAuthSessions"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsDayDiscSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobGroup": {
+    "name": "csubJobGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobFinishedNotifyEnable"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobIndexedAttributes"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobIdNext"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMaxNumber"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMaxLife"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobCount"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobStatus"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobStorage"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobType"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobControl"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobState"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobStartedTime"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobFinishedTime"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobFinishedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobMatchParamsGroup": {
+    "name": "csubJobMatchParamsGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchIdentities"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchOtherParams"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchSubscriberLabel"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchMacAddress"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchNativeVrf"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchNativeIpAddrType"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchNativeIpAddr"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchNativeIpMask"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDomainVrf"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDomainIpAddrType"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDomainIpAddr"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDomainIpMask"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchPbhk"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchRemoteId"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchCircuitId"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchNasPort"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDomain"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchUsername"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchAcctSessionId"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDnis"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchMedia"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchMlpNegotiated"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchProtocol"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchServiceName"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDhcpClass"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchTunnelName"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchDanglingDuration"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchState"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchAuthenticated"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobMatchRedundancyMode"
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobQueryParamsGroup": {
+    "name": "csubJobQueryParamsGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobQuerySortKey1"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobQuerySortKey2"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobQuerySortKey3"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobQueryResultingReportSize"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobReportSession"
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobQueueGroup": {
+    "name": "csubJobQueueGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobQueueJobId"
+      }
+    ],
+    "status": "current"
+  },
+  "csubJobNotifGroup": {
+    "name": "csubJobNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubJobFinishedNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsThreshGroup": {
+    "name": "csubAggStatsThreshGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionRisingThresh"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionFallingThresh"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDeltaPercentFallingThresh"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionThreshEvalInterval"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubAggStatsThreshNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "csubAggStatsNotifGroup": {
+    "name": "csubAggStatsNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.786.2.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionRisingNotif"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionFallingNotif"
+      },
+      {
+        "module": "CISCO-SUBSCRIBER-SESSION-MIB",
+        "object": "csubSessionDeltaPercentFallingThreshNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SUBSCRIBER-SESSION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SUBSCRIBER-SESSION-MIB"
+  }
+}

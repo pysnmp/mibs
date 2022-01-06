@@ -1,0 +1,631 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DOT11-IF-MIB": [
+      "WepKeyType128",
+      "CDot11IfWepKeyPermuteAlgorithm",
+      "CDot11IfMicAlgorithm"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWlanVlanMIB": {
+    "name": "ciscoWlanVlanMIB",
+    "oid": "1.3.6.1.4.1.9.9.268",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-12 00:00",
+        "description": "Remove tkip(3) option from the cwvlWlanEncryptionMode, and added cwvlWlanEncryptionAlgorithm and cwvlWlanWepKeyHashing objects to cwvlWlanVlanTable."
+      },
+      {
+        "revision": "2002-04-04 00:00",
+        "description": "Added tkip(3) option and removed wepMic option from the cwvlWlanEncryptionMode, and added an cwvlWlanEncryptionMandatory object to cwvlWlanVlanTable."
+      },
+      {
+        "revision": "2002-03-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoWlanVlanMIBObjects": {
+    "name": "ciscoWlanVlanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.268.1",
+    "class": "objectidentity"
+  },
+  "cwvlRoamDomainConfig": {
+    "name": "cwvlRoamDomainConfig",
+    "oid": "1.3.6.1.4.1.9.9.268.1.1",
+    "class": "objectidentity"
+  },
+  "cwvlDot11VlanConfig": {
+    "name": "cwvlDot11VlanConfig",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2",
+    "class": "objectidentity"
+  },
+  "CwvlVlanIdOrZero": {
+    "name": "CwvlVlanIdOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cwvlWlanDot1qEncapEnabled": {
+    "name": "cwvlWlanDot1qEncapEnabled",
+    "oid": "1.3.6.1.4.1.9.9.268.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwvlBridgingNativeVlanId": {
+    "name": "cwvlBridgingNativeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.268.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwvlVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwvlVoIPVlanEnabled": {
+    "name": "cwvlVoIPVlanEnabled",
+    "oid": "1.3.6.1.4.1.9.9.268.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwvlVoIPVlanId": {
+    "name": "cwvlVoIPVlanId",
+    "oid": "1.3.6.1.4.1.9.9.268.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwvlVlanIdOrZero",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4095,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwvlPublicVlanId": {
+    "name": "cwvlPublicVlanId",
+    "oid": "1.3.6.1.4.1.9.9.268.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwvlVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwvlWlanVlanTable": {
+    "name": "cwvlWlanVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwvlWlanVlanEntry": {
+    "name": "cwvlWlanVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwvlWlanVlanId": {
+    "name": "cwvlWlanVlanId",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwvlVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwvlWlanEnabled": {
+    "name": "cwvlWlanEnabled",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanNUcastKeyRotateInterval": {
+    "name": "cwvlWlanNUcastKeyRotateInterval",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanEncryptionMode": {
+    "name": "cwvlWlanEncryptionMode",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wep": 2,
+          "aes": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanEncryptionMandatory": {
+    "name": "cwvlWlanEncryptionMandatory",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanMicAlgorithm": {
+    "name": "cwvlWlanMicAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfMicAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "micNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanWepKeyPermuteAlgorithm": {
+    "name": "cwvlWlanWepKeyPermuteAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfWepKeyPermuteAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "wepPermuteNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanWepKeyHashing": {
+    "name": "cwvlWlanWepKeyHashing",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanEncryptionAlgorithm": {
+    "name": "cwvlWlanEncryptionAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "cisco": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "cisco",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanRowStatus": {
+    "name": "cwvlWlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwvlWlanNUcastKeyTable": {
+    "name": "cwvlWlanNUcastKeyTable",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwvlWlanNUcastKeyEntry": {
+    "name": "cwvlWlanNUcastKeyEntry",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanVlanId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanNUcastKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwvlWlanNUcastKeyIndex": {
+    "name": "cwvlWlanNUcastKeyIndex",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwvlWlanNUcastKeyLen": {
+    "name": "cwvlWlanNUcastKeyLen",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwvlWlanNUcastKeyValue": {
+    "name": "cwvlWlanNUcastKeyValue",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WepKeyType128",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwvlWlanWepChangeNotifEnabled": {
+    "name": "cwvlWlanWepChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.268.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoWlanVlanMIBNotifications": {
+    "name": "ciscoWlanVlanMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.268.0",
+    "class": "objectidentity"
+  },
+  "ciscoWlanVlanWepChangeNotif": {
+    "name": "ciscoWlanVlanWepChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.268.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanNUcastKeyValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWlanVlanMIBConformance": {
+    "name": "ciscoWlanVlanMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.268.2",
+    "class": "objectidentity"
+  },
+  "ciscoWlanVlanMIBCompliances": {
+    "name": "ciscoWlanVlanMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.268.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWlanVlanMIBGroups": {
+    "name": "ciscoWlanVlanMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.268.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWlanVlanMIBCompliance": {
+    "name": "ciscoWlanVlanMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.268.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWlanRoamDomainGroup",
+        "module": "CISCO-WLAN-VLAN-MIB"
+      },
+      {
+        "object": "ciscoWlanVlanNotificationGroup",
+        "module": "CISCO-WLAN-VLAN-MIB"
+      },
+      {
+        "object": "ciscoWlanDot11VlanConfigGroup",
+        "module": "CISCO-WLAN-VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWlanRoamDomainGroup": {
+    "name": "ciscoWlanRoamDomainGroup",
+    "oid": "1.3.6.1.4.1.9.9.268.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanDot1qEncapEnabled"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlBridgingNativeVlanId"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlVoIPVlanEnabled"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlVoIPVlanId"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlPublicVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWlanDot11VlanConfigGroup": {
+    "name": "ciscoWlanDot11VlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.268.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanEnabled"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanNUcastKeyRotateInterval"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanEncryptionMode"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanEncryptionMandatory"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanMicAlgorithm"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanWepKeyPermuteAlgorithm"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanWepKeyHashing"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanEncryptionAlgorithm"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanRowStatus"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanNUcastKeyLen"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanNUcastKeyValue"
+      },
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "cwvlWlanWepChangeNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWlanVlanNotificationGroup": {
+    "name": "ciscoWlanVlanNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.268.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WLAN-VLAN-MIB",
+        "object": "ciscoWlanVlanWepChangeNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WLAN-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WLAN-VLAN-MIB"
+  }
+}

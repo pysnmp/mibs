@@ -1,0 +1,1034 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetPortNumber",
+      "InetAddress"
+    ],
+    "ONE4NET-MIB": [
+      "one4net"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "DisplayString"
+    ]
+  },
+  "b100": {
+    "name": "b100",
+    "oid": "1.3.6.1.4.1.12196.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-01 00:00",
+        "description": "version V6.0"
+      }
+    ]
+  },
+  "b100VSTable": {
+    "name": "b100VSTable",
+    "oid": "1.3.6.1.4.1.12196.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "b100RSTable": {
+    "name": "b100RSTable",
+    "oid": "1.3.6.1.4.1.12196.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "b100NotificationsPrefix": {
+    "name": "b100NotificationsPrefix",
+    "oid": "1.3.6.1.4.1.12196.13.3",
+    "class": "objectidentity"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.12196.13.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "numServices": {
+    "name": "numServices",
+    "oid": "1.3.6.1.4.1.12196.13.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hashTableSize": {
+    "name": "hashTableSize",
+    "oid": "1.3.6.1.4.1.12196.13.0.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tcpTimeOut": {
+    "name": "tcpTimeOut",
+    "oid": "1.3.6.1.4.1.12196.13.0.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tcpFinTimeOut": {
+    "name": "tcpFinTimeOut",
+    "oid": "1.3.6.1.4.1.12196.13.0.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "udpTimeOut": {
+    "name": "udpTimeOut",
+    "oid": "1.3.6.1.4.1.12196.13.0.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "daemonState": {
+    "name": "daemonState",
+    "oid": "1.3.6.1.4.1.12196.13.0.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "master": 1,
+          "backup": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mcastInterface": {
+    "name": "mcastInterface",
+    "oid": "1.3.6.1.4.1.12196.13.0.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hAstate": {
+    "name": "hAstate",
+    "oid": "1.3.6.1.4.1.12196.13.0.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "master": 1,
+          "standby": 2,
+          "passive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "patchVersion": {
+    "name": "patchVersion",
+    "oid": "1.3.6.1.4.1.12196.13.0.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalTps": {
+    "name": "totalTps",
+    "oid": "1.3.6.1.4.1.12196.13.0.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslTps": {
+    "name": "sslTps",
+    "oid": "1.3.6.1.4.1.12196.13.0.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vsEntry": {
+    "name": "vsEntry",
+    "oid": "1.3.6.1.4.1.12196.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "B100-MIB",
+        "object": "vSidx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vSidx": {
+    "name": "vSidx",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSip": {
+    "name": "vSip",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSport": {
+    "name": "vSport",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSaddrtype": {
+    "name": "vSaddrtype",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSprotocol": {
+    "name": "vSprotocol",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 6,
+          "udp": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSschedulingMethod": {
+    "name": "vSschedulingMethod",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSpersistenceTimeout": {
+    "name": "vSpersistenceTimeout",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vScheckerType": {
+    "name": "vScheckerType",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSadaptiveMethod": {
+    "name": "vSadaptiveMethod",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSnumDests": {
+    "name": "vSnumDests",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSl7persist": {
+    "name": "vSl7persist",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSl7cookieId": {
+    "name": "vSl7cookieId",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSname": {
+    "name": "vSname",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSstate": {
+    "name": "vSstate",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "outOfService": 2,
+          "disabled": 4,
+          "sorry": 5,
+          "redirect": 6,
+          "errormsg": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSfollow": {
+    "name": "vSfollow",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSConns": {
+    "name": "vSConns",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSInPkts": {
+    "name": "vSInPkts",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSOutPkts": {
+    "name": "vSOutPkts",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSInBytes": {
+    "name": "vSInBytes",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSOutBytes": {
+    "name": "vSOutBytes",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vSActivConns": {
+    "name": "vSActivConns",
+    "oid": "1.3.6.1.4.1.12196.13.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsEntry": {
+    "name": "rsEntry",
+    "oid": "1.3.6.1.4.1.12196.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "B100-MIB",
+        "object": "rSidx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rSvsidx": {
+    "name": "rSvsidx",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSip": {
+    "name": "rSip",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSport": {
+    "name": "rSport",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSaddrtype": {
+    "name": "rSaddrtype",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSidx": {
+    "name": "rSidx",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSforwardingMethod": {
+    "name": "rSforwardingMethod",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSweight": {
+    "name": "rSweight",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSstate": {
+    "name": "rSstate",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inService": 1,
+          "outOfService": 2,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSConns": {
+    "name": "rSConns",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSInPkts": {
+    "name": "rSInPkts",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSOutPkts": {
+    "name": "rSOutPkts",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSInBytes": {
+    "name": "rSInBytes",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSOutBytes": {
+    "name": "rSOutBytes",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSActiveConns": {
+    "name": "rSActiveConns",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rSInactiveConns": {
+    "name": "rSInactiveConns",
+    "oid": "1.3.6.1.4.1.12196.13.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adaptivInterval": {
+    "name": "adaptivInterval",
+    "oid": "1.3.6.1.4.1.12196.13.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adaptivUrl": {
+    "name": "adaptivUrl",
+    "oid": "1.3.6.1.4.1.12196.13.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adaptivCtrlMinP": {
+    "name": "adaptivCtrlMinP",
+    "oid": "1.3.6.1.4.1.12196.13.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adaptivMinWeight": {
+    "name": "adaptivMinWeight",
+    "oid": "1.3.6.1.4.1.12196.13.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "b100Notifications": {
+    "name": "b100Notifications",
+    "oid": "1.3.6.1.4.1.12196.13.3.1",
+    "class": "objectidentity"
+  },
+  "vSstateChange": {
+    "name": "vSstateChange",
+    "oid": "1.3.6.1.4.1.12196.13.3.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "B100-MIB",
+        "object": "vSstate"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSip"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSport"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSaddrtype"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSname"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSidx"
+      }
+    ],
+    "status": "current"
+  },
+  "rSstateChange": {
+    "name": "rSstateChange",
+    "oid": "1.3.6.1.4.1.12196.13.3.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "B100-MIB",
+        "object": "rSstate"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "rSip"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "rSport"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "rSaddrtype"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "rSidx"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSip"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSport"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSaddrtype"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSname"
+      },
+      {
+        "module": "B100-MIB",
+        "object": "vSidx"
+      }
+    ],
+    "status": "current"
+  },
+  "hAstateChange": {
+    "name": "hAstateChange",
+    "oid": "1.3.6.1.4.1.12196.13.3.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "B100-MIB",
+        "object": "hAstate"
+      }
+    ],
+    "status": "current"
+  },
+  "licenseExceeded": {
+    "name": "licenseExceeded",
+    "oid": "1.3.6.1.4.1.12196.13.3.1.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/kemp/B100-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "B100-MIB"
+  }
+}

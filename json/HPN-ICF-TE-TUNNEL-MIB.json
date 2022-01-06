@@ -1,0 +1,797 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsExtendedTunnelId",
+      "MplsTunnelIndex",
+      "MplsTunnelInstanceIndex",
+      "MplsLabel"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfTeTunnel": {
+    "name": "hpnicfTeTunnel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115",
+    "class": "moduleidentity"
+  },
+  "hpnicfTeTunnelScalars": {
+    "name": "hpnicfTeTunnelScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.1",
+    "class": "objectidentity"
+  },
+  "hpnicfTeTunnelMaxTunnelIndex": {
+    "name": "hpnicfTeTunnelMaxTunnelIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelObjects": {
+    "name": "hpnicfTeTunnelObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2",
+    "class": "objectidentity"
+  },
+  "hpnicfTeTunnelStaticCrlspTable": {
+    "name": "hpnicfTeTunnelStaticCrlspTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelStaticCrlspEntry": {
+    "name": "hpnicfTeTunnelStaticCrlspEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelStaticCrlspInLabel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelStaticCrlspInLabel": {
+    "name": "hpnicfTeTunnelStaticCrlspInLabel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelStaticCrlspName": {
+    "name": "hpnicfTeTunnelStaticCrlspName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelStaticCrlspStatus": {
+    "name": "hpnicfTeTunnelStaticCrlspStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelStaticCrlspRole": {
+    "name": "hpnicfTeTunnelStaticCrlspRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transit": 1,
+          "tail": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelStaticCrlspXCPointer": {
+    "name": "hpnicfTeTunnelStaticCrlspXCPointer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoTable": {
+    "name": "hpnicfTeTunnelCoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoEntry": {
+    "name": "hpnicfTeTunnelCoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelCoIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelCoLspInstance",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelCoIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelCoEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoIndex": {
+    "name": "hpnicfTeTunnelCoIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoLspInstance": {
+    "name": "hpnicfTeTunnelCoLspInstance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoIngressLSRId": {
+    "name": "hpnicfTeTunnelCoIngressLSRId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoEgressLSRId": {
+    "name": "hpnicfTeTunnelCoEgressLSRId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoBiMode": {
+    "name": "hpnicfTeTunnelCoBiMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coroutedActive": 1,
+          "coroutedPassive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoReverseLspInstance": {
+    "name": "hpnicfTeTunnelCoReverseLspInstance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelCoReverseLspXCPointer": {
+    "name": "hpnicfTeTunnelCoReverseLspXCPointer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsTable": {
+    "name": "hpnicfTeTunnelPsTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsEntry": {
+    "name": "hpnicfTeTunnelPsEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsIndex": {
+    "name": "hpnicfTeTunnelPsIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsIngressLSRId": {
+    "name": "hpnicfTeTunnelPsIngressLSRId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsEgressLSRId": {
+    "name": "hpnicfTeTunnelPsEgressLSRId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsProtectIndex": {
+    "name": "hpnicfTeTunnelPsProtectIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsProtectIngressLSRId": {
+    "name": "hpnicfTeTunnelPsProtectIngressLSRId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsProtectEgressLSRId": {
+    "name": "hpnicfTeTunnelPsProtectEgressLSRId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsProtectType": {
+    "name": "hpnicfTeTunnelPsProtectType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneToOne": 1,
+          "onePlusOne": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "oneToOne",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsRevertiveMode": {
+    "name": "hpnicfTeTunnelPsRevertiveMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "revertive": 1,
+          "noRevertive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "revertive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsWtrTime": {
+    "name": "hpnicfTeTunnelPsWtrTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 24,
+        "format": "decimal"
+      }
+    },
+    "units": "30 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsHoldOffTime": {
+    "name": "hpnicfTeTunnelPsHoldOffTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "units": "500ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsSwitchMode": {
+    "name": "hpnicfTeTunnelPsSwitchMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniDirectional": 1,
+          "biDirectional": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "uniDirectional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsWorkPathStatus": {
+    "name": "hpnicfTeTunnelPsWorkPathStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "noDefect": 2,
+          "inDefect": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsProtectPathStatus": {
+    "name": "hpnicfTeTunnelPsProtectPathStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "noDefect": 2,
+          "inDefect": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsSwitchResult": {
+    "name": "hpnicfTeTunnelPsSwitchResult",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "workPath": 1,
+          "protectPath": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTeTunnelNotifications": {
+    "name": "hpnicfTeTunnelNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.3",
+    "class": "objectidentity"
+  },
+  "hpnicfTeTunnelNotificationsPrefix": {
+    "name": "hpnicfTeTunnelNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfTeTunnelPsSwitchWtoP": {
+    "name": "hpnicfTeTunnelPsSwitchWtoP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsWorkPathStatus"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsProtectPathStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsSwitchPtoW": {
+    "name": "hpnicfTeTunnelPsSwitchPtoW",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsWorkPathStatus"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsProtectPathStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelConformance": {
+    "name": "hpnicfTeTunnelConformance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4",
+    "class": "objectidentity"
+  },
+  "hpnicfTeTunnelCompliances": {
+    "name": "hpnicfTeTunnelCompliances",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.1",
+    "class": "objectidentity"
+  },
+  "hpnicfTeTunnelCompliance": {
+    "name": "hpnicfTeTunnelCompliance",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hpnicfTeTunnelNotificationsGroup",
+        "module": "HPN-ICF-TE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpnicfTeTunnelScalarsGroup",
+        "module": "HPN-ICF-TE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpnicfTeTunnelStaticCrlspGroup",
+        "module": "HPN-ICF-TE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpnicfTeTunnelCorouteGroup",
+        "module": "HPN-ICF-TE-TUNNEL-MIB"
+      },
+      {
+        "object": "hpnicfTeTunnelPsGroup",
+        "module": "HPN-ICF-TE-TUNNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelGroups": {
+    "name": "hpnicfTeTunnelGroups",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.2",
+    "class": "objectidentity"
+  },
+  "hpnicfTeTunnelNotificationsGroup": {
+    "name": "hpnicfTeTunnelNotificationsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsSwitchPtoW"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsSwitchWtoP"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelScalarsGroup": {
+    "name": "hpnicfTeTunnelScalarsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelMaxTunnelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelStaticCrlspGroup": {
+    "name": "hpnicfTeTunnelStaticCrlspGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelStaticCrlspName"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelStaticCrlspStatus"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelStaticCrlspRole"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelStaticCrlspXCPointer"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelCorouteGroup": {
+    "name": "hpnicfTeTunnelCorouteGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelCoBiMode"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelCoReverseLspInstance"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelCoReverseLspXCPointer"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTeTunnelPsGroup": {
+    "name": "hpnicfTeTunnelPsGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.115.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsProtectIndex"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsProtectIngressLSRId"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsProtectEgressLSRId"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsProtectType"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsRevertiveMode"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsWtrTime"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsHoldOffTime"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsSwitchMode"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsWorkPathStatus"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsProtectPathStatus"
+      },
+      {
+        "module": "HPN-ICF-TE-TUNNEL-MIB",
+        "object": "hpnicfTeTunnelPsSwitchResult"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-TE-TUNNEL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-TE-TUNNEL-MIB"
+  }
+}

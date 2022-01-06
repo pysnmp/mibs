@@ -1,0 +1,437 @@
+{
+  "imports": {
+    "class": "imports",
+    "SIAE-ALARM-MIB": [
+      "alarmTrap"
+    ],
+    "SIAE-EQUIP-MIB": [
+      "equipIpSnmpAgentAddress"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "software": {
+    "name": "software",
+    "oid": "1.3.6.1.4.1.3373.1103.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-03-23 00:00",
+        "description": "Removed alarmTrapNumber from softwareDownloadStatusTrap and IMPORTS. "
+      },
+      {
+        "revision": "2014-02-03 00:00",
+        "description": "Improved description of softwareMibVersion "
+      },
+      {
+        "revision": "2013-04-16 00:00",
+        "description": "Initial version 01.00.00 "
+      }
+    ]
+  },
+  "softwareMibVersion": {
+    "name": "softwareMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareEquipmentReleaseBench1": {
+    "name": "softwareEquipmentReleaseBench1",
+    "oid": "1.3.6.1.4.1.3373.1103.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareEquipmentReleaseBench1Status": {
+    "name": "softwareEquipmentReleaseBench1Status",
+    "oid": "1.3.6.1.4.1.3373.1103.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLoaded": 1,
+          "loaded": 2,
+          "running": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareEquipmentReleaseBench2": {
+    "name": "softwareEquipmentReleaseBench2",
+    "oid": "1.3.6.1.4.1.3373.1103.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareEquipmentReleaseBench2Status": {
+    "name": "softwareEquipmentReleaseBench2Status",
+    "oid": "1.3.6.1.4.1.3373.1103.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLoaded": 1,
+          "loaded": 2,
+          "running": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareIpAddressDwlServer": {
+    "name": "softwareIpAddressDwlServer",
+    "oid": "1.3.6.1.4.1.3373.1103.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareGosipAddressDwlServer": {
+    "name": "softwareGosipAddressDwlServer",
+    "oid": "1.3.6.1.4.1.3373.1103.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareDownloadfile": {
+    "name": "softwareDownloadfile",
+    "oid": "1.3.6.1.4.1.3373.1103.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareActionRequest": {
+    "name": "softwareActionRequest",
+    "oid": "1.3.6.1.4.1.3373.1103.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareDownloadStatus": {
+    "name": "softwareDownloadStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloading": 1,
+          "completed": 2,
+          "interrupted": 3,
+          "perifDownloading": 4,
+          "configurationDownloading": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareUnitTable": {
+    "name": "softwareUnitTable",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "softwareUnitRecord": {
+    "name": "softwareUnitRecord",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-SOFT-MIB",
+        "object": "softwareUnitId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-SOFT-MIB",
+        "object": "softwareElementId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "softwareUnitId": {
+    "name": "softwareUnitId",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareElementId": {
+    "name": "softwareElementId",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareType": {
+    "name": "softwareType",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s-record": 1,
+          "image-FPGA": 2,
+          "volatile": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareUnitReleaseBench1": {
+    "name": "softwareUnitReleaseBench1",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareUnitReleaseBench2": {
+    "name": "softwareUnitReleaseBench2",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareUnitActualRelease": {
+    "name": "softwareUnitActualRelease",
+    "oid": "1.3.6.1.4.1.3373.1103.7.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareDownloadStatusTrapNotification": {
+    "name": "softwareDownloadStatusTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2,
+          "trapEnableWithACK": 34
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "trapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareRemoteIpAddressDwlServer": {
+    "name": "softwareRemoteIpAddressDwlServer",
+    "oid": "1.3.6.1.4.1.3373.1103.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareDownloadStatusTrap": {
+    "name": "softwareDownloadStatusTrap",
+    "oid": "1.3.6.1.4.1.3373.1103.0.701",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SIAE-EQUIP-MIB",
+        "object": "equipIpSnmpAgentAddress"
+      },
+      {
+        "module": "SIAE-SOFT-MIB",
+        "object": "softwareDownloadStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SOFT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-SOFT-MIB"
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "stxnGlobalRegModule": {
+    "name": "stxnGlobalRegModule",
+    "oid": "1.3.6.1.4.1.2509.6.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-21 03:58",
+        "description": "Added sub-module branches for Aviat products."
+      },
+      {
+        "revision": "2011-11-28 00:07",
+        "description": "Added the registration for stxnProductOIDs branch."
+      },
+      {
+        "revision": "2011-03-14 01:19",
+        "description": "Added the registration for aviatModules, aviatEvents and aviatProducts branches. Refer to MDR #320."
+      },
+      {
+        "revision": "2009-07-23 04:15",
+        "description": "Added the registration for stxnEfficientSiteControllerUnit branch. Refer to MDR #288."
+      },
+      {
+        "revision": "2009-04-16 23:58",
+        "description": "Added the registration for EfficientSite products and new product event branches. Refer to MDR #273."
+      },
+      {
+        "revision": "2004-02-20 00:55",
+        "description": "Added the registration for ProVision products and new product event branches."
+      },
+      {
+        "revision": "2003-01-29 03:31",
+        "description": "Added the registration for UNITY products branch."
+      },
+      {
+        "revision": "2002-11-28 23:58",
+        "description": "Added the registration for AOU and CTU product branches."
+      },
+      {
+        "revision": "2002-10-08 19:35",
+        "description": "Added the registration for AOU and CTU events."
+      },
+      {
+        "revision": "2002-09-03 23:15",
+        "description": "As part of the clean up exercise for the STXN Generic MIB modules that have not been 'released', the stxnGeneric branch has been re-registered under a different number. It used to be dmc 3 and now it is dmc 8."
+      },
+      {
+        "revision": "2001-11-15 01:10",
+        "description": "Added registration for event OIDs."
+      },
+      {
+        "revision": "2001-03-14 20:41",
+        "description": "Updated following the Common MIB Review held in Wellington."
+      },
+      {
+        "revision": "2001-02-13 20:21",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "dmc": {
+    "name": "dmc",
+    "oid": "1.3.6.1.4.1.2509",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dmcNet": {
+    "name": "dmcNet",
+    "oid": "1.3.6.1.4.1.2509.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "proxyAgent": {
+    "name": "proxyAgent",
+    "oid": "1.3.6.1.4.1.2509.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nonsnmpRadio": {
+    "name": "nonsnmpRadio",
+    "oid": "1.3.6.1.4.1.2509.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "snmpRadio": {
+    "name": "snmpRadio",
+    "oid": "1.3.6.1.4.1.2509.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dmcEvents": {
+    "name": "dmcEvents",
+    "oid": "1.3.6.1.4.1.2509.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dmcSecurity": {
+    "name": "dmcSecurity",
+    "oid": "1.3.6.1.4.1.2509.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sp2Radio": {
+    "name": "sp2Radio",
+    "oid": "1.3.6.1.4.1.2509.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "altium": {
+    "name": "altium",
+    "oid": "1.3.6.1.4.1.2509.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dmcModules": {
+    "name": "dmcModules",
+    "oid": "1.3.6.1.4.1.2509.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnEngineering": {
+    "name": "stxnEngineering",
+    "oid": "1.3.6.1.4.1.2509.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnProducts": {
+    "name": "stxnProducts",
+    "oid": "1.3.6.1.4.1.2509.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnLMCDR": {
+    "name": "stxnLMCDR",
+    "oid": "1.3.6.1.4.1.2509.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnAOU": {
+    "name": "stxnAOU",
+    "oid": "1.3.6.1.4.1.2509.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnCTU": {
+    "name": "stxnCTU",
+    "oid": "1.3.6.1.4.1.2509.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnUNITY": {
+    "name": "stxnUNITY",
+    "oid": "1.3.6.1.4.1.2509.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnProVision": {
+    "name": "stxnProVision",
+    "oid": "1.3.6.1.4.1.2509.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnEfficientSite": {
+    "name": "stxnEfficientSite",
+    "oid": "1.3.6.1.4.1.2509.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnEfficientSiteControllerUnit": {
+    "name": "stxnEfficientSiteControllerUnit",
+    "oid": "1.3.6.1.4.1.2509.5.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnProductOIDs": {
+    "name": "stxnProductOIDs",
+    "oid": "1.3.6.1.4.1.2509.5.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnModules": {
+    "name": "stxnModules",
+    "oid": "1.3.6.1.4.1.2509.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnEvents": {
+    "name": "stxnEvents",
+    "oid": "1.3.6.1.4.1.2509.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnGeneric": {
+    "name": "stxnGeneric",
+    "oid": "1.3.6.1.4.1.2509.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aviatModules": {
+    "name": "aviatModules",
+    "oid": "1.3.6.1.4.1.2509.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aviatAfModules": {
+    "name": "aviatAfModules",
+    "oid": "1.3.6.1.4.1.2509.9.1000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aviatAaModules": {
+    "name": "aviatAaModules",
+    "oid": "1.3.6.1.4.1.2509.9.1001",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aviatAlModules": {
+    "name": "aviatAlModules",
+    "oid": "1.3.6.1.4.1.2509.9.1002",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aviatAmModules": {
+    "name": "aviatAmModules",
+    "oid": "1.3.6.1.4.1.2509.9.1003",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aviatEvents": {
+    "name": "aviatEvents",
+    "oid": "1.3.6.1.4.1.2509.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "aviatProducts": {
+    "name": "aviatProducts",
+    "oid": "1.3.6.1.4.1.2509.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnOvationEvents": {
+    "name": "stxnOvationEvents",
+    "oid": "1.3.6.1.4.1.2509.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnUnityAOUEvents": {
+    "name": "stxnUnityAOUEvents",
+    "oid": "1.3.6.1.4.1.2509.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnUnityCTUEvents": {
+    "name": "stxnUnityCTUEvents",
+    "oid": "1.3.6.1.4.1.2509.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnUnityIDUEvents": {
+    "name": "stxnUnityIDUEvents",
+    "oid": "1.3.6.1.4.1.2509.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "stxnEfficientSiteEvents": {
+    "name": "stxnEfficientSiteEvents",
+    "oid": "1.3.6.1.4.1.2509.7.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/STXN-GLOBALREGISTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:56 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "STXN-GLOBALREGISTER-MIB"
+  }
+}

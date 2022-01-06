@@ -1,0 +1,1142 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ]
+  },
+  "ciscoWirelessP2pBpiMIB": {
+    "name": "ciscoWirelessP2pBpiMIB",
+    "oid": "1.3.6.1.4.1.9.9.135",
+    "class": "moduleidentity"
+  },
+  "cwrBpiMIBObjects": {
+    "name": "cwrBpiMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.135.1",
+    "class": "objectidentity"
+  },
+  "cwrBpiRsObjects": {
+    "name": "cwrBpiRsObjects",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1",
+    "class": "objectidentity"
+  },
+  "cwrBpiRsBaseTable": {
+    "name": "cwrBpiRsBaseTable",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwrBpiRsBaseEntry": {
+    "name": "cwrBpiRsBaseEntry",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwrBpiRsPrivacyEnable": {
+    "name": "cwrBpiRsPrivacyEnable",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsPublicKey": {
+    "name": "cwrBpiRsPublicKey",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthState": {
+    "name": "cwrBpiRsAuthState",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "authWait": 2,
+          "authorized": 3,
+          "reauthWait": 4,
+          "authRejectWait": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthKeySequenceNumber": {
+    "name": "cwrBpiRsAuthKeySequenceNumber",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthExpires": {
+    "name": "cwrBpiRsAuthExpires",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthReset": {
+    "name": "cwrBpiRsAuthReset",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsAuthGraceTime": {
+    "name": "cwrBpiRsAuthGraceTime",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsTEKGraceTime": {
+    "name": "cwrBpiRsTEKGraceTime",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsAuthWaitTimeout": {
+    "name": "cwrBpiRsAuthWaitTimeout",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsReauthWaitTimeout": {
+    "name": "cwrBpiRsReauthWaitTimeout",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsOpWaitTimeout": {
+    "name": "cwrBpiRsOpWaitTimeout",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsRekeyWaitTimeout": {
+    "name": "cwrBpiRsRekeyWaitTimeout",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRsAuthRequests": {
+    "name": "cwrBpiRsAuthRequests",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthReplies": {
+    "name": "cwrBpiRsAuthReplies",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthInvalids": {
+    "name": "cwrBpiRsAuthInvalids",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthInvalidErrorCode": {
+    "name": "cwrBpiRsAuthInvalidErrorCode",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInformation": 0,
+          "unauthorizedSlave": 1,
+          "undefined": 2,
+          "unsolicited": 3,
+          "invalidKeySequence": 4,
+          "keyRequestAuthenticationFailure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsAuthInvalidErrorString": {
+    "name": "cwrBpiRsAuthInvalidErrorString",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKTable": {
+    "name": "cwrBpiRsTEKTable",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwrBpiRsTEKEntry": {
+    "name": "cwrBpiRsTEKEntry",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwrBpiRsTEKEncryptionNegotiated": {
+    "name": "cwrBpiRsTEKEncryptionNegotiated",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKState": {
+    "name": "cwrBpiRsTEKState",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "opWait": 2,
+          "opReauthWait": 3,
+          "operational": 4,
+          "rekeyWait": 5,
+          "rekeyReauthWait": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKExpiresOld": {
+    "name": "cwrBpiRsTEKExpiresOld",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKExpiresNew": {
+    "name": "cwrBpiRsTEKExpiresNew",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKKeyRequests": {
+    "name": "cwrBpiRsTEKKeyRequests",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKKeyReplies": {
+    "name": "cwrBpiRsTEKKeyReplies",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKInvalids": {
+    "name": "cwrBpiRsTEKInvalids",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKAuthPends": {
+    "name": "cwrBpiRsTEKAuthPends",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKInvalidErrorCode": {
+    "name": "cwrBpiRsTEKInvalidErrorCode",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInformation": 0,
+          "unauthorizedSlave": 1,
+          "undefined": 2,
+          "unsolicited": 3,
+          "invalidKeySequence": 4,
+          "keyRequestAuthenticationFailure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRsTEKInvalidErrorString": {
+    "name": "cwrBpiRsTEKInvalidErrorString",
+    "oid": "1.3.6.1.4.1.9.9.135.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmObjects": {
+    "name": "cwrBpiRmObjects",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2",
+    "class": "objectidentity"
+  },
+  "cwrBpiRmAuthTable": {
+    "name": "cwrBpiRmAuthTable",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwrBpiRmAuthEntry": {
+    "name": "cwrBpiRmAuthEntry",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwrBpiRmAuthPrivacyEnable": {
+    "name": "cwrBpiRmAuthPrivacyEnable",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsPublicKey": {
+    "name": "cwrBpiRmAuthRsPublicKey",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsKeySequenceNumber": {
+    "name": "cwrBpiRmAuthRsKeySequenceNumber",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsExpires": {
+    "name": "cwrBpiRmAuthRsExpires",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsLifetime": {
+    "name": "cwrBpiRmAuthRsLifetime",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6048000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsReset": {
+    "name": "cwrBpiRmAuthRsReset",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsRequests": {
+    "name": "cwrBpiRmAuthRsRequests",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsReplies": {
+    "name": "cwrBpiRmAuthRsReplies",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmAuthRsInvalids": {
+    "name": "cwrBpiRmAuthRsInvalids",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmAuthInvalidErrorCode": {
+    "name": "cwrBpiRmAuthInvalidErrorCode",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInformation": 0,
+          "unauthorizedSlave": 1,
+          "undefined": 2,
+          "unsolicited": 3,
+          "invalidKeySequence": 4,
+          "keyRequestAuthenticationFailure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmAuthInvalidErrorString": {
+    "name": "cwrBpiRmAuthInvalidErrorString",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmTEKTable": {
+    "name": "cwrBpiRmTEKTable",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwrBpiRmTEKEntry": {
+    "name": "cwrBpiRmTEKEntry",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwrBpiRmTEKEncryptionNegotiated": {
+    "name": "cwrBpiRmTEKEncryptionNegotiated",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmTEKLifetime": {
+    "name": "cwrBpiRmTEKLifetime",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRmTEKExpiresOld": {
+    "name": "cwrBpiRmTEKExpiresOld",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmTEKExpiresNew": {
+    "name": "cwrBpiRmTEKExpiresNew",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmTEKReset": {
+    "name": "cwrBpiRmTEKReset",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwrBpiRmKeyRequests": {
+    "name": "cwrBpiRmKeyRequests",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmKeyReplies": {
+    "name": "cwrBpiRmKeyReplies",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmTEKInvalids": {
+    "name": "cwrBpiRmTEKInvalids",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmTEKInvalidErrorCode": {
+    "name": "cwrBpiRmTEKInvalidErrorCode",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noInformation": 0,
+          "unauthorizedSlave": 1,
+          "undefined": 2,
+          "unsolicited": 3,
+          "invalidKeySequence": 4,
+          "keyRequestAuthenticationFailure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiRmTEKInvalidErrorString": {
+    "name": "cwrBpiRmTEKInvalidErrorString",
+    "oid": "1.3.6.1.4.1.9.9.135.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwrBpiNotification": {
+    "name": "cwrBpiNotification",
+    "oid": "1.3.6.1.4.1.9.9.135.2",
+    "class": "objectidentity"
+  },
+  "cwrBpiConformance": {
+    "name": "cwrBpiConformance",
+    "oid": "1.3.6.1.4.1.9.9.135.3",
+    "class": "objectidentity"
+  },
+  "cwrBpiCompliances": {
+    "name": "cwrBpiCompliances",
+    "oid": "1.3.6.1.4.1.9.9.135.3.1",
+    "class": "objectidentity"
+  },
+  "cwrBpiGroups": {
+    "name": "cwrBpiGroups",
+    "oid": "1.3.6.1.4.1.9.9.135.3.2",
+    "class": "objectidentity"
+  },
+  "cwrBpiBasicCompliance": {
+    "name": "cwrBpiBasicCompliance",
+    "oid": "1.3.6.1.4.1.9.9.135.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwrBpiRsGroup",
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB"
+      },
+      {
+        "object": "cwrBpiRmGroup",
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwrBpiRsGroup": {
+    "name": "cwrBpiRsGroup",
+    "oid": "1.3.6.1.4.1.9.9.135.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsPrivacyEnable"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsPublicKey"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthState"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthKeySequenceNumber"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthExpires"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthReset"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthGraceTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKGraceTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthWaitTimeout"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsReauthWaitTimeout"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsOpWaitTimeout"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsRekeyWaitTimeout"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthRequests"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthReplies"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthInvalids"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthInvalidErrorCode"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsAuthInvalidErrorString"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKEncryptionNegotiated"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKState"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKExpiresOld"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKExpiresNew"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKKeyRequests"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKKeyReplies"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKInvalids"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKAuthPends"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKInvalidErrorCode"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRsTEKInvalidErrorString"
+      }
+    ],
+    "status": "current"
+  },
+  "cwrBpiRmGroup": {
+    "name": "cwrBpiRmGroup",
+    "oid": "1.3.6.1.4.1.9.9.135.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthPrivacyEnable"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsPublicKey"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsKeySequenceNumber"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsExpires"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsLifetime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsReset"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsRequests"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsReplies"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthRsInvalids"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthInvalidErrorCode"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmAuthInvalidErrorString"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKEncryptionNegotiated"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKLifetime"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKExpiresOld"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKExpiresNew"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKReset"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmKeyRequests"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmKeyReplies"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKInvalids"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKInvalidErrorCode"
+      },
+      {
+        "module": "CISCO-WIRELESS-P2P-BPI-MIB",
+        "object": "cwrBpiRmTEKInvalidErrorString"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2P-BPI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WIRELESS-P2P-BPI-MIB"
+  }
+}

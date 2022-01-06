@@ -1,0 +1,366 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDSP": {
+    "name": "hpnicfDSP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-01-16 13:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfVPMStatusTable": {
+    "name": "hpnicfVPMStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfVPMStatusEntry": {
+    "name": "hpnicfVPMStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfVPMIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfVPMIndex": {
+    "name": "hpnicfVPMIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfVPMEnPhysicalIndex": {
+    "name": "hpnicfVPMEnPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVPMState": {
+    "name": "hpnicfVPMState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "fatal": 3,
+          "offLine": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVPMResourceUtilization": {
+    "name": "hpnicfVPMResourceUtilization",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVPMHiWaterUtilization": {
+    "name": "hpnicfVPMHiWaterUtilization",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfVPMMaxChannel": {
+    "name": "hpnicfVPMMaxChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDSPStatusTable": {
+    "name": "hpnicfDSPStatusTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDSPStatusEntry": {
+    "name": "hpnicfDSPStatusEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfDSPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDSPIndex": {
+    "name": "hpnicfDSPIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDSPVPMIndex": {
+    "name": "hpnicfDSPVPMIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDSPEnPhysicalIndex": {
+    "name": "hpnicfDSPEnPhysicalIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDSPResetTime": {
+    "name": "hpnicfDSPResetTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDSPMaxChannel": {
+    "name": "hpnicfDSPMaxChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDSPState": {
+    "name": "hpnicfDSPState",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "fatal": 3,
+          "offLine": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDSPInUseChannel": {
+    "name": "hpnicfDSPInUseChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDSPTrap": {
+    "name": "hpnicfDSPTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.3",
+    "class": "objectidentity"
+  },
+  "hpnicfDSPTrapPrex": {
+    "name": "hpnicfDSPTrapPrex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfVPMStateChange": {
+    "name": "hpnicfVPMStateChange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfVPMIndex"
+      },
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfVPMEnPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfVPMState"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDSPStateChange": {
+    "name": "hpnicfDSPStateChange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.89.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfDSPIndex"
+      },
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfDSPVPMIndex"
+      },
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfDSPEnPhysicalIndex"
+      },
+      {
+        "module": "HPN-ICF-DSP-MIB",
+        "object": "hpnicfDSPState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DSP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DSP-MIB"
+  }
+}

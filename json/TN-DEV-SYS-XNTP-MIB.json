@@ -1,0 +1,363 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TN-MGMT-MIB": [
+      "tnDevMgmt"
+    ]
+  },
+  "tnDevSysxNTP": {
+    "name": "tnDevSysxNTP",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11",
+    "class": "objectidentity"
+  },
+  "tnxNTPClientMgmtTable": {
+    "name": "tnxNTPClientMgmtTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnxNTPClientMgmtEntry": {
+    "name": "tnxNTPClientMgmtEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnxNTPClientStatus": {
+    "name": "tnxNTPClientStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPDaylightSavingTime": {
+    "name": "tnxNTPDaylightSavingTime",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPUTCTimezone": {
+    "name": "tnxNTPUTCTimezone",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "gmt-negative-12-00-Eniwetok-Kwajalein": 1,
+          "gmt-negative-11-00-Midway-Island-Samoa": 2,
+          "gmt-negative-10-00-Hawaii": 3,
+          "gmt-negative-09-00-Alaska": 4,
+          "gmt-negative-08-00-Pacific-Time-US-and-Canada-Tijuana": 5,
+          "gmt-negative-07-00-Arizona": 6,
+          "gmt-negative-07-00-Mountain-Time-US-and-Canada": 7,
+          "gmt-negative-06-00-Central-Time-US-and-Canada": 8,
+          "gmt-negative-06-00-Mexico-City-Tegucigalpa": 9,
+          "gmt-negative-06-00-Saskatchewan": 10,
+          "gmt-negative-05-00-Bogota-Lima-Quito": 11,
+          "gmt-negative-05-00-Eastern-Time-US-and-Canada": 12,
+          "gmt-negative-05-00-Indiana-East": 13,
+          "gmt-negative-04-00-Atlantic-Time-Canada": 14,
+          "gmt-negative-04-00-Caracas-La-Paz": 15,
+          "gmt-negative-04-00-Santiago": 16,
+          "gmt-negative-03-30-Newfoundland": 17,
+          "gmt-negative-03-00-Brasilia": 18,
+          "gmt-negative-03-00-Buenos-Aires-Georgetown": 19,
+          "gmt-negative-02-00-Mid-Atlantic": 20,
+          "gmt-negative-01-00-Azores-Cape-Verde-Is": 21,
+          "gmt-Casablanca-Monrovia": 22,
+          "gmt-Greenwich-Mean-Time-Dublin-Edinburgh-Lisbon-London": 23,
+          "gmt-positive-01-00-Amsterdam-Berlin-Bern-Rome-Stockholm-Vienna": 24,
+          "gmt-positive-01-00-Belgrade-Bratislava-Budapest-Ljubljana-Prague": 25,
+          "gmt-positive-01-00-Brussels-Copenhagen-Madrid-Paris-Vilnius": 26,
+          "gmt-positive-01-00-Sarajevo-Skopje-Sofija-Warsaw-Zagreb": 27,
+          "gmt-positive-02-00-Athens-Istanbul-Minsk": 28,
+          "gmt-positive-02-00-Bucharest": 29,
+          "gmt-positive-02-00-Cairo": 30,
+          "gmt-positive-02-00-Harare-Pretoria": 31,
+          "gmt-positive-02-00-Helsinki-Riga-Tallinn": 32,
+          "gmt-positive-02-00-Jerusalem": 33,
+          "gmt-positive-03-00-Baghdad-Kuwait-Riyadh": 34,
+          "gmt-positive-03-00-Moscow-St-Petersburg-Volgograd": 35,
+          "gmt-positive-03-00-Mairobi": 36,
+          "gmt-positive-03-30-Tehran": 37,
+          "gmt-positive-04-00-Abu-Dhabi-Muscat": 38,
+          "gmt-positive-04-00-Baku-Tbilisi": 39,
+          "gmt-positive-04-30-Kabul": 40,
+          "gmt-positive-05-00-Ekaterinburg": 41,
+          "gmt-positive-05-00-Islamabad-Karachi-Tashkent": 42,
+          "gmt-positive-05-30-Bombay-Calcutta-Madras-New-Delhi": 43,
+          "gmt-positive-06-00-Astana-Almaty-Dhaka": 44,
+          "gmt-positive-06-00-Colombo": 45,
+          "gmt-positive-07-00-Bangkok-Hanoi-Jakarta": 46,
+          "gmt-positive-08-00-Beijing-Chongqing-Hong-Kong-Urumqi": 47,
+          "gmt-positive-08-00-Perth": 48,
+          "gmt-positive-08-00-Singapore": 49,
+          "gmt-positive-08-00-Taipei": 50,
+          "gmt-positive-09-00-Osaka-Sapporo-Tokyo": 51,
+          "gmt-positive-09-00-Seoul": 52,
+          "gmt-positive-09-00-Yakutsk": 53,
+          "gmt-positive-09-30-Adelaide": 54,
+          "gmt-positive-09-30-Darwin": 55,
+          "gmt-positive-10-00-Brisbane": 56,
+          "gmt-positive-10-00-Canberra-Melbourne-Sydney": 57,
+          "gmt-positive-10-00-Guam-Port-Moresby": 58,
+          "gmt-positive-10-00-Hobart": 59,
+          "gmt-positive-10-00-Vladivostok": 60,
+          "gmt-positive-11-00-Magadan-Solomon-Is-New-Caledonia": 61,
+          "gmt-positive-12-00-Auckland-Wllington": 62,
+          "gmt-positive-12-00-Fiji-Kamchatka-Marshall-Is": 63
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPDeviceTimer": {
+    "name": "tnxNTPDeviceTimer",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPDaylightSavingPeriodStart": {
+    "name": "tnxNTPDaylightSavingPeriodStart",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPDaylightSavingPeriodEnd": {
+    "name": "tnxNTPDaylightSavingPeriodEnd",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPDaylightSavingOffset": {
+    "name": "tnxNTPDaylightSavingOffset",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPDaylightSavingTimeMode": {
+    "name": "tnxNTPDaylightSavingTimeMode",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "recurring": 1,
+          "nonrecurring": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPServerTable": {
+    "name": "tnxNTPServerTable",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnxNTPServerEntry": {
+    "name": "tnxNTPServerEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN-DEV-SYS-XNTP-MIB",
+        "object": "tnxNTPServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnxNTPServerIndex": {
+    "name": "tnxNTPServerIndex",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnxNTPServerIPAddrType": {
+    "name": "tnxNTPServerIPAddrType",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPServerIPAddr": {
+    "name": "tnxNTPServerIPAddr",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnxNTPServerStatus": {
+    "name": "tnxNTPServerStatus",
+    "oid": "1.3.6.1.4.1.868.2.5.3.1.1.11.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DEV-SYS-xNTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-DEV-SYS-XNTP-MIB"
+  }
+}

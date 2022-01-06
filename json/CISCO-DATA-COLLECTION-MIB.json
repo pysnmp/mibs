@@ -1,0 +1,1680 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-TARGET-MIB": [
+      "SnmpTagValue"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "VariablePointer",
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDataCollectionMIB": {
+    "name": "ciscoDataCollectionMIB",
+    "oid": "1.3.6.1.4.1.9.9.312",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-30 05:30",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "ciscoDataCollMIBNotifs": {
+    "name": "ciscoDataCollMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.312.0",
+    "class": "objectidentity"
+  },
+  "ciscoDataCollMIBObjects": {
+    "name": "ciscoDataCollMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.312.1",
+    "class": "objectidentity"
+  },
+  "ciscoDataCollMIBConformance": {
+    "name": "ciscoDataCollMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.312.2",
+    "class": "objectidentity"
+  },
+  "cdcVFile": {
+    "name": "cdcVFile",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1",
+    "class": "objectidentity"
+  },
+  "cdcDataGroup": {
+    "name": "cdcDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2",
+    "class": "objectidentity"
+  },
+  "cdcFileXfer": {
+    "name": "cdcFileXfer",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3",
+    "class": "objectidentity"
+  },
+  "CdcCollectionSubtree": {
+    "name": "CdcCollectionSubtree",
+    "class": "textualconvention",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CdcCollectionList": {
+    "name": "CdcCollectionList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CdcRowInstanceId": {
+    "name": "CdcRowInstanceId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CdcUrl": {
+    "name": "CdcUrl",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CdcFileFormat": {
+    "name": "CdcFileFormat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdcBulkASCII": 1,
+          "cdcBulkBinary": 2,
+          "cdcSchemaASCII": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CdcFileXferStatus": {
+    "name": "CdcFileXferStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notStarted": 1,
+          "success": 2,
+          "aborted": 3,
+          "fileOpenFailRemote": 4,
+          "badDomainName": 5,
+          "unreachableIpAddress": 6,
+          "networkFailed": 7,
+          "fileWriteFailed": 8,
+          "authFailed": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cdcVFilePersistentStorage": {
+    "name": "cdcVFilePersistentStorage",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileMaxSizeHitsLimit": {
+    "name": "cdcVFileMaxSizeHitsLimit",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdcVFileTable": {
+    "name": "cdcVFileTable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcVFileEntry": {
+    "name": "cdcVFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdcVFileIndex": {
+    "name": "cdcVFileIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcVFileName": {
+    "name": "cdcVFileName",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileDescription": {
+    "name": "cdcVFileDescription",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileCommand": {
+    "name": "cdcVFileCommand",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "swapToNewFile": 2,
+          "collectNow": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "idle",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileMaxSize": {
+    "name": "cdcVFileMaxSize",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50000,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileCurrentSize": {
+    "name": "cdcVFileCurrentSize",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileFormat": {
+    "name": "cdcVFileFormat",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcFileFormat",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "cdcSchemaASCII",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileCollectMode": {
+    "name": "cdcVFileCollectMode",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileCollectionPeriod": {
+    "name": "cdcVFileCollectionPeriod",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileRetentionPeriod": {
+    "name": "cdcVFileRetentionPeriod",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileAdminStatus": {
+    "name": "cdcVFileAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileOperStatus": {
+    "name": "cdcVFileOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileErrorCode": {
+    "name": "cdcVFileErrorCode",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "otherError": 2,
+          "noSpace": 3,
+          "openError": 4,
+          "tooSmallMaxSize": 5,
+          "tooManyMaxSizeHits": 6,
+          "noResource": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileCollectionErrorEnable": {
+    "name": "cdcVFileCollectionErrorEnable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileRowStatus": {
+    "name": "cdcVFileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileMgmtTable": {
+    "name": "cdcVFileMgmtTable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcVFileMgmtEntry": {
+    "name": "cdcVFileMgmtEntry",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdcVFileMgmtIndex": {
+    "name": "cdcVFileMgmtIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcVFileMgmtName": {
+    "name": "cdcVFileMgmtName",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileMgmtTimestamp": {
+    "name": "cdcVFileMgmtTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileMgmtTimeToLive": {
+    "name": "cdcVFileMgmtTimeToLive",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileMgmtCommand": {
+    "name": "cdcVFileMgmtCommand",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "delete": 2,
+          "transfer": 3,
+          "abortTransfer": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "idle",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdcVFileMgmtXferURL": {
+    "name": "cdcVFileMgmtXferURL",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcUrl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdcVFileMgmtLastXferStatus": {
+    "name": "cdcVFileMgmtLastXferStatus",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcFileXferStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcVFileMgmtLastXferURL": {
+    "name": "cdcVFileMgmtLastXferURL",
+    "oid": "1.3.6.1.4.1.9.9.312.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcUrl",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdcDGTable": {
+    "name": "cdcDGTable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGEntry": {
+    "name": "cdcDGEntry",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdcDGIndex": {
+    "name": "cdcDGIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGComment": {
+    "name": "cdcDGComment",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGType": {
+    "name": "cdcDGType",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "object": 1,
+          "table": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "table",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGVFileIndex": {
+    "name": "cdcDGVFileIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGTargetTag": {
+    "name": "cdcDGTargetTag",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGContextName": {
+    "name": "cdcDGContextName",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGObject": {
+    "name": "cdcDGObject",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGObjectGrpIndex": {
+    "name": "cdcDGObjectGrpIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGInstGrpIndex": {
+    "name": "cdcDGInstGrpIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGPollPeriod": {
+    "name": "cdcDGPollPeriod",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGRowStatus": {
+    "name": "cdcDGRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGBaseObjectTable": {
+    "name": "cdcDGBaseObjectTable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGBaseObjectEntry": {
+    "name": "cdcDGBaseObjectEntry",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGBaseObjectGrpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGBaseObjectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdcDGBaseObjectGrpIndex": {
+    "name": "cdcDGBaseObjectGrpIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGBaseObjectIndex": {
+    "name": "cdcDGBaseObjectIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGBaseObjectSubtree": {
+    "name": "cdcDGBaseObjectSubtree",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcCollectionSubtree",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGBaseObjectList": {
+    "name": "cdcDGBaseObjectList",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcCollectionList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGBaseObjectRowStatus": {
+    "name": "cdcDGBaseObjectRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGInstanceTable": {
+    "name": "cdcDGInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGInstanceEntry": {
+    "name": "cdcDGInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceGrpIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdcDGInstanceGrpIndex": {
+    "name": "cdcDGInstanceGrpIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGInstanceIndex": {
+    "name": "cdcDGInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcDGInstanceType": {
+    "name": "cdcDGInstanceType",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "individual": 1,
+          "range": 2,
+          "repititions": 3,
+          "subTree": 4,
+          "other": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "subTree",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGInstanceOid": {
+    "name": "cdcDGInstanceOid",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcRowInstanceId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGInstanceOidEnd": {
+    "name": "cdcDGInstanceOidEnd",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcRowInstanceId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGInstanceNumRepititions": {
+    "name": "cdcDGInstanceNumRepititions",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGInstanceOtherPtr": {
+    "name": "cdcDGInstanceOtherPtr",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcDGInstanceRowStatus": {
+    "name": "cdcDGInstanceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.312.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcFileXferConfTable": {
+    "name": "cdcFileXferConfTable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdcFileXferConfEntry": {
+    "name": "cdcFileXferConfEntry",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdcFileXferConfPriUrl": {
+    "name": "cdcFileXferConfPriUrl",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcUrl",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcFileXferConfSecUrl": {
+    "name": "cdcFileXferConfSecUrl",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdcUrl",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcFileXferConfRetryPeriod": {
+    "name": "cdcFileXferConfRetryPeriod",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcFileXferConfRetryCount": {
+    "name": "cdcFileXferConfRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcFileXferConfSuccessEnable": {
+    "name": "cdcFileXferConfSuccessEnable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcFileXferConfFailureEnable": {
+    "name": "cdcFileXferConfFailureEnable",
+    "oid": "1.3.6.1.4.1.9.9.312.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdcVFileCollectionError": {
+    "name": "cdcVFileCollectionError",
+    "oid": "1.3.6.1.4.1.9.9.312.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileName"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileErrorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "cdcFileXferComplete": {
+    "name": "cdcFileXferComplete",
+    "oid": "1.3.6.1.4.1.9.9.312.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtLastXferStatus"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtLastXferURL"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDataCollMIBCompliances": {
+    "name": "ciscoDataCollMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.312.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDataCollMIBGroups": {
+    "name": "ciscoDataCollMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.312.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDataCollMIBCompliance": {
+    "name": "ciscoDataCollMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.312.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdcVFileGroup",
+        "module": "CISCO-DATA-COLLECTION-MIB"
+      },
+      {
+        "object": "cdcDataSelectionGroup",
+        "module": "CISCO-DATA-COLLECTION-MIB"
+      },
+      {
+        "object": "cdcFileXferGroup",
+        "module": "CISCO-DATA-COLLECTION-MIB"
+      },
+      {
+        "object": "cdcNotificationGroup",
+        "module": "CISCO-DATA-COLLECTION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdcVFileGroup": {
+    "name": "cdcVFileGroup",
+    "oid": "1.3.6.1.4.1.9.9.312.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFilePersistentStorage"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMaxSizeHitsLimit"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileName"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileDescription"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileCommand"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMaxSize"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileCurrentSize"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileFormat"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileCollectMode"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileCollectionPeriod"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileRetentionPeriod"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileAdminStatus"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileOperStatus"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileErrorCode"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileRowStatus"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtName"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtTimestamp"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtTimeToLive"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtCommand"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtXferURL"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtLastXferStatus"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileMgmtLastXferURL"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileCollectionErrorEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdcDataSelectionGroup": {
+    "name": "cdcDataSelectionGroup",
+    "oid": "1.3.6.1.4.1.9.9.312.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGComment"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGType"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGVFileIndex"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGTargetTag"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGContextName"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGObject"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGObjectGrpIndex"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstGrpIndex"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGPollPeriod"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGRowStatus"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGBaseObjectSubtree"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGBaseObjectList"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGBaseObjectRowStatus"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceType"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceOid"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceOidEnd"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceNumRepititions"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceOtherPtr"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcDGInstanceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cdcFileXferGroup": {
+    "name": "cdcFileXferGroup",
+    "oid": "1.3.6.1.4.1.9.9.312.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcFileXferConfPriUrl"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcFileXferConfSecUrl"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcFileXferConfRetryPeriod"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcFileXferConfRetryCount"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcFileXferConfSuccessEnable"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcFileXferConfFailureEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdcNotificationGroup": {
+    "name": "cdcNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.312.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcVFileCollectionError"
+      },
+      {
+        "module": "CISCO-DATA-COLLECTION-MIB",
+        "object": "cdcFileXferComplete"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DATA-COLLECTION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DATA-COLLECTION-MIB"
+  }
+}

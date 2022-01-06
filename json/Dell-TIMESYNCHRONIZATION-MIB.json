@@ -1,0 +1,2709 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rlTimeSynchronization": {
+    "name": "rlTimeSynchronization",
+    "oid": "1.3.6.1.4.1.89.92",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-18 00:24",
+        "description": "Added support in DHCP timezone option."
+      },
+      {
+        "revision": "2007-09-06 00:24",
+        "description": "Added rlClockStatus"
+      },
+      {
+        "revision": "2003-11-23 00:24",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "rlTimeSyncMethodMode": {
+    "name": "rlTimeSyncMethodMode",
+    "oid": "1.3.6.1.4.1.89.92.1",
+    "class": "objectidentity"
+  },
+  "rlSntpNtpClient": {
+    "name": "rlSntpNtpClient",
+    "oid": "1.3.6.1.4.1.89.92.2",
+    "class": "objectidentity"
+  },
+  "rlSntpNtpConfig": {
+    "name": "rlSntpNtpConfig",
+    "oid": "1.3.6.1.4.1.89.92.2.1",
+    "class": "objectidentity"
+  },
+  "rlSntpConfig": {
+    "name": "rlSntpConfig",
+    "oid": "1.3.6.1.4.1.89.92.2.2",
+    "class": "objectidentity"
+  },
+  "rlNtpConfig": {
+    "name": "rlNtpConfig",
+    "oid": "1.3.6.1.4.1.89.92.2.3",
+    "class": "objectidentity"
+  },
+  "NTPTimeStamp": {
+    "name": "NTPTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "4d.4d",
+    "status": "current"
+  },
+  "NTPSignedTimeValue": {
+    "name": "NTPSignedTimeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "2d.2d",
+    "status": "current"
+  },
+  "NTPStratum": {
+    "name": "NTPStratum",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RlTimeSyncMethod": {
+    "name": "RlTimeSyncMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "sntp": 2,
+          "ntp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlDaylightSavingTimeMode": {
+    "name": "RlDaylightSavingTimeMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "recurring": 1,
+          "date": 2,
+          "none": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlTimeSyncMibVersion": {
+    "name": "rlTimeSyncMibVersion",
+    "oid": "1.3.6.1.4.1.89.92.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rndTimeSyncManagedTime": {
+    "name": "rndTimeSyncManagedTime",
+    "oid": "1.3.6.1.4.1.89.92.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndTimeSyncManagedDate": {
+    "name": "rndTimeSyncManagedDate",
+    "oid": "1.3.6.1.4.1.89.92.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rndTimeSyncManagedDateTime": {
+    "name": "rndTimeSyncManagedDateTime",
+    "oid": "1.3.6.1.4.1.89.92.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeSyncMethod": {
+    "name": "rlTimeSyncMethod",
+    "oid": "1.3.6.1.4.1.89.92.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlTimeSyncMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZone": {
+    "name": "rlTimeZone",
+    "oid": "1.3.6.1.4.1.89.92.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneCode": {
+    "name": "rlTimeZoneCode",
+    "oid": "1.3.6.1.4.1.89.92.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDaylightSavingTimeMode": {
+    "name": "rlDaylightSavingTimeMode",
+    "oid": "1.3.6.1.4.1.89.92.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlDaylightSavingTimeMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDaylightSavingTimeStart": {
+    "name": "rlDaylightSavingTimeStart",
+    "oid": "1.3.6.1.4.1.89.92.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 14,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDaylightSavingTimeEnd": {
+    "name": "rlDaylightSavingTimeEnd",
+    "oid": "1.3.6.1.4.1.89.92.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 14,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDaylightSavingTimeOffset": {
+    "name": "rlDaylightSavingTimeOffset",
+    "oid": "1.3.6.1.4.1.89.92.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlDaylightSavingTimeCode": {
+    "name": "rlDaylightSavingTimeCode",
+    "oid": "1.3.6.1.4.1.89.92.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTZDSTOffset": {
+    "name": "rlTZDSTOffset",
+    "oid": "1.3.6.1.4.1.89.92.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlTimeZoneName": {
+    "name": "rlTimeZoneName",
+    "oid": "1.3.6.1.4.1.89.92.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneTable": {
+    "name": "rlTimeZoneTable",
+    "oid": "1.3.6.1.4.1.89.92.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTimeZoneEntry": {
+    "name": "rlTimeZoneEntry",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlTimeZoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlTimeZoneIndex": {
+    "name": "rlTimeZoneIndex",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTimeZoneTimeSyncMethod": {
+    "name": "rlTimeZoneTimeSyncMethod",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlTimeSyncMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneTimeZoneOffset": {
+    "name": "rlTimeZoneTimeZoneOffset",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneTimeZoneCode": {
+    "name": "rlTimeZoneTimeZoneCode",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneDaylightSavingTimeMode": {
+    "name": "rlTimeZoneDaylightSavingTimeMode",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlDaylightSavingTimeMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneDaylightSavingTimeStart": {
+    "name": "rlTimeZoneDaylightSavingTimeStart",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 14,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneDaylightSavingTimeEnd": {
+    "name": "rlTimeZoneDaylightSavingTimeEnd",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 14,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneDaylightSavingTimeOffset": {
+    "name": "rlTimeZoneDaylightSavingTimeOffset",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneDaylightSavingTimeCode": {
+    "name": "rlTimeZoneDaylightSavingTimeCode",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneTZDSTOffset": {
+    "name": "rlTimeZoneTZDSTOffset",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlTimeZoneTimeZoneName": {
+    "name": "rlTimeZoneTimeZoneName",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneDataType": {
+    "name": "rlTimeZoneDataType",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "static",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlTimeZoneDataSourceIfIndex": {
+    "name": "rlTimeZoneDataSourceIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeZoneDataDynamicConfSource": {
+    "name": "rlTimeZoneDataDynamicConfSource",
+    "oid": "1.3.6.1.4.1.89.92.1.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "dhcpv4": 2,
+          "dhcpv6": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlClockStatus": {
+    "name": "rlClockStatus",
+    "oid": "1.3.6.1.4.1.89.92.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "manuallySet": 2,
+          "synchronizedBySntp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlDhcpTimezoneOptionEnabled": {
+    "name": "rlDhcpTimezoneOptionEnabled",
+    "oid": "1.3.6.1.4.1.89.92.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlAutomaticClockSetFromPCEnabled": {
+    "name": "rlAutomaticClockSetFromPCEnabled",
+    "oid": "1.3.6.1.4.1.89.92.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeAndDateHaveBeenSet": {
+    "name": "rlTimeAndDateHaveBeenSet",
+    "oid": "1.3.6.1.4.1.89.92.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "RlSntpNtpSyncType": {
+    "name": "RlSntpNtpSyncType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unicast": 2,
+          "anycast": 3,
+          "broadcast": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSntpNtpSyncEntryType": {
+    "name": "RlSntpNtpSyncEntryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primaryPollSrv": 1,
+          "syncSrv": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlSntpNtpMibVersion": {
+    "name": "rlSntpNtpMibVersion",
+    "oid": "1.3.6.1.4.1.89.92.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigMode": {
+    "name": "rlSntpNtpConfigMode",
+    "oid": "1.3.6.1.4.1.89.92.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unicast": 2,
+          "anycast": 3,
+          "multicast": 4,
+          "unicastAnycast": 5,
+          "unicastMulticast": 6,
+          "anycastMulticast": 7,
+          "unicastAnycastMulticast": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSysStratum": {
+    "name": "rlSntpNtpConfigSysStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigPollInterval": {
+    "name": "rlSntpNtpConfigPollInterval",
+    "oid": "1.3.6.1.4.1.89.92.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpNtpConfigPrimaryPollSrvAddr": {
+    "name": "rlSntpNtpConfigPrimaryPollSrvAddr",
+    "oid": "1.3.6.1.4.1.89.92.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigPrimaryPollSrvMrid": {
+    "name": "rlSntpNtpConfigPrimaryPollSrvMrid",
+    "oid": "1.3.6.1.4.1.89.92.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigPrimaryPollSrvIfIndex": {
+    "name": "rlSntpNtpConfigPrimaryPollSrvIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigPrimaryPollSrvStratum": {
+    "name": "rlSntpNtpConfigPrimaryPollSrvStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSyncSrvAddr": {
+    "name": "rlSntpNtpConfigSyncSrvAddr",
+    "oid": "1.3.6.1.4.1.89.92.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSyncSrvMrid": {
+    "name": "rlSntpNtpConfigSyncSrvMrid",
+    "oid": "1.3.6.1.4.1.89.92.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSyncSrvIfIndex": {
+    "name": "rlSntpNtpConfigSyncSrvIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSyncSrvType": {
+    "name": "rlSntpNtpConfigSyncSrvType",
+    "oid": "1.3.6.1.4.1.89.92.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSntpNtpSyncType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSyncSrvStratum": {
+    "name": "rlSntpNtpConfigSyncSrvStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigRetryTimeout": {
+    "name": "rlSntpNtpConfigRetryTimeout",
+    "oid": "1.3.6.1.4.1.89.92.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigRetryCnt": {
+    "name": "rlSntpNtpConfigRetryCnt",
+    "oid": "1.3.6.1.4.1.89.92.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvTable": {
+    "name": "rlSntpNtpConfigSrvTable",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvEntry": {
+    "name": "rlSntpNtpConfigSrvEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpNtpConfigSrvEntryType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvEntryType": {
+    "name": "rlSntpNtpConfigSrvEntryType",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSntpNtpSyncEntryType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvInetAddressType": {
+    "name": "rlSntpNtpConfigSrvInetAddressType",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvInetAddress": {
+    "name": "rlSntpNtpConfigSrvInetAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvMrid": {
+    "name": "rlSntpNtpConfigSrvMrid",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvIfIndex": {
+    "name": "rlSntpNtpConfigSrvIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvSyncType": {
+    "name": "rlSntpNtpConfigSrvSyncType",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSntpNtpSyncType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpNtpConfigSrvStratum": {
+    "name": "rlSntpNtpConfigSrvStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpClientMode": {
+    "name": "rlSntpClientMode",
+    "oid": "1.3.6.1.4.1.89.92.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "active": 2,
+          "passive": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpUnicastAdminState": {
+    "name": "rlSntpUnicastAdminState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastAdminState": {
+    "name": "rlSntpBroadcastAdminState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "ipv4OnlyEnabled": 3,
+          "ipv6OnlyEnabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpAnycastAdminState": {
+    "name": "rlSntpAnycastAdminState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "ipv4OnlyEnabled": 3,
+          "ipv6OnlyEnabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpUnicastPollState": {
+    "name": "rlSntpUnicastPollState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastPollState": {
+    "name": "rlSntpBroadcastPollState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpAnycastPollState": {
+    "name": "rlSntpAnycastPollState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpAuthenticationState": {
+    "name": "rlSntpAuthenticationState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTimeValidFlag": {
+    "name": "rlTimeValidFlag",
+    "oid": "1.3.6.1.4.1.89.92.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpConfigBroadcastTable": {
+    "name": "rlSntpConfigBroadcastTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpBroadcastEntry": {
+    "name": "rlSntpBroadcastEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpBroadcastIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpBroadcastIfIndex": {
+    "name": "rlSntpBroadcastIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpBroadcastIfAdminState": {
+    "name": "rlSntpBroadcastIfAdminState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastMode": {
+    "name": "rlSntpBroadcastMode",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "receive": 2,
+          "send": 3,
+          "receiveSend": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "receiveSend",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastPolled": {
+    "name": "rlSntpBroadcastPolled",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastAddress": {
+    "name": "rlSntpBroadcastAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastStratum": {
+    "name": "rlSntpBroadcastStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastLastResp": {
+    "name": "rlSntpBroadcastLastResp",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastStatus": {
+    "name": "rlSntpBroadcastStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProcess": 2,
+          "up": 3,
+          "down": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastOffset": {
+    "name": "rlSntpBroadcastOffset",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastDelay": {
+    "name": "rlSntpBroadcastDelay",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastRowStatus": {
+    "name": "rlSntpBroadcastRowStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpConfigAnycastTable": {
+    "name": "rlSntpConfigAnycastTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAnycastEntry": {
+    "name": "rlSntpAnycastEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAnycastIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpAnycastIfIndex": {
+    "name": "rlSntpAnycastIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAnycastAddress": {
+    "name": "rlSntpAnycastAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastStratum": {
+    "name": "rlSntpAnycastStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastLastResp": {
+    "name": "rlSntpAnycastLastResp",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastStatus": {
+    "name": "rlSntpAnycastStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProcess": 2,
+          "up": 3,
+          "down": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastOffset": {
+    "name": "rlSntpAnycastOffset",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastDelay": {
+    "name": "rlSntpAnycastDelay",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastRowStatus": {
+    "name": "rlSntpAnycastRowStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpConfigServerTable": {
+    "name": "rlSntpConfigServerTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpServerEntry": {
+    "name": "rlSntpServerEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpServerAddress": {
+    "name": "rlSntpServerAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpServerPolled": {
+    "name": "rlSntpServerPolled",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpServerStratum": {
+    "name": "rlSntpServerStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServerLastResp": {
+    "name": "rlSntpServerLastResp",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServerStatus": {
+    "name": "rlSntpServerStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProcess": 2,
+          "up": 3,
+          "down": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServersOffset": {
+    "name": "rlSntpServersOffset",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServersDelay": {
+    "name": "rlSntpServersDelay",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServersKeyIdentifier": {
+    "name": "rlSntpServersKeyIdentifier",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpServerRowStatus": {
+    "name": "rlSntpServerRowStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpConfigAuthenticationTable": {
+    "name": "rlSntpConfigAuthenticationTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAuthenticationEntry": {
+    "name": "rlSntpAuthenticationEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAuthenticationKeyID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpAuthenticationKeyID": {
+    "name": "rlSntpAuthenticationKeyID",
+    "oid": "1.3.6.1.4.1.89.92.2.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpAuthenticationKeyValue": {
+    "name": "rlSntpAuthenticationKeyValue",
+    "oid": "1.3.6.1.4.1.89.92.2.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpAuthenticationKeyState": {
+    "name": "rlSntpAuthenticationKeyState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpAuthenticationRowStatus": {
+    "name": "rlSntpAuthenticationRowStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpPort": {
+    "name": "rlSntpPort",
+    "oid": "1.3.6.1.4.1.89.92.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 123,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpConfigBroadcastInetTable": {
+    "name": "rlSntpConfigBroadcastInetTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetEntry": {
+    "name": "rlSntpBroadcastInetEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpBroadcastInetIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpBroadcastInetIfIndex": {
+    "name": "rlSntpBroadcastInetIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetIfAdminState": {
+    "name": "rlSntpBroadcastInetIfAdminState",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetMode": {
+    "name": "rlSntpBroadcastInetMode",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "receive": 2,
+          "send": 3,
+          "receiveSend": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "receiveSend",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetPolled": {
+    "name": "rlSntpBroadcastInetPolled",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetAddressType": {
+    "name": "rlSntpBroadcastInetAddressType",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetAddress": {
+    "name": "rlSntpBroadcastInetAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetStratum": {
+    "name": "rlSntpBroadcastInetStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetLastResp": {
+    "name": "rlSntpBroadcastInetLastResp",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetStatus": {
+    "name": "rlSntpBroadcastInetStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProcess": 2,
+          "up": 3,
+          "down": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetOffset": {
+    "name": "rlSntpBroadcastInetOffset",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetDelay": {
+    "name": "rlSntpBroadcastInetDelay",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpBroadcastInetRowStatus": {
+    "name": "rlSntpBroadcastInetRowStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpConfigAnycastInetTable": {
+    "name": "rlSntpConfigAnycastInetTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAnycastInetEntry": {
+    "name": "rlSntpAnycastInetEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAnycastInetIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpAnycastInetIfIndex": {
+    "name": "rlSntpAnycastInetIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAnycastInetAddressType": {
+    "name": "rlSntpAnycastInetAddressType",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastInetAddress": {
+    "name": "rlSntpAnycastInetAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastInetStratum": {
+    "name": "rlSntpAnycastInetStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastInetLastResp": {
+    "name": "rlSntpAnycastInetLastResp",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastInetStatus": {
+    "name": "rlSntpAnycastInetStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProcess": 2,
+          "up": 3,
+          "down": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastInetOffset": {
+    "name": "rlSntpAnycastInetOffset",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastInetDelay": {
+    "name": "rlSntpAnycastInetDelay",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAnycastInetRowStatus": {
+    "name": "rlSntpAnycastInetRowStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpConfigServerInetTable": {
+    "name": "rlSntpConfigServerInetTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpServerInetEntry": {
+    "name": "rlSntpServerInetEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpServerInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpServerInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpServerInetAddressType": {
+    "name": "rlSntpServerInetAddressType",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpServerInetAddress": {
+    "name": "rlSntpServerInetAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpServerInetPolled": {
+    "name": "rlSntpServerInetPolled",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpServerInetStratum": {
+    "name": "rlSntpServerInetStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServerInetLastResp": {
+    "name": "rlSntpServerInetLastResp",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServerInetStatus": {
+    "name": "rlSntpServerInetStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProcess": 2,
+          "up": 3,
+          "down": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServerInetOffset": {
+    "name": "rlSntpServerInetOffset",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServerInetDelay": {
+    "name": "rlSntpServerInetDelay",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpServerInetKeyIdentifier": {
+    "name": "rlSntpServerInetKeyIdentifier",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpServerInetRowStatus": {
+    "name": "rlSntpServerInetRowStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpAllServerInetTable": {
+    "name": "rlSntpAllServerInetTable",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAllServerInetEntry": {
+    "name": "rlSntpAllServerInetEntry",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAllServerSource",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAllServerIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAllServerPreference",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAllServerInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "Dell-TIMESYNCHRONIZATION-MIB",
+        "object": "rlSntpAllServerInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSntpAllServerSource": {
+    "name": "rlSntpAllServerSource",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcpv6": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAllServerIfIndex": {
+    "name": "rlSntpAllServerIfIndex",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAllServerPreference": {
+    "name": "rlSntpAllServerPreference",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAllServerInetAddressType": {
+    "name": "rlSntpAllServerInetAddressType",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAllServerInetAddress": {
+    "name": "rlSntpAllServerInetAddress",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSntpAllServerInetPolled": {
+    "name": "rlSntpAllServerInetPolled",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAllServerInetStratum": {
+    "name": "rlSntpAllServerInetStratum",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAllServerInetLastResp": {
+    "name": "rlSntpAllServerInetLastResp",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAllServerInetStatus": {
+    "name": "rlSntpAllServerInetStatus",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProcess": 2,
+          "up": 3,
+          "down": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAllServerInetOffset": {
+    "name": "rlSntpAllServerInetOffset",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPTimeStamp",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAllServerInetDelay": {
+    "name": "rlSntpAllServerInetDelay",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NTPSignedTimeValue",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSntpAllServerInetKeyIdentifier": {
+    "name": "rlSntpAllServerInetKeyIdentifier",
+    "oid": "1.3.6.1.4.1.89.92.2.2.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSntpRestoreDefaultServers": {
+    "name": "rlSntpRestoreDefaultServers",
+    "oid": "1.3.6.1.4.1.89.92.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-TIMESYNCHRONIZATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-TIMESYNCHRONIZATION-MIB"
+  }
+}

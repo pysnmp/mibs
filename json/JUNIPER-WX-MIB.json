@@ -1,0 +1,1981 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-WX-COMMON-MIB": [
+      "jnxWxCommonEventDescr"
+    ],
+    "JUNIPER-WX-GLOBAL-REG": [
+      "jnxWxModules",
+      "jnxWxSpecificMib"
+    ],
+    "JUNIPER-WX-GLOBAL-TC": [
+      "TcAppName",
+      "TcQosIdentifier"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxWxMibModule": {
+    "name": "jnxWxMibModule",
+    "oid": "1.3.6.1.4.1.8239.1.1.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-24 00:00",
+        "description": " Add jnxWxEventMultiPathStatusChange notification."
+      },
+      {
+        "revision": "2003-06-23 00:00",
+        "description": " o Add compression and throughput statistics to the jnxWxSysStats group. o Add bytes counts to jnxWxAsmStatsTable. o Add bytes counts and bytes-in percentage to jnxWxAppStatsTable. o Add jnxWxAppAggrStatsTable."
+      },
+      {
+        "revision": "2002-03-28 00:00",
+        "description": " Add SessionOpened, RegServerUnreachable notifications."
+      },
+      {
+        "revision": "2002-03-27 00:00",
+        "description": " Add SessionClosed, BufferOverflow notifications."
+      },
+      {
+        "revision": "2001-12-19 12:00",
+        "description": " Rev 1.0 Initial version of MIB module JUNIPER-WX-MIB."
+      }
+    ]
+  },
+  "jnxWxMib": {
+    "name": "jnxWxMib",
+    "oid": "1.3.6.1.4.1.8239.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxConfMib": {
+    "name": "jnxWxConfMib",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxObjs": {
+    "name": "jnxWxObjs",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxEvents": {
+    "name": "jnxWxEvents",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxStatsUpdateTime": {
+    "name": "jnxWxStatsUpdateTime",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxStatsAsmCount": {
+    "name": "jnxWxStatsAsmCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxStatsVirtEndptCount": {
+    "name": "jnxWxStatsVirtEndptCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxStatsAppCount": {
+    "name": "jnxWxStatsAppCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxStatsAccelAppCount": {
+    "name": "jnxWxStatsAccelAppCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxStatsQosClassCount": {
+    "name": "jnxWxStatsQosClassCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxStatsQosEndptCount": {
+    "name": "jnxWxStatsQosEndptCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxStatsWpEndptCount": {
+    "name": "jnxWxStatsWpEndptCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStats": {
+    "name": "jnxWxSysStats",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesInAe": {
+    "name": "jnxWxSysStatsBytesInAe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesOutAe": {
+    "name": "jnxWxSysStatsBytesOutAe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsInAe": {
+    "name": "jnxWxSysStatsPktsInAe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsOutAe": {
+    "name": "jnxWxSysStatsPktsOutAe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesOutOob": {
+    "name": "jnxWxSysStatsBytesOutOob",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesPtNoAe": {
+    "name": "jnxWxSysStatsBytesPtNoAe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsPtNoAe": {
+    "name": "jnxWxSysStatsPktsPtNoAe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesPtFilter": {
+    "name": "jnxWxSysStatsBytesPtFilter",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsPtFilter": {
+    "name": "jnxWxSysStatsPktsPtFilter",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesOfPt": {
+    "name": "jnxWxSysStatsBytesOfPt",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsOfPt": {
+    "name": "jnxWxSysStatsPktsOfPt",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesTpIn": {
+    "name": "jnxWxSysStatsBytesTpIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsTpIn": {
+    "name": "jnxWxSysStatsPktsTpIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesTpOut": {
+    "name": "jnxWxSysStatsBytesTpOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsTpOut": {
+    "name": "jnxWxSysStatsPktsTpOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesTpPt": {
+    "name": "jnxWxSysStatsBytesTpPt",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsTpPt": {
+    "name": "jnxWxSysStatsPktsTpPt",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPeakRdn": {
+    "name": "jnxWxSysStatsPeakRdn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsThruputIn": {
+    "name": "jnxWxSysStatsThruputIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsThruputOut": {
+    "name": "jnxWxSysStatsThruputOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesInRe": {
+    "name": "jnxWxSysStatsBytesInRe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsBytesOutRe": {
+    "name": "jnxWxSysStatsBytesOutRe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsInRe": {
+    "name": "jnxWxSysStatsPktsInRe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktsOutRe": {
+    "name": "jnxWxSysStatsPktsOutRe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeIn1": {
+    "name": "jnxWxSysStatsPktSizeIn1",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeIn2": {
+    "name": "jnxWxSysStatsPktSizeIn2",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeIn3": {
+    "name": "jnxWxSysStatsPktSizeIn3",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeIn4": {
+    "name": "jnxWxSysStatsPktSizeIn4",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeIn5": {
+    "name": "jnxWxSysStatsPktSizeIn5",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeIn6": {
+    "name": "jnxWxSysStatsPktSizeIn6",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeOut1": {
+    "name": "jnxWxSysStatsPktSizeOut1",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeOut2": {
+    "name": "jnxWxSysStatsPktSizeOut2",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeOut3": {
+    "name": "jnxWxSysStatsPktSizeOut3",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeOut4": {
+    "name": "jnxWxSysStatsPktSizeOut4",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeOut5": {
+    "name": "jnxWxSysStatsPktSizeOut5",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxSysStatsPktSizeOut6": {
+    "name": "jnxWxSysStatsPktSizeOut6",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.4.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAsm": {
+    "name": "jnxWxAsm",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxAsmTable": {
+    "name": "jnxWxAsmTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAsmEntry": {
+    "name": "jnxWxAsmEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAsmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxAsmIndex": {
+    "name": "jnxWxAsmIndex",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAsmIpAddress": {
+    "name": "jnxWxAsmIpAddress",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAsmStatsTable": {
+    "name": "jnxWxAsmStatsTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAsmStatsEntry": {
+    "name": "jnxWxAsmStatsEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxWxAsmStatsEntry",
+      "module": "JUNIPER-WX-MIB",
+      "object": "jnxWxAsmEntry"
+    },
+    "status": "current"
+  },
+  "jnxWxAsmStatsPktsIn": {
+    "name": "jnxWxAsmStatsPktsIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAsmStatsPktsOut": {
+    "name": "jnxWxAsmStatsPktsOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAsmStatsBytesIn": {
+    "name": "jnxWxAsmStatsBytesIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAsmStatsBytesOut": {
+    "name": "jnxWxAsmStatsBytesOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxVirtEndptTable": {
+    "name": "jnxWxVirtEndptTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxVirtEndptEntry": {
+    "name": "jnxWxVirtEndptEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxVirtEndptIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxVirtEndptIndex": {
+    "name": "jnxWxVirtEndptIndex",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxVirtEndptName": {
+    "name": "jnxWxVirtEndptName",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcAppName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxVirtEndptSubnetCount": {
+    "name": "jnxWxVirtEndptSubnetCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxApp": {
+    "name": "jnxWxApp",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxAppTable": {
+    "name": "jnxWxAppTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAppEntry": {
+    "name": "jnxWxAppEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxAppIndex": {
+    "name": "jnxWxAppIndex",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAppAppName": {
+    "name": "jnxWxAppAppName",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcAppName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsTable": {
+    "name": "jnxWxAppStatsTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAppStatsEntry": {
+    "name": "jnxWxAppStatsEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAsmIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxAppStatsBytesIn": {
+    "name": "jnxWxAppStatsBytesIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsBytesOut": {
+    "name": "jnxWxAppStatsBytesOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsBytesInPercent": {
+    "name": "jnxWxAppStatsBytesInPercent",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsAppName": {
+    "name": "jnxWxAppStatsAppName",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcAppName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsAccelBytesIn": {
+    "name": "jnxWxAppStatsAccelBytesIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsActiveSessionTime": {
+    "name": "jnxWxAppStatsActiveSessionTime",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsEstBoostBytes": {
+    "name": "jnxWxAppStatsEstBoostBytes",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppStatsBytesOutWxc": {
+    "name": "jnxWxAppStatsBytesOutWxc",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppAggrStatsTable": {
+    "name": "jnxWxAppAggrStatsTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAppAggrStatsEntry": {
+    "name": "jnxWxAppAggrStatsEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxWxAppAggrStatsEntry",
+      "module": "JUNIPER-WX-MIB",
+      "object": "jnxWxAppEntry"
+    },
+    "status": "current"
+  },
+  "jnxWxAppAggrStatsBytesInRe": {
+    "name": "jnxWxAppAggrStatsBytesInRe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppAggrStatsBytesOutRe": {
+    "name": "jnxWxAppAggrStatsBytesOutRe",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAppAggrStatsBytesInPercent": {
+    "name": "jnxWxAppAggrStatsBytesInPercent",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWanStatsTable": {
+    "name": "jnxWxWanStatsTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxWanStatsEntry": {
+    "name": "jnxWxWanStatsEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAsmIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxWanStatsBytesToWan": {
+    "name": "jnxWxWanStatsBytesToWan",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWanStatsBytesFromWan": {
+    "name": "jnxWxWanStatsBytesFromWan",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAccelAppNameTable": {
+    "name": "jnxWxAccelAppNameTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAccelAppNameEntry": {
+    "name": "jnxWxAccelAppNameEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAccelAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxAccelAppIndex": {
+    "name": "jnxWxAccelAppIndex",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAccelAppName": {
+    "name": "jnxWxAccelAppName",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcAppName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAccelAppStatsTable": {
+    "name": "jnxWxAccelAppStatsTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxAccelAppStatsEntry": {
+    "name": "jnxWxAccelAppStatsEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAsmIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxAccelAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxAccelAppTimeWithAccel": {
+    "name": "jnxWxAccelAppTimeWithAccel",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxAccelAppTimeWithoutAccel": {
+    "name": "jnxWxAccelAppTimeWithoutAccel",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxBurstStats": {
+    "name": "jnxWxBurstStats",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxBurstStatsStartTime": {
+    "name": "jnxWxBurstStatsStartTime",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxBurstStatsBpsIn": {
+    "name": "jnxWxBurstStatsBpsIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxBurstStatsBpsOut": {
+    "name": "jnxWxBurstStatsBpsOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxBurstStatsBpsPt": {
+    "name": "jnxWxBurstStatsBpsPt",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQos": {
+    "name": "jnxWxQos",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxQosEndptTable": {
+    "name": "jnxWxQosEndptTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxQosEndptEntry": {
+    "name": "jnxWxQosEndptEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxQosEndptIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxQosEndptIndex": {
+    "name": "jnxWxQosEndptIndex",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxQosEndptIdentifier": {
+    "name": "jnxWxQosEndptIdentifier",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcQosIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQosClassTable": {
+    "name": "jnxWxQosClassTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxQosClassEntry": {
+    "name": "jnxWxQosClassEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxQosClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxQosClassIndex": {
+    "name": "jnxWxQosClassIndex",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxQosClassName": {
+    "name": "jnxWxQosClassName",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcQosIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQosStatsTable": {
+    "name": "jnxWxQosStatsTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxQosStatsEntry": {
+    "name": "jnxWxQosStatsEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxQosEndptIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxQosClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxQosStatsBytesIn": {
+    "name": "jnxWxQosStatsBytesIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQosStatsBytesOut": {
+    "name": "jnxWxQosStatsBytesOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQosStatsBytesDropped": {
+    "name": "jnxWxQosStatsBytesDropped",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQosStatsPktsIn": {
+    "name": "jnxWxQosStatsPktsIn",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQosStatsPktsOut": {
+    "name": "jnxWxQosStatsPktsOut",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxQosStatsPktsDropped": {
+    "name": "jnxWxQosStatsPktsDropped",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.10.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWanPerf": {
+    "name": "jnxWxWanPerf",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxWpEndptTable": {
+    "name": "jnxWxWpEndptTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxWpEndptEntry": {
+    "name": "jnxWxWpEndptEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxWpEndptIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxWpEndptIndex": {
+    "name": "jnxWxWpEndptIndex",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxWpEndptIp": {
+    "name": "jnxWxWpEndptIp",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsTable": {
+    "name": "jnxWxWpStatsTable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWxWpStatsEntry": {
+    "name": "jnxWxWpStatsEntry",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WX-MIB",
+        "object": "jnxWxWpEndptIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxWpStatsLatencyThresh": {
+    "name": "jnxWxWpStatsLatencyThresh",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsAvgLatency": {
+    "name": "jnxWxWpStatsAvgLatency",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsLatencyCount": {
+    "name": "jnxWxWpStatsLatencyCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsLatencyAboveThresh": {
+    "name": "jnxWxWpStatsLatencyAboveThresh",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsLatencyAboveThreshCount": {
+    "name": "jnxWxWpStatsLatencyAboveThreshCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsLossPercent": {
+    "name": "jnxWxWpStatsLossPercent",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsLossCount": {
+    "name": "jnxWxWpStatsLossCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsEventCount": {
+    "name": "jnxWxWpStatsEventCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsDiversionCount": {
+    "name": "jnxWxWpStatsDiversionCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsReturnCount": {
+    "name": "jnxWxWpStatsReturnCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsLastDown": {
+    "name": "jnxWxWpStatsLastDown",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsUnavailableCount": {
+    "name": "jnxWxWpStatsUnavailableCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxWpStatsMinuteCount": {
+    "name": "jnxWxWpStatsMinuteCount",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.2.14.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWxEventObjs": {
+    "name": "jnxWxEventObjs",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxEventEvents": {
+    "name": "jnxWxEventEvents",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxEventEventsV2": {
+    "name": "jnxWxEventEventsV2",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxEventRipAuthFailure": {
+    "name": "jnxWxEventRipAuthFailure",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventCompressionBufferOverflow": {
+    "name": "jnxWxEventCompressionBufferOverflow",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventCompressionSessionClosed": {
+    "name": "jnxWxEventCompressionSessionClosed",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventDecompressionSessionClosed": {
+    "name": "jnxWxEventDecompressionSessionClosed",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventCompressionSessionOpened": {
+    "name": "jnxWxEventCompressionSessionOpened",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventDecompressionSessionOpened": {
+    "name": "jnxWxEventDecompressionSessionOpened",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventPrimaryRegServerUnreachable": {
+    "name": "jnxWxEventPrimaryRegServerUnreachable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventSecondaryRegServerUnreachable": {
+    "name": "jnxWxEventSecondaryRegServerUnreachable",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventMultiNodeMasterUp": {
+    "name": "jnxWxEventMultiNodeMasterUp",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventMultiNodeMasterDown": {
+    "name": "jnxWxEventMultiNodeMasterDown",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventMultiNodeLastUp": {
+    "name": "jnxWxEventMultiNodeLastUp",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventMultiNodeLastDown": {
+    "name": "jnxWxEventMultiNodeLastDown",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventPrimaryDownBackupEngaged": {
+    "name": "jnxWxEventPrimaryDownBackupEngaged",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventPrimaryDownBackupEngageFailed": {
+    "name": "jnxWxEventPrimaryDownBackupEngageFailed",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventPrimaryUpBackupDisengaged": {
+    "name": "jnxWxEventPrimaryUpBackupDisengaged",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventMultiPathStatusChange": {
+    "name": "jnxWxEventMultiPathStatusChange",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventDiskFailure": {
+    "name": "jnxWxEventDiskFailure",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventWanPerfStatusChange": {
+    "name": "jnxWxEventWanPerfStatusChange",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventDCQAboveHiWatermark": {
+    "name": "jnxWxEventDCQAboveHiWatermark",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventDCQBelowHiWatermark": {
+    "name": "jnxWxEventDCQBelowHiWatermark",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventPerformanceThreshCrossed": {
+    "name": "jnxWxEventPerformanceThreshCrossed",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventClientLinkDown": {
+    "name": "jnxWxEventClientLinkDown",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxEventClientLinkUp": {
+    "name": "jnxWxEventClientLinkUp",
+    "oid": "1.3.6.1.4.1.8239.2.2.1.3.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-COMMON-MIB",
+        "object": "jnxWxCommonEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-WX-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:43 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-WX-MIB"
+  }
+}

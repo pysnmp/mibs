@@ -1,0 +1,718 @@
+{
+  "imports": {
+    "class": "imports",
+    "Brocade-REG-MIB": [
+      "bcsiModules"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "brocadeOpticalMonitoringMIB": {
+    "name": "brocadeOpticalMonitoringMIB",
+    "oid": "1.3.6.1.4.1.1588.3.1.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-23 00:00",
+        "description": "Added bcsiIfMediaInfoTable"
+      },
+      {
+        "revision": "2018-05-29 12:00",
+        "description": "Updated ORGANIZATION and CONTACT-INFO with Extreme Networks"
+      },
+      {
+        "revision": "2016-11-23 00:00",
+        "description": "Added support for bcsiOptMonInfoTable."
+      },
+      {
+        "revision": "2016-09-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "bcsiOptMonNotifications": {
+    "name": "bcsiOptMonNotifications",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.0",
+    "class": "objectidentity"
+  },
+  "bcsiOptMonObjects": {
+    "name": "bcsiOptMonObjects",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1",
+    "class": "objectidentity"
+  },
+  "bcsiOptMonConformance": {
+    "name": "bcsiOptMonConformance",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.2",
+    "class": "objectidentity"
+  },
+  "bcsiOptMonLaneTable": {
+    "name": "bcsiOptMonLaneTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiOptMonLaneEntry": {
+    "name": "bcsiOptMonLaneEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiOptMonLaneNum": {
+    "name": "bcsiOptMonLaneNum",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiOptMonLaneTemperature": {
+    "name": "bcsiOptMonLaneTemperature",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonLaneTxPowerStatus": {
+    "name": "bcsiOptMonLaneTxPowerStatus",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "notApplicable": 2,
+          "highAlarm": 3,
+          "highWarn": 4,
+          "normal": 5,
+          "lowWarn": 6,
+          "lowAlarm": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonLaneTxPower": {
+    "name": "bcsiOptMonLaneTxPower",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonLaneTxPowerVal": {
+    "name": "bcsiOptMonLaneTxPowerVal",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microWatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonLaneRxPowerStatus": {
+    "name": "bcsiOptMonLaneRxPowerStatus",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "notApplicable": 2,
+          "highAlarm": 3,
+          "highWarn": 4,
+          "normal": 5,
+          "lowWarn": 6,
+          "lowAlarm": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonLaneRxPower": {
+    "name": "bcsiOptMonLaneRxPower",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonLaneRxPowerVal": {
+    "name": "bcsiOptMonLaneRxPowerVal",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microWatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonLaneTxBiasCurrent": {
+    "name": "bcsiOptMonLaneTxBiasCurrent",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonInfoTable": {
+    "name": "bcsiOptMonInfoTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiOptMonInfoEntry": {
+    "name": "bcsiOptMonInfoEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiOptMonTemperature": {
+    "name": "bcsiOptMonTemperature",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonTxPowerStatus": {
+    "name": "bcsiOptMonTxPowerStatus",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "notApplicable": 2,
+          "highAlarm": 3,
+          "highWarn": 4,
+          "normal": 5,
+          "lowWarn": 6,
+          "lowAlarm": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonTxPower": {
+    "name": "bcsiOptMonTxPower",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonTxPowerVal": {
+    "name": "bcsiOptMonTxPowerVal",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microWatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonRxPowerStatus": {
+    "name": "bcsiOptMonRxPowerStatus",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "notApplicable": 2,
+          "highAlarm": 3,
+          "highWarn": 4,
+          "normal": 5,
+          "lowWarn": 6,
+          "lowAlarm": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonRxPower": {
+    "name": "bcsiOptMonRxPower",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonRxPowerVal": {
+    "name": "bcsiOptMonRxPowerVal",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microWatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonTxBiasCurrent": {
+    "name": "bcsiOptMonTxBiasCurrent",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfMediaInfoTable": {
+    "name": "bcsiIfMediaInfoTable",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bcsiIfMediaInfoEntry": {
+    "name": "bcsiIfMediaInfoEntry",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiIfMediaType": {
+    "name": "bcsiIfMediaType",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfMediaVendorName": {
+    "name": "bcsiIfMediaVendorName",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfMediaVersion": {
+    "name": "bcsiIfMediaVersion",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfMediaPartNumber": {
+    "name": "bcsiIfMediaPartNumber",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiIfMediaSerialNumber": {
+    "name": "bcsiIfMediaSerialNumber",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bcsiOptMonCompliances": {
+    "name": "bcsiOptMonCompliances",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.2.1",
+    "class": "objectidentity"
+  },
+  "bcsiOptMonGroups": {
+    "name": "bcsiOptMonGroups",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.2.2",
+    "class": "objectidentity"
+  },
+  "bcsiOptMonCompliance": {
+    "name": "bcsiOptMonCompliance",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bcsiOptMonLaneMonGroup",
+        "module": "BROCADE-OPTICAL-MONITORING-MIB"
+      },
+      {
+        "object": "bcsiOptMonInfoMonGroup",
+        "module": "BROCADE-OPTICAL-MONITORING-MIB"
+      },
+      {
+        "object": "bcsiIfMediaGroup",
+        "module": "BROCADE-OPTICAL-MONITORING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiOptMonLaneMonGroup": {
+    "name": "bcsiOptMonLaneMonGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneNum"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneTemperature"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneTxPowerStatus"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneTxPower"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneTxPowerVal"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneRxPowerStatus"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneRxPower"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneRxPowerVal"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonLaneTxBiasCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiOptMonInfoMonGroup": {
+    "name": "bcsiOptMonInfoMonGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonTemperature"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonTxPowerStatus"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonTxPower"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonTxPowerVal"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonRxPowerStatus"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonRxPower"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonRxPowerVal"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiOptMonTxBiasCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "bcsiIfMediaGroup": {
+    "name": "bcsiIfMediaGroup",
+    "oid": "1.3.6.1.4.1.1588.3.1.8.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiIfMediaType"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiIfMediaVendorName"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiIfMediaVersion"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiIfMediaPartNumber"
+      },
+      {
+        "module": "BROCADE-OPTICAL-MONITORING-MIB",
+        "object": "bcsiIfMediaSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-OPTICAL-MONITORING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BROCADE-OPTICAL-MONITORING-MIB"
+  }
+}

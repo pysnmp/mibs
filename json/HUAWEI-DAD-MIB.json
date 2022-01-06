@@ -1,0 +1,213 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwDadMIB": {
+    "name": "hwDadMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.246",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-11 12:30",
+        "description": "Updated to include support for DAD"
+      },
+      {
+        "revision": "2016-01-20 16:58",
+        "description": "Updated to include support for DAD"
+      }
+    ]
+  },
+  "PortIndex": {
+    "name": "PortIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 575
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "hwDadTraps": {
+    "name": "hwDadTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1",
+    "class": "objectidentity"
+  },
+  "hwDadConformance": {
+    "name": "hwDadConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2",
+    "class": "objectidentity"
+  },
+  "hwDadObject": {
+    "name": "hwDadObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.3",
+    "class": "objectidentity"
+  },
+  "hwDadConflictDetect": {
+    "name": "hwDadConflictDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwDadConflictResume": {
+    "name": "hwDadConflictResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwDadPortProtocolAlarm": {
+    "name": "hwDadPortProtocolAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadDetectPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDadPortProtocolAlarmResume": {
+    "name": "hwDadPortProtocolAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadDetectPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDadTrapObject": {
+    "name": "hwDadTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.3.1",
+    "class": "objectidentity"
+  },
+  "hwDadDetectPort": {
+    "name": "hwDadDetectPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDadCompliances": {
+    "name": "hwDadCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.1",
+    "class": "objectidentity"
+  },
+  "hwDadGroups": {
+    "name": "hwDadGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.2",
+    "class": "objectidentity"
+  },
+  "hwDadCompliance": {
+    "name": "hwDadCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwDadTrapGroup",
+        "module": "HUAWEI-DAD-MIB"
+      },
+      {
+        "object": "hwDadObjectGroup",
+        "module": "HUAWEI-DAD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDadTrapGroup": {
+    "name": "hwDadTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadConflictDetect"
+      },
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadConflictResume"
+      },
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadPortProtocolAlarm"
+      },
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadPortProtocolAlarmResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDadObjectGroup": {
+    "name": "hwDadObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadDetectPort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DAD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-DAD-MIB"
+  }
+}

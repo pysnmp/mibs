@@ -1,0 +1,1679 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetPortNumber"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue",
+      "MacAddress"
+    ]
+  },
+  "dellNetOpenFlow": {
+    "name": "dellNetOpenFlow",
+    "oid": "1.3.6.1.4.1.6027.3.20",
+    "class": "moduleidentity"
+  },
+  "ofSwitchObjects": {
+    "name": "ofSwitchObjects",
+    "oid": "1.3.6.1.4.1.6027.3.20.1",
+    "class": "objectidentity"
+  },
+  "ofSwitchNotification": {
+    "name": "ofSwitchNotification",
+    "oid": "1.3.6.1.4.1.6027.3.20.2",
+    "class": "objectidentity"
+  },
+  "DataPathIdentifier": {
+    "name": "DataPathIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "ofSwitchId": {
+    "name": "ofSwitchId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofManufacturerDesc": {
+    "name": "ofManufacturerDesc",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofHardwareDesc": {
+    "name": "ofHardwareDesc",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofSoftwareDesc": {
+    "name": "ofSoftwareDesc",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofSwitchSerialNo": {
+    "name": "ofSwitchSerialNo",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofSwitchVersion": {
+    "name": "ofSwitchVersion",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstTable": {
+    "name": "ofInstTable",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofInstEntry": {
+    "name": "ofInstEntry",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ofInstId": {
+    "name": "ofInstId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofInstAdminState": {
+    "name": "ofInstAdminState",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstIntfType": {
+    "name": "ofInstIntfType",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "vlan": 2,
+          "any": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstDataPathId": {
+    "name": "ofInstDataPathId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPathIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstConnectTimeout": {
+    "name": "ofInstConnectTimeout",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstEchoReplyTimeout": {
+    "name": "ofInstEchoReplyTimeout",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstEchoReqInterval": {
+    "name": "ofInstEchoReqInterval",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstNumFlows": {
+    "name": "ofInstNumFlows",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstSuppCapabilities": {
+    "name": "ofInstSuppCapabilities",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "port": 0,
+        "table": 1,
+        "flow": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofInstSuppActions": {
+    "name": "ofInstSuppActions",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "output": 0,
+        "set-vlan": 1,
+        "set-pcp": 2,
+        "set-smac": 3,
+        "set-dmac": 4,
+        "set-tos": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofCntlrTable": {
+    "name": "ofCntlrTable",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofCntlrEntry": {
+    "name": "ofCntlrEntry",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofCntlrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ofCntlrId": {
+    "name": "ofCntlrId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofCntlrAddrType": {
+    "name": "ofCntlrAddrType",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofCntlrAddr": {
+    "name": "ofCntlrAddr",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofCntlrPortNumber": {
+    "name": "ofCntlrPortNumber",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofCntlrProtocol": {
+    "name": "ofCntlrProtocol",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tls": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofCntlrConState": {
+    "name": "ofCntlrConState",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofPortTable": {
+    "name": "ofPortTable",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofPortEntry": {
+    "name": "ofPortEntry",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ofPortIfIndex": {
+    "name": "ofPortIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofPortAssociationType": {
+    "name": "ofPortAssociationType",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "instancePort": 1,
+          "instVlanPort": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofVlanTable": {
+    "name": "ofVlanTable",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofVlanEntry": {
+    "name": "ofVlanEntry",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofVlanIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ofVlanIfIndex": {
+    "name": "ofVlanIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofVlanId": {
+    "name": "ofVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowTable": {
+    "name": "ofFlowTable",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofFlowEntry": {
+    "name": "ofFlowEntry",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowTblId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ofFlowId": {
+    "name": "ofFlowId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofFlowTblId": {
+    "name": "ofFlowTblId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofFlowPriority": {
+    "name": "ofFlowPriority",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowIdleTime": {
+    "name": "ofFlowIdleTime",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowHardTime": {
+    "name": "ofFlowHardTime",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowUpTime": {
+    "name": "ofFlowUpTime",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowCookie": {
+    "name": "ofFlowCookie",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowPacketCount": {
+    "name": "ofFlowPacketCount",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowByteCount": {
+    "name": "ofFlowByteCount",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchParamsTable": {
+    "name": "ofFlowMatchParamsTable",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofFlowMatchParamsEntry": {
+    "name": "ofFlowMatchParamsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ofFlowMatchParamsEntry",
+      "module": "DELL-NETWORKING-OPENFLOW-MIB",
+      "object": "ofFlowEntry"
+    },
+    "status": "current"
+  },
+  "ofFlowMatchInPort": {
+    "name": "ofFlowMatchInPort",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchEtherSrcAddr": {
+    "name": "ofFlowMatchEtherSrcAddr",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchEtherDstAddr": {
+    "name": "ofFlowMatchEtherDstAddr",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchVlanId": {
+    "name": "ofFlowMatchVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchEthType": {
+    "name": "ofFlowMatchEthType",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchVlanPri": {
+    "name": "ofFlowMatchVlanPri",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchIpTos": {
+    "name": "ofFlowMatchIpTos",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchIpProto": {
+    "name": "ofFlowMatchIpProto",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchIpSrcAddr": {
+    "name": "ofFlowMatchIpSrcAddr",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchIpDestAddr": {
+    "name": "ofFlowMatchIpDestAddr",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchTpSrcPort": {
+    "name": "ofFlowMatchTpSrcPort",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowMatchTpDstPort": {
+    "name": "ofFlowMatchTpDstPort",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionTable": {
+    "name": "ofFlowActionTable",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofFlowActionEntry": {
+    "name": "ofFlowActionEntry",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowTblId",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ofFlowActionId": {
+    "name": "ofFlowActionId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ofFlowActionType": {
+    "name": "ofFlowActionType",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outToSwitchPort": 1,
+          "setVlanVid": 2,
+          "setVlanPcp": 3,
+          "stripVlan": 4,
+          "setDlSrc": 5,
+          "setDlDst": 6,
+          "setNetworkSrc": 7,
+          "setNetworkDst": 8,
+          "setNetworkTos": 9,
+          "setTpSrc": 10,
+          "setTpDest": 11,
+          "outToQueue": 12,
+          "vendor": 65535
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionSrcMac": {
+    "name": "ofFlowActionSrcMac",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionDstMac": {
+    "name": "ofFlowActionDstMac",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionPortIndex": {
+    "name": "ofFlowActionPortIndex",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionVlanId": {
+    "name": "ofFlowActionVlanId",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionMaxLen": {
+    "name": "ofFlowActionMaxLen",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionVlanPcp": {
+    "name": "ofFlowActionVlanPcp",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofFlowActionNWTos": {
+    "name": "ofFlowActionNWTos",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ofSwitchNotifications": {
+    "name": "ofSwitchNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.20.2.0",
+    "class": "objectidentity"
+  },
+  "ofSwitchNotifyVariable": {
+    "name": "ofSwitchNotifyVariable",
+    "oid": "1.3.6.1.4.1.6027.3.20.2.1",
+    "class": "objectidentity"
+  },
+  "ofSwitchFlowTableSrc": {
+    "name": "ofSwitchFlowTableSrc",
+    "oid": "1.3.6.1.4.1.6027.3.20.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ifp": 1,
+          "vlan": 2,
+          "dmac": 3,
+          "route": 4,
+          "lb": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ofSwitchCntlrSessionStatusChanged": {
+    "name": "ofSwitchCntlrSessionStatusChanged",
+    "oid": "1.3.6.1.4.1.6027.3.20.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofCntlrConState"
+      }
+    ],
+    "status": "current"
+  },
+  "ofSwitchFlowTableFull": {
+    "name": "ofSwitchFlowTableFull",
+    "oid": "1.3.6.1.4.1.6027.3.20.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofSwitchFlowTableSrc"
+      }
+    ],
+    "status": "current"
+  },
+  "ofSwitchMibConformance": {
+    "name": "ofSwitchMibConformance",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14",
+    "class": "objectidentity"
+  },
+  "ofSwitchMibCompliances": {
+    "name": "ofSwitchMibCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.1",
+    "class": "objectidentity"
+  },
+  "ofSwitchMibGroups": {
+    "name": "ofSwitchMibGroups",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2",
+    "class": "objectidentity"
+  },
+  "ofSwitchMibCompliance": {
+    "name": "ofSwitchMibCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ofSwitchScalarGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofInstanceGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofControllerGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofPortGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofVlanGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofFlowGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofFlowMatchParamsGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofFlowActionGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      },
+      {
+        "object": "ofSwitchMibNotificationsGroup",
+        "module": "DELL-NETWORKING-OPENFLOW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ofSwitchScalarGroup": {
+    "name": "ofSwitchScalarGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofSwitchId"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofManufacturerDesc"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofHardwareDesc"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofSoftwareDesc"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofSwitchSerialNo"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofSwitchVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ofInstanceGroup": {
+    "name": "ofInstanceGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstAdminState"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstIntfType"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstDataPathId"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstConnectTimeout"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstEchoReplyTimeout"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstEchoReqInterval"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstNumFlows"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstSuppCapabilities"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofInstSuppActions"
+      }
+    ],
+    "status": "current"
+  },
+  "ofControllerGroup": {
+    "name": "ofControllerGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofCntlrAddrType"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofCntlrAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofCntlrPortNumber"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofCntlrProtocol"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofCntlrConState"
+      }
+    ],
+    "status": "current"
+  },
+  "ofPortGroup": {
+    "name": "ofPortGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofPortAssociationType"
+      }
+    ],
+    "status": "current"
+  },
+  "ofVlanGroup": {
+    "name": "ofVlanGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "ofFlowGroup": {
+    "name": "ofFlowGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowPriority"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowIdleTime"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowHardTime"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowUpTime"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowCookie"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowPacketCount"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowByteCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ofFlowMatchParamsGroup": {
+    "name": "ofFlowMatchParamsGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchInPort"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchEtherSrcAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchEtherDstAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchVlanId"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchEthType"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchVlanPri"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchIpTos"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchIpProto"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchIpSrcAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchIpDestAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchTpSrcPort"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowMatchTpDstPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ofFlowActionGroup": {
+    "name": "ofFlowActionGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionType"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionSrcMac"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionDstMac"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionPortIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionVlanId"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionMaxLen"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionVlanPcp"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofFlowActionNWTos"
+      }
+    ],
+    "status": "current"
+  },
+  "ofSwitchMibNotificationsGroup": {
+    "name": "ofSwitchMibNotificationsGroup",
+    "oid": "1.3.6.1.4.1.6027.3.20.1.14.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofSwitchCntlrSessionStatusChanged"
+      },
+      {
+        "module": "DELL-NETWORKING-OPENFLOW-MIB",
+        "object": "ofSwitchFlowTableFull"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-OPENFLOW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-OPENFLOW-MIB"
+  }
+}

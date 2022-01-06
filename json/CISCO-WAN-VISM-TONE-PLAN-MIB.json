@@ -1,0 +1,1395 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "vismTonePlanGrpMIB": {
+    "name": "vismTonePlanGrpMIB",
+    "oid": "1.3.6.1.4.1.351.150.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-12-17 00:00",
+        "description": "1. Remove default value from vismEventCode object. 2. Change default value of vismFreqMaxDelay object from 3 to 10. 3. Change default value of vismMinOnCadence object from 3 to 20. 4. Change default value of vismMaxOffCadence object from 5 to 450. 5. Remove default value from vismFrequency1 object. 6. Remove default value from vismFrequency2 object. 7. Remove default value from vismFreqOnCadence object. 8. Change default value of seqToneMaximumGapDuration object from 10 to 15. 9. Change SYNTAX INTEGER to Integer32 except for enumerated integers in vismConfigToneDetectEntry. 10. Clarify description of object. "
+      },
+      {
+        "revision": "2003-04-23 00:00",
+        "description": " Added Object vismConfigToneDetect (Programmable Tone) under vismTonePlan "
+      },
+      {
+        "revision": "2002-07-19 00:00",
+        "description": "Give tonePlanIndex a range (1..1000) to be compiled in new SMICNG compiler (ver2.2.11-beta). "
+      },
+      {
+        "revision": "2001-12-26 00:00",
+        "description": "Description changes for tonePlanEntryStatus, tonePlanProvisionFlag, vismTonePlanEntry. "
+      },
+      {
+        "revision": "2001-08-05 00:00",
+        "description": "Results from MIB external interfaces review. "
+      },
+      {
+        "revision": "2001-04-03 00:00",
+        "description": "Initial draft. Created new VISM Tone Plan Group. "
+      }
+    ]
+  },
+  "vismTonePlanGrpMIBObjects": {
+    "name": "vismTonePlanGrpMIBObjects",
+    "oid": "1.3.6.1.4.1.351.150.24.1",
+    "class": "objectidentity"
+  },
+  "vismTonePlan": {
+    "name": "vismTonePlan",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1",
+    "class": "objectidentity"
+  },
+  "vismTonePlanControlGrp": {
+    "name": "vismTonePlanControlGrp",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.1",
+    "class": "objectidentity"
+  },
+  "vismTonePlanTableGrp": {
+    "name": "vismTonePlanTableGrp",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2",
+    "class": "objectidentity"
+  },
+  "vismConfigToneDetectGrp": {
+    "name": "vismConfigToneDetectGrp",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3",
+    "class": "objectidentity"
+  },
+  "vismSequentialToneDetectGrp": {
+    "name": "vismSequentialToneDetectGrp",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4",
+    "class": "objectidentity"
+  },
+  "tonePlanCurrentSize": {
+    "name": "tonePlanCurrentSize",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismTonePlanTable": {
+    "name": "vismTonePlanTable",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vismTonePlanEntry": {
+    "name": "vismTonePlanEntry",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tonePlanIndex": {
+    "name": "tonePlanIndex",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tonePlanEntryStatus": {
+    "name": "tonePlanEntryStatus",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unused": 1,
+          "configured": 2,
+          "reloading": 3,
+          "lostFile": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unused",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tonePlanProvisionFlag": {
+    "name": "tonePlanProvisionFlag",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "builtIn": 1,
+          "provisionable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tonePlanRegionName": {
+    "name": "tonePlanRegionName",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tonePlanVersionNumber": {
+    "name": "tonePlanVersionNumber",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tonePlanFileName": {
+    "name": "tonePlanFileName",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismConfigToneDetectTable": {
+    "name": "vismConfigToneDetectTable",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vismConfigToneDetectEntry": {
+    "name": "vismConfigToneDetectEntry",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismConfigToneDetectNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vismConfigToneDetectNum": {
+    "name": "vismConfigToneDetectNum",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismEventCode": {
+    "name": "vismEventCode",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismConfigToneDetectRowStatus": {
+    "name": "vismConfigToneDetectRowStatus",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqMaxDeviation": {
+    "name": "vismFreqMaxDeviation",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 125
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqMaxPower": {
+    "name": "vismFreqMaxPower",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqMinPower": {
+    "name": "vismFreqMinPower",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 35,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqPowerTwist": {
+    "name": "vismFreqPowerTwist",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqMaxDelay": {
+    "name": "vismFreqMaxDelay",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismMinOnCadence": {
+    "name": "vismMinOnCadence",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismMaxOffCadence": {
+    "name": "vismMaxOffCadence",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 450,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqNumOfCadenceMatch": {
+    "name": "vismFreqNumOfCadenceMatch",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFrequency1": {
+    "name": "vismFrequency1",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFrequency2": {
+    "name": "vismFrequency2",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqOnCadence": {
+    "name": "vismFreqOnCadence",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vismFreqOffCadence": {
+    "name": "vismFreqOffCadence",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "seqToneNumOfFrequencies": {
+    "name": "seqToneNumOfFrequencies",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneEventID": {
+    "name": "seqToneEventID",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 74,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneDurationOfEachTone": {
+    "name": "seqToneDurationOfEachTone",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 33,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneGapBetweenEachTone": {
+    "name": "seqToneGapBetweenEachTone",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65534
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneDurationDeviation": {
+    "name": "seqToneDurationDeviation",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneMaximumGapDuration": {
+    "name": "seqToneMaximumGapDuration",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneGapDurationDeviation": {
+    "name": "seqToneGapDurationDeviation",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFreqDeviation": {
+    "name": "seqToneFreqDeviation",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqTonePowerLevelCeiling": {
+    "name": "seqTonePowerLevelCeiling",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqTonePowerLevelFloor": {
+    "name": "seqTonePowerLevelFloor",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency1": {
+    "name": "seqToneFrequency1",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 950,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency2": {
+    "name": "seqToneFrequency2",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1400,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency3": {
+    "name": "seqToneFrequency3",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency4": {
+    "name": "seqToneFrequency4",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 280,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency5": {
+    "name": "seqToneFrequency5",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 280,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency6": {
+    "name": "seqToneFrequency6",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 280,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency7": {
+    "name": "seqToneFrequency7",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 280,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency8": {
+    "name": "seqToneFrequency8",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 280,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency9": {
+    "name": "seqToneFrequency9",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 280,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "seqToneFrequency10": {
+    "name": "seqToneFrequency10",
+    "oid": "1.3.6.1.4.1.351.150.24.1.1.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 280,
+            "max": 3800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 280,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismToneNotificationPrefix": {
+    "name": "vismToneNotificationPrefix",
+    "oid": "1.3.6.1.4.1.351.150.24.2",
+    "class": "objectidentity"
+  },
+  "vismToneNotifications": {
+    "name": "vismToneNotifications",
+    "oid": "1.3.6.1.4.1.351.150.24.2.0",
+    "class": "objectidentity"
+  },
+  "vismTonePlanMIBConformance": {
+    "name": "vismTonePlanMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.24.3",
+    "class": "objectidentity"
+  },
+  "vismTonePlanMIBCompliances": {
+    "name": "vismTonePlanMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.24.3.1",
+    "class": "objectidentity"
+  },
+  "vismTonePlanMIBGroups": {
+    "name": "vismTonePlanMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.24.3.2",
+    "class": "objectidentity"
+  },
+  "vismTonePlanMIBCompliance": {
+    "name": "vismTonePlanMIBCompliance",
+    "oid": "1.3.6.1.4.1.351.150.24.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vismTonePlanControlGroup",
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB"
+      },
+      {
+        "object": "vismTonePlanTableGroup",
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB"
+      },
+      {
+        "object": "vismConfigToneDetectTableGroup",
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB"
+      },
+      {
+        "object": "vismSequentialToneDetectGroup",
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vismTonePlanControlGroup": {
+    "name": "vismTonePlanControlGroup",
+    "oid": "1.3.6.1.4.1.351.150.24.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanCurrentSize"
+      }
+    ],
+    "status": "current"
+  },
+  "vismTonePlanTableGroup": {
+    "name": "vismTonePlanTableGroup",
+    "oid": "1.3.6.1.4.1.351.150.24.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanEntryStatus"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanProvisionFlag"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanRegionName"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanVersionNumber"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "tonePlanFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "vismConfigToneDetectTableGroup": {
+    "name": "vismConfigToneDetectTableGroup",
+    "oid": "1.3.6.1.4.1.351.150.24.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismConfigToneDetectNum"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismEventCode"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismConfigToneDetectRowStatus"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqMaxDeviation"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqMaxPower"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqMinPower"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqPowerTwist"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqMaxDelay"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismMinOnCadence"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismMaxOffCadence"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqNumOfCadenceMatch"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFrequency1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFrequency2"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqOnCadence"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "vismFreqOffCadence"
+      }
+    ],
+    "status": "current"
+  },
+  "vismSequentialToneDetectGroup": {
+    "name": "vismSequentialToneDetectGroup",
+    "oid": "1.3.6.1.4.1.351.150.24.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneNumOfFrequencies"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneEventID"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneDurationOfEachTone"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneGapBetweenEachTone"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneDurationDeviation"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneMaximumGapDuration"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneGapDurationDeviation"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFreqDeviation"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqTonePowerLevelCeiling"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqTonePowerLevelFloor"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency1"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency2"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency3"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency4"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency5"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency6"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency7"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency8"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency9"
+      },
+      {
+        "module": "CISCO-WAN-VISM-TONE-PLAN-MIB",
+        "object": "seqToneFrequency10"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-VISM-TONE-PLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-VISM-TONE-PLAN-MIB"
+  }
+}

@@ -1,0 +1,702 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSSwitch",
+      "adGenAOSConformance"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "adGenAOSDesktopAuditingMib": {
+    "name": "adGenAOSDesktopAuditingMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.4.1",
+    "class": "moduleidentity"
+  },
+  "adGenDesktopAuditing": {
+    "name": "adGenDesktopAuditing",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2",
+    "class": "objectidentity"
+  },
+  "adGenNapClients": {
+    "name": "adGenNapClients",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0",
+    "class": "objectidentity"
+  },
+  "adGenNapClientsTable": {
+    "name": "adGenNapClientsTable",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adGenNapClientsEntry": {
+    "name": "adGenNapClientsEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientMac",
+        "implied": 0
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adNapClientMac": {
+    "name": "adNapClientMac",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientVlanId": {
+    "name": "adNapClientVlanId",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientIp": {
+    "name": "adNapClientIp",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientHostname": {
+    "name": "adNapClientHostname",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientSrcPortIfId": {
+    "name": "adNapClientSrcPortIfId",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientSrcPortIfType": {
+    "name": "adNapClientSrcPortIfType",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapServerMac": {
+    "name": "adNapServerMac",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapServerIp": {
+    "name": "adNapServerIp",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapCollectionMethod": {
+    "name": "adNapCollectionMethod",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapCollectionTime": {
+    "name": "adNapCollectionTime",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapCapableClient": {
+    "name": "adNapCapableClient",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapCapableServer": {
+    "name": "adNapCapableServer",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientOsVersion": {
+    "name": "adNapClientOsVersion",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientOsServicePk": {
+    "name": "adNapClientOsServicePk",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientOsProcessorArc": {
+    "name": "adNapClientOsProcessorArc",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientLastSecurityUpdate": {
+    "name": "adNapClientLastSecurityUpdate",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientSecurityUpdateServer": {
+    "name": "adNapClientSecurityUpdateServer",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientRequiresRemediation": {
+    "name": "adNapClientRequiresRemediation",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "true": 2,
+          "false": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientLocalPolicyViolator": {
+    "name": "adNapClientLocalPolicyViolator",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientFirewallState": {
+    "name": "adNapClientFirewallState",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notInstalled": 2,
+          "wscServiceDown": 3,
+          "wscNotStarted": 4,
+          "notEnaNotUTD": 5,
+          "micsftNotEnaNotUTD": 6,
+          "notEnaUTD": 7,
+          "micsftNotEnaUTD": 8,
+          "enaNotUTDSn": 9,
+          "micsftEnaNotUTDSn": 10,
+          "enaNotUTDNotSn": 11,
+          "micsftEnaNotUTDNotSn": 12,
+          "enaUTDSn": 13,
+          "micsftEnaUTDSn": 14,
+          "enaUTDNotSn": 15,
+          "micsftEnaUTDNotSn": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientFirewall": {
+    "name": "adNapClientFirewall",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientAntivirusState": {
+    "name": "adNapClientAntivirusState",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notInstalled": 2,
+          "wscServiceDown": 3,
+          "wscNotStarted": 4,
+          "notEnaNotUTD": 5,
+          "micsftNotEnaNotUTD": 6,
+          "notEnaUTD": 7,
+          "micsftNotEnaUTD": 8,
+          "enaNotUTDSn": 9,
+          "micsftEnaNotUTDSn": 10,
+          "enaNotUTDNotSn": 11,
+          "micsftEnaNotUTDNotSn": 12,
+          "enaUTDSn": 13,
+          "micsftEnaUTDSn": 14,
+          "enaUTDNotSn": 15,
+          "micsftEnaUTDNotSn": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientAntivirus": {
+    "name": "adNapClientAntivirus",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientAntispywareState": {
+    "name": "adNapClientAntispywareState",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notInstalled": 2,
+          "wscServiceDown": 3,
+          "wscNotStarted": 4,
+          "notEnaNotUTD": 5,
+          "micsftNotEnaNotUTD": 6,
+          "notEnaUTD": 7,
+          "micsftNotEnaUTD": 8,
+          "enaNotUTDSn": 9,
+          "micsftEnaNotUTDSn": 10,
+          "enaNotUTDNotSn": 11,
+          "micsftEnaNotUTDNotSn": 12,
+          "enaUTDSn": 13,
+          "micsftEnaUTDSn": 14,
+          "enaUTDNotSn": 15,
+          "micsftEnaUTDNotSn": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientAntispyware": {
+    "name": "adNapClientAntispyware",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientAutoupdateState": {
+    "name": "adNapClientAutoupdateState",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notInstalled": 2,
+          "wscServiceDown": 3,
+          "wscNotStarted": 4,
+          "notEna": 5,
+          "enaCkUpdateOnly": 6,
+          "enaDownload": 7,
+          "enaDownloadInstall": 8,
+          "neverConfigured": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientSecurityupdateState": {
+    "name": "adNapClientSecurityupdateState",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noMissingUpdate": 2,
+          "missingUpdate": 3,
+          "noWUS": 4,
+          "noClientID": 5,
+          "wuaServiceDisabled": 6,
+          "wuaCommFailed": 7,
+          "updateInsNeedReboot": 8,
+          "wuaNotStarted": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientSecuritySeverity": {
+    "name": "adNapClientSecuritySeverity",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "unspecified": 2,
+          "low": 3,
+          "moderate": 4,
+          "important": 5,
+          "critical": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adNapClientConnectionState": {
+    "name": "adNapClientConnectionState",
+    "oid": "1.3.6.1.4.1.664.5.53.4.2.0.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notRestricted": 2,
+          "notResMaybeLater": 3,
+          "restricted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSDesktopAuditingConformance": {
+    "name": "adGenAOSDesktopAuditingConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10",
+    "class": "objectidentity"
+  },
+  "adGenAOSDesktopAuditingGroups": {
+    "name": "adGenAOSDesktopAuditingGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1",
+    "class": "objectidentity"
+  },
+  "adGenAOSDesktopAuditingCompliances": {
+    "name": "adGenAOSDesktopAuditingCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.2",
+    "class": "objectidentity"
+  },
+  "adGenAOSDesktopAuditingFullCompliance": {
+    "name": "adGenAOSDesktopAuditingFullCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenNapClientsGroup",
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenNapClientsGroup": {
+    "name": "adGenNapClientsGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.10.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientMac"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientVlanId"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientIp"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientHostname"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientSrcPortIfId"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientSrcPortIfType"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapServerMac"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapServerIp"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapCollectionMethod"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapCollectionTime"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapCapableClient"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapCapableServer"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientOsVersion"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientOsServicePk"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientOsProcessorArc"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientLastSecurityUpdate"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientSecurityUpdateServer"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientRequiresRemediation"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientLocalPolicyViolator"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientFirewallState"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientFirewall"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientAntivirusState"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientAntivirus"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientAntispywareState"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientAntispyware"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientAutoupdateState"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientSecurityupdateState"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientSecuritySeverity"
+      },
+      {
+        "module": "ADTRAN-AOS-DESKTOP-AUDITING",
+        "object": "adNapClientConnectionState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-DESKTOP-AUDITING",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOS-DESKTOP-AUDITING"
+  }
+}

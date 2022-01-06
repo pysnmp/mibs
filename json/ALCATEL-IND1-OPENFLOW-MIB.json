@@ -1,0 +1,1151 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1OpenflowMIB"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1OpenflowMIB": {
+    "name": "alcatelIND1OpenflowMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-03-26 00:00",
+        "description": "The latest version of this MIB Module."
+      },
+      {
+        "revision": "2014-10-08 00:00",
+        "description": "alaOpenflowLogicalSwitchLearnedMacUpdate is not limited to OS6900 devices"
+      }
+    ]
+  },
+  "alcatelIND1OpenflowMIBNotifications": {
+    "name": "alcatelIND1OpenflowMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.0",
+    "class": "objectidentity"
+  },
+  "alcatelIND1OpenflowMIBObjects": {
+    "name": "alcatelIND1OpenflowMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1OpenflowMIBConformance": {
+    "name": "alcatelIND1OpenflowMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaOpenflowGlobalConfigObjects": {
+    "name": "alaOpenflowGlobalConfigObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaOpenflowGlobalBackoffMax": {
+    "name": "alaOpenflowGlobalBackoffMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOpenflowGlobalIdleProbeTimeout": {
+    "name": "alaOpenflowGlobalIdleProbeTimeout",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchTable": {
+    "name": "alaOpenflowLogicalSwitchTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchEntry": {
+    "name": "alaOpenflowLogicalSwitchEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitch",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitch": {
+    "name": "alaOpenflowLogicalSwitch",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchAdminState": {
+    "name": "alaOpenflowLogicalSwitchAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchMode": {
+    "name": "alaOpenflowLogicalSwitchMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "api": 2,
+          "pfcChannel": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchVersions": {
+    "name": "alaOpenflowLogicalSwitchVersions",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "v1dot0": 0,
+        "v1dot3dot1": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "v1dot0": 0,
+          "v1dot3dot1": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchVlan": {
+    "name": "alaOpenflowLogicalSwitchVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchControllerCount": {
+    "name": "alaOpenflowLogicalSwitchControllerCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchInterfaceCount": {
+    "name": "alaOpenflowLogicalSwitchInterfaceCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchFlowCount": {
+    "name": "alaOpenflowLogicalSwitchFlowCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchRowStatus": {
+    "name": "alaOpenflowLogicalSwitchRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchLearnedMacUpdate": {
+    "name": "alaOpenflowLogicalSwitchLearnedMacUpdate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchProbeTime": {
+    "name": "alaOpenflowLogicalSwitchProbeTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchFailureDetectTime": {
+    "name": "alaOpenflowLogicalSwitchFailureDetectTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchDPID": {
+    "name": "alaOpenflowLogicalSwitchDPID",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchTableMissAction": {
+    "name": "alaOpenflowLogicalSwitchTableMissAction",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "controller": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchTCPBufferSizeTx": {
+    "name": "alaOpenflowLogicalSwitchTCPBufferSizeTx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "Kilo Bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowLogicalSwitchTCPBufferSizeRx": {
+    "name": "alaOpenflowLogicalSwitchTCPBufferSizeRx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "Kilo Bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowControllerTable": {
+    "name": "alaOpenflowControllerTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowControllerEntry": {
+    "name": "alaOpenflowControllerEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerLogicalSwitch",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerIpType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerIp",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowControllerLogicalSwitch": {
+    "name": "alaOpenflowControllerLogicalSwitch",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowControllerIpType": {
+    "name": "alaOpenflowControllerIpType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowControllerIp": {
+    "name": "alaOpenflowControllerIp",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowControllerPort": {
+    "name": "alaOpenflowControllerPort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowControllerRole": {
+    "name": "alaOpenflowControllerRole",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equal": 1,
+          "master": 2,
+          "slave": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOpenflowControllerAdminState": {
+    "name": "alaOpenflowControllerAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowControllerOperState": {
+    "name": "alaOpenflowControllerOperState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "disabled": 2,
+          "sendError": 3,
+          "init": 4,
+          "connecting": 5,
+          "backoff": 6,
+          "exchangingHello": 7,
+          "active": 8,
+          "idle": 9,
+          "disconnected": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOpenflowControllerRowStatus": {
+    "name": "alaOpenflowControllerRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowControllerPriority": {
+    "name": "alaOpenflowControllerPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceTable": {
+    "name": "alaOpenflowInterfaceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceEntry": {
+    "name": "alaOpenflowInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceLogicalSwitch",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowInterfaceLogicalSwitch": {
+    "name": "alaOpenflowInterfaceLogicalSwitch",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowInterface": {
+    "name": "alaOpenflowInterface",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceMode": {
+    "name": "alaOpenflowInterfaceMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "api": 2,
+          "pfcChannel": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceRowStatus": {
+    "name": "alaOpenflowInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceType": {
+    "name": "alaOpenflowInterfaceType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trunk": 1,
+          "access": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceNativeVlan": {
+    "name": "alaOpenflowInterfaceNativeVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceVlanTable": {
+    "name": "alaOpenflowInterfaceVlanTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceVlanEntry": {
+    "name": "alaOpenflowInterfaceVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceLogicalSwitch",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterface",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceVlanVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowInterfaceVlanVlanID": {
+    "name": "alaOpenflowInterfaceVlanVlanID",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOpenflowInterfaceVlanRowStatus": {
+    "name": "alaOpenflowInterfaceVlanRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1OpenflowMIBGroups": {
+    "name": "alcatelIND1OpenflowMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1OpenflowMIBCompliances": {
+    "name": "alcatelIND1OpenflowMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alaOpenflowMIBCompliance": {
+    "name": "alaOpenflowMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaOpenflowModuleConfigGroup",
+        "module": "ALCATEL-IND1-OPENFLOW-MIB"
+      },
+      {
+        "object": "alaOpenflowModuleLogicalSwitchGroup",
+        "module": "ALCATEL-IND1-OPENFLOW-MIB"
+      },
+      {
+        "object": "alaOpenflowModuleControllerGroup",
+        "module": "ALCATEL-IND1-OPENFLOW-MIB"
+      },
+      {
+        "object": "alaOpenflowModuleInterfaceGroup",
+        "module": "ALCATEL-IND1-OPENFLOW-MIB"
+      },
+      {
+        "object": "alaOpenflowModuleInterfaceVlanGroup",
+        "module": "ALCATEL-IND1-OPENFLOW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowModuleConfigGroup": {
+    "name": "alaOpenflowModuleConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowGlobalBackoffMax"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowGlobalIdleProbeTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowModuleLogicalSwitchGroup": {
+    "name": "alaOpenflowModuleLogicalSwitchGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchMode"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchVersions"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchControllerCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchInterfaceCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchFlowCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchLearnedMacUpdate"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchProbeTime"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchFailureDetectTime"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchDPID"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchTableMissAction"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchTCPBufferSizeTx"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowLogicalSwitchTCPBufferSizeRx"
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowModuleControllerGroup": {
+    "name": "alaOpenflowModuleControllerGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerRole"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowControllerPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowModuleInterfaceGroup": {
+    "name": "alaOpenflowModuleInterfaceGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceMode"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceType"
+      },
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceNativeVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "alaOpenflowModuleInterfaceVlanGroup": {
+    "name": "alaOpenflowModuleInterfaceVlanGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.77.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OPENFLOW-MIB",
+        "object": "alaOpenflowInterfaceVlanRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-OPENFLOW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-OPENFLOW-MIB"
+  }
+}

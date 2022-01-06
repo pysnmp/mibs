@@ -1,0 +1,340 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenVpnMibModule",
+      "netscreenVpn"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "netscreenCertificateMibModule": {
+    "name": "netscreenCertificateMibModule",
+    "oid": "1.3.6.1.4.1.3224.4.0.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Modified copyright and contact information"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Converted to SMIv2 by Longview Software"
+      },
+      {
+        "revision": "2003-11-12 00:00",
+        "description": "Correct spelling mistake"
+      },
+      {
+        "revision": "2001-09-28 00:00",
+        "description": "No comment"
+      },
+      {
+        "revision": "2001-05-15 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "nsVpnCert": {
+    "name": "nsVpnCert",
+    "oid": "1.3.6.1.4.1.3224.4.7",
+    "class": "objectidentity"
+  },
+  "nsVpnCertDefTable": {
+    "name": "nsVpnCertDefTable",
+    "oid": "1.3.6.1.4.1.3224.4.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVpnCertDefEntry": {
+    "name": "nsVpnCertDefEntry",
+    "oid": "1.3.6.1.4.1.3224.4.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-CERTIFICATE-MIB",
+        "object": "nsVpnCertDefIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVpnCertDefIndex": {
+    "name": "nsVpnCertDefIndex",
+    "oid": "1.3.6.1.4.1.3224.4.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertDefLdap": {
+    "name": "nsVpnCertDefLdap",
+    "oid": "1.3.6.1.4.1.3224.4.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertDefCrlUrl": {
+    "name": "nsVpnCertDefCrlUrl",
+    "oid": "1.3.6.1.4.1.3224.4.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertDefRefresh": {
+    "name": "nsVpnCertDefRefresh",
+    "oid": "1.3.6.1.4.1.3224.4.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertDefX509": {
+    "name": "nsVpnCertDefX509",
+    "oid": "1.3.6.1.4.1.3224.4.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "partial": 0,
+          "full": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertDefVsys": {
+    "name": "nsVpnCertDefVsys",
+    "oid": "1.3.6.1.4.1.3224.4.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertCfgTable": {
+    "name": "nsVpnCertCfgTable",
+    "oid": "1.3.6.1.4.1.3224.4.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVpnCertCfgEntry": {
+    "name": "nsVpnCertCfgEntry",
+    "oid": "1.3.6.1.4.1.3224.4.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-CERTIFICATE-MIB",
+        "object": "nsVpnCertCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVpnCertCfgIndex": {
+    "name": "nsVpnCertCfgIndex",
+    "oid": "1.3.6.1.4.1.3224.4.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertCfgType": {
+    "name": "nsVpnCertCfgType",
+    "oid": "1.3.6.1.4.1.3224.4.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ca": 0,
+          "local": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertCfgSubject": {
+    "name": "nsVpnCertCfgSubject",
+    "oid": "1.3.6.1.4.1.3224.4.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertCfgExpire": {
+    "name": "nsVpnCertCfgExpire",
+    "oid": "1.3.6.1.4.1.3224.4.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertCfgIssuer": {
+    "name": "nsVpnCertCfgIssuer",
+    "oid": "1.3.6.1.4.1.3224.4.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVpnCertCfgVsys": {
+    "name": "nsVpnCertCfgVsys",
+    "oid": "1.3.6.1.4.1.3224.4.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-CERTIFICATE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-CERTIFICATE-MIB"
+  }
+}

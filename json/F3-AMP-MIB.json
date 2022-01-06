@@ -1,0 +1,992 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "VlanId"
+    ],
+    "CM-IP-MIB": [
+      "IpManagementTunnelEncapsulationType",
+      "IpSourceAddrType",
+      "IpManagementTunnelType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "DateAndTime",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "f3AMPMIB": {
+    "name": "f3AMPMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.24",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-09-30 00:00",
+        "description": " Notes from release 201209300000Z, (1)MIB version ready for release FSP150CC 5.6CC."
+      }
+    ]
+  },
+  "AMPRole": {
+    "name": "AMPRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "server": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AMPStatus": {
+    "name": "AMPStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "disabled": 2,
+          "associatingActive": 3,
+          "associatingPassive": 4,
+          "associated": 5,
+          "noPeer": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AMPConfigStatus": {
+    "name": "AMPConfigStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "provision": 2,
+          "noPeer": 3,
+          "request": 4,
+          "configSuccess": 5,
+          "configFail": 6,
+          "timeout": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AMPProtocol": {
+    "name": "AMPProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "efmOam": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AMPConfigAction": {
+    "name": "AMPConfigAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clearStats": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3AmpConfigObjects": {
+    "name": "f3AmpConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1",
+    "class": "objectidentity"
+  },
+  "f3AmpStatsObjects": {
+    "name": "f3AmpStatsObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2",
+    "class": "objectidentity"
+  },
+  "f3AmpConformance": {
+    "name": "f3AmpConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.3",
+    "class": "objectidentity"
+  },
+  "f3AmpConfigTable": {
+    "name": "f3AmpConfigTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3AmpConfigEntry": {
+    "name": "f3AmpConfigEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3AmpConfigIndex": {
+    "name": "f3AmpConfigIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3AmpConfigRole": {
+    "name": "f3AmpConfigRole",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AMPRole",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigProtocol": {
+    "name": "f3AmpConfigProtocol",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AMPProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigEnabled": {
+    "name": "f3AmpConfigEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigPort": {
+    "name": "f3AmpConfigPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigStatus": {
+    "name": "f3AmpConfigStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AMPStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpConfigRemSysName": {
+    "name": "f3AmpConfigRemSysName",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemSysIpAddr": {
+    "name": "f3AmpConfigRemSysIpAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemSysIpMask": {
+    "name": "f3AmpConfigRemSysIpMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemSysDefGateway": {
+    "name": "f3AmpConfigRemSysDefGateway",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemSysSNMPV1IfName": {
+    "name": "f3AmpConfigRemSysSNMPV1IfName",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpConfigRemSysSrcIpAddrType": {
+    "name": "f3AmpConfigRemSysSrcIpAddrType",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpSourceAddrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpConfigRemSysSrcIpAddrIfName": {
+    "name": "f3AmpConfigRemSysSrcIpAddrIfName",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelIndex": {
+    "name": "f3AmpConfigRemTunnelIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelName": {
+    "name": "f3AmpConfigRemTunnelName",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelType": {
+    "name": "f3AmpConfigRemTunnelType",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpManagementTunnelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelIpAddr": {
+    "name": "f3AmpConfigRemTunnelIpAddr",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelIpMask": {
+    "name": "f3AmpConfigRemTunnelIpMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelVlanId": {
+    "name": "f3AmpConfigRemTunnelVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelSVlanId": {
+    "name": "f3AmpConfigRemTunnelSVlanId",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelSVlanIdEnabled": {
+    "name": "f3AmpConfigRemTunnelSVlanIdEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelRip2PktsEnabled": {
+    "name": "f3AmpConfigRemTunnelRip2PktsEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelCOS": {
+    "name": "f3AmpConfigRemTunnelCOS",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelCIR": {
+    "name": "f3AmpConfigRemTunnelCIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelEIR": {
+    "name": "f3AmpConfigRemTunnelEIR",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelBufferSize": {
+    "name": "f3AmpConfigRemTunnelBufferSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelEncapType": {
+    "name": "f3AmpConfigRemTunnelEncapType",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpManagementTunnelEncapsulationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRemTunnelMtu": {
+    "name": "f3AmpConfigRemTunnelMtu",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigAction": {
+    "name": "f3AmpConfigAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AMPConfigAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigStorageType": {
+    "name": "f3AmpConfigStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpConfigRowStatus": {
+    "name": "f3AmpConfigRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3AmpStatsTable": {
+    "name": "f3AmpStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3AmpStatsEntry": {
+    "name": "f3AmpStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3AmpStatsProvDataTx": {
+    "name": "f3AmpStatsProvDataTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsProvDataRx": {
+    "name": "f3AmpStatsProvDataRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsProvRequestTx": {
+    "name": "f3AmpStatsProvRequestTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsProvRequestRx": {
+    "name": "f3AmpStatsProvRequestRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsConfigSuccessTx": {
+    "name": "f3AmpStatsConfigSuccessTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsConfigSuccessRx": {
+    "name": "f3AmpStatsConfigSuccessRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsConfigFailTx": {
+    "name": "f3AmpStatsConfigFailTx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsConfigFailRx": {
+    "name": "f3AmpStatsConfigFailRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsSpuriousMessageRx": {
+    "name": "f3AmpStatsSpuriousMessageRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsTimeoutRx": {
+    "name": "f3AmpStatsTimeoutRx",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsLastRxStatus": {
+    "name": "f3AmpStatsLastRxStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AMPConfigStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsRxTimeStamp": {
+    "name": "f3AmpStatsRxTimeStamp",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsLastTxStatus": {
+    "name": "f3AmpStatsLastTxStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AMPConfigStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpStatsTxTimeStamp": {
+    "name": "f3AmpStatsTxTimeStamp",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3AmpCompliances": {
+    "name": "f3AmpCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.3.1",
+    "class": "objectidentity"
+  },
+  "f3AmpGroups": {
+    "name": "f3AmpGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.3.2",
+    "class": "objectidentity"
+  },
+  "f3AmpCompliance": {
+    "name": "f3AmpCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3AmpConfigGroup",
+        "module": "F3-AMP-MIB"
+      },
+      {
+        "object": "f3AmpStatsGroup",
+        "module": "F3-AMP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3AmpConfigGroup": {
+    "name": "f3AmpConfigGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRole"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigProtocol"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigEnabled"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigPort"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigStatus"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemSysName"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemSysIpAddr"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemSysIpMask"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemSysDefGateway"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemSysSNMPV1IfName"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemSysSrcIpAddrType"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemSysSrcIpAddrIfName"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelIndex"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelName"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelType"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelIpAddr"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelIpMask"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelVlanId"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelSVlanId"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelSVlanIdEnabled"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelRip2PktsEnabled"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelCOS"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelCIR"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelEIR"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelBufferSize"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelEncapType"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRemTunnelMtu"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigAction"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigStorageType"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "f3AmpStatsGroup": {
+    "name": "f3AmpStatsGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.24.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsProvDataTx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsProvDataRx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsProvRequestTx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsProvRequestRx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsConfigSuccessTx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsConfigSuccessRx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsConfigFailTx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsConfigFailRx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsSpuriousMessageRx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsTimeoutRx"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsLastRxStatus"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsRxTimeStamp"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsLastTxStatus"
+      },
+      {
+        "module": "F3-AMP-MIB",
+        "object": "f3AmpStatsTxTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-AMP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-AMP-MIB"
+  }
+}

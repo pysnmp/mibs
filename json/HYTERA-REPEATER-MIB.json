@@ -1,0 +1,3145 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Counter32",
+      "private",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hyteraRepeaterMIB": {
+    "name": "hyteraRepeaterMIB",
+    "oid": "1.3.6.1.4.1.40297",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.40297.1",
+    "class": "objectidentity"
+  },
+  "repeater": {
+    "name": "repeater",
+    "oid": "1.3.6.1.4.1.40297.1.2",
+    "class": "objectidentity"
+  },
+  "rptRealTimeInfo": {
+    "name": "rptRealTimeInfo",
+    "oid": "1.3.6.1.4.1.40297.1.2.1",
+    "class": "objectidentity"
+  },
+  "rptControl": {
+    "name": "rptControl",
+    "oid": "1.3.6.1.4.1.40297.1.2.2",
+    "class": "objectidentity"
+  },
+  "rptLog": {
+    "name": "rptLog",
+    "oid": "1.3.6.1.4.1.40297.1.2.3",
+    "class": "objectidentity"
+  },
+  "rptSystemInfo": {
+    "name": "rptSystemInfo",
+    "oid": "1.3.6.1.4.1.40297.1.2.4",
+    "class": "objectidentity"
+  },
+  "rptConfiguration": {
+    "name": "rptConfiguration",
+    "oid": "1.3.6.1.4.1.40297.1.2.5",
+    "class": "objectidentity"
+  },
+  "rptAlarmInfo": {
+    "name": "rptAlarmInfo",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "rptVoltageAlarm": {
+    "name": "rptVoltageAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptTemperatureAlarm": {
+    "name": "rptTemperatureAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptFanAlarm": {
+    "name": "rptFanAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptForwardAlarm": {
+    "name": "rptForwardAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptReflectedAlarm": {
+    "name": "rptReflectedAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptVswrAlarm": {
+    "name": "rptVswrAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptTxPllAlarm": {
+    "name": "rptTxPllAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptRxPllAlarm": {
+    "name": "rptRxPllAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptBatteryVoltageAlarm": {
+    "name": "rptBatteryVoltageAlarm",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptDataInfo": {
+    "name": "rptDataInfo",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "rptVoltage": {
+    "name": "rptVoltage",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptPaTemprature": {
+    "name": "rptPaTemprature",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptFanSpeed": {
+    "name": "rptFanSpeed",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptVswr": {
+    "name": "rptVswr",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptTxFwdPower": {
+    "name": "rptTxFwdPower",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptTxRefPower": {
+    "name": "rptTxRefPower",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptDataInfoBak1": {
+    "name": "rptDataInfoBak1",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptDataInfoBak2": {
+    "name": "rptDataInfoBak2",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptSlot1Rssi": {
+    "name": "rptSlot1Rssi",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptSlot2Rssi": {
+    "name": "rptSlot2Rssi",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptSupplyPowerType": {
+    "name": "rptSupplyPowerType",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptBatteryConnect": {
+    "name": "rptBatteryConnect",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptBatteryVoltage": {
+    "name": "rptBatteryVoltage",
+    "oid": "1.3.6.1.4.1.40297.1.2.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptRestart": {
+    "name": "rptRestart",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptChannelNumber": {
+    "name": "rptChannelNumber",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptChannelType": {
+    "name": "rptChannelType",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptControlObjBak1": {
+    "name": "rptControlObjBak1",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "optional"
+  },
+  "rptTxPowerLevel": {
+    "name": "rptTxPowerLevel",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptKnockdown": {
+    "name": "rptKnockdown",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptRadioState": {
+    "name": "rptRadioState",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptSnmpTrapIp": {
+    "name": "rptSnmpTrapIp",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptSnmpTrapPort": {
+    "name": "rptSnmpTrapPort",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 162,
+            "max": 162
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 162,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptchannelParaTable": {
+    "name": "rptchannelParaTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "channelParaEntry": {
+    "name": "channelParaEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "channelParaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "channelParaIndex": {
+    "name": "channelParaIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "actChannelAlias": {
+    "name": "actChannelAlias",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "actChannelType": {
+    "name": "actChannelType",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "actTxPower": {
+    "name": "actTxPower",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "actChannelNo": {
+    "name": "actChannelNo",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "actChannelSubNo": {
+    "name": "actChannelSubNo",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptForbid": {
+    "name": "rptForbid",
+    "oid": "1.3.6.1.4.1.40297.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "logTable": {
+    "name": "logTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "logEntry": {
+    "name": "logEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "logIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "logIndex": {
+    "name": "logIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmName": {
+    "name": "alarmName",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmStatus": {
+    "name": "alarmStatus",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "logTime": {
+    "name": "logTime",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 134217728
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "clearLog": {
+    "name": "clearLog",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "recordCount": {
+    "name": "recordCount",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "latestRecordPosition": {
+    "name": "latestRecordPosition",
+    "oid": "1.3.6.1.4.1.40297.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptModelName": {
+    "name": "rptModelName",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptModelNo": {
+    "name": "rptModelNo",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptFirmwareVersion": {
+    "name": "rptFirmwareVersion",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptRcdbVersion": {
+    "name": "rptRcdbVersion",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptSerialNo": {
+    "name": "rptSerialNo",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptRadioAlias": {
+    "name": "rptRadioAlias",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptRadioID": {
+    "name": "rptRadioID",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptCurChannelType": {
+    "name": "rptCurChannelType",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptChannelName": {
+    "name": "rptChannelName",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptCurTxFreq": {
+    "name": "rptCurTxFreq",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptCurRxFreq": {
+    "name": "rptCurRxFreq",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptWorkState": {
+    "name": "rptWorkState",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptCurZoneAlias": {
+    "name": "rptCurZoneAlias",
+    "oid": "1.3.6.1.4.1.40297.1.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rptBasicSetting": {
+    "name": "rptBasicSetting",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1",
+    "class": "objectidentity"
+  },
+  "powerOn": {
+    "name": "powerOn",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.1",
+    "class": "objectidentity"
+  },
+  "designatedPowerOnChn": {
+    "name": "designatedPowerOnChn",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "powerOnChannelNo": {
+    "name": "powerOnChannelNo",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "microphone": {
+    "name": "microphone",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.2",
+    "class": "objectidentity"
+  },
+  "internalMicGain": {
+    "name": "internalMicGain",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 24,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "externalMicGain": {
+    "name": "externalMicGain",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 24,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "multiCTCCDCTable": {
+    "name": "multiCTCCDCTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "multiCTCCDCEntry": {
+    "name": "multiCTCCDCEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "ctcssIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ctcssIndex": {
+    "name": "ctcssIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "txCtcssFrequency": {
+    "name": "txCtcssFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 19,
+            "max": 492
+          },
+          {
+            "min": 670,
+            "max": 2541
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "txCtcssType": {
+    "name": "txCtcssType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rxCtcssFrequency": {
+    "name": "rxCtcssFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 19,
+            "max": 492
+          },
+          {
+            "min": 670,
+            "max": 2541
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rxCtcssType": {
+    "name": "rxCtcssType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "audioPriority": {
+    "name": "audioPriority",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.4",
+    "class": "objectidentity"
+  },
+  "pathPriority": {
+    "name": "pathPriority",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pttPriority": {
+    "name": "pttPriority",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "jitterBufferLenth": {
+    "name": "jitterBufferLenth",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogCallHangTime": {
+    "name": "analogCallHangTime",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 70
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "repeatRequestPriority": {
+    "name": "repeatRequestPriority",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptDigitalChannelSetting": {
+    "name": "rptDigitalChannelSetting",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2",
+    "class": "objectidentity"
+  },
+  "digitalChnTable": {
+    "name": "digitalChnTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "digitalChnEntry": {
+    "name": "digitalChnEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "digitalChnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "digitalChnIndex": {
+    "name": "digitalChnIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "digitalColorCode": {
+    "name": "digitalColorCode",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "digitalIpMultisiteConnect": {
+    "name": "digitalIpMultisiteConnect",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "digitalReceiveFrequency": {
+    "name": "digitalReceiveFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "digitalTransmitFrequency": {
+    "name": "digitalTransmitFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "digitalTxContactName": {
+    "name": "digitalTxContactName",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptAnalogChannelSetting": {
+    "name": "rptAnalogChannelSetting",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3",
+    "class": "objectidentity"
+  },
+  "analogChnTable": {
+    "name": "analogChnTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "analogChnEntry": {
+    "name": "analogChnEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "analogChnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "analogChnIndex": {
+    "name": "analogChnIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "analogCarrierSquelchLevel": {
+    "name": "analogCarrierSquelchLevel",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogMultiCtcCdc": {
+    "name": "analogMultiCtcCdc",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogPreEmp": {
+    "name": "analogPreEmp",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogScrambler": {
+    "name": "analogScrambler",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogFlatAudio": {
+    "name": "analogFlatAudio",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogReceiveFrequency": {
+    "name": "analogReceiveFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogRxCtcCdcType": {
+    "name": "analogRxCtcCdcType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogRxCtcss": {
+    "name": "analogRxCtcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 670,
+            "max": 2541
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogRxCdcss": {
+    "name": "analogRxCdcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 19,
+            "max": 492
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogTransmitFrequency": {
+    "name": "analogTransmitFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogTxCtcCdcType": {
+    "name": "analogTxCtcCdcType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogTxCtcss": {
+    "name": "analogTxCtcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 670,
+            "max": 2541
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "analogTxCdcss": {
+    "name": "analogTxCdcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 19,
+            "max": 492
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptMixedChannelSetting": {
+    "name": "rptMixedChannelSetting",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4",
+    "class": "objectidentity"
+  },
+  "mixedChnTable": {
+    "name": "mixedChnTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mixedChnEntry": {
+    "name": "mixedChnEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "analogChnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mixedChnIndex": {
+    "name": "mixedChnIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mixedCarrierSquelchLevel": {
+    "name": "mixedCarrierSquelchLevel",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedTxContactName": {
+    "name": "mixedTxContactName",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedIpMultisiteConnect": {
+    "name": "mixedIpMultisiteConnect",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedColorCode": {
+    "name": "mixedColorCode",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedTxChannelType": {
+    "name": "mixedTxChannelType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedPreEmp": {
+    "name": "mixedPreEmp",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedScrambler": {
+    "name": "mixedScrambler",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedFlatAudio": {
+    "name": "mixedFlatAudio",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedMultiCtcCdc": {
+    "name": "mixedMultiCtcCdc",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedReceiveFrequency": {
+    "name": "mixedReceiveFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedRxCtcCdcType": {
+    "name": "mixedRxCtcCdcType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedRxCtcss": {
+    "name": "mixedRxCtcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 670,
+            "max": 2541
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedRxCdcss": {
+    "name": "mixedRxCdcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 19,
+            "max": 492
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedTransmitFrequency": {
+    "name": "mixedTransmitFrequency",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100000000,
+            "max": 550000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedTxCtcCdcType": {
+    "name": "mixedTxCtcCdcType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedTxCtcss": {
+    "name": "mixedTxCtcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 670,
+            "max": 2541
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mixedTxCdcss": {
+    "name": "mixedTxCdcss",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 19,
+            "max": 492
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rptServiceSetting": {
+    "name": "rptServiceSetting",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5",
+    "class": "objectidentity"
+  },
+  "groupCallHangTime": {
+    "name": "groupCallHangTime",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "privateCallHangTime": {
+    "name": "privateCallHangTime",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "emergencyCallHangTime": {
+    "name": "emergencyCallHangTime",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sit": {
+    "name": "sit",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "txPreambleDuration": {
+    "name": "txPreambleDuration",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 144
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "beaconTxMode": {
+    "name": "beaconTxMode",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "beaconDuration": {
+    "name": "beaconDuration",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "beaconInterval": {
+    "name": "beaconInterval",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "multisiteAccessManagement": {
+    "name": "multisiteAccessManagement",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessManagement": {
+    "name": "accessManagement",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "multisiteAccessManageTable": {
+    "name": "multisiteAccessManageTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "multisiteAccessManageEntry": {
+    "name": "multisiteAccessManageEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "mutisiteAccessManageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "multisiteAccessManageIndex": {
+    "name": "multisiteAccessManageIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "multisiteStartId": {
+    "name": "multisiteStartId",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16776415
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "multisiteIdLength": {
+    "name": "multisiteIdLength",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "multisiteAccessCallType": {
+    "name": "multisiteAccessCallType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contactTable": {
+    "name": "contactTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "contactEntry": {
+    "name": "contactEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "contactIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "contactIndex": {
+    "name": "contactIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "callAlias": {
+    "name": "callAlias",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "contactCallType": {
+    "name": "contactCallType",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "callId": {
+    "name": "callId",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16776415
+          },
+          {
+            "min": 16777215,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessManageTable": {
+    "name": "accessManageTable",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "accessManageEntry": {
+    "name": "accessManageEntry",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HYTERA-REPEATER-MIB",
+        "object": "accessManageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "accessManageIndex": {
+    "name": "accessManageIndex",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "startId": {
+    "name": "startId",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16776415
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "idLength": {
+    "name": "idLength",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "repeatTOTTime": {
+    "name": "repeatTOTTime",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rerepeatTOTTime": {
+    "name": "rerepeatTOTTime",
+    "oid": "1.3.6.1.4.1.40297.1.2.5.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hytera/HYTERA-REPEATER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HYTERA-REPEATER-MIB"
+  }
+}

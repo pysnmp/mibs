@@ -1,0 +1,4817 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-CFM-MIB": [
+      "Dot1afCfmIndexIntegerNextFree",
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmMaIndex",
+      "dot1agCfmMepEntry",
+      "dot1agCfmMdIndex",
+      "dot1agCfmMepIdentifier"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021VlanIndex",
+      "IEEE8021PriorityValue",
+      "ieee802dot1mibs"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs"
+    ],
+    "LLDP-MIB": [
+      "LldpPortIdSubtype",
+      "LldpPortId",
+      "LldpChassisIdSubtype",
+      "LldpChassisId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TAddress",
+      "DisplayString",
+      "TimeStamp",
+      "TDomain",
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxSoamPmMib": {
+    "name": "jnxSoamPmMib",
+    "oid": "1.3.6.1.4.1.2636.3.78",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-01-13 12:00",
+        "description": "Initial Version."
+      },
+      {
+        "revision": "2016-05-31 00:00",
+        "description": "Removed duplicate entries"
+      }
+    ]
+  },
+  "jnxSoamPmNotifications": {
+    "name": "jnxSoamPmNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.78.0",
+    "class": "objectidentity"
+  },
+  "jnxSoamPmMibObjects": {
+    "name": "jnxSoamPmMibObjects",
+    "oid": "1.3.6.1.4.1.2636.3.78.1",
+    "class": "objectidentity"
+  },
+  "jnxSoamPmMibConformance": {
+    "name": "jnxSoamPmMibConformance",
+    "oid": "1.3.6.1.4.1.2636.3.78.2",
+    "class": "objectidentity"
+  },
+  "jnxSoamPmMep": {
+    "name": "jnxSoamPmMep",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.1",
+    "class": "objectidentity"
+  },
+  "jnxSoamPmLmObjects": {
+    "name": "jnxSoamPmLmObjects",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2",
+    "class": "objectidentity"
+  },
+  "jnxSoamPmDmObjects": {
+    "name": "jnxSoamPmDmObjects",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3",
+    "class": "objectidentity"
+  },
+  "jnxSoamPmNotificationCfg": {
+    "name": "jnxSoamPmNotificationCfg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.4",
+    "class": "objectidentity"
+  },
+  "jnxSoamPmNotificationObj": {
+    "name": "jnxSoamPmNotificationObj",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5",
+    "class": "objectidentity"
+  },
+  "JnxSoamTcTestPatternType": {
+    "name": "JnxSoamTcTestPatternType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 1,
+          "nullCrc32": 2,
+          "prbs": 3,
+          "prbsCrc32": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSoamTcDataPatternType": {
+    "name": "JnxSoamTcDataPatternType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zeroPattern": 1,
+          "onesPattern": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSoamTcOperationTimeType": {
+    "name": "JnxSoamTcOperationTimeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "immediate": 2,
+          "relative": 3,
+          "fixed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSoamTcAvailabilityType": {
+    "name": "JnxSoamTcAvailabilityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "unavailable": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxSoamTcDelayMeasurementBinType": {
+    "name": "JnxSoamTcDelayMeasurementBinType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoWayFrameDelay": 1,
+          "forwardFrameDelay": 2,
+          "backwardFrameDelay": 3,
+          "twoWayIfdv": 4,
+          "forwardIfdv": 5,
+          "backwardIfdv": 6,
+          "twoWayFrameDelayRange": 7,
+          "forwardFrameDelayRange": 8,
+          "backwardFrameDelayRange": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxSoamPmMepTable": {
+    "name": "jnxSoamPmMepTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamPmMepEntry": {
+    "name": "jnxSoamPmMepEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxSoamPmMepEntry",
+      "module": "JUNIPER-SOAM-PM-MIB",
+      "object": "dot1agCfmMepEntry"
+    },
+    "status": "current"
+  },
+  "jnxSoamPmMepOperNextIndex": {
+    "name": "jnxSoamPmMepOperNextIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1afCfmIndexIntegerNextFree",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamPmMepLmSingleEndedResponder": {
+    "name": "jnxSoamPmMepLmSingleEndedResponder",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamPmMepSlmSingleEndedResponder": {
+    "name": "jnxSoamPmMepSlmSingleEndedResponder",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamPmMepDmSingleEndedResponder": {
+    "name": "jnxSoamPmMepDmSingleEndedResponder",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgTable": {
+    "name": "jnxSoamLmCfgTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmCfgEntry": {
+    "name": "jnxSoamLmCfgEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamLmCfgIndex": {
+    "name": "jnxSoamLmCfgIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgType": {
+    "name": "jnxSoamLmCfgType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lmLmm": 1,
+          "lmSlm": 2,
+          "lmCcm": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "lmSlm",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgVersion": {
+    "name": "jnxSoamLmCfgVersion",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgEnabled": {
+    "name": "jnxSoamLmCfgEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgMeasurementEnable": {
+    "name": "jnxSoamLmCfgMeasurementEnable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bForwardTransmitedFrames": 0,
+        "bForwardReceivedFrames": 1,
+        "bForwardMinFlr": 2,
+        "bForwardMaxFlr": 3,
+        "bForwardAvgFlr": 4,
+        "bBackwardTransmitedFrames": 5,
+        "bBackwardReceivedFrames": 6,
+        "bBackwardMinFlr": 7,
+        "bBackwardMaxFlr": 8,
+        "bBackwardAvgFlr": 9,
+        "bSoamPdusSent": 10,
+        "bSoamPdusReceived": 11,
+        "bAvailForwardHighLoss": 12,
+        "bAvailForwardConsecutiveHighLoss": 13,
+        "bAvailForwardAvailable": 14,
+        "bAvailForwardUnavailable": 15,
+        "bAvailForwardMinFlr": 16,
+        "bAvailForwardMaxFlr": 17,
+        "bAvailForwardAvgFlr": 18,
+        "bAvailBackwardHighLoss": 19,
+        "bAvailBackwardConsecutiveHighLoss": 20,
+        "bAvailBackwardAvailable": 21,
+        "bAvailBackwardUnavailable": 22,
+        "bAvailBackwardMinFlr": 23,
+        "bAvailBackwardMaxFlr": 24,
+        "bAvailBackwardAvgFlr": 25,
+        "bMeasuredStatsForwardMeasuredFlr": 26,
+        "bMeasuredStatsBackwardMeasuredFlr": 27,
+        "bMeasuredStatsAvailForwardStatus": 28,
+        "bMeasuredStatsAvailBackwardStatus": 29
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgMessagePeriod": {
+    "name": "jnxSoamLmCfgMessagePeriod",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgPriority": {
+    "name": "jnxSoamLmCfgPriority",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgFrameSize": {
+    "name": "jnxSoamLmCfgFrameSize",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgDataPattern": {
+    "name": "jnxSoamLmCfgDataPattern",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcDataPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "zeroPattern",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgTestTlvIncluded": {
+    "name": "jnxSoamLmCfgTestTlvIncluded",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgTestTlvPattern": {
+    "name": "jnxSoamLmCfgTestTlvPattern",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcTestPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgNumIntervalsStored": {
+    "name": "jnxSoamLmCfgNumIntervalsStored",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgDestMepId": {
+    "name": "jnxSoamLmCfgDestMepId",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgDestIsMepId": {
+    "name": "jnxSoamLmCfgDestIsMepId",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgStartTimeType": {
+    "name": "jnxSoamLmCfgStartTimeType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "immediate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgFixedStartDateAndTime": {
+    "name": "jnxSoamLmCfgFixedStartDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgRelativeStartTime": {
+    "name": "jnxSoamLmCfgRelativeStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgRepetitionTime": {
+    "name": "jnxSoamLmCfgRepetitionTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31536000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgAlignMeasurementIntervals": {
+    "name": "jnxSoamLmCfgAlignMeasurementIntervals",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgAlignMeasurementOffset": {
+    "name": "jnxSoamLmCfgAlignMeasurementOffset",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgSessionType": {
+    "name": "jnxSoamLmCfgSessionType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "proactive",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgSessionStatus": {
+    "name": "jnxSoamLmCfgSessionStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 44
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgHistoryClear": {
+    "name": "jnxSoamLmCfgHistoryClear",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgRowStatus": {
+    "name": "jnxSoamLmCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgMeasurementInterval": {
+    "name": "jnxSoamLmCfgMeasurementInterval",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgDestMacAddress": {
+    "name": "jnxSoamLmCfgDestMacAddress",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmCfgStopTimeType": {
+    "name": "jnxSoamLmCfgStopTimeType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmCfgFixedStopDateAndTime": {
+    "name": "jnxSoamLmCfgFixedStopDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCfgRelativeStopTime": {
+    "name": "jnxSoamLmCfgRelativeStopTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmCfgAvailabilityMeasurementInterval": {
+    "name": "jnxSoamLmCfgAvailabilityMeasurementInterval",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmCfgAvailabilityNumConsecutiveMeasPdus": {
+    "name": "jnxSoamLmCfgAvailabilityNumConsecutiveMeasPdus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmCfgAvailabilityFlrThreshold": {
+    "name": "jnxSoamLmCfgAvailabilityFlrThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmCfgAvailabilityNumConsecutiveIntervals": {
+    "name": "jnxSoamLmCfgAvailabilityNumConsecutiveIntervals",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmCfgAvailabilityNumConsecutiveHighFlr": {
+    "name": "jnxSoamLmCfgAvailabilityNumConsecutiveHighFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsTable": {
+    "name": "jnxSoamLmMeasuredStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsEntry": {
+    "name": "jnxSoamLmMeasuredStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsForwardFlr": {
+    "name": "jnxSoamLmMeasuredStatsForwardFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsBackwardFlr": {
+    "name": "jnxSoamLmMeasuredStatsBackwardFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsAvailForwardStatus": {
+    "name": "jnxSoamLmMeasuredStatsAvailForwardStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcAvailabilityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsAvailBackwardStatus": {
+    "name": "jnxSoamLmMeasuredStatsAvailBackwardStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcAvailabilityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsAvailForwardLastTransitionTime": {
+    "name": "jnxSoamLmMeasuredStatsAvailForwardLastTransitionTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmMeasuredStatsAvailBackwardLastTransitionTime": {
+    "name": "jnxSoamLmMeasuredStatsAvailBackwardLastTransitionTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsTable": {
+    "name": "jnxSoamLmCurrentStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsEntry": {
+    "name": "jnxSoamLmCurrentStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsIndex": {
+    "name": "jnxSoamLmCurrentStatsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsStartTime": {
+    "name": "jnxSoamLmCurrentStatsStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsElapsedTime": {
+    "name": "jnxSoamLmCurrentStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsSuspect": {
+    "name": "jnxSoamLmCurrentStatsSuspect",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsForwardTransmittedFrames": {
+    "name": "jnxSoamLmCurrentStatsForwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsForwardReceivedFrames": {
+    "name": "jnxSoamLmCurrentStatsForwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsForwardMinFlr": {
+    "name": "jnxSoamLmCurrentStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsForwardMaxFlr": {
+    "name": "jnxSoamLmCurrentStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsForwardAvgFlr": {
+    "name": "jnxSoamLmCurrentStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsBackwardTransmittedFrames": {
+    "name": "jnxSoamLmCurrentStatsBackwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsBackwardReceivedFrames": {
+    "name": "jnxSoamLmCurrentStatsBackwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsBackwardMinFlr": {
+    "name": "jnxSoamLmCurrentStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsBackwardMaxFlr": {
+    "name": "jnxSoamLmCurrentStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsBackwardAvgFlr": {
+    "name": "jnxSoamLmCurrentStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsSoamPdusSent": {
+    "name": "jnxSoamLmCurrentStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentStatsSoamPdusReceived": {
+    "name": "jnxSoamLmCurrentStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsTable": {
+    "name": "jnxSoamLmHistoryStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsEntry": {
+    "name": "jnxSoamLmHistoryStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmHistoryStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsIndex": {
+    "name": "jnxSoamLmHistoryStatsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsEndTime": {
+    "name": "jnxSoamLmHistoryStatsEndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsElapsedTime": {
+    "name": "jnxSoamLmHistoryStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsSuspect": {
+    "name": "jnxSoamLmHistoryStatsSuspect",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsForwardTransmittedFrames": {
+    "name": "jnxSoamLmHistoryStatsForwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsForwardReceivedFrames": {
+    "name": "jnxSoamLmHistoryStatsForwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsForwardMinFlr": {
+    "name": "jnxSoamLmHistoryStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsForwardMaxFlr": {
+    "name": "jnxSoamLmHistoryStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsForwardAvgFlr": {
+    "name": "jnxSoamLmHistoryStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsBackwardTransmittedFrames": {
+    "name": "jnxSoamLmHistoryStatsBackwardTransmittedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsBackwardReceivedFrames": {
+    "name": "jnxSoamLmHistoryStatsBackwardReceivedFrames",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsBackwardMinFlr": {
+    "name": "jnxSoamLmHistoryStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsBackwardMaxFlr": {
+    "name": "jnxSoamLmHistoryStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsBackwardAvgFlr": {
+    "name": "jnxSoamLmHistoryStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsSoamPdusSent": {
+    "name": "jnxSoamLmHistoryStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryStatsSoamPdusReceived": {
+    "name": "jnxSoamLmHistoryStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgTable": {
+    "name": "jnxSoamDmCfgTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmCfgEntry": {
+    "name": "jnxSoamDmCfgEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmCfgIndex": {
+    "name": "jnxSoamDmCfgIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgType": {
+    "name": "jnxSoamDmCfgType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dmDmm": 1,
+          "dm1DmTx": 2,
+          "dm1DmRx": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgVersion": {
+    "name": "jnxSoamDmCfgVersion",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgEnabled": {
+    "name": "jnxSoamDmCfgEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgMeasurementEnable": {
+    "name": "jnxSoamDmCfgMeasurementEnable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bSoamPdusSent": 0,
+        "bSoamPdusReceived": 1,
+        "bFrameDelayTwoWayBins": 2,
+        "bFrameDelayTwoWayMin": 3,
+        "bFrameDelayTwoWayMax": 4,
+        "bFrameDelayTwoWayAvg": 5,
+        "bFrameDelayForwardBins": 6,
+        "bFrameDelayForwardMin": 7,
+        "bFrameDelayForwardMax": 8,
+        "bFrameDelayForwardAvg": 9,
+        "bFrameDelayBackwardBins": 10,
+        "bFrameDelayBackwardMin": 11,
+        "bFrameDelayBackwardMax": 12,
+        "bFrameDelayBackwardAvg": 13,
+        "bIfdvForwardBins": 14,
+        "bIfdvForwardMin": 15,
+        "bIfdvForwardMax": 16,
+        "bIfdvForwardAvg": 17,
+        "bIfdvBackwardBins": 18,
+        "bIfdvBackwardMin": 19,
+        "bIfdvBackwardMax": 20,
+        "bIfdvBackwardAvg": 21,
+        "bIfdvTwoWayBins": 22,
+        "bIfdvTwoWayMin": 23,
+        "bIfdvTwoWayMax": 24,
+        "bIfdvTwoWayAvg": 25,
+        "bFrameDelayRangeForwardBins": 26,
+        "bFrameDelayRangeForwardMax": 27,
+        "bFrameDelayRangeForwardAvg": 28,
+        "bFrameDelayRangeBackwardBins": 29,
+        "bFrameDelayRangeBackwardMax": 30,
+        "bFrameDelayRangeBackwardAvg": 31,
+        "bFrameDelayRangeTwoWayBins": 32,
+        "bFrameDelayRangeTwoWayMax": 33,
+        "bFrameDelayRangeTwoWayAvg": 34,
+        "bMeasuredStatsFrameDelayTwoWay": 35,
+        "bMeasuredStatsFrameDelayForward": 36,
+        "bMeasuredStatsFrameDelayBackward": 37,
+        "bMeasuredStatsIfdvTwoWay": 38,
+        "bMeasuredStatsIfdvForward": 39,
+        "bMeasuredStatsIfdvBackward": 40
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgMessagePeriod": {
+    "name": "jnxSoamDmCfgMessagePeriod",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgPriority": {
+    "name": "jnxSoamDmCfgPriority",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgFrameSize": {
+    "name": "jnxSoamDmCfgFrameSize",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgDataPattern": {
+    "name": "jnxSoamDmCfgDataPattern",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcDataPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "zeroPattern",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgTestTlvIncluded": {
+    "name": "jnxSoamDmCfgTestTlvIncluded",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgTestTlvPattern": {
+    "name": "jnxSoamDmCfgTestTlvPattern",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcTestPatternType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "null",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgNumIntervalsStored": {
+    "name": "jnxSoamDmCfgNumIntervalsStored",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgDestMepId": {
+    "name": "jnxSoamDmCfgDestMepId",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dot1agCfmMepIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgDestIsMepId": {
+    "name": "jnxSoamDmCfgDestIsMepId",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgStartTimeType": {
+    "name": "jnxSoamDmCfgStartTimeType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "immediate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgRepetitionTime": {
+    "name": "jnxSoamDmCfgRepetitionTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31536000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgAlignMeasurementIntervals": {
+    "name": "jnxSoamDmCfgAlignMeasurementIntervals",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgInterFrameDelayVariationSelectionOffset": {
+    "name": "jnxSoamDmCfgInterFrameDelayVariationSelectionOffset",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgSessionType": {
+    "name": "jnxSoamDmCfgSessionType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "proactive",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgSessionStatus": {
+    "name": "jnxSoamDmCfgSessionStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgHistoryClear": {
+    "name": "jnxSoamDmCfgHistoryClear",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgRowStatus": {
+    "name": "jnxSoamDmCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgMeasurementInterval": {
+    "name": "jnxSoamDmCfgMeasurementInterval",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgDestMacAddress": {
+    "name": "jnxSoamDmCfgDestMacAddress",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgSourceMacAddress": {
+    "name": "jnxSoamDmCfgSourceMacAddress",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgFixedStartDateAndTime": {
+    "name": "jnxSoamDmCfgFixedStartDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgRelativeStartTime": {
+    "name": "jnxSoamDmCfgRelativeStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgStopTimeType": {
+    "name": "jnxSoamDmCfgStopTimeType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcOperationTimeType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgFixedStopDateAndTime": {
+    "name": "jnxSoamDmCfgFixedStopDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000010100000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgRelativeStopTime": {
+    "name": "jnxSoamDmCfgRelativeStopTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgAlignMeasurementOffset": {
+    "name": "jnxSoamDmCfgAlignMeasurementOffset",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 525600
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgNumMeasBinsPerFrameDelayInterval": {
+    "name": "jnxSoamDmCfgNumMeasBinsPerFrameDelayInterval",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgNumMeasBinsPerInterFrameDelayVariationInterval": {
+    "name": "jnxSoamDmCfgNumMeasBinsPerInterFrameDelayVariationInterval",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmCfgNumMeasBinsPerFrameDelayRangeInterval": {
+    "name": "jnxSoamDmCfgNumMeasBinsPerFrameDelayRangeInterval",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsTable": {
+    "name": "jnxSoamDmMeasuredStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsEntry": {
+    "name": "jnxSoamDmMeasuredStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsFrameDelayTwoWay": {
+    "name": "jnxSoamDmMeasuredStatsFrameDelayTwoWay",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsFrameDelayForward": {
+    "name": "jnxSoamDmMeasuredStatsFrameDelayForward",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsFrameDelayBackward": {
+    "name": "jnxSoamDmMeasuredStatsFrameDelayBackward",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsIfdvTwoWay": {
+    "name": "jnxSoamDmMeasuredStatsIfdvTwoWay",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsIfdvForward": {
+    "name": "jnxSoamDmMeasuredStatsIfdvForward",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmMeasuredStatsIfdvBackward": {
+    "name": "jnxSoamDmMeasuredStatsIfdvBackward",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsTable": {
+    "name": "jnxSoamDmCurrentStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsEntry": {
+    "name": "jnxSoamDmCurrentStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIndex": {
+    "name": "jnxSoamDmCurrentStatsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsStartTime": {
+    "name": "jnxSoamDmCurrentStatsStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsElapsedTime": {
+    "name": "jnxSoamDmCurrentStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsSuspect": {
+    "name": "jnxSoamDmCurrentStatsSuspect",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayTwoWayMin": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayTwoWayMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayTwoWayMax": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayTwoWayMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayTwoWayAvg": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayTwoWayAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayForwardMin": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayForwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayForwardMax": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayForwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayForwardAvg": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayForwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayBackwardMin": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayBackwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayBackwardMax": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayBackwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayBackwardAvg": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayBackwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvForwardMin": {
+    "name": "jnxSoamDmCurrentStatsIfdvForwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvForwardMax": {
+    "name": "jnxSoamDmCurrentStatsIfdvForwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvForwardAvg": {
+    "name": "jnxSoamDmCurrentStatsIfdvForwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvBackwardMin": {
+    "name": "jnxSoamDmCurrentStatsIfdvBackwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvBackwardMax": {
+    "name": "jnxSoamDmCurrentStatsIfdvBackwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvBackwardAvg": {
+    "name": "jnxSoamDmCurrentStatsIfdvBackwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvTwoWayMin": {
+    "name": "jnxSoamDmCurrentStatsIfdvTwoWayMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvTwoWayMax": {
+    "name": "jnxSoamDmCurrentStatsIfdvTwoWayMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsIfdvTwoWayAvg": {
+    "name": "jnxSoamDmCurrentStatsIfdvTwoWayAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsSoamPdusSent": {
+    "name": "jnxSoamDmCurrentStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsSoamPdusReceived": {
+    "name": "jnxSoamDmCurrentStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayRangeForwardMax": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayRangeForwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayRangeForwardAvg": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayRangeForwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayRangeBackwardMax": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayRangeBackwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayRangeBackwardAvg": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayRangeBackwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayRangeTwoWayMax": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayRangeTwoWayMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsFrameDelayRangeTwoWayAvg": {
+    "name": "jnxSoamDmCurrentStatsFrameDelayRangeTwoWayAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsTable": {
+    "name": "jnxSoamDmHistoryStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsEntry": {
+    "name": "jnxSoamDmHistoryStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmHistoryStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIndex": {
+    "name": "jnxSoamDmHistoryStatsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsEndTime": {
+    "name": "jnxSoamDmHistoryStatsEndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsElapsedTime": {
+    "name": "jnxSoamDmHistoryStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsSuspect": {
+    "name": "jnxSoamDmHistoryStatsSuspect",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayTwoWayMin": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayTwoWayMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayTwoWayMax": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayTwoWayMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayTwoWayAvg": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayTwoWayAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayForwardMin": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayForwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayForwardMax": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayForwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayForwardAvg": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayForwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayBackwardMin": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayBackwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayBackwardMax": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayBackwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayBackwardAvg": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayBackwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvForwardMin": {
+    "name": "jnxSoamDmHistoryStatsIfdvForwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvForwardMax": {
+    "name": "jnxSoamDmHistoryStatsIfdvForwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvForwardAvg": {
+    "name": "jnxSoamDmHistoryStatsIfdvForwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvBackwardMin": {
+    "name": "jnxSoamDmHistoryStatsIfdvBackwardMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvBackwardMax": {
+    "name": "jnxSoamDmHistoryStatsIfdvBackwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvBackwardAvg": {
+    "name": "jnxSoamDmHistoryStatsIfdvBackwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvTwoWayMin": {
+    "name": "jnxSoamDmHistoryStatsIfdvTwoWayMin",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvTwoWayMax": {
+    "name": "jnxSoamDmHistoryStatsIfdvTwoWayMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsIfdvTwoWayAvg": {
+    "name": "jnxSoamDmHistoryStatsIfdvTwoWayAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsSoamPdusSent": {
+    "name": "jnxSoamDmHistoryStatsSoamPdusSent",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsSoamPdusReceived": {
+    "name": "jnxSoamDmHistoryStatsSoamPdusReceived",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayRangeForwardMax": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayRangeForwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayRangeForwardAvg": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayRangeForwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayRangeBackwardMax": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayRangeBackwardMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayRangeBackwardAvg": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayRangeBackwardAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayRangeTwoWayMax": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayRangeTwoWayMax",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsFrameDelayRangeTwoWayAvg": {
+    "name": "jnxSoamDmHistoryStatsFrameDelayRangeTwoWayAvg",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmThresholdCfgTable": {
+    "name": "jnxSoamLmThresholdCfgTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmThresholdCfgEntry": {
+    "name": "jnxSoamLmThresholdCfgEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmThresholdCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamLmThresholdCfgIndex": {
+    "name": "jnxSoamLmThresholdCfgIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmThresholdCfgEnable": {
+    "name": "jnxSoamLmThresholdCfgEnable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bJnxSoamLmMeasuredFlrForwardThreshold": 0,
+        "bJnxSoamLmMaxFlrForwardThreshold": 1,
+        "bJnxSoamLmAvgFlrForwardThreshold": 2,
+        "bJnxSoamLmMeasuredFlrBackwardThreshold": 3,
+        "bJnxSoamLmMaxFlrBackwardThreshold": 4,
+        "bJnxSoamLmAvgFlrBackwardThreshold": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmThresholdCfgAvgFlrForwardThreshold": {
+    "name": "jnxSoamLmThresholdCfgAvgFlrForwardThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmThresholdCfgAvgFlrBackwardThreshold": {
+    "name": "jnxSoamLmThresholdCfgAvgFlrBackwardThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100000,
+        "format": "decimal"
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmThresholdCfgRowStatus": {
+    "name": "jnxSoamLmThresholdCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsTable": {
+    "name": "jnxSoamLmCurrentAvailStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsEntry": {
+    "name": "jnxSoamLmCurrentAvailStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsIndex": {
+    "name": "jnxSoamLmCurrentAvailStatsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsStartTime": {
+    "name": "jnxSoamLmCurrentAvailStatsStartTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsElapsedTime": {
+    "name": "jnxSoamLmCurrentAvailStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsSuspect": {
+    "name": "jnxSoamLmCurrentAvailStatsSuspect",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsForwardHighLoss": {
+    "name": "jnxSoamLmCurrentAvailStatsForwardHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsBackwardHighLoss": {
+    "name": "jnxSoamLmCurrentAvailStatsBackwardHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsForwardConsecutiveHighLoss": {
+    "name": "jnxSoamLmCurrentAvailStatsForwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsBackwardConsecutiveHighLoss": {
+    "name": "jnxSoamLmCurrentAvailStatsBackwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsForwardAvailable": {
+    "name": "jnxSoamLmCurrentAvailStatsForwardAvailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsBackwardAvailable": {
+    "name": "jnxSoamLmCurrentAvailStatsBackwardAvailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsForwardUnavailable": {
+    "name": "jnxSoamLmCurrentAvailStatsForwardUnavailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsBackwardUnavailable": {
+    "name": "jnxSoamLmCurrentAvailStatsBackwardUnavailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsForwardMinFlr": {
+    "name": "jnxSoamLmCurrentAvailStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsForwardMaxFlr": {
+    "name": "jnxSoamLmCurrentAvailStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsForwardAvgFlr": {
+    "name": "jnxSoamLmCurrentAvailStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsBackwardMinFlr": {
+    "name": "jnxSoamLmCurrentAvailStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsBackwardMaxFlr": {
+    "name": "jnxSoamLmCurrentAvailStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmCurrentAvailStatsBackwardAvgFlr": {
+    "name": "jnxSoamLmCurrentAvailStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsTable": {
+    "name": "jnxSoamLmHistoryAvailStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsEntry": {
+    "name": "jnxSoamLmHistoryAvailStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmHistoryAvailStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsIndex": {
+    "name": "jnxSoamLmHistoryAvailStatsIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsEndTime": {
+    "name": "jnxSoamLmHistoryAvailStatsEndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsElapsedTime": {
+    "name": "jnxSoamLmHistoryAvailStatsElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsSuspect": {
+    "name": "jnxSoamLmHistoryAvailStatsSuspect",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsForwardHighLoss": {
+    "name": "jnxSoamLmHistoryAvailStatsForwardHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsBackwardHighLoss": {
+    "name": "jnxSoamLmHistoryAvailStatsBackwardHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsForwardConsecutiveHighLoss": {
+    "name": "jnxSoamLmHistoryAvailStatsForwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsBackwardConsecutiveHighLoss": {
+    "name": "jnxSoamLmHistoryAvailStatsBackwardConsecutiveHighLoss",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsForwardAvailable": {
+    "name": "jnxSoamLmHistoryAvailStatsForwardAvailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsBackwardAvailable": {
+    "name": "jnxSoamLmHistoryAvailStatsBackwardAvailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsForwardUnavailable": {
+    "name": "jnxSoamLmHistoryAvailStatsForwardUnavailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsBackwardUnavailable": {
+    "name": "jnxSoamLmHistoryAvailStatsBackwardUnavailable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsForwardMinFlr": {
+    "name": "jnxSoamLmHistoryAvailStatsForwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsForwardMaxFlr": {
+    "name": "jnxSoamLmHistoryAvailStatsForwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsForwardAvgFlr": {
+    "name": "jnxSoamLmHistoryAvailStatsForwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsBackwardMinFlr": {
+    "name": "jnxSoamLmHistoryAvailStatsBackwardMinFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsBackwardMaxFlr": {
+    "name": "jnxSoamLmHistoryAvailStatsBackwardMaxFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamLmHistoryAvailStatsBackwardAvgFlr": {
+    "name": "jnxSoamLmHistoryAvailStatsBackwardAvgFlr",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milli-percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmThresholdCfgTable": {
+    "name": "jnxSoamDmThresholdCfgTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmThresholdCfgEntry": {
+    "name": "jnxSoamDmThresholdCfgEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmThresholdCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmThresholdCfgIndex": {
+    "name": "jnxSoamDmThresholdCfgIndex",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmThresholdCfgEnable": {
+    "name": "jnxSoamDmThresholdCfgEnable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bJnxSoamDmMeasuredFrameDelayTwoWayThreshold": 0,
+        "bJnxSoamDmMaxFrameDelayTwoWayThreshold": 1,
+        "bJnxSoamDmAvgFrameDelayTwoWayThreshold": 2,
+        "bJnxSoamDmMeasuredIfdvTwoWayThreshold": 3,
+        "bJnxSoamDmMaxIfdvTwoWayThreshold": 4,
+        "bJnxSoamDmAvgIfdvTwoWayThreshold": 5,
+        "bJnxSoamDmMaxFrameDelayRangeTwoWayThreshold": 6,
+        "bJnxSoamDmAvgFrameDelayRangeTwoWayThreshold": 7,
+        "bJnxSoamDmMeasuredFrameDelayForwardThreshold": 8,
+        "bJnxSoamDmMaxFrameDelayForwardThreshold": 9,
+        "bJnxSoamDmAvgFrameDelayForwardThreshold": 10,
+        "bJnxSoamDmMeasuredIfdvForwardThreshold": 11,
+        "bJnxSoamDmMaxIfdvForwardThreshold": 12,
+        "bJnxSoamDmAvgIfdvForwardThreshold": 13,
+        "bJnxSoamDmMaxFrameDelayRangeForwardThreshold": 14,
+        "bJnxSoamDmAvgFrameDelayRangeForwardThreshold": 15,
+        "bJnxSoamDmMeasuredFrameDelayBackwardThreshold": 16,
+        "bJnxSoamDmMaxFrameDelayBackwardThreshold": 17,
+        "bJnxSoamDmAvgFrameDelayBackwardThreshold": 18,
+        "bJnxSoamDmMeasuredIfdvBackwardThreshold": 19,
+        "bJnxSoamDmMaxIfdvBackwardThreshold": 20,
+        "bJnxSoamDmAvgIfdvBackwardThreshold": 21,
+        "bJnxSoamDmMaxFrameDelayRangeBackwardThreshold": 22,
+        "bJnxSoamDmAvgFrameDelayRangeBackwardThreshold": 23
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmThresholdCfgAvgFrameDelayTwoWayThreshold": {
+    "name": "jnxSoamDmThresholdCfgAvgFrameDelayTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmThresholdCfgAvgIfdvTwoWayThreshold": {
+    "name": "jnxSoamDmThresholdCfgAvgIfdvTwoWayThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmThresholdCfgRowStatus": {
+    "name": "jnxSoamDmThresholdCfgRowStatus",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmCfgMeasBinTable": {
+    "name": "jnxSoamDmCfgMeasBinTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmCfgMeasBinEntry": {
+    "name": "jnxSoamDmCfgMeasBinEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgMeasBinType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgMeasBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmCfgMeasBinType": {
+    "name": "jnxSoamDmCfgMeasBinType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSoamTcDelayMeasurementBinType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmCfgMeasBinNumber": {
+    "name": "jnxSoamDmCfgMeasBinNumber",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmCfgMeasBinLowerBound": {
+    "name": "jnxSoamDmCfgMeasBinLowerBound",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds (us)",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsBinsTable": {
+    "name": "jnxSoamDmCurrentStatsBinsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsBinsEntry": {
+    "name": "jnxSoamDmCurrentStatsBinsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgMeasBinType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgMeasBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmCurrentStatsBinsCounter": {
+    "name": "jnxSoamDmCurrentStatsBinsCounter",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsBinsTable": {
+    "name": "jnxSoamDmHistoryStatsBinsTable",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsBinsEntry": {
+    "name": "jnxSoamDmHistoryStatsBinsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMdIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMaIndex",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-CFM-MIB",
+        "object": "dot1agCfmMepIdentifier",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmHistoryStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgMeasBinType",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgMeasBinNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmHistoryStatsBinsCounter": {
+    "name": "jnxSoamDmHistoryStatsBinsCounter",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjDateAndTime": {
+    "name": "jnxSoamPmNotificationObjDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjThresholdId": {
+    "name": "jnxSoamPmNotificationObjThresholdId",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjThresholdConfig": {
+    "name": "jnxSoamPmNotificationObjThresholdConfig",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjThresholdValue": {
+    "name": "jnxSoamPmNotificationObjThresholdValue",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjSuspect": {
+    "name": "jnxSoamPmNotificationObjSuspect",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjCrossingType": {
+    "name": "jnxSoamPmNotificationObjCrossingType",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aboveAlarm": 1,
+          "setAlarm": 2,
+          "clearAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjDestinationMep": {
+    "name": "jnxSoamPmNotificationObjDestinationMep",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjPriority": {
+    "name": "jnxSoamPmNotificationObjPriority",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationTotalFlaps": {
+    "name": "jnxSoamPmNotificationTotalFlaps",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationAccTotalFlaps": {
+    "name": "jnxSoamPmNotificationAccTotalFlaps",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjThresholdLastValue": {
+    "name": "jnxSoamPmNotificationObjThresholdLastValue",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjCurrentState": {
+    "name": "jnxSoamPmNotificationObjCurrentState",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aboveAlarm": 1,
+          "setAlarm": 2,
+          "clearAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamPmNotificationObjLastDateAndTime": {
+    "name": "jnxSoamPmNotificationObjLastDateAndTime",
+    "oid": "1.3.6.1.4.1.2636.3.78.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxSoamLmSessionStartStopAlarm": {
+    "name": "jnxSoamLmSessionStartStopAlarm",
+    "oid": "1.3.6.1.4.1.2636.3.78.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamLmCfgSessionStatus"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjDestinationMep"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamDmSessionStartStopAlarm": {
+    "name": "jnxSoamDmSessionStartStopAlarm",
+    "oid": "1.3.6.1.4.1.2636.3.78.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamDmCfgSessionStatus"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjDestinationMep"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamPmThresholdCrossingAlarm": {
+    "name": "jnxSoamPmThresholdCrossingAlarm",
+    "oid": "1.3.6.1.4.1.2636.3.78.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjCrossingType"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjThresholdId"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjThresholdConfig"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjThresholdValue"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjSuspect"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjDateAndTime"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjDestinationMep"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSoamPmThresholdFlapAlarm": {
+    "name": "jnxSoamPmThresholdFlapAlarm",
+    "oid": "1.3.6.1.4.1.2636.3.78.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjThresholdId"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjThresholdConfig"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjThresholdLastValue"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationTotalFlaps"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationAccTotalFlaps"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjCurrentState"
+      },
+      {
+        "module": "JUNIPER-SOAM-PM-MIB",
+        "object": "jnxSoamPmNotificationObjDestinationMep"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SOAM-PM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-SOAM-PM-MIB"
+  }
+}

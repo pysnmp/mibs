@@ -1,0 +1,223 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnPortMIB": {
+    "name": "tnPortMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.141",
+    "class": "moduleidentity"
+  },
+  "tnPortMibNotifications": {
+    "name": "tnPortMibNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.141.0",
+    "class": "objectidentity"
+  },
+  "tnPortMibObjects": {
+    "name": "tnPortMibObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1",
+    "class": "objectidentity"
+  },
+  "tnPortMibConformance": {
+    "name": "tnPortMibConformance",
+    "oid": "1.3.6.1.4.1.868.2.5.141.2",
+    "class": "objectidentity"
+  },
+  "tnPortConfigTable": {
+    "name": "tnPortConfigTable",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnPortConfigEntry": {
+    "name": "tnPortConfigEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnPortSpeedConfigured": {
+    "name": "tnPortSpeedConfigured",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2,
+          "hdx10mbps": 3,
+          "fdx10mbps": 4,
+          "hdx100mbps": 5,
+          "fdx100mbps": 6,
+          "fdx1Gbps": 7,
+          "fdx2500mbps": 8,
+          "fdx10Gbps": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPortSpeedCurrent": {
+    "name": "tnPortSpeedCurrent",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "hdx10mbps": 2,
+          "fdx10mbps": 3,
+          "hdx100mbps": 4,
+          "fdx100mbps": 5,
+          "fdx1Gbps": 6,
+          "fdx2500mbps": 7,
+          "fdx10Gbps": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPortFlowControlCurrentConfigured": {
+    "name": "tnPortFlowControlCurrentConfigured",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPortFlowControlCurrentRx": {
+    "name": "tnPortFlowControlCurrentRx",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPortFlowControlCurrentTx": {
+    "name": "tnPortFlowControlCurrentTx",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnPortExcessiveCollisionMode": {
+    "name": "tnPortExcessiveCollisionMode",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "restart": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnPortPowerControl": {
+    "name": "tnPortPowerControl",
+    "oid": "1.3.6.1.4.1.868.2.5.141.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "actiphy": 2,
+          "perfectreach": 3,
+          "enable": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-PORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-PORT-MIB"
+  }
+}

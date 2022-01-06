@@ -1,0 +1,1669 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Unsigned64",
+      "IfOperStatusReason"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifOperStatus",
+      "ifName",
+      "InterfaceIndexOrZero",
+      "ifAdminStatus",
+      "ifType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIfExtensionMIB": {
+    "name": "ciscoIfExtensionMIB",
+    "oid": "1.3.6.1.4.1.9.9.276",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-23 00:00",
+        "description": "Added cieIfInterval in cieIfUtilTable. Changed the description of objects in cieIfUtilTable. Added ciscoIfExtUtilIntervalGroup."
+      },
+      {
+        "revision": "2006-11-01 00:00",
+        "description": "Add support for asymetrical interfaces speeds. - Added following objects in cieIfInterfaceTable cieIfSpeedReceive cieIfHighSpeedReceive - Added ciscoIfExtensionAsymmetricalSpeedGroup OBJECT-GROUP - Added ciscoIfExtensionMIBCompliance6 MODULE-COMPLIANCE"
+      },
+      {
+        "revision": "2005-04-28 00:00",
+        "description": "Added: - cieLinkUp & cieLinkDown notifications. - object to control sending: only standard linkUp/linkDown OR only cieLinkUp/cieLinkDown OR both. - object to control sending only standard defined varbinds in linkUp/linkDown OR additional varbinds in addition to standard defined."
+      },
+      {
+        "revision": "2005-01-25 00:00",
+        "description": "Updated the description of cieIfDot1dBaseMappingEntry."
+      },
+      {
+        "revision": "2004-09-08 00:00",
+        "description": "Added new objects 'cieIfOperStatusCause' and 'cieIfOperStatusCauseDescr' in cieIfInterfaceTable. Added a new table 'cieIfStatusListTable'."
+      },
+      {
+        "revision": "2003-11-14 00:00",
+        "description": "Added new objects cieIfName and cieIfIndex for the 'ifName' to 'ifIndex' mapping. Deprecated the ciscoIfExtensionMIBCompliance2 compliance. Added ciscoIfExtensionMIBCompliance3 and ciscoIfExtIfNameMappingGroup."
+      },
+      {
+        "revision": "2003-08-12 00:00",
+        "description": "Added ciscoIfExtDot1dBaseMappingGroup."
+      },
+      {
+        "revision": "2003-07-17 00:00",
+        "description": "Added ciscoIfExtUtilizationGroup."
+      },
+      {
+        "revision": "2003-06-25 00:00",
+        "description": "Added the object cieSystemMtu and ciscoIfExtSystemGroup. Added ciscoIfExtDot1qCustomEtherType and ciscoIfExtDot1qEtherTypeGroup."
+      },
+      {
+        "revision": "2002-10-12 00:00",
+        "description": "Added the objects cieIfDhcpMode, cieIfMtu, cieIfContextName to cieIfInterfaceTable. Deprecated the ciscoIfExtensionMIBCompliance compliance. Added ciscoIfExtensionMIBCompliance1. Added ciscoIfExtensionTableIntfGroup1."
+      },
+      {
+        "revision": "2002-07-24 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoIfExtensionMIBNotifications": {
+    "name": "ciscoIfExtensionMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.276.0",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtensionMIBObjects": {
+    "name": "ciscoIfExtensionMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.276.1",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtensionMIBConformance": {
+    "name": "ciscoIfExtensionMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.276.2",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtensionStats": {
+    "name": "ciscoIfExtensionStats",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtSystemConfig": {
+    "name": "ciscoIfExtSystemConfig",
+    "oid": "1.3.6.1.4.1.9.9.276.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtDot1qCustomEtherType": {
+    "name": "ciscoIfExtDot1qCustomEtherType",
+    "oid": "1.3.6.1.4.1.9.9.276.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtUtilization": {
+    "name": "ciscoIfExtUtilization",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtDot1dBaseMapping": {
+    "name": "ciscoIfExtDot1dBaseMapping",
+    "oid": "1.3.6.1.4.1.9.9.276.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtIfNameMapping": {
+    "name": "ciscoIfExtIfNameMapping",
+    "oid": "1.3.6.1.4.1.9.9.276.1.6",
+    "class": "objectidentity"
+  },
+  "InterfaceIndexList": {
+    "name": "InterfaceIndexList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceOperModeList": {
+    "name": "InterfaceOperModeList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceOperCauseList": {
+    "name": "InterfaceOperCauseList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cieIfPacketStatsTable": {
+    "name": "cieIfPacketStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfPacketStatsEntry": {
+    "name": "cieIfPacketStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfLastInTime": {
+    "name": "cieIfLastInTime",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfLastOutTime": {
+    "name": "cieIfLastOutTime",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfLastOutHangTime": {
+    "name": "cieIfLastOutHangTime",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInRuntsErrs": {
+    "name": "cieIfInRuntsErrs",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInGiantsErrs": {
+    "name": "cieIfInGiantsErrs",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInFramingErrs": {
+    "name": "cieIfInFramingErrs",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInOverrunErrs": {
+    "name": "cieIfInOverrunErrs",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInIgnored": {
+    "name": "cieIfInIgnored",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInAbortErrs": {
+    "name": "cieIfInAbortErrs",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInputQueueDrops": {
+    "name": "cieIfInputQueueDrops",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfOutputQueueDrops": {
+    "name": "cieIfOutputQueueDrops",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfPacketDiscontinuityTime": {
+    "name": "cieIfPacketDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInterfaceTable": {
+    "name": "cieIfInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfInterfaceEntry": {
+    "name": "cieIfInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfResetCount": {
+    "name": "cieIfResetCount",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfKeepAliveEnabled": {
+    "name": "cieIfKeepAliveEnabled",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfStateChangeReason": {
+    "name": "cieIfStateChangeReason",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfCarrierTransitionCount": {
+    "name": "cieIfCarrierTransitionCount",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInterfaceDiscontinuityTime": {
+    "name": "cieIfInterfaceDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfDhcpMode": {
+    "name": "cieIfDhcpMode",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfMtu": {
+    "name": "cieIfMtu",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfContextName": {
+    "name": "cieIfContextName",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfOperStatusCause": {
+    "name": "cieIfOperStatusCause",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfOperStatusReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfOperStatusCauseDescr": {
+    "name": "cieIfOperStatusCauseDescr",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfSpeedReceive": {
+    "name": "cieIfSpeedReceive",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfHighSpeedReceive": {
+    "name": "cieIfHighSpeedReceive",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfStatusListTable": {
+    "name": "cieIfStatusListTable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfStatusListEntry": {
+    "name": "cieIfStatusListEntry",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfStatusListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfStatusListIndex": {
+    "name": "cieIfStatusListIndex",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 33554432
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieInterfacesIndex": {
+    "name": "cieInterfacesIndex",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieInterfacesOperMode": {
+    "name": "cieInterfacesOperMode",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceOperModeList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieInterfacesOperCause": {
+    "name": "cieInterfacesOperCause",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceOperCauseList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieSystemMtu": {
+    "name": "cieSystemMtu",
+    "oid": "1.3.6.1.4.1.9.9.276.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieLinkUpDownEnable": {
+    "name": "cieLinkUpDownEnable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "standard": 0,
+        "cisco": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "standard": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieStandardLinkUpDownVarbinds": {
+    "name": "cieStandardLinkUpDownVarbinds",
+    "oid": "1.3.6.1.4.1.9.9.276.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "additional": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "additional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfDot1qCustomEtherTypeTable": {
+    "name": "cieIfDot1qCustomEtherTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfDot1qCustomEtherTypeEntry": {
+    "name": "cieIfDot1qCustomEtherTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.276.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfDot1qCustomAdminEtherType": {
+    "name": "cieIfDot1qCustomAdminEtherType",
+    "oid": "1.3.6.1.4.1.9.9.276.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfDot1qCustomOperEtherType": {
+    "name": "cieIfDot1qCustomOperEtherType",
+    "oid": "1.3.6.1.4.1.9.9.276.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfUtilTable": {
+    "name": "cieIfUtilTable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfUtilEntry": {
+    "name": "cieIfUtilEntry",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfInPktRate": {
+    "name": "cieIfInPktRate",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInOctetRate": {
+    "name": "cieIfInOctetRate",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "octets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfOutPktRate": {
+    "name": "cieIfOutPktRate",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfOutOctetRate": {
+    "name": "cieIfOutOctetRate",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "octets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfInterval": {
+    "name": "cieIfInterval",
+    "oid": "1.3.6.1.4.1.9.9.276.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfDot1dBaseMappingTable": {
+    "name": "cieIfDot1dBaseMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfDot1dBaseMappingEntry": {
+    "name": "cieIfDot1dBaseMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.276.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfDot1dBaseMappingPort": {
+    "name": "cieIfDot1dBaseMappingPort",
+    "oid": "1.3.6.1.4.1.9.9.276.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieIfNameMappingTable": {
+    "name": "cieIfNameMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.276.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfNameMappingEntry": {
+    "name": "cieIfNameMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.276.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfName": {
+    "name": "cieIfName",
+    "oid": "1.3.6.1.4.1.9.9.276.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 112
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cieIfIndex": {
+    "name": "cieIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.276.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cieLinkDown": {
+    "name": "cieLinkDown",
+    "oid": "1.3.6.1.4.1.9.9.276.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      }
+    ],
+    "status": "current"
+  },
+  "cieLinkUp": {
+    "name": "cieLinkUp",
+    "oid": "1.3.6.1.4.1.9.9.276.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtensionMIBCompliances": {
+    "name": "ciscoIfExtensionMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtensionMIBGroups": {
+    "name": "ciscoIfExtensionMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIfExtensionMIBCompliance": {
+    "name": "ciscoIfExtensionMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionMIBCompliance1": {
+    "name": "ciscoIfExtensionMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup1",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionSystemGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1qEtherTypeGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionMIBCompliance2": {
+    "name": "ciscoIfExtensionMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup1",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionSystemGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1qEtherTypeGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtUtilizationGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1dBaseMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionMIBCompliance3": {
+    "name": "ciscoIfExtensionMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup1",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionSystemGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1qEtherTypeGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtUtilizationGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1dBaseMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtIfNameMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionMIBCompliance4": {
+    "name": "ciscoIfExtensionMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup2",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionSystemGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1qEtherTypeGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtUtilizationGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1dBaseMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtIfNameMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieIfStatusListGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionMIBCompliance5": {
+    "name": "ciscoIfExtensionMIBCompliance5",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup2",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionSystemGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1qEtherTypeGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtUtilizationGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1dBaseMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtIfNameMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieIfStatusListGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieLinkUpDownNotifEnableGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieLinkUpDownNotifGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionMIBCompliance6": {
+    "name": "ciscoIfExtensionMIBCompliance6",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup2",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionSystemGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1qEtherTypeGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtUtilizationGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1dBaseMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtIfNameMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieIfStatusListGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieLinkUpDownNotifEnableGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieLinkUpDownNotifGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionAsymmetricalSpeedGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionMIBCompliance7": {
+    "name": "ciscoIfExtensionMIBCompliance7",
+    "oid": "1.3.6.1.4.1.9.9.276.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIfExtensionTablePacketGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionTableIntfGroup2",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionSystemGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1qEtherTypeGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtUtilizationGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtDot1dBaseMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtIfNameMappingGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieIfStatusListGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieLinkUpDownNotifEnableGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "cieLinkUpDownNotifGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtensionAsymmetricalSpeedGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      },
+      {
+        "object": "ciscoIfExtUtilIntervalGroup",
+        "module": "CISCO-IF-EXTENSION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtensionTablePacketGroup": {
+    "name": "ciscoIfExtensionTablePacketGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfLastInTime"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfLastOutTime"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfLastOutHangTime"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInRuntsErrs"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInGiantsErrs"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInFramingErrs"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInOverrunErrs"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInIgnored"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInAbortErrs"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInputQueueDrops"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfOutputQueueDrops"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfPacketDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtensionTableIntfGroup": {
+    "name": "ciscoIfExtensionTableIntfGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfResetCount"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfKeepAliveEnabled"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfStateChangeReason"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfCarrierTransitionCount"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInterfaceDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtensionTableIntfGroup1": {
+    "name": "ciscoIfExtensionTableIntfGroup1",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfDhcpMode"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfMtu"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfContextName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoIfExtensionSystemGroup": {
+    "name": "ciscoIfExtensionSystemGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieSystemMtu"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtDot1qEtherTypeGroup": {
+    "name": "ciscoIfExtDot1qEtherTypeGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfDot1qCustomAdminEtherType"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfDot1qCustomOperEtherType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtUtilizationGroup": {
+    "name": "ciscoIfExtUtilizationGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInPktRate"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInOctetRate"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfOutPktRate"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfOutOctetRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtDot1dBaseMappingGroup": {
+    "name": "ciscoIfExtDot1dBaseMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfDot1dBaseMappingPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtIfNameMappingGroup": {
+    "name": "ciscoIfExtIfNameMappingGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtensionTableIntfGroup2": {
+    "name": "ciscoIfExtensionTableIntfGroup2",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfDhcpMode"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfMtu"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfContextName"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfOperStatusCause"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfOperStatusCauseDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "cieIfStatusListGroup": {
+    "name": "cieIfStatusListGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieInterfacesIndex"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieInterfacesOperMode"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieInterfacesOperCause"
+      }
+    ],
+    "status": "current"
+  },
+  "cieLinkUpDownNotifEnableGroup": {
+    "name": "cieLinkUpDownNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieLinkUpDownEnable"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieStandardLinkUpDownVarbinds"
+      }
+    ],
+    "status": "current"
+  },
+  "cieLinkUpDownNotifGroup": {
+    "name": "cieLinkUpDownNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieLinkDown"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieLinkUp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtensionAsymmetricalSpeedGroup": {
+    "name": "ciscoIfExtensionAsymmetricalSpeedGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfSpeedReceive"
+      },
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfHighSpeedReceive"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIfExtUtilIntervalGroup": {
+    "name": "ciscoIfExtUtilIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.276.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-EXTENSION-MIB",
+        "object": "cieIfInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IF-EXTENSION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IF-EXTENSION-MIB"
+  }
+}

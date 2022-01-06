@@ -1,0 +1,765 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesRsvpteMIB": {
+    "name": "cienaCesRsvpteMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-15 00:00",
+        "description": "Modified the description of cienaCesRsvpteRecoveryTime and cienaCesRsvpteRestartTime under cienaCesRsvpteObjects."
+      },
+      {
+        "revision": "2016-07-14 00:00",
+        "description": "Modified the attribute cienaCesRsvpteGRStatus to cienaCesRsvpteGRAdminStatus. Added the attribute cienaCesRsvpteGROperStatus under cienaCesRsvpteObjects."
+      },
+      {
+        "revision": "2016-07-04 00:00",
+        "description": "Added the attribute cienaCesRsvpteGRStatus under cienaCesRsvpteObjects. Modified the default values of cienaCesRsvpteRecoveryTime and cienaCesRsvpteRestartTime under cienaCesRsvpteObjects."
+      },
+      {
+        "revision": "2013-05-08 00:00",
+        "description": "Modified the status of cienaCesRsvpteRfrshSlewDenom and cienaCesRsvpteRfrshSlewNumerator to deprecated under cienaCesRsvpteObjects. Modified the status of cienaCesRsvpteIfMtu to deprecated under cienaCesRsvpteIfTable. Added objects cienaCesRsvpteRefreshSlewDenominator and cienaCesRsvpteRefreshSlewNumerator under cienaCesRsvpteObjects. "
+      },
+      {
+        "revision": "2011-02-02 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "AdvertisedLabel": {
+    "name": "AdvertisedLabel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "implicitnull": 1,
+          "nonreserved": 99
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RsvpOperStatus": {
+    "name": "RsvpOperStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operStatusUp": 1,
+          "operStatusDown": 2,
+          "operStatusGoingUp": 3,
+          "operStatusGoingDown": 4,
+          "operStatusActFailed": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RsvpGRMode": {
+    "name": "RsvpGRMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "helpNeighbor": 1,
+          "restartCapable": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cienaCesRsvpteMIBObjects": {
+    "name": "cienaCesRsvpteMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRsvpteObjects": {
+    "name": "cienaCesRsvpteObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesRsvpte": {
+    "name": "cienaCesRsvpte",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesRsvpteAdminStatus": {
+    "name": "cienaCesRsvpteAdminStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteOperStatus": {
+    "name": "cienaCesRsvpteOperStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RsvpOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRetryInterval": {
+    "name": "cienaCesRsvpteRetryInterval",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRetryInfiniteState": {
+    "name": "cienaCesRsvpteRetryInfiniteState",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRetryMax": {
+    "name": "cienaCesRsvpteRetryMax",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRefreshInterval": {
+    "name": "cienaCesRsvpteRefreshInterval",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRefreshMultiple": {
+    "name": "cienaCesRsvpteRefreshMultiple",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRfrshSlewDenom": {
+    "name": "cienaCesRsvpteRfrshSlewDenom",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesRsvpteRfrshSlewNumerator": {
+    "name": "cienaCesRsvpteRfrshSlewNumerator",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesRsvpteBlockadeMultiple": {
+    "name": "cienaCesRsvpteBlockadeMultiple",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteLSPSetupPriority": {
+    "name": "cienaCesRsvpteLSPSetupPriority",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteLSPHoldingPriority": {
+    "name": "cienaCesRsvpteLSPHoldingPriority",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteUseHopByHop": {
+    "name": "cienaCesRsvpteUseHopByHop",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRestartCapable": {
+    "name": "cienaCesRsvpteRestartCapable",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRestartTime": {
+    "name": "cienaCesRsvpteRestartTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRecoveryTime": {
+    "name": "cienaCesRsvpteRecoveryTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteMinPeerRestart": {
+    "name": "cienaCesRsvpteMinPeerRestart",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRefreshSlewDenominator": {
+    "name": "cienaCesRsvpteRefreshSlewDenominator",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteRefreshSlewNumerator": {
+    "name": "cienaCesRsvpteRefreshSlewNumerator",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 214783647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteGRAdminStatus": {
+    "name": "cienaCesRsvpteGRAdminStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteGRMode": {
+    "name": "cienaCesRsvpteGRMode",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RsvpGRMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfTable": {
+    "name": "cienaCesRsvpteIfTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfEntry": {
+    "name": "cienaCesRsvpteIfEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-RSVPTE-MIB",
+        "object": "cienaCesRsvpteIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesRsvpteIfIndex": {
+    "name": "cienaCesRsvpteIfIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfName": {
+    "name": "cienaCesRsvpteIfName",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfIpAddr": {
+    "name": "cienaCesRsvpteIfIpAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfMtu": {
+    "name": "cienaCesRsvpteIfMtu",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1500,
+            "max": 9216
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cienaCesRsvpteIfAdminStatus": {
+    "name": "cienaCesRsvpteIfAdminStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfOperStatus": {
+    "name": "cienaCesRsvpteIfOperStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfHelloInterval": {
+    "name": "cienaCesRsvpteIfHelloInterval",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfHelloTolerance": {
+    "name": "cienaCesRsvpteIfHelloTolerance",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesRsvpteIfAdvertisedLabel": {
+    "name": "cienaCesRsvpteIfAdvertisedLabel",
+    "oid": "1.3.6.1.4.1.1271.2.1.16.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdvertisedLabel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 99,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-RSVPTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-RSVPTE-MIB"
+  }
+}

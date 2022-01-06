@@ -1,0 +1,706 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsIpServiceIfPref",
+      "CucsIpIpV4StaticAddrPref",
+      "CucsIpIPv4DnsPref"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsIpObjects": {
+    "name": "cucsIpObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66",
+    "class": "moduleidentity"
+  },
+  "cucsIpDnsSuffixTable": {
+    "name": "cucsIpDnsSuffixTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpDnsSuffixEntry": {
+    "name": "cucsIpDnsSuffixEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IP-MIB",
+        "object": "cucsIpDnsSuffixInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIpDnsSuffixInstanceId": {
+    "name": "cucsIpDnsSuffixInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpDnsSuffixDn": {
+    "name": "cucsIpDnsSuffixDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpDnsSuffixRn": {
+    "name": "cucsIpDnsSuffixRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpDnsSuffixGuid": {
+    "name": "cucsIpDnsSuffixGuid",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpDnsSuffixHost": {
+    "name": "cucsIpDnsSuffixHost",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpDnsSuffixName": {
+    "name": "cucsIpDnsSuffixName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsTable": {
+    "name": "cucsIpIPv4DnsTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsEntry": {
+    "name": "cucsIpIPv4DnsEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IP-MIB",
+        "object": "cucsIpIPv4DnsInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIpIPv4DnsInstanceId": {
+    "name": "cucsIpIPv4DnsInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsDn": {
+    "name": "cucsIpIPv4DnsDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsRn": {
+    "name": "cucsIpIPv4DnsRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsAddr": {
+    "name": "cucsIpIPv4DnsAddr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsDefGw": {
+    "name": "cucsIpIPv4DnsDefGw",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsPref": {
+    "name": "cucsIpIPv4DnsPref",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIpIPv4DnsPref",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4DnsSubnet": {
+    "name": "cucsIpIPv4DnsSubnet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerTable": {
+    "name": "cucsIpIPv4WinsServerTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerEntry": {
+    "name": "cucsIpIPv4WinsServerEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IP-MIB",
+        "object": "cucsIpIPv4WinsServerInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerInstanceId": {
+    "name": "cucsIpIPv4WinsServerInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerDn": {
+    "name": "cucsIpIPv4WinsServerDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerRn": {
+    "name": "cucsIpIPv4WinsServerRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerIPv4Address": {
+    "name": "cucsIpIPv4WinsServerIPv4Address",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerGuid": {
+    "name": "cucsIpIPv4WinsServerGuid",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerHost": {
+    "name": "cucsIpIPv4WinsServerHost",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIPv4WinsServerName": {
+    "name": "cucsIpIPv4WinsServerName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrTable": {
+    "name": "cucsIpIpV4StaticAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrEntry": {
+    "name": "cucsIpIpV4StaticAddrEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IP-MIB",
+        "object": "cucsIpIpV4StaticAddrInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrInstanceId": {
+    "name": "cucsIpIpV4StaticAddrInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrDn": {
+    "name": "cucsIpIpV4StaticAddrDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrRn": {
+    "name": "cucsIpIpV4StaticAddrRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrAddr": {
+    "name": "cucsIpIpV4StaticAddrAddr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrDefGw": {
+    "name": "cucsIpIpV4StaticAddrDefGw",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrPref": {
+    "name": "cucsIpIpV4StaticAddrPref",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIpIpV4StaticAddrPref",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticAddrSubnet": {
+    "name": "cucsIpIpV4StaticAddrSubnet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrTable": {
+    "name": "cucsIpIpV4StaticTargetAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrEntry": {
+    "name": "cucsIpIpV4StaticTargetAddrEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IP-MIB",
+        "object": "cucsIpIpV4StaticTargetAddrInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrInstanceId": {
+    "name": "cucsIpIpV4StaticTargetAddrInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrDn": {
+    "name": "cucsIpIpV4StaticTargetAddrDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrRn": {
+    "name": "cucsIpIpV4StaticTargetAddrRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrAddr": {
+    "name": "cucsIpIpV4StaticTargetAddrAddr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrDefGw": {
+    "name": "cucsIpIpV4StaticTargetAddrDefGw",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpIpV4StaticTargetAddrSubnet": {
+    "name": "cucsIpIpV4StaticTargetAddrSubnet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpServiceIfTable": {
+    "name": "cucsIpServiceIfTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpServiceIfEntry": {
+    "name": "cucsIpServiceIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IP-MIB",
+        "object": "cucsIpServiceIfInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIpServiceIfInstanceId": {
+    "name": "cucsIpServiceIfInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIpServiceIfDn": {
+    "name": "cucsIpServiceIfDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpServiceIfRn": {
+    "name": "cucsIpServiceIfRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpServiceIfAddr": {
+    "name": "cucsIpServiceIfAddr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpServiceIfDefGw": {
+    "name": "cucsIpServiceIfDefGw",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpServiceIfPort": {
+    "name": "cucsIpServiceIfPort",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpServiceIfPref": {
+    "name": "cucsIpServiceIfPref",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIpServiceIfPref",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIpServiceIfSubnet": {
+    "name": "cucsIpServiceIfSubnet",
+    "oid": "1.3.6.1.4.1.9.9.719.1.66.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-IP-MIB"
+  }
+}

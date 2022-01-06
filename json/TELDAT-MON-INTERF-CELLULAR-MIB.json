@@ -1,0 +1,985 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TELDAT-SW-STRUCTURE-MIB": [
+      "telProdNpMonInterfRouter"
+    ]
+  },
+  "telProdNpMonInterfCellular": {
+    "name": "telProdNpMonInterfCellular",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18",
+    "class": "objectidentity"
+  },
+  "teldatCellularInfoInterfaceTable": {
+    "name": "teldatCellularInfoInterfaceTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceEntry": {
+    "name": "teldatCellularInfoInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-INTERF-CELLULAR-MIB",
+        "object": "teldatCellularInfoInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceIndex": {
+    "name": "teldatCellularInfoInterfaceIndex",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceModuleManufacturer": {
+    "name": "teldatCellularInfoInterfaceModuleManufacturer",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceModuleModel": {
+    "name": "teldatCellularInfoInterfaceModuleModel",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceModuleFirmware": {
+    "name": "teldatCellularInfoInterfaceModuleFirmware",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceModuleIMEI": {
+    "name": "teldatCellularInfoInterfaceModuleIMEI",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceModuleIMSI": {
+    "name": "teldatCellularInfoInterfaceModuleIMSI",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceSIMId": {
+    "name": "teldatCellularInfoInterfaceSIMId",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularInfoInterfaceSIMIcc": {
+    "name": "teldatCellularInfoInterfaceSIMIcc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStatObject": {
+    "name": "teldatCellularStatObject",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3",
+    "class": "objectidentity"
+  },
+  "teldatCellularStateInterfaceTable": {
+    "name": "teldatCellularStateInterfaceTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceEntry": {
+    "name": "teldatCellularStateInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-INTERF-CELLULAR-MIB",
+        "object": "teldatCellularStateInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceIndex": {
+    "name": "teldatCellularStateInterfaceIndex",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceState": {
+    "name": "teldatCellularStateInterfaceState",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceDropPing": {
+    "name": "teldatCellularStateInterfaceDropPing",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceDropTrace": {
+    "name": "teldatCellularStateInterfaceDropTrace",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceDropTraffic": {
+    "name": "teldatCellularStateInterfaceDropTraffic",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceTConnTime": {
+    "name": "teldatCellularStateInterfaceTConnTime",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceCConnTime": {
+    "name": "teldatCellularStateInterfaceCConnTime",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceCurDial": {
+    "name": "teldatCellularStateInterfaceCurDial",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceNCall": {
+    "name": "teldatCellularStateInterfaceNCall",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceDestination": {
+    "name": "teldatCellularStateInterfaceDestination",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateInterfaceTime2Sp": {
+    "name": "teldatCellularStateInterfaceTime2Sp",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileTable": {
+    "name": "teldatCellularStateMobileTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileEntry": {
+    "name": "teldatCellularStateMobileEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-INTERF-CELLULAR-MIB",
+        "object": "teldatCellularStateMobileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileIndex": {
+    "name": "teldatCellularStateMobileIndex",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRegistrationState": {
+    "name": "teldatCellularStateMobileRegistrationState",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "searching": 0,
+          "home-network": 1,
+          "attaching": 2,
+          "denied": 3,
+          "unknown": 4,
+          "roaming": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobilePublicLandMobileNtwCode": {
+    "name": "teldatCellularStateMobilePublicLandMobileNtwCode",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileCellLocationAreaCode": {
+    "name": "teldatCellularStateMobileCellLocationAreaCode",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileCellId": {
+    "name": "teldatCellularStateMobileCellId",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRadioTechnology": {
+    "name": "teldatCellularStateMobileRadioTechnology",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRadioBand": {
+    "name": "teldatCellularStateMobileRadioBand",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxSignalCodePwr": {
+    "name": "teldatCellularStateMobileRxSignalCodePwr",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileEnergyChipByPwrdnsty": {
+    "name": "teldatCellularStateMobileEnergyChipByPwrdnsty",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileSignalQuality": {
+    "name": "teldatCellularStateMobileSignalQuality",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileTemperature": {
+    "name": "teldatCellularStateMobileTemperature",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxPackets": {
+    "name": "teldatCellularStateMobileRxPackets",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxBytes": {
+    "name": "teldatCellularStateMobileRxBytes",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileTxPackets": {
+    "name": "teldatCellularStateMobileTxPackets",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileTxBytes": {
+    "name": "teldatCellularStateMobileTxBytes",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxBpsLast1s": {
+    "name": "teldatCellularStateMobileRxBpsLast1s",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileTxBpsLast1s": {
+    "name": "teldatCellularStateMobileTxBpsLast1s",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxBpsLast1m": {
+    "name": "teldatCellularStateMobileRxBpsLast1m",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileTxBpsLast1m": {
+    "name": "teldatCellularStateMobileTxBpsLast1m",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxBpsLast5m": {
+    "name": "teldatCellularStateMobileRxBpsLast5m",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileTxBpsLast5m": {
+    "name": "teldatCellularStateMobileTxBpsLast5m",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxRSRP": {
+    "name": "teldatCellularStateMobileRxRSRP",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxRSRQ": {
+    "name": "teldatCellularStateMobileRxRSRQ",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileRxSINR": {
+    "name": "teldatCellularStateMobileRxSINR",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularStateMobileLTECellId": {
+    "name": "teldatCellularStateMobileLTECellId",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngTable": {
+    "name": "teldatCellularSIMMngTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngEntry": {
+    "name": "teldatCellularSIMMngEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-INTERF-CELLULAR-MIB",
+        "object": "teldatCellularSIMMngIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngIndex": {
+    "name": "teldatCellularSIMMngIndex",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngCurrentSIMSocket": {
+    "name": "teldatCellularSIMMngCurrentSIMSocket",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external-socket1": 0,
+          "internal-socket2": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngMainSIMSocket": {
+    "name": "teldatCellularSIMMngMainSIMSocket",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external-socket1": 0,
+          "internal-socket2": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngSupervisionSIMSocket": {
+    "name": "teldatCellularSIMMngSupervisionSIMSocket",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngSIMImsiInfoSocket1": {
+    "name": "teldatCellularSIMMngSIMImsiInfoSocket1",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngSIMIdInfoSocket1": {
+    "name": "teldatCellularSIMMngSIMIdInfoSocket1",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngSIMImsiInfoSocket2": {
+    "name": "teldatCellularSIMMngSIMImsiInfoSocket2",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularSIMMngSIMIdInfoSocket2": {
+    "name": "teldatCellularSIMMngSIMIdInfoSocket2",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularProfDialTable": {
+    "name": "teldatCellularProfDialTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "teldatCellularProfDialEntry": {
+    "name": "teldatCellularProfDialEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-INTERF-CELLULAR-MIB",
+        "object": "teldatCellularProfDialIfcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "teldatCellularProfDialIfcIndex": {
+    "name": "teldatCellularProfDialIfcIndex",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularProfDialName1": {
+    "name": "teldatCellularProfDialName1",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularProfDialAPN1": {
+    "name": "teldatCellularProfDialAPN1",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularProfDialName2": {
+    "name": "teldatCellularProfDialName2",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularProfDialAPN2": {
+    "name": "teldatCellularProfDialAPN2",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularRecChangesTable": {
+    "name": "teldatCellularRecChangesTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "teldatCellularRecChangesEntry": {
+    "name": "teldatCellularRecChangesEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-INTERF-CELLULAR-MIB",
+        "object": "teldatCellularRecChangesIfcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "teldatCellularRecChangesIfcIndex": {
+    "name": "teldatCellularRecChangesIfcIndex",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularRecChangesPLMNTimeStamp": {
+    "name": "teldatCellularRecChangesPLMNTimeStamp",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "teldatCellularRecChangesPLMNCode": {
+    "name": "teldatCellularRecChangesPLMNCode",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.18.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-INTERF-CELLULAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TELDAT-MON-INTERF-CELLULAR-MIB"
+  }
+}

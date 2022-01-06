@@ -1,0 +1,1606 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlBridgeSecurity": {
+    "name": "rlBridgeSecurity",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112",
+    "class": "moduleidentity"
+  },
+  "rlIpDhcpSnoop": {
+    "name": "rlIpDhcpSnoop",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1",
+    "class": "objectidentity"
+  },
+  "rlIpSourceGuard": {
+    "name": "rlIpSourceGuard",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2",
+    "class": "objectidentity"
+  },
+  "rlIpArpInspect": {
+    "name": "rlIpArpInspect",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3",
+    "class": "objectidentity"
+  },
+  "rlProtocolFiltering": {
+    "name": "rlProtocolFiltering",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.4",
+    "class": "objectidentity"
+  },
+  "rlIpDhcpOpt82": {
+    "name": "rlIpDhcpOpt82",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5",
+    "class": "objectidentity"
+  },
+  "rlIpDhcpSnoopMibVersion": {
+    "name": "rlIpDhcpSnoopMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopEnable": {
+    "name": "rlIpDhcpSnoopEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopFileEnable": {
+    "name": "rlIpDhcpSnoopFileEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopClearAction": {
+    "name": "rlIpDhcpSnoopClearAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "clearNow": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopFileUpdateTime": {
+    "name": "rlIpDhcpSnoopFileUpdateTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopVerifyMacAddress": {
+    "name": "rlIpDhcpSnoopVerifyMacAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopCurrentEntiresNumber": {
+    "name": "rlIpDhcpSnoopCurrentEntiresNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82InsertionEnable": {
+    "name": "rlIpDhcpOpt82InsertionEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82RxOnUntrustedEnable": {
+    "name": "rlIpDhcpOpt82RxOnUntrustedEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopStaticTable": {
+    "name": "rlIpDhcpSnoopStaticTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopStaticEntry": {
+    "name": "rlIpDhcpSnoopStaticEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpSnoopStaticVLANTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpSnoopStaticMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpDhcpSnoopStaticVLANTag": {
+    "name": "rlIpDhcpSnoopStaticVLANTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopStaticMACAddress": {
+    "name": "rlIpDhcpSnoopStaticMACAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopStaticIPAddress": {
+    "name": "rlIpDhcpSnoopStaticIPAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopStaticPortInterface": {
+    "name": "rlIpDhcpSnoopStaticPortInterface",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopStaticRowStatus": {
+    "name": "rlIpDhcpSnoopStaticRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "RlIpDhcpSnoopType": {
+    "name": "RlIpDhcpSnoopType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "learnedByProtocol": 1,
+          "deletedByTimeout": 2,
+          "static": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlIpDhcpSnoopTable": {
+    "name": "rlIpDhcpSnoopTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopEntry": {
+    "name": "rlIpDhcpSnoopEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpSnoopVLANTag",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpSnoopMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpDhcpSnoopVLANTag": {
+    "name": "rlIpDhcpSnoopVLANTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopMACAddress": {
+    "name": "rlIpDhcpSnoopMACAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopType": {
+    "name": "rlIpDhcpSnoopType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlIpDhcpSnoopType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopLeaseTime": {
+    "name": "rlIpDhcpSnoopLeaseTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopIPAddress": {
+    "name": "rlIpDhcpSnoopIPAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopPortInterface": {
+    "name": "rlIpDhcpSnoopPortInterface",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopRowStatus": {
+    "name": "rlIpDhcpSnoopRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopEnableVlanTable": {
+    "name": "rlIpDhcpSnoopEnableVlanTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopEnableVlanEntry": {
+    "name": "rlIpDhcpSnoopEnableVlanEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpSnoopEnableVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpDhcpSnoopEnableVlanTag": {
+    "name": "rlIpDhcpSnoopEnableVlanTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopEnableVlanRowStatus": {
+    "name": "rlIpDhcpSnoopEnableVlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopTrustedPortTable": {
+    "name": "rlIpDhcpSnoopTrustedPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpSnoopTrustedPortEntry": {
+    "name": "rlIpDhcpSnoopTrustedPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpDhcpSnoopTrustedPortRowStatus": {
+    "name": "rlIpDhcpSnoopTrustedPortRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpSourceGuardMibVersion": {
+    "name": "rlIpSourceGuardMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpSourceGuardEnable": {
+    "name": "rlIpSourceGuardEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpSourceGuardRetryToInsert": {
+    "name": "rlIpSourceGuardRetryToInsert",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "retryToInsertNow": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpSourceGuardRetryTime": {
+    "name": "rlIpSourceGuardRetryTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpSourceGuardPortTable": {
+    "name": "rlIpSourceGuardPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpSourceGuardPortEntry": {
+    "name": "rlIpSourceGuardPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpSourceGuardPortRowStatus": {
+    "name": "rlIpSourceGuardPortRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "RlIpSourceGuardType": {
+    "name": "RlIpSourceGuardType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlIpSourceGuardStatus": {
+    "name": "RlIpSourceGuardStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlIpSourceGuardFailReason": {
+    "name": "RlIpSourceGuardFailReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noProblem": 1,
+          "noResource": 2,
+          "noSnoopVlan": 3,
+          "trustPort": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlIpSourceGuardTable": {
+    "name": "rlIpSourceGuardTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpSourceGuardEntry": {
+    "name": "rlIpSourceGuardEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpSourceGuardIPAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpSourceGuardVLANTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpSourceGuardIPAddress": {
+    "name": "rlIpSourceGuardIPAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpSourceGuardVLANTag": {
+    "name": "rlIpSourceGuardVLANTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpSourceGuardMACAddress": {
+    "name": "rlIpSourceGuardMACAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpSourceGuardType": {
+    "name": "rlIpSourceGuardType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlIpSourceGuardType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpSourceGuardStatus": {
+    "name": "rlIpSourceGuardStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlIpSourceGuardStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpSourceGuardFailReason": {
+    "name": "rlIpSourceGuardFailReason",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlIpSourceGuardFailReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpSourceGuardPermittedRuleCounterTable": {
+    "name": "rlIpSourceGuardPermittedRuleCounterTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpSourceGuardPermittedRuleCounterEntry": {
+    "name": "rlIpSourceGuardPermittedRuleCounterEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpSourceGuardPermittedRuleCounterVLANTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpSourceGuardPermittedRuleCounterVLANTag": {
+    "name": "rlIpSourceGuardPermittedRuleCounterVLANTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpSourceGuardPermittedRuleCounterNumOfStaticRules": {
+    "name": "rlIpSourceGuardPermittedRuleCounterNumOfStaticRules",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpSourceGuardPermittedRuleCounterNumOfDhcpRules": {
+    "name": "rlIpSourceGuardPermittedRuleCounterNumOfDhcpRules",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "RlIpArpInspectListNameType": {
+    "name": "RlIpArpInspectListNameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "rlIpArpInspectMibVersion": {
+    "name": "rlIpArpInspectMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpArpInspectEnable": {
+    "name": "rlIpArpInspectEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectLogInterval": {
+    "name": "rlIpArpInspectLogInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectValidation": {
+    "name": "rlIpArpInspectValidation",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectListTable": {
+    "name": "rlIpArpInspectListTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpArpInspectListEntry": {
+    "name": "rlIpArpInspectListEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpArpInspectListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpArpInspectListIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpArpInspectListName": {
+    "name": "rlIpArpInspectListName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlIpArpInspectListNameType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpArpInspectListIPAddress": {
+    "name": "rlIpArpInspectListIPAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpArpInspectListMACAddress": {
+    "name": "rlIpArpInspectListMACAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectListRowStatus": {
+    "name": "rlIpArpInspectListRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectEnableVlanTable": {
+    "name": "rlIpArpInspectEnableVlanTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpArpInspectEnableVlanEntry": {
+    "name": "rlIpArpInspectEnableVlanEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpArpInspectEnableVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpArpInspectEnableVlanTag": {
+    "name": "rlIpArpInspectEnableVlanTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpArpInspectAssignedListName": {
+    "name": "rlIpArpInspectAssignedListName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlIpArpInspectListNameType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectEnableVlanRowStatus": {
+    "name": "rlIpArpInspectEnableVlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectVlanNumOfArpForwarded": {
+    "name": "rlIpArpInspectVlanNumOfArpForwarded",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpArpInspectVlanNumOfArpDropped": {
+    "name": "rlIpArpInspectVlanNumOfArpDropped",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpArpInspectVlanNumOfArpMismatched": {
+    "name": "rlIpArpInspectVlanNumOfArpMismatched",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpArpInspectVlanClearCountersAction": {
+    "name": "rlIpArpInspectVlanClearCountersAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectTrustedPortTable": {
+    "name": "rlIpArpInspectTrustedPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpArpInspectTrustedPortEntry": {
+    "name": "rlIpArpInspectTrustedPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpArpInspectTrustedPortRowStatus": {
+    "name": "rlIpArpInspectTrustedPortRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpArpInspectClearCountersAction": {
+    "name": "rlIpArpInspectClearCountersAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ProtocolFilteringMap": {
+    "name": "ProtocolFilteringMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "all": 0,
+        "cdp": 1,
+        "vtp": 2,
+        "dtp": 3,
+        "udld": 4,
+        "pagp": 5,
+        "sstp": 6
+      }
+    },
+    "status": "current"
+  },
+  "rlProtocolFilteringTable": {
+    "name": "rlProtocolFilteringTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlProtocolFilteringEntry": {
+    "name": "rlProtocolFilteringEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlProtocolFilteringList": {
+    "name": "rlProtocolFilteringList",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProtocolFilteringMap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlProtocolFilteringRowStatus": {
+    "name": "rlProtocolFilteringRowStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82ConfigEnable": {
+    "name": "rlIpDhcpOpt82ConfigEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigTable": {
+    "name": "rlIpDhcpOpt82SuboptionConfigTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigEntry": {
+    "name": "rlIpDhcpOpt82SuboptionConfigEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpOpt82SuboptionConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigIndex": {
+    "name": "rlIpDhcpOpt82SuboptionConfigIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigCircuitIdPayloadLength": {
+    "name": "rlIpDhcpOpt82SuboptionConfigCircuitIdPayloadLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigCircuitIdFormat": {
+    "name": "rlIpDhcpOpt82SuboptionConfigCircuitIdFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigRemoteIdPayloadLength": {
+    "name": "rlIpDhcpOpt82SuboptionConfigRemoteIdPayloadLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigRemoteIdFormat": {
+    "name": "rlIpDhcpOpt82SuboptionConfigRemoteIdFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigNumericTokenFormat": {
+    "name": "rlIpDhcpOpt82SuboptionConfigNumericTokenFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "ascii": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionConfigCircuitIdAuxFailFlag": {
+    "name": "rlIpDhcpOpt82SuboptionConfigCircuitIdAuxFailFlag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentTable": {
+    "name": "rlIpDhcpOpt82SuboptionContentTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentEntry": {
+    "name": "rlIpDhcpOpt82SuboptionContentEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpOpt82SuboptionContentIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpOpt82SuboptionContentVlanTag",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentIfIndex": {
+    "name": "rlIpDhcpOpt82SuboptionContentIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentVlanTag": {
+    "name": "rlIpDhcpOpt82SuboptionContentVlanTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentCircuitIdHeader": {
+    "name": "rlIpDhcpOpt82SuboptionContentCircuitIdHeader",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentCircuitIdPayload160": {
+    "name": "rlIpDhcpOpt82SuboptionContentCircuitIdPayload160",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentCircuitIdPayload320": {
+    "name": "rlIpDhcpOpt82SuboptionContentCircuitIdPayload320",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentRemoteIdHeader": {
+    "name": "rlIpDhcpOpt82SuboptionContentRemoteIdHeader",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentRemoteIdPayload160": {
+    "name": "rlIpDhcpOpt82SuboptionContentRemoteIdPayload160",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionContentRemoteIdPayload320": {
+    "name": "rlIpDhcpOpt82SuboptionContentRemoteIdPayload320",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionTokenTable": {
+    "name": "rlIpDhcpOpt82SuboptionTokenTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionTokenEntry": {
+    "name": "rlIpDhcpOpt82SuboptionTokenEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-BRIDGE-SECURITY",
+        "object": "rlIpDhcpOpt82SuboptionTokenName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionTokenName": {
+    "name": "rlIpDhcpOpt82SuboptionTokenName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionTokenValue": {
+    "name": "rlIpDhcpOpt82SuboptionTokenValue",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionTokenFormat": {
+    "name": "rlIpDhcpOpt82SuboptionTokenFormat",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "ascii": 2,
+          "config": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionTokenReservedLength": {
+    "name": "rlIpDhcpOpt82SuboptionTokenReservedLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpDhcpOpt82SuboptionTokenHexaLength": {
+    "name": "rlIpDhcpOpt82SuboptionTokenHexaLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.112.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-BRIDGE-SECURITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-BRIDGE-SECURITY"
+  }
+}

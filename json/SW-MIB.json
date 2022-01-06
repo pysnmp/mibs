@@ -1,0 +1,5522 @@
+{
+  "imports": {
+    "class": "imports",
+    "Brocade-REG-MIB": [
+      "bcsiModules",
+      "fcSwitch"
+    ],
+    "Brocade-TC": [
+      "SwPortIndex",
+      "SwNbIndex",
+      "SwDomainIndex",
+      "SwSensorIndex",
+      "SwTrunkMaster",
+      "FcWwn"
+    ],
+    "FCMGMT-MIB": [
+      "connUnitPortStatEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "swMibModule": {
+    "name": "swMibModule",
+    "oid": "1.3.6.1.4.1.1588.3.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-01-13 14:30",
+        "description": "The initial version of this module."
+      },
+      {
+        "revision": "2003-07-20 14:30",
+        "description": "Added swIDIDMode to the swFabric group."
+      },
+      {
+        "revision": "2004-04-15 10:30",
+        "description": "Added object for Trap Severity Level, swFwLastSeverityLevel. Added the enumeration swFwResourceFlash for SwFwClassesAreas. Deprecated the mib object swEventTrapLevel. Updated the description of swGroupId and corrected the spell mistakes. Obsoleted the swFault Trap. Added enumerations four-GB for swFCPortSpeed and unknown, other for swFCPortType."
+      },
+      {
+        "revision": "2004-08-06 18:30",
+        "description": "Added swFCPortSpecifier object to swFCPortTable."
+      },
+      {
+        "revision": "2005-04-29 20:16",
+        "description": "Modified the #SUMMARY and #ARGUMENTS for swFabricWatchTrap"
+      },
+      {
+        "revision": "2006-01-09 09:00",
+        "description": "1. Modified the description for swPortTrunked 2. Updated the SW Traps summary and description to remove the obsolete varbindings"
+      },
+      {
+        "revision": "2006-05-17 09:00",
+        "description": "Added swFCPortFlag object to swFCPortTable"
+      },
+      {
+        "revision": "2007-01-23 09:00",
+        "description": "Added enumerations eight-GB and ten-GB for swFCPortSpeed"
+      },
+      {
+        "revision": "2007-06-08 12:00",
+        "description": "Included swFCPortFlag as an additiional variable binding for trap SWFCPortScn"
+      },
+      {
+        "revision": "2007-06-27 10:30",
+        "description": "Added enumerations octuple and decuple for swNbBaudRate"
+      },
+      {
+        "revision": "2007-08-01 12:20",
+        "description": "Added the enumerations swFwEPortUtil and swFwEPortPktl for swFwClassAreaIndex"
+      },
+      {
+        "revision": "2007-08-29 04:42",
+        "description": "Added swFCPortBrcdType object to swFCPortTable"
+      },
+      {
+        "revision": "2008-01-29 07:59",
+        "description": "Added Toptalker support and swVfId to the swFabric group."
+      },
+      {
+        "revision": "2008-07-17 03:45",
+        "description": "Added swIPv6ChangeTrap, swIPv6Address and swIPv6Status ."
+      },
+      {
+        "revision": "2008-07-24 02:32",
+        "description": "Added swModel to distiguish between 7500 and 7500E switch ."
+      },
+      {
+        "revision": "2008-07-25 02:32",
+        "description": "Added the enumerations swFwPortLr, swFwEPortLr, swFwEPortUtil, swFwEPortPktl, swFwFCUPortLr, swFwFOPPortLr for swFwClassAreaIndex."
+      },
+      {
+        "revision": "2008-09-09 09:00",
+        "description": "Added swPmgrEventTrap information."
+      },
+      {
+        "revision": "2009-09-28 09:00",
+        "description": "Added additional fabric watch threshold in SwFwActs."
+      },
+      {
+        "revision": "2009-02-21 09:00",
+        "description": "Added port phy states."
+      },
+      {
+        "revision": "2009-03-30 09:00",
+        "description": "Added swEventVfId in swEventTable."
+      },
+      {
+        "revision": "2009-06-25 12:00",
+        "description": "Removed the version information from Brocade's proprietary MIB file name."
+      },
+      {
+        "revision": "2009-06-29 01:00",
+        "description": "Modified swVfid position at the last of swFabric table"
+      },
+      {
+        "revision": "2009-06-30 13:06",
+        "description": "Added swFwCPUMemUsage enumeration under swFwClassAreaIndex."
+      },
+      {
+        "revision": "2009-06-30 06:00",
+        "description": "Updated the description of swCpuAction/swMemAction and access of swcpuormemoryusage objects and changed the type of swEndDeviceInvalidWord, swEndDeviceLinkFailure,swEndDeviceSyncLoss, swEndDeviceSigLoss, swEndDeviceProtoErr,swEndDeviceInvalidCRC from integer32 to counter32."
+      },
+      {
+        "revision": "2009-10-30 05:00",
+        "description": "Added swFabricReconfigTrap and swFabricSegmentTrap."
+      },
+      {
+        "revision": "2009-11-03 13:06",
+        "description": "Removed enum switchReboot from swAdmStatus."
+      },
+      {
+        "revision": "2009-11-05 12:00",
+        "description": "Changed swFwCustUnit access to read-only"
+      },
+      {
+        "revision": "2009-11-05 05:00",
+        "description": "Added enums swFwEPortTrunkUtil,swFwFCUPortTrunkUtil and swFwFOPPortTrunkUtil in SwFwClassesAreas"
+      },
+      {
+        "revision": "2009-11-06 11:30",
+        "description": "Added swConnUnitExtensionTable and entries for 64 bit portstats."
+      },
+      {
+        "revision": "1909-11-30 10:30",
+        "description": "Added swMemUsageLimit1 and swMemUsageLimit3 under swCpuOrMemoryUsage"
+      },
+      {
+        "revision": "1909-12-03 17:30",
+        "description": "Added swExttrap as internal trap."
+      },
+      {
+        "revision": "1910-01-30 17:30",
+        "description": "Changed the descriptions for swConnUnitExtensionTable as per latest FS."
+      }
+    ]
+  },
+  "sw": {
+    "name": "sw",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sw28k": {
+    "name": "sw28k",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sw21kN24k": {
+    "name": "sw21kN24k",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sw20x0": {
+    "name": "sw20x0",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "SwSevType": {
+    "name": "SwSevType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "critical": 1,
+          "error": 2,
+          "warning": 3,
+          "informational": 4,
+          "debug": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcPortFlag": {
+    "name": "FcPortFlag",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "physical": 0,
+        "virtual": 1
+      }
+    },
+    "status": "current"
+  },
+  "swSystem": {
+    "name": "swSystem",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swFabric": {
+    "name": "swFabric",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swModule": {
+    "name": "swModule",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swAgtCfg": {
+    "name": "swAgtCfg",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swFCport": {
+    "name": "swFCport",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swNs": {
+    "name": "swNs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swEvent": {
+    "name": "swEvent",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swFwSystem": {
+    "name": "swFwSystem",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swEndDevice": {
+    "name": "swEndDevice",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swGroup": {
+    "name": "swGroup",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swBlmPerfMnt": {
+    "name": "swBlmPerfMnt",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swTrunk": {
+    "name": "swTrunk",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swTopTalker": {
+    "name": "swTopTalker",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swCpuOrMemoryUsage": {
+    "name": "swCpuOrMemoryUsage",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swConnUnitPortStatExtentionTable": {
+    "name": "swConnUnitPortStatExtentionTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swCurrentDate": {
+    "name": "swCurrentDate",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBootDate": {
+    "name": "swBootDate",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFWLastUpdated": {
+    "name": "swFWLastUpdated",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFlashLastUpdated": {
+    "name": "swFlashLastUpdated",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBootPromLastUpdated": {
+    "name": "swBootPromLastUpdated",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFirmwareVersion": {
+    "name": "swFirmwareVersion",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swOperStatus": {
+    "name": "swOperStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2,
+          "testing": 3,
+          "faulty": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swAdmStatus": {
+    "name": "swAdmStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2,
+          "testing": 3,
+          "faulty": 4,
+          "reboot": 5,
+          "fastboot": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swTelnetShellAdmStatus": {
+    "name": "swTelnetShellAdmStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "terminated": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swSsn": {
+    "name": "swSsn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFlashDLOperStatus": {
+    "name": "swFlashDLOperStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "swCurrent": 1,
+          "swFwUpgraded": 2,
+          "swCfUploaded": 3,
+          "swCfDownloaded": 4,
+          "swFwCorrupted": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFlashDLAdmStatus": {
+    "name": "swFlashDLAdmStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swCurrent": 1,
+          "swFwUpgrade": 2,
+          "swCfUpload": 3,
+          "swCfDownload": 4,
+          "swFwCorrupted": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFlashDLHost": {
+    "name": "swFlashDLHost",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFlashDLUser": {
+    "name": "swFlashDLUser",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFlashDLFile": {
+    "name": "swFlashDLFile",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFlashDLPassword": {
+    "name": "swFlashDLPassword",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swBeaconOperStatus": {
+    "name": "swBeaconOperStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBeaconAdmStatus": {
+    "name": "swBeaconAdmStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swDiagResult": {
+    "name": "swDiagResult",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sw-ok": 1,
+          "sw-faulty": 2,
+          "sw-embedded-port-fault": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNumSensors": {
+    "name": "swNumSensors",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSensorTable": {
+    "name": "swSensorTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swSensorEntry": {
+    "name": "swSensorEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swSensorIndex": {
+    "name": "swSensorIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwSensorIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSensorType": {
+    "name": "swSensorType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperature": 1,
+          "fan": 2,
+          "power-supply": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSensorStatus": {
+    "name": "swSensorStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "faulty": 2,
+          "below-min": 3,
+          "nominal": 4,
+          "above-max": 5,
+          "absent": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSensorValue": {
+    "name": "swSensorValue",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSensorInfo": {
+    "name": "swSensorInfo",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrackChangesInfo": {
+    "name": "swTrackChangesInfo",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swID": {
+    "name": "swID",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEtherIPAddress": {
+    "name": "swEtherIPAddress",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEtherIPMask": {
+    "name": "swEtherIPMask",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCIPAddress": {
+    "name": "swFCIPAddress",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCIPMask": {
+    "name": "swFCIPMask",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swIPv6Address": {
+    "name": "swIPv6Address",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swIPv6Status": {
+    "name": "swIPv6Status",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tentative": 1,
+          "preferred": 2,
+          "ipdeprecated": 3,
+          "inactive": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swModel": {
+    "name": "swModel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch7500": 1,
+          "switch7500E": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTestString": {
+    "name": "swTestString",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swDomainID": {
+    "name": "swDomainID",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwDomainIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swPrincipalSwitch": {
+    "name": "swPrincipalSwitch",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNumNbs": {
+    "name": "swNumNbs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNbTable": {
+    "name": "swNbTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swNbEntry": {
+    "name": "swNbEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swNbIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swNbIndex": {
+    "name": "swNbIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwNbIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNbMyPort": {
+    "name": "swNbMyPort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNbRemDomain": {
+    "name": "swNbRemDomain",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwDomainIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNbRemPort": {
+    "name": "swNbRemPort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNbBaudRate": {
+    "name": "swNbBaudRate",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "oneEighth": 2,
+          "quarter": 4,
+          "half": 8,
+          "full": 16,
+          "double": 32,
+          "quadruple": 64,
+          "octuple": 128,
+          "decuple": 256
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNbIslState": {
+    "name": "swNbIslState",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sw-down": 0,
+          "sw-init": 1,
+          "sw-internal2": 2,
+          "sw-internal3": 3,
+          "sw-internal4": 4,
+          "sw-active": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNbIslCost": {
+    "name": "swNbIslCost",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swNbRemPortName": {
+    "name": "swNbRemPortName",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemTable": {
+    "name": "swFabricMemTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swFabricMemEntry": {
+    "name": "swFabricMemEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swFabricMemWwn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swFabricMemWwn": {
+    "name": "swFabricMemWwn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcWwn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemDid": {
+    "name": "swFabricMemDid",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwDomainIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemName": {
+    "name": "swFabricMemName",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemEIP": {
+    "name": "swFabricMemEIP",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemFCIP": {
+    "name": "swFabricMemFCIP",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemGWIP": {
+    "name": "swFabricMemGWIP",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemType": {
+    "name": "swFabricMemType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFabricMemShortVersion": {
+    "name": "swFabricMemShortVersion",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swIDIDMode": {
+    "name": "swIDIDMode",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swPmgrEventType": {
+    "name": "swPmgrEventType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 0,
+          "delete": 1,
+          "moveport": 2,
+          "fidchange": 3,
+          "basechange": 4,
+          "vfstatechange": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swPmgrEventTime": {
+    "name": "swPmgrEventTime",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swPmgrEventDescr": {
+    "name": "swPmgrEventDescr",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swVfId": {
+    "name": "swVfId",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swAgtCmtyTable": {
+    "name": "swAgtCmtyTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.4.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swAgtCmtyEntry": {
+    "name": "swAgtCmtyEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.4.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swAgtCmtyIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swAgtCmtyIdx": {
+    "name": "swAgtCmtyIdx",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.4.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swAgtCmtyStr": {
+    "name": "swAgtCmtyStr",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.4.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swAgtTrapRcp": {
+    "name": "swAgtTrapRcp",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.4.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swAgtTrapSeverityLevel": {
+    "name": "swAgtTrapSeverityLevel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.4.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwSevType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFCPortCapacity": {
+    "name": "swFCPortCapacity",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortTable": {
+    "name": "swFCPortTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swFCPortEntry": {
+    "name": "swFCPortEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swFCPortIndex": {
+    "name": "swFCPortIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortType": {
+    "name": "swFCPortType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stitch": 1,
+          "flannel": 2,
+          "loom": 3,
+          "bloom": 4,
+          "rdbloom": 5,
+          "wormhole": 6,
+          "other": 7,
+          "unknown": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortPhyState": {
+    "name": "swFCPortPhyState",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noCard": 1,
+          "noTransceiver": 2,
+          "laserFault": 3,
+          "noLight": 4,
+          "noSync": 5,
+          "inSync": 6,
+          "portFault": 7,
+          "diagFault": 8,
+          "lockRef": 9,
+          "validating": 10,
+          "invalidModule": 11,
+          "unknown": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortOpStatus": {
+    "name": "swFCPortOpStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "online": 1,
+          "offline": 2,
+          "testing": 3,
+          "faulty": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortAdmStatus": {
+    "name": "swFCPortAdmStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "offline": 2,
+          "testing": 3,
+          "faulty": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFCPortLinkState": {
+    "name": "swFCPortLinkState",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "loopback": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFCPortTxType": {
+    "name": "swFCPortTxType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "lw": 2,
+          "sw": 3,
+          "ld": 4,
+          "cu": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortTxWords": {
+    "name": "swFCPortTxWords",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxWords": {
+    "name": "swFCPortRxWords",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortTxFrames": {
+    "name": "swFCPortTxFrames",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxFrames": {
+    "name": "swFCPortRxFrames",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxC2Frames": {
+    "name": "swFCPortRxC2Frames",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxC3Frames": {
+    "name": "swFCPortRxC3Frames",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxLCs": {
+    "name": "swFCPortRxLCs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxMcasts": {
+    "name": "swFCPortRxMcasts",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortTooManyRdys": {
+    "name": "swFCPortTooManyRdys",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortNoTxCredits": {
+    "name": "swFCPortNoTxCredits",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxEncInFrs": {
+    "name": "swFCPortRxEncInFrs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxCrcs": {
+    "name": "swFCPortRxCrcs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxTruncs": {
+    "name": "swFCPortRxTruncs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxTooLongs": {
+    "name": "swFCPortRxTooLongs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxBadEofs": {
+    "name": "swFCPortRxBadEofs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxEncOutFrs": {
+    "name": "swFCPortRxEncOutFrs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortRxBadOs": {
+    "name": "swFCPortRxBadOs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortC3Discards": {
+    "name": "swFCPortC3Discards",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortMcastTimedOuts": {
+    "name": "swFCPortMcastTimedOuts",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortTxMcasts": {
+    "name": "swFCPortTxMcasts",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortLipIns": {
+    "name": "swFCPortLipIns",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortLipOuts": {
+    "name": "swFCPortLipOuts",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortLipLastAlpa": {
+    "name": "swFCPortLipLastAlpa",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortWwn": {
+    "name": "swFCPortWwn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortSpeed": {
+    "name": "swFCPortSpeed",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "one-GB": 1,
+          "two-GB": 2,
+          "auto-Negotiate": 3,
+          "four-GB": 4,
+          "eight-GB": 5,
+          "ten-GB": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFCPortName": {
+    "name": "swFCPortName",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortSpecifier": {
+    "name": "swFCPortSpecifier",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortFlag": {
+    "name": "swFCPortFlag",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcPortFlag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFCPortBrcdType": {
+    "name": "swFCPortBrcdType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.6.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "fl-port": 3,
+          "f-port": 4,
+          "e-port": 5,
+          "g-port": 6,
+          "ex-port": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsLocalNumEntry": {
+    "name": "swNsLocalNumEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsLocalTable": {
+    "name": "swNsLocalTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swNsLocalEntry": {
+    "name": "swNsLocalEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swNsEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swNsEntryIndex": {
+    "name": "swNsEntryIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsPortID": {
+    "name": "swNsPortID",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsPortType": {
+    "name": "swNsPortType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nPort": 1,
+          "nlPort": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsPortName": {
+    "name": "swNsPortName",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcWwn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsPortSymb": {
+    "name": "swNsPortSymb",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsNodeName": {
+    "name": "swNsNodeName",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcWwn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsNodeSymb": {
+    "name": "swNsNodeSymb",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsIPA": {
+    "name": "swNsIPA",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsIpAddress": {
+    "name": "swNsIpAddress",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsCos": {
+    "name": "swNsCos",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class-F": 1,
+          "class-1": 2,
+          "class-F-1": 3,
+          "class-2": 4,
+          "class-F-2": 5,
+          "class-1-2": 6,
+          "class-F-1-2": 7,
+          "class-3": 8,
+          "class-F-3": 9,
+          "class-1-3": 10,
+          "class-F-1-3": 11,
+          "class-2-3": 12,
+          "class-F-2-3": 13,
+          "class-1-2-3": 14,
+          "class-F-1-2-3": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsFc4": {
+    "name": "swNsFc4",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsIpNxPort": {
+    "name": "swNsIpNxPort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsWwn": {
+    "name": "swNsWwn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swNsHardAddr": {
+    "name": "swNsHardAddr",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.7.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEventTrapLevel": {
+    "name": "swEventTrapLevel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "critical": 1,
+          "error": 2,
+          "warning": 3,
+          "informational": 4,
+          "debug": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "swEventNumEntries": {
+    "name": "swEventNumEntries",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEventTable": {
+    "name": "swEventTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEventEntry": {
+    "name": "swEventEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swEventIndex": {
+    "name": "swEventIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEventTimeInfo": {
+    "name": "swEventTimeInfo",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEventLevel": {
+    "name": "swEventLevel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "error": 2,
+          "warning": 3,
+          "informational": 4,
+          "debug": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEventRepeatCount": {
+    "name": "swEventRepeatCount",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEventDescr": {
+    "name": "swEventDescr",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEventVfId": {
+    "name": "swEventVfId",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.8.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "SwFwActs": {
+    "name": "SwFwActs",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swFwNoAction": 0,
+          "swFwErrlog": 1,
+          "swFwSnmptrap": 2,
+          "swFwErrlogSnmptrap": 3,
+          "swFwPortloglock": 4,
+          "swFwErrlogPortloglock": 5,
+          "swFwSnmptrapPortloglock": 6,
+          "swFwErrlogSnmptrapPortloglock": 7,
+          "swFwRn": 8,
+          "swFwElRn": 9,
+          "swFwStRn": 10,
+          "swFwElStRn": 11,
+          "swFwPlRn": 12,
+          "swFwElPlRn": 13,
+          "swFwStPlRn": 14,
+          "swFwElStPlRn": 15,
+          "swFwMailAlert": 16,
+          "swFwMailAlertErrlog": 17,
+          "swFwMailAlertSnmptrap": 18,
+          "swFwMailAlertErrlogSnmptrap": 19,
+          "swFwMailAlertPortloglock": 20,
+          "swFwMailAlertErrlogPortloglock": 21,
+          "swFwMailAlertSnmptrapPortloglock": 22,
+          "swFwMailAlertErrlogSnmptrapPortloglock": 23,
+          "swFwMailAlertRn": 24,
+          "swFwElMailAlertRn": 25,
+          "swFwMailAlertStRn": 26,
+          "swFwMailAlertElStRn": 27,
+          "swFwMailAlertPlRn": 28,
+          "swFwMailAlertElPlRn": 29,
+          "swFwMailAlertStPlRn": 30,
+          "swFwMailAlertElStPlRn": 31,
+          "swFwPf": 32,
+          "swFwElPf": 33,
+          "swFwStPf": 34,
+          "swFwElStPf": 35,
+          "swFwPlPf": 36,
+          "swFwElPlPf": 37,
+          "swFwStPlPf": 38,
+          "swFwElStPlPf": 39,
+          "swFwRnPf": 40,
+          "swFwElRnPf": 41,
+          "swFwStRnPf": 42,
+          "swFwElStRnPf": 43,
+          "swFwPlRnPf": 44,
+          "swFwElPlRnPf": 45,
+          "swFwStPlRnPf": 46,
+          "swFwElStPlRnPf": 47,
+          "swFwMailAlertPf": 48,
+          "swFwMailAlertElPf": 49,
+          "swFwMailAlertStPf": 50,
+          "swFwMailAlertElStPf": 51,
+          "swFwMailAlertPlPf": 52,
+          "swFwMailAlertElPlPf": 53,
+          "swFwMailAlertStPlPf": 54,
+          "swFwMailAlertElStPlPf": 55,
+          "swFwMailAlertRnPf": 56,
+          "swFwMailAlertElRnPf": 57,
+          "swFwMailAlertStRnPf": 58,
+          "swFwMailAlertElStRnPf": 59,
+          "swFwMailAlertPlRnPf": 60,
+          "swFwMailAlertElPlRnPf": 61,
+          "swFwMailAlertStPlRnPf": 62,
+          "swFwMailAlertElStPlRnPf": 63
+        }
+      }
+    }
+  },
+  "SwFwLevels": {
+    "name": "SwFwLevels",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swFwReserved": 1,
+          "swFwDefault": 2,
+          "swFwCustom": 3
+        }
+      }
+    }
+  },
+  "SwFwClassesAreas": {
+    "name": "SwFwClassesAreas",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swFwEnvTemp": 1,
+          "swFwEnvFan": 2,
+          "swFwEnvPs": 3,
+          "swFwTransceiverTemp": 4,
+          "swFwTransceiverRxp": 5,
+          "swFwTransceiverTxp": 6,
+          "swFwTransceiverCurrent": 7,
+          "swFwPortLink": 8,
+          "swFwPortSync": 9,
+          "swFwPortSignal": 10,
+          "swFwPortPe": 11,
+          "swFwPortWords": 12,
+          "swFwPortCrcs": 13,
+          "swFwPortRXPerf": 14,
+          "swFwPortTXPerf": 15,
+          "swFwPortState": 16,
+          "swFwFabricEd": 17,
+          "swFwFabricFr": 18,
+          "swFwFabricDi": 19,
+          "swFwFabricSc": 20,
+          "swFwFabricZc": 21,
+          "swFwFabricFq": 22,
+          "swFwFabricFl": 23,
+          "swFwFabricGs": 24,
+          "swFwEPortLink": 25,
+          "swFwEPortSync": 26,
+          "swFwEPortSignal": 27,
+          "swFwEPortPe": 28,
+          "swFwEPortWords": 29,
+          "swFwEPortCrcs": 30,
+          "swFwEPortRXPerf": 31,
+          "swFwEPortTXPerf": 32,
+          "swFwEPortState": 33,
+          "swFwFCUPortLink": 34,
+          "swFwFCUPortSync": 35,
+          "swFwFCUPortSignal": 36,
+          "swFwFCUPortPe": 37,
+          "swFwFCUPortWords": 38,
+          "swFwFCUPortCrcs": 39,
+          "swFwFCUPortRXPerf": 40,
+          "swFwFCUPortTXPerf": 41,
+          "swFwFCUPortState": 42,
+          "swFwFOPPortLink": 43,
+          "swFwFOPPortSync": 44,
+          "swFwFOPPortSignal": 45,
+          "swFwFOPPortPe": 46,
+          "swFwFOPPortWords": 47,
+          "swFwFOPPortCrcs": 48,
+          "swFwFOPPortRXPerf": 49,
+          "swFwFOPPortTXPerf": 50,
+          "swFwFOPPortState": 51,
+          "swFwPerfALPACRC": 52,
+          "swFwPerfEToECRC": 53,
+          "swFwPerfEToERxCnt": 54,
+          "swFwPerfEToETxCnt": 55,
+          "swFwPerffltCusDef": 56,
+          "swFwTransceiverVoltage": 57,
+          "swFwSecTelnetViolations": 58,
+          "swFwSecHTTPViolations": 59,
+          "swFwSecAPIViolations": 60,
+          "swFwSecRSNMPViolations": 61,
+          "swFwSecWSNMPViolations": 62,
+          "swFwSecSESViolations": 63,
+          "swFwSecMSViolations": 64,
+          "swFwSecSerialViolations": 65,
+          "swFwSecFPViolations": 66,
+          "swFwSecSCCViolations": 67,
+          "swFwSecDCCViolations": 68,
+          "swFwSecLoginViolations": 69,
+          "swFwSecInvalidTS": 70,
+          "swFwSecInvalidSign": 71,
+          "swFwSecInvalidCert": 72,
+          "swFwSecSlapFail": 73,
+          "swFwSecSlapBadPkt": 74,
+          "swFwSecTSOutSync": 75,
+          "swFwSecNoFcs": 76,
+          "swFwSecIncompDB": 77,
+          "swFwSecIllegalCmd": 78,
+          "swFwSAMTotalDownTime": 79,
+          "swFwSAMTotalUpTime": 80,
+          "swFwSAMDurationOfOccur": 81,
+          "swFwSAMFreqOfOccur": 82,
+          "swFwResourceFlash": 83,
+          "swFwEPortUtil": 84,
+          "swFwEPortPktl": 85,
+          "swFwPortLr": 86,
+          "swFwEPortLr": 87,
+          "swFwFCUPortLr": 88,
+          "swFwFOPPortLr": 89,
+          "swFwPortC3Discard": 90,
+          "swFwEPortC3Discard": 91,
+          "swFwFCUPortC3Discard": 92,
+          "swFwFOPPortC3Discard": 93,
+          "swFwVEPortStateChange": 94,
+          "swFwVEPortUtil": 95,
+          "swFwVEPortPktLoss": 96,
+          "swFwEPortTrunkUtil": 97,
+          "swFwFCUPortTrunkUtil": 98,
+          "swFwFOPPortTrunkUtil": 99,
+          "swFwCPUMemUsage": 100
+        }
+      }
+    }
+  },
+  "SwFwWriteVals": {
+    "name": "SwFwWriteVals",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swFwCancelWrite": 1,
+          "swFwApplyWrite": 2
+        }
+      }
+    }
+  },
+  "SwFwTimebase": {
+    "name": "SwFwTimebase",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swFwTbNone": 1,
+          "swFwTbSec": 2,
+          "swFwTbMin": 3,
+          "swFwTbHour": 4,
+          "swFwTbDay": 5
+        }
+      }
+    }
+  },
+  "SwFwStatus": {
+    "name": "SwFwStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    }
+  },
+  "SwFwEvent": {
+    "name": "SwFwEvent",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "started": 1,
+          "changed": 2,
+          "exceeded": 3,
+          "below": 4,
+          "above": 5,
+          "inBetween": 6
+        }
+      }
+    }
+  },
+  "SwFwBehavior": {
+    "name": "SwFwBehavior",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "triggered": 1,
+          "continuous": 2
+        }
+      }
+    }
+  },
+  "SwFwState": {
+    "name": "SwFwState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swFwInformative": 1,
+          "swFwNormal": 2,
+          "swFwFaulty": 3
+        }
+      }
+    }
+  },
+  "SwFwLicense": {
+    "name": "SwFwLicense",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swFwLicensed": 1,
+          "swFwNotLicensed": 2
+        }
+      }
+    }
+  },
+  "swFwFabricWatchLicense": {
+    "name": "swFwFabricWatchLicense",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwLicense",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwClassAreaTable": {
+    "name": "swFwClassAreaTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swFwClassAreaEntry": {
+    "name": "swFwClassAreaEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swFwClassAreaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swFwClassAreaIndex": {
+    "name": "swFwClassAreaIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwClassesAreas",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwWriteThVals": {
+    "name": "swFwWriteThVals",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwWriteVals",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwDefaultUnit": {
+    "name": "swFwDefaultUnit",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultTimebase": {
+    "name": "swFwDefaultTimebase",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwTimebase",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultLow": {
+    "name": "swFwDefaultLow",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultHigh": {
+    "name": "swFwDefaultHigh",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultBufSize": {
+    "name": "swFwDefaultBufSize",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwCustUnit": {
+    "name": "swFwCustUnit",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwCustTimebase": {
+    "name": "swFwCustTimebase",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwTimebase",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwCustLow": {
+    "name": "swFwCustLow",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwCustHigh": {
+    "name": "swFwCustHigh",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwCustBufSize": {
+    "name": "swFwCustBufSize",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwThLevel": {
+    "name": "swFwThLevel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwLevels",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwWriteActVals": {
+    "name": "swFwWriteActVals",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwWriteVals",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwDefaultChangedActs": {
+    "name": "swFwDefaultChangedActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultExceededActs": {
+    "name": "swFwDefaultExceededActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultBelowActs": {
+    "name": "swFwDefaultBelowActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultAboveActs": {
+    "name": "swFwDefaultAboveActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwDefaultInBetweenActs": {
+    "name": "swFwDefaultInBetweenActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwCustChangedActs": {
+    "name": "swFwCustChangedActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwCustExceededActs": {
+    "name": "swFwCustExceededActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwCustBelowActs": {
+    "name": "swFwCustBelowActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwCustAboveActs": {
+    "name": "swFwCustAboveActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwCustInBetweenActs": {
+    "name": "swFwCustInBetweenActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwValidActs": {
+    "name": "swFwValidActs",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwActs",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwActLevel": {
+    "name": "swFwActLevel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwLevels",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwThresholdTable": {
+    "name": "swFwThresholdTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swFwThresholdEntry": {
+    "name": "swFwThresholdEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swFwClassAreaIndex",
+        "implied": 0
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swFwThresholdIndex": {
+    "name": "swFwThresholdIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwStatus": {
+    "name": "swFwStatus",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwName": {
+    "name": "swFwName",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwLabel": {
+    "name": "swFwLabel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 70
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwCurVal": {
+    "name": "swFwCurVal",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwLastEvent": {
+    "name": "swFwLastEvent",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwEvent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwLastEventVal": {
+    "name": "swFwLastEventVal",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwLastEventTime": {
+    "name": "swFwLastEventTime",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwLastState": {
+    "name": "swFwLastState",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swFwBehaviorType": {
+    "name": "swFwBehaviorType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwFwBehavior",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwBehaviorInt": {
+    "name": "swFwBehaviorInt",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swFwLastSeverityLevel": {
+    "name": "swFwLastSeverityLevel",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.10.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwSevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEndDeviceRlsTable": {
+    "name": "swEndDeviceRlsTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEndDeviceRlsEntry": {
+    "name": "swEndDeviceRlsEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swEndDevicePort",
+        "implied": 0
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swEndDeviceAlpa",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swEndDevicePort": {
+    "name": "swEndDevicePort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEndDeviceAlpa": {
+    "name": "swEndDeviceAlpa",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swEndDevicePortID": {
+    "name": "swEndDevicePortID",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEndDeviceLinkFailure": {
+    "name": "swEndDeviceLinkFailure",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEndDeviceSyncLoss": {
+    "name": "swEndDeviceSyncLoss",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEndDeviceSigLoss": {
+    "name": "swEndDeviceSigLoss",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEndDeviceProtoErr": {
+    "name": "swEndDeviceProtoErr",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEndDeviceInvalidWord": {
+    "name": "swEndDeviceInvalidWord",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swEndDeviceInvalidCRC": {
+    "name": "swEndDeviceInvalidCRC",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.21.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swGroupTable": {
+    "name": "swGroupTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swGroupEntry": {
+    "name": "swGroupEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swGroupIndex": {
+    "name": "swGroupIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swGroupName": {
+    "name": "swGroupName",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swGroupType": {
+    "name": "swGroupType",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swGroupMemTable": {
+    "name": "swGroupMemTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swGroupMemEntry": {
+    "name": "swGroupMemEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swGroupId",
+        "implied": 0
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupMemWwn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swGroupId": {
+    "name": "swGroupId",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swGroupMemWwn": {
+    "name": "swGroupMemWwn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcWwn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swGroupMemPos": {
+    "name": "swGroupMemPos",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.22.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfALPAMntTable": {
+    "name": "swBlmPerfALPAMntTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swBlmPerfALPAMntEntry": {
+    "name": "swBlmPerfALPAMntEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swBlmPerfAlpaPort",
+        "implied": 0
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swBlmPerfAlpaIndx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swBlmPerfAlpaPort": {
+    "name": "swBlmPerfAlpaPort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfAlpaIndx": {
+    "name": "swBlmPerfAlpaIndx",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfAlpa": {
+    "name": "swBlmPerfAlpa",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfAlpaCRCCnt": {
+    "name": "swBlmPerfAlpaCRCCnt",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfEEMntTable": {
+    "name": "swBlmPerfEEMntTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swBlmPerfEEMntEntry": {
+    "name": "swBlmPerfEEMntEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swBlmPerfEEPort",
+        "implied": 0
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swBlmPerfEERefKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swBlmPerfEEPort": {
+    "name": "swBlmPerfEEPort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfEERefKey": {
+    "name": "swBlmPerfEERefKey",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfEECRC": {
+    "name": "swBlmPerfEECRC",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfEEFCWRx": {
+    "name": "swBlmPerfEEFCWRx",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfEEFCWTx": {
+    "name": "swBlmPerfEEFCWTx",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfEESid": {
+    "name": "swBlmPerfEESid",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfEEDid": {
+    "name": "swBlmPerfEEDid",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfFltMntTable": {
+    "name": "swBlmPerfFltMntTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swBlmPerfFltMntEntry": {
+    "name": "swBlmPerfFltMntEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swBlmPerfFltPort",
+        "implied": 0
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swBlmPerfFltRefkey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swBlmPerfFltPort": {
+    "name": "swBlmPerfFltPort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfFltRefkey": {
+    "name": "swBlmPerfFltRefkey",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfFltCnt": {
+    "name": "swBlmPerfFltCnt",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swBlmPerfFltAlias": {
+    "name": "swBlmPerfFltAlias",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.23.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swSwitchTrunkable": {
+    "name": "swSwitchTrunkable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 8,
+          "no": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrunkTable": {
+    "name": "swTrunkTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTrunkEntry": {
+    "name": "swTrunkEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swTrunkPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swTrunkPortIndex": {
+    "name": "swTrunkPortIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrunkGroupNumber": {
+    "name": "swTrunkGroupNumber",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrunkMaster": {
+    "name": "swTrunkMaster",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwTrunkMaster",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swPortTrunked": {
+    "name": "swPortTrunked",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrunkGrpTable": {
+    "name": "swTrunkGrpTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTrunkGrpEntry": {
+    "name": "swTrunkGrpEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swTrunkGrpNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swTrunkGrpNumber": {
+    "name": "swTrunkGrpNumber",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrunkGrpMaster": {
+    "name": "swTrunkGrpMaster",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwTrunkMaster",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrunkGrpTx": {
+    "name": "swTrunkGrpTx",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrunkGrpRx": {
+    "name": "swTrunkGrpRx",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.24.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntMode": {
+    "name": "swTopTalkerMntMode",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fabricmode": 1,
+          "fportmode": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntNumEntries": {
+    "name": "swTopTalkerMntNumEntries",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntTable": {
+    "name": "swTopTalkerMntTable",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "swTopTalkerMntEntry": {
+    "name": "swTopTalkerMntEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SW-MIB",
+        "object": "swTopTalkerMntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "swTopTalkerMntIndex": {
+    "name": "swTopTalkerMntIndex",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntPort": {
+    "name": "swTopTalkerMntPort",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntSpid": {
+    "name": "swTopTalkerMntSpid",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntDpid": {
+    "name": "swTopTalkerMntDpid",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntflow": {
+    "name": "swTopTalkerMntflow",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntSwwn": {
+    "name": "swTopTalkerMntSwwn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcWwn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTopTalkerMntDwwn": {
+    "name": "swTopTalkerMntDwwn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.25.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcWwn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swCpuUsage": {
+    "name": "swCpuUsage",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swCpuNoOfRetries": {
+    "name": "swCpuNoOfRetries",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swCpuUsageLimit": {
+    "name": "swCpuUsageLimit",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swCpuPollingInterval": {
+    "name": "swCpuPollingInterval",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swCpuAction": {
+    "name": "swCpuAction",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMemUsage": {
+    "name": "swMemUsage",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMemNoOfRetries": {
+    "name": "swMemNoOfRetries",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMemUsageLimit": {
+    "name": "swMemUsageLimit",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMemPollingInterval": {
+    "name": "swMemPollingInterval",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMemAction": {
+    "name": "swMemAction",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMemUsageLimit1": {
+    "name": "swMemUsageLimit1",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swMemUsageLimit3": {
+    "name": "swMemUsageLimit3",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.26.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitPortStatEntry": {
+    "name": "swConnUnitPortStatEntry",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "swConnUnitPortStatEntry",
+      "module": "SW-MIB",
+      "object": "connUnitPortStatEntry"
+    },
+    "status": "current"
+  },
+  "swConnUnitCRCWithBadEOF": {
+    "name": "swConnUnitCRCWithBadEOF",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitZeroTenancy": {
+    "name": "swConnUnitZeroTenancy",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitFLNumOfTenancy": {
+    "name": "swConnUnitFLNumOfTenancy",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitNLNumOfTenancy": {
+    "name": "swConnUnitNLNumOfTenancy",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitStopTenancyStarVation": {
+    "name": "swConnUnitStopTenancyStarVation",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitOpend": {
+    "name": "swConnUnitOpend",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitTransferConnection": {
+    "name": "swConnUnitTransferConnection",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitOpen": {
+    "name": "swConnUnitOpen",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitInvalidARB": {
+    "name": "swConnUnitInvalidARB",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitFTB1Miss": {
+    "name": "swConnUnitFTB1Miss",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitFTB2Miss": {
+    "name": "swConnUnitFTB2Miss",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitFTB6Miss": {
+    "name": "swConnUnitFTB6Miss",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitZoneMiss": {
+    "name": "swConnUnitZoneMiss",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitLunZoneMiss": {
+    "name": "swConnUnitLunZoneMiss",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitBadEOF": {
+    "name": "swConnUnitBadEOF",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitLCRX": {
+    "name": "swConnUnitLCRX",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitRDYPriority": {
+    "name": "swConnUnitRDYPriority",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swConnUnitLli": {
+    "name": "swConnUnitLli",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.27.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swTrapsV2": {
+    "name": "swTrapsV2",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "swFault": {
+    "name": "swFault",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swDiagResult"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupMemPos"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "swSensorScn": {
+    "name": "swSensorScn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swSensorStatus"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSensorIndex"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSensorType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSensorValue"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSensorInfo"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupMemPos"
+      }
+    ],
+    "status": "current"
+  },
+  "swFCPortScn": {
+    "name": "swFCPortScn",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortOpStatus"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortIndex"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortFlag"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupMemPos"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swVfId"
+      }
+    ],
+    "status": "current"
+  },
+  "swEventTrap": {
+    "name": "swEventTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swEventIndex"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swEventTimeInfo"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swEventLevel"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swEventRepeatCount"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swEventDescr"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupMemPos"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swVfId"
+      }
+    ],
+    "status": "current"
+  },
+  "swFabricWatchTrap": {
+    "name": "swFabricWatchTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swFwClassAreaIndex"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwThresholdIndex"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwLabel"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwLastEventVal"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwLastEventTime"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwLastEvent"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwLastState"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFwLastSeverityLevel"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupMemPos"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swVfId"
+      }
+    ],
+    "status": "current"
+  },
+  "swTrackChangesTrap": {
+    "name": "swTrackChangesTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swTrackChangesInfo"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swGroupMemPos"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swVfId"
+      }
+    ],
+    "status": "current"
+  },
+  "swIPv6ChangeTrap": {
+    "name": "swIPv6ChangeTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swIPv6Address"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swIPv6Status"
+      }
+    ],
+    "status": "current"
+  },
+  "swPmgrEventTrap": {
+    "name": "swPmgrEventTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swPmgrEventType"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swPmgrEventTime"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swPmgrEventDescr"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swVfId"
+      }
+    ],
+    "status": "current"
+  },
+  "swFabricReconfigTrap": {
+    "name": "swFabricReconfigTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swDomainID"
+      }
+    ],
+    "status": "current"
+  },
+  "swFabricSegmentTrap": {
+    "name": "swFabricSegmentTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortIndex"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortName"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swSsn"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swFCPortFlag"
+      },
+      {
+        "module": "SW-MIB",
+        "object": "swVfId"
+      }
+    ],
+    "status": "current"
+  },
+  "swExtTrap": {
+    "name": "swExtTrap",
+    "oid": "1.3.6.1.4.1.1588.2.1.1.1.0.11",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/SW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SW-MIB"
+  }
+}

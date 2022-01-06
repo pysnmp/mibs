@@ -1,0 +1,1249 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "westernTelematic": {
+    "name": "westernTelematic",
+    "oid": "1.3.6.1.4.1.2634",
+    "class": "objectidentity"
+  },
+  "wti": {
+    "name": "wti",
+    "oid": "1.3.6.1.4.1.2634.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-17 15:30",
+        "description": "V3.00 for the MPC 1.60"
+      }
+    ]
+  },
+  "systemTables": {
+    "name": "systemTables",
+    "oid": "1.3.6.1.4.1.2634.3.100",
+    "class": "objectidentity"
+  },
+  "plugTable": {
+    "name": "plugTable",
+    "oid": "1.3.6.1.4.1.2634.3.100.200",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plugEntry": {
+    "name": "plugEntry",
+    "oid": "1.3.6.1.4.1.2634.3.100.200.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "plugIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plugIndex": {
+    "name": "plugIndex",
+    "oid": "1.3.6.1.4.1.2634.3.100.200.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plugID": {
+    "name": "plugID",
+    "oid": "1.3.6.1.4.1.2634.3.100.200.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 9,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plugStatus": {
+    "name": "plugStatus",
+    "oid": "1.3.6.1.4.1.2634.3.100.200.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plugAction": {
+    "name": "plugAction",
+    "oid": "1.3.6.1.4.1.2634.3.100.200.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plugName": {
+    "name": "plugName",
+    "oid": "1.3.6.1.4.1.2634.3.100.200.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plugGroupTable": {
+    "name": "plugGroupTable",
+    "oid": "1.3.6.1.4.1.2634.3.100.300",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plugGroupEntry": {
+    "name": "plugGroupEntry",
+    "oid": "1.3.6.1.4.1.2634.3.100.300.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "plugGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plugGroupIndex": {
+    "name": "plugGroupIndex",
+    "oid": "1.3.6.1.4.1.2634.3.100.300.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 54
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plugGroupName": {
+    "name": "plugGroupName",
+    "oid": "1.3.6.1.4.1.2634.3.100.300.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plugGroupAction": {
+    "name": "plugGroupAction",
+    "oid": "1.3.6.1.4.1.2634.3.100.300.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userTable": {
+    "name": "userTable",
+    "oid": "1.3.6.1.4.1.2634.3.100.400",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "userEntry": {
+    "name": "userEntry",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "userIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "userIndex": {
+    "name": "userIndex",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userPasswd": {
+    "name": "userPasswd",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userAccessLevel": {
+    "name": "userAccessLevel",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userPortAccess": {
+    "name": "userPortAccess",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userLocalAccess": {
+    "name": "userLocalAccess",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userAux1Access": {
+    "name": "userAux1Access",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userAux2Access": {
+    "name": "userAux2Access",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userAux3Access": {
+    "name": "userAux3Access",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userGroupAccess": {
+    "name": "userGroupAccess",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 54
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userSerialAccess": {
+    "name": "userSerialAccess",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userTelnetSshAccess": {
+    "name": "userTelnetSshAccess",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userWebAccess": {
+    "name": "userWebAccess",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userCurrentPowerMetering": {
+    "name": "userCurrentPowerMetering",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userCallbackNum": {
+    "name": "userCallbackNum",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "userSubmit": {
+    "name": "userSubmit",
+    "oid": "1.3.6.1.4.1.2634.3.100.400.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "environmentTables": {
+    "name": "environmentTables",
+    "oid": "1.3.6.1.4.1.2634.3.200",
+    "class": "objectidentity"
+  },
+  "environmentUnitTable": {
+    "name": "environmentUnitTable",
+    "oid": "1.3.6.1.4.1.2634.3.200.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "environmentUnitEntry": {
+    "name": "environmentUnitEntry",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "environmentUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "environmentUnitIndex": {
+    "name": "environmentUnitIndex",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "environmentUnitName": {
+    "name": "environmentUnitName",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitTemperature": {
+    "name": "environmentUnitTemperature",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitCurrentA": {
+    "name": "environmentUnitCurrentA",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitVoltageA": {
+    "name": "environmentUnitVoltageA",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitPowerA": {
+    "name": "environmentUnitPowerA",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitCurrentB": {
+    "name": "environmentUnitCurrentB",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitVoltageB": {
+    "name": "environmentUnitVoltageB",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitPowerB": {
+    "name": "environmentUnitPowerB",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitCurrentC": {
+    "name": "environmentUnitCurrentC",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitVoltageC": {
+    "name": "environmentUnitVoltageC",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitPowerC": {
+    "name": "environmentUnitPowerC",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitCurrentD": {
+    "name": "environmentUnitCurrentD",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitVoltageD": {
+    "name": "environmentUnitVoltageD",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentUnitPowerD": {
+    "name": "environmentUnitPowerD",
+    "oid": "1.3.6.1.4.1.2634.3.200.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchATotalCurrent": {
+    "name": "environmentBranchATotalCurrent",
+    "oid": "1.3.6.1.4.1.2634.3.200.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchATotalPower": {
+    "name": "environmentBranchATotalPower",
+    "oid": "1.3.6.1.4.1.2634.3.200.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchBTotalCurrent": {
+    "name": "environmentBranchBTotalCurrent",
+    "oid": "1.3.6.1.4.1.2634.3.200.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchBTotalPower": {
+    "name": "environmentBranchBTotalPower",
+    "oid": "1.3.6.1.4.1.2634.3.200.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchCTotalCurrent": {
+    "name": "environmentBranchCTotalCurrent",
+    "oid": "1.3.6.1.4.1.2634.3.200.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchCTotalPower": {
+    "name": "environmentBranchCTotalPower",
+    "oid": "1.3.6.1.4.1.2634.3.200.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchDTotalCurrent": {
+    "name": "environmentBranchDTotalCurrent",
+    "oid": "1.3.6.1.4.1.2634.3.200.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentBranchDTotalPower": {
+    "name": "environmentBranchDTotalPower",
+    "oid": "1.3.6.1.4.1.2634.3.200.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentSystemTotalCurrent": {
+    "name": "environmentSystemTotalCurrent",
+    "oid": "1.3.6.1.4.1.2634.3.200.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentSystemTotalPower": {
+    "name": "environmentSystemTotalPower",
+    "oid": "1.3.6.1.4.1.2634.3.200.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "environmentMonthlyPowerLog": {
+    "name": "environmentMonthlyPowerLog",
+    "oid": "1.3.6.1.4.1.2634.3.200.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wtiTraps": {
+    "name": "wtiTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300",
+    "class": "objectidentity"
+  },
+  "trapInfo": {
+    "name": "trapInfo",
+    "oid": "1.3.6.1.4.1.2634.3.300.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "testTraps": {
+    "name": "testTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.2",
+    "class": "objectidentity"
+  },
+  "testTrap": {
+    "name": "testTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overCurrentInitialTraps": {
+    "name": "overCurrentInitialTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.4",
+    "class": "objectidentity"
+  },
+  "overCurrentInitialSetTrap": {
+    "name": "overCurrentInitialSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.40.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overCurrentInitialClearTrap": {
+    "name": "overCurrentInitialClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.40.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overCurrentCriticalTraps": {
+    "name": "overCurrentCriticalTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.5",
+    "class": "objectidentity"
+  },
+  "overCurrentCriticalSetTrap": {
+    "name": "overCurrentCriticalSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.50.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overCurrentCriticalClearTrap": {
+    "name": "overCurrentCriticalClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.50.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overTemperatureInitialTraps": {
+    "name": "overTemperatureInitialTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.6",
+    "class": "objectidentity"
+  },
+  "overTemperatureInitialSetTrap": {
+    "name": "overTemperatureInitialSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.60.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overTemperatureInitialClearTrap": {
+    "name": "overTemperatureInitialClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.60.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overTemperatureCriticalTraps": {
+    "name": "overTemperatureCriticalTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.7",
+    "class": "objectidentity"
+  },
+  "overTemperatureCriticalSetTrap": {
+    "name": "overTemperatureCriticalSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.70.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "overTemperatureCriticalClearTrap": {
+    "name": "overTemperatureCriticalClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.70.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "circuitBreakerOpenTraps": {
+    "name": "circuitBreakerOpenTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.8",
+    "class": "objectidentity"
+  },
+  "circuitBreakerOpenSetTrap": {
+    "name": "circuitBreakerOpenSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.80.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "circuitBreakerOpenClearTrap": {
+    "name": "circuitBreakerOpenClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.80.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "lostCommTraps": {
+    "name": "lostCommTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.9",
+    "class": "objectidentity"
+  },
+  "lostCommSetTrap": {
+    "name": "lostCommSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.90.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "lostCommClearTrap": {
+    "name": "lostCommClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.90.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "lostVoltageTraps": {
+    "name": "lostVoltageTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.10",
+    "class": "objectidentity"
+  },
+  "lostVoltageSetTrap": {
+    "name": "lostVoltageSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.100.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "lostVoltageClearTrap": {
+    "name": "lostVoltageClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.100.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "pingNoAnswerTraps": {
+    "name": "pingNoAnswerTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.11",
+    "class": "objectidentity"
+  },
+  "pingNoAnswerSetTrap": {
+    "name": "pingNoAnswerSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.110.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "pingNoAnswerClearTrap": {
+    "name": "pingNoAnswerClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.110.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "lockoutTraps": {
+    "name": "lockoutTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.12",
+    "class": "objectidentity"
+  },
+  "lockoutSetTrap": {
+    "name": "lockoutSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.120.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "lockoutClearTrap": {
+    "name": "lockoutClearTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.120.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "powercycleTraps": {
+    "name": "powercycleTraps",
+    "oid": "1.3.6.1.4.1.2634.3.300.13",
+    "class": "objectidentity"
+  },
+  "powercycleSetTrap": {
+    "name": "powercycleSetTrap",
+    "oid": "1.3.6.1.4.1.2634.3.300.130.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WTI-MPC-MIB",
+        "object": "trapInfo"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wti/WTI-MPC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WTI-MPC-MIB"
+  }
+}

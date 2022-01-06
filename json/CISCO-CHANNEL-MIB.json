@@ -1,0 +1,2066 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "channel": {
+    "name": "channel",
+    "oid": "1.3.6.1.4.1.9.9.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-01-06 00:00",
+        "description": "With the addition of Cisco's new Channel Port Adapter cards, all the references to CIP in the MIB description and object descriptions are changed to CMCC (Cisco Mainframe Channel Connection). The object names in the form of cip... or cipCard... will remain the same, but will be valid objects for the Channel Port Adapter cards."
+      },
+      {
+        "revision": "1998-08-14 00:00",
+        "description": "Added cipCardSubChannelResetEvent to cipCardSubChannelTable Added cipCardSubChannelShortBusy to cipCardSubChannelTable Added cipCardSubChannelCMDRetry to cipCardSubChannelTable Added cipCardSubChannelBufferWait to cipCardSubChannelTable Added cipCardSubChannelStatPending to cipCardSubChannelTable Added cipCardSubChannelSuspend to cipCardSubChannelTable Added cipCardSubChannelFBLWait to cipCardSubChannelTable"
+      },
+      {
+        "revision": "1997-03-26 00:00",
+        "description": "Added cipCardEntryCpuLoad1m to cipCardTable Added cipCardEntryCpuLoad5m to cipCardTable Added cipCardEntryCpuLoad60m to cipCardTable Added cipCardEntryDmaLoad1m to cipCardTable Added cipCardEntryDmaLoad5m to cipCardTable Added cipCardEntryDmaLoad60m to cipCardTable Added cipCardDtrBrdChannelLoad1m to cipCardDaughterBoardTable Added cipCardDtrBrdChannelLoad5m to cipCardDaughterBoardTable Added cipCardDtrBrdChannelLoad60m to cipCardDaughterBoardTable Added cipCardClawConfigBroadcastEnable to cipCardClawConfigTable Added cipCardClawConfigRowStatus to cipCardClawConfigTable Enhanced the description for cipCardEntryCpuUtilization"
+      },
+      {
+        "revision": "1996-06-13 00:00",
+        "description": "Add cipCardSubChannelCmdRetries to cipCardSubChannelTable Add cipCardDtrBrdLastStat and cipCardDtrBrdNextStat to cipCardDaughterBoardTable."
+      },
+      {
+        "revision": "1995-09-25 00:00",
+        "description": "Added cipCardApplicationTable. Added conformance section. Added cipCardEntryMajorSwRevisionNr, cipCardEntryMinorSwRevisionNr, cipCardEntryMajorHwRevisionNr and cipCardEntryMinorHwRevisionNr to cipCardTable. Enhanced the description for cipCardSubChannelIndex, cipCardClawConfigPath, cipCardClawConfigDevice, cipCardClawConfigIpAddr"
+      },
+      {
+        "revision": "1994-11-17 00:00",
+        "description": "Changed from CHANNEL-MIB to CISCO-CHANNEL-MIB."
+      }
+    ]
+  },
+  "cipCard": {
+    "name": "cipCard",
+    "oid": "1.3.6.1.4.1.9.9.20.1",
+    "class": "objectidentity"
+  },
+  "cipCardTable": {
+    "name": "cipCardTable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardEntry": {
+    "name": "cipCardEntry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardEntryIndex": {
+    "name": "cipCardEntryIndex",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardEntryName": {
+    "name": "cipCardEntryName",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cipCardEntryTotalMemory": {
+    "name": "cipCardEntryTotalMemory",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryFreeMemory": {
+    "name": "cipCardEntryFreeMemory",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilo bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryCpuUtilization": {
+    "name": "cipCardEntryCpuUtilization",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryTimeSinceLastReset": {
+    "name": "cipCardEntryTimeSinceLastReset",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryMajorSwRevisionNr": {
+    "name": "cipCardEntryMajorSwRevisionNr",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryMinorSwRevisionNr": {
+    "name": "cipCardEntryMinorSwRevisionNr",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryMajorHwRevisionNr": {
+    "name": "cipCardEntryMajorHwRevisionNr",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryMinorHwRevisionNr": {
+    "name": "cipCardEntryMinorHwRevisionNr",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryCpuLoad1m": {
+    "name": "cipCardEntryCpuLoad1m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryCpuLoad5m": {
+    "name": "cipCardEntryCpuLoad5m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryCpuLoad60m": {
+    "name": "cipCardEntryCpuLoad60m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryDmaLoad1m": {
+    "name": "cipCardEntryDmaLoad1m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryDmaLoad5m": {
+    "name": "cipCardEntryDmaLoad5m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardEntryDmaLoad60m": {
+    "name": "cipCardEntryDmaLoad60m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardApplicationTable": {
+    "name": "cipCardApplicationTable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardApplicationEntry": {
+    "name": "cipCardApplicationEntry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardApplicationNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardApplicationNameIndex": {
+    "name": "cipCardApplicationNameIndex",
+    "oid": "1.3.6.1.4.1.9.9.20.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardApplicationRevision": {
+    "name": "cipCardApplicationRevision",
+    "oid": "1.3.6.1.4.1.9.9.20.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardApplicationCompileInfo": {
+    "name": "cipCardApplicationCompileInfo",
+    "oid": "1.3.6.1.4.1.9.9.20.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDaughterBoardTable": {
+    "name": "cipCardDaughterBoardTable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardDaughterBoardEntry": {
+    "name": "cipCardDaughterBoardEntry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardDtrBrdIndex": {
+    "name": "cipCardDtrBrdIndex",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardDtrBrdType": {
+    "name": "cipCardDtrBrdType",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "escon": 1,
+          "busAndTag": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdStatus": {
+    "name": "cipCardDtrBrdStatus",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdSignal": {
+    "name": "cipCardDtrBrdSignal",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdOnline": {
+    "name": "cipCardDtrBrdOnline",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "implicitIncidents": {
+    "name": "implicitIncidents",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "codeViolationErrors": {
+    "name": "codeViolationErrors",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkFailureSignalOrSyncLoss": {
+    "name": "linkFailureSignalOrSyncLoss",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkFailureNOSs": {
+    "name": "linkFailureNOSs",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkFailureSequenceTimeouts": {
+    "name": "linkFailureSequenceTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkFailureInvalidSequences": {
+    "name": "linkFailureInvalidSequences",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkIncidentTrapCause": {
+    "name": "linkIncidentTrapCause",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "liOther": 1,
+          "liStatus": 2,
+          "liImplicitIncidents": 3,
+          "liBERthreshold": 4,
+          "liSignalOrSyncLoss": 5,
+          "liNotOperationalSequence": 6,
+          "liSequenceTimeouts": 7,
+          "liInvalidSequences": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdLastStat": {
+    "name": "cipCardDtrBrdLastStat",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdNextStat": {
+    "name": "cipCardDtrBrdNextStat",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdChannelLoad1m": {
+    "name": "cipCardDtrBrdChannelLoad1m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdChannelLoad5m": {
+    "name": "cipCardDtrBrdChannelLoad5m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardDtrBrdChannelLoad60m": {
+    "name": "cipCardDtrBrdChannelLoad60m",
+    "oid": "1.3.6.1.4.1.9.9.20.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelTable": {
+    "name": "cipCardSubChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardSubChannelEntry": {
+    "name": "cipCardSubChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardSubChannelIndex": {
+    "name": "cipCardSubChannelIndex",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelConnections": {
+    "name": "cipCardSubChannelConnections",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelCancels": {
+    "name": "cipCardSubChannelCancels",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelSelectiveResets": {
+    "name": "cipCardSubChannelSelectiveResets",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelSystemResets": {
+    "name": "cipCardSubChannelSystemResets",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelDeviceErrors": {
+    "name": "cipCardSubChannelDeviceErrors",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelWriteBlocksDropped": {
+    "name": "cipCardSubChannelWriteBlocksDropped",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelLastSenseData": {
+    "name": "cipCardSubChannelLastSenseData",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelLastSenseDataTime": {
+    "name": "cipCardSubChannelLastSenseDataTime",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelCuBusies": {
+    "name": "cipCardSubChannelCuBusies",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelCmdRetries": {
+    "name": "cipCardSubChannelCmdRetries",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelResetEvent": {
+    "name": "cipCardSubChannelResetEvent",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelShortBusy": {
+    "name": "cipCardSubChannelShortBusy",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelCMDRetry": {
+    "name": "cipCardSubChannelCMDRetry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelBufferWait": {
+    "name": "cipCardSubChannelBufferWait",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelStatPending": {
+    "name": "cipCardSubChannelStatPending",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelSuspend": {
+    "name": "cipCardSubChannelSuspend",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardSubChannelFBLWait": {
+    "name": "cipCardSubChannelFBLWait",
+    "oid": "1.3.6.1.4.1.9.9.20.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClaw": {
+    "name": "cipCardClaw",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4",
+    "class": "objectidentity"
+  },
+  "cipCardClawTable": {
+    "name": "cipCardClawTable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardClawEntry": {
+    "name": "cipCardClawEntry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardClawIndex": {
+    "name": "cipCardClawIndex",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawConnected": {
+    "name": "cipCardClawConnected",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawConfigTable": {
+    "name": "cipCardClawConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardClawConfigEntry": {
+    "name": "cipCardClawConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardClawConfigPath": {
+    "name": "cipCardClawConfigPath",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigDevice": {
+    "name": "cipCardClawConfigDevice",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigIpAddr": {
+    "name": "cipCardClawConfigIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigHostName": {
+    "name": "cipCardClawConfigHostName",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigRouterName": {
+    "name": "cipCardClawConfigRouterName",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigHostAppl": {
+    "name": "cipCardClawConfigHostAppl",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigRouterAppl": {
+    "name": "cipCardClawConfigRouterAppl",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigBroadcastEnable": {
+    "name": "cipCardClawConfigBroadcastEnable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawConfigRowStatus": {
+    "name": "cipCardClawConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsTable": {
+    "name": "cipCardClawDataXferStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsEntry": {
+    "name": "cipCardClawDataXferStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsBlocksRead": {
+    "name": "cipCardClawDataXferStatsBlocksRead",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsBlocksWritten": {
+    "name": "cipCardClawDataXferStatsBlocksWritten",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsBytesRead": {
+    "name": "cipCardClawDataXferStatsBytesRead",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsHCBytesRead": {
+    "name": "cipCardClawDataXferStatsHCBytesRead",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsBytesWritten": {
+    "name": "cipCardClawDataXferStatsBytesWritten",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsHCBytesWritten": {
+    "name": "cipCardClawDataXferStatsHCBytesWritten",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsReadBlocksDropped": {
+    "name": "cipCardClawDataXferStatsReadBlocksDropped",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsWriteBlocksDropped": {
+    "name": "cipCardClawDataXferStatsWriteBlocksDropped",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardClawDataXferStatsBufferGetRetryCount": {
+    "name": "cipCardClawDataXferStatsBufferGetRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.20.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cipCardTraps": {
+    "name": "cipCardTraps",
+    "oid": "1.3.6.1.4.1.9.9.20.1.5",
+    "class": "objectidentity"
+  },
+  "cipCardLinkFailure": {
+    "name": "cipCardLinkFailure",
+    "oid": "1.3.6.1.4.1.9.9.20.1.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdIndex"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdStatus"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdSignal"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkIncidentTrapCause"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "implicitIncidents"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "codeViolationErrors"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureSignalOrSyncLoss"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureNOSs"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureSequenceTimeouts"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureInvalidSequences"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cipCardDtrBrdLinkFailure": {
+    "name": "cipCardDtrBrdLinkFailure",
+    "oid": "1.3.6.1.4.1.9.9.20.1.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdStatus"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdSignal"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkIncidentTrapCause"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoChannelMibConformance": {
+    "name": "ciscoChannelMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.20.2",
+    "class": "objectidentity"
+  },
+  "ciscoChannelMibCompliances": {
+    "name": "ciscoChannelMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.20.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoChannelMibGroups": {
+    "name": "ciscoChannelMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.20.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoChannelMibCompliance": {
+    "name": "ciscoChannelMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.20.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoChannelGroup",
+        "module": "CISCO-CHANNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoChannelMibComplianceRev1": {
+    "name": "ciscoChannelMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.20.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoChannelGroupRev1",
+        "module": "CISCO-CHANNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoChannelMibComplianceRev2": {
+    "name": "ciscoChannelMibComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.20.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoChannelGroupRev1",
+        "module": "CISCO-CHANNEL-MIB"
+      },
+      {
+        "object": "ciscoChannelGroupRev2",
+        "module": "CISCO-CHANNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoChannelGroup": {
+    "name": "ciscoChannelGroup",
+    "oid": "1.3.6.1.4.1.9.9.20.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryName"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryTotalMemory"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryFreeMemory"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryCpuUtilization"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryTimeSinceLastReset"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMajorSwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMinorSwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMajorHwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMinorHwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardApplicationRevision"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardApplicationCompileInfo"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdType"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdStatus"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdSignal"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdOnline"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "implicitIncidents"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "codeViolationErrors"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureSignalOrSyncLoss"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureNOSs"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureSequenceTimeouts"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureInvalidSequences"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkIncidentTrapCause"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelConnections"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelCancels"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelSelectiveResets"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelSystemResets"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelDeviceErrors"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelWriteBlocksDropped"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelLastSenseData"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelLastSenseDataTime"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelCuBusies"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawIndex"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConnected"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigPath"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigDevice"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigIpAddr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigHostName"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigRouterName"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigHostAppl"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigRouterAppl"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBlocksRead"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBlocksWritten"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBytesRead"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsHCBytesRead"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBytesWritten"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsHCBytesWritten"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsReadBlocksDropped"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsWriteBlocksDropped"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBufferGetRetryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoChannelGroupRev1": {
+    "name": "ciscoChannelGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.20.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryName"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryTotalMemory"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryFreeMemory"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryCpuUtilization"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryTimeSinceLastReset"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMajorSwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMinorSwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMajorHwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryMinorHwRevisionNr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardApplicationRevision"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardApplicationCompileInfo"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdType"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdStatus"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdSignal"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdOnline"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "implicitIncidents"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "codeViolationErrors"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureSignalOrSyncLoss"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureNOSs"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureSequenceTimeouts"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkFailureInvalidSequences"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "linkIncidentTrapCause"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdLastStat"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdNextStat"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelIndex"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelConnections"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelCancels"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelSelectiveResets"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelSystemResets"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelDeviceErrors"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelWriteBlocksDropped"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelLastSenseData"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelLastSenseDataTime"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelCuBusies"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelCmdRetries"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawIndex"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConnected"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigPath"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigDevice"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigIpAddr"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigHostName"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigRouterName"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigHostAppl"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigRouterAppl"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBlocksRead"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBlocksWritten"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBytesRead"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsHCBytesRead"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBytesWritten"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsHCBytesWritten"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsReadBlocksDropped"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsWriteBlocksDropped"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawDataXferStatsBufferGetRetryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoChannelGroupRev2": {
+    "name": "ciscoChannelGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.20.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryCpuLoad1m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryCpuLoad5m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryCpuLoad60m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryDmaLoad1m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryDmaLoad5m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardEntryDmaLoad60m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdChannelLoad1m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdChannelLoad5m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardDtrBrdChannelLoad60m"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigBroadcastEnable"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardClawConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoChannelGroupRev3": {
+    "name": "ciscoChannelGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.20.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelResetEvent"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelShortBusy"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelCMDRetry"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelBufferWait"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelStatPending"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelSuspend"
+      },
+      {
+        "module": "CISCO-CHANNEL-MIB",
+        "object": "cipCardSubChannelFBLWait"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CHANNEL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CHANNEL-MIB"
+  }
+}

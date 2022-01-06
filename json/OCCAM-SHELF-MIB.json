@@ -1,0 +1,722 @@
+{
+  "imports": {
+    "class": "imports",
+    "OCCAM-REG-MODULE": [
+      "occamGenericHardwareModules"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "enterprises",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "internet",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "private",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "occamShelfMib": {
+    "name": "occamShelfMib",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-04-27 10:51",
+        "description": "Reformatted certain text"
+      },
+      {
+        "revision": "2007-02-22 00:00",
+        "description": "Removed DISPLAY-HINT"
+      }
+    ]
+  },
+  "ValidValue": {
+    "name": "ValidValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "not-valid": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ShelfControllerRoleValue": {
+    "name": "ShelfControllerRoleValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ShelfSlotIndexValue": {
+    "name": "ShelfSlotIndexValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ShelfIndexValue": {
+    "name": "ShelfIndexValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ShelfControllerPeerFoundStatusValue": {
+    "name": "ShelfControllerPeerFoundStatusValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peer-found": 1,
+          "peer-not-found": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CardOperationalStatusValue": {
+    "name": "CardOperationalStatusValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CardRoleValue": {
+    "name": "CardRoleValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standalone": 1,
+          "card": 2,
+          "shelf-controller": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlotsInShelfValue": {
+    "name": "SlotsInShelfValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CardPresenceStatusValue": {
+    "name": "CardPresenceStatusValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inserted": 1,
+          "removed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ShelfControllerRedundancyStateValue": {
+    "name": "ShelfControllerRedundancyStateValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "standby": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ShelfRedundancyStatusValue": {
+    "name": "ShelfRedundancyStatusValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redundant": 1,
+          "not-redundant": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "shelfMibObjects": {
+    "name": "shelfMibObjects",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1",
+    "class": "objectidentity"
+  },
+  "shelfMibTraps": {
+    "name": "shelfMibTraps",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2",
+    "class": "objectidentity"
+  },
+  "cardIpAddress": {
+    "name": "cardIpAddress",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardShelfIndex": {
+    "name": "cardShelfIndex",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardSlotIndex": {
+    "name": "cardSlotIndex",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfSlotIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardShelfSlots": {
+    "name": "cardShelfSlots",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlotsInShelfValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cardRole": {
+    "name": "cardRole",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardRoleValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfControllerPeerIpAddress": {
+    "name": "shelfControllerPeerIpAddress",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfControllerPeerFoundStatus": {
+    "name": "shelfControllerPeerFoundStatus",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfControllerPeerFoundStatusValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfControllerRole": {
+    "name": "shelfControllerRole",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfControllerRoleValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfControllerRedundancyState": {
+    "name": "shelfControllerRedundancyState",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfControllerRedundancyStateValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfClusterIpAddress": {
+    "name": "shelfClusterIpAddress",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfRedundancyStatus": {
+    "name": "shelfRedundancyStatus",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfRedundancyStatusValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "blcConfigChangeString": {
+    "name": "blcConfigChangeString",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfSlotTable": {
+    "name": "shelfSlotTable",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "shelfSlotEntry": {
+    "name": "shelfSlotEntry",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "shelfSlotIndex": {
+    "name": "shelfSlotIndex",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ShelfSlotIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfCardIpAddress": {
+    "name": "shelfCardIpAddress",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfCardPresenceStatus": {
+    "name": "shelfCardPresenceStatus",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardPresenceStatusValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfCardOperationalStatus": {
+    "name": "shelfCardOperationalStatus",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CardOperationalStatusValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "shelfSlotRowStatus": {
+    "name": "shelfSlotRowStatus",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ValidValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "resyncTrigger": {
+    "name": "resyncTrigger",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "resyncTriggerAll": {
+    "name": "resyncTriggerAll",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "resyncActiveAlarms": {
+    "name": "resyncActiveAlarms",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "resyncEvents": {
+    "name": "resyncEvents",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cardPresenceNotification": {
+    "name": "cardPresenceNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardShelfIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardSlotIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfCardPresenceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cardOperationalNotification": {
+    "name": "cardOperationalNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardShelfIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardSlotIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfCardOperationalStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "shelfControllerFailoverNotification": {
+    "name": "shelfControllerFailoverNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardShelfIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardSlotIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerPeerIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRole"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRedundancyState"
+      }
+    ],
+    "status": "current"
+  },
+  "shelfControllerForcedFailoverNotification": {
+    "name": "shelfControllerForcedFailoverNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardShelfIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardSlotIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerPeerIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRole"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRedundancyState"
+      }
+    ],
+    "status": "current"
+  },
+  "peerFoundNotification": {
+    "name": "peerFoundNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardShelfIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardSlotIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerPeerIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRole"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRedundancyState"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerPeerFoundStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "configChangedNotification": {
+    "name": "configChangedNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardShelfIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardSlotIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "blcConfigChangeString"
+      }
+    ],
+    "status": "current"
+  },
+  "shelfRedundancyChangeNotification": {
+    "name": "shelfRedundancyChangeNotification",
+    "oid": "1.3.6.1.4.1.6066.2.1.3.3.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardIpAddress"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardShelfIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "cardSlotIndex"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRole"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfControllerRedundancyState"
+      },
+      {
+        "module": "OCCAM-SHELF-MIB",
+        "object": "shelfRedundancyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-SHELF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "OCCAM-SHELF-MIB"
+  }
+}

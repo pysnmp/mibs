@@ -1,0 +1,438 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-DEVICE-MIB": [
+      "coDevDisIndex"
+    ],
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "colubrisDeviceDot1xMIB": {
+    "name": "colubrisDeviceDot1xMIB",
+    "oid": "1.3.6.1.4.1.8744.5.32",
+    "class": "moduleidentity"
+  },
+  "colubrisDeviceDot1xMIBObjects": {
+    "name": "colubrisDeviceDot1xMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.32.1",
+    "class": "objectidentity"
+  },
+  "coDeviceDot1xConfigGroup": {
+    "name": "coDeviceDot1xConfigGroup",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.1",
+    "class": "objectidentity"
+  },
+  "coDeviceDot1xStatusGroup": {
+    "name": "coDeviceDot1xStatusGroup",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2",
+    "class": "objectidentity"
+  },
+  "coDeviceDot1xStatsGroup": {
+    "name": "coDeviceDot1xStatsGroup",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3",
+    "class": "objectidentity"
+  },
+  "coDeviceDot1xStatusTable": {
+    "name": "coDeviceDot1xStatusTable",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceDot1xStatusEntry": {
+    "name": "coDeviceDot1xStatusEntry",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COLUBRIS-DEVICE-MIB",
+        "object": "coDevDisIndex",
+        "implied": 0
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coDev1xStaIndex": {
+    "name": "coDev1xStaIndex",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDev1xStaMacAddress": {
+    "name": "coDev1xStaMacAddress",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaUserName": {
+    "name": "coDev1xStaUserName",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaPaeState": {
+    "name": "coDev1xStaPaeState",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "disconnected": 2,
+          "connecting": 3,
+          "authenticating": 4,
+          "authenticated": 5,
+          "aborting": 6,
+          "held": 7,
+          "forceAuth": 8,
+          "forceUnauth": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaBackendAuthState": {
+    "name": "coDev1xStaBackendAuthState",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2,
+          "success": 3,
+          "fail": 4,
+          "timeout": 5,
+          "idle": 6,
+          "initialize": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaPortStatus": {
+    "name": "coDev1xStaPortStatus",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authorized": 1,
+          "unauthorized": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaSessionTime": {
+    "name": "coDev1xStaSessionTime",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaTerminateCause": {
+    "name": "coDev1xStaTerminateCause",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supplicantLogoff": 1,
+          "portFailure": 2,
+          "supplicantRestart": 3,
+          "reauthFailed": 4,
+          "authControlForceUnauth": 5,
+          "portReInit": 6,
+          "portAdminDisabled": 7,
+          "notTerminatedYet": 999
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDeviceDot1xStatsTable": {
+    "name": "coDeviceDot1xStatsTable",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coDeviceDot1xStatsEntry": {
+    "name": "coDeviceDot1xStatsEntry",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "coDeviceDot1xStatsEntry",
+      "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+      "object": "coDeviceDot1xStatusEntry"
+    },
+    "status": "current"
+  },
+  "coDev1xStaEapolRxFrame": {
+    "name": "coDev1xStaEapolRxFrame",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaEapolTxFrame": {
+    "name": "coDev1xStaEapolTxFrame",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaBackendResponses": {
+    "name": "coDev1xStaBackendResponses",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaBackendChallenges": {
+    "name": "coDev1xStaBackendChallenges",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaBackendAuthSuccesses": {
+    "name": "coDev1xStaBackendAuthSuccesses",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coDev1xStaBackendAuthFails": {
+    "name": "coDev1xStaBackendAuthFails",
+    "oid": "1.3.6.1.4.1.8744.5.32.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisDeviceDot1xMIBConformance": {
+    "name": "colubrisDeviceDot1xMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.32.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceDot1xMIBCompliances": {
+    "name": "colubrisDeviceDot1xMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.32.2.1",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceDot1xMIBGroups": {
+    "name": "colubrisDeviceDot1xMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.32.2.2",
+    "class": "objectidentity"
+  },
+  "colubrisDeviceDot1xMIBCompliance": {
+    "name": "colubrisDeviceDot1xMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.32.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisDeviceDot1xStatusMIBGroup",
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB"
+      },
+      {
+        "object": "colubrisDeviceDot1xStatsMIBGroup",
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceDot1xStatusMIBGroup": {
+    "name": "colubrisDeviceDot1xStatusMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.32.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaMacAddress"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaUserName"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaPaeState"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaBackendAuthState"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaPortStatus"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaSessionTime"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaTerminateCause"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisDeviceDot1xStatsMIBGroup": {
+    "name": "colubrisDeviceDot1xStatsMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.32.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaEapolRxFrame"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaEapolTxFrame"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaBackendResponses"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaBackendChallenges"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaBackendAuthSuccesses"
+      },
+      {
+        "module": "COLUBRIS-DEVICE-DOT1X-MIB",
+        "object": "coDev1xStaBackendAuthFails"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-DOT1X-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-DEVICE-DOT1X-MIB"
+  }
+}

@@ -1,0 +1,1134 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-MIB": [
+      "atmVclEntry",
+      "atmVclVci",
+      "atmVclVpi"
+    ],
+    "ATM-TC-MIB": [
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
+    ],
+    "CISCO-QOS-PIB-MIB": [
+      "Percent"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifDescr"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPppoeMIB": {
+    "name": "ciscoPppoeMIB",
+    "oid": "1.3.6.1.4.1.9.9.194",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-04-25 00:00",
+        "description": "Added following new groups cPppoePerInterfaceGroup, cPppoeSystemLimitsThresholdsNotifObjectsGroup cPppoeSystemLimitsThresholdsNotifGroup and cPppoeSystemLimitsThresholdsGroup. Added a new compliance ciscoPppoeMIBBasicComplianceRev1 which deprecates ciscoPppoeMIBBasicCompliance. "
+      },
+      {
+        "revision": "2005-12-21 00:00",
+        "description": "Updated the imports such that Unsigned32 is imported from SNMPv2-SMI instead of CISCO-TC."
+      },
+      {
+        "revision": "2001-02-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPppoeMIBObjects": {
+    "name": "ciscoPppoeMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.194.1",
+    "class": "objectidentity"
+  },
+  "cPppoeSystemSessionInfo": {
+    "name": "cPppoeSystemSessionInfo",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1",
+    "class": "objectidentity"
+  },
+  "cPppoeVcCfgInfo": {
+    "name": "cPppoeVcCfgInfo",
+    "oid": "1.3.6.1.4.1.9.9.194.1.2",
+    "class": "objectidentity"
+  },
+  "cPppoeVcSessionsInfo": {
+    "name": "cPppoeVcSessionsInfo",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3",
+    "class": "objectidentity"
+  },
+  "cPppoeSessionsPerInterfaceInfo": {
+    "name": "cPppoeSessionsPerInterfaceInfo",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4",
+    "class": "objectidentity"
+  },
+  "cPppoeSystemSessionNotifyObjects": {
+    "name": "cPppoeSystemSessionNotifyObjects",
+    "oid": "1.3.6.1.4.1.9.9.194.1.5",
+    "class": "objectidentity"
+  },
+  "cPppoeSystemCurrSessions": {
+    "name": "cPppoeSystemCurrSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeSystemHighWaterSessions": {
+    "name": "cPppoeSystemHighWaterSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeSystemMaxAllowedSessions": {
+    "name": "cPppoeSystemMaxAllowedSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemThresholdSessions": {
+    "name": "cPppoeSystemThresholdSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemExceededSessionErrors": {
+    "name": "cPppoeSystemExceededSessionErrors",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeSystemPerMacSessionlimit": {
+    "name": "cPppoeSystemPerMacSessionlimit",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemPerMacIWFSessionlimit": {
+    "name": "cPppoeSystemPerMacIWFSessionlimit",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemPerMacThrottleRatelimit": {
+    "name": "cPppoeSystemPerMacThrottleRatelimit",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemPerVLANlimit": {
+    "name": "cPppoeSystemPerVLANlimit",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemPerVLANthrottleRatelimit": {
+    "name": "cPppoeSystemPerVLANthrottleRatelimit",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemPerVClimit": {
+    "name": "cPppoeSystemPerVClimit",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemPerVCThrottleRatelimit": {
+    "name": "cPppoeSystemPerVCThrottleRatelimit",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemSessionLossThreshold": {
+    "name": "cPppoeSystemSessionLossThreshold",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemSessionLossPercent": {
+    "name": "cPppoeSystemSessionLossPercent",
+    "oid": "1.3.6.1.4.1.9.9.194.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeSystemSessionClientMacAddress": {
+    "name": "cPppoeSystemSessionClientMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.194.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cPppoeSystemSessionVlanID": {
+    "name": "cPppoeSystemSessionVlanID",
+    "oid": "1.3.6.1.4.1.9.9.194.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cPppoeSystemSessionInnerVlanID": {
+    "name": "cPppoeSystemSessionInnerVlanID",
+    "oid": "1.3.6.1.4.1.9.9.194.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cPppoeSystemSessionVci": {
+    "name": "cPppoeSystemSessionVci",
+    "oid": "1.3.6.1.4.1.9.9.194.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cPppoeSystemSessionVpi": {
+    "name": "cPppoeSystemSessionVpi",
+    "oid": "1.3.6.1.4.1.9.9.194.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cPppoeVcCfgTable": {
+    "name": "cPppoeVcCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.194.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPppoeVcCfgEntry": {
+    "name": "cPppoeVcCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.194.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cPppoeVcCfgEntry",
+      "module": "CISCO-PPPOE-MIB",
+      "object": "atmVclEntry"
+    },
+    "status": "current"
+  },
+  "cPppoeVcEnable": {
+    "name": "cPppoeVcEnable",
+    "oid": "1.3.6.1.4.1.9.9.194.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeVcSessionsTable": {
+    "name": "cPppoeVcSessionsTable",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPppoeVcSessionsEntry": {
+    "name": "cPppoeVcSessionsEntry",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeVcCurrSessions": {
+    "name": "cPppoeVcCurrSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeVcHighWaterSessions": {
+    "name": "cPppoeVcHighWaterSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeVcMaxAllowedSessions": {
+    "name": "cPppoeVcMaxAllowedSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeVcThresholdSessions": {
+    "name": "cPppoeVcThresholdSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cPppoeVcExceededSessionErrors": {
+    "name": "cPppoeVcExceededSessionErrors",
+    "oid": "1.3.6.1.4.1.9.9.194.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeSessionsPerInterfaceTable": {
+    "name": "cPppoeSessionsPerInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPppoeSessionsPerInterfaceEntry": {
+    "name": "cPppoeSessionsPerInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeTotalSessions": {
+    "name": "cPppoeTotalSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoePtaSessions": {
+    "name": "cPppoePtaSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeFwdedSessions": {
+    "name": "cPppoeFwdedSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoeTransSessions": {
+    "name": "cPppoeTransSessions",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoePerInterfaceSessionLossThreshold": {
+    "name": "cPppoePerInterfaceSessionLossThreshold",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPppoePerInterfaceSessionLossPercent": {
+    "name": "cPppoePerInterfaceSessionLossPercent",
+    "oid": "1.3.6.1.4.1.9.9.194.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoPppoeMIBNotificationPrefix": {
+    "name": "ciscoPppoeMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.194.2",
+    "class": "objectidentity"
+  },
+  "ciscoPppoeMIBNotification": {
+    "name": "ciscoPppoeMIBNotification",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0",
+    "class": "objectidentity"
+  },
+  "cPppoeSystemSessionThresholdTrap": {
+    "name": "cPppoeSystemSessionThresholdTrap",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemCurrSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemMaxAllowedSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemThresholdSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeVcSessionThresholdTrap": {
+    "name": "cPppoeVcSessionThresholdTrap",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcCurrSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcMaxAllowedSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcThresholdSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionPerMACLimitNotif": {
+    "name": "cPppoeSystemSessionPerMACLimitNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerMacSessionlimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionClientMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionPerMACThrottleNotif": {
+    "name": "cPppoeSystemSessionPerMACThrottleNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerMacThrottleRatelimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionClientMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionPerVLANLimitNotif": {
+    "name": "cPppoeSystemSessionPerVLANLimitNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVLANlimit"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVlanID"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionInnerVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionPerVLANThrottleNotif": {
+    "name": "cPppoeSystemSessionPerVLANThrottleNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVLANthrottleRatelimit"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVlanID"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionInnerVlanID"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionPerVCLimitNotif": {
+    "name": "cPppoeSystemSessionPerVCLimitNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVClimit"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVci"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVpi"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionPerVCThrottleNotif": {
+    "name": "cPppoeSystemSessionPerVCThrottleNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVCThrottleRatelimit"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVci"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVpi"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionLossThresholdNotif": {
+    "name": "cPppoeSystemSessionLossThresholdNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionLossThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoePerInterfaceSessionLossThresholdNotif": {
+    "name": "cPppoePerInterfaceSessionLossThresholdNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoePerInterfaceSessionLossThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemSessionLossPercentNotif": {
+    "name": "cPppoeSystemSessionLossPercentNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionLossPercent"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoePerInterfaceSessionLossPercentNotif": {
+    "name": "cPppoePerInterfaceSessionLossPercentNotif",
+    "oid": "1.3.6.1.4.1.9.9.194.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoePerInterfaceSessionLossPercent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPppoeMIBConformance": {
+    "name": "ciscoPppoeMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.194.3",
+    "class": "objectidentity"
+  },
+  "ciscoPppoeMIBCompliances": {
+    "name": "ciscoPppoeMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.194.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoPppoeMIBGroups": {
+    "name": "ciscoPppoeMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoPppoeMIBBasicCompliance": {
+    "name": "ciscoPppoeMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.9.9.194.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cPppoeSystemGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeVcCfgGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeVcSessionsGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoePerInterfaceGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeNotificationsGroup",
+        "module": "CISCO-PPPOE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPppoeMIBBasicComplianceRev1": {
+    "name": "ciscoPppoeMIBBasicComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.194.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cPppoeSystemGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeVcCfgGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeVcSessionsGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoePerInterfaceGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeNotificationsGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeSystemLimitsThresholdsGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeSystemLimitsThresholdsNotifObjectsGroup",
+        "module": "CISCO-PPPOE-MIB"
+      },
+      {
+        "object": "cPppoeSystemLimitsThresholdsNotifGroup",
+        "module": "CISCO-PPPOE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemGroup": {
+    "name": "cPppoeSystemGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemCurrSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemHighWaterSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemMaxAllowedSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemThresholdSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemExceededSessionErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeVcCfgGroup": {
+    "name": "cPppoeVcCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeVcSessionsGroup": {
+    "name": "cPppoeVcSessionsGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcCurrSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcHighWaterSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcMaxAllowedSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcThresholdSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcExceededSessionErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeNotificationsGroup": {
+    "name": "cPppoeNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionThresholdTrap"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeVcSessionThresholdTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoePerInterfaceGroup": {
+    "name": "cPppoePerInterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeTotalSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoePtaSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeFwdedSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeTransSessions"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoePerInterfaceSessionLossThreshold"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoePerInterfaceSessionLossPercent"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemLimitsThresholdsGroup": {
+    "name": "cPppoeSystemLimitsThresholdsGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerMacSessionlimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerMacIWFSessionlimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerMacThrottleRatelimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVLANlimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVLANthrottleRatelimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVClimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemPerVCThrottleRatelimit"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionLossThreshold"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionLossPercent"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemLimitsThresholdsNotifObjectsGroup": {
+    "name": "cPppoeSystemLimitsThresholdsNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionClientMacAddress"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVlanID"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionInnerVlanID"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVci"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionVpi"
+      }
+    ],
+    "status": "current"
+  },
+  "cPppoeSystemLimitsThresholdsNotifGroup": {
+    "name": "cPppoeSystemLimitsThresholdsNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.194.3.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionPerMACLimitNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionPerMACThrottleNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionPerVLANLimitNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionPerVLANThrottleNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionPerVCLimitNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionPerVCThrottleNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionLossThresholdNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoePerInterfaceSessionLossThresholdNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoeSystemSessionLossPercentNotif"
+      },
+      {
+        "module": "CISCO-PPPOE-MIB",
+        "object": "cPppoePerInterfaceSessionLossPercentNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PPPOE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PPPOE-MIB"
+  }
+}

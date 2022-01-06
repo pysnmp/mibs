@@ -1,0 +1,621 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfTotalCount",
+      "PerfCurrentCount",
+      "PerfIntervalCount"
+    ],
+    "SL-MAIN-MIB": [
+      "slmTrapLogId"
+    ],
+    "SL-NE-MIB": [
+      "sitelight"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Opaque",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "slOptApsMib": {
+    "name": "slOptApsMib",
+    "oid": "1.3.6.1.4.1.4515.1.11",
+    "class": "moduleidentity"
+  },
+  "slOptApsConfig": {
+    "name": "slOptApsConfig",
+    "oid": "1.3.6.1.4.1.4515.1.11.1",
+    "class": "objectidentity"
+  },
+  "slOptApsTraps": {
+    "name": "slOptApsTraps",
+    "oid": "1.3.6.1.4.1.4515.1.11.2",
+    "class": "objectidentity"
+  },
+  "slOptApsTraps0": {
+    "name": "slOptApsTraps0",
+    "oid": "1.3.6.1.4.1.4515.1.11.2.0",
+    "class": "objectidentity"
+  },
+  "optApsConfigTable": {
+    "name": "optApsConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optApsConfigEntry": {
+    "name": "optApsConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigUserWorkingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optApsConfigUserWorkingIndex": {
+    "name": "optApsConfigUserWorkingIndex",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigNetWorkingIndex": {
+    "name": "optApsConfigNetWorkingIndex",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigUserProtectingIndex": {
+    "name": "optApsConfigUserProtectingIndex",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigNetProtectingIndex": {
+    "name": "optApsConfigNetProtectingIndex",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigScheme": {
+    "name": "optApsConfigScheme",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equipment": 1,
+          "facility": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigEnable": {
+    "name": "optApsConfigEnable",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "optApsDisabled": 1,
+          "optApsEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigArchMode": {
+    "name": "optApsConfigArchMode",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePlusOne": 1,
+          "oneToOne": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigActiveConnectionRx": {
+    "name": "optApsConfigActiveConnectionRx",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "optApsWorkingConnection": 1,
+          "optApsProtectionConnection": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigActiveConnectionTx": {
+    "name": "optApsConfigActiveConnectionTx",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "optApsWorkingConnection": 1,
+          "optApsProtectionConnection": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigWaitToRestore": {
+    "name": "optApsConfigWaitToRestore",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigDirection": {
+    "name": "optApsConfigDirection",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniDirectional": 1,
+          "biDirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigRevertive": {
+    "name": "optApsConfigRevertive",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonrevertive": 1,
+          "revertive": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigChanStatus": {
+    "name": "optApsConfigChanStatus",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lockedOut": 0,
+        "sfWorking": 1,
+        "sfProtecting": 2,
+        "switched": 3,
+        "lockedOutRemote": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigChanSignalFailures": {
+    "name": "optApsConfigChanSignalFailures",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigChanSwitchovers": {
+    "name": "optApsConfigChanSwitchovers",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigChanLastSwitchover": {
+    "name": "optApsConfigChanLastSwitchover",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigSwitchCommand": {
+    "name": "optApsConfigSwitchCommand",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "lockoutOfProtection": 2,
+          "forcedSwitchOfWorking": 3,
+          "forcedSwitchOfProtection": 4,
+          "manualSwitchOfWorking": 5,
+          "manualSwitchOfProtection": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "clear",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigSwitchReason": {
+    "name": "optApsConfigSwitchReason",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "optApsOther": 1,
+          "optApsRevertive": 2,
+          "optApsManual": 3,
+          "optApsSignalFailure": 4,
+          "optApsForceSwitch": 5,
+          "optApsLockOut": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigResetCounters": {
+    "name": "optApsConfigResetCounters",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetCounters": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigActiveRequest": {
+    "name": "optApsConfigActiveRequest",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "optApsOther": 1,
+          "optApsRevertive": 2,
+          "optApsManual": 3,
+          "optApsSignalFailure": 4,
+          "optApsForceSwitch": 5,
+          "optApsLockOut": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optApsConfigStatus": {
+    "name": "optApsConfigStatus",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "optApsConfigLosThreshold": {
+    "name": "optApsConfigLosThreshold",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqptApsConfigTable": {
+    "name": "eqptApsConfigTable",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eqptApsConfigEntry": {
+    "name": "eqptApsConfigEntry",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "eqptApsConfigDummyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eqptApsConfigDummyIndex": {
+    "name": "eqptApsConfigDummyIndex",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eqptApsConfigRole": {
+    "name": "eqptApsConfigRole",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eqptApsWorkingRole": 1,
+          "eqptApsProtectionRole": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqptApsConfigMate": {
+    "name": "eqptApsConfigMate",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eqptApsConfigLinkStatus": {
+    "name": "eqptApsConfigLinkStatus",
+    "oid": "1.3.6.1.4.1.4515.1.11.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eqptApsLinkUp": 1,
+          "eqptApsLinkDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "optApsTrapSwitchover": {
+    "name": "optApsTrapSwitchover",
+    "oid": "1.3.6.1.4.1.4515.1.11.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigUserWorkingIndex"
+      },
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigActiveConnectionRx"
+      }
+    ],
+    "status": "current"
+  },
+  "optApsConfigTableChanged": {
+    "name": "optApsConfigTableChanged",
+    "oid": "1.3.6.1.4.1.4515.1.11.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigUserWorkingIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "optApsTrapSwitchover0": {
+    "name": "optApsTrapSwitchover0",
+    "oid": "1.3.6.1.4.1.4515.1.11.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigUserWorkingIndex"
+      },
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigActiveConnectionRx"
+      },
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmTrapLogId"
+      }
+    ],
+    "status": "current"
+  },
+  "optApsConfigTableChanged0": {
+    "name": "optApsConfigTableChanged0",
+    "oid": "1.3.6.1.4.1.4515.1.11.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigUserWorkingIndex"
+      },
+      {
+        "module": "SL-OPT-APS-MIB",
+        "object": "optApsConfigActiveConnectionRx"
+      },
+      {
+        "module": "SL-MAIN-MIB",
+        "object": "slmTrapLogId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-OPT-APS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:54 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SL-OPT-APS-MIB"
+  }
+}

@@ -1,0 +1,366 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnTtLoopMib": {
+    "name": "tnTtLoopMib",
+    "oid": "1.3.6.1.4.1.868.2.5.149",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-07-16 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "TNTtLoopInstanceAdminState": {
+    "name": "TNTtLoopInstanceAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminDisabled": 0,
+          "adminEnabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNTtLoopInstanceDomain": {
+    "name": "TNTtLoopInstanceDomain",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 0,
+          "evc": 1,
+          "vlan": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNTtLoopInstanceDirection": {
+    "name": "TNTtLoopInstanceDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "facility": 0,
+          "terminal": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNTtLoopInstanceSubscriber": {
+    "name": "TNTtLoopInstanceSubscriber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "all": 1,
+          "test": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNTtLoopInstanceType": {
+    "name": "TNTtLoopInstanceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macLoop": 0,
+          "oamLoop": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TNTtLoopInstanceOperState": {
+    "name": "TNTtLoopInstanceOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operDown": 0,
+          "operUp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "tnTtLoopCapabilitiesInstanceMax": {
+    "name": "tnTtLoopCapabilitiesInstanceMax",
+    "oid": "1.3.6.1.4.1.868.2.5.149.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnTtLoopCapabilitiesNameMax": {
+    "name": "tnTtLoopCapabilitiesNameMax",
+    "oid": "1.3.6.1.4.1.868.2.5.149.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceTable": {
+    "name": "tnTtLoopConfigInstanceTable",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceEntry": {
+    "name": "tnTtLoopConfigInstanceEntry",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN-TT-LOOP-MIB",
+        "object": "tnTtLoopConfigInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceName": {
+    "name": "tnTtLoopConfigInstanceName",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "TRAFFIC_TEST_LOOP_INSTANCE",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceDomain": {
+    "name": "tnTtLoopConfigInstanceDomain",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNTtLoopInstanceDomain",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceType": {
+    "name": "tnTtLoopConfigInstanceType",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNTtLoopInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceDirection": {
+    "name": "tnTtLoopConfigInstanceDirection",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNTtLoopInstanceDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceFlow": {
+    "name": "tnTtLoopConfigInstanceFlow",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstancePort": {
+    "name": "tnTtLoopConfigInstancePort",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceLevel": {
+    "name": "tnTtLoopConfigInstanceLevel",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceSubscriber": {
+    "name": "tnTtLoopConfigInstanceSubscriber",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNTtLoopInstanceSubscriber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopStatusInstanceOperState": {
+    "name": "tnTtLoopStatusInstanceOperState",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNTtLoopInstanceOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceAdminState": {
+    "name": "tnTtLoopConfigInstanceAdminState",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TNTtLoopInstanceAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnTtLoopConfigInstanceAction": {
+    "name": "tnTtLoopConfigInstanceAction",
+    "oid": "1.3.6.1.4.1.868.2.5.149.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "save": 1,
+          "delete": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-TT-LOOP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-TT-LOOP-MIB"
+  }
+}

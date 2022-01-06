@@ -1,0 +1,767 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfMpls"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "experimental",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfMplsVpn": {
+    "name": "hpnicfMplsVpn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-07-20 12:00",
+        "description": "Re-published as PPVPN working group draft. No changes between this version and last; just name change."
+      },
+      {
+        "revision": "2001-07-17 12:00",
+        "description": "Removed hpnicfmplsVpnVrfRouteTargetImport/Export from route target table, and modified indexing to better reflect N <> R distribution policy. Also added new object called hpnicfmplsVpnVrfRouteTargetType which denotes import/export policy for the specified route target. Added hpnicfmplsVpnInterfaceConfRowStatus which allows for an interface to be associated with a VPN through SNMP configuration. Added VrfName to index of VrfInterfaceConfEntry which allows interfaces to be associated with the appropriate VRF. Modified description of hpnicfmplsVpnVrfConfMaxPossibleRoutes and hpnicfmplsVpnVrfConfMaxRoutes to allow for undetermined value. Removed 'both' enumerated value in hpnicfmplsVpnVrfBgpNbrRole. Updated example to reflect these changes."
+      },
+      {
+        "revision": "2001-07-10 12:00",
+        "description": "Renamed hpnicfmplsNumVrfSecViolationThreshExceeded to hpnicfmplsNumVrfSecIllegalLabelThreshExceeded, and removed hpnicfmplsVpnInterfaceConfIndex from varbind. Changed HpnicfMplsVpnId TC from SnmpAdminString to OCTET STRING. Added hpnicfmplsVpnVrfSecIllegalLabelRcvThresh to hpnicfmplsVpnVrfSecEntry. Changed duplicate hpnicfmplsVpnVrfRouteTargetImport in hpnicfmplsVpnVrfRouteTargetEntry INDEX to hpnicfmplsVpnVrfRouteTargetExport."
+      },
+      {
+        "revision": "2001-06-19 12:00",
+        "description": "Fixed several compile errors."
+      },
+      {
+        "revision": "2001-05-30 12:00",
+        "description": "Updated most of document and MIB to reflect comments from WG."
+      },
+      {
+        "revision": "2000-09-30 12:00",
+        "description": "Initial draft version."
+      }
+    ]
+  },
+  "HpnicfMplsVpnId": {
+    "name": "HpnicfMplsVpnId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfMplsVpnRouteDistinguisher": {
+    "name": "HpnicfMplsVpnRouteDistinguisher",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfmplsVpnObjects": {
+    "name": "hpnicfmplsVpnObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfmplsVpnScalars": {
+    "name": "hpnicfmplsVpnScalars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfmplsVpnConf": {
+    "name": "hpnicfmplsVpnConf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfmplsVpnRoute": {
+    "name": "hpnicfmplsVpnRoute",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfmplsVpnConfiguredVrfs": {
+    "name": "hpnicfmplsVpnConfiguredVrfs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnActiveVrfs": {
+    "name": "hpnicfmplsVpnActiveVrfs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceConfTable": {
+    "name": "hpnicfmplsVpnInterfaceConfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceConfEntry": {
+    "name": "hpnicfmplsVpnInterfaceConfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnInterfaceConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceConfIndex": {
+    "name": "hpnicfmplsVpnInterfaceConfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceLabelEdgeType": {
+    "name": "hpnicfmplsVpnInterfaceLabelEdgeType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "providerEdge": 1,
+          "customerEdge": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "providerEdge",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceVpnClassification": {
+    "name": "hpnicfmplsVpnInterfaceVpnClassification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "carrierOfCarrier": 1,
+          "enterprise": 2,
+          "interProvider": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceIpAddress": {
+    "name": "hpnicfmplsVpnInterfaceIpAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceIpAddressMask": {
+    "name": "hpnicfmplsVpnInterfaceIpAddressMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnInterfaceConfRowStatus": {
+    "name": "hpnicfmplsVpnInterfaceConfRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfConfTable": {
+    "name": "hpnicfmplsVpnVrfConfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfConfEntry": {
+    "name": "hpnicfmplsVpnVrfConfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfName": {
+    "name": "hpnicfmplsVpnVrfName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfMplsVpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteDistinguisher": {
+    "name": "hpnicfmplsVpnVrfRouteDistinguisher",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfMplsVpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfNetPrefixType": {
+    "name": "hpnicfmplsVpnVrfNetPrefixType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rip": 2,
+          "ospf": 3,
+          "isis": 4,
+          "bgp": 5,
+          "static": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfNetPrefix": {
+    "name": "hpnicfmplsVpnVrfNetPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfIpRouteRedistributeConn": {
+    "name": "hpnicfmplsVpnVrfIpRouteRedistributeConn",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfIpRouteRedistributeStatic": {
+    "name": "hpnicfmplsVpnVrfIpRouteRedistributeStatic",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfIpRouteRedistributeRip": {
+    "name": "hpnicfmplsVpnVrfIpRouteRedistributeRip",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfConfHighRouteThreshold": {
+    "name": "hpnicfmplsVpnVrfConfHighRouteThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfConfIsWarnOnly": {
+    "name": "hpnicfmplsVpnVrfConfIsWarnOnly",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfConfMaxRoutes": {
+    "name": "hpnicfmplsVpnVrfConfMaxRoutes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfConfRowStatus": {
+    "name": "hpnicfmplsVpnVrfConfRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteTargetTable": {
+    "name": "hpnicfmplsVpnVrfRouteTargetTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteTargetEntry": {
+    "name": "hpnicfmplsVpnVrfRouteTargetEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfRouteTarget",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfRouteTargetType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteTarget": {
+    "name": "hpnicfmplsVpnVrfRouteTarget",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfMplsVpnRouteDistinguisher",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteTargetType": {
+    "name": "hpnicfmplsVpnVrfRouteTargetType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "import": 1,
+          "export": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteTargetRowStatus": {
+    "name": "hpnicfmplsVpnVrfRouteTargetRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrAddrTable": {
+    "name": "hpnicfmplsVpnVrfBgpNbrAddrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrAddrEntry": {
+    "name": "hpnicfmplsVpnVrfBgpNbrAddrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfBgpNbrAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrAddr": {
+    "name": "hpnicfmplsVpnVrfBgpNbrAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrRole": {
+    "name": "hpnicfmplsVpnVrfBgpNbrRole",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ce": 1,
+          "pe": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrType": {
+    "name": "hpnicfmplsVpnVrfBgpNbrType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrAsNumber": {
+    "name": "hpnicfmplsVpnVrfBgpNbrAsNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrAdminStatus": {
+    "name": "hpnicfmplsVpnVrfBgpNbrAdminStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mplsVpnVrfBgpNbrSetUp": 1,
+          "mplsVpnVrfBgpNbrSetDown": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfBgpNbrRowStatus": {
+    "name": "hpnicfmplsVpnVrfBgpNbrRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteTable": {
+    "name": "hpnicfmplsVpnVrfRouteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteEntry": {
+    "name": "hpnicfmplsVpnVrfRouteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-MPLS-BGP-VPN-MIB",
+        "object": "hpnicfmplsVpnVrfRouteNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteDest": {
+    "name": "hpnicfmplsVpnVrfRouteDest",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteMask": {
+    "name": "hpnicfmplsVpnVrfRouteMask",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteNextHop": {
+    "name": "hpnicfmplsVpnVrfRouteNextHop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteIfIndex": {
+    "name": "hpnicfmplsVpnVrfRouteIfIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteProto": {
+    "name": "hpnicfmplsVpnVrfRouteProto",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "icmp": 4,
+          "egp": 5,
+          "ggp": 6,
+          "hello": 7,
+          "rip": 8,
+          "isIs": 9,
+          "esIs": 10,
+          "ciscoIgrp": 11,
+          "bbnSpfIgp": 12,
+          "ospf": 13,
+          "bgp": 14,
+          "idpr": 15,
+          "ciscoEigrp": 16
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfmplsVpnVrfRouteRowStatus": {
+    "name": "hpnicfmplsVpnVrfRouteRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.8.12.3.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MPLS-BGP-VPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-MPLS-BGP-VPN-MIB"
+  }
+}

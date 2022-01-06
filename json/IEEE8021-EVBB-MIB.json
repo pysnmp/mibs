@@ -1,0 +1,1848 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortNumberOrZero",
+      "ieee802dot1mibs",
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbComponentIdentifier"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "ieee8021BridgeEvbMib": {
+    "name": "ieee8021BridgeEvbMib",
+    "oid": "1.3.111.2.802.1.1.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-25 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "ieee8021BridgeEvbNotifications": {
+    "name": "ieee8021BridgeEvbNotifications",
+    "oid": "1.3.111.2.802.1.1.100.0",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgeEvbObjects": {
+    "name": "ieee8021BridgeEvbObjects",
+    "oid": "1.3.111.2.802.1.1.100.1",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgeEvbConformance": {
+    "name": "ieee8021BridgeEvbConformance",
+    "oid": "1.3.111.2.802.1.1.100.2",
+    "class": "objectidentity"
+  },
+  "IEEE8021BridgeEvbTLVTC": {
+    "name": "IEEE8021BridgeEvbTLVTC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vdpCapable": 0,
+        "ecpCapable": 1,
+        "ecpRTE": 2,
+        "vdpTimerCapable": 3,
+        "reflectiveRelayCap": 14,
+        "stdForwardingCap": 15
+      }
+    },
+    "status": "current"
+  },
+  "ieee8021BridgeEvbConfig": {
+    "name": "ieee8021BridgeEvbConfig",
+    "oid": "1.3.111.2.802.1.1.100.1.1",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgeEvbSysMACAddress": {
+    "name": "ieee8021BridgeEvbSysMACAddress",
+    "oid": "1.3.111.2.802.1.1.100.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysName": {
+    "name": "ieee8021BridgeEvbSysName",
+    "oid": "1.3.111.2.802.1.1.100.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysType": {
+    "name": "ieee8021BridgeEvbSysType",
+    "oid": "1.3.111.2.802.1.1.100.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "evbBridge": 1,
+          "evbStation": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysNumExternalPorts": {
+    "name": "ieee8021BridgeEvbSysNumExternalPorts",
+    "oid": "1.3.111.2.802.1.1.100.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysEvbLldpEnables": {
+    "name": "ieee8021BridgeEvbSysEvbLldpEnables",
+    "oid": "1.3.111.2.802.1.1.100.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "evbTLVEnable": 0,
+        "autoEvbLLDPTLV": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysEvbLldpDfltMode": {
+    "name": "ieee8021BridgeEvbSysEvbLldpDfltMode",
+    "oid": "1.3.111.2.802.1.1.100.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgeEvbTLVTC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysEvbLldpNumVsisSup": {
+    "name": "ieee8021BridgeEvbSysEvbLldpNumVsisSup",
+    "oid": "1.3.111.2.802.1.1.100.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysNumCorErComps": {
+    "name": "ieee8021BridgeEvbSysNumCorErComps",
+    "oid": "1.3.111.2.802.1.1.100.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysNumSComps": {
+    "name": "ieee8021BridgeEvbSysNumSComps",
+    "oid": "1.3.111.2.802.1.1.100.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbECPACkTimer": {
+    "name": "ieee8021BridgeEvbECPACkTimer",
+    "oid": "1.3.111.2.802.1.1.100.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbECPMaxRetires": {
+    "name": "ieee8021BridgeEvbECPMaxRetires",
+    "oid": "1.3.111.2.802.1.1.100.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysVdpDfltRsrcWaitDelay": {
+    "name": "ieee8021BridgeEvbSysVdpDfltRsrcWaitDelay",
+    "oid": "1.3.111.2.802.1.1.100.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSysVdpDfltReinitKeepAlive": {
+    "name": "ieee8021BridgeEvbSysVdpDfltReinitKeepAlive",
+    "oid": "1.3.111.2.802.1.1.100.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortTable": {
+    "name": "ieee8021BridgeEvbPhyPortTable",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortEntry": {
+    "name": "ieee8021BridgeEvbPhyPortEntry",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPort": {
+    "name": "ieee8021BridgeEvbPhyPort",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortMacAddress": {
+    "name": "ieee8021BridgeEvbPhyPortMacAddress",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortTypeCap": {
+    "name": "ieee8021BridgeEvbPhyPortTypeCap",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "customerVlanPort": 0,
+        "providerNetworkPort": 1,
+        "customerNetworkPort": 2,
+        "customerEdgePort": 3,
+        "customerBackbonePort": 4,
+        "virtualInstancePort": 5,
+        "dBridgePort": 6,
+        "serverEdgePort": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortType": {
+    "name": "ieee8021BridgeEvbPhyPortType",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "customerVlanPort": 1,
+          "uplinkAccessPort": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortToComponentId": {
+    "name": "ieee8021BridgeEvbPhyPortToComponentId",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortToInternalPort": {
+    "name": "ieee8021BridgeEvbPhyPortToInternalPort",
+    "oid": "1.3.111.2.802.1.1.100.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPortTable": {
+    "name": "ieee8021BridgeEvbPortTable",
+    "oid": "1.3.111.2.802.1.1.100.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPortEntry": {
+    "name": "ieee8021BridgeEvbPortEntry",
+    "oid": "1.3.111.2.802.1.1.100.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPortComponentId": {
+    "name": "ieee8021BridgeEvbPortComponentId",
+    "oid": "1.3.111.2.802.1.1.100.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPort": {
+    "name": "ieee8021BridgeEvbPort",
+    "oid": "1.3.111.2.802.1.1.100.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPortType": {
+    "name": "ieee8021BridgeEvbPortType",
+    "oid": "1.3.111.2.802.1.1.100.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cVlanBridgePort": 1,
+          "stationFacingBridgePort": 2,
+          "uplinkAccessPort": 3,
+          "sChannelAccessPort": 4,
+          "uplinkRelayPort": 5,
+          "edgeRelayPort": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPortRowStatus": {
+    "name": "ieee8021BridgeEvbPortRowStatus",
+    "oid": "1.3.111.2.802.1.1.100.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIDBObjects": {
+    "name": "ieee8021BridgeEvbVSIDBObjects",
+    "oid": "1.3.111.2.802.1.1.100.1.2",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgeEvbVSIDBTable": {
+    "name": "ieee8021BridgeEvbVSIDBTable",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIDBEntry": {
+    "name": "ieee8021BridgeEvbVSIDBEntry",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVsiSvid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVsiSvid": {
+    "name": "ieee8021BridgeEvbVsiSvid",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIID": {
+    "name": "ieee8021BridgeEvbVSIID",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIComponentID": {
+    "name": "ieee8021BridgeEvbVSIComponentID",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIPortNumber": {
+    "name": "ieee8021BridgeEvbVSIPortNumber",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSITimeSinceCreate": {
+    "name": "ieee8021BridgeEvbVSITimeSinceCreate",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVsiVdpOperCmd": {
+    "name": "ieee8021BridgeEvbVsiVdpOperCmd",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preAssociate": 1,
+          "preAssociateWithRsrcReservation": 2,
+          "associate": 3,
+          "deAssociate": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVsiOperRevert": {
+    "name": "ieee8021BridgeEvbVsiOperRevert",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVsiOperHard": {
+    "name": "ieee8021BridgeEvbVsiOperHard",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVsiOperReason": {
+    "name": "ieee8021BridgeEvbVsiOperReason",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "success": 0,
+        "invalidFormat": 1,
+        "insufficientResources": 2,
+        "otherfailure": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIMgrID": {
+    "name": "ieee8021BridgeEvbVSIMgrID",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIType": {
+    "name": "ieee8021BridgeEvbVSIType",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSITypeVersion": {
+    "name": "ieee8021BridgeEvbVSITypeVersion",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIMvFormat": {
+    "name": "ieee8021BridgeEvbVSIMvFormat",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic": 0,
+          "partial": 1,
+          "vlanOnly": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSINumMACs": {
+    "name": "ieee8021BridgeEvbVSINumMACs",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVDPMachineState": {
+    "name": "ieee8021BridgeEvbVDPMachineState",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preAssociate": 1,
+          "preAssociateWithRsrcReservation": 2,
+          "associate": 3,
+          "deAssociate": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVDPCommandsSucceeded": {
+    "name": "ieee8021BridgeEvbVDPCommandsSucceeded",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVDPCommandsFailed": {
+    "name": "ieee8021BridgeEvbVDPCommandsFailed",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVDPCommandReverts": {
+    "name": "ieee8021BridgeEvbVDPCommandReverts",
+    "oid": "1.3.111.2.802.1.1.100.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIDBMacTable": {
+    "name": "ieee8021BridgeEvbVSIDBMacTable",
+    "oid": "1.3.111.2.802.1.1.100.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIDBMacEntry": {
+    "name": "ieee8021BridgeEvbVSIDBMacEntry",
+    "oid": "1.3.111.2.802.1.1.100.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVsiSvid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIID",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbGroupID",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIMac",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbGroupID": {
+    "name": "ieee8021BridgeEvbGroupID",
+    "oid": "1.3.111.2.802.1.1.100.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIMac": {
+    "name": "ieee8021BridgeEvbVSIMac",
+    "oid": "1.3.111.2.802.1.1.100.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIVlanId": {
+    "name": "ieee8021BridgeEvbVSIVlanId",
+    "oid": "1.3.111.2.802.1.1.100.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSChannelObjects": {
+    "name": "ieee8021BridgeEvbSChannelObjects",
+    "oid": "1.3.111.2.802.1.1.100.1.4",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgeEvbUAPConfigTable": {
+    "name": "ieee8021BridgeEvbUAPConfigTable",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPConfigEntry": {
+    "name": "ieee8021BridgeEvbUAPConfigEntry",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPComponentId": {
+    "name": "ieee8021BridgeEvbUAPComponentId",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPPort": {
+    "name": "ieee8021BridgeEvbUAPPort",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPSchCdcpAdminEnable": {
+    "name": "ieee8021BridgeEvbUAPSchCdcpAdminEnable",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPSchAdminCDCPRole": {
+    "name": "ieee8021BridgeEvbUAPSchAdminCDCPRole",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdcpRoleB": 1,
+          "cdcpRoleS": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPSchAdminCDCPChanCap": {
+    "name": "ieee8021BridgeEvbUAPSchAdminCDCPChanCap",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 167
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPSchOperCDCPChanCap": {
+    "name": "ieee8021BridgeEvbUAPSchOperCDCPChanCap",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 167
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPSchAdminCDCPSVIDPoolLow": {
+    "name": "ieee8021BridgeEvbUAPSchAdminCDCPSVIDPoolLow",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPSchAdminCDCPSVIDPoolHigh": {
+    "name": "ieee8021BridgeEvbUAPSchAdminCDCPSVIDPoolHigh",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPSchOperState": {
+    "name": "ieee8021BridgeEvbUAPSchOperState",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "notRunning": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSchCdcpRemoteEnabled": {
+    "name": "ieee8021BridgeEvbSchCdcpRemoteEnabled",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbSchCdcpRemoteRole": {
+    "name": "ieee8021BridgeEvbSchCdcpRemoteRole",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdcpRoleB": 1,
+          "cdcpRoleS": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPConfigRowStatus": {
+    "name": "ieee8021BridgeEvbUAPConfigRowStatus",
+    "oid": "1.3.111.2.802.1.1.100.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPConfigTable": {
+    "name": "ieee8021BridgeEvbCAPConfigTable",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPConfigEntry": {
+    "name": "ieee8021BridgeEvbCAPConfigEntry",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPort",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVsiSvid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPComponentId": {
+    "name": "ieee8021BridgeEvbCAPComponentId",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPPort": {
+    "name": "ieee8021BridgeEvbCAPPort",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPSChannelID": {
+    "name": "ieee8021BridgeEvbCAPSChannelID",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPAssociateSBPCompID": {
+    "name": "ieee8021BridgeEvbCAPAssociateSBPCompID",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PbbComponentIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPAssociateSBPPort": {
+    "name": "ieee8021BridgeEvbCAPAssociateSBPPort",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPLldpAdminEnables": {
+    "name": "ieee8021BridgeEvbCAPLldpAdminEnables",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "evbTLVEnable": 0,
+        "autoEvbLLDPTLV": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPLldpAdminCap": {
+    "name": "ieee8021BridgeEvbCAPLldpAdminCap",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgeEvbTLVTC",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPLldpOperMode": {
+    "name": "ieee8021BridgeEvbCAPLldpOperMode",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgeEvbTLVTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpAdminAckTimerInit": {
+    "name": "ieee8021BridgeEvbCAPEcpAdminAckTimerInit",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpOperAckTimerInit": {
+    "name": "ieee8021BridgeEvbCAPEcpOperAckTimerInit",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpAdminMaxTries": {
+    "name": "ieee8021BridgeEvbCAPEcpAdminMaxTries",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpOperMaxRetries": {
+    "name": "ieee8021BridgeEvbCAPEcpOperMaxRetries",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpTxFrameCount": {
+    "name": "ieee8021BridgeEvbCAPEcpTxFrameCount",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpTxRetryCount": {
+    "name": "ieee8021BridgeEvbCAPEcpTxRetryCount",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpTxFailures": {
+    "name": "ieee8021BridgeEvbCAPEcpTxFailures",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPEcpRxFrameCount": {
+    "name": "ieee8021BridgeEvbCAPEcpRxFrameCount",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPVdpOperRsrcWaitDelay": {
+    "name": "ieee8021BridgeEvbCAPVdpOperRsrcWaitDelay",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPVdpOperRespWaitDelay": {
+    "name": "ieee8021BridgeEvbCAPVdpOperRespWaitDelay",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPVdpOperReinitKeepAlive": {
+    "name": "ieee8021BridgeEvbCAPVdpOperReinitKeepAlive",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPVdpOperToutKeepAlive": {
+    "name": "ieee8021BridgeEvbCAPVdpOperToutKeepAlive",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPRowStatus": {
+    "name": "ieee8021BridgeEvbCAPRowStatus",
+    "oid": "1.3.111.2.802.1.1.100.1.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ieee8021BridgeEvbGroups": {
+    "name": "ieee8021BridgeEvbGroups",
+    "oid": "1.3.111.2.802.1.1.100.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgeEvbCompliances": {
+    "name": "ieee8021BridgeEvbCompliances",
+    "oid": "1.3.111.2.802.1.1.100.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021BridgeEvbConfigGroup": {
+    "name": "ieee8021BridgeEvbConfigGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysMACAddress"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysName"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysType"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysNumExternalPorts"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysEvbLldpEnables"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysEvbLldpDfltMode"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysEvbLldpNumVsisSup"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysNumCorErComps"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysNumSComps"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbECPACkTimer"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbECPMaxRetires"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysVdpDfltRsrcWaitDelay"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSysVdpDfltReinitKeepAlive"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPhyPortGroup": {
+    "name": "ieee8021BridgeEvbPhyPortGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPortMacAddress"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPortTypeCap"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPortType"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPortToComponentId"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPhyPortToInternalPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbPortGroup": {
+    "name": "ieee8021BridgeEvbPortGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPortType"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbVSIDBGroup": {
+    "name": "ieee8021BridgeEvbVSIDBGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIComponentID"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIPortNumber"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSITimeSinceCreate"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVsiVdpOperCmd"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVsiOperRevert"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVsiOperHard"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVsiOperReason"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIMgrID"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIType"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSITypeVersion"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIMvFormat"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSINumMACs"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVDPMachineState"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVDPCommandsSucceeded"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVDPCommandsFailed"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVDPCommandReverts"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbVSIVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbUAPGroup": {
+    "name": "ieee8021BridgeEvbUAPGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPComponentId"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPPort"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPSchCdcpAdminEnable"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPSchAdminCDCPRole"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPSchAdminCDCPChanCap"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPSchOperCDCPChanCap"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPSchAdminCDCPSVIDPoolLow"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPSchAdminCDCPSVIDPoolHigh"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPSchOperState"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSchCdcpRemoteEnabled"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbSchCdcpRemoteRole"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbUAPConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbCAPConfigGroup": {
+    "name": "ieee8021BridgeEvbCAPConfigGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPComponentId"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPPort"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPSChannelID"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPAssociateSBPCompID"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPAssociateSBPPort"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPLldpAdminEnables"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPLldpAdminCap"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPLldpOperMode"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpAdminAckTimerInit"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpOperAckTimerInit"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpAdminMaxTries"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpOperMaxRetries"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpTxFrameCount"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpTxRetryCount"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpTxFailures"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPEcpRxFrameCount"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPVdpOperRsrcWaitDelay"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPVdpOperReinitKeepAlive"
+      },
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbbCAPConfigGroup": {
+    "name": "ieee8021BridgeEvbbCAPConfigGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPVdpOperToutKeepAlive"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbsCAPConfigGroup": {
+    "name": "ieee8021BridgeEvbsCAPConfigGroup",
+    "oid": "1.3.111.2.802.1.1.100.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-EVBB-MIB",
+        "object": "ieee8021BridgeEvbCAPVdpOperRespWaitDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbbCompliance": {
+    "name": "ieee8021BridgeEvbbCompliance",
+    "oid": "1.3.111.2.802.1.1.100.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021BridgeEvbConfigGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbPhyPortGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbPortGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbVSIDBGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbUAPGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbCAPConfigGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbbCAPConfigGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021BridgeEvbsCompliance": {
+    "name": "ieee8021BridgeEvbsCompliance",
+    "oid": "1.3.111.2.802.1.1.100.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ieee8021BridgeEvbConfigGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbPhyPortGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbPortGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbVSIDBGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbUAPGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbCAPConfigGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      },
+      {
+        "object": "ieee8021BridgeEvbsCAPConfigGroup",
+        "module": "IEEE8021-EVBB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-EVBB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-EVBB-MIB"
+  }
+}

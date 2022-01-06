@@ -1,0 +1,256 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELLEMC-OS10-SMI-MIB": [
+      "os10"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "os10Products": {
+    "name": "os10Products",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-15 12:00",
+        "description": "Add z9232F and Mt. Princeton products"
+      },
+      {
+        "revision": "2018-01-26 12:00",
+        "description": "Add z9264F product"
+      },
+      {
+        "revision": "2017-10-27 12:00",
+        "description": "Add s4112F and s4112T products"
+      },
+      {
+        "revision": "2017-10-11 12:00",
+        "description": "Add s4248FB and s4248FBL products. Depreciate s4200."
+      },
+      {
+        "revision": "2017-09-19 12:00",
+        "description": "Add s5148F and z9100 products"
+      },
+      {
+        "revision": "2017-06-21 12:00",
+        "description": "Removed OS9 products and updated with OS10 products"
+      },
+      {
+        "revision": "2017-01-25 12:00",
+        "description": "Dell EMC Networking OS10 E-Series Family of products object IDs added."
+      }
+    ]
+  },
+  "os10SSeriesProducts": {
+    "name": "os10SSeriesProducts",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "os10MSeriesProducts": {
+    "name": "os10MSeriesProducts",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "os10ZSeriesProducts": {
+    "name": "os10ZSeriesProducts",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s6000on": {
+    "name": "s6000on",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4048on": {
+    "name": "s4048on",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4048Ton": {
+    "name": "s4048Ton",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s3048on": {
+    "name": "s3048on",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s6010on": {
+    "name": "s6010on",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4148Fon": {
+    "name": "s4148Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4128Fon": {
+    "name": "s4128Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4148Ton": {
+    "name": "s4148Ton",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4128Ton": {
+    "name": "s4128Ton",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4148FEon": {
+    "name": "s4148FEon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4148Uon": {
+    "name": "s4148Uon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4200on": {
+    "name": "s4200on",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.12",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "s5148Fon": {
+    "name": "s5148Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4248FBon": {
+    "name": "s4248FBon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4248FBLon": {
+    "name": "s4248FBLon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4112Fon": {
+    "name": "s4112Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s4112Ton": {
+    "name": "s4112Ton",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s5212Fon": {
+    "name": "s5212Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s5224Fon": {
+    "name": "s5224Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s5232Fon": {
+    "name": "s5232Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s5248Fon": {
+    "name": "s5248Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "s5296Fon": {
+    "name": "s5296Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "z9100on": {
+    "name": "z9100on",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "z9264Fon": {
+    "name": "z9264Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "z9232Fon": {
+    "name": "z9232Fon",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mx5108Non": {
+    "name": "mx5108Non",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mx9116Non": {
+    "name": "mx9116Non",
+    "oid": "1.3.6.1.4.1.674.11000.5000.100.2.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLEMC-OS10-PRODUCTS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELLEMC-OS10-PRODUCTS-MIB"
+  }
+}

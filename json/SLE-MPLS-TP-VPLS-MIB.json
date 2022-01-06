@@ -1,0 +1,1914 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "IANA-PWE3-MIB": [
+      "IANAPwTypeTC"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "MPLS-TC-EXT-STD-MIB": [
+      "MplsCcId",
+      "MplsIccId"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsLabel"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrAnyOrNone"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
+      "transmission",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleMplsTpVpls": {
+    "name": "sleMplsTpVpls",
+    "oid": "1.3.6.1.4.1.6296.101.16.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-03 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "sleMpls": {
+    "name": "sleMpls",
+    "oid": "1.3.6.1.4.1.6296.101.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfg": {
+    "name": "sleMplsTpVplsCfg",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsCfgInfoTable": {
+    "name": "sleMplsTpVplsCfgInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoEntry": {
+    "name": "sleMplsTpVplsCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsCfgInfoId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoId": {
+    "name": "sleMplsTpVplsCfgInfoId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoName": {
+    "name": "sleMplsTpVplsCfgInfoName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoMacLearning": {
+    "name": "sleMplsTpVplsCfgInfoMacLearning",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoMacLearningLimit": {
+    "name": "sleMplsTpVplsCfgInfoMacLearningLimit",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoServiceType": {
+    "name": "sleMplsTpVplsCfgInfoServiceType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ethernet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoSignallingProto": {
+    "name": "sleMplsTpVplsCfgInfoSignallingProto",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "static": 1,
+          "bgp": 2,
+          "ldp": 3,
+          "bgpAdLdp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoGroupId": {
+    "name": "sleMplsTpVplsCfgInfoGroupId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoDescription": {
+    "name": "sleMplsTpVplsCfgInfoDescription",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgInfoMtu": {
+    "name": "sleMplsTpVplsCfgInfoMtu",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControl": {
+    "name": "sleMplsTpVplsCfgControl",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsCfgControlRequest": {
+    "name": "sleMplsTpVplsCfgControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createVpls": 1,
+          "deleteVpls": 2,
+          "setVplsMACLearningDisable": 3,
+          "setVplsMACLearningLimit": 4,
+          "setVplsACGroup": 5,
+          "setVplsDescription": 6,
+          "setVplsMtu": 7,
+          "setVplsServiceType": 8,
+          "unsetVplsMACLearningDisable": 9,
+          "unsetVplsMACLearningLimit": 10,
+          "unsetVplsACGroup": 11,
+          "unsetVplsDesc": 12,
+          "unsetVplsMtu": 13,
+          "unsetVplsServiceType": 14
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlStatus": {
+    "name": "sleMplsTpVplsCfgControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlTimer": {
+    "name": "sleMplsTpVplsCfgControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlTimestamp": {
+    "name": "sleMplsTpVplsCfgControlTimestamp",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlReqResult": {
+    "name": "sleMplsTpVplsCfgControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlId": {
+    "name": "sleMplsTpVplsCfgControlId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlName": {
+    "name": "sleMplsTpVplsCfgControlName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlMacLearningLimit": {
+    "name": "sleMplsTpVplsCfgControlMacLearningLimit",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlServiceType": {
+    "name": "sleMplsTpVplsCfgControlServiceType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ethernet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlGroupId": {
+    "name": "sleMplsTpVplsCfgControlGroupId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlDescription": {
+    "name": "sleMplsTpVplsCfgControlDescription",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsCfgControlMtu": {
+    "name": "sleMplsTpVplsCfgControlMtu",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfg": {
+    "name": "sleMplsTpVplsIfCfg",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsIfCfgInfoTable": {
+    "name": "sleMplsTpVplsIfCfgInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgInfoEntry": {
+    "name": "sleMplsTpVplsIfCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsIfCfgInfoName",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsIfCfgInfoIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgInfoIfIndex": {
+    "name": "sleMplsTpVplsIfCfgInfoIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgInfoName": {
+    "name": "sleMplsTpVplsIfCfgInfoName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgInfoServiceType": {
+    "name": "sleMplsTpVplsIfCfgInfoServiceType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgInfoVlanId": {
+    "name": "sleMplsTpVplsIfCfgInfoVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAnyOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgInfoInnerVlanId": {
+    "name": "sleMplsTpVplsIfCfgInfoInnerVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAnyOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgInfoAction": {
+    "name": "sleMplsTpVplsIfCfgInfoAction",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "noOperation": 1,
+          "add": 2,
+          "remove": 3,
+          "replace": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControl": {
+    "name": "sleMplsTpVplsIfCfgControl",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsIfCfgControlRequest": {
+    "name": "sleMplsTpVplsIfCfgControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setBindVplsUntaggedMode": 1,
+          "setBindVplsSvlan": 2,
+          "setBindVplsTaggedMode": 3,
+          "setBindVplsQinQ": 4,
+          "setBindVplsQinQWithAction": 5,
+          "unsetbindvplsUnTaggedMode": 6,
+          "unsetBindVplsTaggedMode": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlStatus": {
+    "name": "sleMplsTpVplsIfCfgControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlTimer": {
+    "name": "sleMplsTpVplsIfCfgControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlTimestamp": {
+    "name": "sleMplsTpVplsIfCfgControlTimestamp",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlReqResult": {
+    "name": "sleMplsTpVplsIfCfgControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlIfIndex": {
+    "name": "sleMplsTpVplsIfCfgControlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlName": {
+    "name": "sleMplsTpVplsIfCfgControlName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlServiceType": {
+    "name": "sleMplsTpVplsIfCfgControlServiceType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlVlanId": {
+    "name": "sleMplsTpVplsIfCfgControlVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAnyOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlInnerVlanId": {
+    "name": "sleMplsTpVplsIfCfgControlInnerVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrAnyOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsIfCfgControlAction": {
+    "name": "sleMplsTpVplsIfCfgControlAction",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperation": 1,
+          "add": 2,
+          "remove": 3,
+          "replace": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfg": {
+    "name": "sleMplsTpVplsMeshCfg",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsMeshCfgInfoTable": {
+    "name": "sleMplsTpVplsMeshCfgInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoEntry": {
+    "name": "sleMplsTpVplsMeshCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsCfgInfoId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsMeshCfgInfoPeerNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoPeerNodeId": {
+    "name": "sleMplsTpVplsMeshCfgInfoPeerNodeId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoPeerNodeType": {
+    "name": "sleMplsTpVplsMeshCfgInfoPeerNodeType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 1,
+          "itut": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoPeerGlobalId": {
+    "name": "sleMplsTpVplsMeshCfgInfoPeerGlobalId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoPeerCc": {
+    "name": "sleMplsTpVplsMeshCfgInfoPeerCc",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsCcId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoPeerIcc": {
+    "name": "sleMplsTpVplsMeshCfgInfoPeerIcc",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIccId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoTunnelId": {
+    "name": "sleMplsTpVplsMeshCfgInfoTunnelId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoTunnelName": {
+    "name": "sleMplsTpVplsMeshCfgInfoTunnelName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoOwner": {
+    "name": "sleMplsTpVplsMeshCfgInfoOwner",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "pwIdFecSignaling": 2,
+          "genFecSignaling": 3,
+          "l2tpControlProtocol": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoTunnelPath": {
+    "name": "sleMplsTpVplsMeshCfgInfoTunnelPath",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 0,
+          "reverse": 1,
+          "none": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forward",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoInLabel": {
+    "name": "sleMplsTpVplsMeshCfgInfoInLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoOutLabel": {
+    "name": "sleMplsTpVplsMeshCfgInfoOutLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoOutInterface": {
+    "name": "sleMplsTpVplsMeshCfgInfoOutInterface",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoTunnelLabel": {
+    "name": "sleMplsTpVplsMeshCfgInfoTunnelLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoState": {
+    "name": "sleMplsTpVplsMeshCfgInfoState",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgInfoQosServicePolicy": {
+    "name": "sleMplsTpVplsMeshCfgInfoQosServicePolicy",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControl": {
+    "name": "sleMplsTpVplsMeshCfgControl",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsMeshCfgControlRequest": {
+    "name": "sleMplsTpVplsMeshCfgControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createMplsTpVplsPeer": 1,
+          "createMplsTpVplsPeerWithTunnelPath": 2,
+          "deleteVplsPeer": 3,
+          "setVplsPeerFibEntry": 4,
+          "unsetVplsPeerFibEntry": 5,
+          "setVplsPeerQosServicePolicy": 6,
+          "unsetVplsPeerQosServicePolicy": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlStatus": {
+    "name": "sleMplsTpVplsMeshCfgControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlTimer": {
+    "name": "sleMplsTpVplsMeshCfgControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlTimestamp": {
+    "name": "sleMplsTpVplsMeshCfgControlTimestamp",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlReqResult": {
+    "name": "sleMplsTpVplsMeshCfgControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlVplsId": {
+    "name": "sleMplsTpVplsMeshCfgControlVplsId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlPeerNodeId": {
+    "name": "sleMplsTpVplsMeshCfgControlPeerNodeId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlPeerNodeType": {
+    "name": "sleMplsTpVplsMeshCfgControlPeerNodeType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 1,
+          "itut": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlPeerGlobalId": {
+    "name": "sleMplsTpVplsMeshCfgControlPeerGlobalId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlPeerCc": {
+    "name": "sleMplsTpVplsMeshCfgControlPeerCc",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsCcId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlPeerIcc": {
+    "name": "sleMplsTpVplsMeshCfgControlPeerIcc",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsIccId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlTunnelId": {
+    "name": "sleMplsTpVplsMeshCfgControlTunnelId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlTunnelName": {
+    "name": "sleMplsTpVplsMeshCfgControlTunnelName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlOwner": {
+    "name": "sleMplsTpVplsMeshCfgControlOwner",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "pwIdFecSignaling": 2,
+          "genFecSignaling": 3,
+          "l2tpControlProtocol": 4,
+          "other": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlTunnelPath": {
+    "name": "sleMplsTpVplsMeshCfgControlTunnelPath",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forward": 0,
+          "reverse": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forward",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlInLabel": {
+    "name": "sleMplsTpVplsMeshCfgControlInLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlOutLabel": {
+    "name": "sleMplsTpVplsMeshCfgControlOutLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMeshCfgControlQosServicePolicy": {
+    "name": "sleMplsTpVplsMeshCfgControlQosServicePolicy",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.3.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfg": {
+    "name": "sleMplsTpVplsSpokeCfg",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsSpokeCfgInfoTable": {
+    "name": "sleMplsTpVplsSpokeCfgInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoEntry": {
+    "name": "sleMplsTpVplsSpokeCfgInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsCfgInfoId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsSpokeCfgInfoVcName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoVcName": {
+    "name": "sleMplsTpVplsSpokeCfgInfoVcName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoTunnelName": {
+    "name": "sleMplsTpVplsSpokeCfgInfoTunnelName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoServiceType": {
+    "name": "sleMplsTpVplsSpokeCfgInfoServiceType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoInLabel": {
+    "name": "sleMplsTpVplsSpokeCfgInfoInLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoOutLabel": {
+    "name": "sleMplsTpVplsSpokeCfgInfoOutLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoOutInterface": {
+    "name": "sleMplsTpVplsSpokeCfgInfoOutInterface",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoState": {
+    "name": "sleMplsTpVplsSpokeCfgInfoState",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgInfoQosServicePolicy": {
+    "name": "sleMplsTpVplsSpokeCfgInfoQosServicePolicy",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControl": {
+    "name": "sleMplsTpVplsSpokeCfgControl",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsSpokeCfgControlRequest": {
+    "name": "sleMplsTpVplsSpokeCfgControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createMplsTpVplsSpoke": 1,
+          "deleteMplsTpVplsSpoke": 2,
+          "setVplsSpokeFibEntry": 3,
+          "unsetVplsSpokeFibEntry": 4,
+          "setVplsSpokeQosServicePolicy": 5,
+          "unsetVplsSpokeQosServicePolicy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlStatus": {
+    "name": "sleMplsTpVplsSpokeCfgControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlTimer": {
+    "name": "sleMplsTpVplsSpokeCfgControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlTimestamp": {
+    "name": "sleMplsTpVplsSpokeCfgControlTimestamp",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlReqResult": {
+    "name": "sleMplsTpVplsSpokeCfgControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlVplsId": {
+    "name": "sleMplsTpVplsSpokeCfgControlVplsId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlVcName": {
+    "name": "sleMplsTpVplsSpokeCfgControlVcName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlTunnelName": {
+    "name": "sleMplsTpVplsSpokeCfgControlTunnelName",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlServiceType": {
+    "name": "sleMplsTpVplsSpokeCfgControlServiceType",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAPwTypeTC",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlInLabel": {
+    "name": "sleMplsTpVplsSpokeCfgControlInLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlOutLabel": {
+    "name": "sleMplsTpVplsSpokeCfgControlOutLabel",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlOutInterface": {
+    "name": "sleMplsTpVplsSpokeCfgControlOutInterface",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsSpokeCfgControlQosServicePolicy": {
+    "name": "sleMplsTpVplsSpokeCfgControlQosServicePolicy",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.4.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearning": {
+    "name": "sleMplsTpVplsMacLearning",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsMacLearningInfoTable": {
+    "name": "sleMplsTpVplsMacLearningInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningInfoEntry": {
+    "name": "sleMplsTpVplsMacLearningInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsCfgInfoId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsMacLearningInfoMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningInfoMacAddress": {
+    "name": "sleMplsTpVplsMacLearningInfoMacAddress",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningInfoInterfacIndex": {
+    "name": "sleMplsTpVplsMacLearningInfoInterfacIndex",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningInfoMeshAddress": {
+    "name": "sleMplsTpVplsMacLearningInfoMeshAddress",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningControl": {
+    "name": "sleMplsTpVplsMacLearningControl",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsMacLearningControlRequest": {
+    "name": "sleMplsTpVplsMacLearningControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearVplsMacAddress": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningControlStatus": {
+    "name": "sleMplsTpVplsMacLearningControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningControlTimer": {
+    "name": "sleMplsTpVplsMacLearningControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningControlTimestamp": {
+    "name": "sleMplsTpVplsMacLearningControlTimestamp",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningControlReqResult": {
+    "name": "sleMplsTpVplsMacLearningControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsMacLearningControlVplsId": {
+    "name": "sleMplsTpVplsMacLearningControlVplsId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsStatistics": {
+    "name": "sleMplsTpVplsStatistics",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsAcStatistics": {
+    "name": "sleMplsTpVplsAcStatistics",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.1",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsAcStatisticsInfoTable": {
+    "name": "sleMplsTpVplsAcStatisticsInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsAcStatisticsInfoEntry": {
+    "name": "sleMplsTpVplsAcStatisticsInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsIfCfgInfoName",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsIfCfgInfoIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMplsTpVplsAcStatisticsInfoTxPackets": {
+    "name": "sleMplsTpVplsAcStatisticsInfoTxPackets",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsAcStatisticsInfoTxBytes": {
+    "name": "sleMplsTpVplsAcStatisticsInfoTxBytes",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsAcStatisticsInfoRxPackets": {
+    "name": "sleMplsTpVplsAcStatisticsInfoRxPackets",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsAcStatisticsInfoRxBytes": {
+    "name": "sleMplsTpVplsAcStatisticsInfoRxBytes",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsPeerStatistics": {
+    "name": "sleMplsTpVplsPeerStatistics",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.2",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsPeerStatisticsInfoTable": {
+    "name": "sleMplsTpVplsPeerStatisticsInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMplsTpVplsPeerStatisticsInfoEntry": {
+    "name": "sleMplsTpVplsPeerStatisticsInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsCfgInfoId",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MPLS-TP-VPLS-MIB",
+        "object": "sleMplsTpVplsMeshCfgInfoPeerNodeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMplsTpVplsPeerStatisticsInfoTxPackets": {
+    "name": "sleMplsTpVplsPeerStatisticsInfoTxPackets",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsPeerStatisticsInfoTxBytes": {
+    "name": "sleMplsTpVplsPeerStatisticsInfoTxBytes",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsPeerStatisticsInfoRxPackets": {
+    "name": "sleMplsTpVplsPeerStatisticsInfoRxPackets",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsPeerStatisticsInfoRxBytes": {
+    "name": "sleMplsTpVplsPeerStatisticsInfoRxBytes",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsStatisticsCfgControl": {
+    "name": "sleMplsTpVplsStatisticsCfgControl",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.3",
+    "class": "objectidentity"
+  },
+  "sleMplsTpVplsStatisticsCfgControlRequest": {
+    "name": "sleMplsTpVplsStatisticsCfgControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearVplsStatistics": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsStatisticsCfgControlStatus": {
+    "name": "sleMplsTpVplsStatisticsCfgControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsStatisticsCfgControlTimer": {
+    "name": "sleMplsTpVplsStatisticsCfgControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsTpVplsStatisticsCfgControlTimestamp": {
+    "name": "sleMplsTpVplsStatisticsCfgControlTimestamp",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsStatisticsCfgControlReqResult": {
+    "name": "sleMplsTpVplsStatisticsCfgControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsTpVplsStatisticsCfgControlVplsId": {
+    "name": "sleMplsTpVplsStatisticsCfgControlVplsId",
+    "oid": "1.3.6.1.4.1.6296.101.16.16.6.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-VPLS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:16 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-MPLS-TP-VPLS-MIB"
+  }
+}

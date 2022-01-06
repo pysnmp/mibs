@@ -1,0 +1,796 @@
+{
+  "imports": {
+    "class": "imports",
+    "RADLAN-MIB": [
+      "rnd"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "SNMPv2-TC-v1": [
+      "DisplayString"
+    ]
+  },
+  "rlCopy": {
+    "name": "rlCopy",
+    "oid": "1.3.6.1.4.1.89.87",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-02 00:00",
+        "description": "Added objects rlCopyMessagesTable and rlCopyMessagesTableRemoveEntries."
+      },
+      {
+        "revision": "2003-09-22 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "RlCopyApplicationType": {
+    "name": "RlCopyApplicationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcli": 1,
+          "cli": 2,
+          "ewb": 3,
+          "nms": 4,
+          "initerm": 5,
+          "serial": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlCopyLocationType": {
+    "name": "RlCopyLocationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "anotherUnit": 2,
+          "tftp": 3,
+          "xmodem": 4,
+          "scp": 5,
+          "serial": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlCopyFileType": {
+    "name": "RlCopyFileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "runningConfig": 2,
+          "startupConfig": 3,
+          "backupConfig": 4,
+          "runningMibConfig": 5,
+          "startupMibConfig": 6,
+          "backupMibConfig": 7,
+          "image": 8,
+          "boot": 9,
+          "null": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlCopyMibVersion": {
+    "name": "rlCopyMibVersion",
+    "oid": "1.3.6.1.4.1.89.87.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyTable": {
+    "name": "rlCopyTable",
+    "oid": "1.3.6.1.4.1.89.87.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCopyEntry": {
+    "name": "rlCopyEntry",
+    "oid": "1.3.6.1.4.1.89.87.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-COPY-MIB",
+        "object": "rlCopyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCopyIndex": {
+    "name": "rlCopyIndex",
+    "oid": "1.3.6.1.4.1.89.87.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyApplicationId": {
+    "name": "rlCopyApplicationId",
+    "oid": "1.3.6.1.4.1.89.87.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyApplicationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopySourceLocation": {
+    "name": "rlCopySourceLocation",
+    "oid": "1.3.6.1.4.1.89.87.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyLocationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopySourceIpAddress": {
+    "name": "rlCopySourceIpAddress",
+    "oid": "1.3.6.1.4.1.89.87.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopySourceUnitNumber": {
+    "name": "rlCopySourceUnitNumber",
+    "oid": "1.3.6.1.4.1.89.87.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopySourceFileName": {
+    "name": "rlCopySourceFileName",
+    "oid": "1.3.6.1.4.1.89.87.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopySourceFileType": {
+    "name": "rlCopySourceFileType",
+    "oid": "1.3.6.1.4.1.89.87.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyDestinationLocation": {
+    "name": "rlCopyDestinationLocation",
+    "oid": "1.3.6.1.4.1.89.87.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyLocationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyDestinationIpAddress": {
+    "name": "rlCopyDestinationIpAddress",
+    "oid": "1.3.6.1.4.1.89.87.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyDestinationUnitNumber": {
+    "name": "rlCopyDestinationUnitNumber",
+    "oid": "1.3.6.1.4.1.89.87.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyDestinationFileName": {
+    "name": "rlCopyDestinationFileName",
+    "oid": "1.3.6.1.4.1.89.87.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyDestinationFileType": {
+    "name": "rlCopyDestinationFileType",
+    "oid": "1.3.6.1.4.1.89.87.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyUpTime": {
+    "name": "rlCopyUpTime",
+    "oid": "1.3.6.1.4.1.89.87.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyOperationState": {
+    "name": "rlCopyOperationState",
+    "oid": "1.3.6.1.4.1.89.87.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uploadInProgress": 1,
+          "downloadInProgress": 2,
+          "copyFailed": 3,
+          "copyTimedout": 4,
+          "copyFinished": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyBytesTransferred": {
+    "name": "rlCopyBytesTransferred",
+    "oid": "1.3.6.1.4.1.89.87.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyInBackground": {
+    "name": "rlCopyInBackground",
+    "oid": "1.3.6.1.4.1.89.87.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyRowStatus": {
+    "name": "rlCopyRowStatus",
+    "oid": "1.3.6.1.4.1.89.87.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryIndex": {
+    "name": "rlCopyHistoryIndex",
+    "oid": "1.3.6.1.4.1.89.87.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyFreeHistoryIndex": {
+    "name": "rlCopyFreeHistoryIndex",
+    "oid": "1.3.6.1.4.1.89.87.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyHistoryTable": {
+    "name": "rlCopyHistoryTable",
+    "oid": "1.3.6.1.4.1.89.87.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCopyHistoryEntry": {
+    "name": "rlCopyHistoryEntry",
+    "oid": "1.3.6.1.4.1.89.87.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-COPY-MIB",
+        "object": "rlCopyHistoryHistoryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCopyHistoryHistoryIndex": {
+    "name": "rlCopyHistoryHistoryIndex",
+    "oid": "1.3.6.1.4.1.89.87.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyHistoryApplicationId": {
+    "name": "rlCopyHistoryApplicationId",
+    "oid": "1.3.6.1.4.1.89.87.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyApplicationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyHistorySourceLocation": {
+    "name": "rlCopyHistorySourceLocation",
+    "oid": "1.3.6.1.4.1.89.87.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyLocationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistorySourceIpAddress": {
+    "name": "rlCopyHistorySourceIpAddress",
+    "oid": "1.3.6.1.4.1.89.87.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistorySourceUnitNumber": {
+    "name": "rlCopyHistorySourceUnitNumber",
+    "oid": "1.3.6.1.4.1.89.87.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistorySourceFileName": {
+    "name": "rlCopyHistorySourceFileName",
+    "oid": "1.3.6.1.4.1.89.87.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistorySourceFileType": {
+    "name": "rlCopyHistorySourceFileType",
+    "oid": "1.3.6.1.4.1.89.87.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryDestinationLocation": {
+    "name": "rlCopyHistoryDestinationLocation",
+    "oid": "1.3.6.1.4.1.89.87.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyLocationType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryDestinationIpAddress": {
+    "name": "rlCopyHistoryDestinationIpAddress",
+    "oid": "1.3.6.1.4.1.89.87.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryDestinationUnitNumber": {
+    "name": "rlCopyHistoryDestinationUnitNumber",
+    "oid": "1.3.6.1.4.1.89.87.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryDestinationFileName": {
+    "name": "rlCopyHistoryDestinationFileName",
+    "oid": "1.3.6.1.4.1.89.87.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryDestinationFileType": {
+    "name": "rlCopyHistoryDestinationFileType",
+    "oid": "1.3.6.1.4.1.89.87.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlCopyFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryUpTime": {
+    "name": "rlCopyHistoryUpTime",
+    "oid": "1.3.6.1.4.1.89.87.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyHistoryOperationState": {
+    "name": "rlCopyHistoryOperationState",
+    "oid": "1.3.6.1.4.1.89.87.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uploadInProgress": 1,
+          "downloadInProgress": 2,
+          "copyFailed": 3,
+          "copyTimedout": 4,
+          "copyFinished": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyHistoryBytesTransferred": {
+    "name": "rlCopyHistoryBytesTransferred",
+    "oid": "1.3.6.1.4.1.89.87.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyHistoryInBackground": {
+    "name": "rlCopyHistoryInBackground",
+    "oid": "1.3.6.1.4.1.89.87.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryRowStatus": {
+    "name": "rlCopyHistoryRowStatus",
+    "oid": "1.3.6.1.4.1.89.87.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyHistoryErrorMessage": {
+    "name": "rlCopyHistoryErrorMessage",
+    "oid": "1.3.6.1.4.1.89.87.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyAuditingEnable": {
+    "name": "rlCopyAuditingEnable",
+    "oid": "1.3.6.1.4.1.89.87.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyMessagesTable": {
+    "name": "rlCopyMessagesTable",
+    "oid": "1.3.6.1.4.1.89.87.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCopyMessagesEntry": {
+    "name": "rlCopyMessagesEntry",
+    "oid": "1.3.6.1.4.1.89.87.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-COPY-MIB",
+        "object": "rlCopyMessagesCopyIndex",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-COPY-MIB",
+        "object": "rlCopyMessagesMessageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlCopyMessagesCopyIndex": {
+    "name": "rlCopyMessagesCopyIndex",
+    "oid": "1.3.6.1.4.1.89.87.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCopyMessagesMessageIndex": {
+    "name": "rlCopyMessagesMessageIndex",
+    "oid": "1.3.6.1.4.1.89.87.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlCopyMessagesMessageText": {
+    "name": "rlCopyMessagesMessageText",
+    "oid": "1.3.6.1.4.1.89.87.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlCopyMessagesStatus": {
+    "name": "rlCopyMessagesStatus",
+    "oid": "1.3.6.1.4.1.89.87.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlCopyMessagesTableRemoveEntries": {
+    "name": "rlCopyMessagesTableRemoveEntries",
+    "oid": "1.3.6.1.4.1.89.87.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-COPY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RADLAN-COPY-MIB"
+  }
+}

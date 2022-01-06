@@ -1,0 +1,1483 @@
+{
+  "imports": {
+    "class": "imports",
+    "APPN-MIB": [
+      "SnaControlPointName"
+    ],
+    "SNA-NAU-MIB": [
+      "snanauMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hprMIB": {
+    "name": "hprMIB",
+    "oid": "1.3.6.1.2.1.34.6",
+    "class": "moduleidentity"
+  },
+  "HprNceTypes": {
+    "name": "HprNceTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "controlPoint": 0,
+        "logicalUnit": 1,
+        "boundaryFunction": 2,
+        "routeSetup": 3
+      }
+    },
+    "status": "current"
+  },
+  "HprRtpCounter": {
+    "name": "HprRtpCounter",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "hprObjects": {
+    "name": "hprObjects",
+    "oid": "1.3.6.1.2.1.34.6.1",
+    "class": "objectidentity"
+  },
+  "hprGlobal": {
+    "name": "hprGlobal",
+    "oid": "1.3.6.1.2.1.34.6.1.1",
+    "class": "objectidentity"
+  },
+  "hprNodeCpName": {
+    "name": "hprNodeCpName",
+    "oid": "1.3.6.1.2.1.34.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprOperatorPathSwitchSupport": {
+    "name": "hprOperatorPathSwitchSupport",
+    "oid": "1.3.6.1.2.1.34.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "switchTriggerSupported": 2,
+          "switchToPathSupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprAnrRouting": {
+    "name": "hprAnrRouting",
+    "oid": "1.3.6.1.2.1.34.6.1.2",
+    "class": "objectidentity"
+  },
+  "hprAnrsAssigned": {
+    "name": "hprAnrsAssigned",
+    "oid": "1.3.6.1.2.1.34.6.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "ANR labels",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprAnrCounterState": {
+    "name": "hprAnrCounterState",
+    "oid": "1.3.6.1.2.1.34.6.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hprAnrCounterStateTime": {
+    "name": "hprAnrCounterStateTime",
+    "oid": "1.3.6.1.2.1.34.6.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprAnrRoutingTable": {
+    "name": "hprAnrRoutingTable",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprAnrRoutingEntry": {
+    "name": "hprAnrRoutingEntry",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrLabel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hprAnrLabel": {
+    "name": "hprAnrLabel",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprAnrType": {
+    "name": "hprAnrType",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nce": 1,
+          "tg": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprAnrOutTgDest": {
+    "name": "hprAnrOutTgDest",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprAnrOutTgNum": {
+    "name": "hprAnrOutTgNum",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprAnrPacketsReceived": {
+    "name": "hprAnrPacketsReceived",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "ANR packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprAnrCounterDisconTime": {
+    "name": "hprAnrCounterDisconTime",
+    "oid": "1.3.6.1.2.1.34.6.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprTransportUser": {
+    "name": "hprTransportUser",
+    "oid": "1.3.6.1.2.1.34.6.1.3",
+    "class": "objectidentity"
+  },
+  "hprNceTable": {
+    "name": "hprNceTable",
+    "oid": "1.3.6.1.2.1.34.6.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprNceEntry": {
+    "name": "hprNceEntry",
+    "oid": "1.3.6.1.2.1.34.6.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprNceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hprNceId": {
+    "name": "hprNceId",
+    "oid": "1.3.6.1.2.1.34.6.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprNceType": {
+    "name": "hprNceType",
+    "oid": "1.3.6.1.2.1.34.6.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprNceTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprNceDefault": {
+    "name": "hprNceDefault",
+    "oid": "1.3.6.1.2.1.34.6.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprNceTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprNceInstanceId": {
+    "name": "hprNceInstanceId",
+    "oid": "1.3.6.1.2.1.34.6.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtp": {
+    "name": "hprRtp",
+    "oid": "1.3.6.1.2.1.34.6.1.4",
+    "class": "objectidentity"
+  },
+  "hprRtpGlobe": {
+    "name": "hprRtpGlobe",
+    "oid": "1.3.6.1.2.1.34.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "hprRtpGlobeConnSetups": {
+    "name": "hprRtpGlobeConnSetups",
+    "oid": "1.3.6.1.2.1.34.6.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "RTP connection setups",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpGlobeCtrState": {
+    "name": "hprRtpGlobeCtrState",
+    "oid": "1.3.6.1.2.1.34.6.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hprRtpGlobeCtrStateTime": {
+    "name": "hprRtpGlobeCtrStateTime",
+    "oid": "1.3.6.1.2.1.34.6.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpTable": {
+    "name": "hprRtpTable",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprRtpEntry": {
+    "name": "hprRtpEntry",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpLocNceId",
+        "implied": 0
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpLocTcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hprRtpLocNceId": {
+    "name": "hprRtpLocNceId",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprRtpLocTcid": {
+    "name": "hprRtpLocTcid",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprRtpRemCpName": {
+    "name": "hprRtpRemCpName",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpRemNceId": {
+    "name": "hprRtpRemNceId",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpRemTcid": {
+    "name": "hprRtpRemTcid",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpPathSwitchTrigger": {
+    "name": "hprRtpPathSwitchTrigger",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "switchPathNow": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hprRtpRscv": {
+    "name": "hprRtpRscv",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpTopic": {
+    "name": "hprRtpTopic",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpState": {
+    "name": "hprRtpState",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rtpListening": 1,
+          "rtpCalling": 2,
+          "rtpConnected": 3,
+          "rtpPathSwitching": 4,
+          "rtpDisconnecting": 5,
+          "other": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpUpTime": {
+    "name": "hprRtpUpTime",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "1/100ths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpLivenessTimer": {
+    "name": "hprRtpLivenessTimer",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "1/100ths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpShortReqTimer": {
+    "name": "hprRtpShortReqTimer",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "1/100ths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpPathSwTimer": {
+    "name": "hprRtpPathSwTimer",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "1/100ths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpLivenessTimeouts": {
+    "name": "hprRtpLivenessTimeouts",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "liveness timeouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpShortReqTimeouts": {
+    "name": "hprRtpShortReqTimeouts",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "short request timeouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpMaxSendRate": {
+    "name": "hprRtpMaxSendRate",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpMinSendRate": {
+    "name": "hprRtpMinSendRate",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpCurSendRate": {
+    "name": "hprRtpCurSendRate",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpSmRdTripDelay": {
+    "name": "hprRtpSmRdTripDelay",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "1/1000ths of a second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpSendPackets": {
+    "name": "hprRtpSendPackets",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "RTP packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpRecvPackets": {
+    "name": "hprRtpRecvPackets",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "RTP packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpSendBytes": {
+    "name": "hprRtpSendBytes",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpRecvBytes": {
+    "name": "hprRtpRecvBytes",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpRetrPackets": {
+    "name": "hprRtpRetrPackets",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "RTP packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpPacketsDiscarded": {
+    "name": "hprRtpPacketsDiscarded",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "RTP packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpDetectGaps": {
+    "name": "hprRtpDetectGaps",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "gaps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpRateReqSends": {
+    "name": "hprRtpRateReqSends",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "rate requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpOkErrPathSws": {
+    "name": "hprRtpOkErrPathSws",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "path switch attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpBadErrPathSws": {
+    "name": "hprRtpBadErrPathSws",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "path switch attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpOkOpPathSws": {
+    "name": "hprRtpOkOpPathSws",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "path switches",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpBadOpPathSws": {
+    "name": "hprRtpBadOpPathSws",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HprRtpCounter",
+      "class": "type"
+    },
+    "units": "path switches",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpCounterDisconTime": {
+    "name": "hprRtpCounterDisconTime",
+    "oid": "1.3.6.1.2.1.34.6.1.4.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusTable": {
+    "name": "hprRtpStatusTable",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprRtpStatusEntry": {
+    "name": "hprRtpStatusEntry",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusLocNceId",
+        "implied": 0
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusLocTcid",
+        "implied": 0
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hprRtpStatusLocNceId": {
+    "name": "hprRtpStatusLocNceId",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprRtpStatusLocTcid": {
+    "name": "hprRtpStatusLocTcid",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprRtpStatusIndex": {
+    "name": "hprRtpStatusIndex",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hprRtpStatusStartTime": {
+    "name": "hprRtpStatusStartTime",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusEndTime": {
+    "name": "hprRtpStatusEndTime",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusRemCpName": {
+    "name": "hprRtpStatusRemCpName",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusRemNceId": {
+    "name": "hprRtpStatusRemNceId",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusRemTcid": {
+    "name": "hprRtpStatusRemTcid",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusNewRscv": {
+    "name": "hprRtpStatusNewRscv",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusOldRscv": {
+    "name": "hprRtpStatusOldRscv",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusCause": {
+    "name": "hprRtpStatusCause",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rtpConnFail": 2,
+          "locLinkFail": 3,
+          "remLinkFail": 4,
+          "operRequest": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprRtpStatusLastAttemptResult": {
+    "name": "hprRtpStatusLastAttemptResult",
+    "oid": "1.3.6.1.2.1.34.6.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "successful": 1,
+          "initiatorMoving": 2,
+          "directorySearchFailed": 3,
+          "rscvCalculationFailed": 4,
+          "negativeRouteSetupReply": 5,
+          "backoutRouteSetupReply": 6,
+          "timeoutDuringFirstAttempt": 7,
+          "otherUnsuccessful": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hprConformance": {
+    "name": "hprConformance",
+    "oid": "1.3.6.1.2.1.34.6.2",
+    "class": "objectidentity"
+  },
+  "hprCompliances": {
+    "name": "hprCompliances",
+    "oid": "1.3.6.1.2.1.34.6.2.1",
+    "class": "objectidentity"
+  },
+  "hprGroups": {
+    "name": "hprGroups",
+    "oid": "1.3.6.1.2.1.34.6.2.2",
+    "class": "objectidentity"
+  },
+  "hprCompliance": {
+    "name": "hprCompliance",
+    "oid": "1.3.6.1.2.1.34.6.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hprGlobalConfGroup",
+        "module": "HPR-MIB"
+      },
+      {
+        "object": "hprAnrRoutingConfGroup",
+        "module": "HPR-MIB"
+      },
+      {
+        "object": "hprTransportUserConfGroup",
+        "module": "HPR-MIB"
+      },
+      {
+        "object": "hprRtpConfGroup",
+        "module": "HPR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hprGlobalConfGroup": {
+    "name": "hprGlobalConfGroup",
+    "oid": "1.3.6.1.2.1.34.6.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprNodeCpName"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprOperatorPathSwitchSupport"
+      }
+    ],
+    "status": "current"
+  },
+  "hprAnrRoutingConfGroup": {
+    "name": "hprAnrRoutingConfGroup",
+    "oid": "1.3.6.1.2.1.34.6.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrsAssigned"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrCounterState"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrCounterStateTime"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrType"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrOutTgDest"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrOutTgNum"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrPacketsReceived"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprAnrCounterDisconTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hprTransportUserConfGroup": {
+    "name": "hprTransportUserConfGroup",
+    "oid": "1.3.6.1.2.1.34.6.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprNceType"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprNceDefault"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprNceInstanceId"
+      }
+    ],
+    "status": "current"
+  },
+  "hprRtpConfGroup": {
+    "name": "hprRtpConfGroup",
+    "oid": "1.3.6.1.2.1.34.6.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpGlobeConnSetups"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpGlobeCtrState"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpGlobeCtrStateTime"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRemCpName"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRemNceId"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRemTcid"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpPathSwitchTrigger"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRscv"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpTopic"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpState"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpUpTime"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpLivenessTimer"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpShortReqTimer"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpPathSwTimer"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpLivenessTimeouts"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpShortReqTimeouts"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpMaxSendRate"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpMinSendRate"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpCurSendRate"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpSmRdTripDelay"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpSendPackets"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRecvPackets"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpSendBytes"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRecvBytes"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRetrPackets"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpPacketsDiscarded"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpDetectGaps"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpRateReqSends"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpOkErrPathSws"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpBadErrPathSws"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpOkOpPathSws"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpBadOpPathSws"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpCounterDisconTime"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusStartTime"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusEndTime"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusRemNceId"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusRemTcid"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusRemCpName"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusNewRscv"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusOldRscv"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusCause"
+      },
+      {
+        "module": "HPR-MIB",
+        "object": "hprRtpStatusLastAttemptResult"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPR-MIB"
+  }
+}

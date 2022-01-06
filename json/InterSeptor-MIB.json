@@ -1,0 +1,2420 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "jacarta": {
+    "name": "jacarta",
+    "oid": "1.3.6.1.4.1.19011",
+    "class": "objectidentity"
+  },
+  "product": {
+    "name": "product",
+    "oid": "1.3.6.1.4.1.19011.1",
+    "class": "objectidentity"
+  },
+  "webAppliance": {
+    "name": "webAppliance",
+    "oid": "1.3.6.1.4.1.19011.1.3",
+    "class": "objectidentity"
+  },
+  "inSept": {
+    "name": "inSept",
+    "oid": "1.3.6.1.4.1.19011.1.3.1",
+    "class": "objectidentity"
+  },
+  "inSeptObjects": {
+    "name": "inSeptObjects",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "inSeptTraps": {
+    "name": "inSeptTraps",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "inSeptIdent": {
+    "name": "inSeptIdent",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "inSeptConfig": {
+    "name": "inSeptConfig",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2",
+    "class": "objectidentity"
+  },
+  "inSeptsensorMonitor": {
+    "name": "inSeptsensorMonitor",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfig": {
+    "name": "inSeptsensorConfig",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4",
+    "class": "objectidentity"
+  },
+  "inSeptIdentManufacturer": {
+    "name": "inSeptIdentManufacturer",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptIdentModel": {
+    "name": "inSeptIdentModel",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptIdentAgentSoftwareVersion": {
+    "name": "inSeptIdentAgentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptIdentName": {
+    "name": "inSeptIdentName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigMibVersion": {
+    "name": "inSeptConfigMibVersion",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptConfigNetwork": {
+    "name": "inSeptConfigNetwork",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "inSeptConfigIpAddress": {
+    "name": "inSeptConfigIpAddress",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigGateway": {
+    "name": "inSeptConfigGateway",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigSubnetMask": {
+    "name": "inSeptConfigSubnetMask",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigDateTime": {
+    "name": "inSeptConfigDateTime",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "inSeptConfigDate": {
+    "name": "inSeptConfigDate",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTime": {
+    "name": "inSeptConfigTime",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTimeFromNtp": {
+    "name": "inSeptConfigTimeFromNtp",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigNtpIpAddress": {
+    "name": "inSeptConfigNtpIpAddress",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigNtpTimeZone": {
+    "name": "inSeptConfigNtpTimeZone",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gMT-1200": 1,
+          "gMT-1100": 2,
+          "gMT-1000": 3,
+          "gMT-0900": 4,
+          "gMT-0800": 5,
+          "gMT-0700": 6,
+          "gMT-0600": 7,
+          "gMT-0500": 8,
+          "gMT-0400": 9,
+          "gMT-0330": 10,
+          "gMT-0300": 11,
+          "gMT-0200": 12,
+          "gMT-0100": 13,
+          "gMT-0000": 14,
+          "gMT0100": 15,
+          "gMT0200": 16,
+          "gMT0300": 17,
+          "gMT0330": 18,
+          "gMT0400": 19,
+          "gMT0500": 20,
+          "gMT0530": 21,
+          "gMT0600": 22,
+          "gMT0700": 23,
+          "gMT0800": 24,
+          "gMT0900": 25,
+          "gMT1000": 26,
+          "gMT1100": 27,
+          "gMT1200": 28
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigDayLightSaving": {
+    "name": "inSeptConfigDayLightSaving",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigLog": {
+    "name": "inSeptConfigLog",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "inSeptConfigHistoryLogFrequency": {
+    "name": "inSeptConfigHistoryLogFrequency",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigExtHistoryLogFrequency": {
+    "name": "inSeptConfigExtHistoryLogFrequency",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigConfigurationLog": {
+    "name": "inSeptConfigConfigurationLog",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigDhcpStatue": {
+    "name": "inSeptConfigDhcpStatue",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigPingStatue": {
+    "name": "inSeptConfigPingStatue",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTftpStatue": {
+    "name": "inSeptConfigTftpStatue",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTelnet": {
+    "name": "inSeptConfigTelnet",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.8",
+    "class": "objectidentity"
+  },
+  "inSeptConfigTelnetStatue": {
+    "name": "inSeptConfigTelnetStatue",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTelnetPortNumber": {
+    "name": "inSeptConfigTelnetPortNumber",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigHttp": {
+    "name": "inSeptConfigHttp",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.9",
+    "class": "objectidentity"
+  },
+  "inSeptConfigHttpStatue": {
+    "name": "inSeptConfigHttpStatue",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigHttpPortNumber": {
+    "name": "inSeptConfigHttpPortNumber",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigHttpSecurity": {
+    "name": "inSeptConfigHttpSecurity",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigSnmp": {
+    "name": "inSeptConfigSnmp",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.10",
+    "class": "objectidentity"
+  },
+  "inSeptConfigSnmpStatue": {
+    "name": "inSeptConfigSnmpStatue",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigSnmpPortNumber": {
+    "name": "inSeptConfigSnmpPortNumber",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigControl": {
+    "name": "inSeptConfigControl",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.11",
+    "class": "objectidentity"
+  },
+  "inSeptConfigResetToDefault": {
+    "name": "inSeptConfigResetToDefault",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigRestart": {
+    "name": "inSeptConfigRestart",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restart": 1,
+          "nothing": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTrap": {
+    "name": "inSeptConfigTrap",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.12",
+    "class": "objectidentity"
+  },
+  "inSeptConfigTrapRetryCount": {
+    "name": "inSeptConfigTrapRetryCount",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTrapRetryTime": {
+    "name": "inSeptConfigTrapRetryTime",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTrapAckSignature": {
+    "name": "inSeptConfigTrapAckSignature",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigPollRate": {
+    "name": "inSeptConfigPollRate",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTrapsReceiversTable": {
+    "name": "inSeptConfigTrapsReceiversTable",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "inSeptConfigTrapsReceiversEntry": {
+    "name": "inSeptConfigTrapsReceiversEntry",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "InterSeptor-MIB",
+        "object": "inSepttrapsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "inSepttrapsIndex": {
+    "name": "inSepttrapsIndex",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSepttrapsReceiverAddr": {
+    "name": "inSepttrapsReceiverAddr",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptreceiverCommunityString": {
+    "name": "inSeptreceiverCommunityString",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptreceiverSeverityLevel": {
+    "name": "inSeptreceiverSeverityLevel",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 1,
+          "warning": 2,
+          "severe": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptreceiverDescription": {
+    "name": "inSeptreceiverDescription",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigAccessControlTable": {
+    "name": "inSeptConfigAccessControlTable",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "inSeptConfigAccessControlEntry": {
+    "name": "inSeptConfigAccessControlEntry",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "InterSeptor-MIB",
+        "object": "accessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "accessIndex": {
+    "name": "accessIndex",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "accessControlAddr": {
+    "name": "accessControlAddr",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessCommunityString": {
+    "name": "accessCommunityString",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "accessControlMode": {
+    "name": "accessControlMode",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "read-write": 2,
+          "notAccess": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigTemperatureUnit": {
+    "name": "inSeptConfigTemperatureUnit",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 1,
+          "fahrenheit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptConfigDateFormat": {
+    "name": "inSeptConfigDateFormat",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dd-mm-yyyy": 1,
+          "mm-dd-yyyy": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorSensorNumber": {
+    "name": "inSeptsensorMonitorSensorNumber",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorSensorTable": {
+    "name": "inSeptsensorMonitorSensorTable",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorSensorEntry": {
+    "name": "inSeptsensorMonitorSensorEntry",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "InterSeptor-MIB",
+        "object": "inSeptsensorMonitorDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorDeviceIndex": {
+    "name": "inSeptsensorMonitorDeviceIndex",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorDeviceStatus": {
+    "name": "inSeptsensorMonitorDeviceStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "eMD-HT": 3,
+          "eMD-T": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorDeviceTemperature": {
+    "name": "inSeptsensorMonitorDeviceTemperature",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorDeviceTemperatureAlarm": {
+    "name": "inSeptsensorMonitorDeviceTemperatureAlarm",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "normal": 3,
+          "lowWarning": 4,
+          "lowCritical": 5,
+          "highWarning": 6,
+          "highCritical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorDeviceHumidity": {
+    "name": "inSeptsensorMonitorDeviceHumidity",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorDeviceHumidityAlarm": {
+    "name": "inSeptsensorMonitorDeviceHumidityAlarm",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "normal": 3,
+          "lowWarning": 4,
+          "lowCritical": 5,
+          "highWarning": 6,
+          "highCritical": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorAlarm1": {
+    "name": "inSeptsensorMonitorAlarm1",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "active": 3,
+          "inactive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorMonitorAlarm2": {
+    "name": "inSeptsensorMonitorAlarm2",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "active": 3,
+          "inactive": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensorNumber": {
+    "name": "inSeptsensorConfigSensorNumber",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensorTable": {
+    "name": "inSeptsensorConfigSensorTable",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensorEntry": {
+    "name": "inSeptsensorConfigSensorEntry",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "InterSeptor-MIB",
+        "object": "inSeptsensorConfigDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigDeviceIndex": {
+    "name": "inSeptsensorConfigDeviceIndex",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigDeviceName": {
+    "name": "inSeptsensorConfigDeviceName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigDeviceState": {
+    "name": "inSeptsensorConfigDeviceState",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1": {
+    "name": "inSeptsensorConfigSensor1",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor1DeviceName": {
+    "name": "inSeptsensorConfigSensor1DeviceName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1DeviceState": {
+    "name": "inSeptsensorConfigSensor1DeviceState",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Temperature": {
+    "name": "inSeptsensorConfigSensor1Temperature",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor1TemperatureName": {
+    "name": "inSeptsensorConfigSensor1TemperatureName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureLowWarning": {
+    "name": "inSeptsensorConfigSensor1TemperatureLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureLowCritical": {
+    "name": "inSeptsensorConfigSensor1TemperatureLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureHighWarning": {
+    "name": "inSeptsensorConfigSensor1TemperatureHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureHighCritical": {
+    "name": "inSeptsensorConfigSensor1TemperatureHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureHysteresis": {
+    "name": "inSeptsensorConfigSensor1TemperatureHysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureCalibration": {
+    "name": "inSeptsensorConfigSensor1TemperatureCalibration",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperatureIncrease0Point0": 1,
+          "temperatureIncrease0Point5": 2,
+          "temperatureIncrease1Point0": 3,
+          "temperatureIncrease1Point5": 4,
+          "temperatureIncrease2Point0": 5,
+          "temperatureIncrease2Point5": 6,
+          "temperatureIncrease3Point0": 7,
+          "temperatureMinus0Point5": 8,
+          "temperatureMinus1Point0": 9,
+          "temperatureMinus1Point5": 10,
+          "temperatureMinus2Point0": 11,
+          "temperatureMinus2Point5": 12,
+          "temperatureMinusPoint0": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureLowWarningStatus": {
+    "name": "inSeptsensorConfigSensor1TemperatureLowWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureLowCriticalStatus": {
+    "name": "inSeptsensorConfigSensor1TemperatureLowCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureHighWarningStatus": {
+    "name": "inSeptsensorConfigSensor1TemperatureHighWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1TemperatureHighCriticalStatus": {
+    "name": "inSeptsensorConfigSensor1TemperatureHighCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Humidity": {
+    "name": "inSeptsensorConfigSensor1Humidity",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor1HumdityName": {
+    "name": "inSeptsensorConfigSensor1HumdityName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityLowWarning": {
+    "name": "inSeptsensorConfigSensor1HumidityLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityLowCritical": {
+    "name": "inSeptsensorConfigSensor1HumidityLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityHighWarning": {
+    "name": "inSeptsensorConfigSensor1HumidityHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityHighCritical": {
+    "name": "inSeptsensorConfigSensor1HumidityHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityHysteresis": {
+    "name": "inSeptsensorConfigSensor1HumidityHysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityCalibration": {
+    "name": "inSeptsensorConfigSensor1HumidityCalibration",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "humidityIncrease0Point0": 1,
+          "humidityIncrease1Point0": 2,
+          "humidityIncrease2Point0": 3,
+          "humidityIncrease3Point0": 4,
+          "humidityIncrease4Point0": 5,
+          "humidityIncrease5Point0": 6,
+          "humidityIncrease6Point0": 7,
+          "humidityMinus1Point0": 8,
+          "humidityMinus2Point0": 9,
+          "humidityMinus3Point0": 10,
+          "humidityMinus4Point0": 11,
+          "humidityMinus5Point0": 12,
+          "humidityMinus6Point0": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityLowWarningStatus": {
+    "name": "inSeptsensorConfigSensor1HumidityLowWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityLowCriticalStatus": {
+    "name": "inSeptsensorConfigSensor1HumidityLowCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityHighWarningStatus": {
+    "name": "inSeptsensorConfigSensor1HumidityHighWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1HumidityHighCriticalStatus": {
+    "name": "inSeptsensorConfigSensor1HumidityHighCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Alarm1": {
+    "name": "inSeptsensorConfigSensor1Alarm1",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.5",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor1Alarm1Name": {
+    "name": "inSeptsensorConfigSensor1Alarm1Name",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Alarm1State": {
+    "name": "inSeptsensorConfigSensor1Alarm1State",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "normalOpen": 2,
+          "normalClose": 3,
+          "highActive": 4,
+          "lowActive": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Alarm1Hysteresis": {
+    "name": "inSeptsensorConfigSensor1Alarm1Hysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Alarm2": {
+    "name": "inSeptsensorConfigSensor1Alarm2",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.6",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor1Alarm2Name": {
+    "name": "inSeptsensorConfigSensor1Alarm2Name",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Alarm2State": {
+    "name": "inSeptsensorConfigSensor1Alarm2State",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "normalOpen": 2,
+          "normalClose": 3,
+          "highActive": 4,
+          "lowActive": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor1Alarm2Hysteresis": {
+    "name": "inSeptsensorConfigSensor1Alarm2Hysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2": {
+    "name": "inSeptsensorConfigSensor2",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor2DeviceName": {
+    "name": "inSeptsensorConfigSensor2DeviceName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2DeviceState": {
+    "name": "inSeptsensorConfigSensor2DeviceState",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Temperature": {
+    "name": "inSeptsensorConfigSensor2Temperature",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor2TemperatureName": {
+    "name": "inSeptsensorConfigSensor2TemperatureName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureLowWarning": {
+    "name": "inSeptsensorConfigSensor2TemperatureLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureLowCritical": {
+    "name": "inSeptsensorConfigSensor2TemperatureLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureHighWarning": {
+    "name": "inSeptsensorConfigSensor2TemperatureHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureHighCritical": {
+    "name": "inSeptsensorConfigSensor2TemperatureHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureHysteresis": {
+    "name": "inSeptsensorConfigSensor2TemperatureHysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureCalibration": {
+    "name": "inSeptsensorConfigSensor2TemperatureCalibration",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temperatureIncrease0Point0": 1,
+          "temperatureIncrease0Point5": 2,
+          "temperatureIncrease1Point0": 3,
+          "temperatureIncrease1Point5": 4,
+          "temperatureIncrease2Point0": 5,
+          "temperatureIncrease2Point5": 6,
+          "temperatureIncrease3Point0": 7,
+          "temperatureMinus0Point5": 8,
+          "temperatureMinus1Point0": 9,
+          "temperatureMinus1Point5": 10,
+          "temperatureMinus2Point0": 11,
+          "temperatureMinus2Point5": 12,
+          "temperatureMinusPoint0": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureLowWarningStatus": {
+    "name": "inSeptsensorConfigSensor2TemperatureLowWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureLowCriticalStatus": {
+    "name": "inSeptsensorConfigSensor2TemperatureLowCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureHighWarningStatus": {
+    "name": "inSeptsensorConfigSensor2TemperatureHighWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2TemperatureHighCriticalStatus": {
+    "name": "inSeptsensorConfigSensor2TemperatureHighCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Humidity": {
+    "name": "inSeptsensorConfigSensor2Humidity",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor2HumdityName": {
+    "name": "inSeptsensorConfigSensor2HumdityName",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityLowWarning": {
+    "name": "inSeptsensorConfigSensor2HumidityLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityLowCritical": {
+    "name": "inSeptsensorConfigSensor2HumidityLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityHighWarning": {
+    "name": "inSeptsensorConfigSensor2HumidityHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityHighCritical": {
+    "name": "inSeptsensorConfigSensor2HumidityHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityHysteresis": {
+    "name": "inSeptsensorConfigSensor2HumidityHysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityCalibration": {
+    "name": "inSeptsensorConfigSensor2HumidityCalibration",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "humidityIncrease0Point0": 1,
+          "humidityIncrease1Point0": 2,
+          "humidityIncrease2Point0": 3,
+          "humidityIncrease3Point0": 4,
+          "humidityIncrease4Point0": 5,
+          "humidityIncrease5Point0": 6,
+          "humidityIncrease6Point0": 7,
+          "humidityMinus1Point0": 8,
+          "humidityMinus2Point0": 9,
+          "humidityMinus3Point0": 10,
+          "humidityMinus4Point0": 11,
+          "humidityMinus5Point0": 12,
+          "humidityMinus6Point0": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityLowWarningStatus": {
+    "name": "inSeptsensorConfigSensor2HumidityLowWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityLowCriticalStatus": {
+    "name": "inSeptsensorConfigSensor2HumidityLowCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityHighWarningStatus": {
+    "name": "inSeptsensorConfigSensor2HumidityHighWarningStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2HumidityHighCriticalStatus": {
+    "name": "inSeptsensorConfigSensor2HumidityHighCriticalStatus",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Alarm1": {
+    "name": "inSeptsensorConfigSensor2Alarm1",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.5",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor2Alarm1Name": {
+    "name": "inSeptsensorConfigSensor2Alarm1Name",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Alarm1State": {
+    "name": "inSeptsensorConfigSensor2Alarm1State",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "normalOpen": 2,
+          "normalClose": 3,
+          "highActive": 4,
+          "lowActive": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Alarm1Hysteresis": {
+    "name": "inSeptsensorConfigSensor2Alarm1Hysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Alarm2": {
+    "name": "inSeptsensorConfigSensor2Alarm2",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.6",
+    "class": "objectidentity"
+  },
+  "inSeptsensorConfigSensor2Alarm2Name": {
+    "name": "inSeptsensorConfigSensor2Alarm2Name",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Alarm2State": {
+    "name": "inSeptsensorConfigSensor2Alarm2State",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "normalOpen": 2,
+          "normalClose": 3,
+          "highActive": 4,
+          "lowActive": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptsensorConfigSensor2Alarm2Hysteresis": {
+    "name": "inSeptsensorConfigSensor2Alarm2Hysteresis",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.1.4.4.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "inSeptCommunicationRestored": {
+    "name": "inSeptCommunicationRestored",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.1",
+    "class": "notificationtype"
+  },
+  "inSeptCommunicationLost": {
+    "name": "inSeptCommunicationLost",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.2",
+    "class": "notificationtype"
+  },
+  "inSeptAlarm1Inactive": {
+    "name": "inSeptAlarm1Inactive",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.3",
+    "class": "notificationtype"
+  },
+  "inSeptAlarm1Active": {
+    "name": "inSeptAlarm1Active",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.4",
+    "class": "notificationtype"
+  },
+  "inSeptAlarm2Inactive": {
+    "name": "inSeptAlarm2Inactive",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.5",
+    "class": "notificationtype"
+  },
+  "inSeptAlarm2Active": {
+    "name": "inSeptAlarm2Active",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.6",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureNotHighWarning": {
+    "name": "inSeptTemperatureNotHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.7",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureHighWarning": {
+    "name": "inSeptTemperatureHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.8",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureNotLowWarning": {
+    "name": "inSeptTemperatureNotLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.9",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureLowWarning": {
+    "name": "inSeptTemperatureLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.10",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureNotHighCritical": {
+    "name": "inSeptTemperatureNotHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.11",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureHighCritical": {
+    "name": "inSeptTemperatureHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.12",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureNotLowCritical": {
+    "name": "inSeptTemperatureNotLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.13",
+    "class": "notificationtype"
+  },
+  "inSeptTemperatureLowCritical": {
+    "name": "inSeptTemperatureLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.14",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityNotHighWarning": {
+    "name": "inSeptHumidityNotHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.15",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityHighWarning": {
+    "name": "inSeptHumidityHighWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.16",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityNotLowWarning": {
+    "name": "inSeptHumidityNotLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.17",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityLowWarning": {
+    "name": "inSeptHumidityLowWarning",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.18",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityNotHighCritical": {
+    "name": "inSeptHumidityNotHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.19",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityHighCritical": {
+    "name": "inSeptHumidityHighCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.20",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityNotLowCritical": {
+    "name": "inSeptHumidityNotLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.21",
+    "class": "notificationtype"
+  },
+  "inSeptHumidityLowCritical": {
+    "name": "inSeptHumidityLowCritical",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.20.22",
+    "class": "notificationtype"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacarta/InterSeptor-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:39:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "InterSeptor-MIB"
+  }
+}

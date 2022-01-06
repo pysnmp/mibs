@@ -1,0 +1,966 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwSecStatIPMonitor": {
+    "name": "hwSecStatIPMonitor",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4",
+    "class": "moduleidentity"
+  },
+  "hwSECSTAT": {
+    "name": "hwSECSTAT",
+    "oid": "1.3.6.1.4.1.2011.5.25.11",
+    "class": "objectidentity"
+  },
+  "hwSecStatMonitorObjects": {
+    "name": "hwSecStatMonitorObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1",
+    "class": "objectidentity"
+  },
+  "hwSecStatClearAllIPInfo": {
+    "name": "hwSecStatClearAllIPInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatIPInInfoTable": {
+    "name": "hwSecStatIPInInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatIPInInfoEntry": {
+    "name": "hwSecStatIPInInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPInInfoIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatIPInInfoIpAddress": {
+    "name": "hwSecStatIPInInfoIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPTcpSessTo": {
+    "name": "hwSecStatIPTcpSessTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPUdpSessTo": {
+    "name": "hwSecStatIPUdpSessTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPIcmpSessTo": {
+    "name": "hwSecStatIPIcmpSessTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPConnTo": {
+    "name": "hwSecStatIPConnTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPHalfConnTo": {
+    "name": "hwSecStatIPHalfConnTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPTcpSessSpeedTo": {
+    "name": "hwSecStatIPTcpSessSpeedTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPUdpSessSpeedTo": {
+    "name": "hwSecStatIPUdpSessSpeedTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPIcmpSessSpeedTo": {
+    "name": "hwSecStatIPIcmpSessSpeedTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPConnSpeedTo": {
+    "name": "hwSecStatIPConnSpeedTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPHalfConnSpeedTo": {
+    "name": "hwSecStatIPHalfConnSpeedTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyIcmpPktsTo": {
+    "name": "hwSecStatIPAclDenyIcmpPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyIcmpOctsTo": {
+    "name": "hwSecStatIPAclDenyIcmpOctsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyNonIcmpPktsTo": {
+    "name": "hwSecStatIPAclDenyNonIcmpPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyNonIcmpOctsTo": {
+    "name": "hwSecStatIPAclDenyNonIcmpOctsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPBlsDenyPktsTo": {
+    "name": "hwSecStatIPBlsDenyPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDftDenyPktsTo": {
+    "name": "hwSecStatIPAclDftDenyPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDftDenyIcmpPktsTo": {
+    "name": "hwSecStatIPAclDftDenyIcmpPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPIcmpFloodDropPktsTo": {
+    "name": "hwSecStatIPIcmpFloodDropPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPUdpFloodDropPktsTo": {
+    "name": "hwSecStatIPUdpFloodDropPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPFtpPktsTo": {
+    "name": "hwSecStatIPFtpPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPSmtpPktsTo": {
+    "name": "hwSecStatIPSmtpPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPHttpPktsTo": {
+    "name": "hwSecStatIPHttpPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPH323PktsTo": {
+    "name": "hwSecStatIPH323PktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPRtspPktsTo": {
+    "name": "hwSecStatIPRtspPktsTo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatClearIPInInfo": {
+    "name": "hwSecStatClearIPInInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatIPOutInfoTable": {
+    "name": "hwSecStatIPOutInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSecStatIPOutInfoEntry": {
+    "name": "hwSecStatIPOutInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPOutInfoIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSecStatIPOutInfoIpAddress": {
+    "name": "hwSecStatIPOutInfoIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPTcpSessFrom": {
+    "name": "hwSecStatIPTcpSessFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPUdpSessFrom": {
+    "name": "hwSecStatIPUdpSessFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPIcmpSessFrom": {
+    "name": "hwSecStatIPIcmpSessFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPConnFrom": {
+    "name": "hwSecStatIPConnFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPHalfConnFrom": {
+    "name": "hwSecStatIPHalfConnFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPTcpSessSpeedFrom": {
+    "name": "hwSecStatIPTcpSessSpeedFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPUdpSessSpeedFrom": {
+    "name": "hwSecStatIPUdpSessSpeedFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPIcmpSessSpeedFrom": {
+    "name": "hwSecStatIPIcmpSessSpeedFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPConnSpeedFrom": {
+    "name": "hwSecStatIPConnSpeedFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPHalfConnSpeedFrom": {
+    "name": "hwSecStatIPHalfConnSpeedFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyIcmpPktsFrom": {
+    "name": "hwSecStatIPAclDenyIcmpPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyIcmpOctsFrom": {
+    "name": "hwSecStatIPAclDenyIcmpOctsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyNonIcmpPktsFrom": {
+    "name": "hwSecStatIPAclDenyNonIcmpPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDenyNonIcmpOctsFrom": {
+    "name": "hwSecStatIPAclDenyNonIcmpOctsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPBlsDenyPktsFrom": {
+    "name": "hwSecStatIPBlsDenyPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDftDenyPktsFrom": {
+    "name": "hwSecStatIPAclDftDenyPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPAclDftDenyIcmpPktsFrom": {
+    "name": "hwSecStatIPAclDftDenyIcmpPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPFtpPktsFrom": {
+    "name": "hwSecStatIPFtpPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPSmtpPktsFrom": {
+    "name": "hwSecStatIPSmtpPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPHttpPktsFrom": {
+    "name": "hwSecStatIPHttpPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPH323PktsFrom": {
+    "name": "hwSecStatIPH323PktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatIPRtspPktsFrom": {
+    "name": "hwSecStatIPRtspPktsFrom",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSecStatClearIPOutInfo": {
+    "name": "hwSecStatClearIPOutInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSecStatConformance": {
+    "name": "hwSecStatConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3",
+    "class": "objectidentity"
+  },
+  "hwSecStatCompliance": {
+    "name": "hwSecStatCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3.1",
+    "class": "objectidentity"
+  },
+  "hwSecStatMibGroups": {
+    "name": "hwSecStatMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3.2",
+    "class": "objectidentity"
+  },
+  "hwSecStatIPMonitorGroup": {
+    "name": "hwSecStatIPMonitorGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpOctsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpOctsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyIcmpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpFloodDropPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpFloodDropPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPFtpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPSmtpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHttpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPH323PktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPRtspPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpOctsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpOctsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyIcmpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPFtpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPSmtpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHttpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPH323PktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPOutInfoIpAddress"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPInInfoIpAddress"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatClearIPOutInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatClearIPInInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatClearAllIPInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPRtspPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPBlsDenyPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPBlsDenyPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyPktsFrom"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SECSTAT-IP-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB"
+  }
+}

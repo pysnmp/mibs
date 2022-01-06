@@ -1,0 +1,3296 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysName",
+      "sysLocation"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cisco": {
+    "name": "cisco",
+    "oid": "1.3.6.1.4.1.9",
+    "class": "objectidentity"
+  },
+  "workgroup": {
+    "name": "workgroup",
+    "oid": "1.3.6.1.4.1.9.5",
+    "class": "objectidentity"
+  },
+  "MacAddr": {
+    "name": "MacAddr",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    }
+  },
+  "esStack": {
+    "name": "esStack",
+    "oid": "1.3.6.1.4.1.9.5.14",
+    "class": "objectidentity"
+  },
+  "ciscoEsMain": {
+    "name": "ciscoEsMain",
+    "oid": "1.3.6.1.4.1.9.5.14.1",
+    "class": "objectidentity"
+  },
+  "ciscoEsConfig": {
+    "name": "ciscoEsConfig",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoEsStack": {
+    "name": "ciscoEsStack",
+    "oid": "1.3.6.1.4.1.9.5.14.2",
+    "class": "objectidentity"
+  },
+  "ciscoEsModule": {
+    "name": "ciscoEsModule",
+    "oid": "1.3.6.1.4.1.9.5.14.3",
+    "class": "objectidentity"
+  },
+  "ciscoEsPort": {
+    "name": "ciscoEsPort",
+    "oid": "1.3.6.1.4.1.9.5.14.4",
+    "class": "objectidentity"
+  },
+  "ciscoEsDmns": {
+    "name": "ciscoEsDmns",
+    "oid": "1.3.6.1.4.1.9.5.14.5",
+    "class": "objectidentity"
+  },
+  "ciscoEsEChannel": {
+    "name": "ciscoEsEChannel",
+    "oid": "1.3.6.1.4.1.9.5.14.6",
+    "class": "objectidentity"
+  },
+  "ciscoEsFilter": {
+    "name": "ciscoEsFilter",
+    "oid": "1.3.6.1.4.1.9.5.14.7",
+    "class": "objectidentity"
+  },
+  "ciscoEsVLANs": {
+    "name": "ciscoEsVLANs",
+    "oid": "1.3.6.1.4.1.9.5.14.8",
+    "class": "objectidentity"
+  },
+  "ciscoEsRouter": {
+    "name": "ciscoEsRouter",
+    "oid": "1.3.6.1.4.1.9.5.14.9",
+    "class": "objectidentity"
+  },
+  "ciscoEsIpAddr": {
+    "name": "ciscoEsIpAddr",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsNetMask": {
+    "name": "ciscoEsNetMask",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsDefaultGateway": {
+    "name": "ciscoEsDefaultGateway",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsSysCurTime": {
+    "name": "ciscoEsSysCurTime",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsConfiguration": {
+    "name": "ciscoEsConfiguration",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stand-alone": 1,
+          "back-to-back": 2,
+          "prostack-matrix": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsNumSwitches": {
+    "name": "ciscoEsNumSwitches",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackStatus": {
+    "name": "ciscoEsStackStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "updating": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsTftpServer": {
+    "name": "ciscoEsTftpServer",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsTftpServerDomain": {
+    "name": "ciscoEsTftpServerDomain",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsTftpFileLoc": {
+    "name": "ciscoEsTftpFileLoc",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsSetLock": {
+    "name": "ciscoEsSetLock",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsProStackMatrixStatus": {
+    "name": "ciscoEsProStackMatrixStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "none": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsNumMatrixModules": {
+    "name": "ciscoEsNumMatrixModules",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsLLPortDsbld": {
+    "name": "ciscoEsLLPortDsbld",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsTrapRcvrTable": {
+    "name": "ciscoEsTrapRcvrTable",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsTrapRcvrEntry": {
+    "name": "ciscoEsTrapRcvrEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsTrapRcvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsTrapRcvrIndex": {
+    "name": "ciscoEsTrapRcvrIndex",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsTrapRcvrStatus": {
+    "name": "ciscoEsTrapRcvrStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "valid": 2,
+          "invalid": 3,
+          "create": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsTrapRcvrIpAddress": {
+    "name": "ciscoEsTrapRcvrIpAddress",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsTrapRcvrComm": {
+    "name": "ciscoEsTrapRcvrComm",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsTrapRcvrVLANs": {
+    "name": "ciscoEsTrapRcvrVLANs",
+    "oid": "1.3.6.1.4.1.9.5.14.1.1.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsStackTable": {
+    "name": "ciscoEsStackTable",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsStackEntry": {
+    "name": "ciscoEsStackEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsStackSwitchNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsStackSwitchAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchNumber": {
+    "name": "ciscoEsStackSwitchNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchAddr": {
+    "name": "ciscoEsStackSwitchAddr",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchFwVersion": {
+    "name": "ciscoEsStackSwitchFwVersion",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchHwVersion": {
+    "name": "ciscoEsStackSwitchHwVersion",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchUptime": {
+    "name": "ciscoEsStackSwitchUptime",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchStatus": {
+    "name": "ciscoEsStackSwitchStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "coldReset": 2,
+          "warmReset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchTemperature": {
+    "name": "ciscoEsStackSwitchTemperature",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "toohigh": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchMemory": {
+    "name": "ciscoEsStackSwitchMemory",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchProbe": {
+    "name": "ciscoEsStackSwitchProbe",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchProbeDirection": {
+    "name": "ciscoEsStackSwitchProbeDirection",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 1,
+          "receive": 2,
+          "both": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchFeatureStatus": {
+    "name": "ciscoEsStackSwitchFeatureStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "enhanced": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchFeatureKey": {
+    "name": "ciscoEsStackSwitchFeatureKey",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchPorts": {
+    "name": "ciscoEsStackSwitchPorts",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchAgingTime": {
+    "name": "ciscoEsStackSwitchAgingTime",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchAgingLevel": {
+    "name": "ciscoEsStackSwitchAgingLevel",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchBufferOverruns": {
+    "name": "ciscoEsStackSwitchBufferOverruns",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchSoftwareFrames": {
+    "name": "ciscoEsStackSwitchSoftwareFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchInErrFrames": {
+    "name": "ciscoEsStackSwitchInErrFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchInShortFrames": {
+    "name": "ciscoEsStackSwitchInShortFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchInLongFrames": {
+    "name": "ciscoEsStackSwitchInLongFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchOutDroppedFrames": {
+    "name": "ciscoEsStackSwitchOutDroppedFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchInNoSpaceFrames": {
+    "name": "ciscoEsStackSwitchInNoSpaceFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchOutTotalReqs": {
+    "name": "ciscoEsStackSwitchOutTotalReqs",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchOutTotalFrames": {
+    "name": "ciscoEsStackSwitchOutTotalFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchLongestHashChain": {
+    "name": "ciscoEsStackSwitchLongestHashChain",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchHashTableFulls": {
+    "name": "ciscoEsStackSwitchHashTableFulls",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchId": {
+    "name": "ciscoEsStackSwitchId",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackSwitchDplxCtrl": {
+    "name": "ciscoEsStackSwitchDplxCtrl",
+    "oid": "1.3.6.1.4.1.9.5.14.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hardware": 1,
+          "software": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsModTable": {
+    "name": "ciscoEsModTable",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsModEntry": {
+    "name": "ciscoEsModEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsModSwitchNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsModNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsModSwitchNumber": {
+    "name": "ciscoEsModSwitchNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsModNumber": {
+    "name": "ciscoEsModNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsModState": {
+    "name": "ciscoEsModState",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nomodule": 1,
+          "running": 2,
+          "stopped": 3,
+          "faulty": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsModType": {
+    "name": "ciscoEsModType",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "system": 1,
+          "ws-X3004": 2,
+          "ws-X3001": 3,
+          "ws-X3005": 4,
+          "ws-X3002": 5,
+          "ws-X3013": 6,
+          "ws-X3003": 7,
+          "ws-X3006": 8,
+          "unknown": 9,
+          "none": 10,
+          "ws-X3007-8": 11,
+          "ws-X3009": 12,
+          "ws-X3010": 13,
+          "ws-X3011": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsModRevision": {
+    "name": "ciscoEsModRevision",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsModNumPorts": {
+    "name": "ciscoEsModNumPorts",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsModUptime": {
+    "name": "ciscoEsModUptime",
+    "oid": "1.3.6.1.4.1.9.5.14.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortTable": {
+    "name": "ciscoEsPortTable",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsPortEntry": {
+    "name": "ciscoEsPortEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortSwitchNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsPortSwitchNumber": {
+    "name": "ciscoEsPortSwitchNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortNumber": {
+    "name": "ciscoEsPortNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortModNumber": {
+    "name": "ciscoEsPortModNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortIfIndex": {
+    "name": "ciscoEsPortIfIndex",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortDuplex": {
+    "name": "ciscoEsPortDuplex",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fullDuplex": 1,
+          "halfDuplex": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortRcvLocalFrames": {
+    "name": "ciscoEsPortRcvLocalFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortForwardedFrames": {
+    "name": "ciscoEsPortForwardedFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortMostStations": {
+    "name": "ciscoEsPortMostStations",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortMaxStations": {
+    "name": "ciscoEsPortMaxStations",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortSWHandledFrames": {
+    "name": "ciscoEsPortSWHandledFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortLocalStations": {
+    "name": "ciscoEsPortLocalStations",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortRemoteStations": {
+    "name": "ciscoEsPortRemoteStations",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortUnknownStaFrames": {
+    "name": "ciscoEsPortUnknownStaFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortResetStats": {
+    "name": "ciscoEsPortResetStats",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "running": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortResetTimer": {
+    "name": "ciscoEsPortResetTimer",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortResetAddrs": {
+    "name": "ciscoEsPortResetAddrs",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "running": 2,
+          "reset": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortInFrames": {
+    "name": "ciscoEsPortInFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortOutFrames": {
+    "name": "ciscoEsPortOutFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortLongFrames": {
+    "name": "ciscoEsPortLongFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortShortFrames": {
+    "name": "ciscoEsPortShortFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortInBufOverflows": {
+    "name": "ciscoEsPortInBufOverflows",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortOutBufOverflows": {
+    "name": "ciscoEsPortOutBufOverflows",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortRcvBcasts": {
+    "name": "ciscoEsPortRcvBcasts",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortRcvMcasts": {
+    "name": "ciscoEsPortRcvMcasts",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortSwitchedFrames": {
+    "name": "ciscoEsPortSwitchedFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortInOctets": {
+    "name": "ciscoEsPortInOctets",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortOutOctets": {
+    "name": "ciscoEsPortOutOctets",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortPktsInErrors": {
+    "name": "ciscoEsPortPktsInErrors",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortLinkState": {
+    "name": "ciscoEsPortLinkState",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortOprStatus": {
+    "name": "ciscoEsPortOprStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "failed": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortMdiMdix": {
+    "name": "ciscoEsPortMdiMdix",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mdi": 1,
+          "mdix": 2,
+          "none": 3,
+          "internal-term-on": 4,
+          "internal-term-off": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortHashOverflows": {
+    "name": "ciscoEsPortHashOverflows",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortTableOverflows": {
+    "name": "ciscoEsPortTableOverflows",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortAddrAgingTime": {
+    "name": "ciscoEsPortAddrAgingTime",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortDemandAgingLevel": {
+    "name": "ciscoEsPortDemandAgingLevel",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortCfgMode": {
+    "name": "ciscoEsPortCfgMode",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee8021d": 1,
+          "cutthru": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortActiveMode": {
+    "name": "ciscoEsPortActiveMode",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee8021d": 1,
+          "cutthru": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortErrThreshold": {
+    "name": "ciscoEsPortErrThreshold",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortLearningState": {
+    "name": "ciscoEsPortLearningState",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "disableSrcLearning": 2,
+          "disableDstnLearning": 3,
+          "disableLearning": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortRuntlessMode": {
+    "name": "ciscoEsPortRuntlessMode",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortType": {
+    "name": "ciscoEsPortType",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type-10BaseT": 1,
+          "type-StkPort": 2,
+          "type-100BaseT": 3,
+          "type-100BaseFx": 4,
+          "type-10BaseT-4": 5,
+          "type-10Base2": 6,
+          "type-10BaseFL": 7,
+          "type-ATM155": 8,
+          "unknown": 9,
+          "type-100VG-Fx": 10,
+          "type-100VG-Tx": 11,
+          "type-ISL-FX": 12,
+          "type-ISL-TX": 13,
+          "type-R2503": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortCDPTimeToLive": {
+    "name": "ciscoEsPortCDPTimeToLive",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortFastPort": {
+    "name": "ciscoEsPortFastPort",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortISLOperStatus": {
+    "name": "ciscoEsPortISLOperStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trunking": 1,
+          "non-trunking": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortISLAdminStatus": {
+    "name": "ciscoEsPortISLAdminStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.4.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "desirable": 3,
+          "auto": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnTable": {
+    "name": "ciscoEsPortStnTable",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnEntry": {
+    "name": "ciscoEsPortStnEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortStnSwitchNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortStnPortNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortStnAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnSwitchNumber": {
+    "name": "ciscoEsPortStnSwitchNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnPortNum": {
+    "name": "ciscoEsPortStnPortNum",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnAddress": {
+    "name": "ciscoEsPortStnAddress",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnLocation": {
+    "name": "ciscoEsPortStnLocation",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnSrcFrames": {
+    "name": "ciscoEsPortStnSrcFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnSrcBytes": {
+    "name": "ciscoEsPortStnSrcBytes",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnDestnFrames": {
+    "name": "ciscoEsPortStnDestnFrames",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnDestnBytes": {
+    "name": "ciscoEsPortStnDestnBytes",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsPortStnPortOfExit": {
+    "name": "ciscoEsPortStnPortOfExit",
+    "oid": "1.3.6.1.4.1.9.5.14.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsOptPortStaTable": {
+    "name": "ciscoEsOptPortStaTable",
+    "oid": "1.3.6.1.4.1.9.5.14.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsOptPortStaEntry": {
+    "name": "ciscoEsOptPortStaEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortSwitchNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsOptPortStaPos",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsOptPortStaPos": {
+    "name": "ciscoEsOptPortStaPos",
+    "oid": "1.3.6.1.4.1.9.5.14.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsOptPortStaVal": {
+    "name": "ciscoEsOptPortStaVal",
+    "oid": "1.3.6.1.4.1.9.5.14.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANPortTable": {
+    "name": "ciscoEsVLANPortTable",
+    "oid": "1.3.6.1.4.1.9.5.14.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANPortEntry": {
+    "name": "ciscoEsVLANPortEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANPortVLANNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANPortSwitchNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsVLANPortVLANNumber": {
+    "name": "ciscoEsVLANPortVLANNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANPortSwitchNumber": {
+    "name": "ciscoEsVLANPortSwitchNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANPortPorts": {
+    "name": "ciscoEsVLANPortPorts",
+    "oid": "1.3.6.1.4.1.9.5.14.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoTable": {
+    "name": "ciscoEsVLANInfoTable",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoEntry": {
+    "name": "ciscoEsVLANInfoEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANInfoVLANNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoVLANNumber": {
+    "name": "ciscoEsVLANInfoVLANNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoState": {
+    "name": "ciscoEsVLANInfoState",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoName": {
+    "name": "ciscoEsVLANInfoName",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoBaseAddr": {
+    "name": "ciscoEsVLANInfoBaseAddr",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoIfIndex": {
+    "name": "ciscoEsVLANInfoIfIndex",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoIpState": {
+    "name": "ciscoEsVLANInfoIpState",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "auto-bootp": 2,
+          "always-bootp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoIpAddress": {
+    "name": "ciscoEsVLANInfoIpAddress",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoIpSubnetMask": {
+    "name": "ciscoEsVLANInfoIpSubnetMask",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoIpDefaultGateway": {
+    "name": "ciscoEsVLANInfoIpDefaultGateway",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoStp": {
+    "name": "ciscoEsVLANInfoStp",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoNumStations": {
+    "name": "ciscoEsVLANInfoNumStations",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANInfoMaxStations": {
+    "name": "ciscoEsVLANInfoMaxStations",
+    "oid": "1.3.6.1.4.1.9.5.14.8.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpTable": {
+    "name": "ciscoEsVLANStpTable",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpEntry": {
+    "name": "ciscoEsVLANStpEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANStpVLANIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpVLANIndex": {
+    "name": "ciscoEsVLANStpVLANIndex",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpPriority": {
+    "name": "ciscoEsVLANStpPriority",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpTimeSinceTopologyChange": {
+    "name": "ciscoEsVLANStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpTopChanges": {
+    "name": "ciscoEsVLANStpTopChanges",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpDesignatedRoot": {
+    "name": "ciscoEsVLANStpDesignatedRoot",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpRootCost": {
+    "name": "ciscoEsVLANStpRootCost",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpRootPort": {
+    "name": "ciscoEsVLANStpRootPort",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpMaxAge": {
+    "name": "ciscoEsVLANStpMaxAge",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpHelloTime": {
+    "name": "ciscoEsVLANStpHelloTime",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpHoldTime": {
+    "name": "ciscoEsVLANStpHoldTime",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpForwardDelay": {
+    "name": "ciscoEsVLANStpForwardDelay",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpBridgeMaxAge": {
+    "name": "ciscoEsVLANStpBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpBridgeHelloTime": {
+    "name": "ciscoEsVLANStpBridgeHelloTime",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStpBridgeForwardDelay": {
+    "name": "ciscoEsVLANStpBridgeForwardDelay",
+    "oid": "1.3.6.1.4.1.9.5.14.8.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStationTable": {
+    "name": "ciscoEsVLANStationTable",
+    "oid": "1.3.6.1.4.1.9.5.14.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStationEntry": {
+    "name": "ciscoEsVLANStationEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANStationVLANIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANStationBoxNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANStationAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStationVLANIndex": {
+    "name": "ciscoEsVLANStationVLANIndex",
+    "oid": "1.3.6.1.4.1.9.5.14.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStationBoxNum": {
+    "name": "ciscoEsVLANStationBoxNum",
+    "oid": "1.3.6.1.4.1.9.5.14.8.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStationAddress": {
+    "name": "ciscoEsVLANStationAddress",
+    "oid": "1.3.6.1.4.1.9.5.14.8.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStationPort": {
+    "name": "ciscoEsVLANStationPort",
+    "oid": "1.3.6.1.4.1.9.5.14.8.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsVLANStationTraffic": {
+    "name": "ciscoEsVLANStationTraffic",
+    "oid": "1.3.6.1.4.1.9.5.14.8.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsOptVLANStaTable": {
+    "name": "ciscoEsOptVLANStaTable",
+    "oid": "1.3.6.1.4.1.9.5.14.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsOptVLANStaEntry": {
+    "name": "ciscoEsOptVLANStaEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANStationVLANIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANStationBoxNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsOptVLANStaPos",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsOptVLANStaPos": {
+    "name": "ciscoEsOptVLANStaPos",
+    "oid": "1.3.6.1.4.1.9.5.14.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsOptVLANStaVal": {
+    "name": "ciscoEsOptVLANStaVal",
+    "oid": "1.3.6.1.4.1.9.5.14.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsTransitedConfiguredVLANs": {
+    "name": "ciscoEsTransitedConfiguredVLANs",
+    "oid": "1.3.6.1.4.1.9.5.14.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsTransitedVLANs": {
+    "name": "ciscoEsTransitedVLANs",
+    "oid": "1.3.6.1.4.1.9.5.14.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsECTable": {
+    "name": "ciscoEsECTable",
+    "oid": "1.3.6.1.4.1.9.5.14.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsECEntry": {
+    "name": "ciscoEsECEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsECSwitchNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsECNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsECSwitchNumber": {
+    "name": "ciscoEsECSwitchNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsECNumber": {
+    "name": "ciscoEsECNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsECPorts": {
+    "name": "ciscoEsECPorts",
+    "oid": "1.3.6.1.4.1.9.5.14.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterTable": {
+    "name": "ciscoEsFilterTable",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterEntry": {
+    "name": "ciscoEsFilterEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsFilterSwitchNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsFilterStationAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsFilterType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsFilterSwitchNumber": {
+    "name": "ciscoEsFilterSwitchNumber",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterStationAddress": {
+    "name": "ciscoEsFilterStationAddress",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterType": {
+    "name": "ciscoEsFilterType",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source-filter": 1,
+          "destination-filter": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterPorts": {
+    "name": "ciscoEsFilterPorts",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterMask": {
+    "name": "ciscoEsFilterMask",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterRemoteSwitch": {
+    "name": "ciscoEsFilterRemoteSwitch",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterRemotePort": {
+    "name": "ciscoEsFilterRemotePort",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 29
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsFilterStatus": {
+    "name": "ciscoEsFilterStatus",
+    "oid": "1.3.6.1.4.1.9.5.14.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ciscoEsRouterTable": {
+    "name": "ciscoEsRouterTable",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ciscoEsRouterEntry": {
+    "name": "ciscoEsRouterEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsRouterBox",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsRouterPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ciscoEsRouterBox": {
+    "name": "ciscoEsRouterBox",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsRouterPort": {
+    "name": "ciscoEsRouterPort",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsRouterOpState": {
+    "name": "ciscoEsRouterOpState",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "empty": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsRouterNetAddr": {
+    "name": "ciscoEsRouterNetAddr",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsRouterBoardId": {
+    "name": "ciscoEsRouterBoardId",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsRouterRev": {
+    "name": "ciscoEsRouterRev",
+    "oid": "1.3.6.1.4.1.9.5.14.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ciscoEsStackCfgChange": {
+    "name": "ciscoEsStackCfgChange",
+    "oid": "1.3.6.1.4.1.9.5.14.1.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsNumSwitches"
+      }
+    ]
+  },
+  "ciscoEsStackProStackMatrixChange": {
+    "name": "ciscoEsStackProStackMatrixChange",
+    "oid": "1.3.6.1.4.1.9.5.14.1.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsProStackMatrixStatus"
+      }
+    ]
+  },
+  "ciscoEsStackTempChange": {
+    "name": "ciscoEsStackTempChange",
+    "oid": "1.3.6.1.4.1.9.5.14.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsStackSwitchTemperature"
+      }
+    ]
+  },
+  "ciscoEsPortStrNFwdEntry": {
+    "name": "ciscoEsPortStrNFwdEntry",
+    "oid": "1.3.6.1.4.1.9.5.14.40.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsPortActiveMode"
+      }
+    ]
+  },
+  "ciscoEsVLANNewRoot": {
+    "name": "ciscoEsVLANNewRoot",
+    "oid": "1.3.6.1.4.1.9.5.14.80.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANInfoVLANNumber"
+      }
+    ]
+  },
+  "ciscoEsVLANTopologyChange": {
+    "name": "ciscoEsVLANTopologyChange",
+    "oid": "1.3.6.1.4.1.9.5.14.80.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsVLANInfoVLANNumber"
+      }
+    ]
+  },
+  "ciscoEsEtherChannelFailed": {
+    "name": "ciscoEsEtherChannelFailed",
+    "oid": "1.3.6.1.4.1.9.5.14.60.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "CISCO-ES-STACK-MIB",
+        "object": "ciscoEsECPorts"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ES-STACK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ES-STACK-MIB"
+  }
+}

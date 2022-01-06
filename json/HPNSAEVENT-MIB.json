@@ -1,0 +1,1298 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "hpnsa": {
+    "name": "hpnsa",
+    "oid": "1.3.6.1.4.1.11.2.23",
+    "class": "objectidentity"
+  },
+  "hpnsaEventLog": {
+    "name": "hpnsaEventLog",
+    "oid": "1.3.6.1.4.1.11.2.23.19",
+    "class": "objectidentity"
+  },
+  "hpnsaEventLogRev": {
+    "name": "hpnsaEventLogRev",
+    "oid": "1.3.6.1.4.1.11.2.23.19.1",
+    "class": "objectidentity"
+  },
+  "hpnsaEventLogAgentInfo": {
+    "name": "hpnsaEventLogAgentInfo",
+    "oid": "1.3.6.1.4.1.11.2.23.19.2",
+    "class": "objectidentity"
+  },
+  "hpnsaEventAgentCfgInfo": {
+    "name": "hpnsaEventAgentCfgInfo",
+    "oid": "1.3.6.1.4.1.11.2.23.19.3",
+    "class": "objectidentity"
+  },
+  "hpnsaEventLogPresenceId": {
+    "name": "hpnsaEventLogPresenceId",
+    "oid": "1.3.6.1.4.1.11.2.23.19.4",
+    "class": "objectidentity"
+  },
+  "hpnsaEventLogStatistics": {
+    "name": "hpnsaEventLogStatistics",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5",
+    "class": "objectidentity"
+  },
+  "hpnsaEventCustomerAcknowledgeActions": {
+    "name": "hpnsaEventCustomerAcknowledgeActions",
+    "oid": "1.3.6.1.4.1.11.2.23.19.6",
+    "class": "objectidentity"
+  },
+  "hpnsaEventLogMibRevMajor": {
+    "name": "hpnsaEventLogMibRevMajor",
+    "oid": "1.3.6.1.4.1.11.2.23.19.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogMibRevMinor": {
+    "name": "hpnsaEventLogMibRevMinor",
+    "oid": "1.3.6.1.4.1.11.2.23.19.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogAgentTable": {
+    "name": "hpnsaEventLogAgentTable",
+    "oid": "1.3.6.1.4.1.11.2.23.19.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogAgentEntry": {
+    "name": "hpnsaEventLogAgentEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.19.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAEVENT-MIB",
+        "object": "hpnsaEventLogAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaEventLogAgentIndex": {
+    "name": "hpnsaEventLogAgentIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.19.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogAgentName": {
+    "name": "hpnsaEventLogAgentName",
+    "oid": "1.3.6.1.4.1.11.2.23.19.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogAgentVersion": {
+    "name": "hpnsaEventLogAgentVersion",
+    "oid": "1.3.6.1.4.1.11.2.23.19.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogAgentDate": {
+    "name": "hpnsaEventLogAgentDate",
+    "oid": "1.3.6.1.4.1.11.2.23.19.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventCfgTable": {
+    "name": "hpnsaEventCfgTable",
+    "oid": "1.3.6.1.4.1.11.2.23.19.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaEventCfgTableEntry": {
+    "name": "hpnsaEventCfgTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.19.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAEVENT-MIB",
+        "object": "hpnsaEventLogRecType",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaEventLogRecType": {
+    "name": "hpnsaEventLogRecType",
+    "oid": "1.3.6.1.4.1.11.2.23.19.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "errorEccSingleBit": 1,
+          "errorEccMultipleBit": 2,
+          "errorParityMemory": 3,
+          "errorBusTimeout": 4,
+          "errorIOChannelCheck": 5,
+          "errorSoftwareNMI": 6,
+          "errorPostMemoryResize": 7,
+          "errorPost": 8,
+          "errorPciParity": 9,
+          "errorPciSystem": 10,
+          "errorCpuFailure": 11,
+          "errorFailsafeTimeout": 12,
+          "infoSingleBitErrorDisabled": 13,
+          "infoErrorLoggingDisabled": 14,
+          "errorSystemLimitExceeded": 16,
+          "infoAsynchronousSystemReset": 17,
+          "infoSystemReconfig": 20,
+          "errorPCISystem": 21,
+          "logAreaReset": 22,
+          "systemRebooted": 23,
+          "errorECCSingleBit": 33,
+          "errorECCMultipleBit": 34,
+          "errorPOSTMemoryResize": 35,
+          "cpuDeconfigured": 128,
+          "p6ECCError": 129,
+          "frontPanelNMI": 130,
+          "cpuPciSingleFanError": 131,
+          "cpuPciMultipleFanError": 132,
+          "cpuPciFanRestored": 133,
+          "watchdogTimerReset": 134,
+          "memorySingleFanError": 135,
+          "memoryMultipleFanError": 136,
+          "memoryFanRestored": 137,
+          "cpuReconfigured": 138,
+          "powerSupplyEvent": 139,
+          "powerSupplyRemoved": 140,
+          "powerSupplyInserted": 141,
+          "controlBoardReset": 142,
+          "controlBoardPowerCycle": 143,
+          "cpuCardMissing": 144,
+          "voltageRegulatingMonitorFailure": 145,
+          "infoRedundantPowerSupply": 247,
+          "infoHotSwapModule": 248
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogRecTrapEnable": {
+    "name": "hpnsaEventLogRecTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.23.19.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisabled": 1,
+          "trapEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEccPresent": {
+    "name": "hpnsaEccPresent",
+    "oid": "1.3.6.1.4.1.11.2.23.19.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaPostPresent": {
+    "name": "hpnsaPostPresent",
+    "oid": "1.3.6.1.4.1.11.2.23.19.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaTempVoltagePresent": {
+    "name": "hpnsaTempVoltagePresent",
+    "oid": "1.3.6.1.4.1.11.2.23.19.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaASRPresent": {
+    "name": "hpnsaASRPresent",
+    "oid": "1.3.6.1.4.1.11.2.23.19.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaNMIPresent": {
+    "name": "hpnsaNMIPresent",
+    "oid": "1.3.6.1.4.1.11.2.23.19.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogPercentFull": {
+    "name": "hpnsaEventLogPercentFull",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLastErasedDate": {
+    "name": "hpnsaEventLogLastErasedDate",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogErasures": {
+    "name": "hpnsaEventLogErasures",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEraseLog": {
+    "name": "hpnsaEventLogEraseLog",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eraseLogNow": 1234
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogTable": {
+    "name": "hpnsaEventLogTable",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogTableEntry": {
+    "name": "hpnsaEventLogTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAEVENT-MIB",
+        "object": "hpnsaEventLogTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaEventLogTableIndex": {
+    "name": "hpnsaEventLogTableIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryDate": {
+    "name": "hpnsaEventLogEntryDate",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryDescr": {
+    "name": "hpnsaEventLogEntryDescr",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryTrapID": {
+    "name": "hpnsaEventLogEntryTrapID",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB1": {
+    "name": "hpnsaEventLogEntryVB1",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB2": {
+    "name": "hpnsaEventLogEntryVB2",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB3": {
+    "name": "hpnsaEventLogEntryVB3",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB4": {
+    "name": "hpnsaEventLogEntryVB4",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB5": {
+    "name": "hpnsaEventLogEntryVB5",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB6": {
+    "name": "hpnsaEventLogEntryVB6",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB7": {
+    "name": "hpnsaEventLogEntryVB7",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryVB8": {
+    "name": "hpnsaEventLogEntryVB8",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryAdvisory": {
+    "name": "hpnsaEventLogEntryAdvisory",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryReportEntity": {
+    "name": "hpnsaEventLogEntryReportEntity",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntrySeverity": {
+    "name": "hpnsaEventLogEntrySeverity",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryStatus": {
+    "name": "hpnsaEventLogEntryStatus",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 2,
+          "infoWithAlert": 3,
+          "repaired": 6,
+          "caution": 9,
+          "critical": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryInfo": {
+    "name": "hpnsaEventLogEntryInfo",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogEntryUpdateTime": {
+    "name": "hpnsaEventLogEntryUpdateTime",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogNumberOfEvents": {
+    "name": "hpnsaEventLogNumberOfEvents",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogAggregationStatus": {
+    "name": "hpnsaEventLogAggregationStatus",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "degraded": 3,
+          "failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalTable": {
+    "name": "hpnsaEventLogLocalTable",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalTableEntry": {
+    "name": "hpnsaEventLogLocalTableEntry",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPNSAEVENT-MIB",
+        "object": "hpnsaEventLogTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalTableIndex": {
+    "name": "hpnsaEventLogLocalTableIndex",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryDate": {
+    "name": "hpnsaEventLogLocalEntryDate",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryDescr": {
+    "name": "hpnsaEventLogLocalEntryDescr",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryTrapID": {
+    "name": "hpnsaEventLogLocalEntryTrapID",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB1": {
+    "name": "hpnsaEventLogLocalEntryVB1",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB2": {
+    "name": "hpnsaEventLogLocalEntryVB2",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB3": {
+    "name": "hpnsaEventLogLocalEntryVB3",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB4": {
+    "name": "hpnsaEventLogLocalEntryVB4",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB5": {
+    "name": "hpnsaEventLogLocalEntryVB5",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB6": {
+    "name": "hpnsaEventLogLocalEntryVB6",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB7": {
+    "name": "hpnsaEventLogLocalEntryVB7",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryVB8": {
+    "name": "hpnsaEventLogLocalEntryVB8",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryAdvisory": {
+    "name": "hpnsaEventLogLocalEntryAdvisory",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryReportEntity": {
+    "name": "hpnsaEventLogLocalEntryReportEntity",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntrySeverity": {
+    "name": "hpnsaEventLogLocalEntrySeverity",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryStatus": {
+    "name": "hpnsaEventLogLocalEntryStatus",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 2,
+          "infoWithAlert": 3,
+          "repaired": 6,
+          "caution": 9,
+          "critical": 15
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryInfo": {
+    "name": "hpnsaEventLogLocalEntryInfo",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogLocalEntryUpdateTime": {
+    "name": "hpnsaEventLogLocalEntryUpdateTime",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventLogNumOfLocalEvents": {
+    "name": "hpnsaEventLogNumOfLocalEvents",
+    "oid": "1.3.6.1.4.1.11.2.23.19.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hpnsaEventClearLEDs": {
+    "name": "hpnsaEventClearLEDs",
+    "oid": "1.3.6.1.4.1.11.2.23.19.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearAttentionLED": 1
+        }
+      }
+    },
+    "maxaccess": "write-only",
+    "status": "optional"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPNSAEVENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPNSAEVENT-MIB"
+  }
+}

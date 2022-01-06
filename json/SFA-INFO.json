@@ -1,0 +1,720 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "datadirect": {
+    "name": "datadirect",
+    "oid": "1.3.6.1.4.1.6894",
+    "class": "objectidentity"
+  },
+  "unit": {
+    "name": "unit",
+    "oid": "1.3.6.1.4.1.6894.2",
+    "class": "objectidentity"
+  },
+  "eventLog": {
+    "name": "eventLog",
+    "oid": "1.3.6.1.4.1.6894.2.10",
+    "class": "objectidentity"
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "tempNumber": {
+    "name": "tempNumber",
+    "oid": "1.3.6.1.4.1.6894.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempTable": {
+    "name": "tempTable",
+    "oid": "1.3.6.1.4.1.6894.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "tempEntry": {
+    "name": "tempEntry",
+    "oid": "1.3.6.1.4.1.6894.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SFA-INFO",
+        "object": "tempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "tempIndex": {
+    "name": "tempIndex",
+    "oid": "1.3.6.1.4.1.6894.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempEncId": {
+    "name": "tempEncId",
+    "oid": "1.3.6.1.4.1.6894.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempEncPos": {
+    "name": "tempEncPos",
+    "oid": "1.3.6.1.4.1.6894.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tempStatus": {
+    "name": "tempStatus",
+    "oid": "1.3.6.1.4.1.6894.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fanNumber": {
+    "name": "fanNumber",
+    "oid": "1.3.6.1.4.1.6894.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fanTable": {
+    "name": "fanTable",
+    "oid": "1.3.6.1.4.1.6894.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "fanEntry": {
+    "name": "fanEntry",
+    "oid": "1.3.6.1.4.1.6894.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SFA-INFO",
+        "object": "fanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "fanIndex": {
+    "name": "fanIndex",
+    "oid": "1.3.6.1.4.1.6894.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fanEncId": {
+    "name": "fanEncId",
+    "oid": "1.3.6.1.4.1.6894.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fanEncPos": {
+    "name": "fanEncPos",
+    "oid": "1.3.6.1.4.1.6894.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "fanStatus": {
+    "name": "fanStatus",
+    "oid": "1.3.6.1.4.1.6894.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "healthy": 1,
+          "failure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerNumber": {
+    "name": "powerNumber",
+    "oid": "1.3.6.1.4.1.6894.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerTable": {
+    "name": "powerTable",
+    "oid": "1.3.6.1.4.1.6894.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "powerEntry": {
+    "name": "powerEntry",
+    "oid": "1.3.6.1.4.1.6894.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SFA-INFO",
+        "object": "powerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "powerIndex": {
+    "name": "powerIndex",
+    "oid": "1.3.6.1.4.1.6894.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerEncId": {
+    "name": "powerEncId",
+    "oid": "1.3.6.1.4.1.6894.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerEncPos": {
+    "name": "powerEncPos",
+    "oid": "1.3.6.1.4.1.6894.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "powerStatus": {
+    "name": "powerStatus",
+    "oid": "1.3.6.1.4.1.6894.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "healthy": 1,
+          "failure": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolNumber": {
+    "name": "poolNumber",
+    "oid": "1.3.6.1.4.1.6894.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolTable": {
+    "name": "poolTable",
+    "oid": "1.3.6.1.4.1.6894.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "poolEntry": {
+    "name": "poolEntry",
+    "oid": "1.3.6.1.4.1.6894.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SFA-INFO",
+        "object": "poolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "poolIndex": {
+    "name": "poolIndex",
+    "oid": "1.3.6.1.4.1.6894.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolId": {
+    "name": "poolId",
+    "oid": "1.3.6.1.4.1.6894.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolType": {
+    "name": "poolType",
+    "oid": "1.3.6.1.4.1.6894.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "storage": 1,
+          "spare": 2,
+          "unassigned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "poolNumDisks": {
+    "name": "poolNumDisks",
+    "oid": "1.3.6.1.4.1.6894.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physicalDiskTable": {
+    "name": "physicalDiskTable",
+    "oid": "1.3.6.1.4.1.6894.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "physicalDiskEntry": {
+    "name": "physicalDiskEntry",
+    "oid": "1.3.6.1.4.1.6894.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SFA-INFO",
+        "object": "physDiskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "physDiskIndex": {
+    "name": "physDiskIndex",
+    "oid": "1.3.6.1.4.1.6894.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physDiskPoolId": {
+    "name": "physDiskPoolId",
+    "oid": "1.3.6.1.4.1.6894.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physDiskId": {
+    "name": "physDiskId",
+    "oid": "1.3.6.1.4.1.6894.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physDiskWWN": {
+    "name": "physDiskWWN",
+    "oid": "1.3.6.1.4.1.6894.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physDiskEnc": {
+    "name": "physDiskEnc",
+    "oid": "1.3.6.1.4.1.6894.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physDiskSlot": {
+    "name": "physDiskSlot",
+    "oid": "1.3.6.1.4.1.6894.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "physDiskState": {
+    "name": "physDiskState",
+    "oid": "1.3.6.1.4.1.6894.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "failed": 2,
+          "predictedfailure": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemName": {
+    "name": "systemName",
+    "oid": "1.3.6.1.4.1.6894.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventLogTrapLevel": {
+    "name": "eventLogTrapLevel",
+    "oid": "1.3.6.1.4.1.6894.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "emergency": 1,
+          "alert": 2,
+          "critical": 3,
+          "error": 4,
+          "warning": 5,
+          "notice": 6,
+          "informational": 7,
+          "debug": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventLogNumEntries": {
+    "name": "eventLogNumEntries",
+    "oid": "1.3.6.1.4.1.6894.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventLogTable": {
+    "name": "eventLogTable",
+    "oid": "1.3.6.1.4.1.6894.2.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "eventLogEntry": {
+    "name": "eventLogEntry",
+    "oid": "1.3.6.1.4.1.6894.2.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SFA-INFO",
+        "object": "eventLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "eventLogIndex": {
+    "name": "eventLogIndex",
+    "oid": "1.3.6.1.4.1.6894.2.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventLogLevel": {
+    "name": "eventLogLevel",
+    "oid": "1.3.6.1.4.1.6894.2.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "emergency": 1,
+          "alert": 2,
+          "critical": 3,
+          "error": 4,
+          "warning": 5,
+          "notice": 6,
+          "informational": 7,
+          "debug": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventLogDescr": {
+    "name": "eventLogDescr",
+    "oid": "1.3.6.1.4.1.6894.2.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ddn/SFA-INFO",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:43 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SFA-INFO"
+  }
+}

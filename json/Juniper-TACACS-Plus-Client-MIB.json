@@ -1,0 +1,703 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "juniTacacsPlusClientMIB": {
+    "name": "juniTacacsPlusClientMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.60",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-02 17:31",
+        "description": "Added juniTacacsPlusClientHostOrder to juniTacacsPlusClientHostConfigTable."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-07-12 13:49",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniKeyString": {
+    "name": "JuniKeyString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "juniTacacsPlusClientObjects": {
+    "name": "juniTacacsPlusClientObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1",
+    "class": "objectidentity"
+  },
+  "juniTacacsPlusClientCommonConfig": {
+    "name": "juniTacacsPlusClientCommonConfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.1",
+    "class": "objectidentity"
+  },
+  "juniTacacsPlusClientHostConfig": {
+    "name": "juniTacacsPlusClientHostConfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2",
+    "class": "objectidentity"
+  },
+  "juniTacacsPlusClientHostStats": {
+    "name": "juniTacacsPlusClientHostStats",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3",
+    "class": "objectidentity"
+  },
+  "juniTacacsPlusClientDirectedRequest": {
+    "name": "juniTacacsPlusClientDirectedRequest",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRestrictedAndTruncated": 1,
+          "disabled": 2,
+          "notRestrictedAndNotTruncated": 3,
+          "restrictedAndTruncated": 4,
+          "restrictedAndNotTruncated": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniTacacsPlusClientTimeout": {
+    "name": "juniTacacsPlusClientTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniTacacsPlusClientKey": {
+    "name": "juniTacacsPlusClientKey",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniKeyString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniTacacsPlusClientSourceIp": {
+    "name": "juniTacacsPlusClientSourceIp",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostConfigTable": {
+    "name": "juniTacacsPlusClientHostConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostConfigEntry": {
+    "name": "juniTacacsPlusClientHostConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAddr": {
+    "name": "juniTacacsPlusClientHostAddr",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostPort": {
+    "name": "juniTacacsPlusClientHostPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 49,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostPrimary": {
+    "name": "juniTacacsPlusClientHostPrimary",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostSingleConnection": {
+    "name": "juniTacacsPlusClientHostSingleConnection",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostTimeout": {
+    "name": "juniTacacsPlusClientHostTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostKey": {
+    "name": "juniTacacsPlusClientHostKey",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniKeyString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostStatus": {
+    "name": "juniTacacsPlusClientHostStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostOrder": {
+    "name": "juniTacacsPlusClientHostOrder",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostStatsTable": {
+    "name": "juniTacacsPlusClientHostStatsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostStatsEntry": {
+    "name": "juniTacacsPlusClientHostStatsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniTacacsPlusClientHostStatsEntry",
+      "module": "Juniper-TACACS-Plus-Client-MIB",
+      "object": "juniTacacsPlusClientHostConfigEntry"
+    },
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthRequests": {
+    "name": "juniTacacsPlusClientHostAuthRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthReplies": {
+    "name": "juniTacacsPlusClientHostAuthReplies",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthPending": {
+    "name": "juniTacacsPlusClientHostAuthPending",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthTimeouts": {
+    "name": "juniTacacsPlusClientHostAuthTimeouts",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthorRequests": {
+    "name": "juniTacacsPlusClientHostAuthorRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthorReplies": {
+    "name": "juniTacacsPlusClientHostAuthorReplies",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthorPending": {
+    "name": "juniTacacsPlusClientHostAuthorPending",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAuthorTimeouts": {
+    "name": "juniTacacsPlusClientHostAuthorTimeouts",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAcctRequests": {
+    "name": "juniTacacsPlusClientHostAcctRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAcctReplies": {
+    "name": "juniTacacsPlusClientHostAcctReplies",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAcctPending": {
+    "name": "juniTacacsPlusClientHostAcctPending",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostAcctTimeouts": {
+    "name": "juniTacacsPlusClientHostAcctTimeouts",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostDiscontinuityTime": {
+    "name": "juniTacacsPlusClientHostDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniTacacsPlusClientConformance": {
+    "name": "juniTacacsPlusClientConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2",
+    "class": "objectidentity"
+  },
+  "juniTacacsPlusClientCompliances": {
+    "name": "juniTacacsPlusClientCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.1",
+    "class": "objectidentity"
+  },
+  "juniTacacsPlusClientGroups": {
+    "name": "juniTacacsPlusClientGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.2",
+    "class": "objectidentity"
+  },
+  "juniTacacsPlusCompliance": {
+    "name": "juniTacacsPlusCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniTacacsPlusClientCommonGroup",
+        "module": "Juniper-TACACS-Plus-Client-MIB"
+      },
+      {
+        "object": "juniTacacsPlusClientHostConfigGroup",
+        "module": "Juniper-TACACS-Plus-Client-MIB"
+      },
+      {
+        "object": "juniTacacsPlusClientHostStatsGroup",
+        "module": "Juniper-TACACS-Plus-Client-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniTacacsPlusCompliance2": {
+    "name": "juniTacacsPlusCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniTacacsPlusClientCommonGroup",
+        "module": "Juniper-TACACS-Plus-Client-MIB"
+      },
+      {
+        "object": "juniTacacsPlusClientHostConfigGroup2",
+        "module": "Juniper-TACACS-Plus-Client-MIB"
+      },
+      {
+        "object": "juniTacacsPlusClientHostStatsGroup",
+        "module": "Juniper-TACACS-Plus-Client-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniTacacsPlusClientCommonGroup": {
+    "name": "juniTacacsPlusClientCommonGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientDirectedRequest"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientTimeout"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientKey"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientSourceIp"
+      }
+    ],
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostConfigGroup": {
+    "name": "juniTacacsPlusClientHostConfigGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostPort"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostPrimary"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostSingleConnection"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostTimeout"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostKey"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniTacacsPlusClientHostStatsGroup": {
+    "name": "juniTacacsPlusClientHostStatsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthRequests"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthReplies"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthPending"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthTimeouts"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthorRequests"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthorReplies"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthorPending"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAuthorTimeouts"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAcctRequests"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAcctReplies"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAcctPending"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostAcctTimeouts"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "juniTacacsPlusClientHostConfigGroup2": {
+    "name": "juniTacacsPlusClientHostConfigGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.60.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostPort"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostPrimary"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostSingleConnection"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostTimeout"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostKey"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostStatus"
+      },
+      {
+        "module": "Juniper-TACACS-Plus-Client-MIB",
+        "object": "juniTacacsPlusClientHostOrder"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-TACACS-Plus-Client-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-TACACS-Plus-Client-MIB"
+  }
+}

@@ -1,0 +1,6680 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "juniL2tpMIB": {
+    "name": "juniL2tpMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.35",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-04-20 18:04",
+        "description": "Added juniL2tpSysConfigFailoverResync and juniL2tpTunnelStatusEffectiveFailoverResync."
+      },
+      {
+        "revision": "2005-08-24 16:00",
+        "description": "juniL2tpSessionStatusProxyLcp will present session status for both LAC and LNS. Added juniL2tpSysConfigDestinationLockoutTimeout, juniL2tpSysConfigDestinationLockoutTestEnabled, juniL2tpDestConfigLockoutAction."
+      },
+      {
+        "revision": "2005-04-11 18:22",
+        "description": "Added juniL2tpSysStatusTotalSwitchedSessions, juniL2tpSysStatusFailedSwitchedSessions, juniL2tpSysStatusActiveSwitchedSessions, juniL2tpSysStatusIfCounterDiscontinuityTime, juniL2tpSysConfigRejectTxAddressChange and juniL2tpSysConfigShortDrainTimeout. Added values to juniL2tpSysConfigIgnoreTxAddressChange."
+      },
+      {
+        "revision": "2004-09-02 23:47",
+        "description": "Added juniL2tpSysConfigEnableRxSpeedAvpWhenEqual."
+      },
+      {
+        "revision": "2004-05-04 14:31",
+        "description": "Added juniL2tpSysConfigReceiveWindowSize."
+      },
+      {
+        "revision": "2004-03-08 18:04",
+        "description": "Added juniL2tpSysConfigEnableDisconnectCauseAvp."
+      },
+      {
+        "revision": "2004-03-08 18:04",
+        "description": "Added juniL2tpSysConfigIgnoreTxAddressChange. Added juniL2tpUdpIpTunnelRemoteReceiveAddress and juniL2tpUdpIpTunnelRemoteReceivePort."
+      },
+      {
+        "revision": "2003-02-13 21:12",
+        "description": "Replaced Unisphere names with Juniper names. Added new objects juniL2tpSysConfigControlRetransmissionsEstablished, juniL2tpSysConfigControlRetransmissionsNotEstablished, juniL2tpSysConfigDisableChallenge, Deprecated juniL2tpSysConfigControlRetransmissions."
+      },
+      {
+        "revision": "2003-02-12 21:03",
+        "description": "Added new objects juniL2tpSysConfigFailoverWithinPreference, juniL2tpSysConfigWeightedLoadBalancing."
+      },
+      {
+        "revision": "2003-02-07 22:26",
+        "description": "Added juniL2tpSysConfigDisableCallingNumberAvp."
+      },
+      {
+        "revision": "2001-10-17 14:51",
+        "description": "Added new objects juniL2tpSysConfigTunnelSwitchingEnabled, juniL2tpSysConfigControlRetransmissions, juniL2tpSysConfigTunnelIdleTimeout."
+      },
+      {
+        "revision": "2001-10-17 13:55",
+        "description": "Added juniL2tpSysConfigReceiveDataSequencingIgnore."
+      },
+      {
+        "revision": "2001-06-18 20:00",
+        "description": "Added juniL2tpSessionStatusLacTunneledIfIndex as long-term replacement for juniL2tpSessionStatusLacPppIfIndex. Added new objects juniL2tpTunnelStatusCumEstabTime, juniL2tpSessionStatusCumEstabTime, juniL2tpSessionStatPayLostPackets. Changed range of juniL2tpSysConfigDestructTimeout to 10-3600."
+      },
+      {
+        "revision": "2000-02-11 00:00",
+        "description": "Initial revision, based in part on IETF L2TP Working Group draft-ietf-l2tpext-l2tp-mib-01."
+      }
+    ]
+  },
+  "JuniL2tpTunnelId": {
+    "name": "JuniL2tpTunnelId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniL2tpSessionId": {
+    "name": "JuniL2tpSessionId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "JuniL2tpAdminState": {
+    "name": "JuniL2tpAdminState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1,
+          "drain": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniL2tpTransport": {
+    "name": "JuniL2tpTransport",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "udpIp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniL2tpLockoutAction": {
+    "name": "JuniL2tpLockoutAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "test": 1,
+          "unlock": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniL2tpLockoutState": {
+    "name": "JuniL2tpLockoutState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLocked": 0,
+          "waitLockTimeout": 1,
+          "waitTestStart": 2,
+          "testing": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "juniL2tpTraps": {
+    "name": "juniL2tpTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.0",
+    "class": "objectidentity"
+  },
+  "juniL2tpObjects": {
+    "name": "juniL2tpObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpTrapControl": {
+    "name": "juniL2tpTrapControl",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpConformance": {
+    "name": "juniL2tpConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3",
+    "class": "objectidentity"
+  },
+  "juniL2tpSystem": {
+    "name": "juniL2tpSystem",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpDestination": {
+    "name": "juniL2tpDestination",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpTunnel": {
+    "name": "juniL2tpTunnel",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3",
+    "class": "objectidentity"
+  },
+  "juniL2tpSession": {
+    "name": "juniL2tpSession",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4",
+    "class": "objectidentity"
+  },
+  "juniL2tpTransport": {
+    "name": "juniL2tpTransport",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5",
+    "class": "objectidentity"
+  },
+  "juniL2tpSystemConfig": {
+    "name": "juniL2tpSystemConfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpSystemStatus": {
+    "name": "juniL2tpSystemStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpSysConfigAdminState": {
+    "name": "juniL2tpSysConfigAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigDestructTimeout": {
+    "name": "juniL2tpSysConfigDestructTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigIpChecksumEnable": {
+    "name": "juniL2tpSysConfigIpChecksumEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigTunnelSwitchingEnabled": {
+    "name": "juniL2tpSysConfigTunnelSwitchingEnabled",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigControlRetransmissions": {
+    "name": "juniL2tpSysConfigControlRetransmissions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "juniL2tpSysConfigTunnelIdleTimeout": {
+    "name": "juniL2tpSysConfigTunnelIdleTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigReceiveDataSequencingIgnore": {
+    "name": "juniL2tpSysConfigReceiveDataSequencingIgnore",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigFailoverWithinPreference": {
+    "name": "juniL2tpSysConfigFailoverWithinPreference",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigWeightedLoadBalancing": {
+    "name": "juniL2tpSysConfigWeightedLoadBalancing",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigControlRetransmissionsEstablished": {
+    "name": "juniL2tpSysConfigControlRetransmissionsEstablished",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigControlRetransmissionsNotEstablished": {
+    "name": "juniL2tpSysConfigControlRetransmissionsNotEstablished",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigDisableChallenge": {
+    "name": "juniL2tpSysConfigDisableChallenge",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigDisableCallingNumberAvp": {
+    "name": "juniL2tpSysConfigDisableCallingNumberAvp",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigIgnoreTxAddressChange": {
+    "name": "juniL2tpSysConfigIgnoreTxAddressChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "ipAddressAndUdpPort": 1,
+          "ipAddress": 2,
+          "udpPort": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigEnableDisconnectCauseAvp": {
+    "name": "juniL2tpSysConfigEnableDisconnectCauseAvp",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigReceiveWindowSize": {
+    "name": "juniL2tpSysConfigReceiveWindowSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigEnableRxSpeedAvpWhenEqual": {
+    "name": "juniL2tpSysConfigEnableRxSpeedAvpWhenEqual",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigRejectTxAddressChange": {
+    "name": "juniL2tpSysConfigRejectTxAddressChange",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "ipAddressAndUdpPort": 1,
+          "ipAddress": 2,
+          "udpPort": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigShortDrainTimeout": {
+    "name": "juniL2tpSysConfigShortDrainTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigDestinationLockoutTestEnabled": {
+    "name": "juniL2tpSysConfigDestinationLockoutTestEnabled",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigDestinationLockoutTimeout": {
+    "name": "juniL2tpSysConfigDestinationLockoutTimeout",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysConfigFailoverResync": {
+    "name": "juniL2tpSysConfigFailoverResync",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "failoverProtocol": 1,
+          "silentFailover": 2,
+          "failoverProtocolFallbackToSilentFailover": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "failoverProtocolFallbackToSilentFailover",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniL2tpSysStatusProtocolVersion": {
+    "name": "juniL2tpSysStatusProtocolVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusVendorName": {
+    "name": "juniL2tpSysStatusVendorName",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusFirmwareRev": {
+    "name": "juniL2tpSysStatusFirmwareRev",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusTotalDestinations": {
+    "name": "juniL2tpSysStatusTotalDestinations",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusFailedDestinations": {
+    "name": "juniL2tpSysStatusFailedDestinations",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusActiveDestinations": {
+    "name": "juniL2tpSysStatusActiveDestinations",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusTotalTunnels": {
+    "name": "juniL2tpSysStatusTotalTunnels",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusFailedTunnels": {
+    "name": "juniL2tpSysStatusFailedTunnels",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusFailedTunnelAuthens": {
+    "name": "juniL2tpSysStatusFailedTunnelAuthens",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusActiveTunnels": {
+    "name": "juniL2tpSysStatusActiveTunnels",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusTotalSessions": {
+    "name": "juniL2tpSysStatusTotalSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusFailedSessions": {
+    "name": "juniL2tpSysStatusFailedSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusActiveSessions": {
+    "name": "juniL2tpSysStatusActiveSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusTotalSwitchedSessions": {
+    "name": "juniL2tpSysStatusTotalSwitchedSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusFailedSwitchedSessions": {
+    "name": "juniL2tpSysStatusFailedSwitchedSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusActiveSwitchedSessions": {
+    "name": "juniL2tpSysStatusActiveSwitchedSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSysStatusIfCounterDiscontinuityTime": {
+    "name": "juniL2tpSysStatusIfCounterDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestConfig": {
+    "name": "juniL2tpDestConfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpDestStatus": {
+    "name": "juniL2tpDestStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpDestStatistics": {
+    "name": "juniL2tpDestStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3",
+    "class": "objectidentity"
+  },
+  "juniL2tpDestConfigTable": {
+    "name": "juniL2tpDestConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpDestConfigEntry": {
+    "name": "juniL2tpDestConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpDestConfigIfIndex": {
+    "name": "juniL2tpDestConfigIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpDestConfigRowStatus": {
+    "name": "juniL2tpDestConfigRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniL2tpDestConfigAdminState": {
+    "name": "juniL2tpDestConfigAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniL2tpDestConfigLockoutAction": {
+    "name": "juniL2tpDestConfigLockoutAction",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpLockoutAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniL2tpDestStatusTable": {
+    "name": "juniL2tpDestStatusTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpDestStatusEntry": {
+    "name": "juniL2tpDestStatusEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpDestStatusIfIndex": {
+    "name": "juniL2tpDestStatusIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpDestStatusTransport": {
+    "name": "juniL2tpDestStatusTransport",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpTransport",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusEffectiveAdminState": {
+    "name": "juniL2tpDestStatusEffectiveAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusTotalTunnels": {
+    "name": "juniL2tpDestStatusTotalTunnels",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusFailedTunnels": {
+    "name": "juniL2tpDestStatusFailedTunnels",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusFailedTunnelAuthens": {
+    "name": "juniL2tpDestStatusFailedTunnelAuthens",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusActiveTunnels": {
+    "name": "juniL2tpDestStatusActiveTunnels",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusTotalSessions": {
+    "name": "juniL2tpDestStatusTotalSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusFailedSessions": {
+    "name": "juniL2tpDestStatusFailedSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusActiveSessions": {
+    "name": "juniL2tpDestStatusActiveSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusLockoutState": {
+    "name": "juniL2tpDestStatusLockoutState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpLockoutState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatusLockoutTimeRemaining": {
+    "name": "juniL2tpDestStatusLockoutTimeRemaining",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatTable": {
+    "name": "juniL2tpDestStatTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpDestStatEntry": {
+    "name": "juniL2tpDestStatEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpDestStatIfIndex": {
+    "name": "juniL2tpDestStatIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlRecvOctets": {
+    "name": "juniL2tpDestStatCtlRecvOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlRecvPackets": {
+    "name": "juniL2tpDestStatCtlRecvPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlRecvErrors": {
+    "name": "juniL2tpDestStatCtlRecvErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlRecvDiscards": {
+    "name": "juniL2tpDestStatCtlRecvDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlSendOctets": {
+    "name": "juniL2tpDestStatCtlSendOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlSendPackets": {
+    "name": "juniL2tpDestStatCtlSendPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlSendErrors": {
+    "name": "juniL2tpDestStatCtlSendErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatCtlSendDiscards": {
+    "name": "juniL2tpDestStatCtlSendDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPayRecvOctets": {
+    "name": "juniL2tpDestStatPayRecvOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPayRecvPackets": {
+    "name": "juniL2tpDestStatPayRecvPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPayRecvErrors": {
+    "name": "juniL2tpDestStatPayRecvErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPayRecvDiscards": {
+    "name": "juniL2tpDestStatPayRecvDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPaySendOctets": {
+    "name": "juniL2tpDestStatPaySendOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPaySendPackets": {
+    "name": "juniL2tpDestStatPaySendPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPaySendErrors": {
+    "name": "juniL2tpDestStatPaySendErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpDestStatPaySendDiscards": {
+    "name": "juniL2tpDestStatPaySendDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.2.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelConfig": {
+    "name": "juniL2tpTunnelConfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpTunnelStatus": {
+    "name": "juniL2tpTunnelStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpTunnelStatistics": {
+    "name": "juniL2tpTunnelStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3",
+    "class": "objectidentity"
+  },
+  "juniL2tpTunnelMap": {
+    "name": "juniL2tpTunnelMap",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4",
+    "class": "objectidentity"
+  },
+  "juniL2tpTunnelConfigTable": {
+    "name": "juniL2tpTunnelConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpTunnelConfigEntry": {
+    "name": "juniL2tpTunnelConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpTunnelConfigIfIndex": {
+    "name": "juniL2tpTunnelConfigIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpTunnelConfigRowStatus": {
+    "name": "juniL2tpTunnelConfigRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniL2tpTunnelConfigAdminState": {
+    "name": "juniL2tpTunnelConfigAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusTable": {
+    "name": "juniL2tpTunnelStatusTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusEntry": {
+    "name": "juniL2tpTunnelStatusEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusIfIndex": {
+    "name": "juniL2tpTunnelStatusIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusTransport": {
+    "name": "juniL2tpTunnelStatusTransport",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpTransport",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusLocalTunnelId": {
+    "name": "juniL2tpTunnelStatusLocalTunnelId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRemoteTunnelId": {
+    "name": "juniL2tpTunnelStatusRemoteTunnelId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusEffectiveAdminState": {
+    "name": "juniL2tpTunnelStatusEffectiveAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusState": {
+    "name": "juniL2tpTunnelStatusState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "connecting": 1,
+          "established": 2,
+          "disconnecting": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusInitiated": {
+    "name": "juniL2tpTunnelStatusInitiated",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRemoteHostName": {
+    "name": "juniL2tpTunnelStatusRemoteHostName",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRemoteVendorName": {
+    "name": "juniL2tpTunnelStatusRemoteVendorName",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRemoteFirmwareRevision": {
+    "name": "juniL2tpTunnelStatusRemoteFirmwareRevision",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRemoteProtocolVersion": {
+    "name": "juniL2tpTunnelStatusRemoteProtocolVersion",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRemoteBearerCapabilities": {
+    "name": "juniL2tpTunnelStatusRemoteBearerCapabilities",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "digital": 1,
+          "analog": 2,
+          "digitalAnalog": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRemoteFramingCapabilities": {
+    "name": "juniL2tpTunnelStatusRemoteFramingCapabilities",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "sync": 1,
+          "async": 2,
+          "syncAsync": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRecvWindowSize": {
+    "name": "juniL2tpTunnelStatusRecvWindowSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusSendWindowSize": {
+    "name": "juniL2tpTunnelStatusSendWindowSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusSendQueueDepth": {
+    "name": "juniL2tpTunnelStatusSendQueueDepth",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRecvSeq": {
+    "name": "juniL2tpTunnelStatusRecvSeq",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusRecvSeqAck": {
+    "name": "juniL2tpTunnelStatusRecvSeqAck",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusSendSeq": {
+    "name": "juniL2tpTunnelStatusSendSeq",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusSendSeqAck": {
+    "name": "juniL2tpTunnelStatusSendSeqAck",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusTotalSessions": {
+    "name": "juniL2tpTunnelStatusTotalSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusFailedSessions": {
+    "name": "juniL2tpTunnelStatusFailedSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusActiveSessions": {
+    "name": "juniL2tpTunnelStatusActiveSessions",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusLastResultCode": {
+    "name": "juniL2tpTunnelStatusLastResultCode",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusLastErrorCode": {
+    "name": "juniL2tpTunnelStatusLastErrorCode",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusLastErrorMessage": {
+    "name": "juniL2tpTunnelStatusLastErrorMessage",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusCumEstabTime": {
+    "name": "juniL2tpTunnelStatusCumEstabTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatusEffectiveFailoverResync": {
+    "name": "juniL2tpTunnelStatusEffectiveFailoverResync",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatTable": {
+    "name": "juniL2tpTunnelStatTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatEntry": {
+    "name": "juniL2tpTunnelStatEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpTunnelStatIfIndex": {
+    "name": "juniL2tpTunnelStatIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlRecvOctets": {
+    "name": "juniL2tpTunnelStatCtlRecvOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlRecvPackets": {
+    "name": "juniL2tpTunnelStatCtlRecvPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlRecvErrors": {
+    "name": "juniL2tpTunnelStatCtlRecvErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlRecvDiscards": {
+    "name": "juniL2tpTunnelStatCtlRecvDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlSendOctets": {
+    "name": "juniL2tpTunnelStatCtlSendOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlSendPackets": {
+    "name": "juniL2tpTunnelStatCtlSendPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlSendErrors": {
+    "name": "juniL2tpTunnelStatCtlSendErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlSendDiscards": {
+    "name": "juniL2tpTunnelStatCtlSendDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPayRecvOctets": {
+    "name": "juniL2tpTunnelStatPayRecvOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPayRecvPackets": {
+    "name": "juniL2tpTunnelStatPayRecvPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPayRecvErrors": {
+    "name": "juniL2tpTunnelStatPayRecvErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPayRecvDiscards": {
+    "name": "juniL2tpTunnelStatPayRecvDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPaySendOctets": {
+    "name": "juniL2tpTunnelStatPaySendOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPaySendPackets": {
+    "name": "juniL2tpTunnelStatPaySendPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPaySendErrors": {
+    "name": "juniL2tpTunnelStatPaySendErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatPaySendDiscards": {
+    "name": "juniL2tpTunnelStatPaySendDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlRecvZLB": {
+    "name": "juniL2tpTunnelStatCtlRecvZLB",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlRecvOutOfSequence": {
+    "name": "juniL2tpTunnelStatCtlRecvOutOfSequence",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlRecvOutOfWindow": {
+    "name": "juniL2tpTunnelStatCtlRecvOutOfWindow",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlSendZLB": {
+    "name": "juniL2tpTunnelStatCtlSendZLB",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTunnelStatCtlSendRetransmits": {
+    "name": "juniL2tpTunnelStatCtlSendRetransmits",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpMapTifSidToSifTable": {
+    "name": "juniL2tpMapTifSidToSifTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpMapTifSidToSifEntry": {
+    "name": "juniL2tpMapTifSidToSifEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpMapTifSidToSifTunnelIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpMapTifSidToSifLocalSessionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpMapTifSidToSifTunnelIfIndex": {
+    "name": "juniL2tpMapTifSidToSifTunnelIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpMapTifSidToSifLocalSessionId": {
+    "name": "juniL2tpMapTifSidToSifLocalSessionId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpSessionId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpMapTifSidToSifSessionIfIndex": {
+    "name": "juniL2tpMapTifSidToSifSessionIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpMapTidToTifTable": {
+    "name": "juniL2tpMapTidToTifTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpMapTidToTifEntry": {
+    "name": "juniL2tpMapTidToTifEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpMapTidToTifLocalTunnelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpMapTidToTifLocalTunnelId": {
+    "name": "juniL2tpMapTidToTifLocalTunnelId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpMapTidToTifIfIndex": {
+    "name": "juniL2tpMapTidToTifIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionConfig": {
+    "name": "juniL2tpSessionConfig",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpSessionStatus": {
+    "name": "juniL2tpSessionStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpSessionStatistics": {
+    "name": "juniL2tpSessionStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3",
+    "class": "objectidentity"
+  },
+  "juniL2tpSessionConfigTable": {
+    "name": "juniL2tpSessionConfigTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpSessionConfigEntry": {
+    "name": "juniL2tpSessionConfigEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpSessionConfigIfIndex": {
+    "name": "juniL2tpSessionConfigIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpSessionConfigRowStatus": {
+    "name": "juniL2tpSessionConfigRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniL2tpSessionConfigAdminState": {
+    "name": "juniL2tpSessionConfigAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusTable": {
+    "name": "juniL2tpSessionStatusTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusEntry": {
+    "name": "juniL2tpSessionStatusEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpSessionStatusIfIndex": {
+    "name": "juniL2tpSessionStatusIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusLacPppIfIndex": {
+    "name": "juniL2tpSessionStatusLacPppIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniL2tpSessionStatusLocalSessionId": {
+    "name": "juniL2tpSessionStatusLocalSessionId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpSessionId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusRemoteSessionId": {
+    "name": "juniL2tpSessionStatusRemoteSessionId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpSessionId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusUserName": {
+    "name": "juniL2tpSessionStatusUserName",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusEffectiveAdminState": {
+    "name": "juniL2tpSessionStatusEffectiveAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniL2tpAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusState": {
+    "name": "juniL2tpSessionStatusState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "connecting": 1,
+          "established": 2,
+          "disconnecting": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusCallType": {
+    "name": "juniL2tpSessionStatusCallType",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "lacIncoming": 1,
+          "lnsIncoming": 2,
+          "lacOutgoing": 3,
+          "lnsOutgoing": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusCallSerialNumber": {
+    "name": "juniL2tpSessionStatusCallSerialNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusTxConnectSpeed": {
+    "name": "juniL2tpSessionStatusTxConnectSpeed",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusRxConnectSpeed": {
+    "name": "juniL2tpSessionStatusRxConnectSpeed",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusCallBearerType": {
+    "name": "juniL2tpSessionStatusCallBearerType",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "digital": 1,
+          "analog": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusFramingType": {
+    "name": "juniL2tpSessionStatusFramingType",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "sync": 1,
+          "async": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusPhysChanId": {
+    "name": "juniL2tpSessionStatusPhysChanId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusDnis": {
+    "name": "juniL2tpSessionStatusDnis",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusClid": {
+    "name": "juniL2tpSessionStatusClid",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusSubAddress": {
+    "name": "juniL2tpSessionStatusSubAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusPrivateGroupId": {
+    "name": "juniL2tpSessionStatusPrivateGroupId",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusProxyLcp": {
+    "name": "juniL2tpSessionStatusProxyLcp",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusAuthMethod": {
+    "name": "juniL2tpSessionStatusAuthMethod",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pppChap": 1,
+          "pppPap": 2,
+          "pppMsChap": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusSequencingState": {
+    "name": "juniL2tpSessionStatusSequencingState",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "remote": 1,
+          "local": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusSendSeq": {
+    "name": "juniL2tpSessionStatusSendSeq",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusRecvSeq": {
+    "name": "juniL2tpSessionStatusRecvSeq",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusLacTunneledIfIndex": {
+    "name": "juniL2tpSessionStatusLacTunneledIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatusCumEstabTime": {
+    "name": "juniL2tpSessionStatusCumEstabTime",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatTable": {
+    "name": "juniL2tpSessionStatTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpSessionStatEntry": {
+    "name": "juniL2tpSessionStatEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpSessionStatIfIndex": {
+    "name": "juniL2tpSessionStatIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPayRecvOctets": {
+    "name": "juniL2tpSessionStatPayRecvOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPayRecvPackets": {
+    "name": "juniL2tpSessionStatPayRecvPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPayRecvErrors": {
+    "name": "juniL2tpSessionStatPayRecvErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPayRecvDiscards": {
+    "name": "juniL2tpSessionStatPayRecvDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPaySendOctets": {
+    "name": "juniL2tpSessionStatPaySendOctets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPaySendPackets": {
+    "name": "juniL2tpSessionStatPaySendPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPaySendErrors": {
+    "name": "juniL2tpSessionStatPaySendErrors",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPaySendDiscards": {
+    "name": "juniL2tpSessionStatPaySendDiscards",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatRecvOutOfSequence": {
+    "name": "juniL2tpSessionStatRecvOutOfSequence",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatResequencingTimeouts": {
+    "name": "juniL2tpSessionStatResequencingTimeouts",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpSessionStatPayLostPackets": {
+    "name": "juniL2tpSessionStatPayLostPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.4.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpTransportUdpIp": {
+    "name": "juniL2tpTransportUdpIp",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpUdpIpSystem": {
+    "name": "juniL2tpUdpIpSystem",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpUdpIpDestination": {
+    "name": "juniL2tpUdpIpDestination",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpUdpIpTunnel": {
+    "name": "juniL2tpUdpIpTunnel",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3",
+    "class": "objectidentity"
+  },
+  "juniL2tpUdpIpSession": {
+    "name": "juniL2tpUdpIpSession",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.4",
+    "class": "objectidentity"
+  },
+  "juniL2tpUdpIpDestTable": {
+    "name": "juniL2tpUdpIpDestTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpUdpIpDestEntry": {
+    "name": "juniL2tpUdpIpDestEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpDestIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpUdpIpDestIfIndex": {
+    "name": "juniL2tpUdpIpDestIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpUdpIpDestRouterIndex": {
+    "name": "juniL2tpUdpIpDestRouterIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpDestLocalAddress": {
+    "name": "juniL2tpUdpIpDestLocalAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpDestRemoteAddress": {
+    "name": "juniL2tpUdpIpDestRemoteAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelTable": {
+    "name": "juniL2tpUdpIpTunnelTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelEntry": {
+    "name": "juniL2tpUdpIpTunnelEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelIfIndex": {
+    "name": "juniL2tpUdpIpTunnelIfIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelRouterIndex": {
+    "name": "juniL2tpUdpIpTunnelRouterIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelLocalAddress": {
+    "name": "juniL2tpUdpIpTunnelLocalAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelLocalPort": {
+    "name": "juniL2tpUdpIpTunnelLocalPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelRemoteAddress": {
+    "name": "juniL2tpUdpIpTunnelRemoteAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelRemotePort": {
+    "name": "juniL2tpUdpIpTunnelRemotePort",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelRemoteReceiveAddress": {
+    "name": "juniL2tpUdpIpTunnelRemoteReceiveAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpUdpIpTunnelRemoteReceivePort": {
+    "name": "juniL2tpUdpIpTunnelRemoteReceivePort",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.1.5.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniL2tpGroups": {
+    "name": "juniL2tpGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1",
+    "class": "objectidentity"
+  },
+  "juniL2tpCompliances": {
+    "name": "juniL2tpCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2",
+    "class": "objectidentity"
+  },
+  "juniL2tpCompliance": {
+    "name": "juniL2tpCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance2": {
+    "name": "juniL2tpCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance3": {
+    "name": "juniL2tpCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance4": {
+    "name": "juniL2tpCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup3",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance5": {
+    "name": "juniL2tpCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup4",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance6": {
+    "name": "juniL2tpCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup5",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance7": {
+    "name": "juniL2tpCompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup6",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance8": {
+    "name": "juniL2tpCompliance8",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup7",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup1",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance9": {
+    "name": "juniL2tpCompliance9",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup8",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup1",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance10": {
+    "name": "juniL2tpCompliance10",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup9",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup1",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance11": {
+    "name": "juniL2tpCompliance11",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup10",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup1",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance12": {
+    "name": "juniL2tpCompliance12",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup11",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup3",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup1",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpCompliance13": {
+    "name": "juniL2tpCompliance13",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup12",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup4",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup1",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpCompliance14": {
+    "name": "juniL2tpCompliance14",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.2.14",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniL2tpConfigGroup13",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatusGroup5",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpStatGroup2",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpMapGroup",
+        "module": "Juniper-L2TP-MIB"
+      },
+      {
+        "object": "juniL2tpUdpIpGroup1",
+        "module": "Juniper-L2TP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpConfigGroup": {
+    "name": "juniL2tpConfigGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpStatusGroup": {
+    "name": "juniL2tpStatusGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFirmwareRev"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLocalTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusInitiated"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteHostName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFirmwareRevision"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteBearerCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFramingCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendQueueDepth"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastResultCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorMessage"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLacPppIfIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLocalSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRemoteSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusUserName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallSerialNumber"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusTxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallBearerType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusFramingType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPhysChanId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusDnis"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusClid"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSubAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPrivateGroupId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusProxyLcp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusAuthMethod"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSequencingState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRecvSeq"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpStatGroup": {
+    "name": "juniL2tpStatGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvZLB"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvOutOfSequence"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvOutOfWindow"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendZLB"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendRetransmits"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatRecvOutOfSequence"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatResequencingTimeouts"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpMapGroup": {
+    "name": "juniL2tpMapGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpMapTifSidToSifSessionIfIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpMapTidToTifIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpUdpIpGroup": {
+    "name": "juniL2tpUdpIpGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpDestRouterIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpDestLocalAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpDestRemoteAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRouterIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelLocalAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelLocalPort"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRemoteAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRemotePort"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpStatusGroup2": {
+    "name": "juniL2tpStatusGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFirmwareRev"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLocalTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusInitiated"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteHostName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFirmwareRevision"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteBearerCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFramingCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendQueueDepth"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastResultCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorMessage"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusCumEstabTime"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLocalSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRemoteSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusUserName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallSerialNumber"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusTxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallBearerType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusFramingType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPhysChanId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusDnis"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusClid"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSubAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPrivateGroupId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusProxyLcp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusAuthMethod"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSequencingState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLacTunneledIfIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCumEstabTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpStatGroup2": {
+    "name": "juniL2tpStatGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatCtlSendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPayRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatPaySendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPayRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatPaySendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvZLB"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvOutOfSequence"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlRecvOutOfWindow"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendZLB"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatCtlSendRetransmits"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayRecvDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendOctets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendPackets"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendErrors"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPaySendDiscards"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatRecvOutOfSequence"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatResequencingTimeouts"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatPayLostPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpConfigGroup2": {
+    "name": "juniL2tpConfigGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup3": {
+    "name": "juniL2tpConfigGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup4": {
+    "name": "juniL2tpConfigGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup5": {
+    "name": "juniL2tpConfigGroup5",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup6": {
+    "name": "juniL2tpConfigGroup6",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup7": {
+    "name": "juniL2tpConfigGroup7",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIgnoreTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpUdpIpGroup1": {
+    "name": "juniL2tpUdpIpGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpDestRouterIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpDestLocalAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpDestRemoteAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRouterIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelLocalAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelLocalPort"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRemoteAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRemotePort"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRemoteReceiveAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpUdpIpTunnelRemoteReceivePort"
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpConfigGroup8": {
+    "name": "juniL2tpConfigGroup8",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIgnoreTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableDisconnectCauseAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup9": {
+    "name": "juniL2tpConfigGroup9",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIgnoreTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableDisconnectCauseAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup10": {
+    "name": "juniL2tpConfigGroup10",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIgnoreTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableDisconnectCauseAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableRxSpeedAvpWhenEqual"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpStatusGroup3": {
+    "name": "juniL2tpStatusGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFirmwareRev"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusIfCounterDiscontinuityTime"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLocalTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusInitiated"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteHostName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFirmwareRevision"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteBearerCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFramingCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendQueueDepth"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastResultCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorMessage"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusCumEstabTime"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLocalSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRemoteSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusUserName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallSerialNumber"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusTxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallBearerType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusFramingType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPhysChanId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusDnis"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusClid"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSubAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPrivateGroupId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusProxyLcp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusAuthMethod"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSequencingState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLacTunneledIfIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCumEstabTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup11": {
+    "name": "juniL2tpConfigGroup11",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIgnoreTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableDisconnectCauseAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableRxSpeedAvpWhenEqual"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigRejectTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigShortDrainTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup12": {
+    "name": "juniL2tpConfigGroup12",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIgnoreTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableDisconnectCauseAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableRxSpeedAvpWhenEqual"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigRejectTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigShortDrainTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestinationLockoutTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestinationLockoutTestEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigLockoutAction"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpStatusGroup4": {
+    "name": "juniL2tpStatusGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFirmwareRev"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusIfCounterDiscontinuityTime"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusLockoutState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusLockoutTimeRemaining"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLocalTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusInitiated"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteHostName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFirmwareRevision"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteBearerCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFramingCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendQueueDepth"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastResultCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorMessage"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusCumEstabTime"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLocalSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRemoteSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusUserName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallSerialNumber"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusTxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallBearerType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusFramingType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPhysChanId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusDnis"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusClid"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSubAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPrivateGroupId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusProxyLcp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusAuthMethod"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSequencingState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLacTunneledIfIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCumEstabTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniL2tpConfigGroup13": {
+    "name": "juniL2tpConfigGroup13",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestructTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIpChecksumEnable"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelSwitchingEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigTunnelIdleTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveDataSequencingIgnore"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverWithinPreference"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigWeightedLoadBalancing"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigControlRetransmissionsNotEstablished"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableChallenge"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDisableCallingNumberAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigIgnoreTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableDisconnectCauseAvp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigReceiveWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigEnableRxSpeedAvpWhenEqual"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigRejectTxAddressChange"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigShortDrainTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestinationLockoutTimeout"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigDestinationLockoutTestEnabled"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysConfigFailoverResync"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestConfigLockoutAction"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelConfigAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigRowStatus"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionConfigAdminState"
+      }
+    ],
+    "status": "current"
+  },
+  "juniL2tpStatusGroup5": {
+    "name": "juniL2tpStatusGroup5",
+    "oid": "1.3.6.1.4.1.4874.2.2.35.3.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFirmwareRev"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveDestinations"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusTotalSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusFailedSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusActiveSwitchedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSysStatusIfCounterDiscontinuityTime"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedTunnelAuthens"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveTunnels"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusLockoutState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpDestStatusLockoutTimeRemaining"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTransport"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLocalTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteTunnelId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusInitiated"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteHostName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteVendorName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFirmwareRevision"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteProtocolVersion"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteBearerCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRemoteFramingCapabilities"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendWindowSize"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendQueueDepth"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusRecvSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusSendSeqAck"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusTotalSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusFailedSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusActiveSessions"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastResultCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorCode"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusLastErrorMessage"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusCumEstabTime"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpTunnelStatusEffectiveFailoverResync"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLocalSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRemoteSessionId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusUserName"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusEffectiveAdminState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallSerialNumber"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusTxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRxConnectSpeed"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCallBearerType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusFramingType"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPhysChanId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusDnis"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusClid"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSubAddress"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusPrivateGroupId"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusProxyLcp"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusAuthMethod"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSequencingState"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusSendSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusRecvSeq"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusLacTunneledIfIndex"
+      },
+      {
+        "module": "Juniper-L2TP-MIB",
+        "object": "juniL2tpSessionStatusCumEstabTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-L2TP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-L2TP-MIB"
+  }
+}

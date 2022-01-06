@@ -1,0 +1,893 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwGTSMModule": {
+    "name": "hwGTSMModule",
+    "oid": "1.3.6.1.4.1.2011.5.25.126",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-05 19:38",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hwGTSM": {
+    "name": "hwGTSM",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1",
+    "class": "objectidentity"
+  },
+  "hwGTSMDefaultAction": {
+    "name": "hwGTSMDefaultAction",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass": 1,
+          "drop": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pass",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwGTSMPolicyTable": {
+    "name": "hwGTSMPolicyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicyEntry": {
+    "name": "hwGTSMPolicyEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMvrfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyProtocol",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicySourceIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyDestIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicySourcePort",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyDestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMvrfIndex": {
+    "name": "hwGTSMvrfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicyAddressType": {
+    "name": "hwGTSMPolicyAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicyProtocol": {
+    "name": "hwGTSMPolicyProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicySourceIpAddress": {
+    "name": "hwGTSMPolicySourceIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicyDestIpAddress": {
+    "name": "hwGTSMPolicyDestIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicySourcePort": {
+    "name": "hwGTSMPolicySourcePort",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicyDestPort": {
+    "name": "hwGTSMPolicyDestPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMPolicyTTLMin": {
+    "name": "hwGTSMPolicyTTLMin",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwGTSMPolicyTTLMax": {
+    "name": "hwGTSMPolicyTTLMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMPolicyRowStatus": {
+    "name": "hwGTSMPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupTable": {
+    "name": "hwGTSMBgpPeergroupTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupEntry": {
+    "name": "hwGTSMBgpPeergroupEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMvrfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupName": {
+    "name": "hwGTSMBgpPeergroupName",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupTTLMin": {
+    "name": "hwGTSMBgpPeergroupTTLMin",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupTTLMax": {
+    "name": "hwGTSMBgpPeergroupTTLMax",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupRowStatus": {
+    "name": "hwGTSMBgpPeergroupRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwGTSMStatisticsTable": {
+    "name": "hwGTSMStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMStatisticsEntry": {
+    "name": "hwGTSMStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMSlotIndex": {
+    "name": "hwGTSMSlotIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMStatisticsRcvPacketNumber": {
+    "name": "hwGTSMStatisticsRcvPacketNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMStatisticsPassPacketNumber": {
+    "name": "hwGTSMStatisticsPassPacketNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMStatisticsDropPacketNumber": {
+    "name": "hwGTSMStatisticsDropPacketNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigTable": {
+    "name": "hwGTSMGlobalConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigEntry": {
+    "name": "hwGTSMGlobalConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigClearStatistics": {
+    "name": "hwGTSMGlobalConfigClearStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigLogDroppedPacket": {
+    "name": "hwGTSMGlobalConfigLogDroppedPacket",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "log": 1,
+          "nolog": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nolog",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwGTSMStatisticsInfoTable": {
+    "name": "hwGTSMStatisticsInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMStatisticsInfoEntry": {
+    "name": "hwGTSMStatisticsInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotNum",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMSlotNum": {
+    "name": "hwGTSMSlotNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMStatisticsReceivePacketNum": {
+    "name": "hwGTSMStatisticsReceivePacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMStatisticsPassPacketNum": {
+    "name": "hwGTSMStatisticsPassPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMStatisticsDropPacketNum": {
+    "name": "hwGTSMStatisticsDropPacketNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigInfoTable": {
+    "name": "hwGTSMGlobalConfigInfoTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigInfoEntry": {
+    "name": "hwGTSMGlobalConfigInfoEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigClearStatisticsInfo": {
+    "name": "hwGTSMGlobalConfigClearStatisticsInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigLogDroppedPacketInfo": {
+    "name": "hwGTSMGlobalConfigLogDroppedPacketInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "log": 1,
+          "nolog": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nolog",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwGTSMConformance": {
+    "name": "hwGTSMConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2",
+    "class": "objectidentity"
+  },
+  "hwGTSMCompliances": {
+    "name": "hwGTSMCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.1",
+    "class": "objectidentity"
+  },
+  "hwGTSMCompliance": {
+    "name": "hwGTSMCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwGTSMDefaultActionGroup",
+        "module": "HUAWEI-GTSM-MIB"
+      },
+      {
+        "object": "hwGTSMPolicyGroup",
+        "module": "HUAWEI-GTSM-MIB"
+      },
+      {
+        "object": "hwGTSMBgpPeergroupGroup",
+        "module": "HUAWEI-GTSM-MIB"
+      },
+      {
+        "object": "hwGTSMStatisticsGroup",
+        "module": "HUAWEI-GTSM-MIB"
+      },
+      {
+        "object": "hwGTSMGlobalConfigGroup",
+        "module": "HUAWEI-GTSM-MIB"
+      },
+      {
+        "object": "hwGTSMStatisticsInfoGroup",
+        "module": "HUAWEI-GTSM-MIB"
+      },
+      {
+        "object": "hwGTSMGlobalConfigInfoGroup",
+        "module": "HUAWEI-GTSM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMGroups": {
+    "name": "hwGTSMGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2",
+    "class": "objectidentity"
+  },
+  "hwGTSMDefaultActionGroup": {
+    "name": "hwGTSMDefaultActionGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMDefaultAction"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMPolicyGroup": {
+    "name": "hwGTSMPolicyGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyTTLMin"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyTTLMax"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupGroup": {
+    "name": "hwGTSMBgpPeergroupGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupTTLMin"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupTTLMax"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMStatisticsGroup": {
+    "name": "hwGTSMStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsRcvPacketNumber"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsPassPacketNumber"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsDropPacketNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigGroup": {
+    "name": "hwGTSMGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigClearStatistics"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigLogDroppedPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMStatisticsInfoGroup": {
+    "name": "hwGTSMStatisticsInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsReceivePacketNum"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsPassPacketNum"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsDropPacketNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigInfoGroup": {
+    "name": "hwGTSMGlobalConfigInfoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigClearStatisticsInfo"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigLogDroppedPacketInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-GTSM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-GTSM-MIB"
+  }
+}

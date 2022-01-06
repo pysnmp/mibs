@@ -1,0 +1,7241 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "juniPolicyMIB": {
+    "name": "juniPolicyMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.27",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-08 18:21",
+        "description": "Add support for ATM Cell Mode configuration."
+      },
+      {
+        "revision": "2005-02-01 15:58",
+        "description": "Add attachment statistics preserve attribute."
+      },
+      {
+        "revision": "2003-10-21 19:05",
+        "description": "Policy precedence enhancements. Route class policy feature support."
+      },
+      {
+        "revision": "2003-08-25 21:55",
+        "description": "Added new forward rules data objects."
+      },
+      {
+        "revision": "2003-03-13 21:55",
+        "description": "Added noPolicy to the policy attachment type TC. Extended the range for the Classifier Control List Element ID."
+      },
+      {
+        "revision": "2002-09-16 21:44",
+        "description": "Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-03-28 14:53",
+        "description": "Extended rate limit profile objects. Added traffic class rule objects. Obsoleted policy traffic shaped objects."
+      },
+      {
+        "revision": "2001-09-07 14:48",
+        "description": "Added TCP flag and IP flag support objects. Replaced juniPolicyProfileTable with juniPolicyAttachProfileTable. Created new confomance groupings."
+      },
+      {
+        "revision": "2001-04-17 12:10",
+        "description": "Added color rule objects. Added Local Input Policy ID and Local Input Stats Enable objects to the juniPolicyProfileTable. Replaced juniPolicyIfTable with juniPolicyIfAttachTable. Replaced juniPolicyIfStatsTable with juniPolicyIfAttachStatsTable."
+      },
+      {
+        "revision": "2001-01-23 21:30",
+        "description": "Added log rule objects."
+      },
+      {
+        "revision": "2000-11-29 20:30",
+        "description": "Added policy traffic shaped objects."
+      },
+      {
+        "revision": "2000-05-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniClaclPortOperator": {
+    "name": "JuniClaclPortOperator",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperator": 0,
+          "lt": 1,
+          "gt": 2,
+          "eq": 3,
+          "ne": 4,
+          "range": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniPolicyAttachmentType": {
+    "name": "JuniPolicyAttachmentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPolicy": 0,
+          "inputPolicy": 1,
+          "outputPolicy": 2,
+          "secondaryInputPolicy": 4,
+          "auxiliaryInputPolicy": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniPolicyForwardingType": {
+    "name": "JuniPolicyForwardingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipForwarding": 1,
+          "cbfForwarding": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniPolicyIpFragValue": {
+    "name": "JuniPolicyIpFragValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equalToZero": 0,
+          "equalToOne": 1,
+          "reserved1": 2,
+          "greaterThenOne": 3,
+          "notSpecified": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JuniRateLimitProfileType": {
+    "name": "JuniRateLimitProfileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneRate": 1,
+          "twoRate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "juniPolicyObjects": {
+    "name": "juniPolicyObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1",
+    "class": "objectidentity"
+  },
+  "juniClassifierControlList": {
+    "name": "juniClassifierControlList",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1",
+    "class": "objectidentity"
+  },
+  "juniRateLimitControlList": {
+    "name": "juniRateLimitControlList",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2",
+    "class": "objectidentity"
+  },
+  "juniPolicy": {
+    "name": "juniPolicy",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3",
+    "class": "objectidentity"
+  },
+  "juniPolicyIf": {
+    "name": "juniPolicyIf",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4",
+    "class": "objectidentity"
+  },
+  "juniPolicyProfile": {
+    "name": "juniPolicyProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5",
+    "class": "objectidentity"
+  },
+  "juniPolicyStatistics": {
+    "name": "juniPolicyStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6",
+    "class": "objectidentity"
+  },
+  "juniTrafficShapeControlList": {
+    "name": "juniTrafficShapeControlList",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7",
+    "class": "objectidentity"
+  },
+  "juniPolicyNextIndex": {
+    "name": "juniPolicyNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyTable": {
+    "name": "juniPolicyTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyEntry": {
+    "name": "juniPolicyEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyId": {
+    "name": "juniPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyRowStatus": {
+    "name": "juniPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyAdminState": {
+    "name": "juniPolicyAdminState",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyOperStatus": {
+    "name": "juniPolicyOperStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "invalid": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyErrorValue": {
+    "name": "juniPolicyErrorValue",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyName": {
+    "name": "juniPolicyName",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyReferenceCount": {
+    "name": "juniPolicyReferenceCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyRuleNextIndex": {
+    "name": "juniPolicyRuleNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyAtmCellModeEnable": {
+    "name": "juniPolicyAtmCellModeEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyRuleTable": {
+    "name": "juniPolicyRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniPolicyRuleEntry": {
+    "name": "juniPolicyRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniPolicyRulePolicyId": {
+    "name": "juniPolicyRulePolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniPolicyRulePrec": {
+    "name": "juniPolicyRulePrec",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniPolicyRuleId": {
+    "name": "juniPolicyRuleId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniPolicyRuleType": {
+    "name": "juniPolicyRuleType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRule": 0,
+          "nextHopRule": 1,
+          "filterRule": 2,
+          "nextInterfaceRule": 3,
+          "rateLimitRule": 4,
+          "markingRule": 5,
+          "trafficClassRule": 6,
+          "forwardRule": 7,
+          "logRule": 8,
+          "colorRule": 10,
+          "exceptionRule": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noRule",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniPolicySuspend": {
+    "name": "juniPolicySuspend",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "juniPolicyEclipsed": {
+    "name": "juniPolicyEclipsed",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniNextHopRuleTable": {
+    "name": "juniNextHopRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniNextHopRuleEntry": {
+    "name": "juniNextHopRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniNextHopRowStatus": {
+    "name": "juniNextHopRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniNextHopIpAddress": {
+    "name": "juniNextHopIpAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniNextHopClaclId": {
+    "name": "juniNextHopClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniFilterRuleTable": {
+    "name": "juniFilterRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniFilterRuleEntry": {
+    "name": "juniFilterRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniFilterRowStatus": {
+    "name": "juniFilterRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniFilterClaclId": {
+    "name": "juniFilterClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniNextInterfaceRuleTable": {
+    "name": "juniNextInterfaceRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniNextInterfaceRuleEntry": {
+    "name": "juniNextInterfaceRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniNextInterfaceRowStatus": {
+    "name": "juniNextInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniNextInterfaceId": {
+    "name": "juniNextInterfaceId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniNextInterfaceClaclId": {
+    "name": "juniNextInterfaceClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniNextInterfaceNextHop": {
+    "name": "juniNextInterfaceNextHop",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniRateLimitRuleTable": {
+    "name": "juniRateLimitRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniRateLimitRuleEntry": {
+    "name": "juniRateLimitRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniRateLimitRowStatus": {
+    "name": "juniRateLimitRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniRateLimitId": {
+    "name": "juniRateLimitId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniRateLimitClaclId": {
+    "name": "juniRateLimitClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniMarkingRuleTable": {
+    "name": "juniMarkingRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniMarkingRuleEntry": {
+    "name": "juniMarkingRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniMarkingRowStatus": {
+    "name": "juniMarkingRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniMarkingTOSByte": {
+    "name": "juniMarkingTOSByte",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniMarkingMask": {
+    "name": "juniMarkingMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniMarkingClaclId": {
+    "name": "juniMarkingClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniForwardRuleTable": {
+    "name": "juniForwardRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniForwardRuleEntry": {
+    "name": "juniForwardRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniForwardRowStatus": {
+    "name": "juniForwardRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniForwardClaclId": {
+    "name": "juniForwardClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniForwardNextInterfaceId": {
+    "name": "juniForwardNextInterfaceId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniForwardNextHop": {
+    "name": "juniForwardNextHop",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniForwardRouterId": {
+    "name": "juniForwardRouterId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "juniForwardOrder": {
+    "name": "juniForwardOrder",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniForwardIgnoreDefaultRoute": {
+    "name": "juniForwardIgnoreDefaultRoute",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniTrafficShapeRuleTable": {
+    "name": "juniTrafficShapeRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeRuleEntry": {
+    "name": "juniTrafficShapeRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniTrafficShapeRowStatus": {
+    "name": "juniTrafficShapeRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeId": {
+    "name": "juniTrafficShapeId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniColorRuleTable": {
+    "name": "juniColorRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniColorRuleEntry": {
+    "name": "juniColorRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniColorRowStatus": {
+    "name": "juniColorRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniColor": {
+    "name": "juniColor",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "red": 1,
+          "yellow": 2,
+          "green": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniColorClaclId": {
+    "name": "juniColorClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniLogRuleTable": {
+    "name": "juniLogRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniLogRuleEntry": {
+    "name": "juniLogRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniLogRowStatus": {
+    "name": "juniLogRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniLogClaclId": {
+    "name": "juniLogClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniTrafficClassRuleTable": {
+    "name": "juniTrafficClassRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "juniTrafficClassRuleEntry": {
+    "name": "juniTrafficClassRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniTrafficClassRowStatus": {
+    "name": "juniTrafficClassRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniTrafficClassId": {
+    "name": "juniTrafficClassId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniTrafficClassClaclId": {
+    "name": "juniTrafficClassClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "juniPolicyRule2Table": {
+    "name": "juniPolicyRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyRule2Entry": {
+    "name": "juniPolicyRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyRulePolicyId2": {
+    "name": "juniPolicyRulePolicyId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyRuleClaclId": {
+    "name": "juniPolicyRuleClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyRuleId2": {
+    "name": "juniPolicyRuleId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyRuleType2": {
+    "name": "juniPolicyRuleType2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRule": 0,
+          "nextHopRule": 1,
+          "filterRule": 2,
+          "nextInterfaceRule": 3,
+          "rateLimitRule": 4,
+          "markingRule": 5,
+          "trafficClassRule": 6,
+          "forwardRule": 7,
+          "logRule": 8,
+          "colorRule": 10,
+          "exceptionRule": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noRule",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicySuspend2": {
+    "name": "juniPolicySuspend2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniNextHopRule2Table": {
+    "name": "juniNextHopRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNextHopRule2Entry": {
+    "name": "juniNextHopRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniNextHopRowStatus2": {
+    "name": "juniNextHopRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNextHopIpAddress2": {
+    "name": "juniNextHopIpAddress2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniFilterRule2Table": {
+    "name": "juniFilterRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniFilterRule2Entry": {
+    "name": "juniFilterRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniFilterRowStatus2": {
+    "name": "juniFilterRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNextInterfaceRule2Table": {
+    "name": "juniNextInterfaceRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniNextInterfaceRule2Entry": {
+    "name": "juniNextInterfaceRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniNextInterfaceRowStatus2": {
+    "name": "juniNextInterfaceRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNextInterfaceId2": {
+    "name": "juniNextInterfaceId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniNextInterfaceNextHop2": {
+    "name": "juniNextInterfaceNextHop2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRateLimitRule2Table": {
+    "name": "juniRateLimitRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRateLimitRule2Entry": {
+    "name": "juniRateLimitRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniRateLimitRowStatus2": {
+    "name": "juniRateLimitRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRateLimitId2": {
+    "name": "juniRateLimitId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniMarkingRule2Table": {
+    "name": "juniMarkingRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMarkingRule2Entry": {
+    "name": "juniMarkingRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniMarkingRowStatus2": {
+    "name": "juniMarkingRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniMarkingTOSByte2": {
+    "name": "juniMarkingTOSByte2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniMarkingMask2": {
+    "name": "juniMarkingMask2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniForwardRule2Table": {
+    "name": "juniForwardRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniForwardRule2Entry": {
+    "name": "juniForwardRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniForwardRowStatus2": {
+    "name": "juniForwardRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniForwardNextInterfaceId2": {
+    "name": "juniForwardNextInterfaceId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniForwardNextHop2": {
+    "name": "juniForwardNextHop2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniForwardRouterId2": {
+    "name": "juniForwardRouterId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniForwardOrder2": {
+    "name": "juniForwardOrder2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniForwardIgnoreDefaultRoute2": {
+    "name": "juniForwardIgnoreDefaultRoute2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniColorRule2Table": {
+    "name": "juniColorRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniColorRule2Entry": {
+    "name": "juniColorRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniColorRowStatus2": {
+    "name": "juniColorRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniColor2": {
+    "name": "juniColor2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "red": 1,
+          "yellow": 2,
+          "green": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniLogRule2Table": {
+    "name": "juniLogRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniLogRule2Entry": {
+    "name": "juniLogRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniLogRowStatus2": {
+    "name": "juniLogRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTrafficClassRule2Table": {
+    "name": "juniTrafficClassRule2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniTrafficClassRule2Entry": {
+    "name": "juniTrafficClassRule2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniTrafficClassRowStatus2": {
+    "name": "juniTrafficClassRowStatus2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniTrafficClassId2": {
+    "name": "juniTrafficClassId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyClassifierGroupTable": {
+    "name": "juniPolicyClassifierGroupTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyClassifierGroupEntry": {
+    "name": "juniPolicyClassifierGroupEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyClassifierGroupPolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyClassifierGroupClaclId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyClassifierGroupPolicyId": {
+    "name": "juniPolicyClassifierGroupPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyClassifierGroupClaclId": {
+    "name": "juniPolicyClassifierGroupClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyClassifierGroupRowStatus": {
+    "name": "juniPolicyClassifierGroupRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyClassifierGroupPrecedence": {
+    "name": "juniPolicyClassifierGroupPrecedence",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniExceptionRuleTable": {
+    "name": "juniExceptionRuleTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniExceptionRuleEntry": {
+    "name": "juniExceptionRuleEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRulePolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleId2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniExceptionRowStatus": {
+    "name": "juniExceptionRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniExceptionApplication": {
+    "name": "juniExceptionApplication",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.3.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "http-redirect": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRateLimitProfileNextIndex": {
+    "name": "juniRateLimitProfileNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRateLimitProfileTable": {
+    "name": "juniRateLimitProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRateLimitProfileEntry": {
+    "name": "juniRateLimitProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniRateLimitProfileId": {
+    "name": "juniRateLimitProfileId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRateLimitProfileRowStatus": {
+    "name": "juniRateLimitProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitProfileName": {
+    "name": "juniRateLimitProfileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitReferenceCount": {
+    "name": "juniRateLimitReferenceCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRateLimitCommittedBps": {
+    "name": "juniRateLimitCommittedBps",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitCommittedBurst": {
+    "name": "juniRateLimitCommittedBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8192,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitExceedBps": {
+    "name": "juniRateLimitExceedBps",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitExceedBurst": {
+    "name": "juniRateLimitExceedBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8192,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitCommittedAction": {
+    "name": "juniRateLimitCommittedAction",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 0,
+          "drop": 1,
+          "mark": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "transmit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitConformedAction": {
+    "name": "juniRateLimitConformedAction",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 0,
+          "drop": 1,
+          "mark": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "transmit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitExceededAction": {
+    "name": "juniRateLimitExceededAction",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 0,
+          "drop": 1,
+          "mark": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "transmit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitCommittedMarkVal": {
+    "name": "juniRateLimitCommittedMarkVal",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitConformedMarkVal": {
+    "name": "juniRateLimitConformedMarkVal",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitExceededMarkVal": {
+    "name": "juniRateLimitExceededMarkVal",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitMask": {
+    "name": "juniRateLimitMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitProfileType": {
+    "name": "juniRateLimitProfileType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniRateLimitProfileType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "twoRate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniRateLimitExcessBurst": {
+    "name": "juniRateLimitExcessBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniTrafficShapeProfileNextIndex": {
+    "name": "juniTrafficShapeProfileNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeProfileTable": {
+    "name": "juniTrafficShapeProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeProfileEntry": {
+    "name": "juniTrafficShapeProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniTrafficShapeProfileId": {
+    "name": "juniTrafficShapeProfileId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeProfileRowStatus": {
+    "name": "juniTrafficShapeProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeProfileName": {
+    "name": "juniTrafficShapeProfileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeReferenceCount": {
+    "name": "juniTrafficShapeReferenceCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeRate": {
+    "name": "juniTrafficShapeRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniTrafficShapeBurst": {
+    "name": "juniTrafficShapeBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniClassifierControlListNextIndex": {
+    "name": "juniClassifierControlListNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniClassifierControlListTable": {
+    "name": "juniClassifierControlListTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniClassifierControlListEntry": {
+    "name": "juniClassifierControlListEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniClassifierControlListId": {
+    "name": "juniClassifierControlListId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniClassifierControlListRowStatus": {
+    "name": "juniClassifierControlListRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListName": {
+    "name": "juniClassifierControlListName",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListReferenceCount": {
+    "name": "juniClassifierControlListReferenceCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniClassifierControlListNextElementIndex": {
+    "name": "juniClassifierControlListNextElementIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniClassifierControlListElementTable": {
+    "name": "juniClassifierControlListElementTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniClassifierControlListElementEntry": {
+    "name": "juniClassifierControlListElementEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListElemId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniClassifierControlListElemId": {
+    "name": "juniClassifierControlListElemId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniClassifierControlListElemRowStatus": {
+    "name": "juniClassifierControlListElemRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListNotSrc": {
+    "name": "juniClassifierControlListNotSrc",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListSrc": {
+    "name": "juniClassifierControlListSrc",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListSrcMask": {
+    "name": "juniClassifierControlListSrcMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListNotDst": {
+    "name": "juniClassifierControlListNotDst",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListDst": {
+    "name": "juniClassifierControlListDst",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListDstMask": {
+    "name": "juniClassifierControlListDstMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListNotProtocol": {
+    "name": "juniClassifierControlListNotProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListProtocol": {
+    "name": "juniClassifierControlListProtocol",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListTosByte": {
+    "name": "juniClassifierControlListTosByte",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListMask": {
+    "name": "juniClassifierControlListMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListSrcOperator": {
+    "name": "juniClassifierControlListSrcOperator",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniClaclPortOperator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noOperator",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListSrcFromPort": {
+    "name": "juniClassifierControlListSrcFromPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListSrcToPort": {
+    "name": "juniClassifierControlListSrcToPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListDestOperator": {
+    "name": "juniClassifierControlListDestOperator",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniClaclPortOperator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noOperator",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListDestFromPort": {
+    "name": "juniClassifierControlListDestFromPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListDestToPort": {
+    "name": "juniClassifierControlListDestToPort",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListICMPType": {
+    "name": "juniClassifierControlListICMPType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListICMPCode": {
+    "name": "juniClassifierControlListICMPCode",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListIGMPType": {
+    "name": "juniClassifierControlListIGMPType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListTcpFlagsValue": {
+    "name": "juniClassifierControlListTcpFlagsValue",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListTcpFlagsMask": {
+    "name": "juniClassifierControlListTcpFlagsMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListIpFlagsValue": {
+    "name": "juniClassifierControlListIpFlagsValue",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListIpFlagsMask": {
+    "name": "juniClassifierControlListIpFlagsMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListIpFragValue": {
+    "name": "juniClassifierControlListIpFragValue",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyIpFragValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notSpecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListLocal": {
+    "name": "juniClassifierControlListLocal",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListLocalPresent": {
+    "name": "juniClassifierControlListLocalPresent",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListSaRouteClass": {
+    "name": "juniClassifierControlListSaRouteClass",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListSaRouteClassPresent": {
+    "name": "juniClassifierControlListSaRouteClassPresent",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListDaRouteClass": {
+    "name": "juniClassifierControlListDaRouteClass",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniClassifierControlListDaRouteClassPresent": {
+    "name": "juniClassifierControlListDaRouteClassPresent",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.1.4.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyIfTable": {
+    "name": "juniPolicyIfTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfEntry": {
+    "name": "juniPolicyIfEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfInterfaceId",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyIfInterfaceId": {
+    "name": "juniPolicyIfInterfaceId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfRowStatus": {
+    "name": "juniPolicyIfRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyIfInputPolicyId": {
+    "name": "juniPolicyIfInputPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyIfOutputPolicyId": {
+    "name": "juniPolicyIfOutputPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyIfInputStatsEnable": {
+    "name": "juniPolicyIfInputStatsEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyIfOutputStatsEnable": {
+    "name": "juniPolicyIfOutputStatsEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachTable": {
+    "name": "juniPolicyIfAttachTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachEntry": {
+    "name": "juniPolicyIfAttachEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachInterfaceId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachForwardingType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachPolicyType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyIfAttachInterfaceId": {
+    "name": "juniPolicyIfAttachInterfaceId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachForwardingType": {
+    "name": "juniPolicyIfAttachForwardingType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyForwardingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachPolicyType": {
+    "name": "juniPolicyIfAttachPolicyType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyAttachmentType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachRowStatus": {
+    "name": "juniPolicyIfAttachRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyIfAttachPolicyId": {
+    "name": "juniPolicyIfAttachPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsEnable": {
+    "name": "juniPolicyIfAttachStatsEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsPreserve": {
+    "name": "juniPolicyIfAttachStatsPreserve",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyProfileTable": {
+    "name": "juniPolicyProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileEntry": {
+    "name": "juniPolicyProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyProfileId": {
+    "name": "juniPolicyProfileId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileRowStatus": {
+    "name": "juniPolicyProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileInputPolicyId": {
+    "name": "juniPolicyProfileInputPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileOutputPolicyId": {
+    "name": "juniPolicyProfileOutputPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileInputStatsEnable": {
+    "name": "juniPolicyProfileInputStatsEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileOutputStatsEnable": {
+    "name": "juniPolicyProfileOutputStatsEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileLocalInputPolicyId": {
+    "name": "juniPolicyProfileLocalInputPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyProfileLocalInputStatsEnable": {
+    "name": "juniPolicyProfileLocalInputStatsEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "juniPolicyAttachProfileTable": {
+    "name": "juniPolicyAttachProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyAttachProfileEntry": {
+    "name": "juniPolicyAttachProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAttachProfileId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAttachProfileForwardingType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAttachProfilePolicyType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyAttachProfileId": {
+    "name": "juniPolicyAttachProfileId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyAttachProfileForwardingType": {
+    "name": "juniPolicyAttachProfileForwardingType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyForwardingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyAttachProfilePolicyType": {
+    "name": "juniPolicyAttachProfilePolicyType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyAttachmentType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyAttachProfileRowStatus": {
+    "name": "juniPolicyAttachProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyAttachProfilePolicyId": {
+    "name": "juniPolicyAttachProfilePolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyAttachProfileStatsEnable": {
+    "name": "juniPolicyAttachProfileStatsEnable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniPolicyIfStatsTable": {
+    "name": "juniPolicyIfStatsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsEntry": {
+    "name": "juniPolicyIfStatsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsIfId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsPolicyType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsPolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsRuleId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsClaclEntryNumber",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsIfId": {
+    "name": "juniPolicyIfStatsIfId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsPolicyType": {
+    "name": "juniPolicyIfStatsPolicyType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyAttachmentType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsPolicyId": {
+    "name": "juniPolicyIfStatsPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsRulePrec": {
+    "name": "juniPolicyIfStatsRulePrec",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsRuleId": {
+    "name": "juniPolicyIfStatsRuleId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsClaclEntryNumber": {
+    "name": "juniPolicyIfStatsClaclEntryNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsGreenPackets": {
+    "name": "juniPolicyIfStatsGreenPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsYellowPackets": {
+    "name": "juniPolicyIfStatsYellowPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsRedPackets": {
+    "name": "juniPolicyIfStatsRedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsGreenBytes": {
+    "name": "juniPolicyIfStatsGreenBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsYellowBytes": {
+    "name": "juniPolicyIfStatsYellowBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfStatsRedBytes": {
+    "name": "juniPolicyIfStatsRedBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsTable": {
+    "name": "juniPolicyIfAttachStatsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsEntry": {
+    "name": "juniPolicyIfAttachStatsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsIfId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsForwardingType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsPolicyType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsPolicyId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsRulePrec",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsRuleId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsClaclEntryNumber",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsIfId": {
+    "name": "juniPolicyIfAttachStatsIfId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsForwardingType": {
+    "name": "juniPolicyIfAttachStatsForwardingType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyForwardingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsPolicyType": {
+    "name": "juniPolicyIfAttachStatsPolicyType",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyAttachmentType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsPolicyId": {
+    "name": "juniPolicyIfAttachStatsPolicyId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsRulePrec": {
+    "name": "juniPolicyIfAttachStatsRulePrec",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsRuleId": {
+    "name": "juniPolicyIfAttachStatsRuleId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsClaclEntryNumber": {
+    "name": "juniPolicyIfAttachStatsClaclEntryNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsGreenPackets": {
+    "name": "juniPolicyIfAttachStatsGreenPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsYellowPackets": {
+    "name": "juniPolicyIfAttachStatsYellowPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsRedPackets": {
+    "name": "juniPolicyIfAttachStatsRedPackets",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsGreenBytes": {
+    "name": "juniPolicyIfAttachStatsGreenBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsYellowBytes": {
+    "name": "juniPolicyIfAttachStatsYellowBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStatsRedBytes": {
+    "name": "juniPolicyIfAttachStatsRedBytes",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "juniPolicyIfAttachStats2Table": {
+    "name": "juniPolicyIfAttachStats2Table",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStats2Entry": {
+    "name": "juniPolicyIfAttachStats2Entry",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsIfId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsForwardingType2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsPolicyType2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsPolicyId2",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsClaclId",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsClaclEntryNumber2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsIfId2": {
+    "name": "juniPolicyIfAttachStatsIfId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsForwardingType2": {
+    "name": "juniPolicyIfAttachStatsForwardingType2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyForwardingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsPolicyType2": {
+    "name": "juniPolicyIfAttachStatsPolicyType2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniPolicyAttachmentType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsPolicyId2": {
+    "name": "juniPolicyIfAttachStatsPolicyId2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsClaclId": {
+    "name": "juniPolicyIfAttachStatsClaclId",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsClaclEntryNumber2": {
+    "name": "juniPolicyIfAttachStatsClaclEntryNumber2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsGreenPackets2": {
+    "name": "juniPolicyIfAttachStatsGreenPackets2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsYellowPackets2": {
+    "name": "juniPolicyIfAttachStatsYellowPackets2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsRedPackets2": {
+    "name": "juniPolicyIfAttachStatsRedPackets2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsGreenBytes2": {
+    "name": "juniPolicyIfAttachStatsGreenBytes2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsYellowBytes2": {
+    "name": "juniPolicyIfAttachStatsYellowBytes2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyIfAttachStatsRedBytes2": {
+    "name": "juniPolicyIfAttachStatsRedBytes2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.1.6.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniPolicyConformance": {
+    "name": "juniPolicyConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2",
+    "class": "objectidentity"
+  },
+  "juniPolicyCompliances": {
+    "name": "juniPolicyCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1",
+    "class": "objectidentity"
+  },
+  "juniPolicyGroups": {
+    "name": "juniPolicyGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2",
+    "class": "objectidentity"
+  },
+  "juniPolicyCompliance": {
+    "name": "juniPolicyCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyStatisticsGroup",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance2": {
+    "name": "juniPolicyCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyStatisticsGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficShapeProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance3": {
+    "name": "juniPolicyCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyStatisticsGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficShapeProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance4": {
+    "name": "juniPolicyCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfAttachGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyProfileGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachStatisticsGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficShapeProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance5": {
+    "name": "juniPolicyCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyBaseGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfAttachGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachStatisticsGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficShapeGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextHopRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniFilterRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextInterfaceRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniMarkingRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniForwardRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniColorRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance6": {
+    "name": "juniPolicyCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyBaseGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfAttachGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachStatisticsGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextHopRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniFilterRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextInterfaceRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniMarkingRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniForwardRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniColorRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficClassRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance7": {
+    "name": "juniPolicyCompliance7",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyBaseGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfAttachGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachStatisticsGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextHopRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniFilterRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextInterfaceRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniMarkingRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniForwardRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniColorRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficClassRulesGroup",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance8": {
+    "name": "juniPolicyCompliance8",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyBaseGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyClaclGrpGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfAttachGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachStatisticsGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextHopRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniFilterRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextInterfaceRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniMarkingRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniForwardRulesGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniColorRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficClassRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance9": {
+    "name": "juniPolicyCompliance9",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyBaseGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyClaclGrpGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfAttachGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachStatisticsGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextHopRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniFilterRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextInterfaceRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniMarkingRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniForwardRulesGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniColorRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficClassRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyCompliance10": {
+    "name": "juniPolicyCompliance10",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniPolicyBaseGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyClaclGrpGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniClassifierControlListGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyIfAttachGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachProfileGroup",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniPolicyAttachStatisticsGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniRateLimitGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniLogRuleGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextHopRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniFilterRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniNextInterfaceRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniMarkingRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniForwardRulesGroup3",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniColorRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniTrafficClassRulesGroup2",
+        "module": "Juniper-POLICY-MIB"
+      },
+      {
+        "object": "juniExceptionRulesGroup1",
+        "module": "Juniper-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyGroup": {
+    "name": "juniPolicyGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAdminState"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyOperStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyErrorValue"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicySuspend"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyEclipsed"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopIpAddress"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniFilterRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniFilterClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceNextHop"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingTOSByte"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardClaclId"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniRateLimitControlListGroup": {
+    "name": "juniRateLimitControlListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitMask"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniClassifierControlListGroup": {
+    "name": "juniClassifierControlListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNextElementIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListElemRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotSrc"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrc"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotDst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDstMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotProtocol"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListProtocol"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListTosByte"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcOperator"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcFromPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcToPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestOperator"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestFromPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestToPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListICMPType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListICMPCode"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIGMPType"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyIfGroup": {
+    "name": "juniPolicyIfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfInputPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfOutputPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfInputStatsEnable"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfOutputStatsEnable"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyProfileGroup": {
+    "name": "juniPolicyProfileGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileInputPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileOutputPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileInputStatsEnable"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileOutputStatsEnable"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyStatisticsGroup": {
+    "name": "juniPolicyStatisticsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsGreenPackets"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsYellowPackets"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsRedPackets"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsGreenBytes"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsYellowBytes"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfStatsRedBytes"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyGroup2": {
+    "name": "juniPolicyGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAdminState"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyOperStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyErrorValue"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicySuspend"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyEclipsed"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopIpAddress"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniFilterRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniFilterClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceNextHop"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingTOSByte"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColorRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColor"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColorClaclId"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniTrafficShapeProfileGroup": {
+    "name": "juniTrafficShapeProfileGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeProfileNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeProfileName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeRate"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeBurst"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniLogRuleGroup": {
+    "name": "juniLogRuleGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniLogRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniLogClaclId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniPolicyIfAttachGroup": {
+    "name": "juniPolicyIfAttachGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsEnable"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyProfileGroup2": {
+    "name": "juniPolicyProfileGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileInputPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileOutputPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileInputStatsEnable"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileOutputStatsEnable"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileLocalInputPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyProfileLocalInputStatsEnable"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyAttachStatisticsGroup": {
+    "name": "juniPolicyAttachStatisticsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsGreenPackets"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsYellowPackets"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsRedPackets"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsGreenBytes"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsYellowBytes"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsRedBytes"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniClassifierControlListGroup2": {
+    "name": "juniClassifierControlListGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNextElementIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListElemRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotSrc"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrc"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotDst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDstMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotProtocol"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListProtocol"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListTosByte"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcOperator"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcFromPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcToPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestOperator"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestFromPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestToPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListICMPType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListICMPCode"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIGMPType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListTcpFlagsValue"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListTcpFlagsMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIpFlagsValue"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIpFlagsMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIpFragValue"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniPolicyAttachProfileGroup": {
+    "name": "juniPolicyAttachProfileGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAttachProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAttachProfilePolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAttachProfileStatsEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyBaseGroup": {
+    "name": "juniPolicyBaseGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAdminState"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyOperStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyErrorValue"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicySuspend"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyEclipsed"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniNextHopRulesGroup": {
+    "name": "juniNextHopRulesGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopIpAddress"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopClaclId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniFilterRulesGroup": {
+    "name": "juniFilterRulesGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniFilterRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniFilterClaclId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniNextInterfaceRulesGroup": {
+    "name": "juniNextInterfaceRulesGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceNextHop"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniRateLimitGroup": {
+    "name": "juniRateLimitGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitMask"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniMarkingRulesGroup": {
+    "name": "juniMarkingRulesGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingTOSByte"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingClaclId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniForwardRulesGroup": {
+    "name": "juniForwardRulesGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardClaclId"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniTrafficShapeGroup": {
+    "name": "juniTrafficShapeGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeProfileNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeProfileName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeRate"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficShapeBurst"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniColorRulesGroup": {
+    "name": "juniColorRulesGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColorRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColor"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColorClaclId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniTrafficClassRulesGroup": {
+    "name": "juniTrafficClassRulesGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficClassRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficClassId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficClassClaclId"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniRateLimitGroup2": {
+    "name": "juniRateLimitGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExcessBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitMask"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniForwardRulesGroup2": {
+    "name": "juniForwardRulesGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardClaclId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardNextInterfaceId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardNextHop"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardRouterId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardOrder"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardIgnoreDefaultRoute"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "juniNextHopRulesGroup2": {
+    "name": "juniNextHopRulesGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopRowStatus2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextHopIpAddress2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniFilterRulesGroup2": {
+    "name": "juniFilterRulesGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniFilterRowStatus2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniNextInterfaceRulesGroup2": {
+    "name": "juniNextInterfaceRulesGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceRowStatus2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceId2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniNextInterfaceNextHop2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMarkingRulesGroup2": {
+    "name": "juniMarkingRulesGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingRowStatus2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingTOSByte2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniMarkingMask2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniColorRulesGroup2": {
+    "name": "juniColorRulesGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColorRowStatus2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniColor2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniTrafficClassRulesGroup2": {
+    "name": "juniTrafficClassRulesGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficClassRowStatus2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniTrafficClassId2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRateLimitGroup3": {
+    "name": "juniRateLimitGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitRowStatus2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitId2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitProfileType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBps"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceedBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExcessBurst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededAction"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitCommittedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitConformedMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitExceededMarkVal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniRateLimitMask"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyClaclGrpGroup": {
+    "name": "juniPolicyClaclGrpGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyClassifierGroupRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyClassifierGroupPrecedence"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyBaseGroup2": {
+    "name": "juniPolicyBaseGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAdminState"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleType2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicySuspend2"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniForwardRulesGroup3": {
+    "name": "juniForwardRulesGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardRowStatus2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardNextInterfaceId2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardNextHop2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardRouterId2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardOrder2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniForwardIgnoreDefaultRoute2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniLogRuleGroup2": {
+    "name": "juniLogRuleGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniLogRowStatus2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyAttachStatisticsGroup2": {
+    "name": "juniPolicyAttachStatisticsGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsGreenPackets2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsYellowPackets2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsRedPackets2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsGreenBytes2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsYellowBytes2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsRedBytes2"
+      }
+    ],
+    "status": "current"
+  },
+  "juniClassifierControlListGroup3": {
+    "name": "juniClassifierControlListGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNextElementIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListElemRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotSrc"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrc"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotDst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDst"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDstMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListNotProtocol"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListProtocol"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListTosByte"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListLocal"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListLocalPresent"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSaRouteClass"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSaRouteClassPresent"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDaRouteClass"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDaRouteClassPresent"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcOperator"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcFromPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListSrcToPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestOperator"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestFromPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListDestToPort"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListICMPType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListICMPCode"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIGMPType"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListTcpFlagsValue"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListTcpFlagsMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIpFlagsValue"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIpFlagsMask"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniClassifierControlListIpFragValue"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyIfAttachGroup2": {
+    "name": "juniPolicyIfAttachGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachPolicyId"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsEnable"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyIfAttachStatsPreserve"
+      }
+    ],
+    "status": "current"
+  },
+  "juniExceptionRulesGroup1": {
+    "name": "juniExceptionRulesGroup1",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniExceptionRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniExceptionApplication"
+      }
+    ],
+    "status": "current"
+  },
+  "juniPolicyBaseGroup3": {
+    "name": "juniPolicyBaseGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.27.2.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRowStatus"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAdminState"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyName"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyReferenceCount"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleNextIndex"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyRuleType2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicySuspend2"
+      },
+      {
+        "module": "Juniper-POLICY-MIB",
+        "object": "juniPolicyAtmCellModeEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-POLICY-MIB"
+  }
+}

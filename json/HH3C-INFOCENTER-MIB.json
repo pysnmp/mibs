@@ -1,0 +1,717 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cInfoCenter": {
+    "name": "hh3cInfoCenter",
+    "oid": "1.3.6.1.4.1.25506.2.119",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-02-07 04:59",
+        "description": "Add dataWithMilliseconds(6), isoWithMilliseconds(7), isoWithMillisecondsAndTimezone(8) to hh3cICLoghostTimestampType. Modified description of hh3cICLoghostTimestampType."
+      },
+      {
+        "revision": "2014-09-05 03:25",
+        "description": "Added isoWithTimezone(5) to ICTimeStampType. Modified description of hh3cICLogTimestampType."
+      },
+      {
+        "revision": "2012-11-03 19:00",
+        "description": "Add hh3cICLogbufferContTable, hh3cICLogbufferContEntry, hh3cICLogbufferContIndex, hh3cICLogbufferContDescription."
+      },
+      {
+        "revision": "2012-03-07 19:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "ICMessageLevelType": {
+    "name": "ICMessageLevelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "informational": 6,
+          "debug": 7,
+          "invalid": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ICFacilityType": {
+    "name": "ICFacilityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 0,
+          "userLevel": 1,
+          "mailSystem": 2,
+          "systemDaemons": 3,
+          "securityAuthorization": 4,
+          "internallyMessages": 5,
+          "linePrinter": 6,
+          "networkNews": 7,
+          "uucp": 8,
+          "clockDaemon": 9,
+          "securityAuthorization2": 10,
+          "ftpDaemon": 11,
+          "ntp": 12,
+          "logAudit": 13,
+          "logAlert": 14,
+          "clockDaemon2": 15,
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ICTimeStampType": {
+    "name": "ICTimeStampType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "date": 0,
+          "boot": 1,
+          "iso": 2,
+          "dateWithoutYear": 3,
+          "none": 4,
+          "isoWithTimezone": 5,
+          "dataWithMilliseconds": 6,
+          "isoWithMilliseconds": 7,
+          "isoWithMillisecondsAndTimezone": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cICLogbuffer": {
+    "name": "hh3cICLogbuffer",
+    "oid": "1.3.6.1.4.1.25506.2.119.1",
+    "class": "objectidentity"
+  },
+  "hh3cICLogbufferObjects": {
+    "name": "hh3cICLogbufferObjects",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cICMaxLogbufferSize": {
+    "name": "hh3cICMaxLogbufferSize",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICLogbufferSize": {
+    "name": "hh3cICLogbufferSize",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 512,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cICLogbufferCurrentMessages": {
+    "name": "hh3cICLogbufferCurrentMessages",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICLogbufferOverwrittenMessages": {
+    "name": "hh3cICLogbufferOverwrittenMessages",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICLogbufferDroppedMessages": {
+    "name": "hh3cICLogbufferDroppedMessages",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICLogbufferContTable": {
+    "name": "hh3cICLogbufferContTable",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICLogbufferContEntry": {
+    "name": "hh3cICLogbufferContEntry",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-INFOCENTER-MIB",
+        "object": "hh3cICLogbufferContIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cICLogbufferContIndex": {
+    "name": "hh3cICLogbufferContIndex",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICLogbufferContDescription": {
+    "name": "hh3cICLogbufferContDescription",
+    "oid": "1.3.6.1.4.1.25506.2.119.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICLoghost": {
+    "name": "hh3cICLoghost",
+    "oid": "1.3.6.1.4.1.25506.2.119.2",
+    "class": "objectidentity"
+  },
+  "hh3cICLoghostObjects": {
+    "name": "hh3cICLoghostObjects",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cICMaxLoghost": {
+    "name": "hh3cICMaxLoghost",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICLoghostSourceInterface": {
+    "name": "hh3cICLoghostSourceInterface",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cICLoghostTimestampType": {
+    "name": "hh3cICLoghostTimestampType",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ICTimeStampType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "date",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cICLoghostTable": {
+    "name": "hh3cICLoghostTable",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICLoghostEntry": {
+    "name": "hh3cICLoghostEntry",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-INFOCENTER-MIB",
+        "object": "hh3cICLoghostIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cICLoghostIndex": {
+    "name": "hh3cICLoghostIndex",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICLoghostIpaddressType": {
+    "name": "hh3cICLoghostIpaddressType",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICLoghostIpaddress": {
+    "name": "hh3cICLoghostIpaddress",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICLoghostVPNName": {
+    "name": "hh3cICLoghostVPNName",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICLoghostFacility": {
+    "name": "hh3cICLoghostFacility",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ICFacilityType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "local7",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICLoghostOperateRowStatus": {
+    "name": "hh3cICLoghostOperateRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICLoghostIpaddressPort": {
+    "name": "hh3cICLoghostIpaddressPort",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 514,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICLoghostTAddress": {
+    "name": "hh3cICLoghostTAddress",
+    "oid": "1.3.6.1.4.1.25506.2.119.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICDirection": {
+    "name": "hh3cICDirection",
+    "oid": "1.3.6.1.4.1.25506.2.119.3",
+    "class": "objectidentity"
+  },
+  "hh3cICDirectionTable": {
+    "name": "hh3cICDirectionTable",
+    "oid": "1.3.6.1.4.1.25506.2.119.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICDirectionEntry": {
+    "name": "hh3cICDirectionEntry",
+    "oid": "1.3.6.1.4.1.25506.2.119.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-INFOCENTER-MIB",
+        "object": "hh3cICDirectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cICDirectionIndex": {
+    "name": "hh3cICDirectionIndex",
+    "oid": "1.3.6.1.4.1.25506.2.119.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICDirectionName": {
+    "name": "hh3cICDirectionName",
+    "oid": "1.3.6.1.4.1.25506.2.119.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICDirectionState": {
+    "name": "hh3cICDirectionState",
+    "oid": "1.3.6.1.4.1.25506.2.119.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cICModule": {
+    "name": "hh3cICModule",
+    "oid": "1.3.6.1.4.1.25506.2.119.4",
+    "class": "objectidentity"
+  },
+  "hh3cICModuleTable": {
+    "name": "hh3cICModuleTable",
+    "oid": "1.3.6.1.4.1.25506.2.119.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICModuleEntry": {
+    "name": "hh3cICModuleEntry",
+    "oid": "1.3.6.1.4.1.25506.2.119.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-INFOCENTER-MIB",
+        "object": "hh3cICModuleName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cICModuleName": {
+    "name": "hh3cICModuleName",
+    "oid": "1.3.6.1.4.1.25506.2.119.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cICLog": {
+    "name": "hh3cICLog",
+    "oid": "1.3.6.1.4.1.25506.2.119.5",
+    "class": "objectidentity"
+  },
+  "hh3cICLogObjects": {
+    "name": "hh3cICLogObjects",
+    "oid": "1.3.6.1.4.1.25506.2.119.5.1",
+    "class": "objectidentity"
+  },
+  "hh3cICLogGlobalState": {
+    "name": "hh3cICLogGlobalState",
+    "oid": "1.3.6.1.4.1.25506.2.119.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cICLogTimestampType": {
+    "name": "hh3cICLogTimestampType",
+    "oid": "1.3.6.1.4.1.25506.2.119.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ICTimeStampType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "date",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cICLogTable": {
+    "name": "hh3cICLogTable",
+    "oid": "1.3.6.1.4.1.25506.2.119.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cICLogEntry": {
+    "name": "hh3cICLogEntry",
+    "oid": "1.3.6.1.4.1.25506.2.119.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-INFOCENTER-MIB",
+        "object": "hh3cICDirectionIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-INFOCENTER-MIB",
+        "object": "hh3cICModuleName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cICLogLevel": {
+    "name": "hh3cICLogLevel",
+    "oid": "1.3.6.1.4.1.25506.2.119.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ICMessageLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cICLogRowStatus": {
+    "name": "hh3cICLogRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.119.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-INFOCENTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-INFOCENTER-MIB"
+  }
+}

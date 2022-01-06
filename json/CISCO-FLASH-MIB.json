@@ -1,0 +1,3322 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "InstancePointer",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFlashMIB": {
+    "name": "ciscoFlashMIB",
+    "oid": "1.3.6.1.4.1.9.9.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-16 00:00",
+        "description": "Added ciscoFlashDeviceMinPartitionSizeExtended to support flash devices of sizes greater than 4 GB. Added new object group ciscoFlashDeviceInfoExtGroupSupRev1. Added new compliance group ciscoFlashMIBComplianceRev10 which deprecates ciscoFlashMIBComplianceRev9."
+      },
+      {
+        "revision": "2009-06-03 00:00",
+        "description": "Added 'copyProhibited' enum value to ciscoFlashCopyStatus object."
+      },
+      {
+        "revision": "2008-12-08 00:00",
+        "description": "Added ciscoFlashDeviceSizeExtended, ciscoFlashPartitionFreeSpaceExtended and ciscoFlashPartitionSizeExtended to support flash devices of sizes greater than 4 GB."
+      },
+      {
+        "revision": "2007-03-21 00:00",
+        "description": "Added ciscoFlashFileTypeTable."
+      },
+      {
+        "revision": "2006-11-08 00:00",
+        "description": "DISPLAY-HINT for CheckSumString TEXTUAL CONVENTION is changed from 'x' to '1x'."
+      },
+      {
+        "revision": "2005-06-01 00:00",
+        "description": "Added ciscoFlashFileDate to ciscoFlashFileTable Added ciscoFlashCopyRemotePassword to ciscoFlashCopyTable. Added following enumerations to ciscoFlashCopyProtocol - ftp, scp, sftp."
+      },
+      {
+        "revision": "2005-01-28 00:00",
+        "description": "Added a new status copyOperationPending(0) to object ciscoFlashCopyStatus."
+      },
+      {
+        "revision": "2004-03-18 00:00",
+        "description": "The object ciscoFlashCopyServerAddress is deprecated since it supports only IPv4 address. Two new objects ciscoFlashCopyServerAddrRev1 ciscoFlashCopyServerAddrType are defined."
+      },
+      {
+        "revision": "2003-04-23 00:00",
+        "description": "Added ciscoFlashDeviceNameExtended to support upto 255 characters in flash device name. Deprecated ciscoFlashDeviceName."
+      },
+      {
+        "revision": "2003-01-31 12:34",
+        "description": "Add ciscoFlashCopyVerify object to CiscoFlashCopyEntry, & ciscoFlashCopyOpGroup. Fix scalability problem for the following tables and MIB objects: ciscoFlashDevicesSupported, ciscoFlashDeviceTable, ciscoFlashPhyEntIndex (added), ciscoFlashPartitionTable and ciscoFlashFileTable."
+      },
+      {
+        "revision": "2002-04-01 00:00",
+        "description": "Added Notifications ciscoFlashDeviceInsertedNotif and ciscoFlashDeviceRemovedNotif. Deprecated the ciscoFlashDeviceChangeTrap. Added Scalars ciscoFlashCfgDevInsNotifEnable and ciscoFlashCfgDevRemNotifEnable to control the above notifications."
+      },
+      {
+        "revision": "2002-01-25 00:00",
+        "description": "Added object ciscoFlashFileType to ciscoFlashFileTable and added FlashFileType as a TEXTUAL-CONVENTION."
+      },
+      {
+        "revision": "2002-01-22 00:00",
+        "description": "Fixing several problems with the previous version of the MIB: o Changing MAX-ACCESS of ciscoFlashDeviceIndex back to 'not-accessible'. The change described below in REVISION '200102211234Z' was not legal. o Changing the definition of the ciscoFlashDeviceChangeTrap notification. The original definition of this notification include a 'not-accessible' object (ciscoFlashDeviceIndex). It will instead include the following objects: ciscoFlashDeviceMinPartitionSize ciscoFlashDeviceName Instances of these object will carry the value of ciscoFlashDeviceIndex implicitly in their object identifiers. This change is being made without deprecation of the notification and has the potential to cause problems with existing implementations of the notification on the agent and the manager. o Past versions of the MIB have had a incorrectly formatted REVISION/DESCRIPTION section. That will be corrected in this REVISION. o Past versions of the MIB have not defined a NOTIFICATION-GROUP for the notifications defined by this MIB. That will be corrected in this REVISION by adding ciscoFlashNotifGroup. This group will be considered optional for implementation. o Gratuitous ranges specified in Entry definitions have been removed."
+      },
+      {
+        "revision": "2001-02-21 12:34",
+        "description": "Change MAX-ACCESS of CiscoFlashDeviceIndex from not-accessible to accessible-to-notfiy"
+      },
+      {
+        "revision": "1998-08-27 00:00",
+        "description": "Change ciscoFlashChipCode to match implementation, and remove FlashChipCode as a TEXTUAL-CONVENTION."
+      },
+      {
+        "revision": "1996-04-17 00:00",
+        "description": "Add enumerations to objects in ciscoFlashMiscOpTable to support formatting of flash devices."
+      },
+      {
+        "revision": "1995-10-18 00:00",
+        "description": "Add enumerations to a couple objects, and clarify several object DESCRIPTIONs."
+      },
+      {
+        "revision": "1995-08-15 00:00",
+        "description": "Specify a correct (non-negative) range for several index objects."
+      },
+      {
+        "revision": "1995-04-29 00:00",
+        "description": "Miscellaneous updates, including updated description of ciscoFlashDeviceCard object."
+      },
+      {
+        "revision": "1995-01-13 00:00",
+        "description": "Initial version of Flash operations MIB module."
+      }
+    ]
+  },
+  "ChecksumString": {
+    "name": "ChecksumString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "FlashFileType": {
+    "name": "FlashFileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "config": 2,
+          "image": 3,
+          "directory": 4,
+          "crashinfo": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoFlashMIBObjects": {
+    "name": "ciscoFlashMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.10.1",
+    "class": "objectidentity"
+  },
+  "ciscoFlashDevice": {
+    "name": "ciscoFlashDevice",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoFlashOps": {
+    "name": "ciscoFlashOps",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoFlashMIBTrapPrefix": {
+    "name": "ciscoFlashMIBTrapPrefix",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoFlashCfg": {
+    "name": "ciscoFlashCfg",
+    "oid": "1.3.6.1.4.1.9.9.10.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoFlashDevicesSupported": {
+    "name": "ciscoFlashDevicesSupported",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceTable": {
+    "name": "ciscoFlashDeviceTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashDeviceEntry": {
+    "name": "ciscoFlashDeviceEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashDeviceIndex": {
+    "name": "ciscoFlashDeviceIndex",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashDeviceSize": {
+    "name": "ciscoFlashDeviceSize",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceMinPartitionSize": {
+    "name": "ciscoFlashDeviceMinPartitionSize",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceMaxPartitions": {
+    "name": "ciscoFlashDeviceMaxPartitions",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDevicePartitions": {
+    "name": "ciscoFlashDevicePartitions",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceChipCount": {
+    "name": "ciscoFlashDeviceChipCount",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceName": {
+    "name": "ciscoFlashDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceDescr": {
+    "name": "ciscoFlashDeviceDescr",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceController": {
+    "name": "ciscoFlashDeviceController",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceCard": {
+    "name": "ciscoFlashDeviceCard",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceProgrammingJumper": {
+    "name": "ciscoFlashDeviceProgrammingJumper",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "installed": 1,
+          "notInstalled": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceInitTime": {
+    "name": "ciscoFlashDeviceInitTime",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceRemovable": {
+    "name": "ciscoFlashDeviceRemovable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPhyEntIndex": {
+    "name": "ciscoFlashPhyEntIndex",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceNameExtended": {
+    "name": "ciscoFlashDeviceNameExtended",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceSizeExtended": {
+    "name": "ciscoFlashDeviceSizeExtended",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashDeviceMinPartitionSizeExtended": {
+    "name": "ciscoFlashDeviceMinPartitionSizeExtended",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashChips": {
+    "name": "ciscoFlashChips",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoFlashChipTable": {
+    "name": "ciscoFlashChipTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashChipEntry": {
+    "name": "ciscoFlashChipEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashChipIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashChipIndex": {
+    "name": "ciscoFlashChipIndex",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashChipCode": {
+    "name": "ciscoFlashChipCode",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashChipDescr": {
+    "name": "ciscoFlashChipDescr",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashChipWriteRetries": {
+    "name": "ciscoFlashChipWriteRetries",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashChipEraseRetries": {
+    "name": "ciscoFlashChipEraseRetries",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashChipMaxWriteRetries": {
+    "name": "ciscoFlashChipMaxWriteRetries",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashChipMaxEraseRetries": {
+    "name": "ciscoFlashChipMaxEraseRetries",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitions": {
+    "name": "ciscoFlashPartitions",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoFlashPartitionTable": {
+    "name": "ciscoFlashPartitionTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashPartitionEntry": {
+    "name": "ciscoFlashPartitionEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashPartitionIndex": {
+    "name": "ciscoFlashPartitionIndex",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashPartitionStartChip": {
+    "name": "ciscoFlashPartitionStartChip",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionEndChip": {
+    "name": "ciscoFlashPartitionEndChip",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionSize": {
+    "name": "ciscoFlashPartitionSize",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionFreeSpace": {
+    "name": "ciscoFlashPartitionFreeSpace",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionFileCount": {
+    "name": "ciscoFlashPartitionFileCount",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionChecksumAlgorithm": {
+    "name": "ciscoFlashPartitionChecksumAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simpleChecksum": 1,
+          "undefined": 2,
+          "simpleCRC": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionStatus": {
+    "name": "ciscoFlashPartitionStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "runFromFlash": 2,
+          "readWrite": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionUpgradeMethod": {
+    "name": "ciscoFlashPartitionUpgradeMethod",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "rxbootFLH": 2,
+          "direct": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionName": {
+    "name": "ciscoFlashPartitionName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionNeedErasure": {
+    "name": "ciscoFlashPartitionNeedErasure",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionFileNameLength": {
+    "name": "ciscoFlashPartitionFileNameLength",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionSizeExtended": {
+    "name": "ciscoFlashPartitionSizeExtended",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionFreeSpaceExtended": {
+    "name": "ciscoFlashPartitionFreeSpaceExtended",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFiles": {
+    "name": "ciscoFlashFiles",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "ciscoFlashFileTable": {
+    "name": "ciscoFlashFileTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashFileEntry": {
+    "name": "ciscoFlashFileEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashFileIndex": {
+    "name": "ciscoFlashFileIndex",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashFileSize": {
+    "name": "ciscoFlashFileSize",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileChecksum": {
+    "name": "ciscoFlashFileChecksum",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChecksumString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileStatus": {
+    "name": "ciscoFlashFileStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "invalidChecksum": 2,
+          "valid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileName": {
+    "name": "ciscoFlashFileName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileType": {
+    "name": "ciscoFlashFileType",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlashFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileDate": {
+    "name": "ciscoFlashFileDate",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileByTypeTable": {
+    "name": "ciscoFlashFileByTypeTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashFileByTypeEntry": {
+    "name": "ciscoFlashFileByTypeEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashFileByTypeSize": {
+    "name": "ciscoFlashFileByTypeSize",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileByTypeChecksum": {
+    "name": "ciscoFlashFileByTypeChecksum",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChecksumString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileByTypeStatus": {
+    "name": "ciscoFlashFileByTypeStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "invalidChecksum": 2,
+          "valid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileByTypeName": {
+    "name": "ciscoFlashFileByTypeName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashFileByTypeDate": {
+    "name": "ciscoFlashFileByTypeDate",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashCopyTable": {
+    "name": "ciscoFlashCopyTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashCopyEntry": {
+    "name": "ciscoFlashCopyEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopySerialNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashCopySerialNumber": {
+    "name": "ciscoFlashCopySerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashCopyCommand": {
+    "name": "ciscoFlashCopyCommand",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyToFlashWithErase": 1,
+          "copyToFlashWithoutErase": 2,
+          "copyFromFlash": 3,
+          "copyFromFlhLog": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyProtocol": {
+    "name": "ciscoFlashCopyProtocol",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "rcp": 2,
+          "lex": 3,
+          "ftp": 4,
+          "scp": 5,
+          "sftp": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tftp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyServerAddress": {
+    "name": "ciscoFlashCopyServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "ciscoFlashCopySourceName": {
+    "name": "ciscoFlashCopySourceName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyDestinationName": {
+    "name": "ciscoFlashCopyDestinationName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyRemoteUserName": {
+    "name": "ciscoFlashCopyRemoteUserName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyStatus": {
+    "name": "ciscoFlashCopyStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyOperationPending": 0,
+          "copyInProgress": 1,
+          "copyOperationSuccess": 2,
+          "copyInvalidOperation": 3,
+          "copyInvalidProtocol": 4,
+          "copyInvalidSourceName": 5,
+          "copyInvalidDestName": 6,
+          "copyInvalidServerAddress": 7,
+          "copyDeviceBusy": 8,
+          "copyDeviceOpenError": 9,
+          "copyDeviceError": 10,
+          "copyDeviceNotProgrammable": 11,
+          "copyDeviceFull": 12,
+          "copyFileOpenError": 13,
+          "copyFileTransferError": 14,
+          "copyFileChecksumError": 15,
+          "copyNoMemory": 16,
+          "copyUnknownFailure": 17,
+          "copyInvalidSignature": 18,
+          "copyProhibited": 19
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashCopyNotifyOnCompletion": {
+    "name": "ciscoFlashCopyNotifyOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyTime": {
+    "name": "ciscoFlashCopyTime",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashCopyEntryStatus": {
+    "name": "ciscoFlashCopyEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyVerify": {
+    "name": "ciscoFlashCopyVerify",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyServerAddrType": {
+    "name": "ciscoFlashCopyServerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyServerAddrRev1": {
+    "name": "ciscoFlashCopyServerAddrRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCopyRemotePassword": {
+    "name": "ciscoFlashCopyRemotePassword",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningTable": {
+    "name": "ciscoFlashPartitioningTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningEntry": {
+    "name": "ciscoFlashPartitioningEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningSerialNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashPartitioningSerialNumber": {
+    "name": "ciscoFlashPartitioningSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningCommand": {
+    "name": "ciscoFlashPartitioningCommand",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "partition": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "partition",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningDestinationName": {
+    "name": "ciscoFlashPartitioningDestinationName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningPartitionCount": {
+    "name": "ciscoFlashPartitioningPartitionCount",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningPartitionSizes": {
+    "name": "ciscoFlashPartitioningPartitionSizes",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningStatus": {
+    "name": "ciscoFlashPartitioningStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "partitioningInProgress": 1,
+          "partitioningOperationSuccess": 2,
+          "partitioningInvalidOperation": 3,
+          "partitioningInvalidDestName": 4,
+          "partitioningInvalidPartitionCount": 5,
+          "partitioningInvalidPartitionSizes": 6,
+          "partitioningDeviceBusy": 7,
+          "partitioningDeviceOpenError": 8,
+          "partitioningDeviceError": 9,
+          "partitioningNoMemory": 10,
+          "partitioningUnknownFailure": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningNotifyOnCompletion": {
+    "name": "ciscoFlashPartitioningNotifyOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningTime": {
+    "name": "ciscoFlashPartitioningTime",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitioningEntryStatus": {
+    "name": "ciscoFlashPartitioningEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpTable": {
+    "name": "ciscoFlashMiscOpTable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpEntry": {
+    "name": "ciscoFlashMiscOpEntry",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpSerialNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashMiscOpSerialNumber": {
+    "name": "ciscoFlashMiscOpSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpCommand": {
+    "name": "ciscoFlashMiscOpCommand",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "erase": 1,
+          "verify": 2,
+          "delete": 3,
+          "undelete": 4,
+          "squeeze": 5,
+          "format": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpDestinationName": {
+    "name": "ciscoFlashMiscOpDestinationName",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpStatus": {
+    "name": "ciscoFlashMiscOpStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "miscOpInProgress": 1,
+          "miscOpOperationSuccess": 2,
+          "miscOpInvalidOperation": 3,
+          "miscOpInvalidDestName": 4,
+          "miscOpDeviceBusy": 5,
+          "miscOpDeviceOpenError": 6,
+          "miscOpDeviceError": 7,
+          "miscOpDeviceNotProgrammable": 8,
+          "miscOpFileOpenError": 9,
+          "miscOpFileDeleteFailure": 10,
+          "miscOpFileUndeleteFailure": 11,
+          "miscOpFileChecksumError": 12,
+          "miscOpNoMemory": 13,
+          "miscOpUnknownFailure": 14,
+          "miscOpSqueezeFailure": 18,
+          "miscOpNoSuchFile": 19,
+          "miscOpFormatFailure": 20
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpNotifyOnCompletion": {
+    "name": "ciscoFlashMiscOpNotifyOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpTime": {
+    "name": "ciscoFlashMiscOpTime",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashMiscOpEntryStatus": {
+    "name": "ciscoFlashMiscOpEntryStatus",
+    "oid": "1.3.6.1.4.1.9.9.10.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoFlashCfgDevInsNotifEnable": {
+    "name": "ciscoFlashCfgDevInsNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoFlashCfgDevRemNotifEnable": {
+    "name": "ciscoFlashCfgDevRemNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoFlashMIBTraps": {
+    "name": "ciscoFlashMIBTraps",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0",
+    "class": "objectidentity"
+  },
+  "ciscoFlashCopyCompletionTrap": {
+    "name": "ciscoFlashCopyCompletionTrap",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashPartitioningCompletionTrap": {
+    "name": "ciscoFlashPartitioningCompletionTrap",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashMiscOpCompletionTrap": {
+    "name": "ciscoFlashMiscOpCompletionTrap",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashDeviceChangeTrap": {
+    "name": "ciscoFlashDeviceChangeTrap",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMinPartitionSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceInsertedNotif": {
+    "name": "ciscoFlashDeviceInsertedNotif",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMinPartitionSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceRemovedNotif": {
+    "name": "ciscoFlashDeviceRemovedNotif",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceInsertedNotifRev1": {
+    "name": "ciscoFlashDeviceInsertedNotifRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMinPartitionSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceNameExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashDeviceRemovedNotifRev1": {
+    "name": "ciscoFlashDeviceRemovedNotifRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceNameExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashMIBConformance": {
+    "name": "ciscoFlashMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.10.2",
+    "class": "objectidentity"
+  },
+  "ciscoFlashMIBCompliances": {
+    "name": "ciscoFlashMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFlashMIBGroups": {
+    "name": "ciscoFlashMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFlashMIBCompliance": {
+    "name": "ciscoFlashMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev1": {
+    "name": "ciscoFlashMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev2": {
+    "name": "ciscoFlashMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroup",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev3": {
+    "name": "ciscoFlashMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev4": {
+    "name": "ciscoFlashMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev5": {
+    "name": "ciscoFlashMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev6": {
+    "name": "ciscoFlashMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev7": {
+    "name": "ciscoFlashMIBComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupSupp1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev3",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev8": {
+    "name": "ciscoFlashMIBComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupSupp1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev3",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileTypeInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev9": {
+    "name": "ciscoFlashMIBComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupSupp1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev3",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileTypeInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoExtGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoExtGroup",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev10": {
+    "name": "ciscoFlashMIBComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashPartitionInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupSupp1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev3",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileTypeInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoExtGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoExtGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoExtGroupSupRev1",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashDeviceInfoGroup": {
+    "name": "ciscoFlashDeviceInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDevicesSupported"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceDescr"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceProgrammingJumper"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceInitTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceChipCount"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceRemovable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceOptionalInfoGroup": {
+    "name": "ciscoFlashDeviceOptionalInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMinPartitionSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMaxPartitions"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDevicePartitions"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceController"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceCard"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashChipInfoGroup": {
+    "name": "ciscoFlashChipInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashChipCode"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashChipDescr"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashChipWriteRetries"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashChipEraseRetries"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashChipMaxWriteRetries"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashChipMaxEraseRetries"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashPartitionInfoGroup": {
+    "name": "ciscoFlashPartitionInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionStartChip"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionEndChip"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFreeSpace"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFileCount"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionChecksumAlgorithm"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionUpgradeMethod"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionNeedErasure"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFileNameLength"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashFileInfoGroup": {
+    "name": "ciscoFlashFileInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileChecksum"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashCopyOpGroup": {
+    "name": "ciscoFlashCopyOpGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyCommand"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyProtocol"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyServerAddress"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopySourceName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyDestinationName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyRemoteUserName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyEntryStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashPartitioningOpGroup": {
+    "name": "ciscoFlashPartitioningOpGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningCommand"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningDestinationName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningPartitionCount"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningPartitionSizes"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashMiscOpGroup": {
+    "name": "ciscoFlashMiscOpGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpCommand"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpDestinationName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashNotifGroup": {
+    "name": "ciscoFlashNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceChangeTrap"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashFileInfoGroupRev1": {
+    "name": "ciscoFlashFileInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileChecksum"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashNotifGroupRev1": {
+    "name": "ciscoFlashNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceInsertedNotif"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceRemovedNotif"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceInfoGroupRev1": {
+    "name": "ciscoFlashDeviceInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDevicesSupported"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceDescr"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceProgrammingJumper"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceInitTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceChipCount"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceRemovable"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCfgDevInsNotifEnable"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCfgDevRemNotifEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceOptionalInfoGroupRev1": {
+    "name": "ciscoFlashDeviceOptionalInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMinPartitionSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMaxPartitions"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDevicePartitions"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceController"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPhyEntIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashCopyOpGroupRev1": {
+    "name": "ciscoFlashCopyOpGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyCommand"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyProtocol"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyServerAddress"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopySourceName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyDestinationName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyRemoteUserName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyEntryStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyVerify"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFlashDeviceInfoGroupRev2": {
+    "name": "ciscoFlashDeviceInfoGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDevicesSupported"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceNameExtended"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceDescr"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceProgrammingJumper"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceInitTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceChipCount"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceRemovable"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCfgDevInsNotifEnable"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCfgDevRemNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashCopyOpGroupRev2": {
+    "name": "ciscoFlashCopyOpGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyCommand"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyProtocol"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopySourceName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyDestinationName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyRemoteUserName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyNotifyOnCompletion"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyTime"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyEntryStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyVerify"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyServerAddrType"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyServerAddrRev1"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashNotifGroupRev2": {
+    "name": "ciscoFlashNotifGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.17",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceInsertedNotifRev1"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceRemovedNotifRev1"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashCopyOpGroupRev3": {
+    "name": "ciscoFlashCopyOpGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyRemotePassword"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashFileInfoGroupSupp1": {
+    "name": "ciscoFlashFileInfoGroupSupp1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileDate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashFileTypeInfoGroup": {
+    "name": "ciscoFlashFileTypeInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileByTypeSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileByTypeChecksum"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileByTypeStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileByTypeName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashFileByTypeDate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashDeviceInfoExtGroup": {
+    "name": "ciscoFlashDeviceInfoExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceSizeExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashPartitionInfoExtGroup": {
+    "name": "ciscoFlashPartitionInfoExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionSizeExtended"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFreeSpaceExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashDeviceInfoExtGroupSupRev1": {
+    "name": "ciscoFlashDeviceInfoExtGroupSupRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceMinPartitionSizeExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLASH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FLASH-MIB"
+  }
+}

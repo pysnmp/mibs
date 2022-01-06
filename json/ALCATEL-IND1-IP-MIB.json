@@ -1,0 +1,2407 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1Ip",
+      "trafficEventTraps"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "IP-FORWARD-MIB": [
+      "ipCidrRouteEntry"
+    ],
+    "IP-MIB": [
+      "ipNetToMediaNetAddress",
+      "ipNetToMediaEntry",
+      "ipNetToMediaIfIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "PhysAddress",
+      "TimeStamp",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alcatelIND1IPMIB": {
+    "name": "alcatelIND1IPMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-09-12 00:00",
+        "description": "Added alaIpManagedIntfTable."
+      },
+      {
+        "revision": "2007-06-11 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "alcatelIND1IPMIBObjects": {
+    "name": "alcatelIND1IPMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1",
+    "class": "objectidentity"
+  },
+  "AlaIpManagedIntfAppIndex": {
+    "name": "AlaIpManagedIntfAppIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tacacs": 1,
+          "sflow": 2,
+          "ntp": 3,
+          "syslog": 4,
+          "dns": 5,
+          "telnet": 6,
+          "ssh": 7,
+          "tftp": 8,
+          "ldap": 9,
+          "radius": 10,
+          "snmp": 11,
+          "ftp": 12,
+          "all": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alaIpConfig": {
+    "name": "alaIpConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaIpClearArpCache": {
+    "name": "alaIpClearArpCache",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "clear",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpArpTimeout": {
+    "name": "alaIpArpTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpDirectedBroadcast": {
+    "name": "alaIpDirectedBroadcast",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 0
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpClearArpFilter": {
+    "name": "alaIpClearArpFilter",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "clear",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpNetToMediaTable": {
+    "name": "alaIpNetToMediaTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpNetToMediaEntry": {
+    "name": "alaIpNetToMediaEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaNetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpNetToMediaPhysAddress": {
+    "name": "alaIpNetToMediaPhysAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpNetToMediaProxy": {
+    "name": "alaIpNetToMediaProxy",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpNetToMediaVrrp": {
+    "name": "alaIpNetToMediaVrrp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpNetToMediaAuth": {
+    "name": "alaIpNetToMediaAuth",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpNetToMediaName": {
+    "name": "alaIpNetToMediaName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSConfig": {
+    "name": "alaDoSConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3",
+    "class": "objectidentity"
+  },
+  "alaDoSTable": {
+    "name": "alaDoSTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDoSEntry": {
+    "name": "alaDoSEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDoSType": {
+    "name": "alaDoSType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portscan": 0,
+          "tcpsyn": 1,
+          "pingofdeath": 2,
+          "smurf": 3,
+          "pepsi": 4,
+          "land": 5,
+          "teardropBonkBoink": 6,
+          "loopbacksrcip": 7,
+          "invalidip": 8,
+          "mcastmismatch": 9,
+          "ucastipmcastmac": 10,
+          "pingattack": 11,
+          "arpattack": 12,
+          "arppoison": 13
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDoSDetected": {
+    "name": "alaDoSDetected",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDoSIp": {
+    "name": "alaDoSIp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDoSMac": {
+    "name": "alaDoSMac",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDoSSlot": {
+    "name": "alaDoSSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDoSPort": {
+    "name": "alaDoSPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "alaDoSStatus": {
+    "name": "alaDoSStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSDetectedCounter": {
+    "name": "alaDoSDetectedCounter",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDoSPortScanClosePortPenalty": {
+    "name": "alaDoSPortScanClosePortPenalty",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSPortScanTcpOpenPortPenalty": {
+    "name": "alaDoSPortScanTcpOpenPortPenalty",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSPortScanUdpOpenPortPenalty": {
+    "name": "alaDoSPortScanUdpOpenPortPenalty",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSPortScanTotalPenalty": {
+    "name": "alaDoSPortScanTotalPenalty",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDoSPortScanThreshold": {
+    "name": "alaDoSPortScanThreshold",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSPortScanDecay": {
+    "name": "alaDoSPortScanDecay",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSTrapCntl": {
+    "name": "alaDoSTrapCntl",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSARPRate": {
+    "name": "alaDoSARPRate",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSPingRate": {
+    "name": "alaDoSPingRate",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSArpPoisonTable": {
+    "name": "alaDoSArpPoisonTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDoSArpPoisonEntry": {
+    "name": "alaDoSArpPoisonEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSArpPoisonIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDoSArpPoisonIpAddr": {
+    "name": "alaDoSArpPoisonIpAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDoSArpPoisonDetected": {
+    "name": "alaDoSArpPoisonDetected",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDoSArpPoisonRowStatus": {
+    "name": "alaDoSArpPoisonRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipNetToMediaAugTable": {
+    "name": "ipNetToMediaAugTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipNetToMediaAugEntry": {
+    "name": "ipNetToMediaAugEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ipNetToMediaAugEntry",
+      "module": "ALCATEL-IND1-IP-MIB",
+      "object": "ipNetToMediaEntry"
+    },
+    "status": "current"
+  },
+  "ipNetToMediaSlot": {
+    "name": "ipNetToMediaSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipNetToMediaPort": {
+    "name": "ipNetToMediaPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipNetToMediaName": {
+    "name": "ipNetToMediaName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaDoSTraps": {
+    "name": "alaDoSTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.5",
+    "class": "objectidentity"
+  },
+  "alaDoSTrap": {
+    "name": "alaDoSTrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSType"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSDetected"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSIp"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSMac"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSPort"
+      }
+    ],
+    "status": "current"
+  },
+  "trafficEvents": {
+    "name": "trafficEvents",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15.1",
+    "class": "objectidentity"
+  },
+  "trafficEventTrapObjs": {
+    "name": "trafficEventTrapObjs",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15.2",
+    "class": "objectidentity"
+  },
+  "pktDrop": {
+    "name": "pktDrop",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "pktDropType"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "pktDropIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "pktDropCount"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "pktDropFrag"
+      }
+    ],
+    "status": "current"
+  },
+  "pktDropType": {
+    "name": "pktDropType",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "spoofedIp": 0,
+          "toBlockedPort": 1,
+          "rulematchTriggeredPortDisable": 2,
+          "spoofTriggeredUserPortDisable": 3,
+          "bpduTriggeredUserPortDisable": 4,
+          "bgpTriggeredUserPortDisable": 5,
+          "ospfTriggeredUserPortDisable": 6,
+          "ripTriggeredUserPortDisable": 7,
+          "vrrpTriggeredUserPortDisable": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pktDropIfIndex": {
+    "name": "pktDropIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pktDropCount": {
+    "name": "pktDropCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pktDropFrag": {
+    "name": "pktDropFrag",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.15.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ipCidrRouteAugTable": {
+    "name": "ipCidrRouteAugTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipCidrRouteAugEntry": {
+    "name": "ipCidrRouteAugEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ipCidrRouteAugEntry",
+      "module": "ALCATEL-IND1-IP-MIB",
+      "object": "ipCidrRouteEntry"
+    },
+    "status": "current"
+  },
+  "ipCidrRouteScope": {
+    "name": "ipCidrRouteScope",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "niroute": 1,
+          "emproute": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIcmpCtrlTable": {
+    "name": "alaIcmpCtrlTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIcmpCtrlEntry": {
+    "name": "alaIcmpCtrlEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIcmpCtrlType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIcmpCtrlCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIcmpCtrlType": {
+    "name": "alaIcmpCtrlType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIcmpCtrlCode": {
+    "name": "alaIcmpCtrlCode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIcmpCtrlStatus": {
+    "name": "alaIcmpCtrlStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIcmpCtrlPktGap": {
+    "name": "alaIcmpCtrlPktGap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpRouteSumTable": {
+    "name": "alaIpRouteSumTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpRouteSumEntry": {
+    "name": "alaIpRouteSumEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpRouteProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpRouteProtocol": {
+    "name": "alaIpRouteProtocol",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "total": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "rip": 4,
+          "isis": 5,
+          "ospf": 6,
+          "bgp": 7,
+          "other": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpRouteCount": {
+    "name": "alaIpRouteCount",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIcmpCtrl": {
+    "name": "alaIcmpCtrl",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.10",
+    "class": "objectidentity"
+  },
+  "alaIcmpAllMsgStatus": {
+    "name": "alaIcmpAllMsgStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "other": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpArpFilterTable": {
+    "name": "alaIpArpFilterTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpArpFilterEntry": {
+    "name": "alaIpArpFilterEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpArpFilterIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpArpFilterIpMask",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpArpFilterVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpArpFilterType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpArpFilterIpAddr": {
+    "name": "alaIpArpFilterIpAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpArpFilterIpMask": {
+    "name": "alaIpArpFilterIpMask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpArpFilterVlan": {
+    "name": "alaIpArpFilterVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpArpFilterType": {
+    "name": "alaIpArpFilterType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "target": 1,
+          "sender": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "target",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpArpFilterMode": {
+    "name": "alaIpArpFilterMode",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allow": 1,
+          "block": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allow",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpArpFilterRowStatus": {
+    "name": "alaIpArpFilterRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpServiceTable": {
+    "name": "alaIpServiceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpServiceEntry": {
+    "name": "alaIpServiceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpServiceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpServiceType": {
+    "name": "alaIpServiceType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "ftp": 1,
+          "ssh": 2,
+          "telnet": 3,
+          "udpRelay": 4,
+          "http": 5,
+          "networkTime": 6,
+          "snmp": 7,
+          "avlanTelnet": 8,
+          "avlanHttp": 9,
+          "avlanSecureHttp": 10,
+          "secureHttp": 11,
+          "avlanHttpProxy": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpServicePort": {
+    "name": "alaIpServicePort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpServiceStatus": {
+    "name": "alaIpServiceStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "other": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpPortServiceTable": {
+    "name": "alaIpPortServiceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpPortServiceEntry": {
+    "name": "alaIpPortServiceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpPortServicePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpPortServicePort": {
+    "name": "alaIpPortServicePort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpPortServiceStatus": {
+    "name": "alaIpPortServiceStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIpInterfaceTable": {
+    "name": "alaIpInterfaceTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpInterfaceEntry": {
+    "name": "alaIpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpInterfaceName": {
+    "name": "alaIpInterfaceName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpInterfaceAddress": {
+    "name": "alaIpInterfaceAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceMask": {
+    "name": "alaIpInterfaceMask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceAdminState": {
+    "name": "alaIpInterfaceAdminState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceDeviceType": {
+    "name": "alaIpInterfaceDeviceType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbound": 0,
+          "vlan": 1,
+          "emp": 2,
+          "loopback": 3,
+          "greTunnel": 4,
+          "ipipTunnel": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unbound",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceVlanID": {
+    "name": "alaIpInterfaceVlanID",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceIpForward": {
+    "name": "alaIpInterfaceIpForward",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceEncap": {
+    "name": "alaIpInterfaceEncap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet2": 1,
+          "snap": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ethernet2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceMtu": {
+    "name": "alaIpInterfaceMtu",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceLocalProxyArp": {
+    "name": "alaIpInterfaceLocalProxyArp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfacePrimCfg": {
+    "name": "alaIpInterfacePrimCfg",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceOperState": {
+    "name": "alaIpInterfaceOperState",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpInterfaceOperReason": {
+    "name": "alaIpInterfaceOperReason",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceUp": 0,
+          "adminDown": 1,
+          "unbound": 2,
+          "deviceDown": 3,
+          "noSuchDevice": 4,
+          "noRouterMac": 5,
+          "tunnelSrcInvalid": 6,
+          "tunnelDstUnreachable": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpInterfaceRouterMac": {
+    "name": "alaIpInterfaceRouterMac",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpInterfaceBcastAddr": {
+    "name": "alaIpInterfaceBcastAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpInterfacePrimAct": {
+    "name": "alaIpInterfacePrimAct",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpInterfaceRemoteAddr": {
+    "name": "alaIpInterfaceRemoteAddr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceTunnelSrcAddressType": {
+    "name": "alaIpInterfaceTunnelSrcAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceTunnelSrc": {
+    "name": "alaIpInterfaceTunnelSrc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceTunnelDstAddressType": {
+    "name": "alaIpInterfaceTunnelDstAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceTunnelDst": {
+    "name": "alaIpInterfaceTunnelDst",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceDhcpStatus": {
+    "name": "alaIpInterfaceDhcpStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discovery": 1,
+          "active": 2,
+          "timeout": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "discovery",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceDhcpIpRelease": {
+    "name": "alaIpInterfaceDhcpIpRelease",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceDhcpIpRenew": {
+    "name": "alaIpInterfaceDhcpIpRenew",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpInterfaceDhcpOption60String": {
+    "name": "alaIpInterfaceDhcpOption60String",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.14.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpItfConfigTable": {
+    "name": "alaIpItfConfigTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpItfConfigEntry": {
+    "name": "alaIpItfConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpItfConfigName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpItfConfigName": {
+    "name": "alaIpItfConfigName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpItfConfigIfIndex": {
+    "name": "alaIpItfConfigIfIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpItfConfigRowStatus": {
+    "name": "alaIpItfConfigRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpDhcpHostIdentifierTable": {
+    "name": "alaIpDhcpHostIdentifierTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.19",
+    "class": "objectidentity"
+  },
+  "alaIpDhcpServerIP": {
+    "name": "alaIpDhcpServerIP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpDhcpRouterIP": {
+    "name": "alaIpDhcpRouterIP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpDhcpHostName": {
+    "name": "alaIpDhcpHostName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpDhcpClientLeaseObtained": {
+    "name": "alaIpDhcpClientLeaseObtained",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpDhcpClientLeaseExpires": {
+    "name": "alaIpDhcpClientLeaseExpires",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.19.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IPMIBConformance": {
+    "name": "alcatelIND1IPMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IPMIBCompliances": {
+    "name": "alcatelIND1IPMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IPMIBGroups": {
+    "name": "alcatelIND1IPMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaIpCompliance": {
+    "name": "alaIpCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaIpConfigGroup",
+        "module": "ALCATEL-IND1-IP-MIB"
+      },
+      {
+        "object": "alaIpDoSGroup",
+        "module": "ALCATEL-IND1-IP-MIB"
+      },
+      {
+        "object": "alaIpNetToMediaDpGroup",
+        "module": "ALCATEL-IND1-IP-MIB"
+      },
+      {
+        "object": "alaIpDhcpHostIdentifierGroup",
+        "module": "ALCATEL-IND1-IP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpConfigGroup": {
+    "name": "alaIpConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpClearArpCache"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpArpTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpDirectedBroadcast"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpClearArpFilter"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpDoSGroup": {
+    "name": "alaIpDoSGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSDetected"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSIp"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSMac"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSPort"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaDoSDetectedCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpNetToMediaDpGroup": {
+    "name": "alaIpNetToMediaDpGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpNetToMediaDpaPhysAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpNetToMediaDpaIpType"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpNetToMediaDpaIp"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpNetToMediaDpaSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpNetToMediaDpaPort"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpDhcpHostIdentifierGroup": {
+    "name": "alaIpDhcpHostIdentifierGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpDhcpServerIP"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpDhcpRouterIP"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpDhcpHostName"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpDhcpClientLeaseObtained"
+      },
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpDhcpClientLeaseExpires"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IPTraps": {
+    "name": "alcatelIND1IPTraps",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.16",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IPTrapsRoot": {
+    "name": "alcatelIND1IPTrapsRoot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.16.0",
+    "class": "objectidentity"
+  },
+  "arpMaxLimitReached": {
+    "name": "arpMaxLimitReached",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.16.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaTable": {
+    "name": "alaIpNetToMediaDpaTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaEntry": {
+    "name": "alaIpNetToMediaDpaEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpNetToMediaDpaVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaVlan": {
+    "name": "alaIpNetToMediaDpaVlan",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaPhysAddress": {
+    "name": "alaIpNetToMediaDpaPhysAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaIpType": {
+    "name": "alaIpNetToMediaDpaIpType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaIp": {
+    "name": "alaIpNetToMediaDpaIp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaSlot": {
+    "name": "alaIpNetToMediaDpaSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpNetToMediaDpaPort": {
+    "name": "alaIpNetToMediaDpaPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIpManagedIntfTable": {
+    "name": "alaIpManagedIntfTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpManagedIntfEntry": {
+    "name": "alaIpManagedIntfEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IP-MIB",
+        "object": "alaIpManagedIntfAppIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIpManagedIntfAppIndex": {
+    "name": "alaIpManagedIntfAppIndex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaIpManagedIntfAppIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIpManagedIntfName": {
+    "name": "alaIpManagedIntfName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIpManagedRowStatus": {
+    "name": "alaIpManagedRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.23.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-IP-MIB"
+  }
+}

@@ -1,0 +1,1280 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalAssetID"
+    ],
+    "HH3C-OID-MIB": [
+      "hh3cSurveillanceMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cVMMan": {
+    "name": "hh3cVMMan",
+    "oid": "1.3.6.1.4.1.25506.9.1",
+    "class": "moduleidentity"
+  },
+  "hh3cVMManMIBObjects": {
+    "name": "hh3cVMManMIBObjects",
+    "oid": "1.3.6.1.4.1.25506.9.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cVMCapabilitySet": {
+    "name": "hh3cVMCapabilitySet",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cms": 0,
+        "css": 1,
+        "dm": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMStat": {
+    "name": "hh3cVMStat",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cVMStatTotalConnEstablishRequests": {
+    "name": "hh3cVMStatTotalConnEstablishRequests",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMStatSuccConnEstablishRequests": {
+    "name": "hh3cVMStatSuccConnEstablishRequests",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMStatFailConnEstablishRequests": {
+    "name": "hh3cVMStatFailConnEstablishRequests",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMStatTotalConnReleaseRequests": {
+    "name": "hh3cVMStatTotalConnReleaseRequests",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMStatSuccConnReleaseRequests": {
+    "name": "hh3cVMStatSuccConnReleaseRequests",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMStatFailConnReleaseRequests": {
+    "name": "hh3cVMStatFailConnReleaseRequests",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMStatExceptionTerminationConn": {
+    "name": "hh3cVMStatExceptionTerminationConn",
+    "oid": "1.3.6.1.4.1.25506.9.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVMManMIBTrap": {
+    "name": "hh3cVMManMIBTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cVMManTrapPrex": {
+    "name": "hh3cVMManTrapPrex",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cVMManDeviceOnlineTrap": {
+    "name": "hh3cVMManDeviceOnlineTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManDeviceOfflineTrap": {
+    "name": "hh3cVMManDeviceOfflineTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceExternalSemaphoreTrap": {
+    "name": "hh3cVMManForwardDeviceExternalSemaphoreTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUExternalInputAlarmChannelID"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceVideoLossTrap": {
+    "name": "hh3cVMManForwardDeviceVideoLossTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceVideoRecoverTrap": {
+    "name": "hh3cVMManForwardDeviceVideoRecoverTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceMotionDetectTrap": {
+    "name": "hh3cVMManForwardDeviceMotionDetectTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateX1"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateY1"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateX2"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateY2"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceCoverTrap": {
+    "name": "hh3cVMManForwardDeviceCoverTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateX1"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateY1"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateX2"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegionCoordinateY2"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceCpuUsageThresholdTrap": {
+    "name": "hh3cVMManForwardDeviceCpuUsageThresholdTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManCpuUsage"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManCpuUsageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceMemUsageThresholdTrap": {
+    "name": "hh3cVMManForwardDeviceMemUsageThresholdTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManMemUsage"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManMemUsageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceHardDiskUsageThresholdTrap": {
+    "name": "hh3cVMManForwardDeviceHardDiskUsageThresholdTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManHardDiskUsage"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManHardDiskUsageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceTemperatureThresholdTrap": {
+    "name": "hh3cVMManForwardDeviceTemperatureThresholdTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManTemperature"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManTemperatureThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceStartKinescopeTrap": {
+    "name": "hh3cVMManForwardDeviceStartKinescopeTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManForwardDeviceStopKinescopeTrap": {
+    "name": "hh3cVMManForwardDeviceStopKinescopeTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientReportTrap": {
+    "name": "hh3cVMManClientReportTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManReportContent"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientRealtimeSurveillanceNoVideoTrap": {
+    "name": "hh3cVMManClientRealtimeSurveillanceNoVideoTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientVODNoVideoTrap": {
+    "name": "hh3cVMManClientVODNoVideoTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVODStart"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVODEnd"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManIPSANDevIP"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientRealtimeSurveillanceVideoStreamDiscontinuityTrap": {
+    "name": "hh3cVMManClientRealtimeSurveillanceVideoStreamDiscontinuityTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVideoStreamDiscontinuityInterval"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVideoStreamDiscontinuityIntervalThreshold"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientStatPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientVODVideoStreamDiscontinuityTrap": {
+    "name": "hh3cVMManClientVODVideoStreamDiscontinuityTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVODStart"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVODEnd"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManIPSANDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVideoStreamDiscontinuityInterval"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVideoStreamDiscontinuityIntervalThreshold"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientStatPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientCtlConnExceptionTerminationTrap": {
+    "name": "hh3cVMManClientCtlConnExceptionTerminationTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientFrequencyLoginFailTrap": {
+    "name": "hh3cVMManClientFrequencyLoginFailTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientLoginFailNum"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientLoginFailNumThreshold"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientStatPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManClientFrequencyVODFailTrap": {
+    "name": "hh3cVMManClientFrequencyVODFailTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManUserName"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVODFailNum"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientVODFailNumThreshold"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManClientStatPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManDMECDisobeyStorageScheduleTrap": {
+    "name": "hh3cVMManDMECDisobeyStorageScheduleTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManDMECDisobeyStorageScheduleRecoverTrap": {
+    "name": "hh3cVMManDMECDisobeyStorageScheduleRecoverTrap",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalAssetID"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManRegDevIP"
+      },
+      {
+        "module": "HH3C-VM-MAN-MIB",
+        "object": "hh3cVMManPUECVideoChannelName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVMManTrapObjects": {
+    "name": "hh3cVMManTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cVMManIPSANDevIP": {
+    "name": "hh3cVMManIPSANDevIP",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManRegDevIP": {
+    "name": "hh3cVMManRegDevIP",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManRegDevName": {
+    "name": "hh3cVMManRegDevName",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManRegionCoordinateX1": {
+    "name": "hh3cVMManRegionCoordinateX1",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManRegionCoordinateY1": {
+    "name": "hh3cVMManRegionCoordinateY1",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManRegionCoordinateX2": {
+    "name": "hh3cVMManRegionCoordinateX2",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManRegionCoordinateY2": {
+    "name": "hh3cVMManRegionCoordinateY2",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManCpuUsage": {
+    "name": "hh3cVMManCpuUsage",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManCpuUsageThreshold": {
+    "name": "hh3cVMManCpuUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManMemUsage": {
+    "name": "hh3cVMManMemUsage",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManMemUsageThreshold": {
+    "name": "hh3cVMManMemUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManHardDiskUsage": {
+    "name": "hh3cVMManHardDiskUsage",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManHardDiskUsageThreshold": {
+    "name": "hh3cVMManHardDiskUsageThreshold",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManTemperature": {
+    "name": "hh3cVMManTemperature",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManTemperatureThreshold": {
+    "name": "hh3cVMManTemperatureThreshold",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientIP": {
+    "name": "hh3cVMManClientIP",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManUserName": {
+    "name": "hh3cVMManUserName",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManReportContent": {
+    "name": "hh3cVMManReportContent",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientVideoStreamDiscontinuityInterval": {
+    "name": "hh3cVMManClientVideoStreamDiscontinuityInterval",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientVideoStreamDiscontinuityIntervalThreshold": {
+    "name": "hh3cVMManClientVideoStreamDiscontinuityIntervalThreshold",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientStatPeriod": {
+    "name": "hh3cVMManClientStatPeriod",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientLoginFailNum": {
+    "name": "hh3cVMManClientLoginFailNum",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientLoginFailNumThreshold": {
+    "name": "hh3cVMManClientLoginFailNumThreshold",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientVODFailNum": {
+    "name": "hh3cVMManClientVODFailNum",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientVODFailNumThreshold": {
+    "name": "hh3cVMManClientVODFailNumThreshold",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientVODStart": {
+    "name": "hh3cVMManClientVODStart",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManClientVODEnd": {
+    "name": "hh3cVMManClientVODEnd",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManPUExternalInputAlarmChannelID": {
+    "name": "hh3cVMManPUExternalInputAlarmChannelID",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVMManPUECVideoChannelName": {
+    "name": "hh3cVMManPUECVideoChannelName",
+    "oid": "1.3.6.1.4.1.25506.9.1.2.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-VM-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-VM-MAN-MIB"
+  }
+}

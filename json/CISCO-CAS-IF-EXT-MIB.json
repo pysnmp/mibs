@@ -1,0 +1,4861 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CAS-IF-MIB": [
+      "ccasVoiceCfgEntry",
+      "ccasGrpCfgEntry"
+    ],
+    "CISCO-MEDIA-GATEWAY-MIB": [
+      "cmgwIndex",
+      "CVoiceTonePlanIndexOrZero",
+      "CCallControlProfileIndexOrZero"
+    ],
+    "CISCO-MEGACO-EXT-MIB": [
+      "CH248Packages"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "BulkConfigResult",
+      "ConfigIterator"
+    ],
+    "CISCO-VOICE-AALX-PROFILE-MIB": [
+      "CiscoCodecPacketPeriod"
+    ],
+    "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
+      "CvcCoderTypeRate",
+      "CvcFaxTransmitRate"
+    ],
+    "RMON-MIB": [
+      "OwnerString"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCasIfExtMIB": {
+    "name": "ciscoCasIfExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.314",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-28 00:00",
+        "description": "Added ccasIfExtVoiceCfgNoiseRegType object in ccasIfExtVoiceCfgTable"
+      },
+      {
+        "revision": "2004-06-23 00:00",
+        "description": "Added the following objects in ccasIfExtVoiceCfgTable: ccasIfExtVoiceCfgCasProfile ccasIfExtVoiceCfgCasVariant ccasIfExtVoiceCfgDs0ChannelsFail and the following tables to provide CAS variant: ccasIfExtProfileTable ccasIfExtVariantTable ccasIfExtIncomingLineSignalTable ccasIfExtOutgoingLineSignalTable ccasIfExtRegisterSignalTable ccasIfExtLineSignalTimerTable ccasIfExtRegSignalTimerTable ccasIfExtGeneralConfigTable."
+      },
+      {
+        "revision": "2004-05-26 00:00",
+        "description": "Deprecated the following objects in ccasIfExtVoiceCfgTable: ccasIfExtVoiceCfgT38MaxFaxTxRate ccasIfExtVoiceCfgT38HsPktPeriod ccasIfExtVoiceCfgT38HsRedundancy Added ccasIfExtVoiceCfgEventMappingIdx, ccasIfExtVoiceCfgGatewayIndex to ccasIfExtVoiceCfgTable."
+      },
+      {
+        "revision": "2003-04-17 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "ciscoCasIfExtMIBNotifications": {
+    "name": "ciscoCasIfExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.314.0",
+    "class": "objectidentity"
+  },
+  "ciscoCasIfExtMIBObjects": {
+    "name": "ciscoCasIfExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.314.1",
+    "class": "objectidentity"
+  },
+  "ccasIfExtConfig": {
+    "name": "ccasIfExtConfig",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1",
+    "class": "objectidentity"
+  },
+  "ccasIfExtProfile": {
+    "name": "ccasIfExtProfile",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2",
+    "class": "objectidentity"
+  },
+  "ccasIfExtConfigLineSignal": {
+    "name": "ccasIfExtConfigLineSignal",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3",
+    "class": "objectidentity"
+  },
+  "ccasIfExtConfigRegisterSignal": {
+    "name": "ccasIfExtConfigRegisterSignal",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4",
+    "class": "objectidentity"
+  },
+  "ccasIfExtConfigTimer": {
+    "name": "ccasIfExtConfigTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5",
+    "class": "objectidentity"
+  },
+  "ccasIfExtGeneralConfig": {
+    "name": "ccasIfExtGeneralConfig",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6",
+    "class": "objectidentity"
+  },
+  "CASLineSignal": {
+    "name": "CASLineSignal",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CASRegisterSignal": {
+    "name": "CASRegisterSignal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compelled": 1,
+          "noncompelled": 2,
+          "semicompelled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CASForwardSignal": {
+    "name": "CASForwardSignal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "i1": 2,
+          "i2": 3,
+          "i3": 4,
+          "i4": 5,
+          "i5": 6,
+          "i6": 7,
+          "i7": 8,
+          "i8": 9,
+          "i9": 10,
+          "i10": 11,
+          "i11": 12,
+          "i12": 13,
+          "i13": 14,
+          "i14": 15,
+          "i15": 16,
+          "ii1": 17,
+          "ii2": 18,
+          "ii3": 19,
+          "ii4": 20,
+          "ii5": 21,
+          "ii6": 22,
+          "ii7": 23,
+          "ii8": 24,
+          "ii9": 25,
+          "ii10": 26,
+          "ii11": 27,
+          "ii12": 28,
+          "ii13": 29,
+          "ii14": 30,
+          "ii15": 31,
+          "iiI1": 32,
+          "iiI2": 33,
+          "iii3": 34,
+          "iii4": 35,
+          "iii5": 36,
+          "iii6": 37,
+          "iii7": 38,
+          "iii8": 39,
+          "iii9": 40,
+          "iii10": 41,
+          "iii11": 42,
+          "iii12": 43,
+          "iii13": 44,
+          "iii14": 45,
+          "iii15": 46
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CASBackwardSignal": {
+    "name": "CASBackwardSignal",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "a1": 2,
+          "a2": 3,
+          "a3": 4,
+          "a4": 5,
+          "a5": 6,
+          "a6": 7,
+          "a7": 8,
+          "a8": 9,
+          "a9": 10,
+          "a10": 11,
+          "a11": 12,
+          "a12": 13,
+          "a13": 14,
+          "a14": 15,
+          "a15": 16,
+          "b1": 17,
+          "b2": 18,
+          "b3": 19,
+          "b4": 20,
+          "b5": 21,
+          "b6": 22,
+          "b7": 23,
+          "b8": 24,
+          "b9": 25,
+          "b10": 26,
+          "b11": 27,
+          "b12": 28,
+          "b13": 29,
+          "b14": 30,
+          "b15": 31,
+          "c1": 32,
+          "c2": 33,
+          "c3": 34,
+          "c4": 35,
+          "c5": 36,
+          "c6": 37,
+          "c7": 38,
+          "c8": 39,
+          "c9": 40,
+          "c10": 41,
+          "c11": 42,
+          "c12": 43,
+          "c13": 44,
+          "c14": 45,
+          "c15": 46
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CASCountryCode": {
+    "name": "CASCountryCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "itu": 1,
+          "argentina": 2,
+          "australia": 3,
+          "bolivia": 4,
+          "brazil": 5,
+          "bulgaria": 6,
+          "china": 7,
+          "colombia": 8,
+          "costaRica": 9,
+          "croatia": 10,
+          "eastEurope": 11,
+          "ecuadorIT": 12,
+          "ecuadorLME": 13,
+          "greece": 14,
+          "guatemala": 15,
+          "hongKong": 16,
+          "india": 17,
+          "indonesia": 18,
+          "israel": 19,
+          "korea": 20,
+          "laos": 21,
+          "malaysia": 22,
+          "malta": 23,
+          "mongolia": 24,
+          "newZealand": 25,
+          "paraguay": 26,
+          "peru": 27,
+          "philippines": 28,
+          "saudiArabia": 29,
+          "singapore": 30,
+          "southAfrica": 31,
+          "telemex": 32,
+          "telnor": 33,
+          "thailand": 34,
+          "uruguay": 35,
+          "venezuela": 36,
+          "vietnam": 37,
+          "bemilcom": 38
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgTable": {
+    "name": "ccasIfExtVoiceCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgEntry": {
+    "name": "ccasIfExtVoiceCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ccasIfExtVoiceCfgEntry",
+      "module": "CISCO-CAS-IF-EXT-MIB",
+      "object": "ccasVoiceCfgEntry"
+    },
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgLifNumber": {
+    "name": "ccasIfExtVoiceCfgLifNumber",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgCcntrlProfile": {
+    "name": "ccasIfExtVoiceCfgCcntrlProfile",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CCallControlProfileIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgVadEnabled": {
+    "name": "ccasIfExtVoiceCfgVadEnabled",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgContinuityTone1": {
+    "name": "ccasIfExtVoiceCfgContinuityTone1",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2010,
+        "format": "decimal"
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgContinuityTone2": {
+    "name": "ccasIfExtVoiceCfgContinuityTone2",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1780,
+        "format": "decimal"
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgModemPassThru": {
+    "name": "ccasIfExtVoiceCfgModemPassThru",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passThruDisabled": 1,
+          "passThruCisco": 2,
+          "passThruNse": 3,
+          "passThruNseAal2": 4,
+          "passThruCa": 5,
+          "passThruTypeE": 6,
+          "system": 7,
+          "passThruNseCa": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "passThruNse",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgUpspeedCodec": {
+    "name": "ccasIfExtVoiceCfgUpspeedCodec",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcCoderTypeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgT38MaxFaxTxRate": {
+    "name": "ccasIfExtVoiceCfgT38MaxFaxTxRate",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CvcFaxTransmitRate",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "fax14400",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccasIfExtVoiceCfgT38HsPktPeriod": {
+    "name": "ccasIfExtVoiceCfgT38HsPktPeriod",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoCodecPacketPeriod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "pktPeriod30000us",
+        "format": "enum"
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccasIfExtVoiceCfgT38HsRedundancy": {
+    "name": "ccasIfExtVoiceCfgT38HsRedundancy",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "units": "FAX packets",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "ccasIfExtVoiceCfgRepetition": {
+    "name": "ccasIfExtVoiceCfgRepetition",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigIterator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgBulkCfgOwner": {
+    "name": "ccasIfExtVoiceCfgBulkCfgOwner",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgBulkCfgResult": {
+    "name": "ccasIfExtVoiceCfgBulkCfgResult",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BulkConfigResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgVadTimer": {
+    "name": "ccasIfExtVoiceCfgVadTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 250,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgICSEnable": {
+    "name": "ccasIfExtVoiceCfgICSEnable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgICSIntTimer": {
+    "name": "ccasIfExtVoiceCfgICSIntTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgTonePlan": {
+    "name": "ccasIfExtVoiceCfgTonePlan",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CVoiceTonePlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgGwyLinkId": {
+    "name": "ccasIfExtVoiceCfgGwyLinkId",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgH248PkgIds": {
+    "name": "ccasIfExtVoiceCfgH248PkgIds",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CH248Packages",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgEventMappingIdx": {
+    "name": "ccasIfExtVoiceCfgEventMappingIdx",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgGatewayIndex": {
+    "name": "ccasIfExtVoiceCfgGatewayIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgCasProfile": {
+    "name": "ccasIfExtVoiceCfgCasProfile",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgCasVariant": {
+    "name": "ccasIfExtVoiceCfgCasVariant",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgDs0ChannelsFail": {
+    "name": "ccasIfExtVoiceCfgDs0ChannelsFail",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgNoiseRegType": {
+    "name": "ccasIfExtVoiceCfgNoiseRegType",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "simple": 2,
+          "g711A2": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "simple",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtDs0GrpCfgTable": {
+    "name": "ccasIfExtDs0GrpCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtDs0GrpCfgEntry": {
+    "name": "ccasIfExtDs0GrpCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ccasIfExtDs0GrpCfgEntry",
+      "module": "CISCO-CAS-IF-EXT-MIB",
+      "object": "ccasGrpCfgEntry"
+    },
+    "status": "current"
+  },
+  "ccasIfExtDs0GrpRepetition": {
+    "name": "ccasIfExtDs0GrpRepetition",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigIterator",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtDs0GrpRepeatOwner": {
+    "name": "ccasIfExtDs0GrpRepeatOwner",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtDs0GrpRepeatResult": {
+    "name": "ccasIfExtDs0GrpRepeatResult",
+    "oid": "1.3.6.1.4.1.9.9.314.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BulkConfigResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasIfExtProfileTable": {
+    "name": "ccasIfExtProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtProfileEntry": {
+    "name": "ccasIfExtProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasProfileIndex": {
+    "name": "ccasProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasProfileLineSigTimer": {
+    "name": "ccasProfileLineSigTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasProfileRegisterSignal": {
+    "name": "ccasProfileRegisterSignal",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasProfileRegSigTimer": {
+    "name": "ccasProfileRegSigTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasProfileGeneralCfg": {
+    "name": "ccasProfileGeneralCfg",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasProfileRowStatus": {
+    "name": "ccasProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasIfExtVariantTable": {
+    "name": "ccasIfExtVariantTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtVariantEntry": {
+    "name": "ccasIfExtVariantEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasVariantIndex": {
+    "name": "ccasVariantIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasVariantFile": {
+    "name": "ccasVariantFile",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasVariantSource": {
+    "name": "ccasVariantSource",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasVariantNumberCount": {
+    "name": "ccasVariantNumberCount",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasVariantState": {
+    "name": "ccasVariantState",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initInProgress": 1,
+          "initSuccessfully": 2,
+          "initFailed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasVariantRowStatus": {
+    "name": "ccasVariantRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.314.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasIfExtIncomingLineSignalTable": {
+    "name": "ccasIfExtIncomingLineSignalTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtIncomingLineSignalEntry": {
+    "name": "ccasIfExtIncomingLineSignalEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSSignalNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasILSSignalNameIndex": {
+    "name": "ccasILSSignalNameIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasILSSignalName": {
+    "name": "ccasILSSignalName",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasILSRxPattern": {
+    "name": "ccasILSRxPattern",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASLineSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasILSMatchedRxPattern": {
+    "name": "ccasILSMatchedRxPattern",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASLineSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasILSMatchedTxPattern": {
+    "name": "ccasILSMatchedTxPattern",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASLineSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasILSMinMakeTime": {
+    "name": "ccasILSMinMakeTime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasILSMaxMakeTime": {
+    "name": "ccasILSMaxMakeTime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasILSMinBreakTime": {
+    "name": "ccasILSMinBreakTime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasILSMaxBreakTime": {
+    "name": "ccasILSMaxBreakTime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtOutgoingLineSignalTable": {
+    "name": "ccasIfExtOutgoingLineSignalTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtOutgoingLineSignalEntry": {
+    "name": "ccasIfExtOutgoingLineSignalEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasOLSSignalNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasOLSSignalNameIndex": {
+    "name": "ccasOLSSignalNameIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasOLSCasSignalName": {
+    "name": "ccasOLSCasSignalName",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasOLSTxPattern": {
+    "name": "ccasOLSTxPattern",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASLineSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccasOLSMakeTime": {
+    "name": "ccasOLSMakeTime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasOLSBreakTime": {
+    "name": "ccasOLSBreakTime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccasIfExtRegisterSignalTable": {
+    "name": "ccasIfExtRegisterSignalTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtRegisterSignalEntry": {
+    "name": "ccasIfExtRegisterSignalEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasRSIndex": {
+    "name": "ccasRSIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasRSCountry": {
+    "name": "ccasRSCountry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASCountryCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSSubRegion": {
+    "name": "ccasRSSubRegion",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSNextDigitANI": {
+    "name": "ccasBwdRSNextDigitANI",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSNextDigitDNIS": {
+    "name": "ccasBwdRSNextDigitDNIS",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSPrevDigit": {
+    "name": "ccasBwdRSPrevDigit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSXtoGroupBSignals": {
+    "name": "ccasBwdRSXtoGroupBSignals",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSCongestion": {
+    "name": "ccasBwdRSCongestion",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSCallingPartyCategory": {
+    "name": "ccasBwdRSCallingPartyCategory",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSAddrCompleteGroupA": {
+    "name": "ccasBwdRSAddrCompleteGroupA",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSPrevNminus2Digit": {
+    "name": "ccasBwdRSPrevNminus2Digit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSPrevNminus3Digit": {
+    "name": "ccasBwdRSPrevNminus3Digit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSCountryCode": {
+    "name": "ccasBwdRSCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSLangDiscr": {
+    "name": "ccasBwdRSLangDiscr",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSNatureOfCircuit": {
+    "name": "ccasBwdRSNatureOfCircuit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSInfoEchoSuppressor": {
+    "name": "ccasBwdRSInfoEchoSuppressor",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSInternationalCongst": {
+    "name": "ccasBwdRSInternationalCongst",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSXtoGroupC": {
+    "name": "ccasBwdRSXtoGroupC",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSRepeatLastDigit": {
+    "name": "ccasBwdRSRepeatLastDigit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSRepeatCalledDigit": {
+    "name": "ccasBwdRSRepeatCalledDigit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSPlaySITTone": {
+    "name": "ccasBwdRSPlaySITTone",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSSubscriberLineBusy": {
+    "name": "ccasBwdRSSubscriberLineBusy",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSNetworkCongstInGroupB": {
+    "name": "ccasBwdRSNetworkCongstInGroupB",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSInvalidDialedNumber": {
+    "name": "ccasBwdRSInvalidDialedNumber",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSSubLineFreeWithCharge": {
+    "name": "ccasBwdRSSubLineFreeWithCharge",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSSubLineFreeWithNoCharge": {
+    "name": "ccasBwdRSSubLineFreeWithNoCharge",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSSubLineOutOfOrder": {
+    "name": "ccasBwdRSSubLineOutOfOrder",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSAnnouncement": {
+    "name": "ccasBwdRSAnnouncement",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSXtoGrpASendNextDNIS": {
+    "name": "ccasBwdRSXtoGrpASendNextDNIS",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSXtoGrpASendDNISFrmBeg": {
+    "name": "ccasBwdRSXtoGrpASendDNISFrmBeg",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSXtoGrpAResendLastDNIS": {
+    "name": "ccasBwdRSXtoGrpAResendLastDNIS",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSSSendCatSwGrpB": {
+    "name": "ccasBwdRSSSendCatSwGrpB",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasBwdRSSGrpCCong": {
+    "name": "ccasBwdRSSGrpCCong",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASBackwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSANIDigitAvailable": {
+    "name": "ccasFwdRSANIDigitAvailable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSANIDigitNotAvailable": {
+    "name": "ccasFwdRSANIDigitNotAvailable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSEndANICallingPartyNotRev": {
+    "name": "ccasFwdRSEndANICallingPartyNotRev",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSEndANICallingPartyRev": {
+    "name": "ccasFwdRSEndANICallingPartyRev",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSEndOfDNISDigit": {
+    "name": "ccasFwdRSEndOfDNISDigit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSNoCategoryAvailble": {
+    "name": "ccasFwdRSNoCategoryAvailble",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSCCEchoSuppressor": {
+    "name": "ccasFwdRSCCEchoSuppressor",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSCCNoEchoSuppressor": {
+    "name": "ccasFwdRSCCNoEchoSuppressor",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSCCInsertEchoSuppressor": {
+    "name": "ccasFwdRSCCInsertEchoSuppressor",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSIncHalfEchoRequired": {
+    "name": "ccasFwdRSIncHalfEchoRequired",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSTestCall": {
+    "name": "ccasFwdRSTestCall",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSSatelLinkIncluded": {
+    "name": "ccasFwdRSSatelLinkIncluded",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSSatelLinkNotIncluded": {
+    "name": "ccasFwdRSSatelLinkNotIncluded",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSDiscriminatorDigit": {
+    "name": "ccasFwdRSDiscriminatorDigit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSOtherLanguage": {
+    "name": "ccasFwdRSOtherLanguage",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSOtherLanguage1": {
+    "name": "ccasFwdRSOtherLanguage1",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSOtherLanguage2": {
+    "name": "ccasFwdRSOtherLanguage2",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSRequestNotAccepted": {
+    "name": "ccasFwdRSRequestNotAccepted",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSSubWithoutPriorNational": {
+    "name": "ccasFwdRSSubWithoutPriorNational",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSSubPriorNational": {
+    "name": "ccasFwdRSSubPriorNational",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSSubPriorInternational": {
+    "name": "ccasFwdRSSubPriorInternational",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSMaintenanceEquipment": {
+    "name": "ccasFwdRSMaintenanceEquipment",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSOperatorCall": {
+    "name": "ccasFwdRSOperatorCall",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSDataTransNational": {
+    "name": "ccasFwdRSDataTransNational",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSDataTransInternational": {
+    "name": "ccasFwdRSDataTransInternational",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSOperNoFwdTransFacility": {
+    "name": "ccasFwdRSOperNoFwdTransFacility",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSOperFwdTransFacility": {
+    "name": "ccasFwdRSOperFwdTransFacility",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSSubsrcWithMeter": {
+    "name": "ccasFwdRSSubsrcWithMeter",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasFwdRSSubsrcWithIDD": {
+    "name": "ccasFwdRSSubsrcWithIDD",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASForwardSignal",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSInterpreFirstANIDigit": {
+    "name": "ccasRSInterpreFirstANIDigit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firstANIDigit": 1,
+          "aniAvailableOrNot": 2,
+          "subscriberCategory": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSGetValueFromValidIndex": {
+    "name": "ccasRSGetValueFromValidIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSSeqInfCollect": {
+    "name": "ccasRSSeqInfCollect",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSSendFirstFwdSig": {
+    "name": "ccasRSSendFirstFwdSig",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnisCCLangDisc": 1,
+          "dnisLangDiscCC": 2,
+          "cCLangDiscDnis": 3,
+          "cCDnisLangDisc": 4,
+          "langDiscCCDnis": 5,
+          "langDiscDnisCC": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSRowStatus": {
+    "name": "ccasRSRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.314.1.4.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasIfExtLineSignalTimerTable": {
+    "name": "ccasIfExtLineSignalTimerTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtLineSignalTimerEntry": {
+    "name": "ccasIfExtLineSignalTimerEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasLSTIndex": {
+    "name": "ccasLSTIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasLSTIdleGuardTimer": {
+    "name": "ccasLSTIdleGuardTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTClearFwdTimer": {
+    "name": "ccasLSTClearFwdTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTClearBwdTimer": {
+    "name": "ccasLSTClearBwdTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTReleaseGuardTimer": {
+    "name": "ccasLSTReleaseGuardTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 800,
+        "format": "decimal"
+      }
+    },
+    "units": "millliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTCASGlareTimer": {
+    "name": "ccasLSTCASGlareTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTAnswerMeterDelayTimer": {
+    "name": "ccasLSTAnswerMeterDelayTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTCASDebounceTimer": {
+    "name": "ccasLSTCASDebounceTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTSeizeAckRspTimer": {
+    "name": "ccasLSTSeizeAckRspTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTDelayBetRegAnsAndLineAns": {
+    "name": "ccasLSTDelayBetRegAnsAndLineAns",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTSeizeAckToDigitTimer": {
+    "name": "ccasLSTSeizeAckToDigitTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasLSTRowStatus": {
+    "name": "ccasLSTRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.314.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasIfExtRegSignalTimerTable": {
+    "name": "ccasIfExtRegSignalTimerTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtRegSignalTimerEntry": {
+    "name": "ccasIfExtRegSignalTimerEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasRSTIndex": {
+    "name": "ccasRSTIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasRSTAnswerSigTimer": {
+    "name": "ccasRSTAnswerSigTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTCompelledFwdToneOnTimer": {
+    "name": "ccasRSTCompelledFwdToneOnTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTCompelledFwdToneOffTimer": {
+    "name": "ccasRSTCompelledFwdToneOffTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 24,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTCompelledBwdToneOnTimer": {
+    "name": "ccasRSTCompelledBwdToneOnTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTOutFwdPulseOnTimer": {
+    "name": "ccasRSTOutFwdPulseOnTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTOutFwdPulseOffTimer": {
+    "name": "ccasRSTOutFwdPulseOffTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTIncFwdPulseOnTimer": {
+    "name": "ccasRSTIncFwdPulseOnTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTBwdPulseOnTimer": {
+    "name": "ccasRSTBwdPulseOnTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 150,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTIncomingRegSigDuration": {
+    "name": "ccasRSTIncomingRegSigDuration",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTOutgoingRegSigDuration": {
+    "name": "ccasRSTOutgoingRegSigDuration",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTCalledPartyInterDigTimer": {
+    "name": "ccasRSTCalledPartyInterDigTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasRSTRowStatus": {
+    "name": "ccasRSTRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.314.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasIfExtGeneralConfigTable": {
+    "name": "ccasIfExtGeneralConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasIfExtGeneralConfigEntry": {
+    "name": "ccasIfExtGeneralConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MEDIA-GATEWAY-MIB",
+        "object": "cmgwIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccasGCnfIndex": {
+    "name": "ccasGCnfIndex",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccasGCnfGlarePolicy": {
+    "name": "ccasGCnfGlarePolicy",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rptSzOnGlareTmrExp": 1,
+          "rptSzOnGlareDet": 2,
+          "rptRelOnGlareTmrExpAndGoOnHook": 3,
+          "goOnHookOnGlareDet": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rptSzOnGlareTmrExp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfParmSource": {
+    "name": "ccasGCnfParmSource",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "casVariantFile": 1,
+          "mib": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mib",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfRegSigMode": {
+    "name": "ccasGCnfRegSigMode",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CASRegisterSignal",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "compelled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfLineSigType": {
+    "name": "ccasGCnfLineSigType",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "digital": 1,
+          "analog": 2,
+          "pulse": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "digital",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfRingBackType": {
+    "name": "ccasGCnfRingBackType",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wink": 1,
+          "winkAndTone": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "wink",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfIncCallHiFreqPower": {
+    "name": "ccasGCnfIncCallHiFreqPower",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfIncCallLoFreqPower": {
+    "name": "ccasGCnfIncCallLoFreqPower",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfIncCallNegTwist": {
+    "name": "ccasGCnfIncCallNegTwist",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfIncCallPosTwist": {
+    "name": "ccasGCnfIncCallPosTwist",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfIncCallBreakThreshold": {
+    "name": "ccasGCnfIncCallBreakThreshold",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfOutCallLoFreqPower": {
+    "name": "ccasGCnfOutCallLoFreqPower",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfOutCallPowerTwist": {
+    "name": "ccasGCnfOutCallPowerTwist",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfOutCadenceOntime": {
+    "name": "ccasGCnfOutCadenceOntime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfOutCadenceOfftime": {
+    "name": "ccasGCnfOutCadenceOfftime",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfCountryCode": {
+    "name": "ccasGCnfCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfEchoCancellation": {
+    "name": "ccasGCnfEchoCancellation",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noEchoRequired": 1,
+          "outgoingHalfEchoRequired": 2,
+          "outgoingHalfEchoSuppressorInserted": 3,
+          "incomingHalfEchoSuppressorRequired": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "outgoingHalfEchoRequired",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfSubscriberCategory": {
+    "name": "ccasGCnfSubscriberCategory",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "subscriberWithoutPriority": 1,
+          "subscriberWithPriority": 2,
+          "maintenanceEquipment": 3,
+          "operatorCall": 4,
+          "dataNationalTransmission": 5,
+          "subscriberOrOperatorWithoutForwardTransfer": 6,
+          "operatorWithForwardTransfer": 7,
+          "dataInternationalTransmission": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "subscriberWithoutPriority",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfNatureOfCircuit": {
+    "name": "ccasGCnfNatureOfCircuit",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notIncluded": 1,
+          "included": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notIncluded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfCompelledSignalingType": {
+    "name": "ccasGCnfCompelledSignalingType",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enbloc": 1,
+          "overlap": 2,
+          "endtoend": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enbloc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfTxDigitOrder": {
+    "name": "ccasGCnfTxDigitOrder",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aniDnis": 1,
+          "dnisAni": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dnisAni",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfDigitDetectMode": {
+    "name": "ccasGCnfDigitDetectMode",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dtmf": 1,
+          "mf": 2,
+          "dp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfMeteringRepIntThresh": {
+    "name": "ccasGCnfMeteringRepIntThresh",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfStartTimer": {
+    "name": "ccasGCnfStartTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfLongTimer": {
+    "name": "ccasGCnfLongTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfShortTimer": {
+    "name": "ccasGCnfShortTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfLongDurationTimer": {
+    "name": "ccasGCnfLongDurationTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 9900
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfMGCTimer": {
+    "name": "ccasGCnfMGCTimer",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfDigitType": {
+    "name": "ccasGCnfDigitType",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dtmf": 1,
+          "mf": 2,
+          "dp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfEndPointDirectional": {
+    "name": "ccasGCnfEndPointDirectional",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bidirectional": 1,
+          "incoming": 2,
+          "outgoing": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bidirectional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfPulseReceiveTimeout": {
+    "name": "ccasGCnfPulseReceiveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfInitialDelay": {
+    "name": "ccasGCnfInitialDelay",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfMaxNumCallParty": {
+    "name": "ccasGCnfMaxNumCallParty",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ccasGCnfRowStatus": {
+    "name": "ccasGCnfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.314.1.6.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoCasIfExtMIBConformance": {
+    "name": "ciscoCasIfExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.314.2",
+    "class": "objectidentity"
+  },
+  "ccasIfExtMIBCompliances": {
+    "name": "ccasIfExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.314.2.1",
+    "class": "objectidentity"
+  },
+  "ccasIfExtMIBGroups": {
+    "name": "ccasIfExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2",
+    "class": "objectidentity"
+  },
+  "ccasIfExtMIBCompliance": {
+    "name": "ccasIfExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.314.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccasIfExtVoiceCfgGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtBulkGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccasIfExtMIBComplianceRev1": {
+    "name": "ccasIfExtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.314.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccasIfExtVoiceCfgGroupRev1",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtBulkGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccasIfExtMIBComplianceRev2": {
+    "name": "ccasIfExtMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.314.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccasIfExtVoiceCfgGroupRev1",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtBulkGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtVoiceCfgCasGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtProfileGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtConfigLineSignalGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtConfigRegisterSignalGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtConfigTimerGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtGeneralConfigGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccasIfExtMIBComplianceRev3": {
+    "name": "ccasIfExtMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.314.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccasIfExtVoiceCfgGroupRev1",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtBulkGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtVoiceCfgCasGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtProfileGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtConfigLineSignalGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtConfigRegisterSignalGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtConfigTimerGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtGeneralConfigGroup",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      },
+      {
+        "object": "ccasIfExtVoiceCfgGroupSup1",
+        "module": "CISCO-CAS-IF-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgGroup": {
+    "name": "ccasIfExtVoiceCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgLifNumber"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgCcntrlProfile"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgVadEnabled"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgContinuityTone1"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgContinuityTone2"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgModemPassThru"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgUpspeedCodec"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgT38MaxFaxTxRate"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgT38HsPktPeriod"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgT38HsRedundancy"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgVadTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgICSEnable"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgICSIntTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgTonePlan"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgGwyLinkId"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgH248PkgIds"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ccasIfExtBulkGroup": {
+    "name": "ccasIfExtBulkGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgRepetition"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgBulkCfgOwner"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgBulkCfgResult"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtDs0GrpRepetition"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtDs0GrpRepeatOwner"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtDs0GrpRepeatResult"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgGroupRev1": {
+    "name": "ccasIfExtVoiceCfgGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgLifNumber"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgCcntrlProfile"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgVadEnabled"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgContinuityTone1"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgContinuityTone2"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgModemPassThru"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgUpspeedCodec"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgVadTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgICSEnable"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgICSIntTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgTonePlan"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgGwyLinkId"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgH248PkgIds"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgEventMappingIdx"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgGatewayIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgCasGroup": {
+    "name": "ccasIfExtVoiceCfgCasGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgCasProfile"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgCasVariant"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgDs0ChannelsFail"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtProfileGroup": {
+    "name": "ccasIfExtProfileGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasProfileLineSigTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasProfileRegisterSignal"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasProfileRegSigTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasProfileGeneralCfg"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasProfileRowStatus"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantFile"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantSource"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantNumberCount"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantState"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasVariantRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtConfigLineSignalGroup": {
+    "name": "ccasIfExtConfigLineSignalGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSSignalName"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSRxPattern"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSMatchedRxPattern"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSMatchedTxPattern"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSMinMakeTime"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSMaxMakeTime"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSMinBreakTime"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasILSMaxBreakTime"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasOLSCasSignalName"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasOLSTxPattern"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasOLSMakeTime"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasOLSBreakTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtConfigRegisterSignalGroup": {
+    "name": "ccasIfExtConfigRegisterSignalGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSCountry"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSSubRegion"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSNextDigitANI"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSNextDigitDNIS"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSPrevDigit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSXtoGroupBSignals"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSCongestion"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSCallingPartyCategory"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSAddrCompleteGroupA"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSPrevNminus2Digit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSPrevNminus3Digit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSCountryCode"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSLangDiscr"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSNatureOfCircuit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSInfoEchoSuppressor"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSInternationalCongst"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSXtoGroupC"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSRepeatLastDigit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSRepeatCalledDigit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSPlaySITTone"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSSubscriberLineBusy"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSNetworkCongstInGroupB"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSInvalidDialedNumber"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSSubLineFreeWithCharge"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSSubLineFreeWithNoCharge"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSSubLineOutOfOrder"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSAnnouncement"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSXtoGrpASendNextDNIS"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSXtoGrpASendDNISFrmBeg"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSXtoGrpAResendLastDNIS"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSSSendCatSwGrpB"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasBwdRSSGrpCCong"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSANIDigitAvailable"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSANIDigitNotAvailable"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSEndANICallingPartyNotRev"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSEndANICallingPartyRev"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSEndOfDNISDigit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSNoCategoryAvailble"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSCCEchoSuppressor"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSCCNoEchoSuppressor"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSCCInsertEchoSuppressor"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSIncHalfEchoRequired"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSTestCall"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSSatelLinkIncluded"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSSatelLinkNotIncluded"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSDiscriminatorDigit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSOtherLanguage"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSOtherLanguage1"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSOtherLanguage2"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSRequestNotAccepted"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSSubWithoutPriorNational"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSSubPriorNational"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSSubPriorInternational"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSMaintenanceEquipment"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSOperatorCall"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSDataTransNational"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSDataTransInternational"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSOperNoFwdTransFacility"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSOperFwdTransFacility"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSSubsrcWithMeter"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasFwdRSSubsrcWithIDD"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSInterpreFirstANIDigit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSGetValueFromValidIndex"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSSeqInfCollect"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSSendFirstFwdSig"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtConfigTimerGroup": {
+    "name": "ccasIfExtConfigTimerGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTIdleGuardTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTClearFwdTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTClearBwdTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTReleaseGuardTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTCASGlareTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTAnswerMeterDelayTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTCASDebounceTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTSeizeAckRspTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTDelayBetRegAnsAndLineAns"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTSeizeAckToDigitTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasLSTRowStatus"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTAnswerSigTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTCompelledFwdToneOnTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTCompelledFwdToneOffTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTCompelledBwdToneOnTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTOutFwdPulseOnTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTOutFwdPulseOffTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTIncFwdPulseOnTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTBwdPulseOnTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTIncomingRegSigDuration"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTOutgoingRegSigDuration"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTCalledPartyInterDigTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasRSTRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtGeneralConfigGroup": {
+    "name": "ccasIfExtGeneralConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfGlarePolicy"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfParmSource"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfRegSigMode"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfLineSigType"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfRingBackType"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfIncCallHiFreqPower"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfIncCallLoFreqPower"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfIncCallNegTwist"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfIncCallPosTwist"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfIncCallBreakThreshold"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfOutCallLoFreqPower"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfOutCallPowerTwist"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfOutCadenceOntime"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfOutCadenceOfftime"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfCountryCode"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfEchoCancellation"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfSubscriberCategory"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfNatureOfCircuit"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfCompelledSignalingType"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfTxDigitOrder"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfDigitDetectMode"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfMeteringRepIntThresh"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfStartTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfLongTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfShortTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfLongDurationTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfMGCTimer"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfDigitType"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfEndPointDirectional"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfPulseReceiveTimeout"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfInitialDelay"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfMaxNumCallParty"
+      },
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasGCnfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccasIfExtVoiceCfgGroupSup1": {
+    "name": "ccasIfExtVoiceCfgGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.314.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAS-IF-EXT-MIB",
+        "object": "ccasIfExtVoiceCfgNoiseRegType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CAS-IF-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CAS-IF-EXT-MIB"
+  }
+}

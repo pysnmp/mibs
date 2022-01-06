@@ -1,0 +1,3299 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "JNX-OPT-IF-MIB": [
+      "jnxoptIfMibModule",
+      "jnxoptIfOChConfigEntry",
+      "JnxoptIfDirectionality",
+      "jnxoptIfOChSinkCurrentEntry"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "transmission",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxoptIfExtMibModule": {
+    "name": "jnxoptIfExtMibModule",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-04-25 00:00",
+        "description": "Draft version 1.0"
+      },
+      {
+        "revision": "2013-01-25 00:00",
+        "description": "Draft version 2.0"
+      },
+      {
+        "revision": "2013-02-27 00:00",
+        "description": "Update FEC error count to Counter64"
+      },
+      {
+        "revision": "2013-11-01 00:00",
+        "description": "Enhancement for OTN PM 24 hour TCA thresholds"
+      }
+    ]
+  },
+  "JnxoptIfChannelSpacing": {
+    "name": "JnxoptIfChannelSpacing",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "spacing100Ghz": 1,
+          "spacing50Ghz": 2,
+          "spacing25Ghz": 3,
+          "spacing12point5Ghz": 4,
+          "spacing6point5Ghz": 5,
+          "spacing37point5Ghz": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfBitRateLineCoding": {
+    "name": "JnxoptIfBitRateLineCoding",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate2point5G": 1,
+          "rate10G": 2,
+          "rate40G": 3,
+          "rate100G": 4,
+          "rate400G": 5,
+          "rate150G": 6,
+          "rate200G": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfFiberTypeRecommendation": {
+    "name": "JnxoptIfFiberTypeRecommendation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g652": 1,
+          "g653": 2,
+          "g654": 3,
+          "g655": 4,
+          "g656": 5,
+          "g657": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfFiberTypeCategory": {
+    "name": "JnxoptIfFiberTypeCategory",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "categoryA": 1,
+          "categoryB": 2,
+          "categoryC": 3,
+          "categoryD": 4,
+          "categoryE": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfOTNType": {
+    "name": "JnxoptIfOTNType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nearEnd": 1,
+          "farEnd": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfOTNDirection": {
+    "name": "JnxoptIfOTNDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jnxTxDir": 1,
+          "jnxRxDir": 2,
+          "jnxBiDir": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfOTNLayer": {
+    "name": "JnxoptIfOTNLayer",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jnxoptIfOTUkLayer": 1,
+          "jnxoptIfODUkLayer": 2,
+          "jnxoptIfTCMSubLayer": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfOTNOChAlarms": {
+    "name": "JnxoptIfOTNOChAlarms",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jnxoptIfOtnNoAlarm": 0,
+          "jnxoptIfOtnLosAlarm": 1,
+          "jnxoptIfOtnLofAlarm": 2,
+          "jnxoptIfOtnLomAlarm": 3,
+          "jnxoptIfOtuSsfAlarm": 4,
+          "jnxoptIfOtuBdiAlarm": 5,
+          "jnxoptIfOtuTimAlarm": 6,
+          "jnxoptIfOtuIaeAlarm": 7,
+          "jnxoptIfOtuBiaeAlarm": 8,
+          "jnxoptIfOtuTsfAlarm": 9,
+          "jnxoptIfOtuDegAlarm": 10,
+          "jnxoptIfOtuFecExcessiveErrsAlarm": 11,
+          "jnxoptIf15MinThreshBBETCA": 12,
+          "jnxoptIf15MinThreshESTCA": 13,
+          "jnxoptIf15MinThreshSESTCA": 14,
+          "jnxoptIf15MinThreshUASTCA": 15,
+          "jnxoptIf15MinThreshBip8TCA": 16,
+          "jnxoptIf15MinThUnCorrectedWordsTCA": 17,
+          "jnxoptIf15MinThreshPreFECBERTCA": 18,
+          "jnxoptIf24HourThreshBBETCA": 19,
+          "jnxoptIf24HourThreshESTCA": 20,
+          "jnxoptIf24HourThreshSESTCA": 21,
+          "jnxoptIf24HourThreshUASTCA": 22,
+          "jnxoptIf24HourThreshBip8TCA": 23,
+          "jnxoptIf24HourThreshPreFECBERTCA": 24,
+          "jnxoptIfOtuAisAlarm": 25,
+          "jnxoptIfOtuFEFecErrAlarm": 26
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfOTNODUkTcmAlarms": {
+    "name": "JnxoptIfOTNODUkTcmAlarms",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jnxoptIfOtnOdukTcmNoAlarm": 0,
+          "jnxoptIfOdukTcmOciAlarm": 1,
+          "jnxoptIfOdukTcmLckAlarm": 2,
+          "jnxoptIfOdukTcmBdiAlarm": 3,
+          "jnxoptIfOdukTcmTimAlarm": 4,
+          "jnxoptIfOdukTcmDegAlarm": 5,
+          "jnxoptIfOdukTcmIaeAlarm": 6,
+          "jnxoptIfOdukTcmLTCAlarm": 7,
+          "jnxoptIfOdukTcmCSfAlarm": 8,
+          "jnxoptIfOdukTcmSSfAlarm": 9,
+          "jnxoptIfOdukTcmTSfAlarm": 10,
+          "jnxoptIfOdukTcm15MinThreshBBETCA": 11,
+          "jnxoptIfOdukTcm15MinThreshESTCA": 12,
+          "jnxoptIfOdukTcm15MinThreshSESTCA": 13,
+          "jnxoptIfOdukTcm15MinThreshUASTCA": 14,
+          "jnxoptIfOdukTcm15MinThreshBip8TCA": 15,
+          "jnxoptIfOdukTcmAisAlarm": 16,
+          "jnxoptIfOdukPtmAlarm": 17,
+          "jnxoptIfOdukTcm24HourThreshBBETCA": 18,
+          "jnxoptIfOdukTcm24HourThreshESTCA": 19,
+          "jnxoptIfOdukTcm24HourThreshSESTCA": 20,
+          "jnxoptIfOdukTcm24HourThreshUASTCA": 21,
+          "jnxoptIfOdukTcm24HourThreshBip8TCA": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxoptIfOTNAlarmSeverity": {
+    "name": "JnxoptIfOTNAlarmSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "jnxCritical": 1,
+          "jnxMajor": 2,
+          "jnxMinor": 3,
+          "jnxInfo": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxoptIfOTNNotifications": {
+    "name": "jnxoptIfOTNNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.0",
+    "class": "objectidentity"
+  },
+  "jnxoptIfOPSmEntry": {
+    "name": "jnxoptIfOPSmEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.1",
+    "class": "objectidentity"
+  },
+  "jnxoptIfOChSrcSinkGroup": {
+    "name": "jnxoptIfOChSrcSinkGroup",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2",
+    "class": "objectidentity"
+  },
+  "jnxoptIfOTNPMGroup": {
+    "name": "jnxoptIfOTNPMGroup",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3",
+    "class": "objectidentity"
+  },
+  "jnxoptIfOTNAlarm": {
+    "name": "jnxoptIfOTNAlarm",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4",
+    "class": "objectidentity"
+  },
+  "jnxoptIfOPSmConfigTable": {
+    "name": "jnxoptIfOPSmConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOPSmConfigEntry": {
+    "name": "jnxoptIfOPSmConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOPSmDirectionality": {
+    "name": "jnxoptIfOPSmDirectionality",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfDirectionality",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOPSmFiberTypeRecommendation": {
+    "name": "jnxoptIfOPSmFiberTypeRecommendation",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfFiberTypeRecommendation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOPSmFiberTypeCategory": {
+    "name": "jnxoptIfOPSmFiberTypeCategory",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfFiberTypeCategory",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChConfigExtTable": {
+    "name": "jnxoptIfOChConfigExtTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOChConfigExtEntry": {
+    "name": "jnxoptIfOChConfigExtEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxoptIfOChConfigExtEntry",
+      "module": "JNX-OPT-IF-EXT-MIB",
+      "object": "jnxoptIfOChConfigEntry"
+    },
+    "status": "current"
+  },
+  "jnxoptIfOChMiminumChannelSpacing": {
+    "name": "jnxoptIfOChMiminumChannelSpacing",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfChannelSpacing",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChBitRateLineCoding": {
+    "name": "jnxoptIfOChBitRateLineCoding",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfBitRateLineCoding",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChFEC": {
+    "name": "jnxoptIfOChFEC",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkMaximumBERMantissa": {
+    "name": "jnxoptIfOChSinkMaximumBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkMaximumBERExponent": {
+    "name": "jnxoptIfOChSinkMaximumBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChMinWavelength": {
+    "name": "jnxoptIfOChMinWavelength",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChMaxWavelength": {
+    "name": "jnxoptIfOChMaxWavelength",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChWavelength": {
+    "name": "jnxoptIfOChWavelength",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 nm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOChVendorTransceiverClass": {
+    "name": "jnxoptIfOChVendorTransceiverClass",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChOpticalInterfaceApplicationCode": {
+    "name": "jnxoptIfOChOpticalInterfaceApplicationCode",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChLaserAdminState": {
+    "name": "jnxoptIfOChLaserAdminState",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOChLaserOperationalState": {
+    "name": "jnxoptIfOChLaserOperationalState",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "fault": 2,
+          "degraded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChAdminState": {
+    "name": "jnxoptIfOChAdminState",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOChOperationalState": {
+    "name": "jnxoptIfOChOperationalState",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "fault": 2,
+          "degraded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcConfigTable": {
+    "name": "jnxoptIfOChSrcConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcConfigEntry": {
+    "name": "jnxoptIfOChSrcConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOChMinimumMeanChannelOutputPower": {
+    "name": "jnxoptIfOChMinimumMeanChannelOutputPower",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChMaximumMeanChannelOutputPower": {
+    "name": "jnxoptIfOChMaximumMeanChannelOutputPower",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChMinimumCentralFrequency": {
+    "name": "jnxoptIfOChMinimumCentralFrequency",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 THz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChMaximumCentralFrequency": {
+    "name": "jnxoptIfOChMaximumCentralFrequency",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.01 THz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChMaximumSpectralExcursion": {
+    "name": "jnxoptIfOChMaximumSpectralExcursion",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "0.1 GHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChMaximumTxDispersionOSNRPenalty": {
+    "name": "jnxoptIfOChMaximumTxDispersionOSNRPenalty",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkConfigTable": {
+    "name": "jnxoptIfOChSrcSinkConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkConfigEntry": {
+    "name": "jnxoptIfOChSrcSinkConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkMinimumChromaticDispersion": {
+    "name": "jnxoptIfOChSrcSinkMinimumChromaticDispersion",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkMaximumChromaticDispersion": {
+    "name": "jnxoptIfOChSrcSinkMaximumChromaticDispersion",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkMinimumSrcOpticalReturnLoss": {
+    "name": "jnxoptIfOChSrcSinkMinimumSrcOpticalReturnLoss",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkMaximumDiscreteReflectanceSrcToSink": {
+    "name": "jnxoptIfOChSrcSinkMaximumDiscreteReflectanceSrcToSink",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkMaximumDifferentialGroupDelay": {
+    "name": "jnxoptIfOChSrcSinkMaximumDifferentialGroupDelay",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkMaximumPolarisationDependentLoss": {
+    "name": "jnxoptIfOChSrcSinkMaximumPolarisationDependentLoss",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkMaximumInterChannelCrosstalk": {
+    "name": "jnxoptIfOChSrcSinkMaximumInterChannelCrosstalk",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkInterFerometricCrosstalk": {
+    "name": "jnxoptIfOChSrcSinkInterFerometricCrosstalk",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSrcSinkOpticalPathOSNRPenalty": {
+    "name": "jnxoptIfOChSrcSinkOpticalPathOSNRPenalty",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkConfigTable": {
+    "name": "jnxoptIfOChSinkConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkConfigEntry": {
+    "name": "jnxoptIfOChSinkConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOChSinkMinimumMeanIntputPower": {
+    "name": "jnxoptIfOChSinkMinimumMeanIntputPower",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkMaximumMeanIntputPower": {
+    "name": "jnxoptIfOChSinkMaximumMeanIntputPower",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.01 dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkMinimumOSNR": {
+    "name": "jnxoptIfOChSinkMinimumOSNR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkOSNRTolerance": {
+    "name": "jnxoptIfOChSinkOSNRTolerance",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkCurrentExtTable": {
+    "name": "jnxoptIfOChSinkCurrentExtTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkCurrentExtEntry": {
+    "name": "jnxoptIfOChSinkCurrentExtEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "jnxoptIfOChSinkCurrentExtEntry",
+      "module": "JNX-OPT-IF-EXT-MIB",
+      "object": "jnxoptIfOChSinkCurrentEntry"
+    },
+    "status": "current"
+  },
+  "jnxoptIfOChSinkCurrentChromaticDispersion": {
+    "name": "jnxoptIfOChSinkCurrentChromaticDispersion",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ps/nm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkCurrentOSNR": {
+    "name": "jnxoptIfOChSinkCurrentOSNR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOChSinkCurrentQ": {
+    "name": "jnxoptIfOChSinkCurrentQ",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMConfigTable": {
+    "name": "jnxoptIfOTNPMConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMConfigEntry": {
+    "name": "jnxoptIfOTNPMConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMConfigType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMConfigLayer",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMConfigTCMLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMConfigType": {
+    "name": "jnxoptIfOTNPMConfigType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMConfigLayer": {
+    "name": "jnxoptIfOTNPMConfigLayer",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNLayer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMConfigTCMLevel": {
+    "name": "jnxoptIfOTNPMConfigTCMLevel",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMESRInterval": {
+    "name": "jnxoptIfOTNPMESRInterval",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMSESRInterval": {
+    "name": "jnxoptIfOTNPMSESRInterval",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMValidIntervals": {
+    "name": "jnxoptIfOTNPMValidIntervals",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM15MinBip8Threshold": {
+    "name": "jnxoptIfOTNPM15MinBip8Threshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM15MinESsThreshold": {
+    "name": "jnxoptIfOTNPM15MinESsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM15MinSESsThreshold": {
+    "name": "jnxoptIfOTNPM15MinSESsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM15MinUASsThreshold": {
+    "name": "jnxoptIfOTNPM15MinUASsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM15MinBBEsThreshold": {
+    "name": "jnxoptIfOTNPM15MinBBEsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM24HourBip8Threshold": {
+    "name": "jnxoptIfOTNPM24HourBip8Threshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM24HourESsThreshold": {
+    "name": "jnxoptIfOTNPM24HourESsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM24HourSESsThreshold": {
+    "name": "jnxoptIfOTNPM24HourSESsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM24HourUASsThreshold": {
+    "name": "jnxoptIfOTNPM24HourUASsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM24HourBBEsThreshold": {
+    "name": "jnxoptIfOTNPM24HourBBEsThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMBip8EnableTCA": {
+    "name": "jnxoptIfOTNPMBip8EnableTCA",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMESsEnableTCA": {
+    "name": "jnxoptIfOTNPMESsEnableTCA",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMSESsEnableTCA": {
+    "name": "jnxoptIfOTNPMSESsEnableTCA",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMUASsEnableTCA": {
+    "name": "jnxoptIfOTNPMUASsEnableTCA",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMBBEsEnableTCA": {
+    "name": "jnxoptIfOTNPMBBEsEnableTCA",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentTable": {
+    "name": "jnxoptIfOTNPMCurrentTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentEntry": {
+    "name": "jnxoptIfOTNPMCurrentEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMCurrentType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMCurrentLayer",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMCurrentTCMLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentType": {
+    "name": "jnxoptIfOTNPMCurrentType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentLayer": {
+    "name": "jnxoptIfOTNPMCurrentLayer",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNLayer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentTCMLevel": {
+    "name": "jnxoptIfOTNPMCurrentTCMLevel",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentSuspectedFlag": {
+    "name": "jnxoptIfOTNPMCurrentSuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentBip8": {
+    "name": "jnxoptIfOTNPMCurrentBip8",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentESs": {
+    "name": "jnxoptIfOTNPMCurrentESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentSESs": {
+    "name": "jnxoptIfOTNPMCurrentSESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentUASs": {
+    "name": "jnxoptIfOTNPMCurrentUASs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentBBEs": {
+    "name": "jnxoptIfOTNPMCurrentBBEs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentESR": {
+    "name": "jnxoptIfOTNPMCurrentESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentSESR": {
+    "name": "jnxoptIfOTNPMCurrentSESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentBBER": {
+    "name": "jnxoptIfOTNPMCurrentBBER",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentElapsedTime": {
+    "name": "jnxoptIfOTNPMCurrentElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurSuspectReason": {
+    "name": "jnxoptIfOTNPMCurSuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalTable": {
+    "name": "jnxoptIfOTNPMIntervalTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalEntry": {
+    "name": "jnxoptIfOTNPMIntervalEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMIntervalLayer",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMIntervalTCMLevel",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalType": {
+    "name": "jnxoptIfOTNPMIntervalType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalLayer": {
+    "name": "jnxoptIfOTNPMIntervalLayer",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNLayer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalTCMLevel": {
+    "name": "jnxoptIfOTNPMIntervalTCMLevel",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalNumber": {
+    "name": "jnxoptIfOTNPMIntervalNumber",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalSuspectedFlag": {
+    "name": "jnxoptIfOTNPMIntervalSuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalBip8": {
+    "name": "jnxoptIfOTNPMIntervalBip8",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalESs": {
+    "name": "jnxoptIfOTNPMIntervalESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalSESs": {
+    "name": "jnxoptIfOTNPMIntervalSESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalUASs": {
+    "name": "jnxoptIfOTNPMIntervalUASs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalBBEs": {
+    "name": "jnxoptIfOTNPMIntervalBBEs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalESR": {
+    "name": "jnxoptIfOTNPMIntervalESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalSESR": {
+    "name": "jnxoptIfOTNPMIntervalSESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalBBER": {
+    "name": "jnxoptIfOTNPMIntervalBBER",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalTimeStamp": {
+    "name": "jnxoptIfOTNPMIntervalTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntSuspectReason": {
+    "name": "jnxoptIfOTNPMIntSuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayTable": {
+    "name": "jnxoptIfOTNPMCurrentDayTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayEntry": {
+    "name": "jnxoptIfOTNPMCurrentDayEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMCurrentDayType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMCurrentDayLayer",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMCurrentDayTCMLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayType": {
+    "name": "jnxoptIfOTNPMCurrentDayType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayLayer": {
+    "name": "jnxoptIfOTNPMCurrentDayLayer",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNLayer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayTCMLevel": {
+    "name": "jnxoptIfOTNPMCurrentDayTCMLevel",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDaySuspectedFlag": {
+    "name": "jnxoptIfOTNPMCurrentDaySuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayBip8": {
+    "name": "jnxoptIfOTNPMCurrentDayBip8",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayESs": {
+    "name": "jnxoptIfOTNPMCurrentDayESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDaySESs": {
+    "name": "jnxoptIfOTNPMCurrentDaySESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayUASs": {
+    "name": "jnxoptIfOTNPMCurrentDayUASs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayBBEs": {
+    "name": "jnxoptIfOTNPMCurrentDayBBEs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayESR": {
+    "name": "jnxoptIfOTNPMCurrentDayESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDaySESR": {
+    "name": "jnxoptIfOTNPMCurrentDaySESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayBBER": {
+    "name": "jnxoptIfOTNPMCurrentDayBBER",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayElapsedTime": {
+    "name": "jnxoptIfOTNPMCurrentDayElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurDaySuspectReason": {
+    "name": "jnxoptIfOTNPMCurDaySuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayTable": {
+    "name": "jnxoptIfOTNPMPrevDayTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayEntry": {
+    "name": "jnxoptIfOTNPMPrevDayEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMPrevDayType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMPrevDayLayer",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMPrevDayTCMLevel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayType": {
+    "name": "jnxoptIfOTNPMPrevDayType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayLayer": {
+    "name": "jnxoptIfOTNPMPrevDayLayer",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNLayer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayTCMLevel": {
+    "name": "jnxoptIfOTNPMPrevDayTCMLevel",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDaySuspectedFlag": {
+    "name": "jnxoptIfOTNPMPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayBip8": {
+    "name": "jnxoptIfOTNPMPrevDayBip8",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayESs": {
+    "name": "jnxoptIfOTNPMPrevDayESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDaySESs": {
+    "name": "jnxoptIfOTNPMPrevDaySESs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayUASs": {
+    "name": "jnxoptIfOTNPMPrevDayUASs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayBBEs": {
+    "name": "jnxoptIfOTNPMPrevDayBBEs",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayESR": {
+    "name": "jnxoptIfOTNPMPrevDayESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDaySESR": {
+    "name": "jnxoptIfOTNPMPrevDaySESR",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayBBER": {
+    "name": "jnxoptIfOTNPMPrevDayBBER",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": ".001",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayTimeStamp": {
+    "name": "jnxoptIfOTNPMPrevDayTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDaySuspectReason": {
+    "name": "jnxoptIfOTNPMPrevDaySuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECConfigTable": {
+    "name": "jnxoptIfOTNPMFECConfigTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECConfigEntry": {
+    "name": "jnxoptIfOTNPMFECConfigEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMFECConfigType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECConfigType": {
+    "name": "jnxoptIfOTNPMFECConfigType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECValidIntervals": {
+    "name": "jnxoptIfOTNPMFECValidIntervals",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM15MinPreFECBERMantissaThreshold": {
+    "name": "jnxoptIfOTNPM15MinPreFECBERMantissaThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM15MinPreFECBERExponentThreshold": {
+    "name": "jnxoptIfOTNPM15MinPreFECBERExponentThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM24HourPreFECBERMantissaThreshold": {
+    "name": "jnxoptIfOTNPM24HourPreFECBERMantissaThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPM24HourPreFECBERExponentThreshold": {
+    "name": "jnxoptIfOTNPM24HourPreFECBERExponentThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECBEREnableTCA": {
+    "name": "jnxoptIfOTNPMFECBEREnableTCA",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentTable": {
+    "name": "jnxoptIfOTNPMFECCurrentTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentEntry": {
+    "name": "jnxoptIfOTNPMFECCurrentEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMFECCurrentType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentType": {
+    "name": "jnxoptIfOTNPMFECCurrentType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentSuspectedFlag": {
+    "name": "jnxoptIfOTNPMFECCurrentSuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECCorrectedErr": {
+    "name": "jnxoptIfOTNPMCurrentFECCorrectedErr",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECUncorrectedWords": {
+    "name": "jnxoptIfOTNPMCurrentFECUncorrectedWords",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECBERMantissa": {
+    "name": "jnxoptIfOTNPMCurrentFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECBERExponent": {
+    "name": "jnxoptIfOTNPMCurrentFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECMinBERMantissa": {
+    "name": "jnxoptIfOTNPMCurrentFECMinBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECMinBERExponent": {
+    "name": "jnxoptIfOTNPMCurrentFECMinBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECMaxBERMantissa": {
+    "name": "jnxoptIfOTNPMCurrentFECMaxBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECMaxBERExponent": {
+    "name": "jnxoptIfOTNPMCurrentFECMaxBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECAvgBERMantissa": {
+    "name": "jnxoptIfOTNPMCurrentFECAvgBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECAvgBERExponent": {
+    "name": "jnxoptIfOTNPMCurrentFECAvgBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentFECElapsedTime": {
+    "name": "jnxoptIfOTNPMCurrentFECElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurSuspectReason": {
+    "name": "jnxoptIfOTNPMFECCurSuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECIntervalTable": {
+    "name": "jnxoptIfOTNPMFECIntervalTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECIntervalEntry": {
+    "name": "jnxoptIfOTNPMFECIntervalEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMFECIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMFECIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECIntervalType": {
+    "name": "jnxoptIfOTNPMFECIntervalType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECIntervalNumber": {
+    "name": "jnxoptIfOTNPMFECIntervalNumber",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECIntervalSuspectedFlag": {
+    "name": "jnxoptIfOTNPMFECIntervalSuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalFECCorrectedErr": {
+    "name": "jnxoptIfOTNPMIntervalFECCorrectedErr",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalFECUncorrectedWords": {
+    "name": "jnxoptIfOTNPMIntervalFECUncorrectedWords",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalMinFECBERMantissa": {
+    "name": "jnxoptIfOTNPMIntervalMinFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalMinFECBERExponent": {
+    "name": "jnxoptIfOTNPMIntervalMinFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalMaxFECBERMantissa": {
+    "name": "jnxoptIfOTNPMIntervalMaxFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalMaxFECBERExponent": {
+    "name": "jnxoptIfOTNPMIntervalMaxFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalAvgFECBERMantissa": {
+    "name": "jnxoptIfOTNPMIntervalAvgFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMIntervalAvgFECBERExponent": {
+    "name": "jnxoptIfOTNPMIntervalAvgFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECIntervalTimeStamp": {
+    "name": "jnxoptIfOTNPMFECIntervalTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECIntSuspectReason": {
+    "name": "jnxoptIfOTNPMFECIntSuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentDayTable": {
+    "name": "jnxoptIfOTNPMFECCurrentDayTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentDayEntry": {
+    "name": "jnxoptIfOTNPMFECCurrentDayEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMFECCurrentDayType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentDayType": {
+    "name": "jnxoptIfOTNPMFECCurrentDayType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentDaySuspectedFlag": {
+    "name": "jnxoptIfOTNPMFECCurrentDaySuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayFECCorrectedErr": {
+    "name": "jnxoptIfOTNPMCurrentDayFECCorrectedErr",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayFECUncorrectedWords": {
+    "name": "jnxoptIfOTNPMCurrentDayFECUncorrectedWords",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayMinFECBERMantissa": {
+    "name": "jnxoptIfOTNPMCurrentDayMinFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayMinFECBERExponent": {
+    "name": "jnxoptIfOTNPMCurrentDayMinFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayMaxFECBERMantissa": {
+    "name": "jnxoptIfOTNPMCurrentDayMaxFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayMaxFECBERExponent": {
+    "name": "jnxoptIfOTNPMCurrentDayMaxFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayAvgFECBERMantissa": {
+    "name": "jnxoptIfOTNPMCurrentDayAvgFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMCurrentDayAvgFECBERExponent": {
+    "name": "jnxoptIfOTNPMCurrentDayAvgFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurrentDayElapsedTime": {
+    "name": "jnxoptIfOTNPMFECCurrentDayElapsedTime",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECCurDaySuspectReason": {
+    "name": "jnxoptIfOTNPMFECCurDaySuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECPrevDayTable": {
+    "name": "jnxoptIfOTNPMFECPrevDayTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECPrevDayEntry": {
+    "name": "jnxoptIfOTNPMFECPrevDayEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNPMFECPrevDayType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECPrevDayType": {
+    "name": "jnxoptIfOTNPMFECPrevDayType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECPrevDaySuspectedFlag": {
+    "name": "jnxoptIfOTNPMFECPrevDaySuspectedFlag",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayFECCorrectedErr": {
+    "name": "jnxoptIfOTNPMPrevDayFECCorrectedErr",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayFECUncorrectedWords": {
+    "name": "jnxoptIfOTNPMPrevDayFECUncorrectedWords",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayMinFECBERMantissa": {
+    "name": "jnxoptIfOTNPMPrevDayMinFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayMinFECBERExponent": {
+    "name": "jnxoptIfOTNPMPrevDayMinFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayMaxFECBERMantissa": {
+    "name": "jnxoptIfOTNPMPrevDayMaxFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayMaxFECBERExponent": {
+    "name": "jnxoptIfOTNPMPrevDayMaxFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayAvgFECBERMantissa": {
+    "name": "jnxoptIfOTNPMPrevDayAvgFECBERMantissa",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMPrevDayAvgFECBERExponent": {
+    "name": "jnxoptIfOTNPMPrevDayAvgFECBERExponent",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECPrevDayTimeStamp": {
+    "name": "jnxoptIfOTNPMFECPrevDayTimeStamp",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNPMFECPrevDaySuspectReason": {
+    "name": "jnxoptIfOTNPMFECPrevDaySuspectReason",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.3.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmTable": {
+    "name": "jnxoptIfOTNAlarmTable",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmEntry": {
+    "name": "jnxoptIfOTNAlarmEntry",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmLocation": {
+    "name": "jnxoptIfOTNAlarmLocation",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmDirection": {
+    "name": "jnxoptIfOTNAlarmDirection",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNDirection",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmLayer": {
+    "name": "jnxoptIfOTNAlarmLayer",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNLayer",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmTCMLevel": {
+    "name": "jnxoptIfOTNAlarmTCMLevel",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNOChOTUkAlarmType": {
+    "name": "jnxoptIfOTNOChOTUkAlarmType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNOChAlarms",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmSeverity": {
+    "name": "jnxoptIfOTNAlarmSeverity",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNAlarmDate": {
+    "name": "jnxoptIfOTNAlarmDate",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNODUkTcmAlarmType": {
+    "name": "jnxoptIfOTNODUkTcmAlarmType",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxoptIfOTNODUkTcmAlarms",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxoptIfOTNOChOTUkAlarmSet": {
+    "name": "jnxoptIfOTNOChOTUkAlarmSet",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLocation"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDirection"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLayer"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmTCMLevel"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNOChOTUkAlarmType"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmSeverity"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDate"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNOChOTUkAlarmClear": {
+    "name": "jnxoptIfOTNOChOTUkAlarmClear",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLocation"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDirection"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLayer"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmTCMLevel"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNOChOTUkAlarmType"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmSeverity"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDate"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNODUkTcmAlarmSet": {
+    "name": "jnxoptIfOTNODUkTcmAlarmSet",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLocation"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDirection"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLayer"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmTCMLevel"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNODUkTcmAlarmType"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmSeverity"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDate"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxoptIfOTNODUkTcmAlarmClear": {
+    "name": "jnxoptIfOTNODUkTcmAlarmClear",
+    "oid": "1.3.6.1.4.1.2636.3.73.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLocation"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDirection"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmLayer"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmTCMLevel"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNODUkTcmAlarmType"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmSeverity"
+      },
+      {
+        "module": "JNX-OPT-IF-EXT-MIB",
+        "object": "jnxoptIfOTNAlarmDate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JNX-OPT-IF-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JNX-OPT-IF-EXT-MIB"
+  }
+}

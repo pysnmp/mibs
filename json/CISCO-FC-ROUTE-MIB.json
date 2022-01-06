@@ -1,0 +1,821 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "VsanIndex",
+      "FcAddressId"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFcRouteMIB": {
+    "name": "ciscoFcRouteMIB",
+    "oid": "1.3.6.1.4.1.9.9.284",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-04 00:00",
+        "description": "Updated fcRouteDomainId & fcRouteMetric range and added compliance statement for fcRouteDomainId and fcRouteMetric."
+      },
+      {
+        "revision": "2002-11-01 00:00",
+        "description": "Updated fcRouteProto. "
+      },
+      {
+        "revision": "2002-10-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFcRouteMIBObjects": {
+    "name": "ciscoFcRouteMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.284.1",
+    "class": "objectidentity"
+  },
+  "fcRouteMIBConformance": {
+    "name": "fcRouteMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.284.2",
+    "class": "objectidentity"
+  },
+  "fcRouteConfig": {
+    "name": "fcRouteConfig",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1",
+    "class": "objectidentity"
+  },
+  "fcRouteStatistics": {
+    "name": "fcRouteStatistics",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2",
+    "class": "objectidentity"
+  },
+  "fcRouteNotification": {
+    "name": "fcRouteNotification",
+    "oid": "1.3.6.1.4.1.9.9.284.1.3",
+    "class": "objectidentity"
+  },
+  "fcRouteNotifications": {
+    "name": "fcRouteNotifications",
+    "oid": "1.3.6.1.4.1.9.9.284.1.3.0",
+    "class": "objectidentity"
+  },
+  "fcRouteLastChangeTime": {
+    "name": "fcRouteLastChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcRoutePreference": {
+    "name": "fcRoutePreference",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcRouteVerifyAction": {
+    "name": "fcRouteVerifyAction",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "verify": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcRouteVerifyType": {
+    "name": "fcRouteVerifyType",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pss": 1,
+          "fibShadow": 2,
+          "fibHardware": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fibHardware",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcRouteVerifyModule": {
+    "name": "fcRouteVerifyModule",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcRouteVerifyVsanID": {
+    "name": "fcRouteVerifyVsanID",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcRouteVerifyRouteType": {
+    "name": "fcRouteVerifyRouteType",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2,
+          "label": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unicast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcRouteVerifyResult": {
+    "name": "fcRouteVerifyResult",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcRouteVerifyLock": {
+    "name": "fcRouteVerifyLock",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcRouteTable": {
+    "name": "fcRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcRouteEntry": {
+    "name": "fcRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteDestAddrId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteDestMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteProto",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcRouteDestAddrId": {
+    "name": "fcRouteDestAddrId",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcRouteDestMask": {
+    "name": "fcRouteDestMask",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcRouteProto": {
+    "name": "fcRouteProto",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "netmgmt": 3,
+          "fspf": 4,
+          "mpls": 5,
+          "multicast": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcRouteInterface": {
+    "name": "fcRouteInterface",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcRouteDomainId": {
+    "name": "fcRouteDomainId",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 239
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteMetric": {
+    "name": "fcRouteMetric",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteType": {
+    "name": "fcRouteType",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRoutePermanent": {
+    "name": "fcRoutePermanent",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteRowStatus": {
+    "name": "fcRouteRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.284.1.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteFlowStatTable": {
+    "name": "fcRouteFlowStatTable",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcRouteFlowStatEntry": {
+    "name": "fcRouteFlowStatEntry",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcRouteFlowIndex": {
+    "name": "fcRouteFlowIndex",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcRouteFlowType": {
+    "name": "fcRouteFlowType",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vsanId": 0,
+        "destId": 1,
+        "srcId": 2,
+        "port": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteFlowVsanId": {
+    "name": "fcRouteFlowVsanId",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteFlowDestId": {
+    "name": "fcRouteFlowDestId",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteFlowSrcId": {
+    "name": "fcRouteFlowSrcId",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteFlowMask": {
+    "name": "fcRouteFlowMask",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteFlowPort": {
+    "name": "fcRouteFlowPort",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteFlowFrames": {
+    "name": "fcRouteFlowFrames",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcRouteFlowBytes": {
+    "name": "fcRouteFlowBytes",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcRouteFlowCreationTime": {
+    "name": "fcRouteFlowCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcRouteFlowRowStatus": {
+    "name": "fcRouteFlowRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.284.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcRouteMIBCompliances": {
+    "name": "fcRouteMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.284.2.1",
+    "class": "objectidentity"
+  },
+  "fcRouteMIBGroups": {
+    "name": "fcRouteMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.284.2.2",
+    "class": "objectidentity"
+  },
+  "fcRouteMIBCompliance": {
+    "name": "fcRouteMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.284.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcRouteGroup",
+        "module": "CISCO-FC-ROUTE-MIB"
+      },
+      {
+        "object": "fcRouteTableGroup",
+        "module": "CISCO-FC-ROUTE-MIB"
+      },
+      {
+        "object": "fcRouteStatGroup",
+        "module": "CISCO-FC-ROUTE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "fcRouteMIBCompliance1": {
+    "name": "fcRouteMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.284.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcRouteGroup",
+        "module": "CISCO-FC-ROUTE-MIB"
+      },
+      {
+        "object": "fcRouteTableGroup",
+        "module": "CISCO-FC-ROUTE-MIB"
+      },
+      {
+        "object": "fcRouteStatGroup",
+        "module": "CISCO-FC-ROUTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcRouteGroup": {
+    "name": "fcRouteGroup",
+    "oid": "1.3.6.1.4.1.9.9.284.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteLastChangeTime"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRoutePreference"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteVerifyAction"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteVerifyType"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteVerifyModule"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteVerifyVsanID"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteVerifyRouteType"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteVerifyResult"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteVerifyLock"
+      }
+    ],
+    "status": "current"
+  },
+  "fcRouteTableGroup": {
+    "name": "fcRouteTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.284.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteDomainId"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteMetric"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteType"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRoutePermanent"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fcRouteStatGroup": {
+    "name": "fcRouteStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.284.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowType"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowVsanId"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowDestId"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowSrcId"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowMask"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowPort"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowFrames"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowBytes"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowCreationTime"
+      },
+      {
+        "module": "CISCO-FC-ROUTE-MIB",
+        "object": "fcRouteFlowRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-ROUTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FC-ROUTE-MIB"
+  }
+}

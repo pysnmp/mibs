@@ -1,0 +1,259 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxMibs",
+      "jnxSonetNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxSonet": {
+    "name": "jnxSonet",
+    "oid": "1.3.6.1.4.1.2636.3.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-12-12 00:00",
+        "description": "Added sdh-specific alarms to JnxSonetAlarmId."
+      },
+      {
+        "revision": "2002-08-08 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "JnxSonetAlarmId": {
+    "name": "JnxSonetAlarmId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sonetLolAlarm": 0,
+        "sonetPllAlarm": 1,
+        "sonetLofAlarm": 2,
+        "sonetLosAlarm": 3,
+        "sonetSefAlarm": 4,
+        "sonetLaisAlarm": 5,
+        "sonetPaisAlarm": 6,
+        "sonetLopAlarm": 7,
+        "sonetBerrSdAlarm": 8,
+        "sonetBerrSfAlarm": 9,
+        "sonetLrdiAlarm": 10,
+        "sonetPrdiAlarm": 11,
+        "sonetReiAlarm": 12,
+        "sonetUneqAlarm": 13,
+        "sonetPmisAlarm": 14,
+        "sonetLocAlarm": 15,
+        "sonetVaisAlarm": 16,
+        "sonetVlopAlarm": 17,
+        "sonetVrdiAlarm": 18,
+        "sonetVuneqAlarm": 19,
+        "sonetVmisAlarm": 20,
+        "sonetVlocAlarm": 21,
+        "sdhLolAlarm": 22,
+        "sdhPllAlarm": 23,
+        "sdhLofAlarm": 24,
+        "sdhLosAlarm": 25,
+        "sdhOofAlarm": 26,
+        "sdhMsAisAlarm": 27,
+        "sdhHpAisAlarm": 28,
+        "sdhLopAlarm": 29,
+        "sdhBerrSdAlarm": 30,
+        "sdhBerrSfAlarm": 31,
+        "sdhMsFerfAlarm": 32,
+        "sdhHpFerfAlarm": 33,
+        "sdhMsFebeAlarm": 34,
+        "sdhHpUneqAlarm": 35,
+        "sdhHpMisAlarm": 36,
+        "sdhLocAlarm": 37
+      }
+    },
+    "status": "current"
+  },
+  "jnxSonetAlarms": {
+    "name": "jnxSonetAlarms",
+    "oid": "1.3.6.1.4.1.2636.3.20.1",
+    "class": "objectidentity"
+  },
+  "jnxSonetAlarmTable": {
+    "name": "jnxSonetAlarmTable",
+    "oid": "1.3.6.1.4.1.2636.3.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSonetAlarmEntry": {
+    "name": "jnxSonetAlarmEntry",
+    "oid": "1.3.6.1.4.1.2636.3.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSonetCurrentAlarms": {
+    "name": "jnxSonetCurrentAlarms",
+    "oid": "1.3.6.1.4.1.2636.3.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSonetAlarmId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSonetLastAlarmId": {
+    "name": "jnxSonetLastAlarmId",
+    "oid": "1.3.6.1.4.1.2636.3.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxSonetAlarmId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSonetLastAlarmTime": {
+    "name": "jnxSonetLastAlarmTime",
+    "oid": "1.3.6.1.4.1.2636.3.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSonetLastAlarmDate": {
+    "name": "jnxSonetLastAlarmDate",
+    "oid": "1.3.6.1.4.1.2636.3.20.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSonetLastAlarmEvent": {
+    "name": "jnxSonetLastAlarmEvent",
+    "oid": "1.3.6.1.4.1.2636.3.20.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "set": 2,
+          "cleared": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxSonetNotificationPrefix": {
+    "name": "jnxSonetNotificationPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.6.0",
+    "class": "objectidentity"
+  },
+  "jnxSonetAlarmSet": {
+    "name": "jnxSonetAlarmSet",
+    "oid": "1.3.6.1.4.1.2636.4.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "JUNIPER-SONET-MIB",
+        "object": "jnxSonetLastAlarmId"
+      },
+      {
+        "module": "JUNIPER-SONET-MIB",
+        "object": "jnxSonetCurrentAlarms"
+      },
+      {
+        "module": "JUNIPER-SONET-MIB",
+        "object": "jnxSonetLastAlarmDate"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxSonetAlarmCleared": {
+    "name": "jnxSonetAlarmCleared",
+    "oid": "1.3.6.1.4.1.2636.4.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "JUNIPER-SONET-MIB",
+        "object": "jnxSonetLastAlarmId"
+      },
+      {
+        "module": "JUNIPER-SONET-MIB",
+        "object": "jnxSonetCurrentAlarms"
+      },
+      {
+        "module": "JUNIPER-SONET-MIB",
+        "object": "jnxSonetLastAlarmDate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SONET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-SONET-MIB"
+  }
+}

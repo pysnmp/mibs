@@ -1,0 +1,1951 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoStackWiseMIB": {
+    "name": "ciscoStackWiseMIB",
+    "oid": "1.3.6.1.4.1.9.9.500",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-04-16 00:00",
+        "description": "Added following objects in cswGlobals - cswStackDomainNum - cswStackType - cswStackBandWidth Created following tables - cswDistrStackLinkInfoTable -cswDistrStackPhyPortInfoTable Added cswStatusGroupRev2 Deprecated cswStatusGroupRev1 Added cswDistrStackLinkStatusGroup Added cswDistrStackPhyPortStatusGroup Added cswStackWiseMIBComplianceRev4 MIB COMPLIANCE Deprecated cswStackWiseMIBComplianceRev3 MIB COMPLIANCE."
+      },
+      {
+        "revision": "2015-11-24 00:00",
+        "description": "Added following Objects in cswSwitchInfoTable - cswSwitchPowerAllocated Added following OBJECT-GROUP - cswStackPowerAllocatedGroup Deprecated cswStackWiseMIBComplianceRev2 MODULE-COMPLIANCE. Added cswStackWiseMIBComplianceRev3 MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2011-12-12 00:00",
+        "description": "Modified 'cswSwitchRole' object."
+      },
+      {
+        "revision": "2010-02-01 00:00",
+        "description": "Added cswStackPowerStatusGroup, cswStackPowerSwitchStatusGroup, cswStackPowerPortStatusGroup, cswStatusGroupRev1 and cswStackPowerNotificationGroup. Deprecated cswStackWiseMIBCompliance compliance statement. Added cswStackWiseMIBComplianceRev1 compliance statement. Deprecated cswStatusGroup because we deprecated cswEnableStackNotifications"
+      },
+      {
+        "revision": "2008-06-10 00:00",
+        "description": "Modified 'cswSwitchState' object."
+      },
+      {
+        "revision": "2005-10-12 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CswPowerStackMode": {
+    "name": "CswPowerStackMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerSharing": 1,
+          "redundant": 2,
+          "powerSharingStrict": 3,
+          "redundantStrict": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CswPowerStackType": {
+    "name": "CswPowerStackType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ring": 1,
+          "star": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoStackWiseMIBNotifs": {
+    "name": "ciscoStackWiseMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.500.0",
+    "class": "objectidentity"
+  },
+  "ciscoStackWiseMIBObjects": {
+    "name": "ciscoStackWiseMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.500.1",
+    "class": "objectidentity"
+  },
+  "ciscoStackWiseMIBConform": {
+    "name": "ciscoStackWiseMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.500.2",
+    "class": "objectidentity"
+  },
+  "cswGlobals": {
+    "name": "cswGlobals",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1",
+    "class": "objectidentity"
+  },
+  "cswStackInfo": {
+    "name": "cswStackInfo",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2",
+    "class": "objectidentity"
+  },
+  "cswStackPowerInfo": {
+    "name": "cswStackPowerInfo",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3",
+    "class": "objectidentity"
+  },
+  "CswSwitchNumber": {
+    "name": "CswSwitchNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CswSwitchNumberOrZero": {
+    "name": "CswSwitchNumberOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CswSwitchPriority": {
+    "name": "CswSwitchPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "cswMaxSwitchNum": {
+    "name": "cswMaxSwitchNum",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswSwitchNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswMaxSwitchConfigPriority": {
+    "name": "cswMaxSwitchConfigPriority",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswSwitchPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswRingRedundant": {
+    "name": "cswRingRedundant",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerInfoTable": {
+    "name": "cswStackPowerInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswStackPowerInfoEntry": {
+    "name": "cswStackPowerInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerStackNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerStackNumber": {
+    "name": "cswStackPowerStackNumber",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswStackPowerMode": {
+    "name": "cswStackPowerMode",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswPowerStackMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswStackPowerMasterMacAddress": {
+    "name": "cswStackPowerMasterMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerMasterSwitchNum": {
+    "name": "cswStackPowerMasterSwitchNum",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerNumMembers": {
+    "name": "cswStackPowerNumMembers",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerType": {
+    "name": "cswStackPowerType",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswPowerStackType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerName": {
+    "name": "cswStackPowerName",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswStackPowerPortInfoTable": {
+    "name": "cswStackPowerPortInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswStackPowerPortInfoEntry": {
+    "name": "cswStackPowerPortInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerPortIndex": {
+    "name": "cswStackPowerPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswStackPowerPortOperStatus": {
+    "name": "cswStackPowerPortOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswStackPowerPortNeighborMacAddress": {
+    "name": "cswStackPowerPortNeighborMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerPortNeighborSwitchNum": {
+    "name": "cswStackPowerPortNeighborSwitchNum",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswSwitchNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerPortLinkStatus": {
+    "name": "cswStackPowerPortLinkStatus",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPowerPortOverCurrentThreshold": {
+    "name": "cswStackPowerPortOverCurrentThreshold",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Amperes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswStackPowerPortName": {
+    "name": "cswStackPowerPortName",
+    "oid": "1.3.6.1.4.1.9.9.500.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswEnableStackNotifications": {
+    "name": "cswEnableStackNotifications",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cswEnableIndividualStackNotifications": {
+    "name": "cswEnableIndividualStackNotifications",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "stackPortChange": 0,
+        "stackNewMaster": 1,
+        "stackMismatch": 2,
+        "stackRingRedundant": 3,
+        "stackNewMember": 4,
+        "stackMemberRemoved": 5,
+        "stackPowerLinkStatusChanged": 6,
+        "stackPowerPortOperStatusChanged": 7,
+        "stackPowerVersionMismatch": 8,
+        "stackPowerInvalidTopology": 9,
+        "stackPowerBudgetWarning": 10,
+        "stackPowerInvalidInputCurrent": 11,
+        "stackPowerInvalidOutputCurrent": 12,
+        "stackPowerUnderBudget": 13,
+        "stackPowerUnbalancedPowerSupplies": 14,
+        "stackPowerInsufficientPower": 15,
+        "stackPowerPriorityConflict": 16,
+        "stackPowerUnderVoltage": 17,
+        "stackPowerGLS": 18,
+        "stackPowerILS": 19,
+        "stackPowerSRLS": 20,
+        "stackPowerSSLS": 21,
+        "stackMemberToBeReloadedForUpgrade": 22
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswStackDomainNum": {
+    "name": "cswStackDomainNum",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackType": {
+    "name": "cswStackType",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackBandWidth": {
+    "name": "cswStackBandWidth",
+    "oid": "1.3.6.1.4.1.9.9.500.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchInfoTable": {
+    "name": "cswSwitchInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswSwitchInfoEntry": {
+    "name": "cswSwitchInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cswSwitchNumCurrent": {
+    "name": "cswSwitchNumCurrent",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswSwitchNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchNumNextReload": {
+    "name": "cswSwitchNumNextReload",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswSwitchNumberOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswSwitchRole": {
+    "name": "cswSwitchRole",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "member": 2,
+          "notMember": 3,
+          "standby": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchSwPriority": {
+    "name": "cswSwitchSwPriority",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswSwitchPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswSwitchHwPriority": {
+    "name": "cswSwitchHwPriority",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CswSwitchPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchState": {
+    "name": "cswSwitchState",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "waiting": 1,
+          "progressing": 2,
+          "added": 3,
+          "ready": 4,
+          "sdmMismatch": 5,
+          "verMismatch": 6,
+          "featureMismatch": 7,
+          "newMasterInit": 8,
+          "provisioned": 9,
+          "invalid": 10,
+          "removed": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchMacAddress": {
+    "name": "cswSwitchMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchSoftwareImage": {
+    "name": "cswSwitchSoftwareImage",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchPowerBudget": {
+    "name": "cswSwitchPowerBudget",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchPowerCommited": {
+    "name": "cswSwitchPowerCommited",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswSwitchSystemPowerPriority": {
+    "name": "cswSwitchSystemPowerPriority",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswSwitchPoeDevicesLowPriority": {
+    "name": "cswSwitchPoeDevicesLowPriority",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswSwitchPoeDevicesHighPriority": {
+    "name": "cswSwitchPoeDevicesHighPriority",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cswSwitchPowerAllocated": {
+    "name": "cswSwitchPowerAllocated",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPortInfoTable": {
+    "name": "cswStackPortInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswStackPortInfoEntry": {
+    "name": "cswStackPortInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPortOperStatus": {
+    "name": "cswStackPortOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "forcedDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswStackPortNeighbor": {
+    "name": "cswStackPortNeighbor",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswDistrStackLinkInfoTable": {
+    "name": "cswDistrStackLinkInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswDistrStackLinkInfoEntry": {
+    "name": "cswDistrStackLinkInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswDSLindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cswDSLindex": {
+    "name": "cswDSLindex",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswDistrStackLinkBundleOperStatus": {
+    "name": "cswDistrStackLinkBundleOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswDistrStackPhyPortInfoTable": {
+    "name": "cswDistrStackPhyPortInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cswDistrStackPhyPortInfoEntry": {
+    "name": "cswDistrStackPhyPortInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswDSLindex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cswDistrStackPhyPort": {
+    "name": "cswDistrStackPhyPort",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswDistrStackPhyPortOperStatus": {
+    "name": "cswDistrStackPhyPortOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswDistrStackPhyPortNbr": {
+    "name": "cswDistrStackPhyPortNbr",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswDistrStackPhyPortNbrsw": {
+    "name": "cswDistrStackPhyPortNbrsw",
+    "oid": "1.3.6.1.4.1.9.9.500.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cswMIBNotifications": {
+    "name": "cswMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0",
+    "class": "objectidentity"
+  },
+  "cswStackPortChange": {
+    "name": "cswStackPortChange",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPortOperStatus"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackNewMaster": {
+    "name": "cswStackNewMaster",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackMismatch": {
+    "name": "cswStackMismatch",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchState"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackRingRedundant": {
+    "name": "cswStackRingRedundant",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswRingRedundant"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackNewMember": {
+    "name": "cswStackNewMember",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackMemberRemoved": {
+    "name": "cswStackMemberRemoved",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerPortLinkStatusChanged": {
+    "name": "cswStackPowerPortLinkStatusChanged",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortLinkStatus"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerPortOperStatusChanged": {
+    "name": "cswStackPowerPortOperStatusChanged",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortOperStatus"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerVersionMismatch": {
+    "name": "cswStackPowerVersionMismatch",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerInvalidTopology": {
+    "name": "cswStackPowerInvalidTopology",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cscwStackPowerBudgetWarrning": {
+    "name": "cscwStackPowerBudgetWarrning",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerInvalidInputCurrent": {
+    "name": "cswStackPowerInvalidInputCurrent",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortOverCurrentThreshold"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerInvalidOutputCurrent": {
+    "name": "cswStackPowerInvalidOutputCurrent",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortOverCurrentThreshold"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerUnderBudget": {
+    "name": "cswStackPowerUnderBudget",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerUnbalancedPowerSupplies": {
+    "name": "cswStackPowerUnbalancedPowerSupplies",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerInsufficientPower": {
+    "name": "cswStackPowerInsufficientPower",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerPriorityConflict": {
+    "name": "cswStackPowerPriorityConflict",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerUnderVoltage": {
+    "name": "cswStackPowerUnderVoltage",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerGLS": {
+    "name": "cswStackPowerGLS",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerILS": {
+    "name": "cswStackPowerILS",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerSRLS": {
+    "name": "cswStackPowerSRLS",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerSSLS": {
+    "name": "cswStackPowerSSLS",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackMemberToBeReloadedForUpgrade": {
+    "name": "cswStackMemberToBeReloadedForUpgrade",
+    "oid": "1.3.6.1.4.1.9.9.500.0.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackWiseMIBCompliances": {
+    "name": "cswStackWiseMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.500.2.1",
+    "class": "objectidentity"
+  },
+  "cswStackWiseMIBGroups": {
+    "name": "cswStackWiseMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2",
+    "class": "objectidentity"
+  },
+  "cswStackWiseMIBCompliance": {
+    "name": "cswStackWiseMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.500.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cswStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cswStackWiseMIBComplianceRev1": {
+    "name": "cswStackWiseMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.500.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cswNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStatusGroupRev1",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerEnableNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerSwitchStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerPortStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cswStackWiseMIBComplianceRev2": {
+    "name": "cswStackWiseMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.500.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cswNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswNotificationGroupSup1",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStatusGroupRev1",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerEnableNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerSwitchStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerPortStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cswStackWiseMIBComplianceRev3": {
+    "name": "cswStackWiseMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.500.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cswNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswNotificationGroupSup1",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStatusGroupRev1",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerEnableNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerSwitchStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerPortStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerAllocatedGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cswStackWiseMIBComplianceRev4": {
+    "name": "cswStackWiseMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.500.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cswNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswNotificationGroupSup1",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStatusGroupRev2",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerEnableNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswDistrStackLinkStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswDistrStackPhyPortStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerSwitchStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerPortStatusGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerNotificationGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      },
+      {
+        "object": "cswStackPowerAllocatedGroup",
+        "module": "CISCO-STACKWISE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStatusGroup": {
+    "name": "cswStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswMaxSwitchNum"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswMaxSwitchConfigPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswRingRedundant"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswEnableStackNotifications"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumNextReload"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchRole"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchSwPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchHwPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchState"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchMacAddress"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchSoftwareImage"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPortOperStatus"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPortNeighbor"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerType"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cswNotificationGroup": {
+    "name": "cswNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPortChange"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackNewMaster"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackMismatch"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackRingRedundant"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackNewMember"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackMemberRemoved"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStatusGroupRev1": {
+    "name": "cswStatusGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswMaxSwitchNum"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswMaxSwitchConfigPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswRingRedundant"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumNextReload"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchRole"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchSwPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchHwPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchState"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchMacAddress"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchSoftwareImage"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerStatusGroup": {
+    "name": "cswStackPowerStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerMode"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerMasterMacAddress"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerMasterSwitchNum"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerNumMembers"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerType"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerSwitchStatusGroup": {
+    "name": "cswStackPowerSwitchStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchPowerBudget"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchPowerCommited"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchSystemPowerPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchPoeDevicesLowPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchPoeDevicesHighPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerPortStatusGroup": {
+    "name": "cswStackPowerPortStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortOperStatus"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortNeighborMacAddress"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortNeighborSwitchNum"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortLinkStatus"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortOverCurrentThreshold"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortName"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerNotificationGroup": {
+    "name": "cswStackPowerNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortLinkStatusChanged"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPortOperStatusChanged"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerVersionMismatch"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerInvalidTopology"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cscwStackPowerBudgetWarrning"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerInvalidInputCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerInvalidOutputCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerUnderBudget"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerUnbalancedPowerSupplies"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerInsufficientPower"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerPriorityConflict"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerUnderVoltage"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerGLS"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerILS"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerSRLS"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackPowerSSLS"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerEnableNotificationGroup": {
+    "name": "cswStackPowerEnableNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswEnableIndividualStackNotifications"
+      }
+    ],
+    "status": "current"
+  },
+  "cswNotificationGroupSup1": {
+    "name": "cswNotificationGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackMemberToBeReloadedForUpgrade"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStackPowerAllocatedGroup": {
+    "name": "cswStackPowerAllocatedGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchPowerAllocated"
+      }
+    ],
+    "status": "current"
+  },
+  "cswStatusGroupRev2": {
+    "name": "cswStatusGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswMaxSwitchNum"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswMaxSwitchConfigPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswRingRedundant"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumCurrent"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchNumNextReload"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchRole"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchSwPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchHwPriority"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchState"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswSwitchMacAddress"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackDomainNum"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackType"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswStackBandWidth"
+      }
+    ],
+    "status": "current"
+  },
+  "cswDistrStackLinkStatusGroup": {
+    "name": "cswDistrStackLinkStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswDistrStackLinkBundleOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cswDistrStackPhyPortStatusGroup": {
+    "name": "cswDistrStackPhyPortStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.500.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswDistrStackPhyPort"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswDistrStackPhyPortOperStatus"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswDistrStackPhyPortNbr"
+      },
+      {
+        "module": "CISCO-STACKWISE-MIB",
+        "object": "cswDistrStackPhyPortNbrsw"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-STACKWISE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-STACKWISE-MIB"
+  }
+}

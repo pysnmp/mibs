@@ -1,0 +1,962 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "InterfaceIndexOrZero"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPagpMIB": {
+    "name": "ciscoPagpMIB",
+    "oid": "1.3.6.1.4.1.9.9.98",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-20 00:00",
+        "description": "Added new enum values vlanIp(5) and ipPort(6) to pagpDistributionProtocol object."
+      },
+      {
+        "revision": "2008-02-01 00:00",
+        "description": "Added ciscoPagpRateAndTimeOutGroup."
+      },
+      {
+        "revision": "2002-12-13 00:00",
+        "description": "Added a new value vlanIpPort(4) to pagpDistributionProtocol."
+      },
+      {
+        "revision": "2002-01-02 00:00",
+        "description": "Added port(3) to pagpDistributionProtocol."
+      },
+      {
+        "revision": "1999-03-04 00:00",
+        "description": "Added two PagpDistribution objects."
+      },
+      {
+        "revision": "1998-04-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoPagpMIBObjects": {
+    "name": "ciscoPagpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.98.1",
+    "class": "objectidentity"
+  },
+  "pagpGroupCapabilityConfiguration": {
+    "name": "pagpGroupCapabilityConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1",
+    "class": "objectidentity"
+  },
+  "pagpProtocol": {
+    "name": "pagpProtocol",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2",
+    "class": "objectidentity"
+  },
+  "PagpGroupCapability": {
+    "name": "PagpGroupCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PagpEthcOperationMode": {
+    "name": "PagpEthcOperationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "manual": 2,
+          "pagpOn": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PagpPortPriority": {
+    "name": "PagpPortPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PagpOperationMode": {
+    "name": "PagpOperationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "desirable": 1,
+          "desirableSilent": 2,
+          "automatic": 3,
+          "automaticSilent": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PagpLearnMethod": {
+    "name": "PagpLearnMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "physPort": 1,
+          "agPort": 2,
+          "undefined": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "pagpEtherChannelTable": {
+    "name": "pagpEtherChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pagpEtherChannelEntry": {
+    "name": "pagpEtherChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pagpEthcOperationMode": {
+    "name": "pagpEthcOperationMode",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpEthcOperationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpDeviceId": {
+    "name": "pagpDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPhysGroupCapability": {
+    "name": "pagpPhysGroupCapability",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpGroupCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpOperGroupCapability": {
+    "name": "pagpOperGroupCapability",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpGroupCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpAdminGroupCapability": {
+    "name": "pagpAdminGroupCapability",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpGroupCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpPortPriority": {
+    "name": "pagpPortPriority",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpPortPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpLearnMethod": {
+    "name": "pagpLearnMethod",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpLearnMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpGroupIfIndex": {
+    "name": "pagpGroupIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpDistributionProtocol": {
+    "name": "pagpDistributionProtocol",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mac": 2,
+          "port": 3,
+          "vlanIpPort": 4,
+          "vlanIp": 5,
+          "ipPort": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpDistributionAddress": {
+    "name": "pagpDistributionAddress",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source": 1,
+          "destination": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpRate": {
+    "name": "pagpRate",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fast": 1,
+          "normal": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpInPacketTimeout": {
+    "name": "pagpInPacketTimeout",
+    "oid": "1.3.6.1.4.1.9.9.98.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpProtocolConfigTable": {
+    "name": "pagpProtocolConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pagpProtocolConfigEntry": {
+    "name": "pagpProtocolConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pagpOperationMode": {
+    "name": "pagpOperationMode",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpOperationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pagpPortState": {
+    "name": "pagpPortState",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portDown": 1,
+          "portUp": 2,
+          "dataReceived": 3,
+          "upData": 4,
+          "pagpReceived": 5,
+          "biDirectional": 6,
+          "upPagp": 7,
+          "upMult": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpLastStateChange": {
+    "name": "pagpLastStateChange",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpHelloFrequency": {
+    "name": "pagpHelloFrequency",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fast": 1,
+          "slow": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpDistributionAlgorithm": {
+    "name": "pagpDistributionAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerCount": {
+    "name": "pagpPartnerCount",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "one": 2,
+          "many": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerDeviceId": {
+    "name": "pagpPartnerDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerLearnMethod": {
+    "name": "pagpPartnerLearnMethod",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpLearnMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerPortPriority": {
+    "name": "pagpPartnerPortPriority",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpPortPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerIfIndex": {
+    "name": "pagpPartnerIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerGroupCapability": {
+    "name": "pagpPartnerGroupCapability",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PagpGroupCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerGroupIfIndex": {
+    "name": "pagpPartnerGroupIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerDeviceName": {
+    "name": "pagpPartnerDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerPortName": {
+    "name": "pagpPartnerPortName",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpPartnerAgportMACAddress": {
+    "name": "pagpPartnerAgportMACAddress",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpProtocolStatsTable": {
+    "name": "pagpProtocolStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pagpProtocolStatsEntry": {
+    "name": "pagpProtocolStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pagpInPackets": {
+    "name": "pagpInPackets",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpOutPackets": {
+    "name": "pagpOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpInFlushes": {
+    "name": "pagpInFlushes",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpReturnedFlushes": {
+    "name": "pagpReturnedFlushes",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpOutFlushes": {
+    "name": "pagpOutFlushes",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pagpInErrors": {
+    "name": "pagpInErrors",
+    "oid": "1.3.6.1.4.1.9.9.98.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoPagpMIBConformance": {
+    "name": "ciscoPagpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.98.3",
+    "class": "objectidentity"
+  },
+  "ciscoPagpMIBCompliances": {
+    "name": "ciscoPagpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.98.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoPagpMIBGroups": {
+    "name": "ciscoPagpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.98.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoPagpMIBComplianceV1R1": {
+    "name": "ciscoPagpMIBComplianceV1R1",
+    "oid": "1.3.6.1.4.1.9.9.98.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPagpEthcGroupV1R1",
+        "module": "CISCO-PAGP-MIB"
+      },
+      {
+        "object": "ciscoPagpPagpGroupV1R1",
+        "module": "CISCO-PAGP-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoPagpMIBComplianceV2R2": {
+    "name": "ciscoPagpMIBComplianceV2R2",
+    "oid": "1.3.6.1.4.1.9.9.98.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPagpEthcGroupV2R2",
+        "module": "CISCO-PAGP-MIB"
+      },
+      {
+        "object": "ciscoPagpPagpGroupV1R1",
+        "module": "CISCO-PAGP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPagpMIBComplianceV3R3": {
+    "name": "ciscoPagpMIBComplianceV3R3",
+    "oid": "1.3.6.1.4.1.9.9.98.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPagpEthcGroupV2R2",
+        "module": "CISCO-PAGP-MIB"
+      },
+      {
+        "object": "ciscoPagpPagpGroupV1R1",
+        "module": "CISCO-PAGP-MIB"
+      },
+      {
+        "object": "ciscoPagpRateAndTimeOutGroup",
+        "module": "CISCO-PAGP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPagpEthcGroupV1R1": {
+    "name": "ciscoPagpEthcGroupV1R1",
+    "oid": "1.3.6.1.4.1.9.9.98.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpEthcOperationMode"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpDeviceId"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPhysGroupCapability"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpOperGroupCapability"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpAdminGroupCapability"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPortPriority"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpLearnMethod"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpGroupIfIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoPagpPagpGroupV1R1": {
+    "name": "ciscoPagpPagpGroupV1R1",
+    "oid": "1.3.6.1.4.1.9.9.98.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpOperationMode"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPortState"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpLastStateChange"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpHelloFrequency"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpDistributionAlgorithm"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerCount"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerDeviceId"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerLearnMethod"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerPortPriority"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerIfIndex"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerGroupCapability"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerGroupIfIndex"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerDeviceName"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerPortName"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPartnerAgportMACAddress"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpInPackets"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpOutPackets"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpInFlushes"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpReturnedFlushes"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpOutFlushes"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpInErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPagpEthcGroupV2R2": {
+    "name": "ciscoPagpEthcGroupV2R2",
+    "oid": "1.3.6.1.4.1.9.9.98.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpEthcOperationMode"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpDeviceId"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPhysGroupCapability"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpOperGroupCapability"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpAdminGroupCapability"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpPortPriority"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpLearnMethod"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpGroupIfIndex"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpDistributionProtocol"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpDistributionAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPagpRateAndTimeOutGroup": {
+    "name": "ciscoPagpRateAndTimeOutGroup",
+    "oid": "1.3.6.1.4.1.9.9.98.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpRate"
+      },
+      {
+        "module": "CISCO-PAGP-MIB",
+        "object": "pagpInPacketTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PAGP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PAGP-MIB"
+  }
+}

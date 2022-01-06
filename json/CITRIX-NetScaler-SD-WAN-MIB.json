@@ -1,0 +1,4489 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "enterprises",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "DisplayString",
+      "RowStatus",
+      "AutonomousType",
+      "PhysAddress"
+    ]
+  },
+  "citrix": {
+    "name": "citrix",
+    "oid": "1.3.6.1.4.1.3845",
+    "class": "objectidentity"
+  },
+  "sdWANMIB": {
+    "name": "sdWANMIB",
+    "oid": "1.3.6.1.4.1.3845.31",
+    "class": "moduleidentity"
+  },
+  "sdWANStatusMIB": {
+    "name": "sdWANStatusMIB",
+    "oid": "1.3.6.1.4.1.3845.31.4",
+    "class": "objectidentity"
+  },
+  "sdWANObjects": {
+    "name": "sdWANObjects",
+    "oid": "1.3.6.1.4.1.3845.31.4.2",
+    "class": "objectidentity"
+  },
+  "sdWANNotifs": {
+    "name": "sdWANNotifs",
+    "oid": "1.3.6.1.4.1.3845.31.4.3",
+    "class": "objectidentity"
+  },
+  "sdWANConfiguration": {
+    "name": "sdWANConfiguration",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatistics": {
+    "name": "sdWANStatistics",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2",
+    "class": "objectidentity"
+  },
+  "sdWANEvents": {
+    "name": "sdWANEvents",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3",
+    "class": "objectidentity"
+  },
+  "sdWANStatsAppliances": {
+    "name": "sdWANStatsAppliances",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12",
+    "class": "objectidentity"
+  },
+  "sdWANStatsApplianceScalars": {
+    "name": "sdWANStatsApplianceScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsApplianceName": {
+    "name": "sdWANStatsApplianceName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceBytesSent": {
+    "name": "sdWANStatsApplianceBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsAppliancePacketsSent": {
+    "name": "sdWANStatsAppliancePacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceBytesReceived": {
+    "name": "sdWANStatsApplianceBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsAppliancePacketsReceived": {
+    "name": "sdWANStatsAppliancePacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceBytesDropped": {
+    "name": "sdWANStatsApplianceBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsAppliancePacketsDropped": {
+    "name": "sdWANStatsAppliancePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceState": {
+    "name": "sdWANStatsApplianceState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceHAState": {
+    "name": "sdWANStatsApplianceHAState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "notConfigured": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceSerialNumber": {
+    "name": "sdWANStatsApplianceSerialNumber",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceOSVersion": {
+    "name": "sdWANStatsApplianceOSVersion",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceSoftwareVersion": {
+    "name": "sdWANStatsApplianceSoftwareVersion",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceConfigCreatedOn": {
+    "name": "sdWANStatsApplianceConfigCreatedOn",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceServiceUptime": {
+    "name": "sdWANStatsApplianceServiceUptime",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsApplianceApplianceUptime": {
+    "name": "sdWANStatsApplianceApplianceUptime",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.12.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaces": {
+    "name": "sdWANStatsEthernetInterfaces",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13",
+    "class": "objectidentity"
+  },
+  "sdWANStatsEthernetInterfaceScalars": {
+    "name": "sdWANStatsEthernetInterfaceScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumEthernetInterfaces": {
+    "name": "sdWANStatsNumEthernetInterfaces",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceTable": {
+    "name": "sdWANStatsEthernetInterfaceTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceEntry": {
+    "name": "sdWANStatsEthernetInterfaceEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsEthernetInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceIndex": {
+    "name": "sdWANStatsEthernetInterfaceIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceIfIndex": {
+    "name": "sdWANStatsEthernetInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceName": {
+    "name": "sdWANStatsEthernetInterfaceName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceBytesSent": {
+    "name": "sdWANStatsEthernetInterfaceBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfacePacketsSent": {
+    "name": "sdWANStatsEthernetInterfacePacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceBytesReceived": {
+    "name": "sdWANStatsEthernetInterfaceBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfacePacketsReceived": {
+    "name": "sdWANStatsEthernetInterfacePacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfaceBytesDropped": {
+    "name": "sdWANStatsEthernetInterfaceBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsEthernetInterfacePacketsDropped": {
+    "name": "sdWANStatsEthernetInterfacePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.13.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRules": {
+    "name": "sdWANStatsRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14",
+    "class": "objectidentity"
+  },
+  "sdWANStatsRuleScalars": {
+    "name": "sdWANStatsRuleScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumRules": {
+    "name": "sdWANStatsNumRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleTable": {
+    "name": "sdWANStatsRuleTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsRuleEntry": {
+    "name": "sdWANStatsRuleEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsRuleIndex": {
+    "name": "sdWANStatsRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleID": {
+    "name": "sdWANStatsRuleID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleApplicationName": {
+    "name": "sdWANStatsRuleApplicationName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleLANToWANHitCount": {
+    "name": "sdWANStatsRuleLANToWANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleWANToLANHitCount": {
+    "name": "sdWANStatsRuleWANToLANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleBytesSent": {
+    "name": "sdWANStatsRuleBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRulePacketsSent": {
+    "name": "sdWANStatsRulePacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleBytesReceived": {
+    "name": "sdWANStatsRuleBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRulePacketsReceived": {
+    "name": "sdWANStatsRulePacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleBytesDropped": {
+    "name": "sdWANStatsRuleBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRulePacketsDropped": {
+    "name": "sdWANStatsRulePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRuleLastActiveNMinuteAgo": {
+    "name": "sdWANStatsRuleLastActiveNMinuteAgo",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.14.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinks": {
+    "name": "sdWANStatsWANLinks",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15",
+    "class": "objectidentity"
+  },
+  "sdWANStatsWANLinkScalars": {
+    "name": "sdWANStatsWANLinkScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumWANLinks": {
+    "name": "sdWANStatsNumWANLinks",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkTable": {
+    "name": "sdWANStatsWANLinkTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkEntry": {
+    "name": "sdWANStatsWANLinkEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsWANLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsWANLinkIndex": {
+    "name": "sdWANStatsWANLinkIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkID": {
+    "name": "sdWANStatsWANLinkID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkName": {
+    "name": "sdWANStatsWANLinkName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkState": {
+    "name": "sdWANStatsWANLinkState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "disabled": 1,
+          "dead": 2,
+          "bad": 3,
+          "good": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkBytesSent": {
+    "name": "sdWANStatsWANLinkBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkPacketsSent": {
+    "name": "sdWANStatsWANLinkPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkBytesReceived": {
+    "name": "sdWANStatsWANLinkBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkPacketsReceived": {
+    "name": "sdWANStatsWANLinkPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkBytesDropped": {
+    "name": "sdWANStatsWANLinkBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANLinkPacketsDropped": {
+    "name": "sdWANStatsWANLinkPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.15.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPaths": {
+    "name": "sdWANStatsVPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16",
+    "class": "objectidentity"
+  },
+  "sdWANStatsVPathScalars": {
+    "name": "sdWANStatsVPathScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumVPaths": {
+    "name": "sdWANStatsNumVPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathTable": {
+    "name": "sdWANStatsVPathTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsVPathEntry": {
+    "name": "sdWANStatsVPathEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsVPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsVPathIndex": {
+    "name": "sdWANStatsVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathID": {
+    "name": "sdWANStatsVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathName": {
+    "name": "sdWANStatsVPathName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathState": {
+    "name": "sdWANStatsVPathState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "disabled": 1,
+          "dead": 2,
+          "bad": 3,
+          "good": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathBytesSent": {
+    "name": "sdWANStatsVPathBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathPacketsSent": {
+    "name": "sdWANStatsVPathPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathBytesReceived": {
+    "name": "sdWANStatsVPathBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathPacketsReceived": {
+    "name": "sdWANStatsVPathPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathNumPaths": {
+    "name": "sdWANStatsVPathNumPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathNumRules": {
+    "name": "sdWANStatsVPathNumRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathSendBytesDropped": {
+    "name": "sdWANStatsVPathSendBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathSendPacketsDropped": {
+    "name": "sdWANStatsVPathSendPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathSendPacketsLost": {
+    "name": "sdWANStatsVPathSendPacketsLost",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathSendPacketsOOO": {
+    "name": "sdWANStatsVPathSendPacketsOOO",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathSendBOWTms": {
+    "name": "sdWANStatsVPathSendBOWTms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathSendJitterms": {
+    "name": "sdWANStatsVPathSendJitterms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathReceiveBytesDropped": {
+    "name": "sdWANStatsVPathReceiveBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathReceivePacketsDropped": {
+    "name": "sdWANStatsVPathReceivePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathReceivePacketsLost": {
+    "name": "sdWANStatsVPathReceivePacketsLost",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathReceivePacketsOOO": {
+    "name": "sdWANStatsVPathReceivePacketsOOO",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathReceiveBOWTms": {
+    "name": "sdWANStatsVPathReceiveBOWTms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsVPathReceiveJitterms": {
+    "name": "sdWANStatsVPathReceiveJitterms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPaths": {
+    "name": "sdWANStatsWANPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3",
+    "class": "objectidentity"
+  },
+  "sdWANStatsWANPathTable": {
+    "name": "sdWANStatsWANPathTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsWANPathEntry": {
+    "name": "sdWANStatsWANPathEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsWANPathVPathIndex",
+        "implied": 0
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsWANPathPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsWANPathVPathIndex": {
+    "name": "sdWANStatsWANPathVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathPathIndex": {
+    "name": "sdWANStatsWANPathPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathVPathID": {
+    "name": "sdWANStatsWANPathVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathPathID": {
+    "name": "sdWANStatsWANPathPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathName": {
+    "name": "sdWANStatsWANPathName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathState": {
+    "name": "sdWANStatsWANPathState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "disabled": 1,
+          "dead": 2,
+          "bad": 3,
+          "good": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathBytesSent": {
+    "name": "sdWANStatsWANPathBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathPacketsSent": {
+    "name": "sdWANStatsWANPathPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathBytesReceived": {
+    "name": "sdWANStatsWANPathBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathPacketsReceived": {
+    "name": "sdWANStatsWANPathPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathBOWTms": {
+    "name": "sdWANStatsWANPathBOWTms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathJitterms": {
+    "name": "sdWANStatsWANPathJitterms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathPacketsLost": {
+    "name": "sdWANStatsWANPathPacketsLost",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANPathPacketsOOO": {
+    "name": "sdWANStatsWANPathPacketsOOO",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClasses": {
+    "name": "sdWANStatsWANClasses",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4",
+    "class": "objectidentity"
+  },
+  "sdWANStatsWANClassTable": {
+    "name": "sdWANStatsWANClassTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsWANClassEntry": {
+    "name": "sdWANStatsWANClassEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsWANClassVPathIndex",
+        "implied": 0
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsWANClassClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsWANClassVPathIndex": {
+    "name": "sdWANStatsWANClassVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassClassIndex": {
+    "name": "sdWANStatsWANClassClassIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassVPathID": {
+    "name": "sdWANStatsWANClassVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassClassID": {
+    "name": "sdWANStatsWANClassClassID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassName": {
+    "name": "sdWANStatsWANClassName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassType": {
+    "name": "sdWANStatsWANClassType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "realtime": 1,
+          "interactive": 2,
+          "bulk": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassBytesSent": {
+    "name": "sdWANStatsWANClassBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassPacketsSent": {
+    "name": "sdWANStatsWANClassPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassBytesPending": {
+    "name": "sdWANStatsWANClassBytesPending",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassPacketsPending": {
+    "name": "sdWANStatsWANClassPacketsPending",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassBytesDropped": {
+    "name": "sdWANStatsWANClassBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANClassPacketsDropped": {
+    "name": "sdWANStatsWANClassPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRules": {
+    "name": "sdWANStatsWANRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5",
+    "class": "objectidentity"
+  },
+  "sdWANStatsWANRuleTable": {
+    "name": "sdWANStatsWANRuleTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleEntry": {
+    "name": "sdWANStatsWANRuleEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsWANRuleVPathIndex",
+        "implied": 0
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsWANRuleRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsWANRuleVPathIndex": {
+    "name": "sdWANStatsWANRuleVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleRuleIndex": {
+    "name": "sdWANStatsWANRuleRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleVPathID": {
+    "name": "sdWANStatsWANRuleVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleRuleID": {
+    "name": "sdWANStatsWANRuleRuleID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleGlobalRuleIndex": {
+    "name": "sdWANStatsWANRuleGlobalRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleApplicationName": {
+    "name": "sdWANStatsWANRuleApplicationName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleLANToWANHitCount": {
+    "name": "sdWANStatsWANRuleLANToWANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleWANToLANHitCount": {
+    "name": "sdWANStatsWANRuleWANToLANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleBytesSent": {
+    "name": "sdWANStatsWANRuleBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRulePacketsSent": {
+    "name": "sdWANStatsWANRulePacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleBytesReceived": {
+    "name": "sdWANStatsWANRuleBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRulePacketsReceived": {
+    "name": "sdWANStatsWANRulePacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleBytesDropped": {
+    "name": "sdWANStatsWANRuleBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRulePacketsDropped": {
+    "name": "sdWANStatsWANRulePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsWANRuleLastActiveNMinuteAgo": {
+    "name": "sdWANStatsWANRuleLastActiveNMinuteAgo",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.16.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternet": {
+    "name": "sdWANStatsInternet",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17",
+    "class": "objectidentity"
+  },
+  "sdWANStatsInternetScalars": {
+    "name": "sdWANStatsInternetScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsInternetBytesSent": {
+    "name": "sdWANStatsInternetBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetPacketsSent": {
+    "name": "sdWANStatsInternetPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetBytesReceived": {
+    "name": "sdWANStatsInternetBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetPacketsReceived": {
+    "name": "sdWANStatsInternetPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetBytesDropped": {
+    "name": "sdWANStatsInternetBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetPacketsDropped": {
+    "name": "sdWANStatsInternetPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetNumRules": {
+    "name": "sdWANStatsInternetNumRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleTable": {
+    "name": "sdWANStatsInternetRuleTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleEntry": {
+    "name": "sdWANStatsInternetRuleEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsInternetRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleIndex": {
+    "name": "sdWANStatsInternetRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleID": {
+    "name": "sdWANStatsInternetRuleID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleGlobalRuleIndex": {
+    "name": "sdWANStatsInternetRuleGlobalRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleApplicationName": {
+    "name": "sdWANStatsInternetRuleApplicationName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleLANToWANHitCount": {
+    "name": "sdWANStatsInternetRuleLANToWANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleWANToLANHitCount": {
+    "name": "sdWANStatsInternetRuleWANToLANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleBytesSent": {
+    "name": "sdWANStatsInternetRuleBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRulePacketsSent": {
+    "name": "sdWANStatsInternetRulePacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleBytesReceived": {
+    "name": "sdWANStatsInternetRuleBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRulePacketsReceived": {
+    "name": "sdWANStatsInternetRulePacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleBytesDropped": {
+    "name": "sdWANStatsInternetRuleBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRulePacketsDropped": {
+    "name": "sdWANStatsInternetRulePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsInternetRuleLastActiveNMinuteAgo": {
+    "name": "sdWANStatsInternetRuleLastActiveNMinuteAgo",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.17.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranet": {
+    "name": "sdWANStatsIntranet",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18",
+    "class": "objectidentity"
+  },
+  "sdWANStatsIntranetScalars": {
+    "name": "sdWANStatsIntranetScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsIntranetNumIntranetServices": {
+    "name": "sdWANStatsIntranetNumIntranetServices",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsTable": {
+    "name": "sdWANStatsIntranetsTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsEntry": {
+    "name": "sdWANStatsIntranetsEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsIntranetsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsIntranetsIndex": {
+    "name": "sdWANStatsIntranetsIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsID": {
+    "name": "sdWANStatsIntranetsID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsName": {
+    "name": "sdWANStatsIntranetsName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsBytesSent": {
+    "name": "sdWANStatsIntranetsBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsPacketsSent": {
+    "name": "sdWANStatsIntranetsPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsBytesReceived": {
+    "name": "sdWANStatsIntranetsBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsPacketsReceived": {
+    "name": "sdWANStatsIntranetsPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsBytesDropped": {
+    "name": "sdWANStatsIntranetsBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsPacketsDropped": {
+    "name": "sdWANStatsIntranetsPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsNumRules": {
+    "name": "sdWANStatsIntranetsNumRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetsRoutingDomainName": {
+    "name": "sdWANStatsIntranetsRoutingDomainName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesTable": {
+    "name": "sdWANStatsIntranetRulesTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesEntry": {
+    "name": "sdWANStatsIntranetRulesEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsIntranetRulesIntranetIndex",
+        "implied": 0
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsIntranetRulesRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesIntranetIndex": {
+    "name": "sdWANStatsIntranetRulesIntranetIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesRuleIndex": {
+    "name": "sdWANStatsIntranetRulesRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesID": {
+    "name": "sdWANStatsIntranetRulesID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesGlobalRuleIndex": {
+    "name": "sdWANStatsIntranetRulesGlobalRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesIntranetName": {
+    "name": "sdWANStatsIntranetRulesIntranetName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesApplicationName": {
+    "name": "sdWANStatsIntranetRulesApplicationName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesLANToWANHitCount": {
+    "name": "sdWANStatsIntranetRulesLANToWANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesWANToLANHitCount": {
+    "name": "sdWANStatsIntranetRulesWANToLANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesBytesSent": {
+    "name": "sdWANStatsIntranetRulesBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesPacketsSent": {
+    "name": "sdWANStatsIntranetRulesPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesBytesReceived": {
+    "name": "sdWANStatsIntranetRulesBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesPacketsReceived": {
+    "name": "sdWANStatsIntranetRulesPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesBytesDropped": {
+    "name": "sdWANStatsIntranetRulesBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesPacketsDropped": {
+    "name": "sdWANStatsIntranetRulesPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsIntranetRulesLastActiveNMinuteAgo": {
+    "name": "sdWANStatsIntranetRulesLastActiveNMinuteAgo",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.18.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsPassthrough": {
+    "name": "sdWANStatsPassthrough",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19",
+    "class": "objectidentity"
+  },
+  "sdWANStatsPassthroughScalars": {
+    "name": "sdWANStatsPassthroughScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsPassthroughBytesSent": {
+    "name": "sdWANStatsPassthroughBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsPassthroughPacketsSent": {
+    "name": "sdWANStatsPassthroughPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsPassthroughBytesReceived": {
+    "name": "sdWANStatsPassthroughBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsPassthroughPacketsReceived": {
+    "name": "sdWANStatsPassthroughPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsPassthroughBytesDropped": {
+    "name": "sdWANStatsPassthroughBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsPassthroughPacketsDropped": {
+    "name": "sdWANStatsPassthroughPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.19.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRoutesV2": {
+    "name": "sdWANStatsRoutesV2",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20",
+    "class": "objectidentity"
+  },
+  "sdWANStatsRouteScalars": {
+    "name": "sdWANStatsRouteScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumRoutesV2": {
+    "name": "sdWANStatsNumRoutesV2",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteTableV2": {
+    "name": "sdWANStatsRouteTableV2",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsRouteEntryV2": {
+    "name": "sdWANStatsRouteEntryV2",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsRouteIndexV2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsRouteIndexV2": {
+    "name": "sdWANStatsRouteIndexV2",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteNetworkAddr": {
+    "name": "sdWANStatsRouteNetworkAddr",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteNetworkPrefix": {
+    "name": "sdWANStatsRouteNetworkPrefix",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteGateway": {
+    "name": "sdWANStatsRouteGateway",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteServiceType": {
+    "name": "sdWANStatsRouteServiceType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 0,
+          "passthrough": 1,
+          "internet": 2,
+          "multicast": 3,
+          "intranet": 4,
+          "virtualpath": 5,
+          "langretunnel": 6,
+          "lanipsectunnel": 7,
+          "local": 8,
+          "iphost": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteServiceID": {
+    "name": "sdWANStatsRouteServiceID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteServiceName": {
+    "name": "sdWANStatsRouteServiceName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteReachable": {
+    "name": "sdWANStatsRouteReachable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1,
+          "na": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteSiteName": {
+    "name": "sdWANStatsRouteSiteName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteType": {
+    "name": "sdWANStatsRouteType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 0,
+          "dynamic": 1,
+          "dynamicVPath": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteNeighborDirect": {
+    "name": "sdWANStatsRouteNeighborDirect",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "directNeighbor": 1,
+          "indirectNeighbor": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteCost": {
+    "name": "sdWANStatsRouteCost",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteHitCountV2": {
+    "name": "sdWANStatsRouteHitCountV2",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteEligible": {
+    "name": "sdWANStatsRouteEligible",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteEligibilityType": {
+    "name": "sdWANStatsRouteEligibilityType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteEligibilityValue": {
+    "name": "sdWANStatsRouteEligibilityValue",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteProtocol": {
+    "name": "sdWANStatsRouteProtocol",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "NA": 0,
+          "BGP": 1,
+          "OSPF": 2,
+          "VW": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsRouteRoutingDomainName": {
+    "name": "sdWANStatsRouteRoutingDomainName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.20.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPaths": {
+    "name": "sdWANStatsDynamicVPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21",
+    "class": "objectidentity"
+  },
+  "sdWANStatsDynamicVPathScalars": {
+    "name": "sdWANStatsDynamicVPathScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumDynamicVPaths": {
+    "name": "sdWANStatsNumDynamicVPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathTable": {
+    "name": "sdWANStatsDynamicVPathTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathEntry": {
+    "name": "sdWANStatsDynamicVPathEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsDynamicVPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathIndex": {
+    "name": "sdWANStatsDynamicVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathID": {
+    "name": "sdWANStatsDynamicVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathName": {
+    "name": "sdWANStatsDynamicVPathName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathState": {
+    "name": "sdWANStatsDynamicVPathState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "disabled": 1,
+          "dead": 2,
+          "bad": 3,
+          "good": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathTimeSinceCreation": {
+    "name": "sdWANStatsDynamicVPathTimeSinceCreation",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathBytesSent": {
+    "name": "sdWANStatsDynamicVPathBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathPacketsSent": {
+    "name": "sdWANStatsDynamicVPathPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathSendBytesDropped": {
+    "name": "sdWANStatsDynamicVPathSendBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathSendPacketsDropped": {
+    "name": "sdWANStatsDynamicVPathSendPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathSendPacketsLost": {
+    "name": "sdWANStatsDynamicVPathSendPacketsLost",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathSendPacketsOOO": {
+    "name": "sdWANStatsDynamicVPathSendPacketsOOO",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathSendBOWTms": {
+    "name": "sdWANStatsDynamicVPathSendBOWTms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathSendJitterms": {
+    "name": "sdWANStatsDynamicVPathSendJitterms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathBytesReceived": {
+    "name": "sdWANStatsDynamicVPathBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathPacketsReceived": {
+    "name": "sdWANStatsDynamicVPathPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathReceiveBytesDropped": {
+    "name": "sdWANStatsDynamicVPathReceiveBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathReceivePacketsDropped": {
+    "name": "sdWANStatsDynamicVPathReceivePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathReceivePacketsLost": {
+    "name": "sdWANStatsDynamicVPathReceivePacketsLost",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathReceivePacketsOOO": {
+    "name": "sdWANStatsDynamicVPathReceivePacketsOOO",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathReceiveBOWTms": {
+    "name": "sdWANStatsDynamicVPathReceiveBOWTms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathReceiveJitterms": {
+    "name": "sdWANStatsDynamicVPathReceiveJitterms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathNumPaths": {
+    "name": "sdWANStatsDynamicVPathNumPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicVPathNumRules": {
+    "name": "sdWANStatsDynamicVPathNumRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPaths": {
+    "name": "sdWANStatsDynamicWANPaths",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3",
+    "class": "objectidentity"
+  },
+  "sdWANStatsDynamicWANPathTable": {
+    "name": "sdWANStatsDynamicWANPathTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathEntry": {
+    "name": "sdWANStatsDynamicWANPathEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsDynamicWANPathVPathIndex",
+        "implied": 0
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsDynamicWANPathPathIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathVPathIndex": {
+    "name": "sdWANStatsDynamicWANPathVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathPathIndex": {
+    "name": "sdWANStatsDynamicWANPathPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathVPathID": {
+    "name": "sdWANStatsDynamicWANPathVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathPathID": {
+    "name": "sdWANStatsDynamicWANPathPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathName": {
+    "name": "sdWANStatsDynamicWANPathName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathState": {
+    "name": "sdWANStatsDynamicWANPathState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "disabled": 1,
+          "dead": 2,
+          "bad": 3,
+          "good": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathBytesSent": {
+    "name": "sdWANStatsDynamicWANPathBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathPacketsSent": {
+    "name": "sdWANStatsDynamicWANPathPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathBytesReceived": {
+    "name": "sdWANStatsDynamicWANPathBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathPacketsReceived": {
+    "name": "sdWANStatsDynamicWANPathPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathBytesDropped": {
+    "name": "sdWANStatsDynamicWANPathBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathPacketsDropped": {
+    "name": "sdWANStatsDynamicWANPathPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathBOWTms": {
+    "name": "sdWANStatsDynamicWANPathBOWTms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathJitterms": {
+    "name": "sdWANStatsDynamicWANPathJitterms",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathPacketsLost": {
+    "name": "sdWANStatsDynamicWANPathPacketsLost",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANPathPacketsOOO": {
+    "name": "sdWANStatsDynamicWANPathPacketsOOO",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClasses": {
+    "name": "sdWANStatsDynamicWANClasses",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4",
+    "class": "objectidentity"
+  },
+  "sdWANStatsDynamicWANClassTable": {
+    "name": "sdWANStatsDynamicWANClassTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassEntry": {
+    "name": "sdWANStatsDynamicWANClassEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsDynamicWANClassVPathIndex",
+        "implied": 0
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsDynamicWANClassClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassVPathIndex": {
+    "name": "sdWANStatsDynamicWANClassVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassClassIndex": {
+    "name": "sdWANStatsDynamicWANClassClassIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassVPathID": {
+    "name": "sdWANStatsDynamicWANClassVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassClassID": {
+    "name": "sdWANStatsDynamicWANClassClassID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassName": {
+    "name": "sdWANStatsDynamicWANClassName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassType": {
+    "name": "sdWANStatsDynamicWANClassType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "realtime": 1,
+          "interactive": 2,
+          "bulk": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassBytesSent": {
+    "name": "sdWANStatsDynamicWANClassBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassPacketsSent": {
+    "name": "sdWANStatsDynamicWANClassPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassBytesPending": {
+    "name": "sdWANStatsDynamicWANClassBytesPending",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassPacketsPending": {
+    "name": "sdWANStatsDynamicWANClassPacketsPending",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassBytesDropped": {
+    "name": "sdWANStatsDynamicWANClassBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANClassPacketsDropped": {
+    "name": "sdWANStatsDynamicWANClassPacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRules": {
+    "name": "sdWANStatsDynamicWANRules",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5",
+    "class": "objectidentity"
+  },
+  "sdWANStatsDynamicWANRuleTable": {
+    "name": "sdWANStatsDynamicWANRuleTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleEntry": {
+    "name": "sdWANStatsDynamicWANRuleEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsDynamicWANRuleVPathIndex",
+        "implied": 0
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsDynamicWANRuleRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleVPathIndex": {
+    "name": "sdWANStatsDynamicWANRuleVPathIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleRuleIndex": {
+    "name": "sdWANStatsDynamicWANRuleRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleVPathID": {
+    "name": "sdWANStatsDynamicWANRuleVPathID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleRuleID": {
+    "name": "sdWANStatsDynamicWANRuleRuleID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleGlobalRuleIndex": {
+    "name": "sdWANStatsDynamicWANRuleGlobalRuleIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleApplicationName": {
+    "name": "sdWANStatsDynamicWANRuleApplicationName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleLANToWANHitCount": {
+    "name": "sdWANStatsDynamicWANRuleLANToWANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleWANToLANHitCount": {
+    "name": "sdWANStatsDynamicWANRuleWANToLANHitCount",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleBytesSent": {
+    "name": "sdWANStatsDynamicWANRuleBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRulePacketsSent": {
+    "name": "sdWANStatsDynamicWANRulePacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleBytesReceived": {
+    "name": "sdWANStatsDynamicWANRuleBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRulePacketsReceived": {
+    "name": "sdWANStatsDynamicWANRulePacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleBytesDropped": {
+    "name": "sdWANStatsDynamicWANRuleBytesDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRulePacketsDropped": {
+    "name": "sdWANStatsDynamicWANRulePacketsDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsDynamicWANRuleLastActiveNMinuteAgo": {
+    "name": "sdWANStatsDynamicWANRuleLastActiveNMinuteAgo",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.21.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArp": {
+    "name": "sdWANStatsArp",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22",
+    "class": "objectidentity"
+  },
+  "sdWANStatsArpScalars": {
+    "name": "sdWANStatsArpScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumArpEntries": {
+    "name": "sdWANStatsNumArpEntries",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpTable": {
+    "name": "sdWANStatsArpTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsArpEntry": {
+    "name": "sdWANStatsArpEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsArpID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsArpID": {
+    "name": "sdWANStatsArpID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpIfIndex": {
+    "name": "sdWANStatsArpIfIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpVlanTag": {
+    "name": "sdWANStatsArpVlanTag",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpIpAddr": {
+    "name": "sdWANStatsArpIpAddr",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpPhysAddr": {
+    "name": "sdWANStatsArpPhysAddr",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpState": {
+    "name": "sdWANStatsArpState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpType": {
+    "name": "sdWANStatsArpType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsArpReplyAgeMs": {
+    "name": "sdWANStatsArpReplyAgeMs",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.22.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnels": {
+    "name": "sdWANStatsLanGRETunnels",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23",
+    "class": "objectidentity"
+  },
+  "sdWANStatsLanGRETunnelScalars": {
+    "name": "sdWANStatsLanGRETunnelScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.1",
+    "class": "objectidentity"
+  },
+  "sdWANStatsNumLanGRETunnels": {
+    "name": "sdWANStatsNumLanGRETunnels",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelTable": {
+    "name": "sdWANStatsLanGRETunnelTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelEntry": {
+    "name": "sdWANStatsLanGRETunnelEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANStatsLanGRETunnelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelIndex": {
+    "name": "sdWANStatsLanGRETunnelIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelName": {
+    "name": "sdWANStatsLanGRETunnelName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelState": {
+    "name": "sdWANStatsLanGRETunnelState",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelKeepaliveRequestSent": {
+    "name": "sdWANStatsLanGRETunnelKeepaliveRequestSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelKeepaliveReplyReceived": {
+    "name": "sdWANStatsLanGRETunnelKeepaliveReplyReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelKeepaliveReplySent": {
+    "name": "sdWANStatsLanGRETunnelKeepaliveReplySent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelPacketsSent": {
+    "name": "sdWANStatsLanGRETunnelPacketsSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelBytesSent": {
+    "name": "sdWANStatsLanGRETunnelBytesSent",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelPacketsSentDropped": {
+    "name": "sdWANStatsLanGRETunnelPacketsSentDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelBytesSentDropped": {
+    "name": "sdWANStatsLanGRETunnelBytesSentDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelPacketsSentFragmented": {
+    "name": "sdWANStatsLanGRETunnelPacketsSentFragmented",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelPacketsReceived": {
+    "name": "sdWANStatsLanGRETunnelPacketsReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelBytesReceived": {
+    "name": "sdWANStatsLanGRETunnelBytesReceived",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelPacketsReceivedDropped": {
+    "name": "sdWANStatsLanGRETunnelPacketsReceivedDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelBytesReceivedDropped": {
+    "name": "sdWANStatsLanGRETunnelBytesReceivedDropped",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANStatsLanGRETunnelRoutingDomainName": {
+    "name": "sdWANStatsLanGRETunnelRoutingDomainName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.2.23.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "SdWANEventObjectTypeEnum": {
+    "name": "SdWANEventObjectTypeEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "service": 2,
+          "virtualpath": 3,
+          "wanlink": 4,
+          "wanpath": 5,
+          "harddisk": 6,
+          "fan": 7,
+          "vwanappliance": 8,
+          "vwuser": 9,
+          "powersupply": 10,
+          "configupdate": 11,
+          "softwareupdate": 12,
+          "proxyarp": 13,
+          "ethernet": 14,
+          "watchdog": 15,
+          "dynamicvirtualpath": 16,
+          "lantowanpath": 17,
+          "wantolanpath": 18,
+          "appliancesettingsupdate": 19,
+          "discoveredmtu": 20,
+          "wanlinkcongestion": 21,
+          "usagecongestion": 22,
+          "gretunnel": 23,
+          "ipsectunnel": 24,
+          "vwcentersystem": 1001,
+          "vwcenteruser": 1002,
+          "vwcenterstorage": 1003,
+          "vwcenterdatabase": 1004,
+          "vwcenterconnectiontovirtualwan": 1005
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SdWANEventSeverityEnum": {
+    "name": "SdWANEventSeverityEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "debug": 1,
+          "info": 2,
+          "notice": 3,
+          "warning": 4,
+          "error": 5,
+          "critical": 6,
+          "alert": 7,
+          "emergency": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SdWANEventStateEnum": {
+    "name": "SdWANEventStateEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "disabled": 2,
+          "dead": 3,
+          "bad": 4,
+          "good": 5,
+          "warning": 6,
+          "error": 7,
+          "restart": 8,
+          "reboot": 9,
+          "active": 10,
+          "standby": 11,
+          "success": 12,
+          "failure": 13,
+          "enabled": 14,
+          "pending": 15,
+          "created": 16,
+          "removed": 17,
+          "systemerror": 18,
+          "activeha": 19,
+          "standbyha": 20,
+          "activemcn": 21,
+          "standbymcn": 22,
+          "congested": 23,
+          "uncongested": 24,
+          "iplearned": 25,
+          "ipreleased": 26,
+          "ipexpired": 27,
+          "ipgwnorsp": 28,
+          "iprcvdnak": 29,
+          "ipdetecteddup": 30,
+          "ipdhcpsnorsp": 31,
+          "rollback": 32,
+          "usage0": 33,
+          "usage1": 34,
+          "usage2": 35,
+          "usage3": 36,
+          "thresholdok": 1001,
+          "thresholdexceeded": 1002,
+          "pollingthresholdok": 1003,
+          "pollingthresholdexceeded": 1004,
+          "start": 1005,
+          "stop": 1006,
+          "mismatch": 1007,
+          "statserror": 1008
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sdWANEventScalars": {
+    "name": "sdWANEventScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.1",
+    "class": "objectidentity"
+  },
+  "sdWANNumEvents": {
+    "name": "sdWANNumEvents",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventTable": {
+    "name": "sdWANEventTable",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sdWANEventEntry": {
+    "name": "sdWANEventEntry",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANEventIndex": {
+    "name": "sdWANEventIndex",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventID": {
+    "name": "sdWANEventID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventObjectID": {
+    "name": "sdWANEventObjectID",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventObjectName": {
+    "name": "sdWANEventObjectName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventObjectType": {
+    "name": "sdWANEventObjectType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdWANEventObjectTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventTime": {
+    "name": "sdWANEventTime",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventType": {
+    "name": "sdWANEventType",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdWANEventStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventSeverity": {
+    "name": "sdWANEventSeverity",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SdWANEventSeverityEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventDescription": {
+    "name": "sdWANEventDescription",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sdWANEventNotification": {
+    "name": "sdWANEventNotification",
+    "oid": "1.3.6.1.4.1.3845.31.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventIndex"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventID"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventObjectID"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventObjectName"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventObjectType"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventTime"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventType"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventSeverity"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANNetworkEventNotification": {
+    "name": "sdWANNetworkEventNotification",
+    "oid": "1.3.6.1.4.1.3845.31.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANNetworkEventSiteName"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventID"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventObjectID"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventObjectName"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventObjectType"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventTime"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventType"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventSeverity"
+      },
+      {
+        "module": "CITRIX-NetScaler-SD-WAN-MIB",
+        "object": "sdWANEventDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "sdWANNetworkEventScalars": {
+    "name": "sdWANNetworkEventScalars",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.3",
+    "class": "objectidentity"
+  },
+  "sdWANNetworkEventSiteName": {
+    "name": "sdWANNetworkEventSiteName",
+    "oid": "1.3.6.1.4.1.3845.31.4.2.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/citrix/CITRIX-NetScaler-SD-WAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:29 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CITRIX-NetScaler-SD-WAN-MIB"
+  }
+}

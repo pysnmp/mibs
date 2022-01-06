@@ -1,0 +1,2653 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex",
+      "ifOperStatus",
+      "ifAdminStatus"
+    ],
+    "PRIV-VENDORDEF-MIB": [
+      "privateVendorOID"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "prvtSwitchMib": {
+    "name": "prvtSwitchMib",
+    "oid": "1.3.6.1.4.1.738.1.5.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-22 00:00",
+        "description": "Add value unsupported(255) for object configL2IfaceAdminCrossOver."
+      },
+      {
+        "revision": "2009-04-14 00:00",
+        "description": "Add description for reportsHardwareFanStatus 0."
+      },
+      {
+        "revision": "2009-03-08 00:00",
+        "description": "Updated devices system OIDs."
+      },
+      {
+        "revision": "2009-02-20 00:00",
+        "description": "Add support for temperature high limit (reportsHardwareTemperatureScale,reportsHardwareTemperatureHighLimit)."
+      },
+      {
+        "revision": "2009-01-12 00:00",
+        "description": "Mark configL2IfaceDuplexSpeedSet. Add additional 10G value for configL2IfaceDuplexSpeedSet and reportsL2IfaceDuplexSpeedGet"
+      },
+      {
+        "revision": "2008-09-25 00:00",
+        "description": "Add support for crossover and remote-fault-detect."
+      },
+      {
+        "revision": "2008-03-28 00:00",
+        "description": "Updated devices system OIDs."
+      },
+      {
+        "revision": "2008-02-28 00:00",
+        "description": "Added OIDs of various devices."
+      },
+      {
+        "revision": "2007-12-28 00:00",
+        "description": "Added sysAssemblyNumber, sysPartNumber, sysCLEI, sysHwRevision, sysManufacturingDate objects"
+      },
+      {
+        "revision": "2007-12-12 00:00",
+        "description": "Added configL2IfaceMtu."
+      },
+      {
+        "revision": "2007-09-26 00:00",
+        "description": "Added new objects in configL2IfaceTable"
+      },
+      {
+        "revision": "2007-04-24 00:00",
+        "description": "Updated OID definitions"
+      },
+      {
+        "revision": "2007-02-06 00:00",
+        "description": "Updated description of reportsHardwarePSStatus object"
+      },
+      {
+        "revision": "2006-10-25 00:00",
+        "description": "New OID group added"
+      },
+      {
+        "revision": "2006-07-02 00:00",
+        "description": "Added T-Metro-ES and Alcatel system OID."
+      },
+      {
+        "revision": "2006-06-14 00:00",
+        "description": "Changed mMiRIC-E1(89) to mMiRIC-E3(89)"
+      },
+      {
+        "revision": "2006-04-20 00:00",
+        "description": "Added new duplex and speed values"
+      },
+      {
+        "revision": "2006-02-10 00:00",
+        "description": "Added all missing port/module types"
+      },
+      {
+        "revision": "2006-02-02 00:00",
+        "description": "Defined the DUAL SFP module type"
+      },
+      {
+        "revision": "2005-12-22 00:00",
+        "description": "Added new object identifier for devices. Added new notification sysIntfModuleChange. Changed ModuleHwType modules that had '_' in them, should be with '-' instaead m100BaseGBIC_not_installed to m100BaseGBIC-not-installed. mCES_4TDM to mCES-4TDM, m1250BaseSingleFiber_SFP to m1250BaseSingleFiber-SFP."
+      },
+      {
+        "revision": "2005-12-08 00:00",
+        "description": "Added the new sysIntfModuleChange notification for T-Metro devices."
+      },
+      {
+        "revision": "2005-10-03 00:00",
+        "description": "Returned the old duplex-speed mixed object for backward compatability"
+      },
+      {
+        "revision": "2005-09-26 00:00",
+        "description": "Separated the duplex mode and speed setting in the configL2Table"
+      },
+      {
+        "revision": "2005-09-07 00:00",
+        "description": "Added the m1250BaseSingleFiber_SFP(87) port type"
+      },
+      {
+        "revision": "2005-07-20 00:00",
+        "description": "Added the mCES_4TDM(86) port type"
+      },
+      {
+        "revision": "2005-07-08 00:00",
+        "description": "Removed the range values for reportsL2IfaceUnit, reportsL2IfaceSlot and reportsL2IfacePort."
+      },
+      {
+        "revision": "2005-03-07 00:00",
+        "description": "Added the mCES and 31000BaseX-SFP module types for T-Metro devices."
+      },
+      {
+        "revision": "2005-02-16 00:00",
+        "description": "Fixed spelling errors and changed the contact info."
+      },
+      {
+        "revision": "2005-02-01 00:00",
+        "description": "Added TMetro to sysProductsOids, added new module types: tMetroCES, tMetro2XSFPuplink, tMetro2F, tMetro1G"
+      },
+      {
+        "revision": "2004-06-29 00:00",
+        "description": "Added T6Pro to sysProductsOids, added a new module type CPM"
+      },
+      {
+        "revision": "2004-05-03 00:00",
+        "description": "Added support for exposing the switch series"
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "L2 Interface name (configL2IfaceName) max size changed from 16 to 256."
+      },
+      {
+        "revision": "2004-02-03 00:00",
+        "description": "Addded m100BaseGBIC_not_installed to ModuleHwType."
+      },
+      {
+        "revision": "2003-11-18 00:00",
+        "description": "Added sysManufacturing group,sysSerialNumber."
+      },
+      {
+        "revision": "2003-10-16 00:00",
+        "description": "1. Added portRedundantLinkChange notification. 2. Added reportsIfJack. This table enables support of interfaces attached to more then one physical interface. 3. Added reportsL2IfaceActiveJackIndex."
+      },
+      {
+        "revision": "2003-09-09 00:00",
+        "description": "Added SFP port types."
+      },
+      {
+        "revision": "2003-07-02 00:00",
+        "description": "Added support for reporting hardware port type"
+      },
+      {
+        "revision": "2003-05-06 00:00",
+        "description": "Move to SMI-V2."
+      },
+      {
+        "revision": "2002-12-12 00:00",
+        "description": "Added support for controlling STP topology change detection"
+      },
+      {
+        "revision": "2002-12-01 00:00",
+        "description": "Added support for Sniffer"
+      },
+      {
+        "revision": "2002-11-21 00:00",
+        "description": "Added support for RSTP"
+      },
+      {
+        "revision": "2002-11-17 00:00",
+        "description": "Added support for POS interface speed 155 & 622 M."
+      },
+      {
+        "revision": "2002-09-09 00:00",
+        "description": "Added new module for T5Pro including ATM/MLP and 5 ports SM/MM."
+      },
+      {
+        "revision": "2002-04-10 00:00",
+        "description": "Add traps."
+      },
+      {
+        "revision": "2001-08-14 00:00",
+        "description": "Distinction between set & get flow type to support flow auto-negotiation."
+      },
+      {
+        "revision": "2001-07-22 00:00",
+        "description": "Added Default VLAN to configL2IfaceTable"
+      },
+      {
+        "revision": "2001-07-15 00:00",
+        "description": "Added new sysIntfModule types m1000BaseGBIC_installed/not_installed"
+      },
+      {
+        "revision": "2001-05-17 00:00",
+        "description": "Added t5ProRouter."
+      },
+      {
+        "revision": "2001-05-15 00:00",
+        "description": "Added reportsHardware group."
+      },
+      {
+        "revision": "2001-04-19 00:00",
+        "description": "Added config & reports group."
+      },
+      {
+        "revision": "2001-04-15 00:00",
+        "description": "Added new modules to sysIntfModule."
+      },
+      {
+        "revision": "2000-06-28 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvt_products": {
+    "name": "prvt_products",
+    "oid": "1.3.6.1.4.1.738.1",
+    "class": "objectidentity"
+  },
+  "prvt_mgmt": {
+    "name": "prvt_mgmt",
+    "oid": "1.3.6.1.4.1.738.2",
+    "class": "objectidentity"
+  },
+  "rptr": {
+    "name": "rptr",
+    "oid": "1.3.6.1.4.1.738.1.1",
+    "class": "objectidentity"
+  },
+  "bridge": {
+    "name": "bridge",
+    "oid": "1.3.6.1.4.1.738.1.2",
+    "class": "objectidentity"
+  },
+  "trclam": {
+    "name": "trclam",
+    "oid": "1.3.6.1.4.1.738.1.3",
+    "class": "objectidentity"
+  },
+  "router": {
+    "name": "router",
+    "oid": "1.3.6.1.4.1.738.1.4",
+    "class": "objectidentity"
+  },
+  "switch": {
+    "name": "switch",
+    "oid": "1.3.6.1.4.1.738.1.5",
+    "class": "objectidentity"
+  },
+  "ipSwitch": {
+    "name": "ipSwitch",
+    "oid": "1.3.6.1.4.1.738.1.6",
+    "class": "objectidentity"
+  },
+  "bsw": {
+    "name": "bsw",
+    "oid": "1.3.6.1.4.1.738.1.5.1",
+    "class": "objectidentity"
+  },
+  "tps": {
+    "name": "tps",
+    "oid": "1.3.6.1.4.1.738.1.5.2",
+    "class": "objectidentity"
+  },
+  "tpf": {
+    "name": "tpf",
+    "oid": "1.3.6.1.4.1.738.1.5.3",
+    "class": "objectidentity"
+  },
+  "titan": {
+    "name": "titan",
+    "oid": "1.3.6.1.4.1.738.1.5.5",
+    "class": "objectidentity"
+  },
+  "titant5": {
+    "name": "titant5",
+    "oid": "1.3.6.1.4.1.738.1.5.7",
+    "class": "objectidentity"
+  },
+  "edgeLinkT4": {
+    "name": "edgeLinkT4",
+    "oid": "1.3.6.1.4.1.738.1.5.15",
+    "class": "objectidentity"
+  },
+  "edgeLinkT5": {
+    "name": "edgeLinkT5",
+    "oid": "1.3.6.1.4.1.738.1.5.17",
+    "class": "objectidentity"
+  },
+  "titanPro": {
+    "name": "titanPro",
+    "oid": "1.3.6.1.4.1.738.1.5.20",
+    "class": "objectidentity"
+  },
+  "acs25L4282": {
+    "name": "acs25L4282",
+    "oid": "1.3.6.1.4.1.738.1.5.500",
+    "class": "objectidentity"
+  },
+  "acs25L4282t5": {
+    "name": "acs25L4282t5",
+    "oid": "1.3.6.1.4.1.738.1.5.502",
+    "class": "objectidentity"
+  },
+  "vol0215": {
+    "name": "vol0215",
+    "oid": "1.3.6.1.4.1.738.1.5.999",
+    "class": "objectidentity"
+  },
+  "vol4000": {
+    "name": "vol4000",
+    "oid": "1.3.6.1.4.1.738.1.5.998",
+    "class": "objectidentity"
+  },
+  "vol5000": {
+    "name": "vol5000",
+    "oid": "1.3.6.1.4.1.738.1.5.996",
+    "class": "objectidentity"
+  },
+  "UnitIndex": {
+    "name": "UnitIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave1": 2,
+          "slave2": 3,
+          "slave3": 4,
+          "slave4": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModuleHwType": {
+    "name": "ModuleHwType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uninstalled": 1,
+          "stacking": 2,
+          "m100BaseTx": 3,
+          "m100BaseFxVF45": 4,
+          "m1000BaseSxSCMM850": 6,
+          "m1000BaseLxSC1300": 7,
+          "m1000BaseSCSMLDA": 8,
+          "m1000BaseSCSMLDB": 9,
+          "m1000BaseSxVF45MM850": 10,
+          "m1000BaseLxVF451300": 11,
+          "m1000BaseSxMTRJMM": 12,
+          "m1000BaseLxMTRJ1300": 13,
+          "m10BaseFlVF45": 14,
+          "m10BaseFlVF45X4Ports": 15,
+          "m100BaseFxSCMM": 16,
+          "m100BaseFxSCSM": 17,
+          "m100BaseFxSCSM2Port": 18,
+          "m100BaseFxSCSMLD": 19,
+          "m100BaseFxSCSMLD2Port": 20,
+          "m100BaseFxMTRJMM": 21,
+          "m100BaseFxMTRJSM": 22,
+          "mDUAL-SFP": 23,
+          "mDUAL-SFP-installed": 24,
+          "m1000BaseTx": 25,
+          "m1000BaseCx": 26,
+          "mVDSLNT": 30,
+          "mVDSLLT": 31,
+          "mVDSLNTand100BaseTX": 32,
+          "mVDSLLTand100BaseTX": 33,
+          "mVDSLLT24Port": 34,
+          "mLayer31000BaseSXSCMM": 35,
+          "mLayer31000BaseLXSCSM": 36,
+          "mLayer31000BaseSXSFFMM": 37,
+          "mLayer31000BaseLXSFFSM": 38,
+          "mLayer3100BaseFXSCMM2Port": 39,
+          "mLayer3100BaseFXSCSM2Port": 40,
+          "mLayer3100BaseFXSCMM4Port": 41,
+          "mLayer3100BaseFXSCSM4Port": 42,
+          "mLayer3100BaseFXSFFMM": 43,
+          "mLayer3100BaseFXSFFSM": 44,
+          "mLayer3100BaseTX": 45,
+          "m1000BaseGBIC-installed": 46,
+          "m1000BaseGBIC-not-installed": 47,
+          "mLayer31000BaseSX-GIBIC": 48,
+          "mLayer31000BaseLX-GIBIC": 49,
+          "mLayer31000BaseCX-GIBIC": 50,
+          "mLayer31000BaseT-GIBIC": 51,
+          "mLayer3100BaseSMLCL-GIBIC": 52,
+          "mLayer3100BaseM5o6SNI-GIBIC": 53,
+          "mLayer31000BasePOSMM": 54,
+          "mLayer31000BasePOSSM": 55,
+          "mLayer3100BaseFXSFFMM20Port": 56,
+          "mLayer3100BaseFXSFFSM20Port": 57,
+          "mLayer3100BaseFXSFFMM5Port": 58,
+          "mLayer3100BaseFXSFFSM5Port": 59,
+          "mDS3ATM": 60,
+          "mDS1MLP": 61,
+          "mMLPmother": 62,
+          "m1000BaseSFP-installed": 63,
+          "mLayer31000BaseSX-SFP": 65,
+          "mLayer31000BaseLX-SFP": 66,
+          "mLayer31000BaseCX-SFP": 67,
+          "mLayer31000BaseT-SFP": 68,
+          "mLayer3100BaseSMLCL-SFP": 69,
+          "mLayer3100BaseM5o6SNI-SFP": 70,
+          "m100BaseGBIC-not-installed": 71,
+          "mLayer310GBaseSR-XFP": 72,
+          "mLayer310GBaseLR-XFP": 73,
+          "mLayer310GBaseER-XFP": 74,
+          "mLayer310GBaseSW-XFP": 75,
+          "mLayer310GBaseLW-XFP": 76,
+          "mLayer310GBaseEW-XFP": 77,
+          "mLayer310GBase-XFP": 78,
+          "m10000BaseMEDIA-not-installed": 79,
+          "mCpmCard": 80,
+          "mLayer310GBaseLRW-XFP": 81,
+          "mLayer310GBaseERW-XFP": 82,
+          "mLayer31000BaseX-SFP": 83,
+          "mCES": 84,
+          "mLayer3100BaseFX-SFP": 85,
+          "mCES-4TDM": 86,
+          "mLayer31000BaseLX-BD-SFP": 87,
+          "mMiRIC-E1": 88,
+          "mMiRIC-E3": 89,
+          "mMiRIC-T1": 90,
+          "mMiRIC-T3": 91,
+          "mLayer31000BaseSFP-Unknown": 92,
+          "m10000BaseXFP-Unknown": 93,
+          "xAUI-1G-10G": 94,
+          "mLayer3-10-1000BaseT": 95,
+          "mLayer310GBaseSMSR-XFP": 96,
+          "mLayer310GBaseSMLR-XFP": 97,
+          "mLayer310GBaseSMER-XFP": 98,
+          "mLayer310GBaseSMSW-XFP": 99,
+          "mLayer310GBaseSMLW-XFP": 101,
+          "mLayer310GBaseSMEW-XFP": 102,
+          "mLayer310GBaseSMSRW-XFP": 103,
+          "mLayer310GBaseSMLRW-XFP": 104,
+          "mLayer310GBaseSMERW-XFP": 105,
+          "mLayer310GBaseCpPgt-XFP": 106,
+          "mLayer310GBaseSMZR-XFP": 107,
+          "mLayer31000BaseZX-SFP": 108,
+          "mLayer310GBaseSMZX-XFP": 109,
+          "mLayer310GBaseSMEX-XFP": 110,
+          "mLayer31000BaseT-WithoutAN-SFP": 111,
+          "mLayer3100BaseLX-BD-SFP": 112
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Series": {
+    "name": "Series",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notExist": 1,
+          "e-series": 2,
+          "g-series": 3,
+          "t-series": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtSwitchNotifications": {
+    "name": "prvtSwitchNotifications",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0",
+    "class": "objectidentity"
+  },
+  "sys": {
+    "name": "sys",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1",
+    "class": "objectidentity"
+  },
+  "config": {
+    "name": "config",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2",
+    "class": "objectidentity"
+  },
+  "reports": {
+    "name": "reports",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3",
+    "class": "objectidentity"
+  },
+  "test": {
+    "name": "test",
+    "oid": "1.3.6.1.4.1.738.1.5.100.4",
+    "class": "objectidentity"
+  },
+  "commands": {
+    "name": "commands",
+    "oid": "1.3.6.1.4.1.738.1.5.100.5",
+    "class": "objectidentity"
+  },
+  "prvtSwitchConformance": {
+    "name": "prvtSwitchConformance",
+    "oid": "1.3.6.1.4.1.738.1.5.100.6",
+    "class": "objectidentity"
+  },
+  "sysProductsOids": {
+    "name": "sysProductsOids",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1",
+    "class": "objectidentity"
+  },
+  "sysIntf": {
+    "name": "sysIntf",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.2",
+    "class": "objectidentity"
+  },
+  "sysManufacturing": {
+    "name": "sysManufacturing",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3",
+    "class": "objectidentity"
+  },
+  "sysSwitchingHW": {
+    "name": "sysSwitchingHW",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.4",
+    "class": "objectidentity"
+  },
+  "t4Router": {
+    "name": "t4Router",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1",
+    "class": "objectidentity"
+  },
+  "t5Router": {
+    "name": "t5Router",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.2",
+    "class": "objectidentity"
+  },
+  "t5ProRouter": {
+    "name": "t5ProRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.3",
+    "class": "objectidentity"
+  },
+  "t6Router": {
+    "name": "t6Router",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.4",
+    "class": "objectidentity"
+  },
+  "t5c_48TRouter": {
+    "name": "t5c_48TRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.5",
+    "class": "objectidentity"
+  },
+  "t5RNRouter": {
+    "name": "t5RNRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.6",
+    "class": "objectidentity"
+  },
+  "t5c_24TRouter": {
+    "name": "t5c_24TRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.7",
+    "class": "objectidentity"
+  },
+  "t5c_24MRouter": {
+    "name": "t5c_24MRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.8",
+    "class": "objectidentity"
+  },
+  "t5c_24FRouter": {
+    "name": "t5c_24FRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.9",
+    "class": "objectidentity"
+  },
+  "t5c_24GRouter": {
+    "name": "t5c_24GRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.10",
+    "class": "objectidentity"
+  },
+  "t5c_24GTRouter": {
+    "name": "t5c_24GTRouter",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.11",
+    "class": "objectidentity"
+  },
+  "t6pro_lc_20G": {
+    "name": "t6pro_lc_20G",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.13",
+    "class": "objectidentity"
+  },
+  "t6pro_cpm": {
+    "name": "t6pro_cpm",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.14",
+    "class": "objectidentity"
+  },
+  "tMetro": {
+    "name": "tMetro",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.16",
+    "class": "objectidentity"
+  },
+  "tMarc": {
+    "name": "tMarc",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17",
+    "class": "objectidentity"
+  },
+  "aHUB1_A": {
+    "name": "aHUB1_A",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.18",
+    "class": "objectidentity"
+  },
+  "tMetro_ES": {
+    "name": "tMetro_ES",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.19",
+    "class": "objectidentity"
+  },
+  "tMarc_E": {
+    "name": "tMarc_E",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.20",
+    "class": "objectidentity"
+  },
+  "tMarc_EW": {
+    "name": "tMarc_EW",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.21",
+    "class": "objectidentity"
+  },
+  "tMarc_WDB": {
+    "name": "tMarc_WDB",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.22",
+    "class": "objectidentity"
+  },
+  "tMarc_WD": {
+    "name": "tMarc_WD",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.23",
+    "class": "objectidentity"
+  },
+  "tMarc_F": {
+    "name": "tMarc_F",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.24",
+    "class": "objectidentity"
+  },
+  "t5c_XG": {
+    "name": "t5c_XG",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.27",
+    "class": "objectidentity"
+  },
+  "compact": {
+    "name": "compact",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.14.1",
+    "class": "objectidentity"
+  },
+  "classic": {
+    "name": "classic",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.14.2",
+    "class": "objectidentity"
+  },
+  "as9205": {
+    "name": "as9205",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.7.1",
+    "class": "objectidentity"
+  },
+  "as9205_F": {
+    "name": "as9205_F",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.9.1",
+    "class": "objectidentity"
+  },
+  "tMarc_250": {
+    "name": "tMarc_250",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.1",
+    "class": "objectidentity"
+  },
+  "tMarc_254": {
+    "name": "tMarc_254",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.2",
+    "class": "objectidentity"
+  },
+  "tMarc_254h": {
+    "name": "tMarc_254h",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.3",
+    "class": "objectidentity"
+  },
+  "tMarc_340": {
+    "name": "tMarc_340",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.10",
+    "class": "objectidentity"
+  },
+  "tMarc_380": {
+    "name": "tMarc_380",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.11",
+    "class": "objectidentity"
+  },
+  "tMarc_340_E": {
+    "name": "tMarc_340_E",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.20.1",
+    "class": "objectidentity"
+  },
+  "tMarc_380_E": {
+    "name": "tMarc_380_E",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.20.2",
+    "class": "objectidentity"
+  },
+  "tMarc_340_EW": {
+    "name": "tMarc_340_EW",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.21.1",
+    "class": "objectidentity"
+  },
+  "tMarc_380_EW": {
+    "name": "tMarc_380_EW",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.21.2",
+    "class": "objectidentity"
+  },
+  "tMarc_340WD_B": {
+    "name": "tMarc_340WD_B",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.22.1",
+    "class": "objectidentity"
+  },
+  "tMarc_340WD": {
+    "name": "tMarc_340WD",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.23.1",
+    "class": "objectidentity"
+  },
+  "tMarc_340_F": {
+    "name": "tMarc_340_F",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.24.1",
+    "class": "objectidentity"
+  },
+  "tMarc_280": {
+    "name": "tMarc_280",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.20",
+    "class": "objectidentity"
+  },
+  "dm9225": {
+    "name": "dm9225",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.1.1",
+    "class": "objectidentity"
+  },
+  "dm9225_E": {
+    "name": "dm9225_E",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.2.1",
+    "class": "objectidentity"
+  },
+  "dm9234": {
+    "name": "dm9234",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.17.10.1",
+    "class": "objectidentity"
+  },
+  "alcatel_7250": {
+    "name": "alcatel_7250",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.16.1",
+    "class": "objectidentity"
+  },
+  "alcatel_7250_ES": {
+    "name": "alcatel_7250_ES",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.19.1",
+    "class": "objectidentity"
+  },
+  "alcatel_7250_ESA": {
+    "name": "alcatel_7250_ESA",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.19.2",
+    "class": "objectidentity"
+  },
+  "tMetro_ESA": {
+    "name": "tMetro_ESA",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.19.3",
+    "class": "objectidentity"
+  },
+  "as9220": {
+    "name": "as9220",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.19.10",
+    "class": "objectidentity"
+  },
+  "tMetro_200S": {
+    "name": "tMetro_200S",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.19.11",
+    "class": "objectidentity"
+  },
+  "as9215": {
+    "name": "as9215",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.27.1",
+    "class": "objectidentity"
+  },
+  "bI_Ethernet": {
+    "name": "bI_Ethernet",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.18.1",
+    "class": "objectidentity"
+  },
+  "fI_Ethernet": {
+    "name": "fI_Ethernet",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.18.2",
+    "class": "objectidentity"
+  },
+  "t5c": {
+    "name": "t5c",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.100",
+    "class": "objectidentity"
+  },
+  "t5cgt": {
+    "name": "t5cgt",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.222",
+    "class": "objectidentity"
+  },
+  "t5g": {
+    "name": "t5g",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.333",
+    "class": "objectidentity"
+  },
+  "v24s": {
+    "name": "v24s",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.444",
+    "class": "objectidentity"
+  },
+  "edgeGate281": {
+    "name": "edgeGate281",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1000",
+    "class": "objectidentity"
+  },
+  "edgeGate281SYS": {
+    "name": "edgeGate281SYS",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1001",
+    "class": "objectidentity"
+  },
+  "edgeGate231": {
+    "name": "edgeGate231",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1010",
+    "class": "objectidentity"
+  },
+  "edgeGate282": {
+    "name": "edgeGate282",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1020",
+    "class": "objectidentity"
+  },
+  "edgeGate282S": {
+    "name": "edgeGate282S",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1021",
+    "class": "objectidentity"
+  },
+  "edgeGate482S": {
+    "name": "edgeGate482S",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1022",
+    "class": "objectidentity"
+  },
+  "edgeGate483S": {
+    "name": "edgeGate483S",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1023",
+    "class": "objectidentity"
+  },
+  "edgeGate483D": {
+    "name": "edgeGate483D",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1024",
+    "class": "objectidentity"
+  },
+  "edgeGate201": {
+    "name": "edgeGate201",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1031",
+    "class": "objectidentity"
+  },
+  "edgeGate232": {
+    "name": "edgeGate232",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1041",
+    "class": "objectidentity"
+  },
+  "ac500": {
+    "name": "ac500",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1050",
+    "class": "objectidentity"
+  },
+  "ac505": {
+    "name": "ac505",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1050.1",
+    "class": "objectidentity"
+  },
+  "ac512": {
+    "name": "ac512",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1050.2",
+    "class": "objectidentity"
+  },
+  "ac524": {
+    "name": "ac524",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.1.1050.3",
+    "class": "objectidentity"
+  },
+  "sysIntfTable": {
+    "name": "sysIntfTable",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysIntfEntry": {
+    "name": "sysIntfEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "sysStackNo",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "sysSlotNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysStackNo": {
+    "name": "sysStackNo",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSlotNo": {
+    "name": "sysSlotNo",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysIntfUnitExist": {
+    "name": "sysIntfUnitExist",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uninstalled": 1,
+          "installed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysIntfModule": {
+    "name": "sysIntfModule",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleHwType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSerialNumber": {
+    "name": "sysSerialNumber",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwitchModel": {
+    "name": "sysSwitchModel",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysAssemblyNumber": {
+    "name": "sysAssemblyNumber",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysPartNumber": {
+    "name": "sysPartNumber",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysCLEI": {
+    "name": "sysCLEI",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHwRevision": {
+    "name": "sysHwRevision",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysManufacturingDate": {
+    "name": "sysManufacturingDate",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysSwitchSeries": {
+    "name": "sysSwitchSeries",
+    "oid": "1.3.6.1.4.1.738.1.5.100.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Series",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configL2": {
+    "name": "configL2",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2",
+    "class": "objectidentity"
+  },
+  "configL2SpanOnOff": {
+    "name": "configL2SpanOnOff",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableSTP": 1,
+          "disable": 2,
+          "enableRSTP": 3,
+          "enablePVST": 4,
+          "enableMST": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceTable": {
+    "name": "configL2IfaceTable",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "configL2IfaceEntry": {
+    "name": "configL2IfaceEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "configL2IfaceUnit",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "configL2IfaceSlot",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "configL2IfacePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "configL2IfaceUnit": {
+    "name": "configL2IfaceUnit",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configL2IfaceSlot": {
+    "name": "configL2IfaceSlot",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configL2IfacePort": {
+    "name": "configL2IfacePort",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configL2IfaceName": {
+    "name": "configL2IfaceName",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceEnable": {
+    "name": "configL2IfaceEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceSTPEnable": {
+    "name": "configL2IfaceSTPEnable",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceDuplexSpeedSet": {
+    "name": "configL2IfaceDuplexSpeedSet",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autonegotiate": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-1000": 6,
+          "full-1000": 7,
+          "pos-155": 8,
+          "pos-622": 9,
+          "full-10000": 10,
+          "half-auto": 11,
+          "full-auto": 12,
+          "auto-10": 13,
+          "auto-100": 14,
+          "auto-1000": 16,
+          "illegal": 99
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "configL2IfaceFlow": {
+    "name": "configL2IfaceFlow",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autonegotiate": 1,
+          "flowon": 2,
+          "flowoff": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceBackpressure": {
+    "name": "configL2IfaceBackpressure",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backpressureon": 1,
+          "backpressureoff": 2,
+          "illegal": 99
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceResetCounters": {
+    "name": "configL2IfaceResetCounters",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceDefaultVID": {
+    "name": "configL2IfaceDefaultVID",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceSnifferIfIndex": {
+    "name": "configL2IfaceSnifferIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2TopologyChangeDetection": {
+    "name": "configL2TopologyChangeDetection",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceDuplexModeSet": {
+    "name": "configL2IfaceDuplexModeSet",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "full": 2,
+          "half": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceSpeedSet": {
+    "name": "configL2IfaceSpeedSet",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "speed-10": 2,
+          "speed-100": 3,
+          "speed-1000": 4,
+          "speed-10000": 5,
+          "pos-155": 6,
+          "pos-622": 7,
+          "illegal": 99
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceBroadcastRateLimit": {
+    "name": "configL2IfaceBroadcastRateLimit",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceMulticastRateLimit": {
+    "name": "configL2IfaceMulticastRateLimit",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceUnknownRateLimit": {
+    "name": "configL2IfaceUnknownRateLimit",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceBroadcastBurstSize": {
+    "name": "configL2IfaceBroadcastBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceMulticastBurstSize": {
+    "name": "configL2IfaceMulticastBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceUnknownBurstSize": {
+    "name": "configL2IfaceUnknownBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceMtu": {
+    "name": "configL2IfaceMtu",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 9216
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1528,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceAdminCrossOver": {
+    "name": "configL2IfaceAdminCrossOver",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "mdi": 2,
+          "mdi-x": 3,
+          "unsupported": 255
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configL2IfaceRemoteFaultDetect": {
+    "name": "configL2IfaceRemoteFaultDetect",
+    "oid": "1.3.6.1.4.1.738.1.5.100.2.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableRemoteFaultDetect": 1,
+          "disableRemoteFaultDetect": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "reportsL2": {
+    "name": "reportsL2",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1",
+    "class": "objectidentity"
+  },
+  "reportsL2IfaceTable": {
+    "name": "reportsL2IfaceTable",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "reportsL2IfaceEntry": {
+    "name": "reportsL2IfaceEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsL2IfaceUnit",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsL2IfaceSlot",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsL2IfacePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "reportsL2IfaceUnit": {
+    "name": "reportsL2IfaceUnit",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceSlot": {
+    "name": "reportsL2IfaceSlot",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfacePort": {
+    "name": "reportsL2IfacePort",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceBridgeIndex": {
+    "name": "reportsL2IfaceBridgeIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceType": {
+    "name": "reportsL2IfaceType",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "regular1822": 2,
+          "hdh1822": 3,
+          "ddn-x25": 4,
+          "rfc877-x25": 5,
+          "ethernet-csmacd": 6,
+          "iso88023-csmacd": 7,
+          "iso88024-tokenBus": 8,
+          "iso88025-tokenRing": 9,
+          "iso88026-man": 10,
+          "starLan": 11,
+          "proteon-10Mbit": 12,
+          "proteon-80Mbit": 13,
+          "hyperchannel": 14,
+          "fddi": 15,
+          "lapb": 16,
+          "sdlc": 17,
+          "ds1": 18,
+          "e1": 19,
+          "basicISDN": 20,
+          "primaryISDN": 21,
+          "propPointToPointSerial": 22,
+          "ppp": 23,
+          "softwareLoopback": 24,
+          "eon": 25,
+          "ethernet-3Mbit": 26,
+          "nsip": 27,
+          "slip": 28,
+          "ultra": 29,
+          "ds3": 30,
+          "sip": 31,
+          "frame-relay": 32
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceLink": {
+    "name": "reportsL2IfaceLink",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceDuplexSpeedGet": {
+    "name": "reportsL2IfaceDuplexSpeedGet",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-1000": 6,
+          "full-1000": 7,
+          "pos-155": 8,
+          "pos-622": 9,
+          "full-10000": 10,
+          "illegal": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceTXOctetsNoErr": {
+    "name": "reportsL2IfaceTXOctetsNoErr",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceTXPacketsNoErr": {
+    "name": "reportsL2IfaceTXPacketsNoErr",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceRXOctetsNoErr": {
+    "name": "reportsL2IfaceRXOctetsNoErr",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceRXPacketsNoErr": {
+    "name": "reportsL2IfaceRXPacketsNoErr",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfInOctets": {
+    "name": "reportsL2IfaceIfInOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfInUcastPkts": {
+    "name": "reportsL2IfaceIfInUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfInNUcastPkts": {
+    "name": "reportsL2IfaceIfInNUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfInDiscards": {
+    "name": "reportsL2IfaceIfInDiscards",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfInErrors": {
+    "name": "reportsL2IfaceIfInErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfInUnknownProtos": {
+    "name": "reportsL2IfaceIfInUnknownProtos",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfOutOctets": {
+    "name": "reportsL2IfaceIfOutOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfOutUcastPkts": {
+    "name": "reportsL2IfaceIfOutUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfOutNUcastPkts": {
+    "name": "reportsL2IfaceIfOutNUcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfOutDiscards": {
+    "name": "reportsL2IfaceIfOutDiscards",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceIfOutErrors": {
+    "name": "reportsL2IfaceIfOutErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsDropEvents": {
+    "name": "reportsL2IfaceStatsDropEvents",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsOctets": {
+    "name": "reportsL2IfaceStatsOctets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsPkts": {
+    "name": "reportsL2IfaceStatsPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsBroadcastPkts": {
+    "name": "reportsL2IfaceStatsBroadcastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsMulticastPkts": {
+    "name": "reportsL2IfaceStatsMulticastPkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsCRCAlignErrors": {
+    "name": "reportsL2IfaceStatsCRCAlignErrors",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsUndersizePkts": {
+    "name": "reportsL2IfaceStatsUndersizePkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsOversizePkts": {
+    "name": "reportsL2IfaceStatsOversizePkts",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsFragments": {
+    "name": "reportsL2IfaceStatsFragments",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsJabbers": {
+    "name": "reportsL2IfaceStatsJabbers",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsCollisions": {
+    "name": "reportsL2IfaceStatsCollisions",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsPkts64Octets": {
+    "name": "reportsL2IfaceStatsPkts64Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsPkts65to127Octets": {
+    "name": "reportsL2IfaceStatsPkts65to127Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsPkts128to255Octets": {
+    "name": "reportsL2IfaceStatsPkts128to255Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsPkts256to511Octets": {
+    "name": "reportsL2IfaceStatsPkts256to511Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsPkts512to1023Octets": {
+    "name": "reportsL2IfaceStatsPkts512to1023Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceStatsPkts1024to1518Octets": {
+    "name": "reportsL2IfaceStatsPkts1024to1518Octets",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceFlow": {
+    "name": "reportsL2IfaceFlow",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "flowon": 2,
+          "flowoff": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceHWType": {
+    "name": "reportsL2IfaceHWType",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleHwType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsL2IfaceActiveJackIndex": {
+    "name": "reportsL2IfaceActiveJackIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsHardware": {
+    "name": "reportsHardware",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2",
+    "class": "objectidentity"
+  },
+  "reportsHardwarePSStatus": {
+    "name": "reportsHardwarePSStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsHardwareFanStatus": {
+    "name": "reportsHardwareFanStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsHardwareTemperature": {
+    "name": "reportsHardwareTemperature",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsHardwarePSVoltage": {
+    "name": "reportsHardwarePSVoltage",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsHardwareTemperatureScale": {
+    "name": "reportsHardwareTemperatureScale",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 1,
+          "fahrenheit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "celsius",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "reportsHardwareTemperatureHighLimit": {
+    "name": "reportsHardwareTemperatureHighLimit",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 70
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 55,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "reportsHardwareDoorStatus": {
+    "name": "reportsHardwareDoorStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reportsIfJack": {
+    "name": "reportsIfJack",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.3",
+    "class": "objectidentity"
+  },
+  "reportsIfJackTable": {
+    "name": "reportsIfJackTable",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "reportsIfJackEntry": {
+    "name": "reportsIfJackEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsL2IfaceUnit",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsL2IfaceSlot",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsL2IfacePort",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsIfJackIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "reportsIfJackIndex": {
+    "name": "reportsIfJackIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "reportsIfJackType": {
+    "name": "reportsIfJackType",
+    "oid": "1.3.6.1.4.1.738.1.5.100.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModuleHwType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTemperatureExceeded": {
+    "name": "cpuTemperatureExceeded",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsHardwareTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "powerSupplyStatusChange": {
+    "name": "powerSupplyStatusChange",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsHardwarePSStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fanStatusChange": {
+    "name": "fanStatusChange",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsHardwareFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "portSecurityViolation": {
+    "name": "portSecurityViolation",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "portRedundantLinkChange": {
+    "name": "portRedundantLinkChange",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsL2IfaceLink"
+      }
+    ],
+    "status": "current"
+  },
+  "sysIntfModuleChange": {
+    "name": "sysIntfModuleChange",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "sysIntfModule"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtLogNotifyFull": {
+    "name": "prvtLogNotifyFull",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "doorStatusChange": {
+    "name": "doorStatusChange",
+    "oid": "1.3.6.1.4.1.738.1.5.100.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "reportsHardwareDoorStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtSwitchMIBGroups": {
+    "name": "prvtSwitchMIBGroups",
+    "oid": "1.3.6.1.4.1.738.1.5.100.6.2",
+    "class": "objectidentity"
+  },
+  "prvtSwitchNotificationGroup": {
+    "name": "prvtSwitchNotificationGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.100.6.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "cpuTemperatureExceeded"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "powerSupplyStatusChange"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "fanStatusChange"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "portSecurityViolation"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "portRedundantLinkChange"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "sysIntfModuleChange"
+      },
+      {
+        "module": "PRVT-SWITCH-MIB",
+        "object": "doorStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-SWITCH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-SWITCH-MIB"
+  }
+}

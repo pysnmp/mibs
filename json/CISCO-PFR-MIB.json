@@ -1,0 +1,6555 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB": [
+      "CiscoPdProtocolIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort",
+      "InterfaceIndexOrZero"
+    ],
+    "DIFFSERV-DSCP-TC": [
+      "DscpOrAny"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoPfrMIB": {
+    "name": "ciscoPfrMIB",
+    "oid": "1.3.6.1.4.1.9.9.772",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-11-13 00:00",
+        "description": "Add the following mib groups: cpfrMasterControllerGroupRev1, cpfrBorderRouterGroupRev1 cpfrMCNotificationGroup; Add ciscoPfrMIBComplianceRev1; Modify cpfrTCSLastOOPReason object to add rsvpOOPRecomputeExclude enum value; Modify cpfrBRConnFailureReason object to add authFailure(3), socketError(4), timerExpired(5) enum values; Modify cpfrTCSLastOOPReason object to add rsvpOOPRecomputeExclude;"
+      },
+      {
+        "revision": "2011-04-04 00:00",
+        "description": "The first version of PfR MIB module."
+      }
+    ]
+  },
+  "PfrMetricPolicyType": {
+    "name": "PfrMetricPolicyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "relative": 1,
+          "threshold": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PfrLastUncontrolReason": {
+    "name": "PfrLastUncontrolReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "activatingUnsedFcdTgt": 2,
+          "ifaceDown": 3,
+          "newProbeTargetAssigned": 4,
+          "newTargetAssigned": 5,
+          "borderDown": 6,
+          "uncontrolNonOptimizedPfx": 7,
+          "recontrolNull0Pfx": 8,
+          "recontrolSinkHolePfx": 9,
+          "modeRouteChange": 10,
+          "pfxEnabled": 11,
+          "uncontrolModeMonitorChange": 12,
+          "insideEnabled": 13,
+          "forcedNextHop": 14,
+          "forwardToNull0": 15,
+          "clearOnePfx": 16,
+          "clearOneTc": 17,
+          "grantUpdated": 18,
+          "tcInFastMode": 19,
+          "pbrBRTopologyChange": 20,
+          "pfrReqNotMet": 21,
+          "probeFrequencyChange": 22,
+          "fcdTgtAssRemMod": 23,
+          "policyChangedAddedNewFcdProbeTgt": 24,
+          "usingFcdTgtNow": 25,
+          "firstTargetWithDscpAdded": 26,
+          "usingLmNow": 27,
+          "lastTargetWithDscpRemoved": 28,
+          "couldntMonitor": 29,
+          "couldntControl": 30,
+          "applControlOnBrFailed": 31,
+          "allProtoCouldNtControl": 32,
+          "excludePfxFailed": 33,
+          "ipflowRestFailed": 34,
+          "couldntExclude": 35,
+          "dontDowngradeAllEntrances": 36,
+          "maxDownGrade": 37,
+          "cantSelectEntrances": 38,
+          "unhandledOopReasonInChooseExit": 39,
+          "oopModeSelectExitGood": 40,
+          "couldntFindBestExitInAllLinkGrps": 41,
+          "couldntFindBestExit": 42,
+          "failedToControlRoute": 43,
+          "endOfProbing": 44,
+          "retryForcedNextHop": 45,
+          "noStatusInPfxTimeout": 46,
+          "couldntChooseExitInPfxTimeout": 47,
+          "inconsistentView": 48,
+          "unableToSendControlMsg": 49,
+          "nbarIdStateUpdated": 50,
+          "controledExitIsNotCurrent": 51,
+          "exitMisMatch": 52,
+          "newExitWhileInpolicy": 53,
+          "unknownExit": 54,
+          "controlledExitIsNotCurrForUpd": 55,
+          "couldntControlPasPfxInSpecMode": 56,
+          "remoteStatsNotFound": 57,
+          "nbarInternalIfAddedRemoved": 58,
+          "noPassiveData": 59,
+          "probeNumPktsChanged": 60,
+          "last": 61
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PfRMasterControllerIndex": {
+    "name": "PfRMasterControllerIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrBorderRouterIndex": {
+    "name": "PfrBorderRouterIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrExitIndex": {
+    "name": "PfrExitIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrMapIndex": {
+    "name": "PfrMapIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrMapPolicyIndex": {
+    "name": "PfrMapPolicyIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrMapIndexOrZero": {
+    "name": "PfrMapIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrLearnListIndex": {
+    "name": "PfrLearnListIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrLearnListIndexOrZero": {
+    "name": "PfrLearnListIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PfrResolvePolicyType": {
+    "name": "PfrResolvePolicyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "cost": 1,
+          "delay": 2,
+          "jitter": 3,
+          "loss": 4,
+          "mos": 5,
+          "range": 6,
+          "utilization": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoPfrMIBNotifs": {
+    "name": "ciscoPfrMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.772.0",
+    "class": "objectidentity"
+  },
+  "ciscoPfrMIBObjects": {
+    "name": "ciscoPfrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.772.1",
+    "class": "objectidentity"
+  },
+  "ciscoPfrMIBConform": {
+    "name": "ciscoPfrMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.772.2",
+    "class": "objectidentity"
+  },
+  "cpfrMCTable": {
+    "name": "cpfrMCTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrMCEntry": {
+    "name": "cpfrMCEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrMCIndex": {
+    "name": "cpfrMCIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfRMasterControllerIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrMCStorageType": {
+    "name": "cpfrMCStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCRowStatus": {
+    "name": "cpfrMCRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCMapIndex": {
+    "name": "cpfrMCMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCKeepAliveTimer": {
+    "name": "cpfrMCKeepAliveTimer",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCMaxPrefixTotal": {
+    "name": "cpfrMCMaxPrefixTotal",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCMaxPrefixLearn": {
+    "name": "cpfrMCMaxPrefixLearn",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "units": "prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCEntranceLinksMaxUtil": {
+    "name": "cpfrMCEntranceLinksMaxUtil",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCExitLinksMaxUtil": {
+    "name": "cpfrMCExitLinksMaxUtil",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCPortNumber": {
+    "name": "cpfrMCPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3949,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCTracerouteProbeDelay": {
+    "name": "cpfrMCTracerouteProbeDelay",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCRsvpPostDialDelay": {
+    "name": "cpfrMCRsvpPostDialDelay",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCRsvpSignalingRetries": {
+    "name": "cpfrMCRsvpSignalingRetries",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "retries",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCNetflowExporter": {
+    "name": "cpfrMCNetflowExporter",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCAdminStatus": {
+    "name": "cpfrMCAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCOperStatus": {
+    "name": "cpfrMCOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCConnStatus": {
+    "name": "cpfrMCConnStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCNumofBorderRouters": {
+    "name": "cpfrMCNumofBorderRouters",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "border routers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCNumofExits": {
+    "name": "cpfrMCNumofExits",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "exits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCLearnState": {
+    "name": "cpfrMCLearnState",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "started": 2,
+          "writing": 3,
+          "sleep": 4,
+          "retry": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCLearnStateTimeRemain": {
+    "name": "cpfrMCLearnStateTimeRemain",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCPrefixCount": {
+    "name": "cpfrMCPrefixCount",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "prefixes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCPrefixLearned": {
+    "name": "cpfrMCPrefixLearned",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "prefixes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCPrefixConfigured": {
+    "name": "cpfrMCPrefixConfigured",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCPbrMet": {
+    "name": "cpfrMCPbrMet",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCLoggingAdminStatus": {
+    "name": "cpfrMCLoggingAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCControlMode": {
+    "name": "cpfrMCControlMode",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "observe": 1,
+          "control": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCClear": {
+    "name": "cpfrMCClear",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "clearAll": 2,
+          "clearAllPrefixes": 3,
+          "clearAllBorders": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCLastClearTime": {
+    "name": "cpfrMCLastClearTime",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMCNotifisControl": {
+    "name": "cpfrMCNotifisControl",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMCChangeConfigType": {
+    "name": "cpfrMCChangeConfigType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpfrMCLoggingAdminStatus": 1,
+          "cpfrMCAdminStatus": 2,
+          "cpfrMCControlMode": 3,
+          "cpfrMCClear": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cpfrMCChangeConfigValue": {
+    "name": "cpfrMCChangeConfigValue",
+    "oid": "1.3.6.1.4.1.9.9.772.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cpfrMapTable": {
+    "name": "cpfrMapTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrMapEntry": {
+    "name": "cpfrMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrMapIndex": {
+    "name": "cpfrMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrMapPolicyIndex": {
+    "name": "cpfrMapPolicyIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapPolicyIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrMapStorageType": {
+    "name": "cpfrMapStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapRowStatus": {
+    "name": "cpfrMapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapName": {
+    "name": "cpfrMapName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapBackoffMinTimer": {
+    "name": "cpfrMapBackoffMinTimer",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapBackoffMaxTimer": {
+    "name": "cpfrMapBackoffMaxTimer",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapBackoffStepTimer": {
+    "name": "cpfrMapBackoffStepTimer",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapDelayType": {
+    "name": "cpfrMapDelayType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMetricPolicyType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapDelayRelativePercent": {
+    "name": "cpfrMapDelayRelativePercent",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapDelayThresholdMax": {
+    "name": "cpfrMapDelayThresholdMax",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapHolddownTimer": {
+    "name": "cpfrMapHolddownTimer",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapPrefixForwardInterface": {
+    "name": "cpfrMapPrefixForwardInterface",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapJitterThresholdMax": {
+    "name": "cpfrMapJitterThresholdMax",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapLinkGroupName": {
+    "name": "cpfrMapLinkGroupName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapFallbackLinkGroupName": {
+    "name": "cpfrMapFallbackLinkGroupName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapLossType": {
+    "name": "cpfrMapLossType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMetricPolicyType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapLossRelativeAvg": {
+    "name": "cpfrMapLossRelativeAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapLossThresholdMax": {
+    "name": "cpfrMapLossThresholdMax",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "packets-per-million",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapModeMonitor": {
+    "name": "cpfrMapModeMonitor",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "activeThroughput": 2,
+          "both": 3,
+          "fast": 4,
+          "passive": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "both",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapModeRouteOpts": {
+    "name": "cpfrMapModeRouteOpts",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "control": 1,
+          "observe": 2,
+          "metric": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "observe",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapRouteMetricBgpLocalPref": {
+    "name": "cpfrMapRouteMetricBgpLocalPref",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapRouteMetricEigrpTagCommunity": {
+    "name": "cpfrMapRouteMetricEigrpTagCommunity",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapRouteMetricStaticTag": {
+    "name": "cpfrMapRouteMetricStaticTag",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapModeSelectExitType": {
+    "name": "cpfrMapModeSelectExitType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "best": 1,
+          "good": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "good",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapMOSThresholdMin": {
+    "name": "cpfrMapMOSThresholdMin",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 360,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapMOSPercentage": {
+    "name": "cpfrMapMOSPercentage",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapNextHopAddressType": {
+    "name": "cpfrMapNextHopAddressType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapNextHopAddress": {
+    "name": "cpfrMapNextHopAddress",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapPeriodicTimer": {
+    "name": "cpfrMapPeriodicTimer",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapActiveProbeFrequency": {
+    "name": "cpfrMapActiveProbeFrequency",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapActiveProbePackets": {
+    "name": "cpfrMapActiveProbePackets",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapTracerouteReporting": {
+    "name": "cpfrMapTracerouteReporting",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "delay": 1,
+        "loss": 2,
+        "unreachable": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapUnreachableType": {
+    "name": "cpfrMapUnreachableType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMetricPolicyType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "relative",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapUnreachableRelativeAvg": {
+    "name": "cpfrMapUnreachableRelativeAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapUnreachableThresholdMax": {
+    "name": "cpfrMapUnreachableThresholdMax",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "flows per million",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapRoundRobinResolver": {
+    "name": "cpfrMapRoundRobinResolver",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapEventNotifCtrlType": {
+    "name": "cpfrMapEventNotifCtrlType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMetricPolicyType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "relative",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMapEventNotifCtrlThreshold": {
+    "name": "cpfrMapEventNotifCtrlThreshold",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrMapEventTCCount": {
+    "name": "cpfrMapEventTCCount",
+    "oid": "1.3.6.1.4.1.9.9.772.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchTable": {
+    "name": "cpfrMatchTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrMatchEntry": {
+    "name": "cpfrMatchEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrMatchValid": {
+    "name": "cpfrMatchValid",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "accessList": 0,
+        "prefixList": 1,
+        "learn": 2,
+        "trafficClassACL": 3,
+        "nbarApplicationList": 4,
+        "trafficClassPfx": 5
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchAddrAccessList": {
+    "name": "cpfrMatchAddrAccessList",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchAddrPrefixList": {
+    "name": "cpfrMatchAddrPrefixList",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchAddrPrefixInside": {
+    "name": "cpfrMatchAddrPrefixInside",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchLearnMode": {
+    "name": "cpfrMatchLearnMode",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "inside": 2,
+          "throughput": 3,
+          "list": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "throughput",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchLearnListName": {
+    "name": "cpfrMatchLearnListName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchTCNbarListName": {
+    "name": "cpfrMatchTCNbarListName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchTCNbarApplPfxList": {
+    "name": "cpfrMatchTCNbarApplPfxList",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrMatchTCPfxInside": {
+    "name": "cpfrMatchTCPfxInside",
+    "oid": "1.3.6.1.4.1.9.9.772.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrResolveTable": {
+    "name": "cpfrResolveTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrResolveEntry": {
+    "name": "cpfrResolveEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrResolveIndex": {
+    "name": "cpfrResolveIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrResolveStorageType": {
+    "name": "cpfrResolveStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrResolveRowStatus": {
+    "name": "cpfrResolveRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrResolvePriority": {
+    "name": "cpfrResolvePriority",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrResolvePolicyType": {
+    "name": "cpfrResolvePolicyType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrResolvePolicyType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrResolveVariance": {
+    "name": "cpfrResolveVariance",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrResolveMapIndex": {
+    "name": "cpfrResolveMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrResolveMapPolicyIndex": {
+    "name": "cpfrResolveMapPolicyIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapPolicyIndex",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnTable": {
+    "name": "cpfrLearnTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrLearnEntry": {
+    "name": "cpfrLearnEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrLearnAggregationType": {
+    "name": "cpfrLearnAggregationType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 1,
+          "nonBgp": 2,
+          "prefixLength": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "prefixLength",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnAggregationPrefixLen": {
+    "name": "cpfrLearnAggregationPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 24,
+        "format": "decimal"
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnMethod": {
+    "name": "cpfrLearnMethod",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "delay": 0,
+        "throughput": 1,
+        "insideBgp": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnExpireType": {
+    "name": "cpfrLearnExpireType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "session": 1,
+          "time": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "time",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnExpireSessionNum": {
+    "name": "cpfrLearnExpireSessionNum",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "monitoring periods",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnExpireTime": {
+    "name": "cpfrLearnExpireTime",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 720,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnMonitorPeriod": {
+    "name": "cpfrLearnMonitorPeriod",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnPeriodInterval": {
+    "name": "cpfrLearnPeriodInterval",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnPrefixesNumber": {
+    "name": "cpfrLearnPrefixesNumber",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnAggAccesslistName": {
+    "name": "cpfrLearnAggAccesslistName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnFilterAccessListName": {
+    "name": "cpfrLearnFilterAccessListName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListTable": {
+    "name": "cpfrLearnListTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrLearnListEntry": {
+    "name": "cpfrLearnListEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrLearnListIndex": {
+    "name": "cpfrLearnListIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrLearnListIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrLearnListStorageType": {
+    "name": "cpfrLearnListStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListRowStatus": {
+    "name": "cpfrLearnListRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListReferenceName": {
+    "name": "cpfrLearnListReferenceName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListSequenceNum": {
+    "name": "cpfrLearnListSequenceNum",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListMethod": {
+    "name": "cpfrLearnListMethod",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "delay": 0,
+        "throughput": 1,
+        "rsvp": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListAclName": {
+    "name": "cpfrLearnListAclName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListPfxName": {
+    "name": "cpfrLearnListPfxName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListPfxInside": {
+    "name": "cpfrLearnListPfxInside",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListNbarAppl": {
+    "name": "cpfrLearnListNbarAppl",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLearnListFilterPfxName": {
+    "name": "cpfrLearnListFilterPfxName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeTable": {
+    "name": "cpfrActiveProbeTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrActiveProbeEntry": {
+    "name": "cpfrActiveProbeEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrActiveProbeIndex": {
+    "name": "cpfrActiveProbeIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrActiveProbeStorageType": {
+    "name": "cpfrActiveProbeStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeRowStatus": {
+    "name": "cpfrActiveProbeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeType": {
+    "name": "cpfrActiveProbeType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "echo": 1,
+          "jitter": 2,
+          "tcpConn": 3,
+          "udpEcho": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeTargetAddressType": {
+    "name": "cpfrActiveProbeTargetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeTargetAddress": {
+    "name": "cpfrActiveProbeTargetAddress",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeTargetPortNumber": {
+    "name": "cpfrActiveProbeTargetPortNumber",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbePfrMapIndex": {
+    "name": "cpfrActiveProbePfrMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeDscpValue": {
+    "name": "cpfrActiveProbeDscpValue",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeCodecName": {
+    "name": "cpfrActiveProbeCodecName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g711alaw": 1,
+          "g711ulaw": 2,
+          "g729a": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeMapIndex": {
+    "name": "cpfrActiveProbeMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeMapPolicyIndex": {
+    "name": "cpfrActiveProbeMapPolicyIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeAdminStatus": {
+    "name": "cpfrActiveProbeAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assigned": 1,
+          "unassigned": 2,
+          "forced": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrActiveProbeOperStatus": {
+    "name": "cpfrActiveProbeOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "notRunning": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrActiveProbeAssignedPfxAddressType": {
+    "name": "cpfrActiveProbeAssignedPfxAddressType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrActiveProbeAssignedPfxAddress": {
+    "name": "cpfrActiveProbeAssignedPfxAddress",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrActiveProbeAssignedPfxLen": {
+    "name": "cpfrActiveProbeAssignedPfxLen",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrActiveProbeMethod": {
+    "name": "cpfrActiveProbeMethod",
+    "oid": "1.3.6.1.4.1.9.9.772.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "learned": 1,
+          "configured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrBRTable": {
+    "name": "cpfrBRTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrBREntry": {
+    "name": "cpfrBREntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrBRIndex": {
+    "name": "cpfrBRIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrBorderRouterIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrBRStorageType": {
+    "name": "cpfrBRStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrBRRowStatus": {
+    "name": "cpfrBRRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrBRAddressType": {
+    "name": "cpfrBRAddressType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrBRAddress": {
+    "name": "cpfrBRAddress",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrBRKeyName": {
+    "name": "cpfrBRKeyName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrBROperStatus": {
+    "name": "cpfrBROperStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrBRConnStatus": {
+    "name": "cpfrBRConnStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrBRUpTime": {
+    "name": "cpfrBRUpTime",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrBRConnFailureReason": {
+    "name": "cpfrBRConnFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "versionMismatch": 1,
+          "none": 2,
+          "authFailure": 3,
+          "socketError": 4,
+          "timerExpired": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrBRAuthFailCount": {
+    "name": "cpfrBRAuthFailCount",
+    "oid": "1.3.6.1.4.1.9.9.772.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitTable": {
+    "name": "cpfrExitTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrExitEntry": {
+    "name": "cpfrExitEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrExitIndex": {
+    "name": "cpfrExitIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrExitIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrExitStorageType": {
+    "name": "cpfrExitStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitRowStatus": {
+    "name": "cpfrExitRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitName": {
+    "name": "cpfrExitName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitType": {
+    "name": "cpfrExitType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "external",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrDowngradeBgpCommunity": {
+    "name": "cpfrDowngradeBgpCommunity",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitMaxUtilRxType": {
+    "name": "cpfrExitMaxUtilRxType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMetricPolicyType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "relative",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitMaxUtilRxAbsolute": {
+    "name": "cpfrExitMaxUtilRxAbsolute",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitMaxUtilRxPercentage": {
+    "name": "cpfrExitMaxUtilRxPercentage",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitMaxUtilTxType": {
+    "name": "cpfrExitMaxUtilTxType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMetricPolicyType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "relative",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitMaxUtilTxAbsolute": {
+    "name": "cpfrExitMaxUtilTxAbsolute",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitMaxUtilTxPercentage": {
+    "name": "cpfrExitMaxUtilTxPercentage",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostCalcMethod": {
+    "name": "cpfrExitCostCalcMethod",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "combined": 1,
+          "separate": 2,
+          "sum": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "combined",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostDiscard": {
+    "name": "cpfrExitCostDiscard",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daily": 1,
+          "monthly": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "monthly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostDiscardType": {
+    "name": "cpfrExitCostDiscardType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absolute": 1,
+          "percent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "absolute",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostDiscardAbsolute": {
+    "name": "cpfrExitCostDiscardAbsolute",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "samples",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostDiscardPercent": {
+    "name": "cpfrExitCostDiscardPercent",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostEndDayOfMonth": {
+    "name": "cpfrExitCostEndDayOfMonth",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostEndOffsetType": {
+    "name": "cpfrExitCostEndOffsetType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positive": 1,
+          "negative": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "positive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostEndOffset": {
+    "name": "cpfrExitCostEndOffset",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostFixedFeeCost": {
+    "name": "cpfrExitCostFixedFeeCost",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "dollars",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostNickName": {
+    "name": "cpfrExitCostNickName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostSamplingPeriod": {
+    "name": "cpfrExitCostSamplingPeriod",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostRollupPeriod": {
+    "name": "cpfrExitCostRollupPeriod",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostSummerTimeStart": {
+    "name": "cpfrExitCostSummerTimeStart",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostSummerTimeOffset": {
+    "name": "cpfrExitCostSummerTimeOffset",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostSummerTimeEnd": {
+    "name": "cpfrExitCostSummerTimeEnd",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCapacity": {
+    "name": "cpfrExitCapacity",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRxBandwidth": {
+    "name": "cpfrExitRxBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitTxBandwidth": {
+    "name": "cpfrExitTxBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitTxLoad": {
+    "name": "cpfrExitTxLoad",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRxLoad": {
+    "name": "cpfrExitRxLoad",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitNickName": {
+    "name": "cpfrExitNickName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitCost1": {
+    "name": "cpfrExitCost1",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "dollars",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitSustainedUtil1": {
+    "name": "cpfrExitSustainedUtil1",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitCost2": {
+    "name": "cpfrExitCost2",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "dollars",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitSustainedUtil2": {
+    "name": "cpfrExitSustainedUtil2",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitCost3": {
+    "name": "cpfrExitCost3",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "dollars",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitSustainedUtil3": {
+    "name": "cpfrExitSustainedUtil3",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupTotal": {
+    "name": "cpfrExitRollupTotal",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupDiscard": {
+    "name": "cpfrExitRollupDiscard",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupLeft": {
+    "name": "cpfrExitRollupLeft",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupCollected": {
+    "name": "cpfrExitRollupCollected",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupMomTgtUtil": {
+    "name": "cpfrExitRollupMomTgtUtil",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupStartingTgtUtil": {
+    "name": "cpfrExitRollupStartingTgtUtil",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupCurrentTgtUtil": {
+    "name": "cpfrExitRollupCurrentTgtUtil",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupCumRxBytes": {
+    "name": "cpfrExitRollupCumRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupCumTxBytes": {
+    "name": "cpfrExitRollupCumTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRollupTimeRemain": {
+    "name": "cpfrExitRollupTimeRemain",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitOperStatus": {
+    "name": "cpfrExitOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitRsvpBandwidthPool": {
+    "name": "cpfrExitRsvpBandwidthPool",
+    "oid": "1.3.6.1.4.1.9.9.772.1.9.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrExitCostTierTable": {
+    "name": "cpfrExitCostTierTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrExitCostTierEntry": {
+    "name": "cpfrExitCostTierEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostTierIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrExitCostTierIndex": {
+    "name": "cpfrExitCostTierIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrExitCostTierStorageType": {
+    "name": "cpfrExitCostTierStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostTierRowStatus": {
+    "name": "cpfrExitCostTierRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrExitCostTierFee": {
+    "name": "cpfrExitCostTierFee",
+    "oid": "1.3.6.1.4.1.9.9.772.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrTrafficClassTable": {
+    "name": "cpfrTrafficClassTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrTrafficClassEntry": {
+    "name": "cpfrTrafficClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrTrafficClassIndex": {
+    "name": "cpfrTrafficClassIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrTCBRIndex": {
+    "name": "cpfrTCBRIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrBorderRouterIndex",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCBRExitIndex": {
+    "name": "cpfrTCBRExitIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrExitIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMapIndex": {
+    "name": "cpfrTCMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMapPolicyIndex": {
+    "name": "cpfrTCMapPolicyIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrMapPolicyIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTrafficClassValid": {
+    "name": "cpfrTrafficClassValid",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "source": 0,
+        "destination": 1,
+        "sourcePort": 2,
+        "destinationPort": 3,
+        "dscp": 4,
+        "protocol": 5,
+        "nbar": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSrcPrefixType": {
+    "name": "cpfrTCSrcPrefixType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSrcPrefix": {
+    "name": "cpfrTCSrcPrefix",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSrcPrefixLen": {
+    "name": "cpfrTCSrcPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSrcMinPort": {
+    "name": "cpfrTCSrcMinPort",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSrcMaxPort": {
+    "name": "cpfrTCSrcMaxPort",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCDstPrefixType": {
+    "name": "cpfrTCDstPrefixType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCDstPrefix": {
+    "name": "cpfrTCDstPrefix",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCDstPrefixLen": {
+    "name": "cpfrTCDstPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCDstMinPort": {
+    "name": "cpfrTCDstMinPort",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCDstMaxPort": {
+    "name": "cpfrTCDstMaxPort",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCDscpValue": {
+    "name": "cpfrTCDscpValue",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DscpOrAny",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCProtocol": {
+    "name": "cpfrTCProtocol",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "eigrp": 2,
+          "ribpbr": 3,
+          "bgp": 4,
+          "pbr": 5,
+          "cce": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "units": "bgp",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCNbarApplication": {
+    "name": "cpfrTCNbarApplication",
+    "oid": "1.3.6.1.4.1.9.9.772.1.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTrafficClassStatusTable": {
+    "name": "cpfrTrafficClassStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrTrafficClassStatusEntry": {
+    "name": "cpfrTrafficClassStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrTCStatus": {
+    "name": "cpfrTCStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "choose": 2,
+          "holddown": 3,
+          "inpolicy": 4,
+          "oopolicy": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSType": {
+    "name": "cpfrTCSType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "learned": 1,
+          "configured": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSLearnListIndex": {
+    "name": "cpfrTCSLearnListIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrLearnListIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSTimeOnCurrExit": {
+    "name": "cpfrTCSTimeOnCurrExit",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSControlState": {
+    "name": "cpfrTCSControlState",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "controlled": 1,
+          "uncontrolled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSControlBy": {
+    "name": "cpfrTCSControlBy",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "eigrp": 2,
+          "ribpbr": 3,
+          "bgp": 4,
+          "pbr": 5,
+          "cce": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSTimeRemainCurrState": {
+    "name": "cpfrTCSTimeRemainCurrState",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSLastOOPEventTime": {
+    "name": "cpfrTCSLastOOPEventTime",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSLastOOPReason": {
+    "name": "cpfrTCSLastOOPReason",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delayOOPPassiveMode": 1,
+          "lossOOPPassiveMode": 2,
+          "unreachableOOPPassiveMode": 3,
+          "delayOOPActiveMode": 4,
+          "lossOOPActiveMode": 5,
+          "unreachableOOPActiveMode": 6,
+          "jitterOOPActiveMode": 7,
+          "mosOOPActiveMode": 8,
+          "none": 9,
+          "rsvpOOPRecomputeExclude": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSLastRouteChangeEvent": {
+    "name": "cpfrTCSLastRouteChangeEvent",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCSLastRouteChangeReason": {
+    "name": "cpfrTCSLastRouteChangeReason",
+    "oid": "1.3.6.1.4.1.9.9.772.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrLastUncontrolReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTrafficClassMetricTable": {
+    "name": "cpfrTrafficClassMetricTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrTrafficClassMetricEntry": {
+    "name": "cpfrTrafficClassMetricEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrTCMLastUpdateTime": {
+    "name": "cpfrTCMLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMAge": {
+    "name": "cpfrTCMAge",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMetricsValid": {
+    "name": "cpfrTCMetricsValid",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "activeSTJitterAvg": 0,
+        "mosPercentage": 1,
+        "attempts": 2,
+        "packets": 3,
+        "passiveSTUnreachableAvg": 4,
+        "passiveSTdelayAvg": 5,
+        "passiveSTLossAvg": 6,
+        "activeSTUnreachableAvg": 7,
+        "activeSTDelayAvg": 8,
+        "passiveLTUnreachableAvg": 9,
+        "passiveLTDelayAvg": 10,
+        "passiveLTLossAvg": 11,
+        "activeLTUnreachableAvg": 12,
+        "activeLTDelayAvg": 13
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMActiveSTJitterAvg": {
+    "name": "cpfrTCMActiveSTJitterAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMMOSPercentage": {
+    "name": "cpfrTCMMOSPercentage",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMAttempts": {
+    "name": "cpfrTCMAttempts",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMPackets": {
+    "name": "cpfrTCMPackets",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "Packets/probe",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMPassiveSTUnreachableAvg": {
+    "name": "cpfrTCMPassiveSTUnreachableAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "flows-per-million",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMPassiveSTDelayAvg": {
+    "name": "cpfrTCMPassiveSTDelayAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMPassiveSTLossAvg": {
+    "name": "cpfrTCMPassiveSTLossAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMActiveSTUnreachableAvg": {
+    "name": "cpfrTCMActiveSTUnreachableAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "flows-per-million",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMActiveSTDelayAvg": {
+    "name": "cpfrTCMActiveSTDelayAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMPassiveLTUnreachableAvg": {
+    "name": "cpfrTCMPassiveLTUnreachableAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMPassiveLTDelayAvg": {
+    "name": "cpfrTCMPassiveLTDelayAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMPassiveLTLossAvg": {
+    "name": "cpfrTCMPassiveLTLossAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMActiveLTUnreachableAvg": {
+    "name": "cpfrTCMActiveLTUnreachableAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrTCMActiveLTDelayAvg": {
+    "name": "cpfrTCMActiveLTDelayAvg",
+    "oid": "1.3.6.1.4.1.9.9.772.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrLinkGroupExitTable": {
+    "name": "cpfrLinkGroupExitTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrLinkGroupExitEntry": {
+    "name": "cpfrLinkGroupExitEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrLinkGroupName": {
+    "name": "cpfrLinkGroupName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrLinkGroupIndex": {
+    "name": "cpfrLinkGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrLinkGroupStorageType": {
+    "name": "cpfrLinkGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLinkGroupRowStatus": {
+    "name": "cpfrLinkGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLinkGroupBRIndex": {
+    "name": "cpfrLinkGroupBRIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrBorderRouterIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLinkGroupExitIndex": {
+    "name": "cpfrLinkGroupExitIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PfrExitIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrLinkGroupType": {
+    "name": "cpfrLinkGroupType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primaryLinkGroup": 1,
+          "fallbackLinkGroup": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfrNbarApplListTable": {
+    "name": "cpfrNbarApplListTable",
+    "oid": "1.3.6.1.4.1.9.9.772.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrNbarApplListEntry": {
+    "name": "cpfrNbarApplListEntry",
+    "oid": "1.3.6.1.4.1.9.9.772.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrNbarApplListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrNbarApplIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrNbarApplListName": {
+    "name": "cpfrNbarApplListName",
+    "oid": "1.3.6.1.4.1.9.9.772.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrNbarApplIndex": {
+    "name": "cpfrNbarApplIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfrNbarApplListStorageType": {
+    "name": "cpfrNbarApplListStorageType",
+    "oid": "1.3.6.1.4.1.9.9.772.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrNbarApplListRowStatus": {
+    "name": "cpfrNbarApplListRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.772.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpfrNbarApplPdIndex": {
+    "name": "cpfrNbarApplPdIndex",
+    "oid": "1.3.6.1.4.1.9.9.772.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPdProtocolIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoPfrMIBCompliances": {
+    "name": "ciscoPfrMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.772.2.1",
+    "class": "objectidentity"
+  },
+  "cpfrMCStatusChangeNotify": {
+    "name": "cpfrMCStatusChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.772.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCChangeConfigType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCChangeConfigValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrBRStatusChangeNotify": {
+    "name": "cpfrBRStatusChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.772.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddressType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddress"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBROperStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRConnStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRConnFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrExitStatusChangeNotify": {
+    "name": "cpfrExitStatusChangeNotify",
+    "oid": "1.3.6.1.4.1.9.9.772.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitOperStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddressType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrTrafficClassEventNotify": {
+    "name": "cpfrTrafficClassEventNotify",
+    "oid": "1.3.6.1.4.1.9.9.772.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSLastOOPReason"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddressType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddress"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrTCInpolicyThresholdBelowNotify": {
+    "name": "cpfrTCInpolicyThresholdBelowNotify",
+    "oid": "1.3.6.1.4.1.9.9.772.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventNotifCtrlType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventNotifCtrlThreshold"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventTCCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrTCPrimaryThresholdBelowNotify": {
+    "name": "cpfrTCPrimaryThresholdBelowNotify",
+    "oid": "1.3.6.1.4.1.9.9.772.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventNotifCtrlType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventNotifCtrlThreshold"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventTCCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPfrMIBGroups": {
+    "name": "ciscoPfrMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.772.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoPfrMIBCompliance": {
+    "name": "ciscoPfrMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.772.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpfrMasterControllerGroup",
+        "module": "CISCO-PFR-MIB"
+      },
+      {
+        "object": "cpfrBorderRouterGroup",
+        "module": "CISCO-PFR-MIB"
+      },
+      {
+        "object": "cpfrTrafficClassGroup",
+        "module": "CISCO-PFR-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPfrMIBComplianceRev1": {
+    "name": "ciscoPfrMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.772.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpfrMasterControllerGroup",
+        "module": "CISCO-PFR-MIB"
+      },
+      {
+        "object": "cpfrBorderRouterGroup",
+        "module": "CISCO-PFR-MIB"
+      },
+      {
+        "object": "cpfrTrafficClassGroup",
+        "module": "CISCO-PFR-MIB"
+      },
+      {
+        "object": "cpfrMasterControllerGroupRev1",
+        "module": "CISCO-PFR-MIB"
+      },
+      {
+        "object": "cpfrBorderRouterGroupRev1",
+        "module": "CISCO-PFR-MIB"
+      },
+      {
+        "object": "cpfrMCNotificationGroup",
+        "module": "CISCO-PFR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrMasterControllerGroup": {
+    "name": "cpfrMasterControllerGroup",
+    "oid": "1.3.6.1.4.1.9.9.772.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCKeepAliveTimer"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCMaxPrefixTotal"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCMaxPrefixLearn"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCEntranceLinksMaxUtil"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCExitLinksMaxUtil"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCPortNumber"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCTracerouteProbeDelay"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCRsvpPostDialDelay"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCRsvpSignalingRetries"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCNetflowExporter"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCAdminStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCOperStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCConnStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCNumofBorderRouters"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCNumofExits"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCLearnState"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCLearnStateTimeRemain"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCPrefixCount"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCPrefixLearned"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCPrefixConfigured"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCPbrMet"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapBackoffMinTimer"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapBackoffMaxTimer"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapBackoffStepTimer"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapDelayType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapDelayRelativePercent"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapDelayThresholdMax"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapHolddownTimer"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapPrefixForwardInterface"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapJitterThresholdMax"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapLinkGroupName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapFallbackLinkGroupName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapLossType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapLossRelativeAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapLossThresholdMax"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapModeMonitor"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapModeRouteOpts"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapRouteMetricBgpLocalPref"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapRouteMetricEigrpTagCommunity"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapRouteMetricStaticTag"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapModeSelectExitType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapMOSThresholdMin"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapMOSPercentage"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapNextHopAddressType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapNextHopAddress"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapPeriodicTimer"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapActiveProbeFrequency"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapActiveProbePackets"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapTracerouteReporting"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapUnreachableType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapUnreachableRelativeAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapUnreachableThresholdMax"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapRoundRobinResolver"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchValid"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchAddrAccessList"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchAddrPrefixList"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchAddrPrefixInside"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchLearnMode"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchLearnListName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchTCNbarListName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchTCNbarApplPfxList"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMatchTCPfxInside"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListReferenceName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListSequenceNum"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListMethod"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListAclName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListPfxName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListPfxInside"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListNbarAppl"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnListFilterPfxName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeTargetAddressType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeTargetAddress"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeTargetPortNumber"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbePfrMapIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeDscpValue"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeCodecName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeMapIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeMapPolicyIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeAdminStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeOperStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeAssignedPfxAddressType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeAssignedPfxAddress"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeAssignedPfxLen"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrActiveProbeMethod"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolveStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolveRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolvePolicyType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolveVariance"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolveMapIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolveMapPolicyIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnAggregationType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnAggregationPrefixLen"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnMethod"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnExpireType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnExpireSessionNum"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnExpireTime"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnMonitorPeriod"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnPeriodInterval"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnPrefixesNumber"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnAggAccesslistName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLearnFilterAccessListName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrNbarApplListStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrNbarApplListRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrNbarApplPdIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrResolvePriority"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCMapIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrBorderRouterGroup": {
+    "name": "cpfrBorderRouterGroup",
+    "oid": "1.3.6.1.4.1.9.9.772.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddressType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAddress"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRKeyName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBROperStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRConnStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRUpTime"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRConnFailureReason"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRAuthFailCount"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrDowngradeBgpCommunity"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitMaxUtilRxType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitMaxUtilRxAbsolute"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitMaxUtilRxPercentage"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitMaxUtilTxType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitMaxUtilTxAbsolute"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitMaxUtilTxPercentage"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostCalcMethod"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostDiscard"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostDiscardType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostDiscardAbsolute"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostDiscardPercent"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostEndDayOfMonth"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostEndOffsetType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostEndOffset"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostFixedFeeCost"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostNickName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostSamplingPeriod"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostRollupPeriod"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostSummerTimeStart"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostSummerTimeOffset"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostSummerTimeEnd"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCapacity"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRxBandwidth"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitTxBandwidth"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitTxLoad"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitNickName"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCost1"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitSustainedUtil1"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCost2"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitSustainedUtil2"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCost3"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitSustainedUtil3"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupTotal"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupDiscard"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupLeft"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupCollected"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupMomTgtUtil"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupStartingTgtUtil"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupCurrentTgtUtil"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupCumRxBytes"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupCumTxBytes"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRollupTimeRemain"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitOperStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRsvpBandwidthPool"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostTierStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostTierRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitCostTierFee"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupStorageType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupRowStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupBRIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupExitIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitRxLoad"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrTrafficClassGroup": {
+    "name": "cpfrTrafficClassGroup",
+    "oid": "1.3.6.1.4.1.9.9.772.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTrafficClassValid"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSrcPrefixType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSrcPrefix"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSrcPrefixLen"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSrcMinPort"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCDstPrefixType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCDstPrefix"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCDstPrefixLen"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCDstMinPort"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCDscpValue"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCProtocol"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCNbarApplication"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCBRIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCBRExitIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMapIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMapPolicyIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSLearnListIndex"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSTimeOnCurrExit"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSControlState"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSControlBy"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSTimeRemainCurrState"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSLastOOPEventTime"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSLastOOPReason"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSLastRouteChangeEvent"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSLastRouteChangeReason"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMLastUpdateTime"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMAge"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMetricsValid"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMActiveSTJitterAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMMOSPercentage"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMAttempts"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMPackets"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMPassiveSTUnreachableAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMPassiveSTDelayAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMPassiveSTLossAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMActiveSTUnreachableAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMActiveSTDelayAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMPassiveLTUnreachableAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMPassiveLTDelayAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMPassiveLTLossAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMActiveLTUnreachableAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCMActiveLTDelayAvg"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCSrcMaxPort"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCDstMaxPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrMasterControllerGroupRev1": {
+    "name": "cpfrMasterControllerGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.772.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCLoggingAdminStatus"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCControlMode"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCClear"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventNotifCtrlType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventNotifCtrlThreshold"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMapEventTCCount"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCLastClearTime"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCNotifisControl"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCChangeConfigType"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCChangeConfigValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrBorderRouterGroupRev1": {
+    "name": "cpfrBorderRouterGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.772.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrLinkGroupType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpfrMCNotificationGroup": {
+    "name": "cpfrMCNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.772.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrBRStatusChangeNotify"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrExitStatusChangeNotify"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTrafficClassEventNotify"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCInpolicyThresholdBelowNotify"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrTCPrimaryThresholdBelowNotify"
+      },
+      {
+        "module": "CISCO-PFR-MIB",
+        "object": "cpfrMCStatusChangeNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PFR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PFR-MIB"
+  }
+}

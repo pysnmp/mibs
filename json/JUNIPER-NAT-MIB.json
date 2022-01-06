@@ -1,0 +1,470 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressIPv4"
+    ],
+    "JUNIPER-SMI": [
+      "jnxSvcsMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxNatMIB": {
+    "name": "jnxNatMIB",
+    "oid": "1.3.6.1.4.1.2636.3.59.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-07-12 20:22",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "jnxNatNotifications": {
+    "name": "jnxNatNotifications",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.0",
+    "class": "objectidentity"
+  },
+  "jnxNatObjects": {
+    "name": "jnxNatObjects",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1",
+    "class": "objectidentity"
+  },
+  "jnxNatTrapVars": {
+    "name": "jnxNatTrapVars",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.2",
+    "class": "objectidentity"
+  },
+  "jnxSrcNatStatsTable": {
+    "name": "jnxSrcNatStatsTable",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxSrcNatStatsEntry": {
+    "name": "jnxSrcNatStatsEntry",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-NAT-MIB",
+        "object": "jnxNatSrcPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxNatSrcPoolName": {
+    "name": "jnxNatSrcPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxNatSrcXlatedAddrType": {
+    "name": "jnxNatSrcXlatedAddrType",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatSrcPoolType": {
+    "name": "jnxNatSrcPoolType",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic-napt": 2,
+          "dynamic-nat": 3,
+          "basic-nat44": 11,
+          "dynamic-nat44": 12,
+          "napt-44": 13,
+          "dnat-44": 14,
+          "stateful-nat64": 15,
+          "stateless-nat64": 16,
+          "basic-nat-pt": 17,
+          "napt-pt": 18,
+          "basic-nat66": 19,
+          "stateless-nat66": 20,
+          "napt-66": 21,
+          "twice-napt-44": 22,
+          "twice-basic-nat-44": 23,
+          "twice-dynamic-nat-44": 24,
+          "det-napt44": 25,
+          "sd-napt44": 26
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatSrcNumPortAvail": {
+    "name": "jnxNatSrcNumPortAvail",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatSrcNumPortInuse": {
+    "name": "jnxNatSrcNumPortInuse",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatSrcNumAddressAvail": {
+    "name": "jnxNatSrcNumAddressAvail",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatSrcNumAddressInUse": {
+    "name": "jnxNatSrcNumAddressInUse",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatSrcNumSessions": {
+    "name": "jnxNatSrcNumSessions",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatRuleTable": {
+    "name": "jnxNatRuleTable",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxNatRuleEntry": {
+    "name": "jnxNatRuleEntry",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-NAT-MIB",
+        "object": "jnxNatRuleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxNatRuleName": {
+    "name": "jnxNatRuleName",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxNatRuleType": {
+    "name": "jnxNatRuleType",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static-source": 1,
+          "static-destination": 2,
+          "dynamic-source": 3,
+          "napt": 4,
+          "basic-nat44": 11,
+          "dynamic-nat44": 12,
+          "napt-44": 13,
+          "dnat-44": 14,
+          "stateful-nat64": 15,
+          "stateless-nat64": 16,
+          "basic-nat-pt": 17,
+          "napt-pt": 18,
+          "basic-nat66": 19,
+          "stateless-nat66": 20,
+          "napt-66": 21,
+          "twice-napt-44": 22,
+          "twice-basic-nat-44": 23,
+          "twice-dynamic-nat-44": 24,
+          "det-napt44": 25,
+          "sd-napt44": 26
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatRuleTransHits": {
+    "name": "jnxNatRuleTransHits",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatPoolTable": {
+    "name": "jnxNatPoolTable",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxNatPoolEntry": {
+    "name": "jnxNatPoolEntry",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-NAT-MIB",
+        "object": "jnxNatPoolName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxNatPoolName": {
+    "name": "jnxNatPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxNatPoolType": {
+    "name": "jnxNatPoolType",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static-source": 1,
+          "static-destination": 2,
+          "dynamic-source": 3,
+          "napt": 4,
+          "basic-nat44": 11,
+          "dynamic-nat44": 12,
+          "napt-44": 13,
+          "dnat-44": 14,
+          "stateful-nat64": 15,
+          "stateless-nat64": 16,
+          "basic-nat-pt": 17,
+          "napt-pt": 18,
+          "basic-nat66": 19,
+          "stateless-nat66": 20,
+          "napt-66": 21,
+          "twice-napt-44": 22,
+          "twice-basic-nat-44": 23,
+          "twice-dynamic-nat-44": 24,
+          "det-napt44": 25,
+          "sd-napt44": 26
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatPoolTransHits": {
+    "name": "jnxNatPoolTransHits",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxNatAddrPoolUtil": {
+    "name": "jnxNatAddrPoolUtil",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxNatTrapSrcPoolName": {
+    "name": "jnxNatTrapSrcPoolName",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxNatAddrPoolThresholdStatus": {
+    "name": "jnxNatAddrPoolThresholdStatus",
+    "oid": "1.3.6.1.4.1.2636.3.59.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-NAT-MIB",
+        "object": "jnxNatTrapSrcPoolName"
+      },
+      {
+        "module": "JUNIPER-NAT-MIB",
+        "object": "jnxNatAddrPoolUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-NAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-NAT-MIB"
+  }
+}

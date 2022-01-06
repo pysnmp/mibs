@@ -1,0 +1,176 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwSystem"
+    ]
+  },
+  "vmwSystemMIB": {
+    "name": "vmwSystemMIB",
+    "oid": "1.3.6.1.4.1.6876.1.10",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-08-02 00:00",
+        "description": "Add vmwProdPatch managed object to report patch level"
+      },
+      {
+        "revision": "2008-01-12 00:00",
+        "description": "Add to comments the Managed Object Browser (MOB) URLs which provide data this MIB module exposes."
+      },
+      {
+        "revision": "2007-12-27 00:00",
+        "description": "This is the first revision in SMIv2 format. One object (vmwProdOID) has been dropped from the original SMIv1 version as it duplicates sysObjectId from SNMPv2-MIB."
+      }
+    ]
+  },
+  "vmwProdName": {
+    "name": "vmwProdName",
+    "oid": "1.3.6.1.4.1.6876.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwProdVersion": {
+    "name": "vmwProdVersion",
+    "oid": "1.3.6.1.4.1.6876.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwProdBuild": {
+    "name": "vmwProdBuild",
+    "oid": "1.3.6.1.4.1.6876.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwProdUpdate": {
+    "name": "vmwProdUpdate",
+    "oid": "1.3.6.1.4.1.6876.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwProdPatch": {
+    "name": "vmwProdPatch",
+    "oid": "1.3.6.1.4.1.6876.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwSystemMIBConformance": {
+    "name": "vmwSystemMIBConformance",
+    "oid": "1.3.6.1.4.1.6876.1.10.2",
+    "class": "objectidentity"
+  },
+  "vmwSystemMIBCompliances": {
+    "name": "vmwSystemMIBCompliances",
+    "oid": "1.3.6.1.4.1.6876.1.10.2.1",
+    "class": "objectidentity"
+  },
+  "vmwSysMIBGroups": {
+    "name": "vmwSysMIBGroups",
+    "oid": "1.3.6.1.4.1.6876.1.10.2.2",
+    "class": "objectidentity"
+  },
+  "vmwSysMIBBasicCompliance": {
+    "name": "vmwSysMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.6876.1.10.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwSystemGroup",
+        "module": "VMWARE-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vmwSystemGroup": {
+    "name": "vmwSystemGroup",
+    "oid": "1.3.6.1.4.1.6876.1.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "object": "vmwProdName"
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "object": "vmwProdVersion"
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "object": "vmwProdBuild"
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "object": "vmwProdUpdate"
+      },
+      {
+        "module": "VMWARE-SYSTEM-MIB",
+        "object": "vmwProdPatch"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VMWARE-SYSTEM-MIB"
+  }
+}

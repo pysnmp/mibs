@@ -1,0 +1,5767 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "BridgeId",
+      "Timeout"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "enterprises",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "BITS",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "RowStatus",
+      "TruthValue"
+    ]
+  },
+  "GponAlarmInstance": {
+    "name": "GponAlarmInstance",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "GponAlarmCode": {
+    "name": "GponAlarmCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "GponSeverityType": {
+    "name": "GponSeverityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "info": 5,
+          "clear": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TAddress": {
+    "name": "TAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "GponCardIndex": {
+    "name": "GponCardIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "GponPortIndex": {
+    "name": "GponPortIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "GponDeviceIndex": {
+    "name": "GponDeviceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AutoNegotiationTechAbility": {
+    "name": "AutoNegotiationTechAbility",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "tenBaseTFullDuplex": 1,
+        "tenBaseTHalfDuplex": 2,
+        "hundredBaseTFullDuplex": 3,
+        "hundredBaseTHalfDuplex": 4,
+        "thousandBaseTFullDuplex": 5,
+        "thousandBaseTHalfDuplex": 6,
+        "thousandBaseXFullDuplex": 7,
+        "thousandBaseXHalfDuplex": 8,
+        "fdxPause": 9,
+        "fdxApause": 10,
+        "fdxSpause": 11,
+        "fdxBpause": 12
+      }
+    },
+    "status": "current"
+  },
+  "GponStats15MinRecordType": {
+    "name": "GponStats15MinRecordType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "GponStats24HourRecordType": {
+    "name": "GponStats24HourRecordType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "GponStatsThresholdType": {
+    "name": "GponStatsThresholdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "nscrtvRoot": {
+    "name": "nscrtvRoot",
+    "oid": "1.3.6.1.4.1.17409",
+    "class": "objectidentity"
+  },
+  "nscrtvHFCemsTree": {
+    "name": "nscrtvHFCemsTree",
+    "oid": "1.3.6.1.4.1.17409.1",
+    "class": "objectidentity"
+  },
+  "nscrtvFTTxTree": {
+    "name": "nscrtvFTTxTree",
+    "oid": "1.3.6.1.4.1.17409.2",
+    "class": "objectidentity"
+  },
+  "propertyIdent": {
+    "name": "propertyIdent",
+    "oid": "1.3.6.1.4.1.17409.2.1",
+    "class": "objectidentity"
+  },
+  "alarmsIdent": {
+    "name": "alarmsIdent",
+    "oid": "1.3.6.1.4.1.17409.2.2",
+    "class": "objectidentity"
+  },
+  "gponAlarmTree": {
+    "name": "gponAlarmTree",
+    "oid": "1.3.6.1.4.1.17409.2.2.12",
+    "class": "objectidentity"
+  },
+  "gponTrapObjectGroup": {
+    "name": "gponTrapObjectGroup",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1",
+    "class": "objectidentity"
+  },
+  "gponNotifications": {
+    "name": "gponNotifications",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.1",
+    "class": "objectidentity"
+  },
+  "gponAlarmNotification": {
+    "name": "gponAlarmNotification",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapSequenceNumber"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapOccurTime"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapCode"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapInstance"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapSeverity"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapCorrelationId"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapAdditionalText"
+      }
+    ],
+    "status": "current"
+  },
+  "gponEventNotification": {
+    "name": "gponEventNotification",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapSequenceNumber"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapOccurTime"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapCode"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapInstance"
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrapAdditionalText"
+      }
+    ],
+    "status": "current"
+  },
+  "gponTrapObjects": {
+    "name": "gponTrapObjects",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2",
+    "class": "objectidentity"
+  },
+  "gponTrapInstance": {
+    "name": "gponTrapInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "gponTrapCorrelationId": {
+    "name": "gponTrapCorrelationId",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "gponTrapAdditionalText": {
+    "name": "gponTrapAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "gponTrapCode": {
+    "name": "gponTrapCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "gponTrapSeverity": {
+    "name": "gponTrapSeverity",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "gponTrapOccurTime": {
+    "name": "gponTrapOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "gponTrapSequenceNumber": {
+    "name": "gponTrapSequenceNumber",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "gponAlarmObjGroup": {
+    "name": "gponAlarmObjGroup",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2",
+    "class": "objectidentity"
+  },
+  "gponActiveAlarmTable": {
+    "name": "gponActiveAlarmTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponActiveAlarmEntry": {
+    "name": "gponActiveAlarmEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponActiveAlarmSeqNum",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponActiveAlarmRaisingNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponActiveAlarmSeqNum": {
+    "name": "gponActiveAlarmSeqNum",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponActiveAlarmCode": {
+    "name": "gponActiveAlarmCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponActiveAlarmInstance": {
+    "name": "gponActiveAlarmInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponActiveAlarmSeverity": {
+    "name": "gponActiveAlarmSeverity",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponActiveAlarmRaisingNumber": {
+    "name": "gponActiveAlarmRaisingNumber",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponActiveAlarmFirstOccurTime": {
+    "name": "gponActiveAlarmFirstOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponActiveAlarmLastOccurTime": {
+    "name": "gponActiveAlarmLastOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponActiveAlarmRepeats": {
+    "name": "gponActiveAlarmRepeats",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponActiveAlarmConfirm": {
+    "name": "gponActiveAlarmConfirm",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponActiveAlarmAdditionalText": {
+    "name": "gponActiveAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmTable": {
+    "name": "gponHistoryAlarmTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponHistoryAlarmEntry": {
+    "name": "gponHistoryAlarmEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponHistoryAlarmSeqNum",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponHistoryAlarmRaisingNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponHistoryAlarmSeqNum": {
+    "name": "gponHistoryAlarmSeqNum",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponHistoryAlarmCode": {
+    "name": "gponHistoryAlarmCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmInstance": {
+    "name": "gponHistoryAlarmInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmSeverity": {
+    "name": "gponHistoryAlarmSeverity",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponSeverityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmRaisingNumber": {
+    "name": "gponHistoryAlarmRaisingNumber",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponHistoryAlarmFirstOccurTime": {
+    "name": "gponHistoryAlarmFirstOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmLastOccurTime": {
+    "name": "gponHistoryAlarmLastOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmRepeats": {
+    "name": "gponHistoryAlarmRepeats",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmCorrelationId": {
+    "name": "gponHistoryAlarmCorrelationId",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmAdditionalText": {
+    "name": "gponHistoryAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponHistoryAlarmClearTime": {
+    "name": "gponHistoryAlarmClearTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponEventLogTable": {
+    "name": "gponEventLogTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponEventLogEntry": {
+    "name": "gponEventLogEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponEventSeqNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponEventSeqNum": {
+    "name": "gponEventSeqNum",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponEventCode": {
+    "name": "gponEventCode",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponEventInstance": {
+    "name": "gponEventInstance",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponAlarmInstance",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponEventOccurTime": {
+    "name": "gponEventOccurTime",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponEventAdditionalText": {
+    "name": "gponEventAdditionalText",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponManagementObjGroup": {
+    "name": "gponManagementObjGroup",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.3",
+    "class": "objectidentity"
+  },
+  "gponManagementAddrTable": {
+    "name": "gponManagementAddrTable",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponManagementAddrEntry": {
+    "name": "gponManagementAddrEntry",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponManagementAddrName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponManagementAddrName": {
+    "name": "gponManagementAddrName",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponManagementAddrTAddress": {
+    "name": "gponManagementAddrTAddress",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponManagementAddrCommunity": {
+    "name": "gponManagementAddrCommunity",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponManagementAddrRowStatus": {
+    "name": "gponManagementAddrRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.2.12.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponTree": {
+    "name": "gponTree",
+    "oid": "1.3.6.1.4.1.17409.2.8",
+    "class": "objectidentity"
+  },
+  "gponPonPortObjects": {
+    "name": "gponPonPortObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.3",
+    "class": "objectidentity"
+  },
+  "gponOnuAuthenticationModeTable": {
+    "name": "gponOnuAuthenticationModeTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuAuthenticationModeEntry": {
+    "name": "gponOnuAuthenticationModeEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponAuthenDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponAuthenCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponAuthenPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponAuthenDeviceIndex": {
+    "name": "gponAuthenDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponAuthenCardIndex": {
+    "name": "gponAuthenCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponAuthenPortIndex": {
+    "name": "gponAuthenPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuAuthenMode": {
+    "name": "gponOnuAuthenMode",
+    "oid": "1.3.6.1.4.1.17409.2.8.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sn": 1,
+          "sn-pwd": 2,
+          "loid": 3,
+          "loid-pwd": 4,
+          "pwd": 5,
+          "auto": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponAutoFindEnable": {
+    "name": "gponAutoFindEnable",
+    "oid": "1.3.6.1.4.1.17409.2.8.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponOnuObjects": {
+    "name": "gponOnuObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.4",
+    "class": "objectidentity"
+  },
+  "gponOnuInfoTable": {
+    "name": "gponOnuInfoTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuInfoEntry": {
+    "name": "gponOnuInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuDeviceIndex": {
+    "name": "onuDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuName": {
+    "name": "onuName",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuSerialNum": {
+    "name": "onuSerialNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuType": {
+    "name": "onuType",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "chassisBased": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuVendorID": {
+    "name": "onuVendorID",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuEquipmentID": {
+    "name": "onuEquipmentID",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuOperationStatus": {
+    "name": "onuOperationStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAdminStatus": {
+    "name": "onuAdminStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuTestDistance": {
+    "name": "onuTestDistance",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Meter",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "resetONU": {
+    "name": "resetONU",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuDeactive": {
+    "name": "onuDeactive",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "deactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuTimeSinceLastRegister": {
+    "name": "onuTimeSinceLastRegister",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuSysUpTime": {
+    "name": "onuSysUpTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuHardwareVersion": {
+    "name": "onuHardwareVersion",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuPerfStats15minuteEnable": {
+    "name": "onuPerfStats15minuteEnable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuPerfStats24hourEnable": {
+    "name": "onuPerfStats24hourEnable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuInfoSoftwareTable": {
+    "name": "onuInfoSoftwareTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuInfoSoftwareEntry": {
+    "name": "onuInfoSoftwareEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuSoftwareDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuSoftwareDeviceIndex": {
+    "name": "onuSoftwareDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuSoftware0Version": {
+    "name": "onuSoftware0Version",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuSoftware0Valid": {
+    "name": "onuSoftware0Valid",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "valid": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuSoftware0Active": {
+    "name": "onuSoftware0Active",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuSoftware0Commited": {
+    "name": "onuSoftware0Commited",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uncommitted": 0,
+          "committed": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuSoftware1Version": {
+    "name": "onuSoftware1Version",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuSoftware1Valid": {
+    "name": "onuSoftware1Valid",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "valid": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuSoftware1Active": {
+    "name": "onuSoftware1Active",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuSoftware1Commited": {
+    "name": "onuSoftware1Commited",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uncommitted": 0,
+          "committed": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostTable": {
+    "name": "onuIpHostTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuIpHostEntry": {
+    "name": "onuIpHostEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuIpHostDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuIpHostIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuIpHostDeviceIndex": {
+    "name": "onuIpHostDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuIpHostIndex": {
+    "name": "onuIpHostIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuIpHostAddressConfigMode": {
+    "name": "onuIpHostAddressConfigMode",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostAddress": {
+    "name": "onuIpHostAddress",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostSubnetMask": {
+    "name": "onuIpHostSubnetMask",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostGateway": {
+    "name": "onuIpHostGateway",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostPrimaryDNS": {
+    "name": "onuIpHostPrimaryDNS",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostSecondaryDNS": {
+    "name": "onuIpHostSecondaryDNS",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostVlanTagPriority": {
+    "name": "onuIpHostVlanTagPriority",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostVlanPvid": {
+    "name": "onuIpHostVlanPvid",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuIpHostMacAddress": {
+    "name": "onuIpHostMacAddress",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuIpHostRowStatus": {
+    "name": "onuIpHostRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuPonPortOpticalTransmissionPropertyTable": {
+    "name": "gponOnuPonPortOpticalTransmissionPropertyTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuPonPortOpticalTransmissionPropertyEntry": {
+    "name": "gponOnuPonPortOpticalTransmissionPropertyEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuPonPortOpticalTransmissionPropertyDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuPonPortOpticalTransmissionPropertyCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuPonPortOpticalTransmissionPropertyPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuPonPortOpticalTransmissionPropertyDeviceIndex": {
+    "name": "onuPonPortOpticalTransmissionPropertyDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuPonPortOpticalTransmissionPropertyCardIndex": {
+    "name": "onuPonPortOpticalTransmissionPropertyCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuPonPortOpticalTransmissionPropertyPortIndex": {
+    "name": "onuPonPortOpticalTransmissionPropertyPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuReceivedOpticalPower": {
+    "name": "onuReceivedOpticalPower",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "centi-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTramsmittedOpticalPower": {
+    "name": "onuTramsmittedOpticalPower",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "centi-dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuBiasCurrent": {
+    "name": "onuBiasCurrent",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "centi-mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuWorkingVoltage": {
+    "name": "onuWorkingVoltage",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "centi-mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuWorkingTemperature": {
+    "name": "onuWorkingTemperature",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Centi-degree centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuCapabilityTable": {
+    "name": "onuCapabilityTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuCapabilityEntry": {
+    "name": "onuCapabilityEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuCapabilityDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuCapabilityDeviceIndex": {
+    "name": "onuCapabilityDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuOMCCVersion": {
+    "name": "onuOMCCVersion",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTotalEthNum": {
+    "name": "onuTotalEthNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTotalWlanNum": {
+    "name": "onuTotalWlanNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTotalCatvNum": {
+    "name": "onuTotalCatvNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTotalVeipNum": {
+    "name": "onuTotalVeipNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuIpHostNum": {
+    "name": "onuIpHostNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTrafficMgmtOption": {
+    "name": "onuTrafficMgmtOption",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTotalGEMPortNum": {
+    "name": "onuTotalGEMPortNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuTotalTContNum": {
+    "name": "onuTotalTContNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuConnectCapbility": {
+    "name": "onuConnectCapbility",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "nto1": 0,
+        "ntom": 3,
+        "ntop": 5,
+        "ntomp": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuQosFlexibility": {
+    "name": "onuQosFlexibility",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "priorityQueueME": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAuthenticationManagement": {
+    "name": "onuAuthenticationManagement",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "onuAuthenticationConfigTable": {
+    "name": "onuAuthenticationConfigTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthenticationConfigEntry": {
+    "name": "onuAuthenticationConfigEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuAuthenOnuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuAuthenOnuId": {
+    "name": "onuAuthenOnuId",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAuthenSN": {
+    "name": "onuAuthenSN",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthenPassword": {
+    "name": "onuAuthenPassword",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthenLoid": {
+    "name": "onuAuthenLoid",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthenLoidPassword": {
+    "name": "onuAuthenLoidPassword",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthenLineProfileId": {
+    "name": "onuAuthenLineProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthenSrvProfileId": {
+    "name": "onuAuthenSrvProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAuthenRowStatus": {
+    "name": "onuAuthenRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuAutoFindTable": {
+    "name": "onuAutoFindTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAutoFindEntry": {
+    "name": "onuAutoFindEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuAutoFindOnuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuAutoFindOnuIndex": {
+    "name": "onuAutoFindOnuIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAutoFindOnuType": {
+    "name": "onuAutoFindOnuType",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoFindSerialNumber": {
+    "name": "onuAutoFindSerialNumber",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoFindPassword": {
+    "name": "onuAutoFindPassword",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoFindLoid": {
+    "name": "onuAutoFindLoid",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoFindLoidPassword": {
+    "name": "onuAutoFindLoidPassword",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoFindTime": {
+    "name": "onuAutoFindTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoFindSoftwareVersion": {
+    "name": "onuAutoFindSoftwareVersion",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoFindHardwareVersion": {
+    "name": "onuAutoFindHardwareVersion",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "onuAutoAuthenticationTable": {
+    "name": "onuAutoAuthenticationTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAutoAuthenticationEntry": {
+    "name": "onuAutoAuthenticationEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuAutoAuthenIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuAutoAuthenIndex": {
+    "name": "onuAutoAuthenIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuAutoAuthenPortlist": {
+    "name": "onuAutoAuthenPortlist",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenOnuType": {
+    "name": "onuAutoAuthenOnuType",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenEthNum": {
+    "name": "onuAutoAuthenEthNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenWlanNum": {
+    "name": "onuAutoAuthenWlanNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenCatvNum": {
+    "name": "onuAutoAuthenCatvNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenVeipNum": {
+    "name": "onuAutoAuthenVeipNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenLineProfileId": {
+    "name": "onuAutoAuthenLineProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenSrvProfileId": {
+    "name": "onuAutoAuthenSrvProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "onuAutoAuthenRowStatus": {
+    "name": "onuAutoAuthenRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.4.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponUniObjects": {
+    "name": "gponUniObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.5",
+    "class": "objectidentity"
+  },
+  "ethAttributeTable": {
+    "name": "ethAttributeTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethAttributeEntry": {
+    "name": "ethAttributeEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "ethAttributeDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "ethAttributeCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "ethAttributePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ethAttributeDeviceIndex": {
+    "name": "ethAttributeDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethAttributeCardIndex": {
+    "name": "ethAttributeCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethAttributePortIndex": {
+    "name": "ethAttributePortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ethAdminStatus": {
+    "name": "ethAdminStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethOperationStatus": {
+    "name": "ethOperationStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ethDuplexRate": {
+    "name": "ethDuplexRate",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethPerfStats15minuteEnable": {
+    "name": "ethPerfStats15minuteEnable",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ethPerfStats24hourEnable": {
+    "name": "ethPerfStats24hourEnable",
+    "oid": "1.3.6.1.4.1.17409.2.8.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponIgmpManagementObjects": {
+    "name": "gponIgmpManagementObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.6",
+    "class": "objectidentity"
+  },
+  "gponOnuIgmpProfile": {
+    "name": "gponOnuIgmpProfile",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "gponOnuIgmpProfileTable": {
+    "name": "gponOnuIgmpProfileTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuIgmpProfileEntry": {
+    "name": "gponOnuIgmpProfileEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponOnuIgmpProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponOnuIgmpProfileIndex": {
+    "name": "gponOnuIgmpProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuIgmpProfileName": {
+    "name": "gponOnuIgmpProfileName",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuIgmpVersion": {
+    "name": "gponOnuIgmpVersion",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igmp-v1": 1,
+          "igmp-v2": 2,
+          "igmp-v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpFunction": {
+    "name": "gponOnuIgmpFunction",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "snooping": 1,
+          "spr": 2,
+          "proxy": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpImmediateLeave": {
+    "name": "gponOnuIgmpImmediateLeave",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpUpstreamProtoTCI": {
+    "name": "gponOnuIgmpUpstreamProtoTCI",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpUpstreamProtoTagControl": {
+    "name": "gponOnuIgmpUpstreamProtoTagControl",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass-through": 1,
+          "add-vlan": 2,
+          "replace-tci": 3,
+          "replace-vlan": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pass-through",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpUpstreamProtoRate": {
+    "name": "gponOnuIgmpUpstreamProtoRate",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "pps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpDynamicACL": {
+    "name": "gponOnuIgmpDynamicACL",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpStaticACL": {
+    "name": "gponOnuIgmpStaticACL",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpRobustness": {
+    "name": "gponOnuIgmpRobustness",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpQueryInterval": {
+    "name": "gponOnuIgmpQueryInterval",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 125,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpQueryMaxResponseTime": {
+    "name": "gponOnuIgmpQueryMaxResponseTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpLastMemberQueryInterval": {
+    "name": "gponOnuIgmpLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpUnautherizedJoin": {
+    "name": "gponOnuIgmpUnautherizedJoin",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpDownstreamTCI": {
+    "name": "gponOnuIgmpDownstreamTCI",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpDownstreamTagControl": {
+    "name": "gponOnuIgmpDownstreamTagControl",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pass-through": 1,
+          "strip-vlan": 2,
+          "add-vlan": 3,
+          "replace-tci": 4,
+          "replace-vlan": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pass-through",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpMaxRequestChannelNum": {
+    "name": "gponOnuIgmpMaxRequestChannelNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpGlobalBW": {
+    "name": "gponOnuIgmpGlobalBW",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuIgmpRowStatus": {
+    "name": "gponOnuIgmpRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponOnuMulticastACLTable": {
+    "name": "gponOnuMulticastACLTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponOnuMulticastACLEntry": {
+    "name": "gponOnuMulticastACLEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "multicastACLIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "multicastACLIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "multicastACLIndex": {
+    "name": "multicastACLIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multicastACLRuleIndex": {
+    "name": "multicastACLRuleIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multicastACLRuleName": {
+    "name": "multicastACLRuleName",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vlanID": {
+    "name": "vlanID",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "sourceIpAddress": {
+    "name": "sourceIpAddress",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "destinationIpAddressStart": {
+    "name": "destinationIpAddressStart",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "destinationIpAddressEnd": {
+    "name": "destinationIpAddressEnd",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "previewLenAndAuthority": {
+    "name": "previewLenAndAuthority",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "previewRepeatTime": {
+    "name": "previewRepeatTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "previewResetTime": {
+    "name": "previewResetTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "previewCount": {
+    "name": "previewCount",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "imputedGroupBandwidth": {
+    "name": "imputedGroupBandwidth",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "Bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "multicastACLRuleStatus": {
+    "name": "multicastACLRuleStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponIgmpOnuUniTable": {
+    "name": "gponIgmpOnuUniTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponIgmpOnuUniEntry": {
+    "name": "gponIgmpOnuUniEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponUniDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponUniCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponUniPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponUniDeviceIndex": {
+    "name": "gponUniDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponUniCardIndex": {
+    "name": "gponUniCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponUniPortIndex": {
+    "name": "gponUniPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponUniIgmpProfileIndex": {
+    "name": "gponUniIgmpProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponUniRowstatus": {
+    "name": "gponUniRowstatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "igmpOnuMulticastInfoTable": {
+    "name": "igmpOnuMulticastInfoTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "igmpOnuMulticastInfoEntry": {
+    "name": "igmpOnuMulticastInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuMcInfoDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuMcInfoCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuMcInfoPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "onuMcInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "onuMcInfoDeviceIndex": {
+    "name": "onuMcInfoDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuMcInfoCardIndex": {
+    "name": "onuMcInfoCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "onuMcInfoPortIndex": {
+    "name": "onuMcInfoPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuMcInfoIndex": {
+    "name": "onuMcInfoIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuMcInfoSrcIp": {
+    "name": "onuMcInfoSrcIp",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuMcInfoMcDstIp": {
+    "name": "onuMcInfoMcDstIp",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuMcInfoMvlanVid": {
+    "name": "onuMcInfoMvlanVid",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "onuMcInfoClientIp": {
+    "name": "onuMcInfoClientIp",
+    "oid": "1.3.6.1.4.1.17409.2.8.6.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponPerformanceStatisticObjects": {
+    "name": "gponPerformanceStatisticObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.10",
+    "class": "objectidentity"
+  },
+  "gponPerfStatsThresholdTable": {
+    "name": "gponPerfStatsThresholdTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponPerfStatsThresholdEntry": {
+    "name": "gponPerfStatsThresholdEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponPerfStatsThresholdDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponPerfStatsThresholdCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponPerfStatsThresholdPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponPerfStatsThresholdTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponPerfStatsThresholdDeviceIndex": {
+    "name": "gponPerfStatsThresholdDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponPerfStatsThresholdCardIndex": {
+    "name": "gponPerfStatsThresholdCardIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponCardIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponPerfStatsThresholdPortIndex": {
+    "name": "gponPerfStatsThresholdPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponPortIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponPerfStatsThresholdTypeIndex": {
+    "name": "gponPerfStatsThresholdTypeIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponStatsThresholdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponPerfStatsThresholdUpper": {
+    "name": "gponPerfStatsThresholdUpper",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponPerfStatsThresholdLower": {
+    "name": "gponPerfStatsThresholdLower",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponPerfStatsThresholdRowStatus": {
+    "name": "gponPerfStatsThresholdRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "curStatsGemPortTable": {
+    "name": "curStatsGemPortTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "curStatsGemPortEntry": {
+    "name": "curStatsGemPortEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "curStatsGemPortDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "curStatsGemPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "curStatsGemPortDeviceIndex": {
+    "name": "curStatsGemPortDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "curStatsGemPortIndex": {
+    "name": "curStatsGemPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "curStatsGemPortOutGemFrames": {
+    "name": "curStatsGemPortOutGemFrames",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curStatsGemPortInGemFrames": {
+    "name": "curStatsGemPortInGemFrames",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curStatsGemPortOutBytes": {
+    "name": "curStatsGemPortOutBytes",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curStatsGemPortInBytes": {
+    "name": "curStatsGemPortInBytes",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "curStatsGemPortStatusAndAction": {
+    "name": "curStatsGemPortStatusAndAction",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "cleandata": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stats15GemPortTable": {
+    "name": "stats15GemPortTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats15GemPortEntry": {
+    "name": "stats15GemPortEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "stats15GemPortDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "stats15GemPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "stats15GemPortStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stats15GemPortDeviceIndex": {
+    "name": "stats15GemPortDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats15GemPortIndex": {
+    "name": "stats15GemPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats15GemPortStatIndex": {
+    "name": "stats15GemPortStatIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponStats15MinRecordType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats15GemPortOutGemFrames": {
+    "name": "stats15GemPortOutGemFrames",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats15GemPortInGemFrames": {
+    "name": "stats15GemPortInGemFrames",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats15GemPortOutBytes": {
+    "name": "stats15GemPortOutBytes",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats15GemPortInBytes": {
+    "name": "stats15GemPortInBytes",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats15GemPortStatusAndAction": {
+    "name": "stats15GemPortStatusAndAction",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "cleandata": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stats15GemPortValidityTag": {
+    "name": "stats15GemPortValidityTag",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats15GemPortElapsedTime": {
+    "name": "stats15GemPortElapsedTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats15GemPortEndTime": {
+    "name": "stats15GemPortEndTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats24GemPortTable": {
+    "name": "stats24GemPortTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats24GemPortEntry": {
+    "name": "stats24GemPortEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "stats24GemPortDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "stats24GemPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "stats24GemPortStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stats24GemPortDeviceIndex": {
+    "name": "stats24GemPortDeviceIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponDeviceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats24GemPortIndex": {
+    "name": "stats24GemPortIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats24GemPortStatIndex": {
+    "name": "stats24GemPortStatIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GponStats24HourRecordType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stats24GemPortOutGemFrames": {
+    "name": "stats24GemPortOutGemFrames",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats24GemPortInGemFrames": {
+    "name": "stats24GemPortInGemFrames",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats24GemPortOutBytes": {
+    "name": "stats24GemPortOutBytes",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats24GemPortInBytes": {
+    "name": "stats24GemPortInBytes",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats24GemPortStatusAndAction": {
+    "name": "stats24GemPortStatusAndAction",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "cleandata": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "stats24GemPortValidityTag": {
+    "name": "stats24GemPortValidityTag",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats24GemPortElapsedTime": {
+    "name": "stats24GemPortElapsedTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stats24GemPortEndTime": {
+    "name": "stats24GemPortEndTime",
+    "oid": "1.3.6.1.4.1.17409.2.8.10.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponProfileObjects": {
+    "name": "gponProfileObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.11",
+    "class": "objectidentity"
+  },
+  "gponDbaProfileObjects": {
+    "name": "gponDbaProfileObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1",
+    "class": "objectidentity"
+  },
+  "gponDbaProfileInfoTable": {
+    "name": "gponDbaProfileInfoTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponDbaProfileInfoEntry": {
+    "name": "gponDbaProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponDbaProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponDbaProfileId": {
+    "name": "gponDbaProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponDbaProfileName": {
+    "name": "gponDbaProfileName",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponDbaProfileType": {
+    "name": "gponDbaProfileType",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fix": 1,
+          "assure": 2,
+          "assureAndMax": 3,
+          "max": 4,
+          "fixAndAssureAndMax": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponDbaProfileFixRate": {
+    "name": "gponDbaProfileFixRate",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "kbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponDbaProfileAssureRate": {
+    "name": "gponDbaProfileAssureRate",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "kbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponDbaProfileMaxRate": {
+    "name": "gponDbaProfileMaxRate",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "kbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponDbaProfileBindNum": {
+    "name": "gponDbaProfileBindNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponDbaProfileRowStatus": {
+    "name": "gponDbaProfileRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponLineProfileObjects": {
+    "name": "gponLineProfileObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2",
+    "class": "objectidentity"
+  },
+  "gponLineProfileInfoTable": {
+    "name": "gponLineProfileInfoTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileInfoEntry": {
+    "name": "gponLineProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponLineProfileId": {
+    "name": "gponLineProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileName": {
+    "name": "gponLineProfileName",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileUpstreamFECMode": {
+    "name": "gponLineProfileUpstreamFECMode",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileMappingMode": {
+    "name": "gponLineProfileMappingMode",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "priority": 2,
+          "vlan-priority": 3,
+          "port": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileTcontNum": {
+    "name": "gponLineProfileTcontNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponLineProfileGemNum": {
+    "name": "gponLineProfileGemNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponLineProfileBindNum": {
+    "name": "gponLineProfileBindNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponLineProfileRowStatus": {
+    "name": "gponLineProfileRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponLineProfileTcontTable": {
+    "name": "gponLineProfileTcontTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileTcontEntry": {
+    "name": "gponLineProfileTcontEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileTcontProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileTcontIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponLineProfileTcontProfileIndex": {
+    "name": "gponLineProfileTcontProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileTcontIndex": {
+    "name": "gponLineProfileTcontIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileTcontDbaProfileId": {
+    "name": "gponLineProfileTcontDbaProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileTcontRowStatus": {
+    "name": "gponLineProfileTcontRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponLineProfileGemTable": {
+    "name": "gponLineProfileGemTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileGemEntry": {
+    "name": "gponLineProfileGemEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileGemProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileGemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponLineProfileGemProfileIndex": {
+    "name": "gponLineProfileGemProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileGemIndex": {
+    "name": "gponLineProfileGemIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileGemEncrypt": {
+    "name": "gponLineProfileGemEncrypt",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconcern": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileGemTcontId": {
+    "name": "gponLineProfileGemTcontId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileGemQueuePri": {
+    "name": "gponLineProfileGemQueuePri",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileGemUpCar": {
+    "name": "gponLineProfileGemUpCar",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileGemDownCar": {
+    "name": "gponLineProfileGemDownCar",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileGemMapNum": {
+    "name": "gponLineProfileGemMapNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponLineProfileGemRowStatus": {
+    "name": "gponLineProfileGemRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponLineProfileGemMapTable": {
+    "name": "gponLineProfileGemMapTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileGemMapEntry": {
+    "name": "gponLineProfileGemMapEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileGemMapProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileGemMapGemIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponLineProfileGemMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponLineProfileGemMapProfileIndex": {
+    "name": "gponLineProfileGemMapProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileGemMapGemIndex": {
+    "name": "gponLineProfileGemMapGemIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileGemMapIndex": {
+    "name": "gponLineProfileGemMapIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponLineProfileGemMapVlan": {
+    "name": "gponLineProfileGemMapVlan",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponLineProfileGemMapPriority": {
+    "name": "gponLineProfileGemMapPriority",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponLineProfileGemMapPortType": {
+    "name": "gponLineProfileGemMapPortType",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 1,
+          "iphost": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponLineProfileGemMapPortId": {
+    "name": "gponLineProfileGemMapPortId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponLineProfileGemMapRowStatus": {
+    "name": "gponLineProfileGemMapRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponSrvProfileObjects": {
+    "name": "gponSrvProfileObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3",
+    "class": "objectidentity"
+  },
+  "gponSrvProfileInfoTable": {
+    "name": "gponSrvProfileInfoTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileInfoEntry": {
+    "name": "gponSrvProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfileId": {
+    "name": "gponSrvProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileName": {
+    "name": "gponSrvProfileName",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileBindNum": {
+    "name": "gponSrvProfileBindNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponSrvProfileRowStatus": {
+    "name": "gponSrvProfileRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponSrvProfileCfgTable": {
+    "name": "gponSrvProfileCfgTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileCfgEntry": {
+    "name": "gponSrvProfileCfgEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfileIndex": {
+    "name": "gponSrvProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileMacLearning": {
+    "name": "gponSrvProfileMacLearning",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconcern": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileMacAgeSeconds": {
+    "name": "gponSrvProfileMacAgeSeconds",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileLoopbackDetectCheck": {
+    "name": "gponSrvProfileLoopbackDetectCheck",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconcern": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfilePortNumTable": {
+    "name": "gponSrvProfilePortNumTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortNumEntry": {
+    "name": "gponSrvProfilePortNumEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortNumProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfilePortNumProfileIndex": {
+    "name": "gponSrvProfilePortNumProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileEthNum": {
+    "name": "gponSrvProfileEthNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileCatvNum": {
+    "name": "gponSrvProfileCatvNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileWlanNum": {
+    "name": "gponSrvProfileWlanNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileVeipNum": {
+    "name": "gponSrvProfileVeipNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortConfigTable": {
+    "name": "gponSrvProfileEthPortConfigTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortConfigEntry": {
+    "name": "gponSrvProfileEthPortConfigEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfileEthPortProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfileEthPortIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfileEthPortProfileIndex": {
+    "name": "gponSrvProfileEthPortProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortIdIndex": {
+    "name": "gponSrvProfileEthPortIdIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortMacLimited": {
+    "name": "gponSrvProfileEthPortMacLimited",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortMtu": {
+    "name": "gponSrvProfileEthPortMtu",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1518,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortFlowCtrl": {
+    "name": "gponSrvProfileEthPortFlowCtrl",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconcern": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortInTrafficProfileId": {
+    "name": "gponSrvProfileEthPortInTrafficProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfileEthPortOutTrafficProfileId": {
+    "name": "gponSrvProfileEthPortOutTrafficProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanObjects": {
+    "name": "gponSrvProfilePortVlanObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5",
+    "class": "objectidentity"
+  },
+  "gponSrvProfilePortVlanCfgTable": {
+    "name": "gponSrvProfilePortVlanCfgTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanCfgEntry": {
+    "name": "gponSrvProfilePortVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanPortTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanPortIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanProfileIndex": {
+    "name": "gponSrvProfilePortVlanProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanPortTypeIndex": {
+    "name": "gponSrvProfilePortVlanPortTypeIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 0,
+          "wlan": 1,
+          "catv": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanPortIdIndex": {
+    "name": "gponSrvProfilePortVlanPortIdIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanPvid": {
+    "name": "gponSrvProfilePortVlanPvid",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanPvidPri": {
+    "name": "gponSrvProfilePortVlanPvidPri",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanMode": {
+    "name": "gponSrvProfilePortVlanMode",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparent": 0,
+          "tag": 1,
+          "translate": 2,
+          "aggregation": 3,
+          "trunk": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTranslationTable": {
+    "name": "gponSrvProfilePortVlanTranslationTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTranslationEntry": {
+    "name": "gponSrvProfilePortVlanTranslationEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanTransProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanTransPortTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanTransPortIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanTransVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTransProfileIndex": {
+    "name": "gponSrvProfilePortVlanTransProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTransPortTypeIndex": {
+    "name": "gponSrvProfilePortVlanTransPortTypeIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 0,
+          "wlan": 1,
+          "catv": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTransPortIdIndex": {
+    "name": "gponSrvProfilePortVlanTransPortIdIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTransVlanIndex": {
+    "name": "gponSrvProfilePortVlanTransVlanIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTransNewVlan": {
+    "name": "gponSrvProfilePortVlanTransNewVlan",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTransRowStatus": {
+    "name": "gponSrvProfilePortVlanTransRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggregationTable": {
+    "name": "gponSrvProfilePortVlanAggregationTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggregationEntry": {
+    "name": "gponSrvProfilePortVlanAggregationEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanAggrProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanAggrPortTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanAggrPortIdIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanAggrVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggrProfileIndex": {
+    "name": "gponSrvProfilePortVlanAggrProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggrPortTypeIndex": {
+    "name": "gponSrvProfilePortVlanAggrPortTypeIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 0,
+          "wlan": 1,
+          "catv": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggrPortIdIndex": {
+    "name": "gponSrvProfilePortVlanAggrPortIdIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggrVlanIndex": {
+    "name": "gponSrvProfilePortVlanAggrVlanIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggrVlanList": {
+    "name": "gponSrvProfilePortVlanAggrVlanList",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanAggrRowStatus": {
+    "name": "gponSrvProfilePortVlanAggrRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTrunkTable": {
+    "name": "gponSrvProfilePortVlanTrunkTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTrunkEntry": {
+    "name": "gponSrvProfilePortVlanTrunkEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanTrunkProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanTrunkPortTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponSrvProfilePortVlanTrunkPortIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTrunkProfileIndex": {
+    "name": "gponSrvProfilePortVlanTrunkProfileIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTrunkPortTypeIndex": {
+    "name": "gponSrvProfilePortVlanTrunkPortTypeIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 0,
+          "wlan": 1,
+          "catv": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTrunkPortIdIndex": {
+    "name": "gponSrvProfilePortVlanTrunkPortIdIndex",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTrunkVlanList": {
+    "name": "gponSrvProfilePortVlanTrunkVlanList",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponSrvProfilePortVlanTrunkRowStatus": {
+    "name": "gponSrvProfilePortVlanTrunkRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.3.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "gponTrafficProfileObjects": {
+    "name": "gponTrafficProfileObjects",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4",
+    "class": "objectidentity"
+  },
+  "gponTrafficProfileInfoTable": {
+    "name": "gponTrafficProfileInfoTable",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponTrafficProfileInfoEntry": {
+    "name": "gponTrafficProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NSCRTV-FTTX-GPON-MIB",
+        "object": "gponTrafficProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "gponTrafficProfileId": {
+    "name": "gponTrafficProfileId",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "gponTrafficProfileName": {
+    "name": "gponTrafficProfileName",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponTrafficProfileCfgCir": {
+    "name": "gponTrafficProfileCfgCir",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "kbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponTrafficProfileCfgPir": {
+    "name": "gponTrafficProfileCfgPir",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "kbit/s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponTrafficProfileCfgCbs": {
+    "name": "gponTrafficProfileCfgCbs",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponTrafficProfileCfgPbs": {
+    "name": "gponTrafficProfileCfgPbs",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "byte",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponTrafficProfileCfgPriority": {
+    "name": "gponTrafficProfileCfgPriority",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gponTrafficProfileBindNum": {
+    "name": "gponTrafficProfileBindNum",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gponTrafficProfileRowStatus": {
+    "name": "gponTrafficProfileRowStatus",
+    "oid": "1.3.6.1.4.1.17409.2.8.11.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/NSCRTV-FTTX-GPON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NSCRTV-FTTX-GPON-MIB"
+  }
+}

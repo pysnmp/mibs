@@ -1,0 +1,4043 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-MIB": [
+      "atmInterfaceConfEntry",
+      "atmVclVci",
+      "atmVclVpi"
+    ],
+    "CISCO-IETF-ATM2-PVCTRAP-MIB": [
+      "atmIntfPvcFailures",
+      "atmIntfCurrentlyFailingPVcls"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtmPvcTrapExtnMIB": {
+    "name": "ciscoAtmPvcTrapExtnMIB",
+    "oid": "1.3.6.1.4.1.9.10.97",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-03-24 00:00",
+        "description": "Added support for separate segment and end AIS/RDI failure and recovery notifications catmIntfPvcSegAISRDIFailureTrap, catmIntfPvcEndAISRDIFailureTrap, catmIntfPvcSegAISRDIRecoverTrap, catmIntfPvcEndAISRDIRecoverTrap; added support for tables catmSegAISRDIStatChPVclRngeTable, catmEndAISRDIStatChPVclRngeTable, catmSegAISRDIStatUpPVclRngeTable, catmEndAISRDIStatUpPVclRngeTable to record various objects sent in the notifications associated with segment and end AIS/RDI failure and recivery."
+      },
+      {
+        "revision": "2003-01-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CatmOAMRecoveryType": {
+    "name": "CatmOAMRecoveryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "catmLoopbackOAMRecover": 1,
+          "catmSegmentCCOAMRecover": 2,
+          "catmEndCCOAMRecover": 4,
+          "catmAISRDIOAMRecover": 8,
+          "catmSegAISRDIOAMRecover": 16,
+          "catmEndAISRDIOAMRecover": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CatmOAMFailureType": {
+    "name": "CatmOAMFailureType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "catmLoopbackOAMFailure": 1,
+          "catmSegmentCCOAMFailure": 2,
+          "catmEndCCOAMFailure": 4,
+          "catmAISRDIOAMFailure": 8,
+          "catmSegAISRDIOAMFailure": 16,
+          "catmEndAISRDIOAMFailure": 32
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoAtmPvcTrapExtnMIBObjects": {
+    "name": "ciscoAtmPvcTrapExtnMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.97.1",
+    "class": "objectidentity"
+  },
+  "catmInterfaceExt2Table": {
+    "name": "catmInterfaceExt2Table",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmInterfaceExt2Entry": {
+    "name": "catmInterfaceExt2Entry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "catmInterfaceExt2Entry",
+      "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+      "object": "atmInterfaceConfEntry"
+    },
+    "status": "current"
+  },
+  "catmIntfCurrentlyDownToUpPVcls": {
+    "name": "catmIntfCurrentlyDownToUpPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfOAMFailedPVcls": {
+    "name": "catmIntfOAMFailedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurrentOAMFailingPVcls": {
+    "name": "catmIntfCurrentOAMFailingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfSegCCOAMFailedPVcls": {
+    "name": "catmIntfSegCCOAMFailedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurSegCCOAMFailingPVcls": {
+    "name": "catmIntfCurSegCCOAMFailingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfEndCCOAMFailedPVcls": {
+    "name": "catmIntfEndCCOAMFailedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurEndCCOAMFailingPVcls": {
+    "name": "catmIntfCurEndCCOAMFailingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfAISRDIOAMFailedPVcls": {
+    "name": "catmIntfAISRDIOAMFailedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurAISRDIOAMFailingPVcls": {
+    "name": "catmIntfCurAISRDIOAMFailingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfAnyOAMFailedPVcls": {
+    "name": "catmIntfAnyOAMFailedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurAnyOAMFailingPVcls": {
+    "name": "catmIntfCurAnyOAMFailingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfTypeOfOAMFailure": {
+    "name": "catmIntfTypeOfOAMFailure",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CatmOAMFailureType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfOAMRcovedPVcls": {
+    "name": "catmIntfOAMRcovedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurrentOAMRcovingPVcls": {
+    "name": "catmIntfCurrentOAMRcovingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfSegCCOAMRcovedPVcls": {
+    "name": "catmIntfSegCCOAMRcovedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurSegCCOAMRcovingPVcls": {
+    "name": "catmIntfCurSegCCOAMRcovingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfEndCCOAMRcovedPVcls": {
+    "name": "catmIntfEndCCOAMRcovedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurEndCCOAMRcovingPVcls": {
+    "name": "catmIntfCurEndCCOAMRcovingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfAISRDIOAMRcovedPVcls": {
+    "name": "catmIntfAISRDIOAMRcovedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurAISRDIOAMRcovingPVcls": {
+    "name": "catmIntfCurAISRDIOAMRcovingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfAnyOAMRcovedPVcls": {
+    "name": "catmIntfAnyOAMRcovedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurAnyOAMRcovingPVcls": {
+    "name": "catmIntfCurAnyOAMRcovingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfTypeOfOAMRecover": {
+    "name": "catmIntfTypeOfOAMRecover",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CatmOAMRecoveryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfSegAISRDIFailedPVcls": {
+    "name": "catmIntfSegAISRDIFailedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurSegAISRDIFailingPVcls": {
+    "name": "catmIntfCurSegAISRDIFailingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfEndAISRDIFailedPVcls": {
+    "name": "catmIntfEndAISRDIFailedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurEndAISRDIFailingPVcls": {
+    "name": "catmIntfCurEndAISRDIFailingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfSegAISRDIRcovedPVcls": {
+    "name": "catmIntfSegAISRDIRcovedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurSegAISRDIRcovingPVcls": {
+    "name": "catmIntfCurSegAISRDIRcovingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfEndAISRDIRcovedPVcls": {
+    "name": "catmIntfEndAISRDIRcovedPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmIntfCurEndAISRDIRcovingPVcls": {
+    "name": "catmIntfCurEndAISRDIRcovingPVcls",
+    "oid": "1.3.6.1.4.1.9.10.97.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmCurStatChangePVclTable": {
+    "name": "catmCurStatChangePVclTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmCurStatChangePVclEntry": {
+    "name": "catmCurStatChangePVclEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclStatusTransition": {
+    "name": "catmPVclStatusTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclStatusChangeStart": {
+    "name": "catmPVclStatusChangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclStatusChangeEnd": {
+    "name": "catmPVclStatusChangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCStatusTransition": {
+    "name": "catmPVclSegCCStatusTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCStatusChangeStart": {
+    "name": "catmPVclSegCCStatusChangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCStatusChangeEnd": {
+    "name": "catmPVclSegCCStatusChangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCStatusTransition": {
+    "name": "catmPVclEndCCStatusTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCStatusChangeStart": {
+    "name": "catmPVclEndCCStatusChangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCStatusChangeEnd": {
+    "name": "catmPVclEndCCStatusChangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIStatusTransition": {
+    "name": "catmPVclAISRDIStatusTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIStatusChangeStart": {
+    "name": "catmPVclAISRDIStatusChangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIStatusChangeEnd": {
+    "name": "catmPVclAISRDIStatusChangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclCurFailTime": {
+    "name": "catmPVclCurFailTime",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclPrevRecoverTime": {
+    "name": "catmPVclPrevRecoverTime",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclFailureReason": {
+    "name": "catmPVclFailureReason",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CatmOAMFailureType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIStatTransition": {
+    "name": "catmPVclSegAISRDIStatTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIStatChangeStart": {
+    "name": "catmPVclSegAISRDIStatChangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIStatChangeEnd": {
+    "name": "catmPVclSegAISRDIStatChangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIStatTransition": {
+    "name": "catmPVclEndAISRDIStatTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIStatChangeStart": {
+    "name": "catmPVclEndAISRDIStatChangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIStatChangeEnd": {
+    "name": "catmPVclEndAISRDIStatChangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmStatusChangePVclRangeTable": {
+    "name": "catmStatusChangePVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmStatusChangePVclRangeEntry": {
+    "name": "catmStatusChangePVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmStatusChangePVclRangeIndex": {
+    "name": "catmStatusChangePVclRangeIndex",
+    "oid": "1.3.6.1.4.1.9.10.97.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmPVclLowerRangeValue": {
+    "name": "catmPVclLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclHigherRangeValue": {
+    "name": "catmPVclHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclRangeStatusChangeStart": {
+    "name": "catmPVclRangeStatusChangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclRangeStatusChangeEnd": {
+    "name": "catmPVclRangeStatusChangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmSegCCStatusChPVclRangeTable": {
+    "name": "catmSegCCStatusChPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmSegCCStatusChPVclRangeEntry": {
+    "name": "catmSegCCStatusChPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclSegCCLowerRangeValue": {
+    "name": "catmPVclSegCCLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCHigherRangeValue": {
+    "name": "catmPVclSegCCHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCRangeStatusChStart": {
+    "name": "catmPVclSegCCRangeStatusChStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCRangeStatusChEnd": {
+    "name": "catmPVclSegCCRangeStatusChEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmEndCCStatusChPVclRangeTable": {
+    "name": "catmEndCCStatusChPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmEndCCStatusChPVclRangeEntry": {
+    "name": "catmEndCCStatusChPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclEndCCLowerRangeValue": {
+    "name": "catmPVclEndCCLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCHigherRangeValue": {
+    "name": "catmPVclEndCCHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCRangeStatusChStart": {
+    "name": "catmPVclEndCCRangeStatusChStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCRangeStatusChEnd": {
+    "name": "catmPVclEndCCRangeStatusChEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmAISRDIStatusChPVclRangeTable": {
+    "name": "catmAISRDIStatusChPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmAISRDIStatusChPVclRangeEntry": {
+    "name": "catmAISRDIStatusChPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclAISRDILowerRangeValue": {
+    "name": "catmPVclAISRDILowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIHigherRangeValue": {
+    "name": "catmPVclAISRDIHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIRangeStatusChStart": {
+    "name": "catmPVclAISRDIRangeStatusChStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIRangeStatusChEnd": {
+    "name": "catmPVclAISRDIRangeStatusChEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmSegAISRDIStatChPVclRngeTable": {
+    "name": "catmSegAISRDIStatChPVclRngeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmSegAISRDIStatChPVclRngeEntry": {
+    "name": "catmSegAISRDIStatChPVclRngeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclSegAISRDILowerRangeValue": {
+    "name": "catmPVclSegAISRDILowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIHigherRangeValue": {
+    "name": "catmPVclSegAISRDIHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIRangeStatChStart": {
+    "name": "catmPVclSegAISRDIRangeStatChStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIRangeStatChEnd": {
+    "name": "catmPVclSegAISRDIRangeStatChEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmEndAISRDIStatChPVclRngeTable": {
+    "name": "catmEndAISRDIStatChPVclRngeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmEndAISRDIStatChPVclRngeEntry": {
+    "name": "catmEndAISRDIStatChPVclRngeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclEndAISRDILowerRangeValue": {
+    "name": "catmPVclEndAISRDILowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIHigherRngeValue": {
+    "name": "catmPVclEndAISRDIHigherRngeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIRngeStatChStart": {
+    "name": "catmPVclEndAISRDIRngeStatChStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIRangeStatChEnd": {
+    "name": "catmPVclEndAISRDIRangeStatChEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmDownPVclRangeTable": {
+    "name": "catmDownPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmDownPVclRangeEntry": {
+    "name": "catmDownPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmDownPVclLowerRangeValue": {
+    "name": "catmDownPVclLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmDownPVclHigherRangeValue": {
+    "name": "catmDownPVclHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmDownPVclRangeStart": {
+    "name": "catmDownPVclRangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmDownPVclRangeEnd": {
+    "name": "catmDownPVclRangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPrevUpPVclRangeStart": {
+    "name": "catmPrevUpPVclRangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPrevUpPVclRangeEnd": {
+    "name": "catmPrevUpPVclRangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclRangeFailureReason": {
+    "name": "catmPVclRangeFailureReason",
+    "oid": "1.3.6.1.4.1.9.10.97.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CatmOAMFailureType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmCurStatusUpPVclTable": {
+    "name": "catmCurStatusUpPVclTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmCurStatusUpPVclEntry": {
+    "name": "catmCurStatusUpPVclEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclStatusUpTransition": {
+    "name": "catmPVclStatusUpTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclStatusUpStart": {
+    "name": "catmPVclStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclStatusUpEnd": {
+    "name": "catmPVclStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCStatusUpTransition": {
+    "name": "catmPVclSegCCStatusUpTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCStatusUpStart": {
+    "name": "catmPVclSegCCStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCStatusUpEnd": {
+    "name": "catmPVclSegCCStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCStatusUpTransition": {
+    "name": "catmPVclEndCCStatusUpTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCStatusUpStart": {
+    "name": "catmPVclEndCCStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCStatusUpEnd": {
+    "name": "catmPVclEndCCStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIStatusUpTransition": {
+    "name": "catmPVclAISRDIStatusUpTransition",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIStatusUpStart": {
+    "name": "catmPVclAISRDIStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIStatusUpEnd": {
+    "name": "catmPVclAISRDIStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclCurRecoverTime": {
+    "name": "catmPVclCurRecoverTime",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclPrevFailTime": {
+    "name": "catmPVclPrevFailTime",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclRecoveryReason": {
+    "name": "catmPVclRecoveryReason",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CatmOAMRecoveryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIStatUpTransit": {
+    "name": "catmPVclSegAISRDIStatUpTransit",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIStatUpStart": {
+    "name": "catmPVclSegAISRDIStatUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIStatUpEnd": {
+    "name": "catmPVclSegAISRDIStatUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIStatUpTransit": {
+    "name": "catmPVclEndAISRDIStatUpTransit",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIStatUpStart": {
+    "name": "catmPVclEndAISRDIStatUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIStatUpEnd": {
+    "name": "catmPVclEndAISRDIStatUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmStatusUpPVclRangeTable": {
+    "name": "catmStatusUpPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmStatusUpPVclRangeEntry": {
+    "name": "catmStatusUpPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclUpLowerRangeValue": {
+    "name": "catmPVclUpLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclUpHigherRangeValue": {
+    "name": "catmPVclUpHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclRangeStatusUpStart": {
+    "name": "catmPVclRangeStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclRangeStatusUpEnd": {
+    "name": "catmPVclRangeStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmSegCCStatusUpPVclRangeTable": {
+    "name": "catmSegCCStatusUpPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmSegCCStatusUpPVclRangeEntry": {
+    "name": "catmSegCCStatusUpPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclSegCCUpLowerRangeValue": {
+    "name": "catmPVclSegCCUpLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCUpHigherRangeValue": {
+    "name": "catmPVclSegCCUpHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCRangeStatusUpStart": {
+    "name": "catmPVclSegCCRangeStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegCCRangeStatusUpEnd": {
+    "name": "catmPVclSegCCRangeStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmEndCCStatusUpPVclRangeTable": {
+    "name": "catmEndCCStatusUpPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmEndCCStatusUpPVclRangeEntry": {
+    "name": "catmEndCCStatusUpPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclEndCCUpLowerRangeValue": {
+    "name": "catmPVclEndCCUpLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCUpHigherRangeValue": {
+    "name": "catmPVclEndCCUpHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCRangeStatusUpStart": {
+    "name": "catmPVclEndCCRangeStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndCCRangeStatusUpEnd": {
+    "name": "catmPVclEndCCRangeStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmAISRDIStatusUpPVclRangeTable": {
+    "name": "catmAISRDIStatusUpPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmAISRDIStatusUpPVclRangeEntry": {
+    "name": "catmAISRDIStatusUpPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclAISRDIUpLowerRangeValue": {
+    "name": "catmPVclAISRDIUpLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIUpHigherRangeValue": {
+    "name": "catmPVclAISRDIUpHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIRangeStatusUpStart": {
+    "name": "catmPVclAISRDIRangeStatusUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclAISRDIRangeStatusUpEnd": {
+    "name": "catmPVclAISRDIRangeStatusUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmSegAISRDIStatUpPVclRngeTable": {
+    "name": "catmSegAISRDIStatUpPVclRngeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmSegAISRDIStatUpPVclRngeEntry": {
+    "name": "catmSegAISRDIStatUpPVclRngeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclSegAISRDIUpLowerRangeVal": {
+    "name": "catmPVclSegAISRDIUpLowerRangeVal",
+    "oid": "1.3.6.1.4.1.9.10.97.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIUpHigherRngeVal": {
+    "name": "catmPVclSegAISRDIUpHigherRngeVal",
+    "oid": "1.3.6.1.4.1.9.10.97.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIRngeStatUpStart": {
+    "name": "catmPVclSegAISRDIRngeStatUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclSegAISRDIRangeStatUpEnd": {
+    "name": "catmPVclSegAISRDIRangeStatUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmEndAISRDIStatUpPVclRngeTable": {
+    "name": "catmEndAISRDIStatUpPVclRngeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmEndAISRDIStatUpPVclRngeEntry": {
+    "name": "catmEndAISRDIStatUpPVclRngeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmPVclEndAISRDIUpLowerRangeVal": {
+    "name": "catmPVclEndAISRDIUpLowerRangeVal",
+    "oid": "1.3.6.1.4.1.9.10.97.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIUpHigherRngeVal": {
+    "name": "catmPVclEndAISRDIUpHigherRngeVal",
+    "oid": "1.3.6.1.4.1.9.10.97.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIRngeStatUpStart": {
+    "name": "catmPVclEndAISRDIRngeStatUpStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclEndAISRDIRangeStatUpEnd": {
+    "name": "catmPVclEndAISRDIRangeStatUpEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmUpPVclRangeTable": {
+    "name": "catmUpPVclRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catmUpPVclRangeEntry": {
+    "name": "catmUpPVclRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmStatusChangePVclRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catmUpPVclLowerRangeValue": {
+    "name": "catmUpPVclLowerRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmUpPVclHigherRangeValue": {
+    "name": "catmUpPVclHigherRangeValue",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmUpPVclRangeStart": {
+    "name": "catmUpPVclRangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmUpPVclRangeEnd": {
+    "name": "catmUpPVclRangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPrevDownPVclRangeStart": {
+    "name": "catmPrevDownPVclRangeStart",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPrevDownPVclRangeEnd": {
+    "name": "catmPrevDownPVclRangeEnd",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catmPVclRangeRecoveryReason": {
+    "name": "catmPVclRangeRecoveryReason",
+    "oid": "1.3.6.1.4.1.9.10.97.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CatmOAMRecoveryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cAtmPvcTrapExtnMIBNotifPrefix": {
+    "name": "cAtmPvcTrapExtnMIBNotifPrefix",
+    "oid": "1.3.6.1.4.1.9.10.97.2",
+    "class": "objectidentity"
+  },
+  "cAtmPvcTrapExtnMIBNotif": {
+    "name": "cAtmPvcTrapExtnMIBNotif",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0",
+    "class": "objectidentity"
+  },
+  "catmIntfPvcUpTrap": {
+    "name": "catmIntfPvcUpTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentlyDownToUpPVcls"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "catmIntfPvcOAMFailureTrap": {
+    "name": "catmIntfPvcOAMFailureTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentOAMFailingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcSegCCOAMFailureTrap": {
+    "name": "catmIntfPvcSegCCOAMFailureTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegCCOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegCCOAMFailingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcEndCCOAMFailureTrap": {
+    "name": "catmIntfPvcEndCCOAMFailureTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndCCOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndCCOAMFailingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcAISRDIOAMFailureTrap": {
+    "name": "catmIntfPvcAISRDIOAMFailureTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAISRDIOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAISRDIOAMFailingPVcls"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "catmIntfPvcAnyOAMFailureTrap": {
+    "name": "catmIntfPvcAnyOAMFailureTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAnyOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAnyOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfTypeOfOAMFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcOAMRecoverTrap": {
+    "name": "catmIntfPvcOAMRecoverTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentOAMRcovingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcSegCCOAMRecoverTrap": {
+    "name": "catmIntfPvcSegCCOAMRecoverTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegCCOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegCCOAMRcovingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcEndCCOAMRecoverTrap": {
+    "name": "catmIntfPvcEndCCOAMRecoverTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndCCOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndCCOAMRcovingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcAISRDIOAMRecoverTrap": {
+    "name": "catmIntfPvcAISRDIOAMRecoverTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAISRDIOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAISRDIOAMRcovingPVcls"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "catmIntfPvcAnyOAMRecoverTrap": {
+    "name": "catmIntfPvcAnyOAMRecoverTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAnyOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAnyOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfTypeOfOAMRecover"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcUp2Trap": {
+    "name": "catmIntfPvcUp2Trap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentlyDownToUpPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcDownTrap": {
+    "name": "catmIntfPvcDownTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-IETF-ATM2-PVCTRAP-MIB",
+        "object": "atmIntfPvcFailures"
+      },
+      {
+        "module": "CISCO-IETF-ATM2-PVCTRAP-MIB",
+        "object": "atmIntfCurrentlyFailingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcSegAISRDIFailureTrap": {
+    "name": "catmIntfPvcSegAISRDIFailureTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegAISRDIFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegAISRDIFailingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcEndAISRDIFailureTrap": {
+    "name": "catmIntfPvcEndAISRDIFailureTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndAISRDIFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndAISRDIFailingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcSegAISRDIRecoverTrap": {
+    "name": "catmIntfPvcSegAISRDIRecoverTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegAISRDIRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegAISRDIRcovingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "catmIntfPvcEndAISRDIRecoverTrap": {
+    "name": "catmIntfPvcEndAISRDIRecoverTrap",
+    "oid": "1.3.6.1.4.1.9.10.97.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndAISRDIRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndAISRDIRcovingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmPvcTrapExtnMIBConformance": {
+    "name": "ciscoAtmPvcTrapExtnMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.97.3",
+    "class": "objectidentity"
+  },
+  "ciscoAtmPvcTrapExtnMIBCompliances": {
+    "name": "ciscoAtmPvcTrapExtnMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.97.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmPvcTrapExtnMIBGroups": {
+    "name": "ciscoAtmPvcTrapExtnMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.97.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmPvcTrapExtnMIBCompliance": {
+    "name": "ciscoAtmPvcTrapExtnMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.97.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmPvcTrapExtnGroup",
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"
+      },
+      {
+        "object": "ciscoAtmPvcTrapExtnNotifGroup",
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmPvcTrapExtnMIBCompliance1": {
+    "name": "ciscoAtmPvcTrapExtnMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.10.97.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmPvcTrapExtnGroup",
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"
+      },
+      {
+        "object": "ciscoAtmPvcTrapExtnNotifGroup1",
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmPvcTrapExtnMIBCompliance2": {
+    "name": "ciscoAtmPvcTrapExtnMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.10.97.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmPvcTrapExtnGroup1",
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"
+      },
+      {
+        "object": "ciscoAtmPvcTrapExtnNotifGroup2",
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmPvcTrapExtnGroup": {
+    "name": "ciscoAtmPvcTrapExtnGroup",
+    "oid": "1.3.6.1.4.1.9.10.97.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegCCOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegCCOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndCCOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndCCOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAISRDIOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAISRDIOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAnyOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAnyOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfTypeOfOAMFailure"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentlyDownToUpPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDILowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegCCOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegCCOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndCCOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndCCOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAISRDIOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAISRDIOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAnyOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAnyOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfTypeOfOAMRecover"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclCurFailTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclPrevRecoverTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclFailureReason"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevUpPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevUpPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeFailureReason"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclCurRecoverTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclPrevFailTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRecoveryReason"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevDownPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevDownPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeRecoveryReason"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmPvcTrapExtnGroup1": {
+    "name": "ciscoAtmPvcTrapExtnGroup1",
+    "oid": "1.3.6.1.4.1.9.10.97.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegCCOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegCCOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndCCOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndCCOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAISRDIOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAISRDIOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAnyOAMFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAnyOAMFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfTypeOfOAMFailure"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentlyDownToUpPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDILowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurrentOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegCCOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegCCOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndCCOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndCCOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAISRDIOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAISRDIOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfAnyOAMRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurAnyOAMRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfTypeOfOAMRecover"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclCurFailTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclPrevRecoverTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclFailureReason"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmDownPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevUpPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevUpPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeFailureReason"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusUpTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclCurRecoverTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclPrevFailTime"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRecoveryReason"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegCCRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndCCRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIUpLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIUpHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclAISRDIRangeStatusUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclLowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmUpPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevDownPVclRangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPrevDownPVclRangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclRangeRecoveryReason"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegAISRDIFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegAISRDIFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndAISRDIFailedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndAISRDIFailingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfSegAISRDIRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurSegAISRDIRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfEndAISRDIRcovedPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfCurEndAISRDIRcovingPVcls"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIStatTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIStatChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIStatChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIStatTransition"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIStatChangeStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIStatChangeEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDILowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIHigherRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIRangeStatChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIRangeStatChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDILowerRangeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIHigherRngeValue"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIRngeStatChStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIRangeStatChEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIStatUpTransit"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIStatUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIStatUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIStatUpTransit"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIStatUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIStatUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIUpLowerRangeVal"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIUpHigherRngeVal"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIRngeStatUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclSegAISRDIRangeStatUpEnd"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIUpLowerRangeVal"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIUpHigherRngeVal"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIRngeStatUpStart"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmPVclEndAISRDIRangeStatUpEnd"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmPvcTrapExtnNotifGroup": {
+    "name": "ciscoAtmPvcTrapExtnNotifGroup",
+    "oid": "1.3.6.1.4.1.9.10.97.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcUpTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcSegCCOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcEndCCOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAISRDIOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAnyOAMFailureTrap"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmPvcTrapExtnNotifGroup1": {
+    "name": "ciscoAtmPvcTrapExtnNotifGroup1",
+    "oid": "1.3.6.1.4.1.9.10.97.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcSegCCOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcEndCCOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAISRDIOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAnyOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcSegCCOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcEndCCOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAISRDIOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAnyOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcUp2Trap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcDownTrap"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmPvcTrapExtnNotifGroup2": {
+    "name": "ciscoAtmPvcTrapExtnNotifGroup2",
+    "oid": "1.3.6.1.4.1.9.10.97.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcSegCCOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcEndCCOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAnyOAMFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcSegCCOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcEndCCOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcAnyOAMRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcUp2Trap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcDownTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcSegAISRDIFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcEndAISRDIFailureTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcSegAISRDIRecoverTrap"
+      },
+      {
+        "module": "CISCO-ATM-PVCTRAP-EXTN-MIB",
+        "object": "catmIntfPvcEndAISRDIRecoverTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-PVCTRAP-EXTN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"
+  }
+}

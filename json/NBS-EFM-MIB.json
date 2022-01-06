@@ -1,0 +1,1038 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "NBS-MIB": [
+      "Unsigned16TC",
+      "nbs"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "nbsEfmMib": {
+    "name": "nbsEfmMib",
+    "oid": "1.3.6.1.4.1.629.300",
+    "class": "moduleidentity"
+  },
+  "nbsEfmProduct": {
+    "name": "nbsEfmProduct",
+    "oid": "1.3.6.1.4.1.629.300.2",
+    "class": "objectidentity"
+  },
+  "nbsEfmNc316Nm": {
+    "name": "nbsEfmNc316Nm",
+    "oid": "1.3.6.1.4.1.629.300.2.1",
+    "class": "objectidentity"
+  },
+  "nbsEfmObjects": {
+    "name": "nbsEfmObjects",
+    "oid": "1.3.6.1.4.1.629.300.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsEfmOamGrp": {
+    "name": "nbsEfmOamGrp",
+    "oid": "1.3.6.1.4.1.629.300.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "nbsEfmOamTable": {
+    "name": "nbsEfmOamTable",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nbsEfmOamEntry": {
+    "name": "nbsEfmOamEntry",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmPhysicalIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nbsEfmPhysicalIfIndex": {
+    "name": "nbsEfmPhysicalIfIndex",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamIfIndex": {
+    "name": "nbsEfmOamIfIndex",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamPeerIfIndex": {
+    "name": "nbsEfmOamPeerIfIndex",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamMode": {
+    "name": "nbsEfmOamMode",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "passive": 2,
+          "active": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamCfg": {
+    "name": "nbsEfmOamCfg",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamPduCfg": {
+    "name": "nbsEfmOamPduCfg",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamFlagsField": {
+    "name": "nbsEfmOamFlagsField",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamState": {
+    "name": "nbsEfmOamState",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamVendorOUI": {
+    "name": "nbsEfmOamVendorOUI",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamVendorDeviceId": {
+    "name": "nbsEfmOamVendorDeviceId",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamVendorDeviceVersion": {
+    "name": "nbsEfmOamVendorDeviceVersion",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamPDUTx": {
+    "name": "nbsEfmOamPDUTx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamPDURx": {
+    "name": "nbsEfmOamPDURx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamUnsupportedCodesRx": {
+    "name": "nbsEfmOamUnsupportedCodesRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamInformationTx": {
+    "name": "nbsEfmOamInformationTx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamInformationRx": {
+    "name": "nbsEfmOamInformationRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamEventNotificationTx": {
+    "name": "nbsEfmOamEventNotificationTx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamUniEventNotificationRx": {
+    "name": "nbsEfmOamUniEventNotificationRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamDupEventNotificationRx": {
+    "name": "nbsEfmOamDupEventNotificationRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamLoopbackControlTx": {
+    "name": "nbsEfmOamLoopbackControlTx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamLoopbackControlRx": {
+    "name": "nbsEfmOamLoopbackControlRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamVariableRequestTx": {
+    "name": "nbsEfmOamVariableRequestTx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamVariableRequestRx": {
+    "name": "nbsEfmOamVariableRequestRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamVariableResponseTx": {
+    "name": "nbsEfmOamVariableResponseTx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamVariableResponseRx": {
+    "name": "nbsEfmOamVariableResponseRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamOrganizationSpecificTx": {
+    "name": "nbsEfmOamOrganizationSpecificTx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamOrganizationSpecificRx": {
+    "name": "nbsEfmOamOrganizationSpecificRx",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrSymPerCfgDuration": {
+    "name": "nbsEfmOamErrSymPerCfgDuration",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrSymPerCfgThreshld": {
+    "name": "nbsEfmOamErrSymPerCfgThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrSymPerEvtTime": {
+    "name": "nbsEfmOamErrSymPerEvtTime",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrSymPerEvtWindow": {
+    "name": "nbsEfmOamErrSymPerEvtWindow",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrSymPerEvtThreshld": {
+    "name": "nbsEfmOamErrSymPerEvtThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrSymPerEvtCount": {
+    "name": "nbsEfmOamErrSymPerEvtCount",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmCfgDuration": {
+    "name": "nbsEfmOamErrFrmCfgDuration",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmCfgThreshld": {
+    "name": "nbsEfmOamErrFrmCfgThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmEvtTime": {
+    "name": "nbsEfmOamErrFrmEvtTime",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmEvtWindow": {
+    "name": "nbsEfmOamErrFrmEvtWindow",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmEvtThreshld": {
+    "name": "nbsEfmOamErrFrmEvtThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmEvtCount": {
+    "name": "nbsEfmOamErrFrmEvtCount",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmPerCfgDuration": {
+    "name": "nbsEfmOamErrFrmPerCfgDuration",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmPerCfgThreshld": {
+    "name": "nbsEfmOamErrFrmPerCfgThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmPerEvtTime": {
+    "name": "nbsEfmOamErrFrmPerEvtTime",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmPerEvtWindow": {
+    "name": "nbsEfmOamErrFrmPerEvtWindow",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmPerEvtThreshld": {
+    "name": "nbsEfmOamErrFrmPerEvtThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmPerEvtCount": {
+    "name": "nbsEfmOamErrFrmPerEvtCount",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmSecSumCfgDuration": {
+    "name": "nbsEfmOamErrFrmSecSumCfgDuration",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmSecSumCfgThreshld": {
+    "name": "nbsEfmOamErrFrmSecSumCfgThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmSecSumEvtTime": {
+    "name": "nbsEfmOamErrFrmSecSumEvtTime",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmSecSumEvtWindow": {
+    "name": "nbsEfmOamErrFrmSecSumEvtWindow",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmSecSumEvtThreshld": {
+    "name": "nbsEfmOamErrFrmSecSumEvtThreshld",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned16TC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamErrFrmSecSumEvtCount": {
+    "name": "nbsEfmOamErrFrmSecSumEvtCount",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamFramesLostDueToOamError": {
+    "name": "nbsEfmOamFramesLostDueToOamError",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmOamAdminState": {
+    "name": "nbsEfmOamAdminState",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "disable": 2,
+          "enable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "nbsEfmOamOperState": {
+    "name": "nbsEfmOamOperState",
+    "oid": "1.3.6.1.4.1.629.300.1.3.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nbsEfmConformance": {
+    "name": "nbsEfmConformance",
+    "oid": "1.3.6.1.4.1.629.300.3",
+    "class": "objectidentity"
+  },
+  "nbsEfmGroups": {
+    "name": "nbsEfmGroups",
+    "oid": "1.3.6.1.4.1.629.300.3.1",
+    "class": "objectidentity"
+  },
+  "nbsEfmOamGroup": {
+    "name": "nbsEfmOamGroup",
+    "oid": "1.3.6.1.4.1.629.300.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmPhysicalIfIndex"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamIfIndex"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamPeerIfIndex"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamMode"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamCfg"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamPduCfg"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamFlagsField"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamState"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamVendorOUI"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamVendorDeviceId"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamVendorDeviceVersion"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamPDUTx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamPDURx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamUnsupportedCodesRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamInformationTx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamInformationRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamEventNotificationTx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamUniEventNotificationRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamDupEventNotificationRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamLoopbackControlTx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamLoopbackControlRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamVariableRequestTx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamVariableRequestRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamVariableResponseTx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamVariableResponseRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamOrganizationSpecificTx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamOrganizationSpecificRx"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrSymPerCfgDuration"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrSymPerCfgThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrSymPerEvtTime"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrSymPerEvtWindow"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrSymPerEvtThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrSymPerEvtCount"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmCfgDuration"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmCfgThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmEvtTime"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmEvtWindow"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmEvtThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmEvtCount"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmPerCfgDuration"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmPerCfgThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmPerEvtTime"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmPerEvtWindow"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmPerEvtThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmPerEvtCount"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmSecSumCfgDuration"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmSecSumCfgThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmSecSumEvtTime"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmSecSumEvtWindow"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmSecSumEvtThreshld"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamErrFrmSecSumEvtCount"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamFramesLostDueToOamError"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamAdminState"
+      },
+      {
+        "module": "NBS-EFM-MIB",
+        "object": "nbsEfmOamOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-EFM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:42:12 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NBS-EFM-MIB"
+  }
+}

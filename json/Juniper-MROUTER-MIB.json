@@ -1,0 +1,859 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-RTPROTO-MIB": [
+      "IANAipMRouteProtocol"
+    ],
+    "IPMROUTE-STD-MIB": [
+      "ipMRouteEntry",
+      "ipMRouteInterfaceEntry"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniInterfaceLocationValue",
+      "JuniInterfaceLocationType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "juniMRouterMIB": {
+    "name": "juniMRouterMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.65",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-18 08:09",
+        "description": "Extended the ipMRouteInterfaceEntry Table, introduced traps and platform dependent juniMRoutePortTable."
+      },
+      {
+        "revision": "2006-09-02 11:02",
+        "description": "Scalar attribute juniMcastRpfDisable is supported in this MIB module."
+      },
+      {
+        "revision": "2006-06-15 10:13",
+        "description": "Extended the ipMRouteEntry Table."
+      },
+      {
+        "revision": "2002-10-28 20:06",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "juniMRouterMIBObject": {
+    "name": "juniMRouterMIBObject",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1",
+    "class": "objectidentity"
+  },
+  "juniMcastTraps": {
+    "name": "juniMcastTraps",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.1",
+    "class": "objectidentity"
+  },
+  "juniMcastObjects": {
+    "name": "juniMcastObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2",
+    "class": "objectidentity"
+  },
+  "juniMcastNotifyObject": {
+    "name": "juniMcastNotifyObject",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.3",
+    "class": "objectidentity"
+  },
+  "juniMcastNotificationObjects": {
+    "name": "juniMcastNotificationObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.3.1",
+    "class": "objectidentity"
+  },
+  "juniMcastRpfRouteTable": {
+    "name": "juniMcastRpfRouteTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMcastRpfRouteEntry": {
+    "name": "juniMcastRpfRouteEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMcastRouteStaticDest",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMcastRouteStaticMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniMcastRouteStaticDest": {
+    "name": "juniMcastRouteStaticDest",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMcastRouteStaticMask": {
+    "name": "juniMcastRouteStaticMask",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMcastRouteStaticRtPreference": {
+    "name": "juniMcastRouteStaticRtPreference",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniMcastRouteStaticRpfHop": {
+    "name": "juniMcastRouteStaticRpfHop",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniMcastRouteStaticTag": {
+    "name": "juniMcastRouteStaticTag",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniMcastRouteStaticRowStatus": {
+    "name": "juniMcastRouteStaticRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniMRouteTable": {
+    "name": "juniMRouteTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMRouteEntry": {
+    "name": "juniMRouteEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniMRouteEntry",
+      "module": "Juniper-MROUTER-MIB",
+      "object": "ipMRouteEntry"
+    },
+    "status": "current"
+  },
+  "juniMRouteAdmBwAdaptive": {
+    "name": "juniMRouteAdmBwAdaptive",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteAdmBw": {
+    "name": "juniMRouteAdmBw",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteQosBwAdaptive": {
+    "name": "juniMRouteQosBwAdaptive",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteQosBw": {
+    "name": "juniMRouteQosBw",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteIsEcmp": {
+    "name": "juniMRouteIsEcmp",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteRpfDisabled": {
+    "name": "juniMRouteRpfDisabled",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteOwnerProtoType": {
+    "name": "juniMRouteOwnerProtoType",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipMRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRoutePktFwd": {
+    "name": "juniMRoutePktFwd",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteOifCnt": {
+    "name": "juniMRouteOifCnt",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMcastRpfDisable": {
+    "name": "juniMcastRpfDisable",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniMRouteInterfaceTable": {
+    "name": "juniMRouteInterfaceTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMRouteInterfaceEntry": {
+    "name": "juniMRouteInterfaceEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "juniMRouteInterfaceEntry",
+      "module": "Juniper-MROUTER-MIB",
+      "object": "ipMRouteInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "juniMRouteInterfaceActiveGroups": {
+    "name": "juniMRouteInterfaceActiveGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRouteInterfaceBlockedGroups": {
+    "name": "juniMRouteInterfaceBlockedGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMroutePortLocationType": {
+    "name": "juniMroutePortLocationType",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniInterfaceLocationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRoutePortTable": {
+    "name": "juniMRoutePortTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMRoutePortEntry": {
+    "name": "juniMRoutePortEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePortLocationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniMRoutePortLocationIndex": {
+    "name": "juniMRoutePortLocationIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniInterfaceLocationValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniMRoutePortMaxBw": {
+    "name": "juniMRoutePortMaxBw",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniMRoutePortPriorityBw": {
+    "name": "juniMRoutePortPriorityBw",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniMRoutePortHysteresis": {
+    "name": "juniMRoutePortHysteresis",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniMRoutePortAdmittedBw": {
+    "name": "juniMRoutePortAdmittedBw",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRoutePortSGCount": {
+    "name": "juniMRoutePortSGCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniMRoutePortLimit": {
+    "name": "juniMRoutePortLimit",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniMRoutePortBwExceded": {
+    "name": "juniMRoutePortBwExceded",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteIfLocIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMRoutePortBwReceded": {
+    "name": "juniMRoutePortBwReceded",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteIfLocIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMRoutePortPriorityBwExceded": {
+    "name": "juniMRoutePortPriorityBwExceded",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteIfLocIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMRoutePortPriorityBwReceded": {
+    "name": "juniMRoutePortPriorityBwReceded",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteIfLocIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMRouteIfLocIndex": {
+    "name": "juniMRouteIfLocIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniInterfaceLocationValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "juniMcastConformance": {
+    "name": "juniMcastConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2",
+    "class": "objectidentity"
+  },
+  "juniMcastCompliances": {
+    "name": "juniMcastCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.1",
+    "class": "objectidentity"
+  },
+  "juniMcastConfGroups": {
+    "name": "juniMcastConfGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.2",
+    "class": "objectidentity"
+  },
+  "juniMcastCompliance": {
+    "name": "juniMcastCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniMcastRpfRouteConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniMcastCompliance2": {
+    "name": "juniMcastCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniMcastRpfRouteConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      },
+      {
+        "object": "juniMRouteConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniMcastCompliance3": {
+    "name": "juniMcastCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniMcastRpfRouteConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      },
+      {
+        "object": "juniMRouteConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      },
+      {
+        "object": "juniMcastGlobalConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniMcastCompliance4": {
+    "name": "juniMcastCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniMcastRpfRouteConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      },
+      {
+        "object": "juniMRouteConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      },
+      {
+        "object": "juniMcastGlobalConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      },
+      {
+        "object": "juniMRoutePortConfGroup",
+        "module": "Juniper-MROUTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMcastRpfRouteConfGroup": {
+    "name": "juniMcastRpfRouteConfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMcastRouteStaticRtPreference"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMcastRouteStaticRpfHop"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMcastRouteStaticTag"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMcastRouteStaticRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMRouteConfGroup": {
+    "name": "juniMRouteConfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteAdmBwAdaptive"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteAdmBw"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteQosBwAdaptive"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteQosBw"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteIsEcmp"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteRpfDisabled"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteOwnerProtoType"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePktFwd"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteOifCnt"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMcastGlobalConfGroup": {
+    "name": "juniMcastGlobalConfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMcastRpfDisable"
+      }
+    ],
+    "status": "current"
+  },
+  "juniMRoutePortConfGroup": {
+    "name": "juniMRoutePortConfGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.65.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteInterfaceActiveGroups"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRouteInterfaceBlockedGroups"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMroutePortLocationType"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePortMaxBw"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePortPriorityBw"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePortHysteresis"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePortAdmittedBw"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePortSGCount"
+      },
+      {
+        "module": "Juniper-MROUTER-MIB",
+        "object": "juniMRoutePortLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-MROUTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-MROUTER-MIB"
+  }
+}

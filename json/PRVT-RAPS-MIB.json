@@ -1,0 +1,1761 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "PRVT-SWITCH-MIB": [
+      "serviceAccessSwitch"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "prvtRapsMIB": {
+    "name": "prvtRapsMIB",
+    "oid": "1.3.6.1.4.1.738.10.7.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-11-11 00:00",
+        "description": "Added description for rings and subrings."
+      },
+      {
+        "revision": "2010-03-08 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "PrvtRapsInstIndexType": {
+    "name": "PrvtRapsInstIndexType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsRingIdType": {
+    "name": "PrvtRapsRingIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsVlanIdType": {
+    "name": "PrvtRapsVlanIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsLinkOperStatusType": {
+    "name": "PrvtRapsLinkOperStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 0,
+          "blocked": 1,
+          "failed": 2,
+          "na": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsMepIdType": {
+    "name": "PrvtRapsMepIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsLinkAggIdType": {
+    "name": "PrvtRapsLinkAggIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsHoldOffType": {
+    "name": "PrvtRapsHoldOffType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsWaitTimerType": {
+    "name": "PrvtRapsWaitTimerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsCfmLevelType": {
+    "name": "PrvtRapsCfmLevelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsGuardTimerType": {
+    "name": "PrvtRapsGuardTimerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsBlockTimerType": {
+    "name": "PrvtRapsBlockTimerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5010,
+            "max": 7000
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsModeType": {
+    "name": "PrvtRapsModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsRoleType": {
+    "name": "PrvtRapsRoleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simpleNode": 0,
+          "rplNeighbor": 1,
+          "rplOwner": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsInstStatusType": {
+    "name": "PrvtRapsInstStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsStatesType": {
+    "name": "PrvtRapsStatesType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 0,
+          "idle": 1,
+          "protection": 2,
+          "manualSwitch": 3,
+          "forcedSwitch": 4,
+          "pending": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsReceivedCommandType": {
+    "name": "PrvtRapsReceivedCommandType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRequest": 0,
+          "manualSwitch": 7,
+          "signalFail": 11,
+          "forcedSwitch": 13,
+          "event": 14,
+          "na": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsReceivedInfoType": {
+    "name": "PrvtRapsReceivedInfoType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bpr": 0,
+        "dnf": 1,
+        "rp": 2
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsTopPriCmdType": {
+    "name": "PrvtRapsTopPriCmdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "forcedSwitch": 1,
+          "remoteForcedSwitch": 2,
+          "signalFail": 3,
+          "signalFailRecover": 4,
+          "remoteSignalFail": 5,
+          "remoteManualSwitch": 6,
+          "manualSwitch": 7,
+          "wtrExpire": 8,
+          "wtrRunning": 9,
+          "wtbExpire": 10,
+          "wtbRunning": 11,
+          "noRequestRplBlocked": 12,
+          "noRequest": 13,
+          "na": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsActionType": {
+    "name": "PrvtRapsActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "performAction": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PrvtRapsIfIndexOrAgIdType": {
+    "name": "PrvtRapsIfIndexOrAgIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "PrvtRapsMonitoringMethodType": {
+    "name": "PrvtRapsMonitoringMethodType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccm": 1,
+          "link-status": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "prvtRapsMIBNotifications": {
+    "name": "prvtRapsMIBNotifications",
+    "oid": "1.3.6.1.4.1.738.10.7.4.0",
+    "class": "objectidentity"
+  },
+  "prvtRapsMIBObjects": {
+    "name": "prvtRapsMIBObjects",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1",
+    "class": "objectidentity"
+  },
+  "prvtRapsInstTable": {
+    "name": "prvtRapsInstTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstEntry": {
+    "name": "prvtRapsInstEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstIndex": {
+    "name": "prvtRapsInstIndex",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsInstIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstRowStatus": {
+    "name": "prvtRapsInstRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstMode": {
+    "name": "prvtRapsInstMode",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingId": {
+    "name": "prvtRapsInstRingId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsRingIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRole": {
+    "name": "prvtRapsInstRole",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsRoleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstControlVlan": {
+    "name": "prvtRapsInstControlVlan",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsVlanIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstCfmDomainLevel": {
+    "name": "prvtRapsInstCfmDomainLevel",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsCfmLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRevertiveMode": {
+    "name": "prvtRapsInstRevertiveMode",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstDisableVirtChan": {
+    "name": "prvtRapsInstDisableVirtChan",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstHoldOffTimer": {
+    "name": "prvtRapsInstHoldOffTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsHoldOffType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstWaitToRestoreTimer": {
+    "name": "prvtRapsInstWaitToRestoreTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsWaitTimerType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstGuardTimer": {
+    "name": "prvtRapsInstGuardTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsGuardTimerType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstWaitToBlockTimer": {
+    "name": "prvtRapsInstWaitToBlockTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsBlockTimerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstShutdown": {
+    "name": "prvtRapsInstShutdown",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstClear": {
+    "name": "prvtRapsInstClear",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstOperStatus": {
+    "name": "prvtRapsInstOperStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsInstStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstRapsState": {
+    "name": "prvtRapsInstRapsState",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsStatesType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstTopPriCmd": {
+    "name": "prvtRapsInstTopPriCmd",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsTopPriCmdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstDescription": {
+    "name": "prvtRapsInstDescription",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstControlProtocol": {
+    "name": "prvtRapsInstControlProtocol",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raps": 0,
+          "vpls": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "raps",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstMonVlanTable": {
+    "name": "prvtRapsInstMonVlanTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstMonVlanEntry": {
+    "name": "prvtRapsInstMonVlanEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstMonVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstMonVlanId": {
+    "name": "prvtRapsInstMonVlanId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsVlanIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstMonVlanRowStatus": {
+    "name": "prvtRapsInstMonVlanRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortTable": {
+    "name": "prvtRapsInstRingPortTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortEntry": {
+    "name": "prvtRapsInstRingPortEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstRingPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstRingPortIndex": {
+    "name": "prvtRapsInstRingPortIndex",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortRowStatus": {
+    "name": "prvtRapsInstRingPortRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortIfIndex": {
+    "name": "prvtRapsInstRingPortIfIndex",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortMep": {
+    "name": "prvtRapsInstRingPortMep",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMepIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortRpl": {
+    "name": "prvtRapsInstRingPortRpl",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortManSwitch": {
+    "name": "prvtRapsInstRingPortManSwitch",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortForcedSwitch": {
+    "name": "prvtRapsInstRingPortForcedSwitch",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingPortMonitoringMethod": {
+    "name": "prvtRapsInstRingPortMonitoringMethod",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMonitoringMethodType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagTable": {
+    "name": "prvtRapsInstRingLagTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagEntry": {
+    "name": "prvtRapsInstRingLagEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstRingLagIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstRingLagIndex": {
+    "name": "prvtRapsInstRingLagIndex",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagRowStatus": {
+    "name": "prvtRapsInstRingLagRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagId": {
+    "name": "prvtRapsInstRingLagId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsLinkAggIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagMep": {
+    "name": "prvtRapsInstRingLagMep",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMepIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagRpl": {
+    "name": "prvtRapsInstRingLagRpl",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagManSwitch": {
+    "name": "prvtRapsInstRingLagManSwitch",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstRingLagForcedSwitch": {
+    "name": "prvtRapsInstRingLagForcedSwitch",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusTable": {
+    "name": "prvtRapsInstPortStatusTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusEntry": {
+    "name": "prvtRapsInstPortStatusEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstPortStatusIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusIfIndex": {
+    "name": "prvtRapsInstPortStatusIfIndex",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsIfIndexOrAgIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusLink": {
+    "name": "prvtRapsInstPortStatusLink",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsLinkOperStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusRemoteMep": {
+    "name": "prvtRapsInstPortStatusRemoteMep",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMepIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusRcvdNodeId": {
+    "name": "prvtRapsInstPortStatusRcvdNodeId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusRcvdCmd": {
+    "name": "prvtRapsInstPortStatusRcvdCmd",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsReceivedCommandType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstPortStatusRcvdInfo": {
+    "name": "prvtRapsInstPortStatusRcvdInfo",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsReceivedInfoType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingTable": {
+    "name": "prvtRapsInstSubRingTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingEntry": {
+    "name": "prvtRapsInstSubRingEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstSubRingIndex": {
+    "name": "prvtRapsInstSubRingIndex",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsInstIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingRowStatus": {
+    "name": "prvtRapsInstSubRingRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingId": {
+    "name": "prvtRapsInstSubRingId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsRingIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingRole": {
+    "name": "prvtRapsInstSubRingRole",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsRoleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingVirtChanVlan": {
+    "name": "prvtRapsInstSubRingVirtChanVlan",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsVlanIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingRevertiveMode": {
+    "name": "prvtRapsInstSubRingRevertiveMode",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingHoldOffTimer": {
+    "name": "prvtRapsInstSubRingHoldOffTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsHoldOffType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingWaitTimer": {
+    "name": "prvtRapsInstSubRingWaitTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsWaitTimerType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingGuardTimer": {
+    "name": "prvtRapsInstSubRingGuardTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsGuardTimerType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingBlockTimer": {
+    "name": "prvtRapsInstSubRingBlockTimer",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsBlockTimerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPropTopChng": {
+    "name": "prvtRapsInstSubRingPropTopChng",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingShutdown": {
+    "name": "prvtRapsInstSubRingShutdown",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingClear": {
+    "name": "prvtRapsInstSubRingClear",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingManualSwitch": {
+    "name": "prvtRapsInstSubRingManualSwitch",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingForcedSwitch": {
+    "name": "prvtRapsInstSubRingForcedSwitch",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingOperStatus": {
+    "name": "prvtRapsInstSubRingOperStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsInstStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingRapsState": {
+    "name": "prvtRapsInstSubRingRapsState",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsStatesType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingTopPriCmd": {
+    "name": "prvtRapsInstSubRingTopPriCmd",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsTopPriCmdType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPortName": {
+    "name": "prvtRapsInstSubRingPortName",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLinkStatus": {
+    "name": "prvtRapsInstSubRingLinkStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsLinkOperStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingRcvdNodeId": {
+    "name": "prvtRapsInstSubRingRcvdNodeId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingRcvdCmd": {
+    "name": "prvtRapsInstSubRingRcvdCmd",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsReceivedCommandType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingRcvdInfo": {
+    "name": "prvtRapsInstSubRingRcvdInfo",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsReceivedInfoType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingDescription": {
+    "name": "prvtRapsInstSubRingDescription",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingVcRcvdNodeId": {
+    "name": "prvtRapsInstSubRingVcRcvdNodeId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingVcRcvdCmd": {
+    "name": "prvtRapsInstSubRingVcRcvdCmd",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsReceivedCommandType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingVcRcvdInfo": {
+    "name": "prvtRapsInstSubRingVcRcvdInfo",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsReceivedInfoType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingVirtChanSvc": {
+    "name": "prvtRapsInstSubRingVirtChanSvc",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingControlVlan": {
+    "name": "prvtRapsInstSubRingControlVlan",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsVlanIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPortTable": {
+    "name": "prvtRapsInstSubRingPortTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPortEntry": {
+    "name": "prvtRapsInstSubRingPortEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPortRowStatus": {
+    "name": "prvtRapsInstSubRingPortRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPortMep": {
+    "name": "prvtRapsInstSubRingPortMep",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMepIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPortRpl": {
+    "name": "prvtRapsInstSubRingPortRpl",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingPortMonitoringMethod": {
+    "name": "prvtRapsInstSubRingPortMonitoringMethod",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMonitoringMethodType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLagTable": {
+    "name": "prvtRapsInstSubRingLagTable",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLagEntry": {
+    "name": "prvtRapsInstSubRingLagEntry",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingLagId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLagId": {
+    "name": "prvtRapsInstSubRingLagId",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsLinkAggIdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLagRowStatus": {
+    "name": "prvtRapsInstSubRingLagRowStatus",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLagMep": {
+    "name": "prvtRapsInstSubRingLagMep",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMepIdType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLagRpl": {
+    "name": "prvtRapsInstSubRingLagRpl",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsInstSubRingLagMonitoringMethod": {
+    "name": "prvtRapsInstSubRingLagMonitoringMethod",
+    "oid": "1.3.6.1.4.1.738.10.7.4.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PrvtRapsMonitoringMethodType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtRapsDefectAlarm": {
+    "name": "prvtRapsDefectAlarm",
+    "oid": "1.3.6.1.4.1.738.10.7.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstOperStatus"
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstControlVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsSwitchoverAlarm": {
+    "name": "prvtRapsSwitchoverAlarm",
+    "oid": "1.3.6.1.4.1.738.10.7.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstRapsState"
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstControlVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstSubRingDefectAlarm": {
+    "name": "prvtRapsInstSubRingDefectAlarm",
+    "oid": "1.3.6.1.4.1.738.10.7.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingOperStatus"
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingControlVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtRapsInstSubRingSwitchoverAlarm": {
+    "name": "prvtRapsInstSubRingSwitchoverAlarm",
+    "oid": "1.3.6.1.4.1.738.10.7.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingRapsState"
+      },
+      {
+        "module": "PRVT-RAPS-MIB",
+        "object": "prvtRapsInstSubRingControlVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-RAPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:50:55 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-RAPS-MIB"
+  }
+}

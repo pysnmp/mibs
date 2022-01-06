@@ -1,0 +1,1677 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TELDAT-SW-STRUCTURE-MIB": [
+      "telProdNpMonitSistema",
+      "telProdNpMonInterface",
+      "telProdNpMonInterfRouter"
+    ]
+  },
+  "telProdNpMonSistemMemory": {
+    "name": "telProdNpMonSistemMemory",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "telProdNpMonSistemMemSize": {
+    "name": "telProdNpMonSistemMemSize",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemAvailable": {
+    "name": "telProdNpMonSistemMemAvailable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooldissize": {
+    "name": "telProdNpMonSistemMemPooldissize",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooldisavailable": {
+    "name": "telProdNpMonSistemMemPooldisavailable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPoolmdissize": {
+    "name": "telProdNpMonSistemMemPoolmdissize",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPoolmdisavailable": {
+    "name": "telProdNpMonSistemMemPoolmdisavailable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooltsize": {
+    "name": "telProdNpMonSistemMemPooltsize",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooltavailable": {
+    "name": "telProdNpMonSistemMemPooltavailable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPoolpsize": {
+    "name": "telProdNpMonSistemMemPoolpsize",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPoolpavailable": {
+    "name": "telProdNpMonSistemMemPoolpavailable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPool0size": {
+    "name": "telProdNpMonSistemMemPool0size",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPool0restpart": {
+    "name": "telProdNpMonSistemMemPool0restpart",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPool0available": {
+    "name": "telProdNpMonSistemMemPool0available",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPool1size": {
+    "name": "telProdNpMonSistemMemPool1size",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemPool1restpart": {
+    "name": "telProdNpMonSistemMemPool1restpart",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemPool1available": {
+    "name": "telProdNpMonSistemMemPool1available",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemPool2size": {
+    "name": "telProdNpMonSistemMemPool2size",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPool2restpart": {
+    "name": "telProdNpMonSistemMemPool2restpart",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPool2available": {
+    "name": "telProdNpMonSistemMemPool2available",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPoolisize": {
+    "name": "telProdNpMonSistemMemPoolisize",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPoolirestpart": {
+    "name": "telProdNpMonSistemMemPoolirestpart",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooliavailable": {
+    "name": "telProdNpMonSistemMemPooliavailable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooldlssize": {
+    "name": "telProdNpMonSistemMemPooldlssize",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooldlsrestpart": {
+    "name": "telProdNpMonSistemMemPooldlsrestpart",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemPooldlsavailable": {
+    "name": "telProdNpMonSistemMemPooldlsavailable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemTotal": {
+    "name": "telProdNpMonSistemMemTotal",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemTotalcache": {
+    "name": "telProdNpMonSistemMemTotalcache",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemFreecache": {
+    "name": "telProdNpMonSistemMemFreecache",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemTotalnoncache": {
+    "name": "telProdNpMonSistemMemTotalnoncache",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemFreenoncache": {
+    "name": "telProdNpMonSistemMemFreenoncache",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemCaches": {
+    "name": "telProdNpMonSistemMemCaches",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 30,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemFlash": {
+    "name": "telProdNpMonSistemMemFlash",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemFreeglobbuffer": {
+    "name": "telProdNpMonSistemMemFreeglobbuffer",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemMemHeap": {
+    "name": "telProdNpMonSistemMemHeap",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemIcused": {
+    "name": "telProdNpMonSistemMemIcused",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemIcindex": {
+    "name": "telProdNpMonSistemMemIcindex",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemMemTc": {
+    "name": "telProdNpMonSistemMemTc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonSistemFan": {
+    "name": "telProdNpMonSistemFan",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "telProdNpMonSistemFanCpu": {
+    "name": "telProdNpMonSistemFanCpu",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemFanCpuPerCent": {
+    "name": "telProdNpMonSistemFanCpuPerCent",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemFanCase": {
+    "name": "telProdNpMonSistemFanCase",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonSistemFanCasePerCent": {
+    "name": "telProdNpMonSistemFanCasePerCent",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonPoeCardsTable": {
+    "name": "telProdNpMonPoeCardsTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telProdNpMonPoeCardsEntry": {
+    "name": "telProdNpMonPoeCardsEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-CommonInfo-MIB",
+        "object": "telProdNpMonPoeCardsInd",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telProdNpMonPoeCardsInd": {
+    "name": "telProdNpMonPoeCardsInd",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonPoeCardsState": {
+    "name": "telProdNpMonPoeCardsState",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfCommandsTable": {
+    "name": "telProdNpMonInterfCommandsTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfCommandsEntry": {
+    "name": "telProdNpMonInterfCommandsEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-CommonInfo-MIB",
+        "object": "telProdNpMonInterfCommandsIfc",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfCommandsIfc": {
+    "name": "telProdNpMonInterfCommandsIfc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfCommandsClear": {
+    "name": "telProdNpMonInterfCommandsClear",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 1,
+          "valid": 2,
+          "error": 3,
+          "undefined": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferTable": {
+    "name": "telProdNpMonInterfBufferTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferEntry": {
+    "name": "telProdNpMonInterfBufferEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-CommonInfo-MIB",
+        "object": "telProdNpMonInterfBufferIfc",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferIfc": {
+    "name": "telProdNpMonInterfBufferIfc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonInterfBufferKind": {
+    "name": "telProdNpMonInterfBufferKind",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vi": 1,
+          "pn": 2,
+          "pri": 3,
+          "xeth": 4,
+          "arpa": 5,
+          "chp": 6,
+          "osl": 7,
+          "eth": 8,
+          "sl": 9,
+          "x28": 10,
+          "dmr": 11,
+          "tkr": 12,
+          "snk": 13,
+          "x25": 14,
+          "man": 15,
+          "atr": 16,
+          "fddi": 17,
+          "srly": 18,
+          "ippn": 19,
+          "fr": 20,
+          "ppp": 21,
+          "bdg": 22,
+          "null": 23,
+          "isdnb": 24,
+          "sdlc": 25,
+          "v25b": 26,
+          "routernode": 27,
+          "noderouter": 28,
+          "isdnd": 29,
+          "xot": 30,
+          "int270": 31,
+          "tnip": 32,
+          "mppp": 33,
+          "atm": 34,
+          "subatm": 35,
+          "ipsec": 36,
+          "bri": 37,
+          "x25fak": 38,
+          "isdnbfak": 39,
+          "isdndfak": 40,
+          "xotfak": 41,
+          "int270fak": 42,
+          "asdp": 43,
+          "syncsl": 44,
+          "asyncsl": 45,
+          "aptb": 46,
+          "dialrout": 47,
+          "arly": 48,
+          "mem": 49,
+          "vlaneth": 50,
+          "voip": 51,
+          "l2tp": 52,
+          "bvi": 53,
+          "scada": 54,
+          "wlan": 55,
+          "sepi": 56,
+          "eibz": 57,
+          "gpio": 58,
+          "autosl": 59,
+          "mdmemu": 60,
+          "frsub": 61,
+          "bvisub": 62,
+          "nic": 63,
+          "dip": 64,
+          "iec101gw": 65,
+          "gps": 66,
+          "gpsdatasl": 67
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferOrder": {
+    "name": "telProdNpMonInterfBufferOrder",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferReq": {
+    "name": "telProdNpMonInterfBufferReq",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferAlloc": {
+    "name": "telProdNpMonInterfBufferAlloc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferLow": {
+    "name": "telProdNpMonInterfBufferLow",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferCurr": {
+    "name": "telProdNpMonInterfBufferCurr",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferHdr": {
+    "name": "telProdNpMonInterfBufferHdr",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferWrap": {
+    "name": "telProdNpMonInterfBufferWrap",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferData": {
+    "name": "telProdNpMonInterfBufferData",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferTrail": {
+    "name": "telProdNpMonInterfBufferTrail",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferTotal": {
+    "name": "telProdNpMonInterfBufferTotal",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfBufferAlloc2": {
+    "name": "telProdNpMonInterfBufferAlloc2",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralTable": {
+    "name": "telProdNpMonInterfGeneralTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralEntry": {
+    "name": "telProdNpMonInterfGeneralEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-CommonInfo-MIB",
+        "object": "telProdNpMonInterfGeneralIfc",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralIfc": {
+    "name": "telProdNpMonInterfGeneralIfc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonInterfGeneralKind": {
+    "name": "telProdNpMonInterfGeneralKind",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vi": 1,
+          "pn": 2,
+          "pri": 3,
+          "xeth": 4,
+          "arpa": 5,
+          "chp": 6,
+          "osl": 7,
+          "eth": 8,
+          "sl": 9,
+          "x28": 10,
+          "dmr": 11,
+          "tkr": 12,
+          "snk": 13,
+          "x25": 14,
+          "man": 15,
+          "atr": 16,
+          "fddi": 17,
+          "srly": 18,
+          "ippn": 19,
+          "fr": 20,
+          "ppp": 21,
+          "bdg": 22,
+          "null": 23,
+          "isdnb": 24,
+          "sdlc": 25,
+          "v25b": 26,
+          "routernode": 27,
+          "noderouter": 28,
+          "isdnd": 29,
+          "xot": 30,
+          "int270": 31,
+          "tnip": 32,
+          "mppp": 33,
+          "atm": 34,
+          "subatm": 35,
+          "ipsec": 36,
+          "bri": 37,
+          "x25fak": 38,
+          "isdnbfak": 39,
+          "isdndfak": 40,
+          "xotfak": 41,
+          "int270fak": 42,
+          "asdp": 43,
+          "syncsl": 44,
+          "asyncsl": 45,
+          "aptb": 46,
+          "dialrout": 47,
+          "arly": 48,
+          "mem": 49,
+          "vlaneth": 50,
+          "voip": 51,
+          "l2tp": 52,
+          "bvi": 53,
+          "scada": 54,
+          "wlan": 55,
+          "sepi": 56,
+          "eibz": 57,
+          "gpio": 58,
+          "autosl": 59,
+          "mdmemu": 60,
+          "frsub": 61,
+          "bvisub": 62,
+          "nic": 63,
+          "dip": 64,
+          "iec101gw": 65,
+          "gps": 66,
+          "gpsdatasl": 67
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralOrder": {
+    "name": "telProdNpMonInterfGeneralOrder",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralCsr": {
+    "name": "telProdNpMonInterfGeneralCsr",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralVect": {
+    "name": "telProdNpMonInterfGeneralVect",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralTestvalid": {
+    "name": "telProdNpMonInterfGeneralTestvalid",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralTestfailure": {
+    "name": "telProdNpMonInterfGeneralTestfailure",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfGeneralMaintenFailure": {
+    "name": "telProdNpMonInterfGeneralMaintenFailure",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsTable": {
+    "name": "telProdNpMonInterfErrorsTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsEntry": {
+    "name": "telProdNpMonInterfErrorsEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-CommonInfo-MIB",
+        "object": "telProdNpMonInterfErrorsIfc",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsIfc": {
+    "name": "telProdNpMonInterfErrorsIfc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonInterfErrorsKind": {
+    "name": "telProdNpMonInterfErrorsKind",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vi": 1,
+          "pn": 2,
+          "pri": 3,
+          "xeth": 4,
+          "arpa": 5,
+          "chp": 6,
+          "osl": 7,
+          "eth": 8,
+          "sl": 9,
+          "x28": 10,
+          "dmr": 11,
+          "tkr": 12,
+          "snk": 13,
+          "x25": 14,
+          "man": 15,
+          "atr": 16,
+          "fddi": 17,
+          "srly": 18,
+          "ippn": 19,
+          "fr": 20,
+          "ppp": 21,
+          "bdg": 22,
+          "null": 23,
+          "isdnb": 24,
+          "sdlc": 25,
+          "v25b": 26,
+          "routernode": 27,
+          "noderouter": 28,
+          "isdnd": 29,
+          "xot": 30,
+          "int270": 31,
+          "tnip": 32,
+          "mppp": 33,
+          "atm": 34,
+          "subatm": 35,
+          "ipsec": 36,
+          "bri": 37,
+          "x25fak": 38,
+          "isdnbfak": 39,
+          "isdndfak": 40,
+          "xotfak": 41,
+          "int270fak": 42,
+          "asdp": 43,
+          "syncsl": 44,
+          "asyncsl": 45,
+          "aptb": 46,
+          "dialrout": 47,
+          "arly": 48,
+          "mem": 49,
+          "vlaneth": 50,
+          "voip": 51,
+          "l2tp": 52,
+          "bvi": 53,
+          "scada": 54,
+          "wlan": 55,
+          "sepi": 56,
+          "eibz": 57,
+          "gpio": 58,
+          "autosl": 59,
+          "mdmemu": 60,
+          "frsub": 61,
+          "bvisub": 62,
+          "nic": 63,
+          "dip": 64,
+          "iec101gw": 65,
+          "gps": 66,
+          "gpsdatasl": 67
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsOrder": {
+    "name": "telProdNpMonInterfErrorsOrder",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsIdiscard": {
+    "name": "telProdNpMonInterfErrorsIdiscard",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsIerrors": {
+    "name": "telProdNpMonInterfErrorsIerrors",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsIunkprot": {
+    "name": "telProdNpMonInterfErrorsIunkprot",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsOflowdrop": {
+    "name": "telProdNpMonInterfErrorsOflowdrop",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsOdiscard": {
+    "name": "telProdNpMonInterfErrorsOdiscard",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfErrorsOerrors": {
+    "name": "telProdNpMonInterfErrorsOerrors",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueTable": {
+    "name": "telProdNpMonInterfQueueTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueEntry": {
+    "name": "telProdNpMonInterfQueueEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-CommonInfo-MIB",
+        "object": "telProdNpMonInterfQueueIfc",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueIfc": {
+    "name": "telProdNpMonInterfQueueIfc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonInterfQueueKind": {
+    "name": "telProdNpMonInterfQueueKind",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vi": 1,
+          "pn": 2,
+          "pri": 3,
+          "xeth": 4,
+          "arpa": 5,
+          "chp": 6,
+          "osl": 7,
+          "eth": 8,
+          "sl": 9,
+          "x28": 10,
+          "dmr": 11,
+          "tkr": 12,
+          "snk": 13,
+          "x25": 14,
+          "man": 15,
+          "atr": 16,
+          "fddi": 17,
+          "srly": 18,
+          "ippn": 19,
+          "fr": 20,
+          "ppp": 21,
+          "bdg": 22,
+          "null": 23,
+          "isdnb": 24,
+          "sdlc": 25,
+          "v25b": 26,
+          "routernode": 27,
+          "noderouter": 28,
+          "isdnd": 29,
+          "xot": 30,
+          "int270": 31,
+          "tnip": 32,
+          "mppp": 33,
+          "atm": 34,
+          "subatm": 35,
+          "ipsec": 36,
+          "bri": 37,
+          "x25fak": 38,
+          "isdnbfak": 39,
+          "isdndfak": 40,
+          "xotfak": 41,
+          "int270fak": 42,
+          "asdp": 43,
+          "syncsl": 44,
+          "asyncsl": 45,
+          "aptb": 46,
+          "dialrout": 47,
+          "arly": 48,
+          "mem": 49,
+          "vlaneth": 50,
+          "voip": 51,
+          "l2tp": 52,
+          "bvi": 53,
+          "scada": 54,
+          "wlan": 55,
+          "sepi": 56,
+          "eibz": 57,
+          "gpio": 58,
+          "autosl": 59,
+          "mdmemu": 60,
+          "frsub": 61,
+          "bvisub": 62,
+          "nic": 63,
+          "dip": 64,
+          "iec101gw": 65,
+          "gps": 66,
+          "gpsdatasl": 67
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueOrder": {
+    "name": "telProdNpMonInterfQueueOrder",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueIalloc": {
+    "name": "telProdNpMonInterfQueueIalloc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueIlow": {
+    "name": "telProdNpMonInterfQueueIlow",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueIcurrent": {
+    "name": "telProdNpMonInterfQueueIcurrent",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueOfair": {
+    "name": "telProdNpMonInterfQueueOfair",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfQueueOcurrent": {
+    "name": "telProdNpMonInterfQueueOcurrent",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsTable": {
+    "name": "telProdNpMonInterfStatsTable",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsEntry": {
+    "name": "telProdNpMonInterfStatsEntry",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TELDAT-MON-CommonInfo-MIB",
+        "object": "telProdNpMonInterfStatsIfc",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsIfc": {
+    "name": "telProdNpMonInterfStatsIfc",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "telProdNpMonInterfStatsKind": {
+    "name": "telProdNpMonInterfStatsKind",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vi": 1,
+          "pn": 2,
+          "pri": 3,
+          "xeth": 4,
+          "arpa": 5,
+          "chp": 6,
+          "osl": 7,
+          "eth": 8,
+          "sl": 9,
+          "x28": 10,
+          "dmr": 11,
+          "tkr": 12,
+          "snk": 13,
+          "x25": 14,
+          "man": 15,
+          "atr": 16,
+          "fddi": 17,
+          "srly": 18,
+          "ippn": 19,
+          "fr": 20,
+          "ppp": 21,
+          "bdg": 22,
+          "null": 23,
+          "isdnb": 24,
+          "sdlc": 25,
+          "v25b": 26,
+          "routernode": 27,
+          "noderouter": 28,
+          "isdnd": 29,
+          "xot": 30,
+          "int270": 31,
+          "tnip": 32,
+          "mppp": 33,
+          "atm": 34,
+          "subatm": 35,
+          "ipsec": 36,
+          "bri": 37,
+          "x25fak": 38,
+          "isdnbfak": 39,
+          "isdndfak": 40,
+          "xotfak": 41,
+          "int270fak": 42,
+          "asdp": 43,
+          "syncsl": 44,
+          "asyncsl": 45,
+          "aptb": 46,
+          "dialrout": 47,
+          "arly": 48,
+          "mem": 49,
+          "vlaneth": 50,
+          "voip": 51,
+          "l2tp": 52,
+          "bvi": 53,
+          "scada": 54,
+          "wlan": 55,
+          "sepi": 56,
+          "eibz": 57,
+          "gpio": 58,
+          "autosl": 59,
+          "mdmemu": 60,
+          "frsub": 61,
+          "bvisub": 62,
+          "nic": 63,
+          "dip": 64,
+          "iec101gw": 65,
+          "gps": 66,
+          "gpsdatasl": 67
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsOrder": {
+    "name": "telProdNpMonInterfStatsOrder",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsUnipkrcv": {
+    "name": "telProdNpMonInterfStatsUnipkrcv",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsMulpkrcv": {
+    "name": "telProdNpMonInterfStatsMulpkrcv",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsBytesrcv": {
+    "name": "telProdNpMonInterfStatsBytesrcv",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsPkxt": {
+    "name": "telProdNpMonInterfStatsPkxt",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "telProdNpMonInterfStatsBytesxt": {
+    "name": "telProdNpMonInterfStatsBytesxt",
+    "oid": "1.3.6.1.4.1.2007.4.1.2.2.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-CommonInfo-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TELDAT-MON-CommonInfo-MIB"
+  }
+}

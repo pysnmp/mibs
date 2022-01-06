@@ -1,0 +1,111 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSipUaCapability": {
+    "name": "ciscoSipUaCapability",
+    "oid": "1.3.6.1.4.1.9.7.172",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-06-22 00:00",
+        "description": "Adding AGENT-CAPABILITIES clause for IOS 12.4(2)T."
+      },
+      {
+        "revision": "2003-07-30 00:00",
+        "description": "Adding AGENT-CAPABILITIES clauses for IOS 12.3(2)."
+      },
+      {
+        "revision": "2003-03-21 00:00",
+        "description": "Adding AGENT-CAPABILITIES clauses for IOS 12.2(8), 12.2(11) & 12.2(15)."
+      },
+      {
+        "revision": "2001-09-26 00:00",
+        "description": "Adding AGENT-CAPABILITIES clause for IOS 12.2(2)."
+      },
+      {
+        "revision": "2001-06-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSipUaCapabilityV12R0202": {
+    "name": "ciscoSipUaCapabilityV12R0202",
+    "oid": "1.3.6.1.4.1.9.7.172.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(2).",
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0208": {
+    "name": "ciscoSipUaCapabilityV12R0208",
+    "oid": "1.3.6.1.4.1.9.7.172.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(8).",
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0211": {
+    "name": "ciscoSipUaCapabilityV12R0211",
+    "oid": "1.3.6.1.4.1.9.7.172.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(11).",
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0215": {
+    "name": "ciscoSipUaCapabilityV12R0215",
+    "oid": "1.3.6.1.4.1.9.7.172.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.2(15).",
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0302": {
+    "name": "ciscoSipUaCapabilityV12R0302",
+    "oid": "1.3.6.1.4.1.9.7.172.5",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.3(2).",
+    "status": "current"
+  },
+  "ciscoSipUaCapabilityV12R0402T": {
+    "name": "ciscoSipUaCapabilityV12R0402T",
+    "oid": "1.3.6.1.4.1.9.7.172.6",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 12.4(2)T.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SIP-UA-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SIP-UA-CAPABILITY"
+  }
+}

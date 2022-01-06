@@ -1,0 +1,1111 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SCSI-MIB": [
+      "ScsiIndexValue",
+      "ciscoScsiInstanceEntry",
+      "ciscoScsiDscLunEntry",
+      "ciscoScsiDscTgtEntry"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "DomainId",
+      "VsanIndex",
+      "FcAddressId"
+    ],
+    "CISCO-VSAN-MIB": [
+      "vsanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoExtScsiMIB": {
+    "name": "ciscoExtScsiMIB",
+    "oid": "1.3.6.1.4.1.9.9.299",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-14 00:00",
+        "description": "Added ciscoExtScsiIntrDiscLunPortId object to ciscoExtScsiIntrDiscLunsTable. Changed the DEFVAL of ciscoExtScsiLunDiscOs object to 'windows' from 'all'. Added ciscoExtScsiDiscType object."
+      },
+      {
+        "revision": "2003-11-28 00:00",
+        "description": "Added ciscoExtScsiLunDiscOs, ciscoExtScsiLunDiscVsanId, ciscoExtScsiLunDiscPortId, ciscoExtScsiLunCacheScsiIndex, ciscoExtScsiLunCacheDevIndex, ciscoExtScsiLunCachePortIndex, ciscoExtScsiLunCacheTgtIndex scalar objects. Added ciscoExtScsiIntrDiscLunOs object to ciscoExtScsiIntrDiscLunsTable."
+      },
+      {
+        "revision": "2003-01-28 00:00",
+        "description": "Added ciscoExtScsiPartialLunDiscTable to facilitate partial LUN discovery on a fabric wide basis."
+      },
+      {
+        "revision": "2002-10-10 00:00",
+        "description": "Added ciscoExtScsiNotificationCntl object and ciscoExtScsiLunDiscDoneNotify notification."
+      },
+      {
+        "revision": "2002-10-05 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "ciscoExtScsiMIBObjects": {
+    "name": "ciscoExtScsiMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.299.1",
+    "class": "objectidentity"
+  },
+  "ciscoExtScsiMIBConformance": {
+    "name": "ciscoExtScsiMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.299.2",
+    "class": "objectidentity"
+  },
+  "ciscoExtScsiConfiguration": {
+    "name": "ciscoExtScsiConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoExtScsiNotification": {
+    "name": "ciscoExtScsiNotification",
+    "oid": "1.3.6.1.4.1.9.9.299.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoExtScsiNotifications": {
+    "name": "ciscoExtScsiNotifications",
+    "oid": "1.3.6.1.4.1.9.9.299.1.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoExtScsiStats": {
+    "name": "ciscoExtScsiStats",
+    "oid": "1.3.6.1.4.1.9.9.299.1.3",
+    "class": "objectidentity"
+  },
+  "LunDiscOS": {
+    "name": "LunDiscOS",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "windows": 1,
+          "aix": 2,
+          "solaris": 3,
+          "linux": 4,
+          "hpux": 5,
+          "all": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoExtScsiGenInstanceTable": {
+    "name": "ciscoExtScsiGenInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoExtScsiGenInstanceEntry": {
+    "name": "ciscoExtScsiGenInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoExtScsiGenInstanceEntry",
+      "module": "CISCO-EXT-SCSI-MIB",
+      "object": "ciscoScsiInstanceEntry"
+    },
+    "status": "current"
+  },
+  "ciscoExtScsiDiskGrpId": {
+    "name": "ciscoExtScsiDiskGrpId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiLineCardOrSup": {
+    "name": "ciscoExtScsiLineCardOrSup",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiLunDiscSpinLock": {
+    "name": "ciscoExtScsiLunDiscSpinLock",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoExtScsiStartLunDisc": {
+    "name": "ciscoExtScsiStartLunDisc",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startDiscovery": 1,
+          "startLocalDiscovery": 2,
+          "startRemoteDiscovery": 3,
+          "noop": 4,
+          "startPartialDiscovery": 5,
+          "startPortBasedDiscovery": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoExtScsiLunDiscStatus": {
+    "name": "ciscoExtScsiLunDiscStatus",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "completed": 2,
+          "failure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiLunDiscCompleteTime": {
+    "name": "ciscoExtScsiLunDiscCompleteTime",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtTable": {
+    "name": "ciscoExtScsiIntrDiscTgtTable",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtEntry": {
+    "name": "ciscoExtScsiIntrDiscTgtEntry",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoExtScsiIntrDiscTgtEntry",
+      "module": "CISCO-EXT-SCSI-MIB",
+      "object": "ciscoScsiDscTgtEntry"
+    },
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtVsanId": {
+    "name": "ciscoExtScsiIntrDiscTgtVsanId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtDevType": {
+    "name": "ciscoExtScsiIntrDiscTgtDevType",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtVendorId": {
+    "name": "ciscoExtScsiIntrDiscTgtVendorId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtProductId": {
+    "name": "ciscoExtScsiIntrDiscTgtProductId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtRevLevel": {
+    "name": "ciscoExtScsiIntrDiscTgtRevLevel",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscTgtOtherInfo": {
+    "name": "ciscoExtScsiIntrDiscTgtOtherInfo",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscLunsTable": {
+    "name": "ciscoExtScsiIntrDiscLunsTable",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscLunsEntry": {
+    "name": "ciscoExtScsiIntrDiscLunsEntry",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ciscoExtScsiIntrDiscLunsEntry",
+      "module": "CISCO-EXT-SCSI-MIB",
+      "object": "ciscoScsiDscLunEntry"
+    },
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscLunCapacity": {
+    "name": "ciscoExtScsiIntrDiscLunCapacity",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "MBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscLunNumber": {
+    "name": "ciscoExtScsiIntrDiscLunNumber",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscLunSerialNum": {
+    "name": "ciscoExtScsiIntrDiscLunSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscLunOs": {
+    "name": "ciscoExtScsiIntrDiscLunOs",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LunDiscOS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiIntrDiscLunPortId": {
+    "name": "ciscoExtScsiIntrDiscLunPortId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiNotificationCntl": {
+    "name": "ciscoExtScsiNotificationCntl",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoExtScsiPartialLunDiscTable": {
+    "name": "ciscoExtScsiPartialLunDiscTable",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoExtScsiPartialLunDiscEntry": {
+    "name": "ciscoExtScsiPartialLunDiscEntry",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VSAN-MIB",
+        "object": "vsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiPartialLunDomId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtScsiPartialLunDomId": {
+    "name": "ciscoExtScsiPartialLunDomId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DomainId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoExtScsiPartialLunRowStatus": {
+    "name": "ciscoExtScsiPartialLunRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoExtScsiLunDiscOs": {
+    "name": "ciscoExtScsiLunDiscOs",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LunDiscOS",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "windows",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoExtScsiLunDiscVsanId": {
+    "name": "ciscoExtScsiLunDiscVsanId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoExtScsiLunDiscPortId": {
+    "name": "ciscoExtScsiLunDiscPortId",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoExtScsiLunCacheScsiIndex": {
+    "name": "ciscoExtScsiLunCacheScsiIndex",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiLunCacheDevIndex": {
+    "name": "ciscoExtScsiLunCacheDevIndex",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiLunCachePortIndex": {
+    "name": "ciscoExtScsiLunCachePortIndex",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiLunCacheTgtIndex": {
+    "name": "ciscoExtScsiLunCacheTgtIndex",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScsiIndexValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoExtScsiDiscType": {
+    "name": "ciscoExtScsiDiscType",
+    "oid": "1.3.6.1.4.1.9.9.299.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "targets": 1,
+          "luns": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "luns",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoExtScsiLunDiscDoneNotify": {
+    "name": "ciscoExtScsiLunDiscDoneNotify",
+    "oid": "1.3.6.1.4.1.9.9.299.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtScsiMIBCompliances": {
+    "name": "ciscoExtScsiMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.299.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoExtScsiMIBGroups": {
+    "name": "ciscoExtScsiMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.299.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoExtScsiMIBCompliance": {
+    "name": "ciscoExtScsiMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.299.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoExtScsiConfigGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyControlGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoExtScsiMIBCompliance2": {
+    "name": "ciscoExtScsiMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.299.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoExtScsiConfigGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiPartialDiscGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyControlGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoExtScsiMIBComplianceRev3": {
+    "name": "ciscoExtScsiMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.299.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoExtScsiConfigGroup1",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiPartialDiscGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyControlGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoExtScsiMIBComplianceRev4": {
+    "name": "ciscoExtScsiMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.299.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoExtScsiConfigGroup2",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiPartialDiscGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyControlGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      },
+      {
+        "object": "ciscoExtScsiNotifyGroup",
+        "module": "CISCO-EXT-SCSI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtScsiConfigGroup": {
+    "name": "ciscoExtScsiConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.299.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiDiskGrpId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLineCardOrSup"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscSpinLock"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiStartLunDisc"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscStatus"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscCompleteTime"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtVsanId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtDevType"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtVendorId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtProductId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtRevLevel"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtOtherInfo"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunCapacity"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunNumber"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunSerialNum"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoExtScsiNotifyControlGroup": {
+    "name": "ciscoExtScsiNotifyControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.299.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiNotificationCntl"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtScsiNotifyGroup": {
+    "name": "ciscoExtScsiNotifyGroup",
+    "oid": "1.3.6.1.4.1.9.9.299.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscDoneNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtScsiPartialDiscGroup": {
+    "name": "ciscoExtScsiPartialDiscGroup",
+    "oid": "1.3.6.1.4.1.9.9.299.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiPartialLunRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtScsiConfigGroup1": {
+    "name": "ciscoExtScsiConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.299.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiDiskGrpId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLineCardOrSup"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscSpinLock"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscOs"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiStartLunDisc"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscStatus"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscCompleteTime"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtVsanId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtDevType"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtVendorId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtProductId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtRevLevel"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtOtherInfo"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunCapacity"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunNumber"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunSerialNum"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunOs"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscVsanId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscPortId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCacheScsiIndex"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCacheDevIndex"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCachePortIndex"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCacheTgtIndex"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoExtScsiConfigGroup2": {
+    "name": "ciscoExtScsiConfigGroup2",
+    "oid": "1.3.6.1.4.1.9.9.299.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiDiskGrpId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLineCardOrSup"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscSpinLock"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscOs"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiStartLunDisc"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscStatus"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscCompleteTime"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtVsanId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtDevType"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtVendorId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtProductId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtRevLevel"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscTgtOtherInfo"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunCapacity"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunNumber"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunSerialNum"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunOs"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiIntrDiscLunPortId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscVsanId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunDiscPortId"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCacheScsiIndex"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCacheDevIndex"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCachePortIndex"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiLunCacheTgtIndex"
+      },
+      {
+        "module": "CISCO-EXT-SCSI-MIB",
+        "object": "ciscoExtScsiDiscType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-EXT-SCSI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-EXT-SCSI-MIB"
+  }
+}

@@ -1,0 +1,1035 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "carel": {
+    "name": "carel",
+    "oid": "1.3.6.1.4.1.9839",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-06-29 00:00",
+        "description": "First draft containing the values outlined in the 3311.320 docs https://www.rittal.com/imf/none/3_4342/3311320_Instructions_spec__EN"
+      }
+    ]
+  },
+  "rittal": {
+    "name": "rittal",
+    "oid": "1.3.6.1.4.1.9839.2606",
+    "class": "objectidentity"
+  },
+  "rittalLCP3311": {
+    "name": "rittalLCP3311",
+    "oid": "1.3.6.1.4.1.9839.2606.2",
+    "class": "objectidentity"
+  },
+  "sensors": {
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1",
+    "class": "objectidentity"
+  },
+  "digital": {
+    "name": "digital",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1",
+    "class": "objectidentity"
+  },
+  "analog": {
+    "name": "analog",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2",
+    "class": "objectidentity"
+  },
+  "integer": {
+    "name": "integer",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3",
+    "class": "objectidentity"
+  },
+  "DivBy10": {
+    "name": "DivBy10",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "compressorOverloadAlarm": {
+    "name": "compressorOverloadAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "highPressureAlarm": {
+    "name": "highPressureAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "remoteOnOff": {
+    "name": "remoteOnOff",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inverterAlarm": {
+    "name": "inverterAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driveAlarm": {
+    "name": "driveAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inverterOnOff": {
+    "name": "inverterOnOff",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "generalAlarm": {
+    "name": "generalAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "resetAllAlarms": {
+    "name": "resetAllAlarms",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compressorEnvelopeAlarm": {
+    "name": "compressorEnvelopeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorStartupFailureAlarm": {
+    "name": "compressorStartupFailureAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "maxDischargeTemperatureAlarm": {
+    "name": "maxDischargeTemperatureAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorDeltaPressureAlarm": {
+    "name": "compressorDeltaPressureAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oilReturnAlarm": {
+    "name": "oilReturnAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outputTemperatureTopProbeAlarm": {
+    "name": "outputTemperatureTopProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outputTemperatureMidProbeAlarm": {
+    "name": "outputTemperatureMidProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outputTemperatureBottomProbeAlarm": {
+    "name": "outputTemperatureBottomProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTemperatureTopProbeAlarm": {
+    "name": "inputTemperatureTopProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTemperatureMidProbeAlarm": {
+    "name": "inputTemperatureMidProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTemperatureBottomProbeAlarm": {
+    "name": "inputTemperatureBottomProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorDischargeTemperatureProbeAlarm": {
+    "name": "compressorDischargeTemperatureProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorSuctionTemperatureProbeAlarm": {
+    "name": "compressorSuctionTemperatureProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorDischargePressureProbeAlarm": {
+    "name": "compressorDischargePressureProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorSuctionPressureProbeAlarm": {
+    "name": "compressorSuctionPressureProbeAlarm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "alarm": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "reboot": {
+    "name": "reboot",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compressorRotorSpeedHz": {
+    "name": "compressorRotorSpeedHz",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverPowerStatus": {
+    "name": "driverPowerStatus",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "run": 2,
+          "alarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentErrorCode": {
+    "name": "currentErrorCode",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "OK": 0,
+          "ALA02": 2,
+          "ALA03": 3,
+          "ALA04": 4,
+          "ALA05": 5,
+          "ALA06": 6,
+          "ALA07": 7,
+          "ALA08": 8,
+          "ALA09": 9,
+          "ALA10": 10,
+          "ALA11": 11,
+          "ALA12": 12,
+          "ALB01": 13,
+          "ALB02": 14,
+          "ALB03": 15,
+          "ALC01": 16,
+          "ALC03": 17,
+          "ALC04": 18,
+          "ALC05": 19,
+          "ALC06": 20,
+          "ALF01": 21,
+          "ALD02": 22,
+          "ALD03": 23,
+          "ALD04": 24,
+          "ALD05": 25,
+          "ALD06": 26,
+          "ALD07": 27,
+          "ALD08": 28,
+          "ALD09": 29,
+          "ALL01": 30,
+          "ALL02": 31,
+          "ALL99": 32,
+          "ALW04": 33
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "driverTemperature": {
+    "name": "driverTemperature",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dcBusVoltage": {
+    "name": "dcBusVoltage",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "motorVoltage": {
+    "name": "motorVoltage",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "V",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerRequest": {
+    "name": "powerRequest",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitOnOff": {
+    "name": "unitOnOff",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "energy-save": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "envelopeZone": {
+    "name": "envelopeZone",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "maximum-compression-ratio": 1,
+          "maximum-discharge-power": 2,
+          "current-limit": 3,
+          "maximum-suction-power": 4,
+          "minimum-compression-ratio": 5,
+          "minimum-delta-power": 6,
+          "minimum-discharge-power": 7,
+          "minimum-suction-power": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coolingCapacity": {
+    "name": "coolingCapacity",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "evdValveSteps": {
+    "name": "evdValveSteps",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 540
+          }
+        ]
+      }
+    },
+    "units": "steps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanSpeedPercent": {
+    "name": "fanSpeedPercent",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanSpeedRpm": {
+    "name": "fanSpeedRpm",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3700
+          }
+        ]
+      }
+    },
+    "units": "rpm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "evdValveOpening": {
+    "name": "evdValveOpening",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outputTemperatureTopSensor": {
+    "name": "outputTemperatureTopSensor",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outputTemperatureMidSensor": {
+    "name": "outputTemperatureMidSensor",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outputTemperatureBottomSensor": {
+    "name": "outputTemperatureBottomSensor",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTemperatureTopSensor": {
+    "name": "inputTemperatureTopSensor",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTemperatureMidSensor": {
+    "name": "inputTemperatureMidSensor",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTemperatureBottomSensor": {
+    "name": "inputTemperatureBottomSensor",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorDischargeTemperature": {
+    "name": "compressorDischargeTemperature",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorSuctionTemperature": {
+    "name": "compressorSuctionTemperature",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorDischargePressure": {
+    "name": "compressorDischargePressure",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "bar",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorSuctionPressure": {
+    "name": "compressorSuctionPressure",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "bar",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "evaporatorTemperature": {
+    "name": "evaporatorTemperature",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "condensingTemperature": {
+    "name": "condensingTemperature",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTemperatureAverage": {
+    "name": "inputTemperatureAverage",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outputTemperatureAverage": {
+    "name": "outputTemperatureAverage",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorRotorSpeed": {
+    "name": "compressorRotorSpeed",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "rps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "compressorMotorCurrent": {
+    "name": "compressorMotorCurrent",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "A",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lcpSetpoint": {
+    "name": "lcpSetpoint",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DivBy10",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/CAREL-RITTAL-LCP-3311-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:50 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CAREL-RITTAL-LCP-3311-MIB"
+  }
+}

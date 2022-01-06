@@ -1,0 +1,3354 @@
+{
+  "imports": {
+    "class": "imports",
+    "CDATA-COMMON-SMI": [
+      "epon",
+      "switch",
+      "gpon",
+      "mediaConverter",
+      "eoc"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "eponMIB": {
+    "name": "eponMIB",
+    "oid": "1.3.6.1.4.1.34592.1.3.1",
+    "class": "moduleidentity"
+  },
+  "EponProfileName": {
+    "name": "EponProfileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponAlarmProfileThreshold": {
+    "name": "EponAlarmProfileThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967294
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponDbaProfileId": {
+    "name": "EponDbaProfileId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponDbaProfileName": {
+    "name": "EponDbaProfileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "EponLinePorfileId": {
+    "name": "EponLinePorfileId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponLineProfileName": {
+    "name": "EponLineProfileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponLineProfileLlId": {
+    "name": "EponLineProfileLlId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponSrvProfileId": {
+    "name": "EponSrvProfileId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponSrvProfileName": {
+    "name": "EponSrvProfileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponTrafficProfileId": {
+    "name": "EponTrafficProfileId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponTrafficProfileName": {
+    "name": "EponTrafficProfileName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponSwitch": {
+    "name": "EponSwitch",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EponVlanId": {
+    "name": "EponVlanId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponVlanPriority": {
+    "name": "EponVlanPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponOltPortId": {
+    "name": "EponOltPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponOnuId": {
+    "name": "EponOnuId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponOnuEthPortId": {
+    "name": "EponOnuEthPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponOnuCatvPortId": {
+    "name": "EponOnuCatvPortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponMacAddress": {
+    "name": "EponMacAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "eponObjects": {
+    "name": "eponObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponProfileObjects": {
+    "name": "eponProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponDbaProfileObjects": {
+    "name": "eponDbaProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponDbaProfileInfoTable": {
+    "name": "eponDbaProfileInfoTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponDbaProfileInfoEntry": {
+    "name": "eponDbaProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponDbaProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponDbaProfileId": {
+    "name": "eponDbaProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDbaProfileId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponDbaProfileName": {
+    "name": "eponDbaProfileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDbaProfileName",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponDbaProfileType": {
+    "name": "eponDbaProfileType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fix": 1,
+          "assure": 2,
+          "assureAndMax": 3,
+          "max": 4,
+          "fixAndAssureAndMax": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponDbaProfileFixRate": {
+    "name": "eponDbaProfileFixRate",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponDbaProfileAssureRate": {
+    "name": "eponDbaProfileAssureRate",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponDbaProfileMaxRate": {
+    "name": "eponDbaProfileMaxRate",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 512,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponDbaProfileBindNum": {
+    "name": "eponDbaProfileBindNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponDbaProfileRowStatus": {
+    "name": "eponDbaProfileRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileObjects": {
+    "name": "eponLineProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponLineProfileInfoTable": {
+    "name": "eponLineProfileInfoTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponLineProfileInfoEntry": {
+    "name": "eponLineProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponLineProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponLineProfileId": {
+    "name": "eponLineProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponLinePorfileId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponLineProfileName": {
+    "name": "eponLineProfileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponLineProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileUpstreamFECMode": {
+    "name": "eponLineProfileUpstreamFECMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileLlidNum": {
+    "name": "eponLineProfileLlidNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponLineProfileBindNum": {
+    "name": "eponLineProfileBindNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponLineProfileRowStatus": {
+    "name": "eponLineProfileRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileLlidTable": {
+    "name": "eponLineProfileLlidTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponLineProfileLlidEntry": {
+    "name": "eponLineProfileLlidEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponLineProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponLineProfileLlId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponLineProfileLlId": {
+    "name": "eponLineProfileLlId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponLineProfileLlId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponLineProfileLlidDbaProfileId": {
+    "name": "eponLineProfileLlidDbaProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponDbaProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileLlidEncrypt": {
+    "name": "eponLineProfileLlidEncrypt",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "triple-churning": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileLlidOntCar": {
+    "name": "eponLineProfileLlidOntCar",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponTrafficProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileLlidRowStatus": {
+    "name": "eponLineProfileLlidRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileDbaThresholdTable": {
+    "name": "eponLineProfileDbaThresholdTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponLineProfileDbaThresholdEntry": {
+    "name": "eponLineProfileDbaThresholdEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponLineProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponLineProfileQueueSetId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponLineProfileQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponLineProfileQueueSetId": {
+    "name": "eponLineProfileQueueSetId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponLineProfileQueueId": {
+    "name": "eponLineProfileQueueId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponLineProfileThreshold": {
+    "name": "eponLineProfileThreshold",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponLineProfileDbaThresholdRowStatus": {
+    "name": "eponLineProfileDbaThresholdRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfileObjects": {
+    "name": "eponSrvProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponSrvProfileInfoTable": {
+    "name": "eponSrvProfileInfoTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfileInfoEntry": {
+    "name": "eponSrvProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSrvProfileId": {
+    "name": "eponSrvProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSrvProfileId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfileName": {
+    "name": "eponSrvProfileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSrvProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfileBindNum": {
+    "name": "eponSrvProfileBindNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponSrvProfileRowStatus": {
+    "name": "eponSrvProfileRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfileCfgTable": {
+    "name": "eponSrvProfileCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfileCfgEntry": {
+    "name": "eponSrvProfileCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSrvProfileMcFastLeave": {
+    "name": "eponSrvProfileMcFastLeave",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileMacLearning": {
+    "name": "eponSrvProfileMacLearning",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileMacAgeSeconds": {
+    "name": "eponSrvProfileMacAgeSeconds",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileLoopbackDetectCheck": {
+    "name": "eponSrvProfileLoopbackDetectCheck",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfilePortNumTable": {
+    "name": "eponSrvProfilePortNumTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortNumEntry": {
+    "name": "eponSrvProfilePortNumEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSrvProfileEthNum": {
+    "name": "eponSrvProfileEthNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfilePotsNum": {
+    "name": "eponSrvProfilePotsNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileCatvNum": {
+    "name": "eponSrvProfileCatvNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortCfgTable": {
+    "name": "eponSrvProfileEthPortCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortCfgEntry": {
+    "name": "eponSrvProfileEthPortCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSrvProfileEthPortMacLimited": {
+    "name": "eponSrvProfileEthPortMacLimited",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortMtu": {
+    "name": "eponSrvProfileEthPortMtu",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortFlowCtrl": {
+    "name": "eponSrvProfileEthPortFlowCtrl",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortInTrafficProfileId": {
+    "name": "eponSrvProfileEthPortInTrafficProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponTrafficProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortOutTrafficProfileId": {
+    "name": "eponSrvProfileEthPortOutTrafficProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponTrafficProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortNativeVlanId": {
+    "name": "eponSrvProfileEthPortNativeVlanId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfileEthPortNativeVlanPriority": {
+    "name": "eponSrvProfileEthPortNativeVlanPriority",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponVlanPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanCfgTable": {
+    "name": "eponSrvProfilePortVlanCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanCfgEntry": {
+    "name": "eponSrvProfilePortVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortType",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortVlanEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSrvProfilePortType": {
+    "name": "eponSrvProfilePortType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortId": {
+    "name": "eponSrvProfilePortId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanEntryId": {
+    "name": "eponSrvProfilePortVlanEntryId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanMode": {
+    "name": "eponSrvProfilePortVlanMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparent": 1,
+          "qinq": 2,
+          "translation": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanSvlan": {
+    "name": "eponSrvProfilePortVlanSvlan",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanSpri": {
+    "name": "eponSrvProfilePortVlanSpri",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanCvlan": {
+    "name": "eponSrvProfilePortVlanCvlan",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanCpri": {
+    "name": "eponSrvProfilePortVlanCpri",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortVlanRowStatus": {
+    "name": "eponSrvProfilePortVlanRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcCfgTable": {
+    "name": "eponSrvProfilePortMcCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcCfgEntry": {
+    "name": "eponSrvProfilePortMcCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortType",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortMcEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSrvProfilePortMcEntryId": {
+    "name": "eponSrvProfilePortMcEntryId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcMaxGroupNum": {
+    "name": "eponSrvProfilePortMcMaxGroupNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcTagStripMode": {
+    "name": "eponSrvProfilePortMcTagStripMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untag": 1,
+          "tag": 2,
+          "translation": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcTagStripSvlan": {
+    "name": "eponSrvProfilePortMcTagStripSvlan",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcTagStripCvlan": {
+    "name": "eponSrvProfilePortMcTagStripCvlan",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcRowStatus": {
+    "name": "eponSrvProfilePortMcRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcVlanCfgTable": {
+    "name": "eponSrvProfilePortMcVlanCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcVlanCfgEntry": {
+    "name": "eponSrvProfilePortMcVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortType",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSrvProfilePortMcVlanEntryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSrvProfilePortMcVlanEntryId": {
+    "name": "eponSrvProfilePortMcVlanEntryId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcVlan": {
+    "name": "eponSrvProfilePortMcVlan",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSrvProfilePortMcVlanRowStatus": {
+    "name": "eponSrvProfilePortMcVlanRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponTrafficProfileObjects": {
+    "name": "eponTrafficProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponTrafficProfileInfoTable": {
+    "name": "eponTrafficProfileInfoTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponTrafficProfileInfoEntry": {
+    "name": "eponTrafficProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponTrafficProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponTrafficProfileId": {
+    "name": "eponTrafficProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponTrafficProfileId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponTrafficProfileName": {
+    "name": "eponTrafficProfileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponTrafficProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponTrafficProfileCfgCir": {
+    "name": "eponTrafficProfileCfgCir",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponTrafficProfileCfgPir": {
+    "name": "eponTrafficProfileCfgPir",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponTrafficProfileCfgCbs": {
+    "name": "eponTrafficProfileCfgCbs",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponTrafficProfileCfgPbs": {
+    "name": "eponTrafficProfileCfgPbs",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 10240000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponTrafficProfileCfgPriority": {
+    "name": "eponTrafficProfileCfgPriority",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponTrafficProfileBindNum": {
+    "name": "eponTrafficProfileBindNum",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponTrafficProfileRowStatus": {
+    "name": "eponTrafficProfileRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponAlarmProfileObjects": {
+    "name": "eponAlarmProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponAlarmProfileInfoTable": {
+    "name": "eponAlarmProfileInfoTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponAlarmProfileInfoEntry": {
+    "name": "eponAlarmProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponAlarmProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponAlarmProfileTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponAlarmProfileId": {
+    "name": "eponAlarmProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponAlarmProfileTypeId": {
+    "name": "eponAlarmProfileTypeId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rx-dropevents-alarm": 1,
+          "tx-dropevents-alarm": 2,
+          "rx-crcerrors-alarm": 3,
+          "tx-crcerrors-alarm": 4,
+          "rx-undersizes-alarm": 5,
+          "tx-undersizes-alarm": 6,
+          "rx-oversizes-alarm": 7,
+          "tx-oversizes-alarm": 8,
+          "rx-fragments-alarm": 9,
+          "tx-fragments-alarm": 10,
+          "rx-jabbers-alarm": 11,
+          "tx-jabbers-alarm": 12,
+          "rx-discards-alarm": 13,
+          "tx-discards-alarm": 14,
+          "rx-errors-alarm": 15,
+          "tx-errors-alarm": 16,
+          "rx-dropevents-warning": 17,
+          "tx-dropevents-warning": 18,
+          "rx-crcerrors-warning": 19,
+          "tx-crcerrors-warning": 20,
+          "rx-undersizes-warning": 21,
+          "tx-undersizes-warning": 22,
+          "rx-oversizes-warning": 23,
+          "tx-oversizes-warning": 24,
+          "rx-fragments-warning": 25,
+          "tx-fragments-warning": 26,
+          "rx-jabbers-warning": 27,
+          "tx-jabbers-warning": 28,
+          "rx-discards-warning": 29,
+          "tx-discards-warning": 30,
+          "rx-errors-warning": 31,
+          "tx-errors-warning": 32
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponAlarmProfileName": {
+    "name": "eponAlarmProfileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponAlarmProfileThreshold": {
+    "name": "eponAlarmProfileThreshold",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmProfileThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponAlarmProfileRestoreThreshold": {
+    "name": "eponAlarmProfileRestoreThreshold",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponAlarmProfileThreshold",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponAlarmProfileRowStatus": {
+    "name": "eponAlarmProfileRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileObjects": {
+    "name": "eponOpticalAlarmProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileInfoTable": {
+    "name": "eponOpticalAlarmProfileInfoTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileInfoEntry": {
+    "name": "eponOpticalAlarmProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOpticalAlarmProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOpticalAlarmProfileTypeId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileId": {
+    "name": "eponOpticalAlarmProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileTypeId": {
+    "name": "eponOpticalAlarmProfileTypeId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rx-power-high-alarm": 1,
+          "rx-power-low-alarm": 2,
+          "tx-power-high-alarm": 3,
+          "tx-power-low-alarm": 4,
+          "bias-high-alarm": 5,
+          "bias-low-alarm": 6,
+          "voltage-high-alarm": 7,
+          "voltage-low-alarm": 8,
+          "temperature-high-alarm": 9,
+          "temperature-low-alarm": 10,
+          "rx-power-high-warning": 11,
+          "rx-power-low-warning": 12,
+          "tx-power-high-warning": 13,
+          "tx-power-low-warning": 14,
+          "bias-high-warning": 15,
+          "bias-low-warning": 16,
+          "voltage-high-warning": 17,
+          "voltage-low-warning": 18,
+          "temperature-high-warning": 19,
+          "temperature-low-warning": 20
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileName": {
+    "name": "eponOpticalAlarmProfileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileUpperThreshold": {
+    "name": "eponOpticalAlarmProfileUpperThreshold",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileLowerThreshold": {
+    "name": "eponOpticalAlarmProfileLowerThreshold",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOpticalAlarmProfileRowStatus": {
+    "name": "eponOpticalAlarmProfileRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSlaProfileObjects": {
+    "name": "eponSlaProfileObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponSlaProfileInfoTable": {
+    "name": "eponSlaProfileInfoTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSlaProfileInfoEntry": {
+    "name": "eponSlaProfileInfoEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSlaProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSlaProfileId": {
+    "name": "eponSlaProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSlaProfileName": {
+    "name": "eponSlaProfileName",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponProfileName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSlaProfileCycleLength": {
+    "name": "eponSlaProfileCycleLength",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 200,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSlaProfileServicesNumber": {
+    "name": "eponSlaProfileServicesNumber",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSlaProfileRowStatus": {
+    "name": "eponSlaProfileRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponSlaProfileServiceTable": {
+    "name": "eponSlaProfileServiceTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSlaProfileServiceEntry": {
+    "name": "eponSlaProfileServiceEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSlaProfileId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponSlaProfileServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponSlaProfileServiceId": {
+    "name": "eponSlaProfileServiceId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponSlaProfileServiceFixPacketSize": {
+    "name": "eponSlaProfileServiceFixPacketSize",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSlaProfileServiceFixBandwidth": {
+    "name": "eponSlaProfileServiceFixBandwidth",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999936
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSlaProfileServiceGuaranteBandwidth": {
+    "name": "eponSlaProfileServiceGuaranteBandwidth",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999936
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSlaProfileServiceBestEffortBandwidth": {
+    "name": "eponSlaProfileServiceBestEffortBandwidth",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999936
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponSlaProfileServiceWrrWeight": {
+    "name": "eponSlaProfileServiceWrrWeight",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponControlObjects": {
+    "name": "eponControlObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponOnuObjects": {
+    "name": "eponOnuObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponOnuAuthenticationManagement": {
+    "name": "eponOnuAuthenticationManagement",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponOnuAuthenticationModeTable": {
+    "name": "eponOnuAuthenticationModeTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationModeEntry": {
+    "name": "eponOnuAuthenticationModeEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuAuthenticationModeDeviceId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuAuthenticationModeSlotId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuAuthenticationModePortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuAuthenticationModeDeviceId": {
+    "name": "eponOnuAuthenticationModeDeviceId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationModeSlotId": {
+    "name": "eponOnuAuthenticationModeSlotId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationModePortId": {
+    "name": "eponOnuAuthenticationModePortId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationModeAdaptive": {
+    "name": "eponOnuAuthenticationModeAdaptive",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfigTable": {
+    "name": "eponOnuAuthenticationConfigTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfigEntry": {
+    "name": "eponOnuAuthenticationConfigEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuAuthenOnuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuAuthenOnuId": {
+    "name": "eponOnuAuthenOnuId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenMacAddress": {
+    "name": "eponOnuAuthenMacAddress",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponMacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenLineProfileId": {
+    "name": "eponOnuAuthenLineProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponLinePorfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenServiceProfileId": {
+    "name": "eponOnuAuthenServiceProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSrvProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenTimeMode": {
+    "name": "eponOnuAuthenTimeMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 0,
+          "onceAging": 1,
+          "onceNoAging": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenExpireAt": {
+    "name": "eponOnuAuthenExpireAt",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponOnuAuthenRowStatus": {
+    "name": "eponOnuAuthenRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenticationConfigTable": {
+    "name": "eponOnuLoidAuthenticationConfigTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenticationConfigEntry": {
+    "name": "eponOnuLoidAuthenticationConfigEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuLoidAuthenOnuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuLoidAuthenOnuId": {
+    "name": "eponOnuLoidAuthenOnuId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenLoid": {
+    "name": "eponOnuLoidAuthenLoid",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenPassword": {
+    "name": "eponOnuLoidAuthenPassword",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenLineProfileId": {
+    "name": "eponOnuLoidAuthenLineProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponLinePorfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenServiceProfileId": {
+    "name": "eponOnuLoidAuthenServiceProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSrvProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenTimeMode": {
+    "name": "eponOnuLoidAuthenTimeMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 0,
+          "onceAging": 1,
+          "onceNoAging": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenExpireAt": {
+    "name": "eponOnuLoidAuthenExpireAt",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eponOnuLoidAuthenRowStatus": {
+    "name": "eponOnuLoidAuthenRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfirmTable": {
+    "name": "eponOnuAuthenticationConfirmTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfirmEntry": {
+    "name": "eponOnuAuthenticationConfirmEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuAuthenticationConfirmDeviceId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuAuthenticationConfirmSlotId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuAuthenticationConfirmPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfirmDeviceId": {
+    "name": "eponOnuAuthenticationConfirmDeviceId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfirmSlotId": {
+    "name": "eponOnuAuthenticationConfirmSlotId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfirmPortId": {
+    "name": "eponOnuAuthenticationConfirmPortId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmType": {
+    "name": "eponOnuAuthenConfirmType",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macAuth": 1,
+          "loidAuth": 2,
+          "loidPwdAuth": 3,
+          "macAuthAll": 4,
+          "loidAuthAll": 5,
+          "loidPwdAuthAll": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmMacAddress": {
+    "name": "eponOnuAuthenConfirmMacAddress",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponMacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmLoid": {
+    "name": "eponOnuAuthenConfirmLoid",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmLoidPassword": {
+    "name": "eponOnuAuthenConfirmLoidPassword",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmLineProfileId": {
+    "name": "eponOnuAuthenConfirmLineProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponLinePorfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmServiceProfileId": {
+    "name": "eponOnuAuthenConfirmServiceProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSrvProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmTimeMode": {
+    "name": "eponOnuAuthenConfirmTimeMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 0,
+          "onceAging": 1,
+          "onceNoAging": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenConfirmAgingDuration": {
+    "name": "eponOnuAuthenConfirmAgingDuration",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuAuthenticationConfirmRowStatus": {
+    "name": "eponOnuAuthenticationConfirmRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthTable": {
+    "name": "eponOnuPolicyAuthTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5",
+    "class": "objectidentity"
+  },
+  "eponOnuPolicyAuthControlTable": {
+    "name": "eponOnuPolicyAuthControlTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthControlEntry": {
+    "name": "eponOnuPolicyAuthControlEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuPolicyAuthControlDeviceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuPolicyAuthControlDeviceId": {
+    "name": "eponOnuPolicyAuthControlDeviceId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthSwitch": {
+    "name": "eponOnuPolicyAuthSwitch",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthPortSwtichBitMap": {
+    "name": "eponOnuPolicyAuthPortSwtichBitMap",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthMode": {
+    "name": "eponOnuPolicyAuthMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "modelId": 2,
+          "vendorId": 3,
+          "modelIdAndSwver": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthTargetMode": {
+    "name": "eponOnuPolicyAuthTargetMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macAuth": 0,
+          "loidAuth": 1,
+          "loidPasswordAuth": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthTimeMode": {
+    "name": "eponOnuPolicyAuthTimeMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 0,
+          "onceNoAging": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleTable": {
+    "name": "eponOnuPolicyAuthRuleTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleEntry": {
+    "name": "eponOnuPolicyAuthRuleEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuPolicyAuthRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleId": {
+    "name": "eponOnuPolicyAuthRuleId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleMatchMode": {
+    "name": "eponOnuPolicyAuthRuleMatchMode",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "modelId": 2,
+          "vendorId": 3,
+          "modelIdAndSwver": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleModelId": {
+    "name": "eponOnuPolicyAuthRuleModelId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleVendorId": {
+    "name": "eponOnuPolicyAuthRuleVendorId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleSoftwareVersion": {
+    "name": "eponOnuPolicyAuthRuleSoftwareVersion",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleLineProfileId": {
+    "name": "eponOnuPolicyAuthRuleLineProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponLinePorfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleSrvProfileId": {
+    "name": "eponOnuPolicyAuthRuleSrvProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSrvProfileId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuPolicyAuthRuleRowStatus": {
+    "name": "eponOnuPolicyAuthRuleRowStatus",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "eponOnuProfileConfigManagement": {
+    "name": "eponOnuProfileConfigManagement",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponOnuProfileCfgTable": {
+    "name": "eponOnuProfileCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuProfileCfgEntry": {
+    "name": "eponOnuProfileCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuProfileCfgOnuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuProfileCfgOnuId": {
+    "name": "eponOnuProfileCfgOnuId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuAlarmProfileId": {
+    "name": "eponOnuAlarmProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuOpticalAlarmProfileId": {
+    "name": "eponOnuOpticalAlarmProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuSlaProfileId": {
+    "name": "eponOnuSlaProfileId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuPortObjects": {
+    "name": "eponOnuPortObjects",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponOnuPortConfigManagement": {
+    "name": "eponOnuPortConfigManagement",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "eponOnuCatvPortCfgTable": {
+    "name": "eponOnuCatvPortCfgTable",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuCatvPortCfgEntry": {
+    "name": "eponOnuCatvPortCfgEntry",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuCatvPortCfgDeviceId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuCatvPortCfgSlotId",
+        "implied": 0
+      },
+      {
+        "module": "CDATA-EPON-MIB",
+        "object": "eponOnuCatvPortCfgPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eponOnuCatvPortCfgDeviceId": {
+    "name": "eponOnuCatvPortCfgDeviceId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuCatvPortCfgSlotId": {
+    "name": "eponOnuCatvPortCfgSlotId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuCatvPortCfgPortId": {
+    "name": "eponOnuCatvPortCfgPortId",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eponOnuCatvPortOperationlState": {
+    "name": "eponOnuCatvPortOperationlState",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponSwitch",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eponOnuCatvPortRxPower": {
+    "name": "eponOnuCatvPortRxPower",
+    "oid": "1.3.6.1.4.1.34592.1.3.1.1.2.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/CDATA-EPON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CDATA-EPON-MIB"
+  }
+}

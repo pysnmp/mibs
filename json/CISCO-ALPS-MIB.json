@@ -1,0 +1,4153 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "RFC1382-MIB": [
+      "X121Address"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoAlpsMIB": {
+    "name": "ciscoAlpsMIB",
+    "oid": "1.3.6.1.4.1.9.9.95",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-02-14 00:00",
+        "description": "Imported X121Adress from RFC1382 MIB & Integer32 from SNMPv2-SMI. TEXTUAL-CONVENTION AlpsCktName syntax is changed to OCTET STRING from DisplayString & AlpsAscuA1A2Value's Syntax is changed to Integer32 from INTEGER. Syntax of following objects are changed from INTEGER to Integer32: alpsPeerLocalAtpPort, alpsPeerKeepaliveMaxRetries, alpsRemPeerLocalPort, alpsRemPeerRemotePort, alpsRemPeerTCPQlen, alpsRemPeerCfgTCPQLen, alpsRemPeerCfgStatRetry, alpsRemPeerConnLocalPort, alpsRemPeerConnForeignPort, alpsRemPeerConnNumActCirc, alpsRemPeerConnTCPQLen, alpsRemPeerConnStatIntvl, alpsRemPeerConnStatRetry, alpsCktBaseNumActiveAscus, alpsCktBaseHostLinkNumber, alpsCktBaseRemHld, alpsCktBaseLocalHld, alpsCktX25LCN, alpsCktP1024Ax25LCN, alpsCktP1024WinOut, alpsCktP1024WinIn, alpsCktP1024OutPktSize, alpsCktP1024InPktSize, alpsCktP1024SvcMsgList, alpsCktAscuId, alpsIfP1024MaxErrCnt, alpsIfP1024MaxRetrans, alpsIfP1024CurrErrCnt, alpsIfP1024MinGoodPollResp, alpsIfP1024PollingRatio, alpsIfHLinkHostHld, alpsIfHLinkNumber, alpsIfHLinkActiveCkts, alpsAscuId, alpsAscuMaxMsgLength, alpsSvcMsgListNum and alpsSvcMsgNum."
+      },
+      {
+        "revision": "2000-01-28 00:00",
+        "description": "Modification for ALC and Service Message Enhancements"
+      },
+      {
+        "revision": "1999-01-07 00:00",
+        "description": "Additional modifications to support ALPS/MATIP. NOTE: The alpsIfHLinkHostHld object has been updated to change its range. SMI (RFC2578 section 10.2 Extending an Information Module: Object Definitons) requires a new object defined and the old object obsoleted. This is also an index module which would require the old table to be obsoleted and a new one created. After review it has been decided to minimize impacts/disruptions to customer applications, we are not going to follow the SMI guidlines."
+      },
+      {
+        "revision": "1998-12-31 00:00",
+        "description": "Modifications to support ALPS/MATIP."
+      },
+      {
+        "revision": "1998-12-08 00:00",
+        "description": "Modifications to allow publishing."
+      },
+      {
+        "revision": "1998-05-20 00:00",
+        "description": "Change ranges for some variables and update descriptions."
+      }
+    ]
+  },
+  "ciscoAlpsMIBObjects": {
+    "name": "ciscoAlpsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.95.1",
+    "class": "objectidentity"
+  },
+  "AlpsCktName": {
+    "name": "AlpsCktName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AlpsAscuA1A2Value": {
+    "name": "AlpsAscuA1A2Value",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "alpsGroups": {
+    "name": "alpsGroups",
+    "oid": "1.3.6.1.4.1.9.9.95.1.1",
+    "class": "objectidentity"
+  },
+  "alpsPeerObjects": {
+    "name": "alpsPeerObjects",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2",
+    "class": "objectidentity"
+  },
+  "alpsCktObjects": {
+    "name": "alpsCktObjects",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3",
+    "class": "objectidentity"
+  },
+  "alpsIfObjects": {
+    "name": "alpsIfObjects",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4",
+    "class": "objectidentity"
+  },
+  "alpsAscuObjects": {
+    "name": "alpsAscuObjects",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5",
+    "class": "objectidentity"
+  },
+  "alpsGlobalObjects": {
+    "name": "alpsGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6",
+    "class": "objectidentity"
+  },
+  "alpsPeer": {
+    "name": "alpsPeer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.1",
+    "class": "objectidentity"
+  },
+  "alpsPeerLocalIpAddr": {
+    "name": "alpsPeerLocalIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsPeerLocalAtpPort": {
+    "name": "alpsPeerLocalAtpPort",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsPeerKeepaliveTimeout": {
+    "name": "alpsPeerKeepaliveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsPeerKeepaliveMaxRetries": {
+    "name": "alpsPeerKeepaliveMaxRetries",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsPeerInCallsAcceptFlag": {
+    "name": "alpsPeerInCallsAcceptFlag",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsRemPeerTable": {
+    "name": "alpsRemPeerTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alpsRemPeerEntry": {
+    "name": "alpsRemPeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsRemPeerIpAddr": {
+    "name": "alpsRemPeerIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alpsRemPeerConnType": {
+    "name": "alpsRemPeerConnType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permanent": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alpsRemPeerLocalPort": {
+    "name": "alpsRemPeerLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerRemotePort": {
+    "name": "alpsRemPeerRemotePort",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerState": {
+    "name": "alpsRemPeerState",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "opening": 2,
+          "opened": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerUptime": {
+    "name": "alpsRemPeerUptime",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerNumActiveCkts": {
+    "name": "alpsRemPeerNumActiveCkts",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerIdleTimer": {
+    "name": "alpsRemPeerIdleTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alpsRemPeerAlarmsEnabled": {
+    "name": "alpsRemPeerAlarmsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alpsRemPeerTCPQlen": {
+    "name": "alpsRemPeerTCPQlen",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alpsRemPeerOutPackets": {
+    "name": "alpsRemPeerOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerOutOctets": {
+    "name": "alpsRemPeerOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerInPackets": {
+    "name": "alpsRemPeerInPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerInOctets": {
+    "name": "alpsRemPeerInOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerDropsGiant": {
+    "name": "alpsRemPeerDropsGiant",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerDropsQFull": {
+    "name": "alpsRemPeerDropsQFull",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerDropsPeerUnreach": {
+    "name": "alpsRemPeerDropsPeerUnreach",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "alpsRemPeerRowStatus": {
+    "name": "alpsRemPeerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alpsRemPeerCfgTable": {
+    "name": "alpsRemPeerCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsRemPeerCfgEntry": {
+    "name": "alpsRemPeerCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsRemPeerCfgIpAddr": {
+    "name": "alpsRemPeerCfgIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsRemPeerCfgProtocol": {
+    "name": "alpsRemPeerCfgProtocol",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atp": 1,
+          "matipTypeA": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsRemPeerCfgActivation": {
+    "name": "alpsRemPeerCfgActivation",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permanent": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerCfgTCPQLen": {
+    "name": "alpsRemPeerCfgTCPQLen",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerCfgIdleTimer": {
+    "name": "alpsRemPeerCfgIdleTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerCfgNoCircTimer": {
+    "name": "alpsRemPeerCfgNoCircTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerCfgAlarmsOn": {
+    "name": "alpsRemPeerCfgAlarmsOn",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerCfgStatIntvl": {
+    "name": "alpsRemPeerCfgStatIntvl",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerCfgStatRetry": {
+    "name": "alpsRemPeerCfgStatRetry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerCfgRowStatus": {
+    "name": "alpsRemPeerCfgRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsRemPeerConnTable": {
+    "name": "alpsRemPeerConnTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsRemPeerConnEntry": {
+    "name": "alpsRemPeerConnEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnIdString",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsRemPeerConnIpAddr": {
+    "name": "alpsRemPeerConnIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsRemPeerConnIdString": {
+    "name": "alpsRemPeerConnIdString",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsRemPeerConnLocalPort": {
+    "name": "alpsRemPeerConnLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnForeignPort": {
+    "name": "alpsRemPeerConnForeignPort",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnState": {
+    "name": "alpsRemPeerConnState",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "opening": 2,
+          "opened": 3,
+          "busy": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnProtocol": {
+    "name": "alpsRemPeerConnProtocol",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atp": 1,
+          "matipTypeA": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnCreation": {
+    "name": "alpsRemPeerConnCreation",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admin": 1,
+          "learned": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnActivation": {
+    "name": "alpsRemPeerConnActivation",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permanent": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnUptime": {
+    "name": "alpsRemPeerConnUptime",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnNumActCirc": {
+    "name": "alpsRemPeerConnNumActCirc",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnLastTxRx": {
+    "name": "alpsRemPeerConnLastTxRx",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnLastRxAny": {
+    "name": "alpsRemPeerConnLastRxAny",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnIdleTimer": {
+    "name": "alpsRemPeerConnIdleTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnNoCircTimer": {
+    "name": "alpsRemPeerConnNoCircTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnTCPQLen": {
+    "name": "alpsRemPeerConnTCPQLen",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnAlarmsOn": {
+    "name": "alpsRemPeerConnAlarmsOn",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnStatIntvl": {
+    "name": "alpsRemPeerConnStatIntvl",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnStatRetry": {
+    "name": "alpsRemPeerConnStatRetry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnDownReason": {
+    "name": "alpsRemPeerConnDownReason",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "idle": 2,
+          "noCircuits": 3,
+          "destUnreachable": 4,
+          "foreignReset": 5,
+          "localReset": 6,
+          "noMemory": 7,
+          "openingTimeout": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnOutPackets": {
+    "name": "alpsRemPeerConnOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnOutOctets": {
+    "name": "alpsRemPeerConnOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnInPackets": {
+    "name": "alpsRemPeerConnInPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnInOctets": {
+    "name": "alpsRemPeerConnInOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnDropsGiant": {
+    "name": "alpsRemPeerConnDropsGiant",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnDropsQFull": {
+    "name": "alpsRemPeerConnDropsQFull",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnDropsUnreach": {
+    "name": "alpsRemPeerConnDropsUnreach",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsRemPeerConnDropsVersion": {
+    "name": "alpsRemPeerConnDropsVersion",
+    "oid": "1.3.6.1.4.1.9.9.95.1.2.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseTable": {
+    "name": "alpsCktBaseTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktBaseEntry": {
+    "name": "alpsCktBaseEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseDlcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsCktBaseName": {
+    "name": "alpsCktBaseName",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlpsCktName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktBaseDlcType": {
+    "name": "alpsCktBaseDlcType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emtox": 1,
+          "ax25": 2,
+          "alc": 3,
+          "uts": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktBasePriPeerAddr": {
+    "name": "alpsCktBasePriPeerAddr",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseAlarmsEnabled": {
+    "name": "alpsCktBaseAlarmsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseConnType": {
+    "name": "alpsCktBaseConnType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permanent": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseState": {
+    "name": "alpsCktBaseState",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "inoperable": 2,
+          "opening": 3,
+          "opened": 4,
+          "cktBusy": 5,
+          "peerBusy": 6,
+          "updating": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseNumActiveAscus": {
+    "name": "alpsCktBaseNumActiveAscus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseCurrentPeer": {
+    "name": "alpsCktBaseCurrentPeer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseLifeTimeTimer": {
+    "name": "alpsCktBaseLifeTimeTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseHostLinkNumber": {
+    "name": "alpsCktBaseHostLinkNumber",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseHostLinkType": {
+    "name": "alpsCktBaseHostLinkType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ax25": 1,
+          "emtox": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseRemHld": {
+    "name": "alpsCktBaseRemHld",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32639
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseLocalHld": {
+    "name": "alpsCktBaseLocalHld",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32639
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseDownReason": {
+    "name": "alpsCktBaseDownReason",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noReason": 2,
+          "hostLinkDown": 3,
+          "cktDisabled": 4,
+          "hostLinkDisabled": 5,
+          "noHostLinkMatched": 6,
+          "noHldMatched": 7,
+          "cktNameInUse": 8,
+          "pvcLcnOutOfRange": 9,
+          "x25ParamInvalid": 10,
+          "cktOpeningTimeout": 11,
+          "x25ClearDteNoReason": 12,
+          "configMismatch": 13,
+          "noResourcesAvail": 14,
+          "incompatibleA1A2": 15,
+          "cktIdle": 16,
+          "peerDown": 17,
+          "noAscusConfigured": 18,
+          "x25ClearHostUnknown": 19,
+          "x25ClearHostDown": 20,
+          "x25ClearHostDisabled": 21,
+          "x25ClearHostSaturated": 22,
+          "x25ClearCallerUnknown": 23,
+          "x25ClearCallerUnauth": 24,
+          "x25ClearConfigRejected": 25,
+          "x25ClearConfigFallback": 26,
+          "x25ClearConfigIncompat": 27,
+          "x25ClearHLDUnknown": 28,
+          "x25ClearPIDUnknown": 29,
+          "x25ClearFacilRejected": 30,
+          "x25ClearNetNoReason": 31,
+          "pvcLcnInUse": 32,
+          "noSvcLcnAvail": 33,
+          "peerIdle": 34,
+          "presUnknown": 35,
+          "presMismatch": 36,
+          "openMsgTooShort": 37,
+          "mpxUnknown": 38,
+          "mpxHdrMismatch": 39,
+          "trafTypeMismatch": 40,
+          "codingMismatch": 41,
+          "ascuInSession": 42
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noReason",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseOutPackets": {
+    "name": "alpsCktBaseOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseOutOctets": {
+    "name": "alpsCktBaseOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseInPackets": {
+    "name": "alpsCktBaseInPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseInOctets": {
+    "name": "alpsCktBaseInOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseDropsCktDisabled": {
+    "name": "alpsCktBaseDropsCktDisabled",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseDropsQOverflow": {
+    "name": "alpsCktBaseDropsQOverflow",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseDropsLifeTimeExpd": {
+    "name": "alpsCktBaseDropsLifeTimeExpd",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktBaseEnabled": {
+    "name": "alpsCktBaseEnabled",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseRowStatus": {
+    "name": "alpsCktBaseRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktBaseCurrPeerConnId": {
+    "name": "alpsCktBaseCurrPeerConnId",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktX25Table": {
+    "name": "alpsCktX25Table",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktX25Entry": {
+    "name": "alpsCktX25Entry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktX25DlcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsCktX25DlcType": {
+    "name": "alpsCktX25DlcType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emtox": 1,
+          "ax25": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktX25IfIndex": {
+    "name": "alpsCktX25IfIndex",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktX25LCN": {
+    "name": "alpsCktX25LCN",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktX25HostX121": {
+    "name": "alpsCktX25HostX121",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktX25RemoteX121": {
+    "name": "alpsCktX25RemoteX121",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktX25DropsVcReset": {
+    "name": "alpsCktX25DropsVcReset",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktP1024Table": {
+    "name": "alpsCktP1024Table",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktP1024Entry": {
+    "name": "alpsCktP1024Entry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024DlcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsCktP1024DlcType": {
+    "name": "alpsCktP1024DlcType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alc": 3,
+          "uts": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktP1024BackupPeerAddr": {
+    "name": "alpsCktP1024BackupPeerAddr",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024RetryTimer": {
+    "name": "alpsCktP1024RetryTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024IdleTimer": {
+    "name": "alpsCktP1024IdleTimer",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024EmtoxX121": {
+    "name": "alpsCktP1024EmtoxX121",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024Ax25LCN": {
+    "name": "alpsCktP1024Ax25LCN",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024WinOut": {
+    "name": "alpsCktP1024WinOut",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024WinIn": {
+    "name": "alpsCktP1024WinIn",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024OutPktSize": {
+    "name": "alpsCktP1024OutPktSize",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024InPktSize": {
+    "name": "alpsCktP1024InPktSize",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024SvcMsgList": {
+    "name": "alpsCktP1024SvcMsgList",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024SvcMsgIntvl": {
+    "name": "alpsCktP1024SvcMsgIntvl",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024DropsUnkAscu": {
+    "name": "alpsCktP1024DropsUnkAscu",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktP1024RowStatus": {
+    "name": "alpsCktP1024RowStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktP1024MatipCloseDelay": {
+    "name": "alpsCktP1024MatipCloseDelay",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsCktAscuTable": {
+    "name": "alpsCktAscuTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktAscuEntry": {
+    "name": "alpsCktAscuEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuCktName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuCktDlcType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuA1",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuA2",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsCktAscuCktName": {
+    "name": "alpsCktAscuCktName",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlpsCktName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktAscuCktDlcType": {
+    "name": "alpsCktAscuCktDlcType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emtox": 1,
+          "ax25": 2,
+          "alc": 3,
+          "uts": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktAscuA1": {
+    "name": "alpsCktAscuA1",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlpsAscuA1A2Value",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktAscuA2": {
+    "name": "alpsCktAscuA2",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlpsAscuA1A2Value",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsCktAscuIfIndex": {
+    "name": "alpsCktAscuIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktAscuId": {
+    "name": "alpsCktAscuId",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsCktAscuStatus": {
+    "name": "alpsCktAscuStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "reject": 3,
+          "new": 4,
+          "pending": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsIfP1024Table": {
+    "name": "alpsIfP1024Table",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsIfP1024Entry": {
+    "name": "alpsIfP1024Entry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsIfP1024EncapType": {
+    "name": "alpsIfP1024EncapType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alc": 1,
+          "uts": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsIfP1024PollRespTimeout": {
+    "name": "alpsIfP1024PollRespTimeout",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024GATimeout": {
+    "name": "alpsIfP1024GATimeout",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024PollPauseTimeout": {
+    "name": "alpsIfP1024PollPauseTimeout",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024MaxErrCnt": {
+    "name": "alpsIfP1024MaxErrCnt",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024MaxRetrans": {
+    "name": "alpsIfP1024MaxRetrans",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024CurrErrCnt": {
+    "name": "alpsIfP1024CurrErrCnt",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsIfP1024MinGoodPollResp": {
+    "name": "alpsIfP1024MinGoodPollResp",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024PollingRatio": {
+    "name": "alpsIfP1024PollingRatio",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024NumAscus": {
+    "name": "alpsIfP1024NumAscus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Ascus",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsIfP1024ServMsgFormat": {
+    "name": "alpsIfP1024ServMsgFormat",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sita": 1,
+          "apollo": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sita",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024ServMsgStatusChange": {
+    "name": "alpsIfP1024ServMsgStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfP1024ServMsgDropTermAddr": {
+    "name": "alpsIfP1024ServMsgDropTermAddr",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "msgterm": 1,
+          "configterm": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "configterm",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alpsIfHLinkTable": {
+    "name": "alpsIfHLinkTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsIfHLinkEntry": {
+    "name": "alpsIfHLinkEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfHLinkHostHld",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfHLinkNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsIfHLinkHostHld": {
+    "name": "alpsIfHLinkHostHld",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsIfHLinkNumber": {
+    "name": "alpsIfHLinkNumber",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsIfHLinkX25ProtocolType": {
+    "name": "alpsIfHLinkX25ProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ax25": 1,
+          "emtox": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsIfHLinkAx25PvcDamp": {
+    "name": "alpsIfHLinkAx25PvcDamp",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsIfHLinkEmtoxHostX121": {
+    "name": "alpsIfHLinkEmtoxHostX121",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsIfHLinkActiveCkts": {
+    "name": "alpsIfHLinkActiveCkts",
+    "oid": "1.3.6.1.4.1.9.9.95.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "units": "circuits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuTable": {
+    "name": "alpsAscuTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsAscuEntry": {
+    "name": "alpsAscuEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsAscuId": {
+    "name": "alpsAscuId",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsAscuA1": {
+    "name": "alpsAscuA1",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlpsAscuA1A2Value",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuA2": {
+    "name": "alpsAscuA2",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlpsAscuA1A2Value",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuCktName": {
+    "name": "alpsAscuCktName",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlpsCktName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuAlarmsEnabled": {
+    "name": "alpsAscuAlarmsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuRetryOption": {
+    "name": "alpsAscuRetryOption",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resend": 1,
+          "reenter": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuMaxMsgLength": {
+    "name": "alpsAscuMaxMsgLength",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3840
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 962,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuFwdStatusOption": {
+    "name": "alpsAscuFwdStatusOption",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuState": {
+    "name": "alpsAscuState",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "unknown": 2,
+          "down": 3,
+          "up": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuDownReason": {
+    "name": "alpsAscuDownReason",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noReason": 2,
+          "notDown": 3,
+          "ascuDisabled": 4,
+          "errorThresholdExceeded": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noReason",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuOutPackets": {
+    "name": "alpsAscuOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuOutOctets": {
+    "name": "alpsAscuOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuInPackets": {
+    "name": "alpsAscuInPackets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuInOctets": {
+    "name": "alpsAscuInOctets",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuDropsGarbledPkts": {
+    "name": "alpsAscuDropsGarbledPkts",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuDropsAscuDown": {
+    "name": "alpsAscuDropsAscuDown",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuDropsAscuDisabled": {
+    "name": "alpsAscuDropsAscuDisabled",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alpsAscuEnabled": {
+    "name": "alpsAscuEnabled",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuRowStatus": {
+    "name": "alpsAscuRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsAscuAutoReset": {
+    "name": "alpsAscuAutoReset",
+    "oid": "1.3.6.1.4.1.9.9.95.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsSvcMsgTable": {
+    "name": "alpsSvcMsgTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsSvcMsgEntry": {
+    "name": "alpsSvcMsgEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsSvcMsgListNum",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsSvcMsgNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsSvcMsgListNum": {
+    "name": "alpsSvcMsgListNum",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsSvcMsgNum": {
+    "name": "alpsSvcMsgNum",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsSvcMsg": {
+    "name": "alpsSvcMsg",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsSvcMsgRowStatus": {
+    "name": "alpsSvcMsgRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsX121ToIpTransTable": {
+    "name": "alpsX121ToIpTransTable",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsX121ToIpTransEntry": {
+    "name": "alpsX121ToIpTransEntry",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsX121",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alpsX121": {
+    "name": "alpsX121",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alpsIpAddress": {
+    "name": "alpsIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alpsX121ToIpTransRowStatus": {
+    "name": "alpsX121ToIpTransRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.95.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoAlpsMIBNotificationPrefix": {
+    "name": "ciscoAlpsMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.95.2",
+    "class": "objectidentity"
+  },
+  "ciscoAlpsMIBNotifications": {
+    "name": "ciscoAlpsMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.95.2.0",
+    "class": "objectidentity"
+  },
+  "alpsPeerStatusChange": {
+    "name": "alpsPeerStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.95.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsCktStatusChange": {
+    "name": "alpsCktStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.95.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseState"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsAscuStatusChange": {
+    "name": "alpsAscuStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.95.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuState"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsPeerConnStatusChange": {
+    "name": "alpsPeerConnStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.95.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnState"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsCktOpenFailure": {
+    "name": "alpsCktOpenFailure",
+    "oid": "1.3.6.1.4.1.9.9.95.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsCktPartialReject": {
+    "name": "alpsCktPartialReject",
+    "oid": "1.3.6.1.4.1.9.9.95.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuIfIndex"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuId"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsMibConformance": {
+    "name": "alpsMibConformance",
+    "oid": "1.3.6.1.4.1.9.9.95.3",
+    "class": "objectidentity"
+  },
+  "alpsMibCompliances": {
+    "name": "alpsMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.95.3.1",
+    "class": "objectidentity"
+  },
+  "alpsMibGroups": {
+    "name": "alpsMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2",
+    "class": "objectidentity"
+  },
+  "alpsMibCompliance": {
+    "name": "alpsMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.95.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alpsPeerGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsCktGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsIfP1024Group",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsIfHostlinkGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsAscuGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsSvcMsgGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsAddrTransGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsNotificationGroup",
+        "module": "CISCO-ALPS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsMibComplianceRev1": {
+    "name": "alpsMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.95.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alpsCktGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsIfP1024Group",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsIfHostlinkGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsAscuGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsSvcMsgGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsAddrTransGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsPeerGroupRev1",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsNotificationGroupRev1",
+        "module": "CISCO-ALPS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsMibComplianceRev2": {
+    "name": "alpsMibComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.95.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alpsCktGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsIfP1024GroupRev1",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsIfHostlinkGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsAscuGroupRev1",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsSvcMsgGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsAddrTransGroup",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsPeerGroupRev1",
+        "module": "CISCO-ALPS-MIB"
+      },
+      {
+        "object": "alpsNotificationGroupRev2",
+        "module": "CISCO-ALPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsPeerGroup": {
+    "name": "alpsPeerGroup",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerLocalIpAddr"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerLocalAtpPort"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerKeepaliveTimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerKeepaliveMaxRetries"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerInCallsAcceptFlag"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnType"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerLocalPort"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerRemotePort"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerState"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerUptime"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerNumActiveCkts"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerIdleTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerAlarmsEnabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerTCPQlen"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerOutPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerOutOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerInPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerInOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerDropsGiant"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerDropsQFull"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerDropsPeerUnreach"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsCktGroup": {
+    "name": "alpsCktGroup",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBasePriPeerAddr"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseAlarmsEnabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseConnType"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseState"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseNumActiveAscus"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseCurrentPeer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseLifeTimeTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseHostLinkNumber"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseHostLinkType"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseRemHld"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseLocalHld"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseDownReason"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseOutPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseOutOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseInPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseInOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseDropsCktDisabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseDropsQOverflow"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseDropsLifeTimeExpd"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseEnabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseRowStatus"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktX25IfIndex"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktX25LCN"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktX25HostX121"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktX25RemoteX121"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktX25DropsVcReset"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024BackupPeerAddr"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024RetryTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024IdleTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024EmtoxX121"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024Ax25LCN"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024WinOut"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024WinIn"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024OutPktSize"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024InPktSize"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024SvcMsgList"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024SvcMsgIntvl"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024DropsUnkAscu"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024RowStatus"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuIfIndex"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuId"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktAscuStatus"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktBaseCurrPeerConnId"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktP1024MatipCloseDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsIfP1024Group": {
+    "name": "alpsIfP1024Group",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024EncapType"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024PollRespTimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024GATimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024PollPauseTimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024MaxErrCnt"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024MaxRetrans"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024CurrErrCnt"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024MinGoodPollResp"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024PollingRatio"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024NumAscus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsIfHostlinkGroup": {
+    "name": "alpsIfHostlinkGroup",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfHLinkX25ProtocolType"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfHLinkAx25PvcDamp"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfHLinkEmtoxHostX121"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfHLinkActiveCkts"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsAscuGroup": {
+    "name": "alpsAscuGroup",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuA1"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuA2"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuCktName"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuAlarmsEnabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuRetryOption"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuMaxMsgLength"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuFwdStatusOption"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuState"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDownReason"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuOutPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuOutOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuInPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuInOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDropsGarbledPkts"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDropsAscuDown"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDropsAscuDisabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuEnabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsSvcMsgGroup": {
+    "name": "alpsSvcMsgGroup",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsSvcMsg"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsSvcMsgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsAddrTransGroup": {
+    "name": "alpsAddrTransGroup",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIpAddress"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsX121ToIpTransRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsPeerGroupRev1": {
+    "name": "alpsPeerGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerLocalIpAddr"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerLocalAtpPort"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerKeepaliveTimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerKeepaliveMaxRetries"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerInCallsAcceptFlag"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgActivation"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgTCPQLen"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgIdleTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgNoCircTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgAlarmsOn"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgStatIntvl"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgStatRetry"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerCfgRowStatus"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnLocalPort"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnForeignPort"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnState"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnProtocol"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnCreation"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnActivation"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnUptime"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnNumActCirc"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnLastTxRx"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnLastRxAny"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnIdleTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnNoCircTimer"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnTCPQLen"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnAlarmsOn"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnStatIntvl"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnStatRetry"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnDownReason"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnOutPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnOutOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnInPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnInOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnDropsGiant"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnDropsQFull"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnDropsUnreach"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsRemPeerConnDropsVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsIfP1024GroupRev1": {
+    "name": "alpsIfP1024GroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024EncapType"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024PollRespTimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024GATimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024PollPauseTimeout"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024MaxErrCnt"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024MaxRetrans"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024CurrErrCnt"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024MinGoodPollResp"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024PollingRatio"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024NumAscus"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024ServMsgFormat"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024ServMsgStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsIfP1024ServMsgDropTermAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsAscuGroupRev1": {
+    "name": "alpsAscuGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuA1"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuA2"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuCktName"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuAlarmsEnabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuRetryOption"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuMaxMsgLength"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuFwdStatusOption"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuState"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDownReason"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuOutPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuOutOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuInPackets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuInOctets"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDropsGarbledPkts"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDropsAscuDown"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuDropsAscuDisabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuEnabled"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuRowStatus"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuAutoReset"
+      }
+    ],
+    "status": "current"
+  },
+  "alpsNotificationGroup": {
+    "name": "alpsNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuStatusChange"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "alpsNotificationGroupRev1": {
+    "name": "alpsNotificationGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerConnStatusChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alpsNotificationGroupRev2": {
+    "name": "alpsNotificationGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.95.3.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsAscuStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsPeerConnStatusChange"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktOpenFailure"
+      },
+      {
+        "module": "CISCO-ALPS-MIB",
+        "object": "alpsCktPartialReject"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ALPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ALPS-MIB"
+  }
+}

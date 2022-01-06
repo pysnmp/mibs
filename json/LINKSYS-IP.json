@@ -1,0 +1,1493 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "IP-FORWARD-MIB": [
+      "ipCidrRouteEntry",
+      "ipCidrRouteDest",
+      "ipCidrRouteMask",
+      "ipCidrRouteNextHop",
+      "ipCidrRouteTos"
+    ],
+    "IP-MIB": [
+      "ipAddrEntry"
+    ],
+    "LINKSYS-MIB": [
+      "rnd"
+    ],
+    "RIPv2-MIB": [
+      "rip2IfConfEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "ipSpec": {
+    "name": "ipSpec",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-22 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rsIpAddrTable": {
+    "name": "rsIpAddrTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpAddrEntry": {
+    "name": "rsIpAddrEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-IP",
+        "object": "rsIpAdEntAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpAdEntAddr": {
+    "name": "rsIpAdEntAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpAdEntIfIndex": {
+    "name": "rsIpAdEntIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntNetMask": {
+    "name": "rsIpAdEntNetMask",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntForwardIpBroadcast": {
+    "name": "rsIpAdEntForwardIpBroadcast",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntBackupAddr": {
+    "name": "rsIpAdEntBackupAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntStatus": {
+    "name": "rsIpAdEntStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "valid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntBcastAddr": {
+    "name": "rsIpAdEntBcastAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntArpServer": {
+    "name": "rsIpAdEntArpServer",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntName": {
+    "name": "rsIpAdEntName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntOwner": {
+    "name": "rsIpAdEntOwner",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2,
+          "internal": 3,
+          "default": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "static",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntAdminStatus": {
+    "name": "rsIpAdEntAdminStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntOperStatus": {
+    "name": "rsIpAdEntOperStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpAdEntPrecedence": {
+    "name": "rsIpAdEntPrecedence",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpAdEntUniqueStatus": {
+    "name": "rsIpAdEntUniqueStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "validDuplicated": 2,
+          "tentative": 3,
+          "duplicated": 4,
+          "delayed": 5,
+          "notReceived": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icmpSpec": {
+    "name": "icmpSpec",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2",
+    "class": "objectidentity"
+  },
+  "rsIcmpGenErrMsgEnable": {
+    "name": "rsIcmpGenErrMsgEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIcmpRdTable": {
+    "name": "rsIcmpRdTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIcmpRdEntry": {
+    "name": "rsIcmpRdEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-IP",
+        "object": "rsIcmpRdIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIcmpRdIpAddr": {
+    "name": "rsIcmpRdIpAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIcmpRdIpAdvertAddr": {
+    "name": "rsIcmpRdIpAdvertAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "E0000001",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIcmpRdMaxAdvertInterval": {
+    "name": "rsIcmpRdMaxAdvertInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIcmpRdMinAdvertInterval": {
+    "name": "rsIcmpRdMinAdvertInterval",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIcmpRdAdvertLifetime": {
+    "name": "rsIcmpRdAdvertLifetime",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIcmpRdAdvertise": {
+    "name": "rsIcmpRdAdvertise",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIcmpRdPreferenceLevel": {
+    "name": "rsIcmpRdPreferenceLevel",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIcmpRdEntStatus": {
+    "name": "rsIcmpRdEntStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rip2Spec": {
+    "name": "rip2Spec",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.3",
+    "class": "objectidentity"
+  },
+  "arpSpec": {
+    "name": "arpSpec",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4",
+    "class": "objectidentity"
+  },
+  "rsArpDeleteTable": {
+    "name": "rsArpDeleteTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 0,
+          "deleteArpTab": 1,
+          "deleteIpArpDynamicEntries": 2,
+          "deleteIpArpStaticEntries": 3,
+          "deleteIpArpDelDynamicRefreshStatic": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpInactiveTimeOut": {
+    "name": "rsArpInactiveTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpProxy": {
+    "name": "rsArpProxy",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpRequestsSent": {
+    "name": "rsArpRequestsSent",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsArpRepliesSent": {
+    "name": "rsArpRepliesSent",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsArpProxyRepliesSent": {
+    "name": "rsArpProxyRepliesSent",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsArpUnresolveTimer": {
+    "name": "rsArpUnresolveTimer",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpMibVersion": {
+    "name": "rsArpMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsArpStaticTable": {
+    "name": "rsArpStaticTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsArpStaticEntry": {
+    "name": "rsArpStaticEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-IP",
+        "object": "rsArpStaticIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsArpStaticIpAddress": {
+    "name": "rsArpStaticIpAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsArpStaticPhysAddress": {
+    "name": "rsArpStaticPhysAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpStaticRowStatus": {
+    "name": "rsArpStaticRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpInterfaceTable": {
+    "name": "rsArpInterfaceTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsArpInterfaceEntry": {
+    "name": "rsArpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-IP",
+        "object": "rsArpInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsArpInterfaceIfIndex": {
+    "name": "rsArpInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsArpInterfaceInactiveTimeOut": {
+    "name": "rsArpInterfaceInactiveTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpInterfaceArpProxy": {
+    "name": "rsArpInterfaceArpProxy",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsArpNumOfEntries": {
+    "name": "rsArpNumOfEntries",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tftp": {
+    "name": "tftp",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5",
+    "class": "objectidentity"
+  },
+  "rsTftpRetryTimeOut": {
+    "name": "rsTftpRetryTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTftpTotalTimeOut": {
+    "name": "rsTftpTotalTimeOut",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsSendConfigFile": {
+    "name": "rsSendConfigFile",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsGetConfigFile": {
+    "name": "rsGetConfigFile",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsLoadSoftware": {
+    "name": "rsLoadSoftware",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsFileServerAddress": {
+    "name": "rsFileServerAddress",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsSoftwareDeviceName": {
+    "name": "rsSoftwareDeviceName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsSoftwareFileAction": {
+    "name": "rsSoftwareFileAction",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "download": 1,
+          "upload": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "download",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipRedundancy": {
+    "name": "ipRedundancy",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.6",
+    "class": "objectidentity"
+  },
+  "ipRouteLeaking": {
+    "name": "ipRouteLeaking",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.7",
+    "class": "objectidentity"
+  },
+  "ipRipFilter": {
+    "name": "ipRipFilter",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.8",
+    "class": "objectidentity"
+  },
+  "rsRipEnable": {
+    "name": "rsRipEnable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "shutdown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsTelnetPassword": {
+    "name": "rsTelnetPassword",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlTranslationNameToIpTable": {
+    "name": "rlTranslationNameToIpTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlTranslationNameToIpEntry": {
+    "name": "rlTranslationNameToIpEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-IP",
+        "object": "rlTranslationNameToIpName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlTranslationNameToIpName": {
+    "name": "rlTranslationNameToIpName",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlTranslationNameToIpIpAddr": {
+    "name": "rlTranslationNameToIpIpAddr",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreference": {
+    "name": "rlIpRoutingProtPreference",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.13",
+    "class": "objectidentity"
+  },
+  "rlOspf": {
+    "name": "rlOspf",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.14",
+    "class": "objectidentity"
+  },
+  "rlIpAddrTableMibVersion": {
+    "name": "rlIpAddrTableMibVersion",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpCidrRouteExtTable": {
+    "name": "rlIpCidrRouteExtTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpCidrRouteExtEntry": {
+    "name": "rlIpCidrRouteExtEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlIpCidrRouteExtEntry",
+      "module": "LINKSYS-IP",
+      "object": "ipCidrRouteEntry"
+    },
+    "status": "current"
+  },
+  "rlIpCidrRouteProto": {
+    "name": "rlIpCidrRouteProto",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "netmgmt": 2,
+          "rip": 3,
+          "ospfInternal": 4,
+          "ospfExternal": 5,
+          "ospfAggregateNetRange": 6,
+          "bgp4Internal": 7,
+          "bgp4External": 8,
+          "aggregateRoute": 9,
+          "other": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpStaticRoute": {
+    "name": "rlIpStaticRoute",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17",
+    "class": "objectidentity"
+  },
+  "rlIpStaticRouteTable": {
+    "name": "rlIpStaticRouteTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIpStaticRouteEntry": {
+    "name": "rlIpStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-IP",
+        "object": "rlIpStaticRouteDest",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-IP",
+        "object": "rlIpStaticRouteMask",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-IP",
+        "object": "rlIpStaticRouteTos",
+        "implied": 0
+      },
+      {
+        "module": "LINKSYS-IP",
+        "object": "rlIpStaticRouteNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIpStaticRouteDest": {
+    "name": "rlIpStaticRouteDest",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpStaticRouteMask": {
+    "name": "rlIpStaticRouteMask",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpStaticRouteTos": {
+    "name": "rlIpStaticRouteTos",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpStaticRouteNextHop": {
+    "name": "rlIpStaticRouteNextHop",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpStaticRouteMetric": {
+    "name": "rlIpStaticRouteMetric",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpStaticRouteType": {
+    "name": "rlIpStaticRouteType",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reject": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpStaticRouteNextHopAS": {
+    "name": "rlIpStaticRouteNextHopAS",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpStaticRouteForwardingStatus": {
+    "name": "rlIpStaticRouteForwardingStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpStaticRouteRowStatus": {
+    "name": "rlIpStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpStaticRouteOwner": {
+    "name": "rlIpStaticRouteOwner",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.17.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dhcp": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpRouter": {
+    "name": "rlIpRouter",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.18",
+    "class": "objectidentity"
+  },
+  "rlIpAddressesNumber": {
+    "name": "rlIpAddressesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpStaticPrefixesNumber": {
+    "name": "rlIpStaticPrefixesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlIpTotalPrefixesNumber": {
+    "name": "rlIpTotalPrefixesNumber",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlManagementIpv4": {
+    "name": "rlManagementIpv4",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlManagementIpv4Action": {
+    "name": "rlManagementIpv4Action",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlManagementIpIfindex": {
+    "name": "rlManagementIpIfindex",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSourceAddressSelectionTable": {
+    "name": "rlSourceAddressSelectionTable",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.35",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSourceAddressSelectionEntry": {
+    "name": "rlSourceAddressSelectionEntry",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.35.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LINKSYS-IP",
+        "object": "rlSourceAddressSelectionApp",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "rlSourceAddressSelectionApp": {
+    "name": "rlSourceAddressSelectionApp",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.35.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSourceAddressSelectionInterfaceIPv4": {
+    "name": "rlSourceAddressSelectionInterfaceIPv4",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.35.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSourceAddressSelectionInterfaceIPv6": {
+    "name": "rlSourceAddressSelectionInterfaceIPv6",
+    "oid": "1.3.6.1.4.1.3955.1000.201.26.35.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IP",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LINKSYS-IP"
+  }
+}

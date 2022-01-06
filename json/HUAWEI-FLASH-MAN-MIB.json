@@ -1,0 +1,2075 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalName"
+    ],
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "hwFlash": {
+    "name": "hwFlash",
+    "oid": "1.3.6.1.4.1.2011.6.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-09-26 00:01",
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. "
+      },
+      {
+        "revision": "2015-02-10 00:01",
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. "
+      },
+      {
+        "revision": "2015-01-26 00:01",
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. "
+      },
+      {
+        "revision": "2014-12-15 00:01",
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. "
+      },
+      {
+        "revision": "2013-07-09 00:01",
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. "
+      },
+      {
+        "revision": "2002-07-01 00:00",
+        "description": "The initial revision of this MIB module ."
+      }
+    ]
+  },
+  "HwFlashPartitionStatus": {
+    "name": "HwFlashPartitionStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "runFromFlash": 2,
+          "readWrite": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwFlashPartitionUpgradeMode": {
+    "name": "HwFlashPartitionUpgradeMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "rxbootFLH": 2,
+          "direct": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HwFlashOperationStatus": {
+    "name": "HwFlashOperationStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opInvalid": 3,
+          "opInvalidProtocol": 4,
+          "opInvalidSourceName": 5,
+          "opInvalidDestName": 6,
+          "opInvalidServerAddress": 7,
+          "opDeviceBusy": 8,
+          "opDeviceOpenError": 9,
+          "opDeviceError": 10,
+          "opDeviceNotProgrammable": 11,
+          "opDeviceFull": 12,
+          "opFileOpenError": 13,
+          "opFileTransferError": 14,
+          "opFileChecksumError": 15,
+          "opNoMemory": 16,
+          "opAuthFail": 17,
+          "opUnknownFailure": 18,
+          "opAbort": 19,
+          "opInvalidSourceAddress": 20,
+          "opInvalidSourceInterface": 21,
+          "opCurrentVersionFileConfilt": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "huaweiFlashManMIBObjects": {
+    "name": "huaweiFlashManMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.6.9.1",
+    "class": "objectidentity"
+  },
+  "huaweiFlashDevice": {
+    "name": "huaweiFlashDevice",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1",
+    "class": "objectidentity"
+  },
+  "hwFlhSupportNum": {
+    "name": "hwFlhSupportNum",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlashTable": {
+    "name": "hwFlashTable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlashEntry": {
+    "name": "hwFlashEntry",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhIndex": {
+    "name": "hwFlhIndex",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhSize": {
+    "name": "hwFlhSize",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPos": {
+    "name": "hwFlhPos",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhName": {
+    "name": "hwFlhName",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhChipNum": {
+    "name": "hwFlhChipNum",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhDescr": {
+    "name": "hwFlhDescr",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhInitTime": {
+    "name": "hwFlhInitTime",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhRemovable": {
+    "name": "hwFlhRemovable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartitionBool": {
+    "name": "hwFlhPartitionBool",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFlhMinPartitionSize": {
+    "name": "hwFlhMinPartitionSize",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhMaxPartitions": {
+    "name": "hwFlhMaxPartitions",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartitionNum": {
+    "name": "hwFlhPartitionNum",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlashChips": {
+    "name": "hwFlashChips",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3",
+    "class": "objectidentity"
+  },
+  "hwFlhChipTable": {
+    "name": "hwFlhChipTable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhChipEntry": {
+    "name": "hwFlhChipEntry",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipSerialNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhChipSerialNo": {
+    "name": "hwFlhChipSerialNo",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhChipID": {
+    "name": "hwFlhChipID",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhChipDescr": {
+    "name": "hwFlhChipDescr",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhChipWriteTimesLimit": {
+    "name": "hwFlhChipWriteTimesLimit",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhChipWriteTimes": {
+    "name": "hwFlhChipWriteTimes",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhChipEraseTimesLimit": {
+    "name": "hwFlhChipEraseTimesLimit",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhChipEraseTimes": {
+    "name": "hwFlhChipEraseTimes",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlashPartitions": {
+    "name": "hwFlashPartitions",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4",
+    "class": "objectidentity"
+  },
+  "hwFlhPartitionTable": {
+    "name": "hwFlhPartitionTable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhPartitionEntry": {
+    "name": "hwFlhPartitionEntry",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhPartIndex": {
+    "name": "hwFlhPartIndex",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhPartFirstChip": {
+    "name": "hwFlhPartFirstChip",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartLastChip": {
+    "name": "hwFlhPartLastChip",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartSpace": {
+    "name": "hwFlhPartSpace",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartSpaceFree": {
+    "name": "hwFlhPartSpaceFree",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartFileNum": {
+    "name": "hwFlhPartFileNum",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartChecksumMethod": {
+    "name": "hwFlhPartChecksumMethod",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simpleChecksum": 1,
+          "undefined": 2,
+          "simpleCRC": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartStatus": {
+    "name": "hwFlhPartStatus",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwFlashPartitionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartUpgradeMode": {
+    "name": "hwFlhPartUpgradeMode",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwFlashPartitionUpgradeMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartName": {
+    "name": "hwFlhPartName",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartRequireErase": {
+    "name": "hwFlhPartRequireErase",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhPartFileNameLen": {
+    "name": "hwFlhPartFileNameLen",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhFiles": {
+    "name": "hwFlhFiles",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "huaweiFlhFileTable": {
+    "name": "huaweiFlhFileTable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "huaweiFlhFileEntry": {
+    "name": "huaweiFlhFileEntry",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhFileIndex": {
+    "name": "hwFlhFileIndex",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhFileName": {
+    "name": "hwFlhFileName",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhFileSize": {
+    "name": "hwFlhFileSize",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhFileStatus": {
+    "name": "hwFlhFileStatus",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "invalidChecksum": 2,
+          "valid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhFileChecksum": {
+    "name": "hwFlhFileChecksum",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhFileTime": {
+    "name": "hwFlhFileTime",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "huaweiFlashOperate": {
+    "name": "huaweiFlashOperate",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2",
+    "class": "objectidentity"
+  },
+  "huaweiFlhOpTable": {
+    "name": "huaweiFlhOpTable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "huaweiFlhOpEntry": {
+    "name": "huaweiFlhOpEntry",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhOperIndex": {
+    "name": "hwFlhOperIndex",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhOperType": {
+    "name": "hwFlhOperType",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "net2FlashWithErase": 1,
+          "net2FlashWithoutErase": 2,
+          "flash2Net": 3,
+          "delete": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperProtocol": {
+    "name": "hwFlhOperProtocol",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ftp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperServerAddress": {
+    "name": "hwFlhOperServerAddress",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperServerUser": {
+    "name": "hwFlhOperServerUser",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperPassword": {
+    "name": "hwFlhOperPassword",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperSourceFile": {
+    "name": "hwFlhOperSourceFile",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperDestinationFile": {
+    "name": "hwFlhOperDestinationFile",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperStatus": {
+    "name": "hwFlhOperStatus",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwFlashOperationStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhOperEndNotification": {
+    "name": "hwFlhOperEndNotification",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperProgress": {
+    "name": "hwFlhOperProgress",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhOperRowStatus": {
+    "name": "hwFlhOperRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperServerPort": {
+    "name": "hwFlhOperServerPort",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperSourceAddress": {
+    "name": "hwFlhOperSourceAddress",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperSourceInterface": {
+    "name": "hwFlhOperSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperMemSize": {
+    "name": "hwFlhOperMemSize",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperVpnInstanceName": {
+    "name": "hwFlhOperVpnInstanceName",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperTotalFileLength": {
+    "name": "hwFlhOperTotalFileLength",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhOperTransferProgress": {
+    "name": "hwFlhOperTransferProgress",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhOperErrorReason": {
+    "name": "hwFlhOperErrorReason",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwFlhOperServerIpv6Address": {
+    "name": "hwFlhOperServerIpv6Address",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 46
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhSyncTable": {
+    "name": "hwFlhSyncTable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhSyncEntry": {
+    "name": "hwFlhSyncEntry",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhSyncIndex": {
+    "name": "hwFlhSyncIndex",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwFlhSyncType": {
+    "name": "hwFlhSyncType",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "net2FlashCopy": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhSyncRange": {
+    "name": "hwFlhSyncRange",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "designate": 1,
+          "all": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhSyncSourcePath": {
+    "name": "hwFlhSyncSourcePath",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhSyncSourceFile": {
+    "name": "hwFlhSyncSourceFile",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhSyncDestinationPath": {
+    "name": "hwFlhSyncDestinationPath",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhSyncDestinationFile": {
+    "name": "hwFlhSyncDestinationFile",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwFlhSyncRowStatus": {
+    "name": "hwFlhSyncRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "huaweiFlashNotification": {
+    "name": "huaweiFlashNotification",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3",
+    "class": "objectidentity"
+  },
+  "hwFlhOperNotification": {
+    "name": "hwFlhOperNotification",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhSyncSuccessNotification": {
+    "name": "hwFlhSyncSuccessNotification",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationFile"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhSyncFailNotification": {
+    "name": "hwFlhSyncFailNotification",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationFile"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiStorageDevice": {
+    "name": "huaweiStorageDevice",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4",
+    "class": "objectidentity"
+  },
+  "hwStorageTable": {
+    "name": "hwStorageTable",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageEntry": {
+    "name": "hwStorageEntry",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageIndex": {
+    "name": "hwStorageIndex",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwStorageType": {
+    "name": "hwStorageType",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flash": 1,
+          "hardDisk": 2,
+          "cfCard": 3,
+          "usbDisk": 4,
+          "sdCard": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSpace": {
+    "name": "hwStorageSpace",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageSpaceFree": {
+    "name": "hwStorageSpaceFree",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kbytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageName": {
+    "name": "hwStorageName",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwStorageDescr": {
+    "name": "hwStorageDescr",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "huaweiFlashMIBConformance": {
+    "name": "huaweiFlashMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.6.9.2",
+    "class": "objectidentity"
+  },
+  "hwFlhMIBCompliances": {
+    "name": "hwFlhMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.1",
+    "class": "objectidentity"
+  },
+  "hwFlhMIBCompliance": {
+    "name": "hwFlhMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwFlhGroup",
+        "module": "HUAWEI-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hwFlhChipGroup",
+        "module": "HUAWEI-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hwFlhPartitionGroup",
+        "module": "HUAWEI-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hwFlhFileGroup",
+        "module": "HUAWEI-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hwFlhOperationGroup",
+        "module": "HUAWEI-FLASH-MAN-MIB"
+      },
+      {
+        "object": "hwFlhNotificationGroup",
+        "module": "HUAWEI-FLASH-MAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "huaweiFlashMIBGroups": {
+    "name": "huaweiFlashMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2",
+    "class": "objectidentity"
+  },
+  "hwFlhGroup": {
+    "name": "hwFlhGroup",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSupportNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPos"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhDescr"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhInitTime"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhRemovable"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartitionBool"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhMinPartitionSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhMaxPartitions"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartitionNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhChipGroup": {
+    "name": "hwFlhChipGroup",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipID"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipDescr"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipWriteTimesLimit"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipWriteTimes"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipEraseTimesLimit"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipEraseTimes"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhPartitionGroup": {
+    "name": "hwFlhPartitionGroup",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartFirstChip"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartLastChip"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartSpace"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartSpaceFree"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartFileNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartChecksumMethod"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartUpgradeMode"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartRequireErase"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartFileNameLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhFileGroup": {
+    "name": "hwFlhFileGroup",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileChecksum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhOperationGroup": {
+    "name": "hwFlhOperationGroup",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperType"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperProtocol"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerAddress"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerUser"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperPassword"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperDestinationFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperEndNotification"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperProgress"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerPort"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperSourceAddress"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperSourceInterface"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperMemSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncType"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncRange"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourcePath"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationPath"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncRowStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerIpv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlhNotificationGroup": {
+    "name": "hwFlhNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperNotification"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSuccessNotification"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncFailNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "hwStorageGroup": {
+    "name": "hwStorageGroup",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageType"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageSpace"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageSpaceFree"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hwFlashTraps": {
+    "name": "hwFlashTraps",
+    "oid": "1.3.6.1.4.1.2011.6.9.3",
+    "class": "objectidentity"
+  },
+  "hwFlhTrapObjects": {
+    "name": "hwFlhTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.6.9.3.1",
+    "class": "objectidentity"
+  },
+  "hwFlhPhysicalIndex": {
+    "name": "hwFlhPhysicalIndex",
+    "oid": "1.3.6.1.4.1.2011.6.9.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFlhStorageUsageRatio": {
+    "name": "hwFlhStorageUsageRatio",
+    "oid": "1.3.6.1.4.1.2011.6.9.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFlhStorageUsageThreshold": {
+    "name": "hwFlhStorageUsageThreshold",
+    "oid": "1.3.6.1.4.1.2011.6.9.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwFlhStorageFullTrap": {
+    "name": "hwFlhStorageFullTrap",
+    "oid": "1.3.6.1.4.1.2011.6.9.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhStorageUsageRatio"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhStorageUsageThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-FLASH-MAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-FLASH-MAN-MIB"
+  }
+}

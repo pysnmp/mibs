@@ -1,0 +1,367 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaGlobalState"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaCesSyslogCollectorMIB": {
+    "name": "cienaCesSyslogCollectorMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.40",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-07 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2016-07-22 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "SyslogFacility": {
+    "name": "SyslogFacility",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 0,
+          "user": 1,
+          "mail": 2,
+          "daemon": 3,
+          "auth": 4,
+          "syslog": 5,
+          "lpr": 6,
+          "news": 7,
+          "uucp": 8,
+          "cron": 9,
+          "authPriv": 10,
+          "ftp": 11,
+          "ntp": 12,
+          "security": 13,
+          "console": 14,
+          "clockd2": 15,
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23,
+          "noMap": 24
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cienaCesSyslogCollMIBObjects": {
+    "name": "cienaCesSyslogCollMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogSystem": {
+    "name": "cienaCesSyslogSystem",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogColl": {
+    "name": "cienaCesSyslogColl",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogCollMIBNotificationPrefix": {
+    "name": "cienaCesSyslogCollMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.2.41",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogCollMIBNotifications": {
+    "name": "cienaCesSyslogCollMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.2.41.0",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogCollMIBConformance": {
+    "name": "cienaCesSyslogCollMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.3",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogCollMIBCompliances": {
+    "name": "cienaCesSyslogCollMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogCollMIBGroups": {
+    "name": "cienaCesSyslogCollMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesSyslogEnable": {
+    "name": "cienaCesSyslogEnable",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorTable": {
+    "name": "cienaCesSyslogCollectorTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorEntry": {
+    "name": "cienaCesSyslogCollectorEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-SYSLOG-COLLECTOR-MIB",
+        "object": "cienaCesSyslogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesSyslogIndex": {
+    "name": "cienaCesSyslogIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorAddr": {
+    "name": "cienaCesSyslogCollectorAddr",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorUDPPort": {
+    "name": "cienaCesSyslogCollectorUDPPort",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 514,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorFacility": {
+    "name": "cienaCesSyslogCollectorFacility",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogFacility",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "daemon",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorSeverityList": {
+    "name": "cienaCesSyslogCollectorSeverityList",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "emergency": 0,
+        "alert": 1,
+        "critical": 2,
+        "error": 3,
+        "warning": 4,
+        "notice": 5,
+        "informational": 6,
+        "debug": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorUserAdminState": {
+    "name": "cienaCesSyslogCollectorUserAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorDhcpAdminState": {
+    "name": "cienaCesSyslogCollectorDhcpAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorOperState": {
+    "name": "cienaCesSyslogCollectorOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorCustomPrefix": {
+    "name": "cienaCesSyslogCollectorCustomPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorResolvedInetAddrType": {
+    "name": "cienaCesSyslogCollectorResolvedInetAddrType",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesSyslogCollectorResolvedInetAddress": {
+    "name": "cienaCesSyslogCollectorResolvedInetAddress",
+    "oid": "1.3.6.1.4.1.1271.2.1.40.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-SYSLOG-COLLECTOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-SYSLOG-COLLECTOR-MIB"
+  }
+}

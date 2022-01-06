@@ -1,0 +1,327 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcAddressId"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVirtualNwIfMIB": {
+    "name": "ciscoVirtualNwIfMIB",
+    "oid": "1.3.6.1.4.1.9.9.290",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-02 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoVirtualNwIfObjects": {
+    "name": "ciscoVirtualNwIfObjects",
+    "oid": "1.3.6.1.4.1.9.9.290.1",
+    "class": "objectidentity"
+  },
+  "virtualNwIfMIBConformance": {
+    "name": "virtualNwIfMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.290.2",
+    "class": "objectidentity"
+  },
+  "virtualNwIfConfig": {
+    "name": "virtualNwIfConfig",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1",
+    "class": "objectidentity"
+  },
+  "virtualNwIfStatistics": {
+    "name": "virtualNwIfStatistics",
+    "oid": "1.3.6.1.4.1.9.9.290.1.2",
+    "class": "objectidentity"
+  },
+  "virtualNwIfNotification": {
+    "name": "virtualNwIfNotification",
+    "oid": "1.3.6.1.4.1.9.9.290.1.3",
+    "class": "objectidentity"
+  },
+  "virtualNwIfNotifications": {
+    "name": "virtualNwIfNotifications",
+    "oid": "1.3.6.1.4.1.9.9.290.1.3.0",
+    "class": "objectidentity"
+  },
+  "virtualNwIfTable": {
+    "name": "virtualNwIfTable",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualNwIfEntry": {
+    "name": "virtualNwIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "virtualNwIfType": {
+    "name": "virtualNwIfType",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vsan": 1,
+          "vlan": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualNwIfId": {
+    "name": "virtualNwIfId",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "virtualNwIfIndex": {
+    "name": "virtualNwIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualNwIfFcId": {
+    "name": "virtualNwIfFcId",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualNwIfOperStatusCause": {
+    "name": "virtualNwIfOperStatusCause",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "adminDown": 2,
+          "vsanNotOperational": 3,
+          "noFcid": 4,
+          "kernelConfFailure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualNwIfOperStatusCauseDescr": {
+    "name": "virtualNwIfOperStatusCauseDescr",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualNwIfRowStatus": {
+    "name": "virtualNwIfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.290.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "virtualNwIfCreateEntryNotify": {
+    "name": "virtualNwIfCreateEntryNotify",
+    "oid": "1.3.6.1.4.1.9.9.290.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualNwIfDeleteEntryNotify": {
+    "name": "virtualNwIfDeleteEntryNotify",
+    "oid": "1.3.6.1.4.1.9.9.290.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualNwIfMIBCompliances": {
+    "name": "virtualNwIfMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.290.2.1",
+    "class": "objectidentity"
+  },
+  "virtualNwIfMIBGroups": {
+    "name": "virtualNwIfMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.290.2.2",
+    "class": "objectidentity"
+  },
+  "virtualNwIfMIBCompliance": {
+    "name": "virtualNwIfMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.290.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "virtualNwIfGroup",
+        "module": "CISCO-VIRTUAL-NW-IF-MIB"
+      },
+      {
+        "object": "virtualNwIfNotificationGroup",
+        "module": "CISCO-VIRTUAL-NW-IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualNwIfGroup": {
+    "name": "virtualNwIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.290.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfIndex"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfFcId"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfOperStatusCause"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfOperStatusCauseDescr"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "virtualNwIfNotificationGroup": {
+    "name": "virtualNwIfNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.290.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfCreateEntryNotify"
+      },
+      {
+        "module": "CISCO-VIRTUAL-NW-IF-MIB",
+        "object": "virtualNwIfDeleteEntryNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VIRTUAL-NW-IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VIRTUAL-NW-IF-MIB"
+  }
+}

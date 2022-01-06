@@ -1,0 +1,1035 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoIfThresholdMIB": {
+    "name": "ciscoIfThresholdMIB",
+    "oid": "1.3.6.1.4.1.9.9.218",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-09-14 00:00",
+        "description": "Second version of this MIB module."
+      },
+      {
+        "revision": "2001-06-14 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CifthTemplateIndex": {
+    "name": "CifthTemplateIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CifthTemplateIndexOrZero": {
+    "name": "CifthTemplateIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CifthThresholdIndex": {
+    "name": "CifthThresholdIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CifthThresholdList": {
+    "name": "CifthThresholdList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CifthThresholdSeverity": {
+    "name": "CifthThresholdSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "degrade": 2,
+          "info": 3,
+          "other": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CifthThresholdSeverityOrZero": {
+    "name": "CifthThresholdSeverityOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cIfThresholdMIBObjects": {
+    "name": "cIfThresholdMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.218.1",
+    "class": "objectidentity"
+  },
+  "cifthTemplateGroup": {
+    "name": "cifthTemplateGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1",
+    "class": "objectidentity"
+  },
+  "cifthTemplateIfAssignGroup": {
+    "name": "cifthTemplateIfAssignGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.1.2",
+    "class": "objectidentity"
+  },
+  "cifthIfThresholdFiredGroup": {
+    "name": "cifthIfThresholdFiredGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3",
+    "class": "objectidentity"
+  },
+  "cifthTemplateIndexNext": {
+    "name": "cifthTemplateIndexNext",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthTemplateIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthTemplateLastChange": {
+    "name": "cifthTemplateLastChange",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthTemplateTable": {
+    "name": "cifthTemplateTable",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthTemplateEntry": {
+    "name": "cifthTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cifthTemplateIndex": {
+    "name": "cifthTemplateIndex",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthTemplateIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthTemplateName": {
+    "name": "cifthTemplateName",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthTemplateNotifyHoldDownType": {
+    "name": "cifthTemplateNotifyHoldDownType",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "holdDownTimer": 2,
+          "fireAndClearThresholds": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthTemplateNotifyHoldDownTime": {
+    "name": "cifthTemplateNotifyHoldDownTime",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthTemplateRowStatus": {
+    "name": "cifthTemplateRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdLastChange": {
+    "name": "cifthThresholdLastChange",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthThresholdTable": {
+    "name": "cifthThresholdTable",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthThresholdEntry": {
+    "name": "cifthThresholdEntry",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cifthThresholdIndex": {
+    "name": "cifthThresholdIndex",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthThresholdIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthThresholdDescr": {
+    "name": "cifthThresholdDescr",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdObject": {
+    "name": "cifthThresholdObject",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdSeverity": {
+    "name": "cifthThresholdSeverity",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdType": {
+    "name": "cifthThresholdType",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2,
+          "rateOfIncreaseExponentXIfSpeed": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdDirection": {
+    "name": "cifthThresholdDirection",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rising": 1,
+          "falling": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rising",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdFiredValue": {
+    "name": "cifthThresholdFiredValue",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdClearedValue": {
+    "name": "cifthThresholdClearedValue",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdSampleInterval": {
+    "name": "cifthThresholdSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 900000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdApsSwitchover": {
+    "name": "cifthThresholdApsSwitchover",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdRowStatus": {
+    "name": "cifthThresholdRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.218.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthTemplateIfLastChange": {
+    "name": "cifthTemplateIfLastChange",
+    "oid": "1.3.6.1.4.1.9.9.218.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthTemplateIfAssignTable": {
+    "name": "cifthTemplateIfAssignTable",
+    "oid": "1.3.6.1.4.1.9.9.218.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthTemplateIfAssignEntry": {
+    "name": "cifthTemplateIfAssignEntry",
+    "oid": "1.3.6.1.4.1.9.9.218.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIfAssignInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cifthTemplateIfAssignInterface": {
+    "name": "cifthTemplateIfAssignInterface",
+    "oid": "1.3.6.1.4.1.9.9.218.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthTemplateIfAssignOperStatus": {
+    "name": "cifthTemplateIfAssignOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.218.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthTemplateIfAssignRowStatus": {
+    "name": "cifthTemplateIfAssignRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.218.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cifthThresholdFiredNotifyEnable": {
+    "name": "cifthThresholdFiredNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthThresholdSeverityOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cifthThresholdFiredLastChange": {
+    "name": "cifthThresholdFiredLastChange",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthIfThresholdFiredTable": {
+    "name": "cifthIfThresholdFiredTable",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthIfThresholdFiredEntry": {
+    "name": "cifthIfThresholdFiredEntry",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredTemplate",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cifthIfThresholdFiredTemplate": {
+    "name": "cifthIfThresholdFiredTemplate",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthTemplateIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cifthIfThresholdsFired": {
+    "name": "cifthIfThresholdsFired",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthThresholdList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthIfLastThresholdFired": {
+    "name": "cifthIfLastThresholdFired",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthThresholdIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthIfThresholdFiredLstChange": {
+    "name": "cifthIfThresholdFiredLstChange",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthIfThresholdFiredLstSeverity": {
+    "name": "cifthIfThresholdFiredLstSeverity",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cifthIfThresholdFiredMaxSeverity": {
+    "name": "cifthIfThresholdFiredMaxSeverity",
+    "oid": "1.3.6.1.4.1.9.9.218.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CifthThresholdSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIfThresholdMIBNotifications": {
+    "name": "cIfThresholdMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.218.2",
+    "class": "objectidentity"
+  },
+  "cifthMIBNotificationsPrefix": {
+    "name": "cifthMIBNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.218.2.0",
+    "class": "objectidentity"
+  },
+  "cifthIfThresholdFired": {
+    "name": "cifthIfThresholdFired",
+    "oid": "1.3.6.1.4.1.9.9.218.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfLastThresholdFired"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredLstChange"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredLstSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "cifthIfThresholdCleared": {
+    "name": "cifthIfThresholdCleared",
+    "oid": "1.3.6.1.4.1.9.9.218.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfLastThresholdFired"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredLstChange"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredLstSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "cifthTemplateIfStatusChange": {
+    "name": "cifthTemplateIfStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.218.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIfAssignOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cIfThresholdMIBConformance": {
+    "name": "cIfThresholdMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.218.3",
+    "class": "objectidentity"
+  },
+  "cIfThresholdMIBCompliances": {
+    "name": "cIfThresholdMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.218.3.1",
+    "class": "objectidentity"
+  },
+  "cIfThresholdMIBGroups": {
+    "name": "cIfThresholdMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2",
+    "class": "objectidentity"
+  },
+  "cIfThresholdMIBCompliance": {
+    "name": "cIfThresholdMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.218.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cIfThresholdTemplateGroup",
+        "module": "CISCO-IF-THRESHOLD-MIB"
+      },
+      {
+        "object": "cIfThresholdFiredGroup",
+        "module": "CISCO-IF-THRESHOLD-MIB"
+      },
+      {
+        "object": "cIfThresholdNotifsGroup",
+        "module": "CISCO-IF-THRESHOLD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cIfThresholdTemplateGroup": {
+    "name": "cIfThresholdTemplateGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIndexNext"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateLastChange"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateName"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateNotifyHoldDownType"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateRowStatus"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdLastChange"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdDescr"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdObject"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdSeverity"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdType"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdDirection"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdFiredValue"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdSampleInterval"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdRowStatus"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIfLastChange"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIfAssignOperStatus"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIfAssignRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cIfThresholdFiredGroup": {
+    "name": "cIfThresholdFiredGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdFiredNotifyEnable"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdFiredLastChange"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdsFired"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfLastThresholdFired"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredLstChange"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredLstSeverity"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFiredMaxSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "cifthHoldDownTimerGroup": {
+    "name": "cifthHoldDownTimerGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateNotifyHoldDownTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cifthHoldDownHysteresisGroup": {
+    "name": "cifthHoldDownHysteresisGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdClearedValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cifthApsGroup": {
+    "name": "cifthApsGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthThresholdApsSwitchover"
+      }
+    ],
+    "status": "current"
+  },
+  "cIfThresholdNotifsGroup": {
+    "name": "cIfThresholdNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdFired"
+      },
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthIfThresholdCleared"
+      }
+    ],
+    "status": "current"
+  },
+  "cifthTemplateIfNotifsGroup": {
+    "name": "cifthTemplateIfNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.218.3.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IF-THRESHOLD-MIB",
+        "object": "cifthTemplateIfStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IF-THRESHOLD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IF-THRESHOLD-MIB"
+  }
+}

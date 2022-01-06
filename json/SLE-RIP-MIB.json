@@ -1,0 +1,5564 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleRIP": {
+    "name": "sleRIP",
+    "oid": "1.3.6.1.4.1.6296.101.54",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-21 19:54",
+        "description": "OSFPv2"
+      }
+    ]
+  },
+  "sleRIPBase": {
+    "name": "sleRIPBase",
+    "oid": "1.3.6.1.4.1.6296.101.54.1",
+    "class": "objectidentity"
+  },
+  "sleRIPBaseInfo": {
+    "name": "sleRIPBaseInfo",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1",
+    "class": "objectidentity"
+  },
+  "sleRIPVersion": {
+    "name": "sleRIPVersion",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDefaultMetric": {
+    "name": "sleRIPDefaultMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDefaultInformationOrg": {
+    "name": "sleRIPDefaultInformationOrg",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDefaultDistance": {
+    "name": "sleRIPDefaultDistance",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRecvBufferSize": {
+    "name": "sleRIPRecvBufferSize",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 215040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPMaximumPaths": {
+    "name": "sleRIPMaximumPaths",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPMaximumPrefixRoute": {
+    "name": "sleRIPMaximumPrefixRoute",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPMaximumPrefixRoutePercent": {
+    "name": "sleRIPMaximumPrefixRoutePercent",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPMetricSumApply": {
+    "name": "sleRIPMetricSumApply",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPBasicUpdateTimer": {
+    "name": "sleRIPBasicUpdateTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPBasicTimeoutTimer": {
+    "name": "sleRIPBasicTimeoutTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPBasicGarbageTimer": {
+    "name": "sleRIPBasicGarbageTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRestartPeriod": {
+    "name": "sleRIPRestartPeriod",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPBaseControl": {
+    "name": "sleRIPBaseControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2",
+    "class": "objectidentity"
+  },
+  "sleRIPControlRequest": {
+    "name": "sleRIPControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPMode": 1,
+          "deleteRIPMode": 2,
+          "setRIPVersion": 3,
+          "setRIPDefaultMetric": 4,
+          "setRIPDefaultInformationOrg": 5,
+          "setRIPDefaultDistance": 6,
+          "setRIPRecvBufferSize": 7,
+          "setRIPMaximumPaths": 8,
+          "setRIPMaximumPrefixRouteProfile": 9,
+          "setRIPMetricSumApply": 10,
+          "setRIPBasicTimersProfile": 11,
+          "setRIPRestartPeriod": 12,
+          "unsetRIPRestartPeriod": 13,
+          "clearRIPAll": 14,
+          "clearRIPRoute": 15,
+          "clearRIPProtoType": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPControlStatus": {
+    "name": "sleRIPControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlTimer": {
+    "name": "sleRIPControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPControlTimeStamp": {
+    "name": "sleRIPControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlReqResult": {
+    "name": "sleRIPControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlVersion": {
+    "name": "sleRIPControlVersion",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlDefaultMetric": {
+    "name": "sleRIPControlDefaultMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlDefaultInformationOrg": {
+    "name": "sleRIPControlDefaultInformationOrg",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlDefaultDistance": {
+    "name": "sleRIPControlDefaultDistance",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlRecvBufferSize": {
+    "name": "sleRIPControlRecvBufferSize",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 215040,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlMaximumPaths": {
+    "name": "sleRIPControlMaximumPaths",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlMaximumPrefixRoute": {
+    "name": "sleRIPControlMaximumPrefixRoute",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlMaximumPrefixRoutePercent": {
+    "name": "sleRIPControlMaximumPrefixRoutePercent",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 75,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlMetricSumApply": {
+    "name": "sleRIPControlMetricSumApply",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlBasicUpdateTimer": {
+    "name": "sleRIPControlBasicUpdateTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlBasicTimeoutTimer": {
+    "name": "sleRIPControlBasicTimeoutTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlBasicGarbageTimer": {
+    "name": "sleRIPControlBasicGarbageTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlRestartPeriod": {
+    "name": "sleRIPControlRestartPeriod",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlClearRoutePrefix": {
+    "name": "sleRIPControlClearRoutePrefix",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlClearRouteMask": {
+    "name": "sleRIPControlClearRouteMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPControlClearProtoTpye": {
+    "name": "sleRIPControlClearProtoTpye",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 1,
+          "connected": 2,
+          "static": 3,
+          "bgp": 4,
+          "ospf": 5,
+          "rip": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPBaseNotification": {
+    "name": "sleRIPBaseNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3",
+    "class": "objectidentity"
+  },
+  "sleRIPModeCreated": {
+    "name": "sleRIPModeCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPModeDeleted": {
+    "name": "sleRIPModeDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPVersionChanged": {
+    "name": "sleRIPVersionChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDefaultMetricChanged": {
+    "name": "sleRIPDefaultMetricChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDefaultInformationOrgChanged": {
+    "name": "sleRIPDefaultInformationOrgChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultInformationOrg"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDefaultDistanceChanged": {
+    "name": "sleRIPDefaultDistanceChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultDistance"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRecvBufferSizeChanged": {
+    "name": "sleRIPRecvBufferSizeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRecvBufferSize"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPMaximumPathsChanged": {
+    "name": "sleRIPMaximumPathsChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPaths"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPMaximumPrefixProfileChanged": {
+    "name": "sleRIPMaximumPrefixProfileChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPrefixRoute"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPrefixRoutePercent"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPMetricSumApplyChanged": {
+    "name": "sleRIPMetricSumApplyChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMetricSumApply"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPTimersChanged": {
+    "name": "sleRIPTimersChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPBasicUpdateTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPBasicTimeoutTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPBasicGarbageTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRestartPeriodChanged": {
+    "name": "sleRIPRestartPeriodChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRestartPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRestartRemoved": {
+    "name": "sleRIPRestartRemoved",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRestartPeriod"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPAllCleared": {
+    "name": "sleRIPAllCleared",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRouteCleared": {
+    "name": "sleRIPRouteCleared",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlClearRoutePrefix"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlClearRouteMask"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPProtoTypeCleared": {
+    "name": "sleRIPProtoTypeCleared",
+    "oid": "1.3.6.1.4.1.6296.101.54.1.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlClearProtoTpye"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNetwork": {
+    "name": "sleRIPNetwork",
+    "oid": "1.3.6.1.4.1.6296.101.54.2",
+    "class": "objectidentity"
+  },
+  "sleRIPNetworkIP": {
+    "name": "sleRIPNetworkIP",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1",
+    "class": "objectidentity"
+  },
+  "sleRIPNetworkIPTable": {
+    "name": "sleRIPNetworkIPTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPNetworkIPEntry": {
+    "name": "sleRIPNetworkIPEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPAddr",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNetworkIPAddr": {
+    "name": "sleRIPNetworkIPAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkIPMask": {
+    "name": "sleRIPNetworkIPMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkIPControl": {
+    "name": "sleRIPNetworkIPControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2",
+    "class": "objectidentity"
+  },
+  "sleRIPNetworkIPControlRequest": {
+    "name": "sleRIPNetworkIPControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPNetworkIP": 1,
+          "deleteRIPNetworkIP": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNetworkIPControlStatus": {
+    "name": "sleRIPNetworkIPControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkIPControlTimer": {
+    "name": "sleRIPNetworkIPControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNetworkIPControlTimeStamp": {
+    "name": "sleRIPNetworkIPControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkIPControlReqResult": {
+    "name": "sleRIPNetworkIPControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkIPControlIPAddr": {
+    "name": "sleRIPNetworkIPControlIPAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNetworkIPControlIPMask": {
+    "name": "sleRIPNetworkIPControlIPMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNetworkIPNotification": {
+    "name": "sleRIPNetworkIPNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.3",
+    "class": "objectidentity"
+  },
+  "sleRIPNetworkIPCreated": {
+    "name": "sleRIPNetworkIPCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPMask"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNetworkIPDeleted": {
+    "name": "sleRIPNetworkIPDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlIPMask"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNetworkInterface": {
+    "name": "sleRIPNetworkInterface",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2",
+    "class": "objectidentity"
+  },
+  "sleRIPNetworkInterfaceTable": {
+    "name": "sleRIPNetworkInterfaceTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceEntry": {
+    "name": "sleRIPNetworkInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceName": {
+    "name": "sleRIPNetworkInterfaceName",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceControl": {
+    "name": "sleRIPNetworkInterfaceControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.2",
+    "class": "objectidentity"
+  },
+  "sleRIPNetworkInterfaceControlRequest": {
+    "name": "sleRIPNetworkInterfaceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPNetworkIfname": 1,
+          "deleteRIPNetworkIfname": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceControlStatus": {
+    "name": "sleRIPNetworkInterfaceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceControlTimer": {
+    "name": "sleRIPNetworkInterfaceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceControlTimeStamp": {
+    "name": "sleRIPNetworkInterfaceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceControlReqResult": {
+    "name": "sleRIPNetworkInterfaceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceControlName": {
+    "name": "sleRIPNetworkInterfaceControlName",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceNotification": {
+    "name": "sleRIPNetworkInterfaceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.3",
+    "class": "objectidentity"
+  },
+  "sleRIPNetworkInterfaceCreated": {
+    "name": "sleRIPNetworkInterfaceCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNetworkInterfaceDeleted": {
+    "name": "sleRIPNetworkInterfaceDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.2.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNeighbor": {
+    "name": "sleRIPNeighbor",
+    "oid": "1.3.6.1.4.1.6296.101.54.3",
+    "class": "objectidentity"
+  },
+  "sleRIPNeighborTable": {
+    "name": "sleRIPNeighborTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPNeighborEntry": {
+    "name": "sleRIPNeighborEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNeighborIPAddr": {
+    "name": "sleRIPNeighborIPAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNeighborControl": {
+    "name": "sleRIPNeighborControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.2",
+    "class": "objectidentity"
+  },
+  "sleRIPNeighborControlRequest": {
+    "name": "sleRIPNeighborControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPNeighbor": 1,
+          "deleteRIPNeighbor": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNeighborControlStatus": {
+    "name": "sleRIPNeighborControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNeighborControlTimer": {
+    "name": "sleRIPNeighborControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNeighborControlTimeStamp": {
+    "name": "sleRIPNeighborControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNeighborControlReqResult": {
+    "name": "sleRIPNeighborControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPNeighborControlIPAddr": {
+    "name": "sleRIPNeighborControlIPAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPNeighborNotification": {
+    "name": "sleRIPNeighborNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.3",
+    "class": "objectidentity"
+  },
+  "sleRIPNeighborCreated": {
+    "name": "sleRIPNeighborCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNeighborDeleted": {
+    "name": "sleRIPNeighborDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.3.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlIPAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPStaticRoute": {
+    "name": "sleRIPStaticRoute",
+    "oid": "1.3.6.1.4.1.6296.101.54.4",
+    "class": "objectidentity"
+  },
+  "sleRIPStaticRouteTable": {
+    "name": "sleRIPStaticRouteTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPStaticRouteEntry": {
+    "name": "sleRIPStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteIPAddr",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteIPMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPStaticRouteIPAddr": {
+    "name": "sleRIPStaticRouteIPAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPStaticRouteIPMask": {
+    "name": "sleRIPStaticRouteIPMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPStaticRouteControl": {
+    "name": "sleRIPStaticRouteControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2",
+    "class": "objectidentity"
+  },
+  "sleRIPStaticRouteControlRequest": {
+    "name": "sleRIPStaticRouteControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPStaticRoute": 1,
+          "deleteRIPStaticRoute": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPStaticRouteControlStatus": {
+    "name": "sleRIPStaticRouteControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPStaticRouteControlTimer": {
+    "name": "sleRIPStaticRouteControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPStaticRouteControlTimeStamp": {
+    "name": "sleRIPStaticRouteControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPStaticRouteControlReqResult": {
+    "name": "sleRIPStaticRouteControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPStaticRouteControlIPAddr": {
+    "name": "sleRIPStaticRouteControlIPAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPStaticRouteControlIPMask": {
+    "name": "sleRIPStaticRouteControlIPMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPStaticRouteNotification": {
+    "name": "sleRIPStaticRouteNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.3",
+    "class": "objectidentity"
+  },
+  "sleRIPStaticRouteCreated": {
+    "name": "sleRIPStaticRouteCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteIPMask"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPStaticRouteDeleted": {
+    "name": "sleRIPStaticRouteDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.4.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlIPMask"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPAdminDistance": {
+    "name": "sleRIPAdminDistance",
+    "oid": "1.3.6.1.4.1.6296.101.54.5",
+    "class": "objectidentity"
+  },
+  "sleRIPAdminDistanceTable": {
+    "name": "sleRIPAdminDistanceTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceEntry": {
+    "name": "sleRIPAdminDistanceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceValue",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceAddr",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPAdminDistanceValue": {
+    "name": "sleRIPAdminDistanceValue",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceAddr": {
+    "name": "sleRIPAdminDistanceAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceMask": {
+    "name": "sleRIPAdminDistanceMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceAccessName": {
+    "name": "sleRIPAdminDistanceAccessName",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControl": {
+    "name": "sleRIPAdminDistanceControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2",
+    "class": "objectidentity"
+  },
+  "sleRIPAdminDistanceControlRequest": {
+    "name": "sleRIPAdminDistanceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPAdminDistance": 1,
+          "deleteRIPAdminDistance": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlStatus": {
+    "name": "sleRIPAdminDistanceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlTimer": {
+    "name": "sleRIPAdminDistanceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlTimeStamp": {
+    "name": "sleRIPAdminDistanceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlReqResult": {
+    "name": "sleRIPAdminDistanceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlValue": {
+    "name": "sleRIPAdminDistanceControlValue",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlAddr": {
+    "name": "sleRIPAdminDistanceControlAddr",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlMask": {
+    "name": "sleRIPAdminDistanceControlMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceControlAccessName": {
+    "name": "sleRIPAdminDistanceControlAccessName",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPAdminDistanceNotification": {
+    "name": "sleRIPAdminDistanceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.3",
+    "class": "objectidentity"
+  },
+  "sleRIPAdminDistanceCreated": {
+    "name": "sleRIPAdminDistanceCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceValue"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceAccessName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPAdminDistanceDeleted": {
+    "name": "sleRIPAdminDistanceDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.5.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlValue"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlAccessName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistribute": {
+    "name": "sleRIPDistribute",
+    "oid": "1.3.6.1.4.1.6296.101.54.6",
+    "class": "objectidentity"
+  },
+  "sleRIPDistributeTable": {
+    "name": "sleRIPDistributeTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPDistributeEntry": {
+    "name": "sleRIPDistributeEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeIfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeIfName": {
+    "name": "sleRIPDistributeIfName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeInAccessName": {
+    "name": "sleRIPDistributeInAccessName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeOutAccessName": {
+    "name": "sleRIPDistributeOutAccessName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeInPrefixName": {
+    "name": "sleRIPDistributeInPrefixName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeOutPrefixName": {
+    "name": "sleRIPDistributeOutPrefixName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeControl": {
+    "name": "sleRIPDistributeControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2",
+    "class": "objectidentity"
+  },
+  "sleRIPDistributeControlRequest": {
+    "name": "sleRIPDistributeControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPDistributeInAccess": 1,
+          "deleteRIPDistributeInAccess": 2,
+          "createRIPDistributeOutAccess": 3,
+          "deleteRIPDistributeOutAccess": 4,
+          "createRIPDistributeInPrefix": 5,
+          "deleteRIPDistributeInPrefix": 6,
+          "createRIPDistributeOutPrefix": 7,
+          "deleteRIPDistributeOutPrefix": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPDistributeControlStatus": {
+    "name": "sleRIPDistributeControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeControlTimer": {
+    "name": "sleRIPDistributeControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPDistributeControlTimeStamp": {
+    "name": "sleRIPDistributeControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeControlReqResult": {
+    "name": "sleRIPDistributeControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPDistributeControlIfName": {
+    "name": "sleRIPDistributeControlIfName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPDistributeControlInAccessName": {
+    "name": "sleRIPDistributeControlInAccessName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPDistributeControlOutAccessName": {
+    "name": "sleRIPDistributeControlOutAccessName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPDistributeControlInPrefixName": {
+    "name": "sleRIPDistributeControlInPrefixName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPDistributeControlOutPrefixName": {
+    "name": "sleRIPDistributeControlOutPrefixName",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPDistributeNotification": {
+    "name": "sleRIPDistributeNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3",
+    "class": "objectidentity"
+  },
+  "sleRIPDistributeInAccessCreated": {
+    "name": "sleRIPDistributeInAccessCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInAccessName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeInAccessDeleted": {
+    "name": "sleRIPDistributeInAccessDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlInAccessName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeOutAccessCreated": {
+    "name": "sleRIPDistributeOutAccessCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutAccessName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeOutAccessDeleted": {
+    "name": "sleRIPDistributeOutAccessDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlOutAccessName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeInPrefixCreated": {
+    "name": "sleRIPDistributeInPrefixCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInPrefixName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeInPrefixDeleted": {
+    "name": "sleRIPDistributeInPrefixDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlInPrefixName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeOutPrefixCreated": {
+    "name": "sleRIPDistributeOutPrefixCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutPrefixName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPDistributeOutPrefixDeleted": {
+    "name": "sleRIPDistributeOutPrefixDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.6.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlOutPrefixName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPOffsetList": {
+    "name": "sleRIPOffsetList",
+    "oid": "1.3.6.1.4.1.6296.101.54.7",
+    "class": "objectidentity"
+  },
+  "sleRIPOffsetListTable": {
+    "name": "sleRIPOffsetListTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPOffsetListEntry": {
+    "name": "sleRIPOffsetListEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListIfname",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPOffsetListIfname": {
+    "name": "sleRIPOffsetListIfname",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListInAccName": {
+    "name": "sleRIPOffsetListInAccName",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListInMetric": {
+    "name": "sleRIPOffsetListInMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListOutAccName": {
+    "name": "sleRIPOffsetListOutAccName",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListOutMetric": {
+    "name": "sleRIPOffsetListOutMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListControl": {
+    "name": "sleRIPOffsetListControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2",
+    "class": "objectidentity"
+  },
+  "sleRIPOffsetListControlRequest": {
+    "name": "sleRIPOffsetListControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPOffsetListIn": 1,
+          "deleteRIPOffsetListIn": 2,
+          "createRIPOffsetListOut": 3,
+          "deleteRIPOffsetListOut": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlStatus": {
+    "name": "sleRIPOffsetListControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlTimer": {
+    "name": "sleRIPOffsetListControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlTimeStamp": {
+    "name": "sleRIPOffsetListControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlReqResult": {
+    "name": "sleRIPOffsetListControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlIfname": {
+    "name": "sleRIPOffsetListControlIfname",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlInAccName": {
+    "name": "sleRIPOffsetListControlInAccName",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlInMetric": {
+    "name": "sleRIPOffsetListControlInMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlOutAccName": {
+    "name": "sleRIPOffsetListControlOutAccName",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPOffsetListControlOutMetric": {
+    "name": "sleRIPOffsetListControlOutMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPOffsetListNotification": {
+    "name": "sleRIPOffsetListNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.3",
+    "class": "objectidentity"
+  },
+  "sleRIPOffsetListCreatedIn": {
+    "name": "sleRIPOffsetListCreatedIn",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListIfname"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListInAccName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListInMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPOffsetListDeletedIn": {
+    "name": "sleRIPOffsetListDeletedIn",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlIfname"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlInAccName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlInMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPOffsetListCreatedOut": {
+    "name": "sleRIPOffsetListCreatedOut",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListIfname"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutAccessName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutPrefixName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPOffsetListDeletedOut": {
+    "name": "sleRIPOffsetListDeletedOut",
+    "oid": "1.3.6.1.4.1.6296.101.54.7.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlIfname"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlOutAccName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlOutMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRedistribute": {
+    "name": "sleRIPRedistribute",
+    "oid": "1.3.6.1.4.1.6296.101.54.8",
+    "class": "objectidentity"
+  },
+  "sleRIPRedistributeTable": {
+    "name": "sleRIPRedistributeTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPRedistributeEntry": {
+    "name": "sleRIPRedistributeEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRedistType": {
+    "name": "sleRIPRedistType",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 1,
+          "connected": 2,
+          "static": 3,
+          "bgp": 4,
+          "ospf": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRedistMetric": {
+    "name": "sleRIPRedistMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRedistRouteMapName": {
+    "name": "sleRIPRedistRouteMapName",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRedistributeControl": {
+    "name": "sleRIPRedistributeControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2",
+    "class": "objectidentity"
+  },
+  "sleRIPRedistControlRequest": {
+    "name": "sleRIPRedistControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPRedistribute": 1,
+          "deleteRIPRedistribute": 2,
+          "setRIPRedistribute": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPRedistControlStatus": {
+    "name": "sleRIPRedistControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRedistControlTimer": {
+    "name": "sleRIPRedistControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPRedistControlTimeStamp": {
+    "name": "sleRIPRedistControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRedistControlReqResult": {
+    "name": "sleRIPRedistControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRedistControlType": {
+    "name": "sleRIPRedistControlType",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 1,
+          "connected": 2,
+          "static": 3,
+          "bgp": 4,
+          "ospf": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPRedistControlMetric": {
+    "name": "sleRIPRedistControlMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPRedistControlRouteMapName": {
+    "name": "sleRIPRedistControlRouteMapName",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPRedistributeNotification": {
+    "name": "sleRIPRedistributeNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.3",
+    "class": "objectidentity"
+  },
+  "sleRIPRedistributeCreated": {
+    "name": "sleRIPRedistributeCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistType"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistRouteMapName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRedistributeDeleted": {
+    "name": "sleRIPRedistributeDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlType"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRedistributeChanged": {
+    "name": "sleRIPRedistributeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.8.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistType"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistRouteMapName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPPassInterface": {
+    "name": "sleRIPPassInterface",
+    "oid": "1.3.6.1.4.1.6296.101.54.9",
+    "class": "objectidentity"
+  },
+  "sleRIPPassInterfaceTable": {
+    "name": "sleRIPPassInterfaceTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceEntry": {
+    "name": "sleRIPPassInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPPassInterfaceName": {
+    "name": "sleRIPPassInterfaceName",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceControl": {
+    "name": "sleRIPPassInterfaceControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.2",
+    "class": "objectidentity"
+  },
+  "sleRIPPassInterfaceControlRequest": {
+    "name": "sleRIPPassInterfaceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createRIPPassInterface": 1,
+          "deleteRIPPassInterface": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceControlStatus": {
+    "name": "sleRIPPassInterfaceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceControlTimer": {
+    "name": "sleRIPPassInterfaceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceControlTimeStamp": {
+    "name": "sleRIPPassInterfaceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceControlReqResult": {
+    "name": "sleRIPPassInterfaceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceControlName": {
+    "name": "sleRIPPassInterfaceControlName",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPPassInterfaceNotification": {
+    "name": "sleRIPPassInterfaceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.3",
+    "class": "objectidentity"
+  },
+  "sleRIPPassInterfaceCreated": {
+    "name": "sleRIPPassInterfaceCreated",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPPassInterfaceDeleted": {
+    "name": "sleRIPPassInterfaceDeleted",
+    "oid": "1.3.6.1.4.1.6296.101.54.9.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterface": {
+    "name": "sleRIPInterface",
+    "oid": "1.3.6.1.4.1.6296.101.54.10",
+    "class": "objectidentity"
+  },
+  "sleRIPInterfaceTable": {
+    "name": "sleRIPInterfaceTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPInterfaceEntry": {
+    "name": "sleRIPInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceIndex": {
+    "name": "sleRIPInterfaceIndex",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4097
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceRecvVer": {
+    "name": "sleRIPInterfaceRecvVer",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "ripv1": 1,
+          "ripv2": 2,
+          "ripv1-ripv2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceRecvPacket": {
+    "name": "sleRIPInterfaceRecvPacket",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceSendVer": {
+    "name": "sleRIPInterfaceSendVer",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "ripv1": 1,
+          "ripv2": 2,
+          "ripv1-ripv2": 3,
+          "ripv1-compatible": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceSendPacket": {
+    "name": "sleRIPInterfaceSendPacket",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceSplitHorizonMode": {
+    "name": "sleRIPInterfaceSplitHorizonMode",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "withoutPoisonedReverse": 1,
+          "withPoisonedReverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceAuthMode": {
+    "name": "sleRIPInterfaceAuthMode",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noauth": 0,
+          "text": 1,
+          "md5": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceAuthString": {
+    "name": "sleRIPInterfaceAuthString",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceAuthKeyChain": {
+    "name": "sleRIPInterfaceAuthKeyChain",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceControl": {
+    "name": "sleRIPInterfaceControl",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2",
+    "class": "objectidentity"
+  },
+  "sleRIPInterfaceControlRequest": {
+    "name": "sleRIPInterfaceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setRIPInterfaceRecvVer": 1,
+          "setRIPInterfaceRecvPacketEnable": 2,
+          "setRIPInterfaceSendVer": 3,
+          "setRIPInterfaceSendPacketEnable": 4,
+          "setRIPInterfaceSplitHorizonMode": 5,
+          "setRIPInterfaceAuthMode": 6,
+          "setRIPInterfaceAuthString": 7,
+          "setRIPInterfaceAuthKeyChain": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlStatus": {
+    "name": "sleRIPInterfaceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlTimer": {
+    "name": "sleRIPInterfaceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlTimeStamp": {
+    "name": "sleRIPInterfaceControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlReqResult": {
+    "name": "sleRIPInterfaceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlIndex": {
+    "name": "sleRIPInterfaceControlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4097
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlRecvVer": {
+    "name": "sleRIPInterfaceControlRecvVer",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "ripv1": 1,
+          "ripv2": 2,
+          "ripv1-ripv2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlRecvPacket": {
+    "name": "sleRIPInterfaceControlRecvPacket",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlSendVer": {
+    "name": "sleRIPInterfaceControlSendVer",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "ripv1": 1,
+          "ripv2": 2,
+          "ripv1-ripv2": 3,
+          "ripv1-compatible": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlSendPacket": {
+    "name": "sleRIPInterfaceControlSendPacket",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlSplitHorizonMode": {
+    "name": "sleRIPInterfaceControlSplitHorizonMode",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "withoutPoisonedReverse": 1,
+          "withPoisonedReverse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlAuthMode": {
+    "name": "sleRIPInterfaceControlAuthMode",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noauth": 0,
+          "text": 1,
+          "md5": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlAuthString": {
+    "name": "sleRIPInterfaceControlAuthString",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceControlAuthKeyChain": {
+    "name": "sleRIPInterfaceControlAuthKeyChain",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleRIPInterfaceNotification": {
+    "name": "sleRIPInterfaceNotification",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3",
+    "class": "objectidentity"
+  },
+  "sleRIPInterfaceRecvVerChanged": {
+    "name": "sleRIPInterfaceRecvVerChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceRecvVer"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceRecvPacketChanged": {
+    "name": "sleRIPInterfaceRecvPacketChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceRecvPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceSendVerChanged": {
+    "name": "sleRIPInterfaceSendVerChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSendVer"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceSendPacketChanged": {
+    "name": "sleRIPInterfaceSendPacketChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSendPacket"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceSplitHorizonModeChanged": {
+    "name": "sleRIPInterfaceSplitHorizonModeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSplitHorizonMode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceAuthModeChanged": {
+    "name": "sleRIPInterfaceAuthModeChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthMode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceAuthStringChanged": {
+    "name": "sleRIPInterfaceAuthStringChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthString"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPInterfaceAuthKeyChainChanged": {
+    "name": "sleRIPInterfaceAuthKeyChainChanged",
+    "oid": "1.3.6.1.4.1.6296.101.54.10.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthKeyChain"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRoutes": {
+    "name": "sleRIPRoutes",
+    "oid": "1.3.6.1.4.1.6296.101.54.11",
+    "class": "objectidentity"
+  },
+  "sleRIPRoutesTable": {
+    "name": "sleRIPRoutesTable",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleRIPRoutesEntry": {
+    "name": "sleRIPRoutesEntry",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesType",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesPrefix",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesMask",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesNextHop",
+        "implied": 0
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesMetric",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPRoutesType": {
+    "name": "sleRIPRoutesType",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 1,
+          "connected": 2,
+          "static": 3,
+          "rip": 4,
+          "ripng": 5,
+          "ospf": 6,
+          "ospfv3": 7,
+          "bgp": 8,
+          "isis": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRoutesPrefix": {
+    "name": "sleRIPRoutesPrefix",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRoutesMask": {
+    "name": "sleRIPRoutesMask",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRoutesNextHop": {
+    "name": "sleRIPRoutesNextHop",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRoutesMetric": {
+    "name": "sleRIPRoutesMetric",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRoutesNetworkFrom": {
+    "name": "sleRIPRoutesNetworkFrom",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRoutesIfName": {
+    "name": "sleRIPRoutesIfName",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPRoutesUpTime": {
+    "name": "sleRIPRoutesUpTime",
+    "oid": "1.3.6.1.4.1.6296.101.54.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleRIPGroup": {
+    "name": "sleRIPGroup",
+    "oid": "1.3.6.1.4.1.6296.101.54.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPVersion"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultInformationOrg"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultDistance"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRecvBufferSize"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPaths"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPrefixRoute"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPrefixRoutePercent"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMetricSumApply"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPBasicUpdateTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPBasicTimeoutTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPBasicGarbageTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRestartPeriod"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlVersion"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlDefaultMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlDefaultInformationOrg"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlDefaultDistance"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRecvBufferSize"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlMaximumPaths"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlMaximumPrefixRoute"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlMaximumPrefixRoutePercent"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlMetricSumApply"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlBasicUpdateTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlBasicTimeoutTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlBasicGarbageTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlRestartPeriod"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlClearRoutePrefix"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlClearRouteMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPControlClearProtoTpye"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPControlIPMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceControlName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborControlIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteIPMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlIPAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteControlIPMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceValue"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceAccessName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlValue"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlAddr"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceControlAccessName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInAccessName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutAccessName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInPrefixName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutPrefixName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlInAccessName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlOutAccessName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlInPrefixName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeControlOutPrefixName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListIfname"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListInAccName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListInMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListOutAccName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListOutMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlIfname"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlInAccName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlInMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlOutAccName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListControlOutMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistType"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistRouteMapName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlType"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistControlRouteMapName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceControlName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceRecvVer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceRecvPacket"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSendVer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSendPacket"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSplitHorizonMode"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthMode"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthString"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthKeyChain"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlStatus"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlTimeStamp"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlIndex"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRecvVer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlRecvPacket"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlSendVer"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlSendPacket"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlSplitHorizonMode"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlAuthMode"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlAuthString"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceControlAuthKeyChain"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesType"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesPrefix"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesMask"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesNextHop"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesMetric"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesNetworkFrom"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesIfName"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRoutesUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "sleRIPNotificationGroup": {
+    "name": "sleRIPNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.101.54.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPModeCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPModeDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPVersionChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultMetricChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultInformationOrgChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDefaultDistanceChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRecvBufferSizeChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPathsChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMaximumPrefixProfileChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPMetricSumApplyChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPTimersChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRestartPeriodChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRestartRemoved"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAllCleared"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRouteCleared"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPProtoTypeCleared"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkIPDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNetworkInterfaceDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPNeighborDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPStaticRouteDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPAdminDistanceDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInAccessCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInAccessDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutAccessCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutAccessDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInPrefixCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeInPrefixDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutPrefixCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPDistributeOutPrefixDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListCreatedIn"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListDeletedIn"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListCreatedOut"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPOffsetListDeletedOut"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistributeCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistributeDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPRedistributeChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceCreated"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPPassInterfaceDeleted"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceRecvVerChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceRecvPacketChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSendVerChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSendPacketChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceSplitHorizonModeChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthModeChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthStringChanged"
+      },
+      {
+        "module": "SLE-RIP-MIB",
+        "object": "sleRIPInterfaceAuthKeyChainChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-RIP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-RIP-MIB"
+  }
+}

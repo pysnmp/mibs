@@ -1,0 +1,1041 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "hh3cVnfDevice": {
+    "name": "hh3cVnfDevice",
+    "oid": "1.3.6.1.4.1.25506.2.196",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-02-04 00:00",
+        "description": "Update hh3cVmInconsist hh3cVmInconsistResume"
+      },
+      {
+        "revision": "2020-11-18 00:00",
+        "description": "Add hh3cVmAttr hh3cVmGroup hh3cVnfTrapObjects hh3cVnfDeviceTraps hh3cVmInfoTraps hh3cVmChannelHealthTraps"
+      },
+      {
+        "revision": "2020-10-10 00:00",
+        "description": "The initial version."
+      }
+    ]
+  },
+  "hh3cVnfDeviceTable": {
+    "name": "hh3cVnfDeviceTable",
+    "oid": "1.3.6.1.4.1.25506.2.196.1",
+    "class": "objectidentity"
+  },
+  "hh3cVmInfoTable": {
+    "name": "hh3cVmInfoTable",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cVmInfoEntry": {
+    "name": "hh3cVmInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmSlot": {
+    "name": "hh3cVmSlot",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmName": {
+    "name": "hh3cVmName",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVmType": {
+    "name": "hh3cVmType",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ctrlvm": 2,
+          "brasvm": 3,
+          "fwdvm": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVmState": {
+    "name": "hh3cVmState",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 1,
+          "normal": 2,
+          "fault": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVmRole": {
+    "name": "hh3cVmRole",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "standby": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVmRegisterStatus": {
+    "name": "hh3cVmRegisterStatus",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "registered": 1,
+          "unregistered": 2,
+          "unregisteredDestroying": 3,
+          "registering": 4,
+          "maddown": 5,
+          "unregisteredMaddown": 6,
+          "other": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVmAttr": {
+    "name": "hh3cVmAttr",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initDeploy": 1,
+          "manu": 2,
+          "auto": 3,
+          "autoAccept": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVmGroup": {
+    "name": "hh3cVmGroup",
+    "oid": "1.3.6.1.4.1.25506.2.196.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cVnfDeviceTraps": {
+    "name": "hh3cVnfDeviceTraps",
+    "oid": "1.3.6.1.4.1.25506.2.196.2",
+    "class": "objectidentity"
+  },
+  "hh3cVnfmTrapPrefix": {
+    "name": "hh3cVnfmTrapPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.196.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cVnfmConnectionFault": {
+    "name": "hh3cVnfmConnectionFault",
+    "oid": "1.3.6.1.4.1.25506.2.196.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmIPType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmIP"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVnfmConnectionFaultResume": {
+    "name": "hh3cVnfmConnectionFaultResume",
+    "oid": "1.3.6.1.4.1.25506.2.196.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmIPType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmIP"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVnvmAuthenFault": {
+    "name": "hh3cVnvmAuthenFault",
+    "oid": "1.3.6.1.4.1.25506.2.196.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmIPType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmIP"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVnfmPort"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmInfoTraps": {
+    "name": "hh3cVmInfoTraps",
+    "oid": "1.3.6.1.4.1.25506.2.196.3",
+    "class": "objectidentity"
+  },
+  "hh3cVmInfoTrapPrefix": {
+    "name": "hh3cVmInfoTrapPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0",
+    "class": "objectidentity"
+  },
+  "hh3cVmCreate": {
+    "name": "hh3cVmCreate",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmAttr"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmDelete": {
+    "name": "hh3cVmDelete",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmAttr"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmCreateSuccess": {
+    "name": "hh3cVmCreateSuccess",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmAttr"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmRetryTimes"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmCreateFail": {
+    "name": "hh3cVmCreateFail",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmAttr"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmRetryTimes"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmCreateFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmDeleteSuccess": {
+    "name": "hh3cVmDeleteSuccess",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmAttr"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmRetryTimes"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmDeleteFail": {
+    "name": "hh3cVmDeleteFail",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmAttr"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmRetryTimes"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmDeleteFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmInconsist": {
+    "name": "hh3cVmInconsist",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmName"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmStatusOnVnfm"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmInconsistFaultReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmInconsistResume": {
+    "name": "hh3cVmInconsistResume",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmName"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmStatusOnVnfm"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmInconsistFaultReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmAcceptInconsistVm": {
+    "name": "hh3cVmAcceptInconsistVm",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmName"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmReset": {
+    "name": "hh3cVmReset",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmResetResult"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmUnregisterLongtime": {
+    "name": "hh3cVmUnregisterLongtime",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmName"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmIsolate": {
+    "name": "hh3cVmIsolate",
+    "oid": "1.3.6.1.4.1.25506.2.196.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmChannelHealthTraps": {
+    "name": "hh3cVmChannelHealthTraps",
+    "oid": "1.3.6.1.4.1.25506.2.196.4",
+    "class": "objectidentity"
+  },
+  "hh3cVmChannelHealthTrapPrefix": {
+    "name": "hh3cVmChannelHealthTrapPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.196.4.0",
+    "class": "objectidentity"
+  },
+  "hh3cVmChannelHealthNormal": {
+    "name": "hh3cVmChannelHealthNormal",
+    "oid": "1.3.6.1.4.1.25506.2.196.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSelfSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmPeerSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmChannelHealthMinor": {
+    "name": "hh3cVmChannelHealthMinor",
+    "oid": "1.3.6.1.4.1.25506.2.196.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSelfSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmPeerSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmChannelHealthSevere": {
+    "name": "hh3cVmChannelHealthSevere",
+    "oid": "1.3.6.1.4.1.25506.2.196.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSelfSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmPeerSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVmChannelLinkSwitch": {
+    "name": "hh3cVmChannelLinkSwitch",
+    "oid": "1.3.6.1.4.1.25506.2.196.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmSelfSlot"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelType"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelVlan"
+      },
+      {
+        "module": "HH3C-VNF-DEVICE-MIB",
+        "object": "hh3cVmChannelLinkMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cVnfTrapObjects": {
+    "name": "hh3cVnfTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.196.5",
+    "class": "objectidentity"
+  },
+  "hh3cVnfmTrapObjects": {
+    "name": "hh3cVnfmTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.1",
+    "class": "objectidentity"
+  },
+  "hh3cVnfmIPType": {
+    "name": "hh3cVnfmIPType",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVnfmIP": {
+    "name": "hh3cVnfmIP",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVnfmPort": {
+    "name": "hh3cVnfmPort",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmInfoTrapObjects": {
+    "name": "hh3cVmInfoTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2",
+    "class": "objectidentity"
+  },
+  "hh3cVmRetryTimes": {
+    "name": "hh3cVmRetryTimes",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmCreateAttr": {
+    "name": "hh3cVmCreateAttr",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initDeploy": 1,
+          "manu": 2,
+          "auto": 3,
+          "autoAccept": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmCreateFailReason": {
+    "name": "hh3cVmCreateFailReason",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmDeleteFailReason": {
+    "name": "hh3cVmDeleteFailReason",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmInconsistFaultReason": {
+    "name": "hh3cVmInconsistFaultReason",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exisitOnLocal": 1,
+          "existOnVnfm": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmResetResult": {
+    "name": "hh3cVmResetResult",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmStatusOnVnfm": {
+    "name": "hh3cVmStatusOnVnfm",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "building": 1,
+          "active": 2,
+          "error": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmChannelHealthTrapObjects": {
+    "name": "hh3cVmChannelHealthTrapObjects",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.3",
+    "class": "objectidentity"
+  },
+  "hh3cVmSelfSlot": {
+    "name": "hh3cVmSelfSlot",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmPeerSlot": {
+    "name": "hh3cVmPeerSlot",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmChannelType": {
+    "name": "hh3cVmChannelType",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "controlchannel": 1,
+          "datachannel": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmChannelVlan": {
+    "name": "hh3cVmChannelVlan",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cVmChannelLinkMacAddress": {
+    "name": "hh3cVmChannelLinkMacAddress",
+    "oid": "1.3.6.1.4.1.25506.2.196.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-VNF-DEVICE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-VNF-DEVICE-MIB"
+  }
+}

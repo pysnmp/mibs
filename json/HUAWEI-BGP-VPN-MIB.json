@@ -1,0 +1,3778 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "MPLS-L3VPN-STD-MIB": [
+      "mplsL3VpnVrfPerfCurrNumRoutes",
+      "mplsL3VpnVrfConfMidRteThresh"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwBgpMIB": {
+    "name": "hwBgpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.177",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-07-22 12:00",
+        "description": "Modify description of MIB nodes, include:hwOsNodeTable."
+      },
+      {
+        "revision": "2020-04-13 12:00",
+        "description": "Modify description of MIB nodes, include: hwBgpPeerAddrFamilyPerRouteThresholdExceed, hwBgpPeerAddrFamilyPerRouteThresholdExceedClear, hwBgpPeerAddrFamilyPerRouteExceed, hwBgpPeerAddrFamilyPerRouteExceedClear, hwBgpRouteType."
+      },
+      {
+        "revision": "2019-12-25 12:00",
+        "description": "Modify one MIB table for description, include: 'hwBgpProcessName'."
+      },
+      {
+        "revision": "2019-12-23 12:00",
+        "description": "Modify description of MIB nodes, include: hwBgpPeerAddrFamilyRouteThresholdExceed, hwBgpPeerAddrFamilyRouteThresholdExceedClear, hwBgpPeerAddrFamilyRouteExceed, hwBgpPeerAddrFamilyRouteExceedClear."
+      },
+      {
+        "revision": "2019-12-20 16:10",
+        "description": "Modify one MIB table for description, include: 'hwBgpVrfAddressFamily','hwBgpRouteMaxNum','hwBgpRouteThreshold'."
+      },
+      {
+        "revision": "2019-03-15 10:25",
+        "description": "Modify one MIB table for description, include: 'hwBgpLabelLimitTable','hwVpnRouteLabelNumReachThresold','hwVpnRouteLabelNumReachMaximum'."
+      },
+      {
+        "revision": "2018-05-24 11:00",
+        "description": "Modify one MIB table for description, include: 'hwBgpPeerRouteTable'."
+      },
+      {
+        "revision": "2018-05-21 11:00",
+        "description": "Add one MIB nodes for description, include: 'hwRpkiSessionRoaLimitNum'."
+      },
+      {
+        "revision": "2018-05-07 11:00",
+        "description": "Add two MIB nodes for hwBgpPeerSessionExtTable, include: 'hwBgpPeerSessionExtRemoteAs', 'hwBgpPeerSessionExtDescription'."
+      },
+      {
+        "revision": "2018-03-07 20:00",
+        "description": "Modify all the nodes description of hwBgpPeerSessionExtTable."
+      },
+      {
+        "revision": "2018-02-02 11:00",
+        "description": "Add one MIB table of hwBgpPeerSessionExtTable."
+      },
+      {
+        "revision": "2017-12-20 16:00",
+        "description": "Add one MIB node for hwBgpPeerTable, include: 'hwBgpPeerAdminStatus'."
+      },
+      {
+        "revision": "2017-11-15 15:56",
+        "description": "Update with mib code."
+      },
+      {
+        "revision": "2017-08-17 15:56",
+        "description": "Modify description of MIB nodes, include: 'hwBgpPeerSessionNum', 'hwIBgpPeerSessionNum', 'hwEBgpPeerSessionNum', ;hwBgpPeerAddrFamilySafi'."
+      },
+      {
+        "revision": "2016-12-06 11:10",
+        "description": "Add two MIB nodes for counting total massages, include: 'hwBgpPeerInTotalMsgs', 'hwBgpPeerInTotalMsgs'."
+      },
+      {
+        "revision": "2016-12-06 11:10",
+        "description": "Add a MIB tables for getting BGP statistic information, include: 'hwBgpPeerStatisticTable', and add two MIB nodes for counting total update massages, include: 'hwBgpPeerTotalInUpdateMsgs', 'hwBgpPeerTotalOutUpdateMsgs'."
+      },
+      {
+        "revision": "2016-05-12 09:55",
+        "description": "Modify trap nodes name, include: 'hwBgpPeerSessionThresholdExceed', 'hwBgpPeerSessionThresholdClear', 'hwBgpPeerSessionThreshold'"
+      },
+      {
+        "revision": "2016-03-01 09:54",
+        "description": "Modify trap nodes name, include: 'hwBgpDynamicPeerSessionNum', 'hwBgpDynamicPeerSessionMaxNum', 'hwBgpDynamicPeerSessionExceed', 'hwBgpDynamicPeerSessionExceedClear'"
+      },
+      {
+        "revision": "2016-02-27 10:10",
+        "description": "Modify trap nodes name, include: 'hwBgpDynamicPeerSessionNum', 'hwBgpDynamicPeerSessionMaxNum', 'hwBgpDynamicPeerSessionMaxExceed', 'hwBgpDynamicPeerSessionMaxClear'"
+      },
+      {
+        "revision": "2015-02-10 10:10",
+        "description": "Modify trap nodes name, include: 'hwBgpPeerSessionMaxNum', 'hwBgpPeerSessionExceed', 'hwBgpPeerSessionExceedClear'"
+      },
+      {
+        "revision": "2015-01-31 14:35",
+        "description": "Add two trap node for sending the number threshold alarms of BGP peers, include: 'hwBgpPeerSessionNumMaxNum', 'hwBgpPeerSessionNumMaxExceed', 'hwBgpPeerSessionNumMaxClear' "
+      },
+      {
+        "revision": "2015-01-19 11:15",
+        "description": "Update"
+      },
+      {
+        "revision": "2014-11-20 11:15",
+        "description": "Update"
+      },
+      {
+        "revision": "2014-06-18 11:40",
+        "description": "Add some trap nodes for sending BGP routes threshold alarms, include: 'hwBgpRouteThresholdExceed', 'hwBgpRouteThresholdClear', 'hwBgpRouteMaxExceed', 'hwBgpRouteMaxClear'. "
+      },
+      {
+        "revision": "2014-05-30 15:40",
+        "description": "Add some MIB nodes for getting BGP protocol resource information, include: 'hwBgpPeerSessionNum', 'hwIBgpPeerSessionNum', 'hwEBgpPeerSessionNum', 'hwConfiguredVrfs', 'hwConfiguredIpv4Vrfs','hwConfiguredIpv6Vrfs'."
+      },
+      {
+        "revision": "2014-03-18 15:02",
+        "description": "Update"
+      },
+      {
+        "revision": "2014-03-10 09:55",
+        "description": "Update"
+      },
+      {
+        "revision": "2008-12-26 09:55",
+        "description": "Update"
+      }
+    ]
+  },
+  "HWBgpAfi": {
+    "name": "HWBgpAfi",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "vpls": 25,
+          "l2vpn": 196
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWBgpSafi": {
+    "name": "HWBgpSafi",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2,
+          "mpls": 4,
+          "mcast-vpn": 5,
+          "vpls": 65,
+          "mdt": 66,
+          "vpn": 128,
+          "route-target": 132
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsL3VpnName": {
+    "name": "MplsL3VpnName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "hwBgpObjects": {
+    "name": "hwBgpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1",
+    "class": "objectidentity"
+  },
+  "hwBgpPeers": {
+    "name": "hwBgpPeers",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1",
+    "class": "objectidentity"
+  },
+  "hwBgpPeerAddrFamilyTable": {
+    "name": "hwBgpPeerAddrFamilyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyEntry": {
+    "name": "hwBgpPeerAddrFamilyEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerAddrFamilyAfi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerAddrFamilySafi",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerInstanceId": {
+    "name": "hwBgpPeerInstanceId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyAfi": {
+    "name": "hwBgpPeerAddrFamilyAfi",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWBgpAfi",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilySafi": {
+    "name": "hwBgpPeerAddrFamilySafi",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWBgpSafi",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerType": {
+    "name": "hwBgpPeerType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerIPAddr": {
+    "name": "hwBgpPeerIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerVrfName": {
+    "name": "hwBgpPeerVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerTable": {
+    "name": "hwBgpPeerTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerEntry": {
+    "name": "hwBgpPeerEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwBgpPeerEntry",
+      "module": "HUAWEI-BGP-VPN-MIB",
+      "object": "hwBgpPeerAddrFamilyEntry"
+    },
+    "status": "current"
+  },
+  "hwBgpPeerNegotiatedVersion": {
+    "name": "hwBgpPeerNegotiatedVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerRemoteAs": {
+    "name": "hwBgpPeerRemoteAs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerRemoteAddr": {
+    "name": "hwBgpPeerRemoteAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerState": {
+    "name": "hwBgpPeerState",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerFsmEstablishedCounter": {
+    "name": "hwBgpPeerFsmEstablishedCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBgpPeerFsmEstablishedTime": {
+    "name": "hwBgpPeerFsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerGRStatus": {
+    "name": "hwBgpPeerGRStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peerNotBeingHelped": 1,
+          "peerRestarting": 2,
+          "peerFinishRestart": 3,
+          "peerHelping": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpPeerLastError": {
+    "name": "hwBgpPeerLastError",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerUnAvaiReason": {
+    "name": "hwBgpPeerUnAvaiReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerAdminStatus": {
+    "name": "hwBgpPeerAdminStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerRouteTable": {
+    "name": "hwBgpPeerRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerRouteEntry": {
+    "name": "hwBgpPeerRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwBgpPeerRouteEntry",
+      "module": "HUAWEI-BGP-VPN-MIB",
+      "object": "hwBgpPeerAddrFamilyEntry"
+    },
+    "status": "current"
+  },
+  "hwBgpPeerPrefixRcvCounter": {
+    "name": "hwBgpPeerPrefixRcvCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerPrefixActiveCounter": {
+    "name": "hwBgpPeerPrefixActiveCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerPrefixAdvCounter": {
+    "name": "hwBgpPeerPrefixAdvCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerMessageTable": {
+    "name": "hwBgpPeerMessageTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerMessageEntry": {
+    "name": "hwBgpPeerMessageEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwBgpPeerMessageEntry",
+      "module": "HUAWEI-BGP-VPN-MIB",
+      "object": "hwBgpPeerAddrFamilyEntry"
+    },
+    "status": "current"
+  },
+  "hwBgpPeerInTotalMsgCounter": {
+    "name": "hwBgpPeerInTotalMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutTotalMsgCounter": {
+    "name": "hwBgpPeerOutTotalMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerInOpenMsgCounter": {
+    "name": "hwBgpPeerInOpenMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerInUpdateMsgCounter": {
+    "name": "hwBgpPeerInUpdateMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerInNotificationMsgCounter": {
+    "name": "hwBgpPeerInNotificationMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerInKeepAliveMsgCounter": {
+    "name": "hwBgpPeerInKeepAliveMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerInRouteFreshMsgCounter": {
+    "name": "hwBgpPeerInRouteFreshMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutOpenMsgCounter": {
+    "name": "hwBgpPeerOutOpenMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutUpdateMsgCounter": {
+    "name": "hwBgpPeerOutUpdateMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutNotificationMsgCounter": {
+    "name": "hwBgpPeerOutNotificationMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutKeepAliveMsgCounter": {
+    "name": "hwBgpPeerOutKeepAliveMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutRouteFreshMsgCounter": {
+    "name": "hwBgpPeerOutRouteFreshMsgCounter",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerConfigTable": {
+    "name": "hwBgpPeerConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerConfigEntry": {
+    "name": "hwBgpPeerConfigEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hwBgpPeerConfigEntry",
+      "module": "HUAWEI-BGP-VPN-MIB",
+      "object": "hwBgpPeerAddrFamilyEntry"
+    },
+    "status": "current"
+  },
+  "hwBgpPeerConfigRouteLimitNum": {
+    "name": "hwBgpPeerConfigRouteLimitNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerConfigRouteLimitThreshold": {
+    "name": "hwBgpPeerConfigRouteLimitThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionTable": {
+    "name": "hwBgpPeerSessionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerSessionEntry": {
+    "name": "hwBgpPeerSessionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionRemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerSessionVrfName": {
+    "name": "hwBgpPeerSessionVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpPeerSessionRemoteAddrType": {
+    "name": "hwBgpPeerSessionRemoteAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpPeerSessionRemoteAddr": {
+    "name": "hwBgpPeerSessionRemoteAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpPeerSessionLocalAddrType": {
+    "name": "hwBgpPeerSessionLocalAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionLocalAddr": {
+    "name": "hwBgpPeerSessionLocalAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionUnavailableType": {
+    "name": "hwBgpPeerSessionUnavailableType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uptodown": 1,
+          "alwaysdown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionLocalIfName": {
+    "name": "hwBgpPeerSessionLocalIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionReason": {
+    "name": "hwBgpPeerSessionReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationLeadPeerDown": 1,
+          "receiveNotification": 2,
+          "receiveErrorPacket": 3,
+          "holdTimerExpire": 4,
+          "remotePeerNotReachable": 5,
+          "directConnectInterfaceDown": 6,
+          "routeLimit": 7,
+          "peerIsNotUpForASpecifiedPeriodOfTime": 8,
+          "alarmClear": 100
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerStatisticTable": {
+    "name": "hwBgpPeerStatisticTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerStatisticEntry": {
+    "name": "hwBgpPeerStatisticEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerVrfInstanceId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpProcessId": {
+    "name": "hwBgpProcessId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerVrfInstanceId": {
+    "name": "hwBgpPeerVrfInstanceId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerAddr": {
+    "name": "hwBgpPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerFsmEstablishedTransitions": {
+    "name": "hwBgpPeerFsmEstablishedTransitions",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerDownCounts": {
+    "name": "hwBgpPeerDownCounts",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerInUpdateMsgs": {
+    "name": "hwBgpPeerInUpdateMsgs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutUpdateMsgs": {
+    "name": "hwBgpPeerOutUpdateMsgs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerInTotalMsgs": {
+    "name": "hwBgpPeerInTotalMsgs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerOutTotalMsgs": {
+    "name": "hwBgpPeerOutTotalMsgs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtTable": {
+    "name": "hwBgpPeerSessionExtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtEntry": {
+    "name": "hwBgpPeerSessionExtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionExtVrfId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionExtRemoteAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionExtRemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtVrfId": {
+    "name": "hwBgpPeerSessionExtVrfId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtRemoteAddrType": {
+    "name": "hwBgpPeerSessionExtRemoteAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtRemoteAddr": {
+    "name": "hwBgpPeerSessionExtRemoteAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtLocalAddrType": {
+    "name": "hwBgpPeerSessionExtLocalAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtLocalAddr": {
+    "name": "hwBgpPeerSessionExtLocalAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtUnavailableType": {
+    "name": "hwBgpPeerSessionExtUnavailableType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uptodown": 1,
+          "alwaysdown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtLocalIfName": {
+    "name": "hwBgpPeerSessionExtLocalIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtReason": {
+    "name": "hwBgpPeerSessionExtReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationLeadPeerDown": 1,
+          "receiveNotification": 2,
+          "receiveErrorPacket": 3,
+          "holdTimerExpire": 4,
+          "remotePeerNotReachable": 5,
+          "directConnectInterfaceDown": 6,
+          "routeLimit": 7,
+          "peerIsNotUpForASpecifiedPeriodOfTime": 8,
+          "unknown": 90,
+          "alarmClear": 100
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtVrfName": {
+    "name": "hwBgpPeerSessionExtVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtRemoteAs": {
+    "name": "hwBgpPeerSessionExtRemoteAs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionExtDescription": {
+    "name": "hwBgpPeerSessionExtDescription",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpRoute": {
+    "name": "hwBgpRoute",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2",
+    "class": "objectidentity"
+  },
+  "hwBgpRouteLimitTable": {
+    "name": "hwBgpRouteLimitTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.1",
+    "class": "objectidentity"
+  },
+  "hwBgpRouteLimitindex": {
+    "name": "hwBgpRouteLimitindex",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4vrf": 3,
+          "ipv6vrf": 4,
+          "ipv4public": 5,
+          "ipv6public": 6,
+          "l2ad": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpRouteCurNum": {
+    "name": "hwBgpRouteCurNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpRouteMaxNum": {
+    "name": "hwBgpRouteMaxNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpRouteThreshold": {
+    "name": "hwBgpRouteThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpRouteType": {
+    "name": "hwBgpRouteType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpVrfRouteTable": {
+    "name": "hwBgpVrfRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpVrfRouteEntry": {
+    "name": "hwBgpVrfRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfRouteType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfInstName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVrfCurrRouteNum": {
+    "name": "hwBgpVrfCurrRouteNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpVrfThresholdValue": {
+    "name": "hwBgpVrfThresholdValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpVrfRouteType": {
+    "name": "hwBgpVrfRouteType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpVrfInstName": {
+    "name": "hwBgpVrfInstName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpVrfAddressFamily": {
+    "name": "hwBgpVrfAddressFamily",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnRouteTable": {
+    "name": "hwEvpnRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwEvpnRouteEntry": {
+    "name": "hwEvpnRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnRouteType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnAddressFamily",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnCurrRouteNum": {
+    "name": "hwEvpnCurrRouteNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnThresholdValue": {
+    "name": "hwEvpnThresholdValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnRouteType": {
+    "name": "hwEvpnRouteType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwEvpnAddressFamily": {
+    "name": "hwEvpnAddressFamily",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpLabelLimitTable": {
+    "name": "hwBgpLabelLimitTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.4",
+    "class": "objectidentity"
+  },
+  "hwBgpAddrFamilyAfi": {
+    "name": "hwBgpAddrFamilyAfi",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWBgpAfi",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpAddrFamilySafi": {
+    "name": "hwBgpAddrFamilySafi",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWBgpSafi",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpLabelMaxValue": {
+    "name": "hwBgpLabelMaxValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpLabelLimitThreshold": {
+    "name": "hwBgpLabelLimitThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpTraps": {
+    "name": "hwBgpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3",
+    "class": "objectidentity"
+  },
+  "hwBgpPeerRouteNumThresholdExceed": {
+    "name": "hwBgpPeerRouteNumThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerRouteNumThresholdClear": {
+    "name": "hwBgpPeerRouteNumThresholdClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerGRStatusChange": {
+    "name": "hwBgpPeerGRStatusChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerGRStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerUnavailable": {
+    "name": "hwBgpPeerUnavailable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionLocalAddrType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionLocalAddr"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionUnavailableType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionLocalIfName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAvailable": {
+    "name": "hwBgpPeerAvailable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionLocalAddrType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionLocalAddr"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionUnavailableType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionLocalIfName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerRouteExceed": {
+    "name": "hwBgpPeerRouteExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerRouteExceedClear": {
+    "name": "hwBgpPeerRouteExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL3vpnVrfRouteMidThreshCleared": {
+    "name": "hwL3vpnVrfRouteMidThreshCleared",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfPerfCurrNumRoutes"
+      },
+      {
+        "module": "MPLS-L3VPN-STD-MIB",
+        "object": "mplsL3VpnVrfConfMidRteThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerEstablished": {
+    "name": "hwBgpPeerEstablished",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerLastError"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerState"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerBackwardTransition": {
+    "name": "hwBgpPeerBackwardTransition",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerLastError"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerState"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerUnAvaiReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpRouteThresholdExceed": {
+    "name": "hwBgpRouteThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteLimitindex"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteCurNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteThreshold"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpRouteThresholdClear": {
+    "name": "hwBgpRouteThresholdClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteLimitindex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpRouteMaxExceed": {
+    "name": "hwBgpRouteMaxExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteLimitindex"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpRouteMaxClear": {
+    "name": "hwBgpRouteMaxClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteLimitindex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerSessionExceed": {
+    "name": "hwBgpPeerSessionExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerSessionExceedClear": {
+    "name": "hwBgpPeerSessionExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpDynamicPeerSessionExceed": {
+    "name": "hwBgpDynamicPeerSessionExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpDynamicPeerSessionMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpDynamicPeerSessionExceedClear": {
+    "name": "hwBgpDynamicPeerSessionExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpDynamicPeerSessionMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpDynamicPeerSessionNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerSessionThresholdExceed": {
+    "name": "hwBgpPeerSessionThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionThreshold"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerSessionThresholdClear": {
+    "name": "hwBgpPeerSessionThresholdClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionThreshold"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerSessionMaxNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVrfRouteNumReachThreshold": {
+    "name": "hwBgpVrfRouteNumReachThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfCurrRouteNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfThresholdValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfInstName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVrfRouteNumReachThresholdClear": {
+    "name": "hwBgpVrfRouteNumReachThresholdClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfCurrRouteNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfThresholdValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfInstName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnRouteReachThreshold": {
+    "name": "hwEvpnRouteReachThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnCurrRouteNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnThresholdValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnAddressFamily"
+      }
+    ],
+    "status": "current"
+  },
+  "hwEvpnRouteReachThresholdClear": {
+    "name": "hwEvpnRouteReachThresholdClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnCurrRouteNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnThresholdValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwEvpnAddressFamily"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVpnRouteLabelNumReachThresold": {
+    "name": "hwVpnRouteLabelNumReachThresold",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilyAfi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilySafi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpLabelMaxValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpLabelLimitThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVpnRouteLabelNumReachThresoldClear": {
+    "name": "hwVpnRouteLabelNumReachThresoldClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilyAfi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilySafi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpLabelMaxValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpLabelLimitThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVpnRouteLabelNumReachMaximum": {
+    "name": "hwVpnRouteLabelNumReachMaximum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilyAfi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilySafi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpLabelMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVpnRouteLabelNumReachMaximumClear": {
+    "name": "hwVpnRouteLabelNumReachMaximumClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilyAfi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpAddrFamilySafi"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpLabelMaxValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyRouteThresholdExceed": {
+    "name": "hwBgpPeerAddrFamilyRouteThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteThreshold"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyRouteThresholdExceedClear": {
+    "name": "hwBgpPeerAddrFamilyRouteThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteThreshold"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyRouteExceed": {
+    "name": "hwBgpPeerAddrFamilyRouteExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyRouteExceedClear": {
+    "name": "hwBgpPeerAddrFamilyRouteExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyPerRouteThresholdExceed": {
+    "name": "hwBgpPeerAddrFamilyPerRouteThresholdExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteThreshold"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyPerRouteThresholdExceedClear": {
+    "name": "hwBgpPeerAddrFamilyPerRouteThresholdExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteThreshold"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyPerRouteExceed": {
+    "name": "hwBgpPeerAddrFamilyPerRouteExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerAddrFamilyPerRouteExceedClear": {
+    "name": "hwBgpPeerAddrFamilyPerRouteExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.3.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVrfAddressFamily"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpRouteMaxNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpScalars": {
+    "name": "hwBgpScalars",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4",
+    "class": "objectidentity"
+  },
+  "hwBgpPeerSessionNum": {
+    "name": "hwBgpPeerSessionNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIBgpPeerSessionNum": {
+    "name": "hwIBgpPeerSessionNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwEBgpPeerSessionNum": {
+    "name": "hwEBgpPeerSessionNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionMaxNum": {
+    "name": "hwBgpPeerSessionMaxNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpDynamicPeerSessionNum": {
+    "name": "hwBgpDynamicPeerSessionNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpDynamicPeerSessionMaxNum": {
+    "name": "hwBgpDynamicPeerSessionMaxNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerSessionThreshold": {
+    "name": "hwBgpPeerSessionThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerTotalInUpdateMsgs": {
+    "name": "hwBgpPeerTotalInUpdateMsgs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpPeerTotalOutUpdateMsgs": {
+    "name": "hwBgpPeerTotalOutUpdateMsgs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpProcess": {
+    "name": "hwBgpProcess",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.5",
+    "class": "objectidentity"
+  },
+  "hwBgpProcessCommTable": {
+    "name": "hwBgpProcessCommTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpProcessCommEntry": {
+    "name": "hwBgpProcessCommEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpProcessName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpProcessName": {
+    "name": "hwBgpProcessName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwBgpVpnObjects": {
+    "name": "hwBgpVpnObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2",
+    "class": "objectidentity"
+  },
+  "hwBgpVpnTunnelTable": {
+    "name": "hwBgpVpnTunnelTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelEntry": {
+    "name": "hwBgpVpnTunnelEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelPublicNetNextHop",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVpnTunnelVrfName": {
+    "name": "hwBgpVpnTunnelVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelPublicNetNextHop": {
+    "name": "hwBgpVpnTunnelPublicNetNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelId": {
+    "name": "hwBgpVpnTunnelId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelDestAddr": {
+    "name": "hwBgpVpnTunnelDestAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelType": {
+    "name": "hwBgpVpnTunnelType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelSrcAddr": {
+    "name": "hwBgpVpnTunnelSrcAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelOutIfName": {
+    "name": "hwBgpVpnTunnelOutIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelIsLoadBalance": {
+    "name": "hwBgpVpnTunnelIsLoadBalance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelLspIndex": {
+    "name": "hwBgpVpnTunnelLspIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelLspOutIfName": {
+    "name": "hwBgpVpnTunnelLspOutIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelLspOutLabel": {
+    "name": "hwBgpVpnTunnelLspOutLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelLspNextHop": {
+    "name": "hwBgpVpnTunnelLspNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelLspFec": {
+    "name": "hwBgpVpnTunnelLspFec",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelLspFecPfxLen": {
+    "name": "hwBgpVpnTunnelLspFecPfxLen",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelLspIsBackup": {
+    "name": "hwBgpVpnTunnelLspIsBackup",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelSignalProtocol": {
+    "name": "hwBgpVpnTunnelSignalProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelSessionTunnelId": {
+    "name": "hwBgpVpnTunnelSessionTunnelId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnTunnelTunnelName": {
+    "name": "hwBgpVpnTunnelTunnelName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpVpnServiceIdTable": {
+    "name": "hwBgpVpnServiceIdTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpVpnServiceIdEntry": {
+    "name": "hwBgpVpnServiceIdEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnServiceIdVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVpnServiceIdVrfName": {
+    "name": "hwBgpVpnServiceIdVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwBgpVpnServiceIdValue": {
+    "name": "hwBgpVpnServiceIdValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwBgpVpnScalars": {
+    "name": "hwBgpVpnScalars",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.3",
+    "class": "objectidentity"
+  },
+  "hwConfiguredVrfs": {
+    "name": "hwConfiguredVrfs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwConfiguredIpv4Vrfs": {
+    "name": "hwConfiguredIpv4Vrfs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwConfiguredIpv6Vrfs": {
+    "name": "hwConfiguredIpv6Vrfs",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwBgpConformance": {
+    "name": "hwBgpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3",
+    "class": "objectidentity"
+  },
+  "hwBgpCompliances": {
+    "name": "hwBgpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.1",
+    "class": "objectidentity"
+  },
+  "hwBgpCompliance": {
+    "name": "hwBgpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwBgpPeer",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      },
+      {
+        "object": "hwBgpPeerRoute",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      },
+      {
+        "object": "hwBgpPeerMessage",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpGroups": {
+    "name": "hwBgpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.2",
+    "class": "objectidentity"
+  },
+  "hwBgpPeerAddrFamily": {
+    "name": "hwBgpPeerAddrFamily",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeer": {
+    "name": "hwBgpPeer",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerNegotiatedVersion"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerRemoteAs"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerRemoteAddr"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerState"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerFsmEstablishedCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerGRStatus"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerFsmEstablishedTime"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerLastError"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerUnAvaiReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerRoute": {
+    "name": "hwBgpPeerRoute",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerPrefixRcvCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerPrefixActiveCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerPrefixAdvCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerMessage": {
+    "name": "hwBgpPeerMessage",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerInTotalMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerOutTotalMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerInOpenMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerInUpdateMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerInNotificationMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerInKeepAliveMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerInRouteFreshMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerOutOpenMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerOutUpdateMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerOutNotificationMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerOutKeepAliveMsgCounter"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerOutRouteFreshMsgCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpPeerConfig": {
+    "name": "hwBgpPeerConfig",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitNum"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerConfigRouteLimitThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpTrap": {
+    "name": "hwBgpTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerRouteNumThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerRouteNumThresholdClear"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerGRStatusChange"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerEstablished"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerBackwardTransition"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwL3vpnVrfRouteMidThreshCleared"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerUnavailable"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerRouteExceed"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerRouteExceedClear"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpPeerAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVpnConformance": {
+    "name": "hwBgpVpnConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.5",
+    "class": "objectidentity"
+  },
+  "hwBgpVpnCompliances": {
+    "name": "hwBgpVpnCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.5.1",
+    "class": "objectidentity"
+  },
+  "hwBgpVpnCompliance": {
+    "name": "hwBgpVpnCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.5.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwBgpVpnTunnelGroup",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      },
+      {
+        "object": "hwBgpVpnServiceIdGroup",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVpnExtGroups": {
+    "name": "hwBgpVpnExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.5.2",
+    "class": "objectidentity"
+  },
+  "hwBgpVpnTunnelGroup": {
+    "name": "hwBgpVpnTunnelGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.5.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelDestAddr"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelSrcAddr"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelIsLoadBalance"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelLspIndex"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelLspOutLabel"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelLspNextHop"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelLspFec"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelLspFecPfxLen"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelOutIfName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelLspOutIfName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelLspIsBackup"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelTunnelName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnTunnelSignalProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwBgpVpnServiceIdGroup": {
+    "name": "hwBgpVpnServiceIdGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.5.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwBgpVpnServiceIdValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnl2VpnTrapObjects": {
+    "name": "hwTnl2VpnTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.6",
+    "class": "objectidentity"
+  },
+  "hwTnl2VpnTrapTable": {
+    "name": "hwTnl2VpnTrapTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTnl2VpnTrapEntry": {
+    "name": "hwTnl2VpnTrapEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwVpnId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwVpnId": {
+    "name": "hwVpnId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVpnPublicNextHop": {
+    "name": "hwVpnPublicNextHop",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTunnelReachablityEvent": {
+    "name": "hwTunnelReachablityEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwVpnTrapCkeyValue": {
+    "name": "hwVpnTrapCkeyValue",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwTnl2VpnTrapConformance": {
+    "name": "hwTnl2VpnTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.7",
+    "class": "objectidentity"
+  },
+  "hwTnl2VpnTrapConformances": {
+    "name": "hwTnl2VpnTrapConformances",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.7.1",
+    "class": "objectidentity"
+  },
+  "hwTnl2VpnTrapCompliance": {
+    "name": "hwTnl2VpnTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.7.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwTnl2VpnTrapGroup",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      },
+      {
+        "object": "hwTnl2VpnTrapNotificationGroup",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnl2VpnTrapGroups": {
+    "name": "hwTnl2VpnTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.7.2",
+    "class": "objectidentity"
+  },
+  "hwTnl2VpnTrapGroup": {
+    "name": "hwTnl2VpnTrapGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.7.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwVpnId"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwVpnPublicNextHop"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwVpnTrapCkeyValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwTunnelReachablityEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnl2VpnTrapNotificationGroup": {
+    "name": "hwTnl2VpnTrapNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.7.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwTnl2VpnTrapEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTnl2VpnTrapNotification": {
+    "name": "hwTnl2VpnTrapNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.8",
+    "class": "objectidentity"
+  },
+  "hwTnl2VpnTrapEvent": {
+    "name": "hwTnl2VpnTrapEvent",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.8.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwVpnId"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwVpnPublicNextHop"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwVpnTrapCkeyValue"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwTunnelReachablityEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPeerDistributeObjects": {
+    "name": "hwPeerDistributeObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9",
+    "class": "objectidentity"
+  },
+  "hwBgpTotalRouteNumber": {
+    "name": "hwBgpTotalRouteNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwOsNodeTable": {
+    "name": "hwOsNodeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwOsNodeEntry": {
+    "name": "hwOsNodeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwCurrSlot": {
+    "name": "hwCurrSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPeerNumber": {
+    "name": "hwPeerNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRouteNumber": {
+    "name": "hwRouteNumber",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDistributeTable": {
+    "name": "hwDistributeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDistributeEntry": {
+    "name": "hwDistributeEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwDistributeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwDistributeLocId": {
+    "name": "hwDistributeLocId",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDistributeName": {
+    "name": "hwDistributeName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMigrateSrcSlot": {
+    "name": "hwMigrateSrcSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMigrateDestSlot": {
+    "name": "hwMigrateDestSlot",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwMigrateReason": {
+    "name": "hwMigrateReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memoryoverload": 1,
+          "cpuoverload": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPeerDistributeTraps": {
+    "name": "hwPeerDistributeTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.9.4",
+    "class": "objectidentity"
+  },
+  "hwRpkiObjects": {
+    "name": "hwRpkiObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11",
+    "class": "objectidentity"
+  },
+  "hwRpkiSessions": {
+    "name": "hwRpkiSessions",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.1",
+    "class": "objectidentity"
+  },
+  "hwRpkiSessionTable": {
+    "name": "hwRpkiSessionTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRpkiSessionEntry": {
+    "name": "hwRpkiSessionEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionVrfName",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwSessionIPAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRpkiSessionVrfName": {
+    "name": "hwRpkiSessionVrfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsL3VpnName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRpkiSessionType": {
+    "name": "hwRpkiSessionType",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSessionIPAddr": {
+    "name": "hwSessionIPAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRpkiSessionRoaLimitNum": {
+    "name": "hwRpkiSessionRoaLimitNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRpkiTraps": {
+    "name": "hwRpkiTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.2",
+    "class": "objectidentity"
+  },
+  "hwRpkiSessionRoaExceed": {
+    "name": "hwRpkiSessionRoaExceed",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionRoaLimitNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRpkiSessionRoaExceedClear": {
+    "name": "hwRpkiSessionRoaExceedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionRoaLimitNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRpkiConformance": {
+    "name": "hwRpkiConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.3",
+    "class": "objectidentity"
+  },
+  "hwRpkiCompliances": {
+    "name": "hwRpkiCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.3.1",
+    "class": "objectidentity"
+  },
+  "hwRpkiCompliance": {
+    "name": "hwRpkiCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwRpkiSession",
+        "module": "HUAWEI-BGP-VPN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRpkiGroups": {
+    "name": "hwRpkiGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.3.2",
+    "class": "objectidentity"
+  },
+  "hwRpkiSession": {
+    "name": "hwRpkiSession",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionVrfName"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionType"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwSessionIPAddr"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionRoaLimitNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRpkiTrap": {
+    "name": "hwRpkiTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.177.11.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionRoaExceed"
+      },
+      {
+        "module": "HUAWEI-BGP-VPN-MIB",
+        "object": "hwRpkiSessionRoaExceedClear"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BGP-VPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-BGP-VPN-MIB"
+  }
+}

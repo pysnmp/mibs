@@ -1,0 +1,3146 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoOtnIfMIB": {
+    "name": "ciscoOtnIfMIB",
+    "oid": "1.3.6.1.4.1.9.9.639",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-05-25 00:00",
+        "description": "Added Objects in- 1. coiFECIntervalTable - coiFECIntervalPreFECMin, coiFECIntervalPreFECMax, coiFECIntervalPreFECAvg, coiFECIntervalPostFECMin, coiFECIntervalPostFECMax, coiFECIntervalPostFECAvg, coiFECIntervalQFactorMin, coiFECIntervalQFactorMax, coiFECIntervalQFactorAvg, coiFECIntervalQMarginMin, coiFECIntervalQMarginMax, coiFECIntervalQMarginAvg 2. coiFECCurrentTable - coiFECCurrentPreFECMin, coiFECCurrentPreFECMax, coiFECCurrentPreFECAvg, coiFECCurrentPostFECMin, coiFECCurrentPostFECMax, coiFECCurrentPostFECAvg, coiFECCurrentQFactorMin, coiFECCurrentQFactorMax, coiFECCurrentQFactorAvg, coiFECCurrentQMarginMin, coiFECCurrentQMarginMax, coiFECCurrentQMarginAvg 3. Added FEC Modes to the existing coiIfControllerFECMode object in coiIfControllerTable. enableEnhancedI4(4), enableEnhancedI7(5), enableHighGain(6), enableLongHaul(7), enableEnhancedSD7(8), enableEnhancedSD20(9) 4. Extend CoiIntervalType to include thirtySecond. 5. Import SnmpAdminString FROM SNMP-FRAMEWORK-MIB."
+      },
+      {
+        "revision": "2011-01-24 00:00",
+        "description": "1. Added a new defect status AIS in object coiOtnIfODUStatus. 2. Changed the description for objects coiOtnIfOTUStatus and coiOtnIfODUStatus in coiIfControllerTable."
+      },
+      {
+        "revision": "2008-09-11 00:00",
+        "description": "1. Added two new notifications coiOtnIfOTUStatusChange and coiOtnIfODUStatusChange. 2. Added a new scalar objects coiOtnIfNotifEnabled and two new objects coiOtnIfOTUStatus and coiOtnIfODUStatus in the table coiIfControllerTable"
+      },
+      {
+        "revision": "2007-10-10 00:00",
+        "description": "The initial revision of this MIB."
+      }
+    ]
+  },
+  "CoiIntervalType": {
+    "name": "CoiIntervalType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMin": 1,
+          "oneDay": 2,
+          "thirtySecond": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiMonitorType": {
+    "name": "CoiMonitorType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "path": 1,
+          "section": 2,
+          "tcm1": 3,
+          "tcm2": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiOtnThresholdType": {
+    "name": "CoiOtnThresholdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fc": 1,
+          "es": 2,
+          "ses": 3,
+          "uas": 4,
+          "bbe": 5,
+          "esr": 6,
+          "sesr": 7,
+          "bber": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CoiOpticalWavelength": {
+    "name": "CoiOpticalWavelength",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1528770,
+            "max": 1604030
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoOtnIfMIBNotifs": {
+    "name": "ciscoOtnIfMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.639.0",
+    "class": "objectidentity"
+  },
+  "ciscoOtnIfMIBObjects": {
+    "name": "ciscoOtnIfMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.639.1",
+    "class": "objectidentity"
+  },
+  "coiDwdmInterface": {
+    "name": "coiDwdmInterface",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1",
+    "class": "objectidentity"
+  },
+  "coiDwdmIfOtn": {
+    "name": "coiDwdmIfOtn",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2",
+    "class": "objectidentity"
+  },
+  "coiDwdmIfFEC": {
+    "name": "coiDwdmIfFEC",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3",
+    "class": "objectidentity"
+  },
+  "coiIfControllerTable": {
+    "name": "coiIfControllerTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiIfControllerEntry": {
+    "name": "coiIfControllerEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfControllerLoopback": {
+    "name": "coiIfControllerLoopback",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLoop": 1,
+          "otherLoop": 2,
+          "diagnosticLoop": 3,
+          "lineLoop": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noLoop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiIfControllerWavelength": {
+    "name": "coiIfControllerWavelength",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOpticalWavelength",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1529553,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiIfControllerLaserAdminStatus": {
+    "name": "coiIfControllerLaserAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiIfControllerLaserOperStatus": {
+    "name": "coiIfControllerLaserOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerOtnStatus": {
+    "name": "coiIfControllerOtnStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiIfControllerFECMode": {
+    "name": "coiIfControllerFECMode",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enableStandard": 2,
+          "enableEnhanced": 3,
+          "enableEnhancedI4": 4,
+          "enableEnhancedI7": 5,
+          "enableHighGain": 6,
+          "enableLongHaul": 7,
+          "enableEnhancedSD7": 8,
+          "enableEnhancedSD20": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enableEnhanced",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiIfControllerTDCOperMode": {
+    "name": "coiIfControllerTDCOperMode",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerTDCOperStatus": {
+    "name": "coiIfControllerTDCOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "acquiring": 2,
+          "locked": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerTDCOperSetting": {
+    "name": "coiIfControllerTDCOperSetting",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2000,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "units": "ps/nm - picoseconds per nanometer",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerPreFECBERMantissa": {
+    "name": "coiIfControllerPreFECBERMantissa",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerPreFECBERExponent": {
+    "name": "coiIfControllerPreFECBERExponent",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -30,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerQFactor": {
+    "name": "coiIfControllerQFactor",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "one hundredths of a dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerQMargin": {
+    "name": "coiIfControllerQMargin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9999
+          }
+        ]
+      }
+    },
+    "units": "one hundredths of a dBQ",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerOTNValidIntervals": {
+    "name": "coiIfControllerOTNValidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiIfControllerFECValidIntervals": {
+    "name": "coiIfControllerFECValidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnIfOTUStatus": {
+    "name": "coiOtnIfOTUStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "los": 1,
+        "lof": 2,
+        "lom": 3,
+        "bdi": 4,
+        "tim": 5,
+        "ais": 6,
+        "fecMismatch": 7,
+        "fecUncorrectedWord": 8
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnIfODUStatus": {
+    "name": "coiOtnIfODUStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noDefect": 0,
+        "oci": 1,
+        "lck": 2,
+        "tim": 3,
+        "bdi": 4,
+        "ais": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndThresholdsTable": {
+    "name": "coiOtnNearEndThresholdsTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndThresholdsEntry": {
+    "name": "coiOtnNearEndThresholdsEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshMonType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThresholdType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOtnNearEndThreshIntervalType": {
+    "name": "coiOtnNearEndThreshIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndThreshMonType": {
+    "name": "coiOtnNearEndThreshMonType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiMonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndThresholdType": {
+    "name": "coiOtnNearEndThresholdType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOtnThresholdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndThreshValue": {
+    "name": "coiOtnNearEndThreshValue",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiOtnNearEndThreshStorageType": {
+    "name": "coiOtnNearEndThreshStorageType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiOtnNearEndThreshStatus": {
+    "name": "coiOtnNearEndThreshStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiOtnFarEndThresholdsTable": {
+    "name": "coiOtnFarEndThresholdsTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndThresholdsEntry": {
+    "name": "coiOtnFarEndThresholdsEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshMonType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThresholdType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOtnFarEndThreshIntervalType": {
+    "name": "coiOtnFarEndThreshIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndThreshMonType": {
+    "name": "coiOtnFarEndThreshMonType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiMonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndThresholdType": {
+    "name": "coiOtnFarEndThresholdType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiOtnThresholdType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndThreshValue": {
+    "name": "coiOtnFarEndThreshValue",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiOtnFarEndThreshStorageType": {
+    "name": "coiOtnFarEndThreshStorageType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiOtnFarEndThreshStatus": {
+    "name": "coiOtnFarEndThreshStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentTable": {
+    "name": "coiOtnNearEndCurrentTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentEntry": {
+    "name": "coiOtnNearEndCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOtnNearEndCurIntervalType": {
+    "name": "coiOtnNearEndCurIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentMonType": {
+    "name": "coiOtnNearEndCurrentMonType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiMonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentFCs": {
+    "name": "coiOtnNearEndCurrentFCs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentESs": {
+    "name": "coiOtnNearEndCurrentESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentSESs": {
+    "name": "coiOtnNearEndCurrentSESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentUASs": {
+    "name": "coiOtnNearEndCurrentUASs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentBBEs": {
+    "name": "coiOtnNearEndCurrentBBEs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentESRs": {
+    "name": "coiOtnNearEndCurrentESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentSESRs": {
+    "name": "coiOtnNearEndCurrentSESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndCurrentBBERs": {
+    "name": "coiOtnNearEndCurrentBBERs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentTable": {
+    "name": "coiOtnFarEndCurrentTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentEntry": {
+    "name": "coiOtnFarEndCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentMonType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOtnFarEndCurIntervalType": {
+    "name": "coiOtnFarEndCurIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentMonType": {
+    "name": "coiOtnFarEndCurrentMonType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiMonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentFCs": {
+    "name": "coiOtnFarEndCurrentFCs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentESs": {
+    "name": "coiOtnFarEndCurrentESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentSESs": {
+    "name": "coiOtnFarEndCurrentSESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentUASs": {
+    "name": "coiOtnFarEndCurrentUASs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentBBEs": {
+    "name": "coiOtnFarEndCurrentBBEs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentESRs": {
+    "name": "coiOtnFarEndCurrentESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentSESRs": {
+    "name": "coiOtnFarEndCurrentSESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndCurrentBBERs": {
+    "name": "coiOtnFarEndCurrentBBERs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalTable": {
+    "name": "coiOtnNearEndIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalEntry": {
+    "name": "coiOtnNearEndIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalMonType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalType": {
+    "name": "coiOtnNearEndIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalMonType": {
+    "name": "coiOtnNearEndIntervalMonType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiMonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalNum": {
+    "name": "coiOtnNearEndIntervalNum",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalFCs": {
+    "name": "coiOtnNearEndIntervalFCs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalESs": {
+    "name": "coiOtnNearEndIntervalESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalSESs": {
+    "name": "coiOtnNearEndIntervalSESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalUASs": {
+    "name": "coiOtnNearEndIntervalUASs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalBBEs": {
+    "name": "coiOtnNearEndIntervalBBEs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalESRs": {
+    "name": "coiOtnNearEndIntervalESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalSESRs": {
+    "name": "coiOtnNearEndIntervalSESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalBBERs": {
+    "name": "coiOtnNearEndIntervalBBERs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnNearEndIntervalValidData": {
+    "name": "coiOtnNearEndIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalTable": {
+    "name": "coiOtnFarEndIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalEntry": {
+    "name": "coiOtnFarEndIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalMonType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalType": {
+    "name": "coiOtnFarEndIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalMonType": {
+    "name": "coiOtnFarEndIntervalMonType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiMonitorType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalNum": {
+    "name": "coiOtnFarEndIntervalNum",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalFCs": {
+    "name": "coiOtnFarEndIntervalFCs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalESs": {
+    "name": "coiOtnFarEndIntervalESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalSESs": {
+    "name": "coiOtnFarEndIntervalSESs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalUASs": {
+    "name": "coiOtnFarEndIntervalUASs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalBBEs": {
+    "name": "coiOtnFarEndIntervalBBEs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalESRs": {
+    "name": "coiOtnFarEndIntervalESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalSESRs": {
+    "name": "coiOtnFarEndIntervalSESRs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalBBERs": {
+    "name": "coiOtnFarEndIntervalBBERs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnFarEndIntervalValidData": {
+    "name": "coiOtnFarEndIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiOtnIfNotifEnabled": {
+    "name": "coiOtnIfNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.639.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "coiFECThresholdsTable": {
+    "name": "coiFECThresholdsTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECThresholdsEntry": {
+    "name": "coiFECThresholdsEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiFECThreshIntervalType": {
+    "name": "coiFECThreshIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECThreshType": {
+    "name": "coiFECThreshType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bitErrCor": 1,
+          "byteErrcor": 2,
+          "zeroErrDet": 3,
+          "oneErrDet": 4,
+          "unCorWords": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECThreshValue": {
+    "name": "coiFECThreshValue",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiFECThreshStorageType": {
+    "name": "coiFECThreshStorageType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiFECThreshStatus": {
+    "name": "coiFECThreshStatus",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "coiFECCurrentTable": {
+    "name": "coiFECCurrentTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECCurrentEntry": {
+    "name": "coiFECCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurIntervalType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiFECCurIntervalType": {
+    "name": "coiFECCurIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECCurrentCorBitErrs": {
+    "name": "coiFECCurrentCorBitErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentCorByteErrs": {
+    "name": "coiFECCurrentCorByteErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentDetZeroErrs": {
+    "name": "coiFECCurrentDetZeroErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentDetOneErrs": {
+    "name": "coiFECCurrentDetOneErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentUncorWords": {
+    "name": "coiFECCurrentUncorWords",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentPreFECMin": {
+    "name": "coiFECCurrentPreFECMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentPreFECMax": {
+    "name": "coiFECCurrentPreFECMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentPreFECAvg": {
+    "name": "coiFECCurrentPreFECAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentPostFECMin": {
+    "name": "coiFECCurrentPostFECMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentPostFECMax": {
+    "name": "coiFECCurrentPostFECMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentPostFECAvg": {
+    "name": "coiFECCurrentPostFECAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentQFactorMin": {
+    "name": "coiFECCurrentQFactorMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentQFactorMax": {
+    "name": "coiFECCurrentQFactorMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentQFactorAvg": {
+    "name": "coiFECCurrentQFactorAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentQMarginMin": {
+    "name": "coiFECCurrentQMarginMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentQMarginMax": {
+    "name": "coiFECCurrentQMarginMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECCurrentQMarginAvg": {
+    "name": "coiFECCurrentQMarginAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalTable": {
+    "name": "coiFECIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECIntervalEntry": {
+    "name": "coiFECIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiFECIntervalType": {
+    "name": "coiFECIntervalType",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiIntervalType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECIntervalNum": {
+    "name": "coiFECIntervalNum",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiFECIntervalCorBitErrs": {
+    "name": "coiFECIntervalCorBitErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalCorByteErrs": {
+    "name": "coiFECIntervalCorByteErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalDetZeroErrs": {
+    "name": "coiFECIntervalDetZeroErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalDetOneErrs": {
+    "name": "coiFECIntervalDetOneErrs",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalUncorWords": {
+    "name": "coiFECIntervalUncorWords",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalValidData": {
+    "name": "coiFECIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalPreFECMin": {
+    "name": "coiFECIntervalPreFECMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalPreFECMax": {
+    "name": "coiFECIntervalPreFECMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalPreFECAvg": {
+    "name": "coiFECIntervalPreFECAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalPostFECMin": {
+    "name": "coiFECIntervalPostFECMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalPostFECMax": {
+    "name": "coiFECIntervalPostFECMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalPostFECAvg": {
+    "name": "coiFECIntervalPostFECAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalQFactorMin": {
+    "name": "coiFECIntervalQFactorMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalQFactorMax": {
+    "name": "coiFECIntervalQFactorMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalQFactorAvg": {
+    "name": "coiFECIntervalQFactorAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalQMarginMin": {
+    "name": "coiFECIntervalQMarginMin",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalQMarginMax": {
+    "name": "coiFECIntervalQMarginMax",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiFECIntervalQMarginAvg": {
+    "name": "coiFECIntervalQMarginAvg",
+    "oid": "1.3.6.1.4.1.9.9.639.1.3.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoOtnIfMIBConformance": {
+    "name": "ciscoOtnIfMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.639.2",
+    "class": "objectidentity"
+  },
+  "ciscoOtnIfMIBCompliances": {
+    "name": "ciscoOtnIfMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.639.2.1",
+    "class": "objectidentity"
+  },
+  "coiOtnIfOTUStatusChange": {
+    "name": "coiOtnIfOTUStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.639.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnIfOTUStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "coiOtnIfODUStatusChange": {
+    "name": "coiOtnIfODUStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.639.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnIfODUStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoOtnIfMIBGroups": {
+    "name": "ciscoOtnIfMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoOtnIfMIBCompliance": {
+    "name": "ciscoOtnIfMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.639.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coiIfControllerGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNearEndCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNearEndIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnFarEndCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnFarEndIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoOtnIfMIBCompliance1": {
+    "name": "ciscoOtnIfMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.639.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coiIfControllerGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNearEndCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNearEndIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnFarEndCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnFarEndIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNotifGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNotifEnableGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNotifStatusObjectGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoOtnIfMIBCompliance2": {
+    "name": "ciscoOtnIfMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.639.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "coiIfControllerGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNearEndCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNearEndIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnFarEndCurrentGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnFarEndIntervalGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECCurrentGroup1",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfFECIntervalGroup1",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNotifGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNotifEnableGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      },
+      {
+        "object": "coiIfOtnNotifStatusObjectGroup",
+        "module": "CISCO-OTN-IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfControllerGroup": {
+    "name": "coiIfControllerGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerLoopback"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerWavelength"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerLaserAdminStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerLaserOperStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerOtnStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerFECMode"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerTDCOperMode"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerTDCOperStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerTDCOperSetting"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerPreFECBERMantissa"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerPreFECBERExponent"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerQFactor"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerQMargin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerOTNValidIntervals"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiIfControllerFECValidIntervals"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfOtnNearEndCurrentGroup": {
+    "name": "coiIfOtnNearEndCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentBBERs"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfOtnNearEndIntervalGroup": {
+    "name": "coiIfOtnNearEndIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalBBERs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfOtnFarEndCurrentGroup": {
+    "name": "coiIfOtnFarEndCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentBBERs"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfOtnFarEndIntervalGroup": {
+    "name": "coiIfOtnFarEndIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalBBERs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfOtnGroup": {
+    "name": "coiIfOtnGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndCurrentBBERs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalBBERs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnNearEndIntervalValidData"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndCurrentBBERs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalFCs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalSESs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalUASs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalBBEs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalSESRs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalBBERs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnFarEndIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfFECGroup": {
+    "name": "coiIfFECGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentCorBitErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentCorByteErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentDetZeroErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentDetOneErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentUncorWords"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalCorBitErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalCorByteErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalDetZeroErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalDetOneErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalUncorWords"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfFECCurrentGroup": {
+    "name": "coiIfFECCurrentGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentCorBitErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentCorByteErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentDetZeroErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentDetOneErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentUncorWords"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "coiIfFECIntervalGroup": {
+    "name": "coiIfFECIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalCorBitErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalCorByteErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalDetZeroErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalDetOneErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalUncorWords"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalValidData"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "coiIfOtnNotifEnableGroup": {
+    "name": "coiIfOtnNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnIfNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfOtnNotifStatusObjectGroup": {
+    "name": "coiIfOtnNotifStatusObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnIfOTUStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnIfODUStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfOtnNotifGroup": {
+    "name": "coiIfOtnNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnIfOTUStatusChange"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiOtnIfODUStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfFECCurrentGroup1": {
+    "name": "coiIfFECCurrentGroup1",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentCorBitErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentCorByteErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentDetZeroErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentDetOneErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentUncorWords"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentPreFECMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentPreFECMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentPreFECAvg"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentPostFECMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentPostFECMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentPostFECAvg"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentQFactorMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentQFactorMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentQFactorAvg"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentQMarginMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentQMarginMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECCurrentQMarginAvg"
+      }
+    ],
+    "status": "current"
+  },
+  "coiIfFECIntervalGroup1": {
+    "name": "coiIfFECIntervalGroup1",
+    "oid": "1.3.6.1.4.1.9.9.639.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshValue"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStorageType"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECThreshStatus"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalCorBitErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalCorByteErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalDetZeroErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalDetOneErrs"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalUncorWords"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalValidData"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalPreFECMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalPreFECMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalPreFECAvg"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalPostFECMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalPostFECMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalPostFECAvg"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalQFactorMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalQFactorMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalQFactorAvg"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalQMarginMin"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalQMarginMax"
+      },
+      {
+        "module": "CISCO-OTN-IF-MIB",
+        "object": "coiFECIntervalQMarginAvg"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OTN-IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-OTN-IF-MIB"
+  }
+}

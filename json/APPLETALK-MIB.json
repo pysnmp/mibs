@@ -1,0 +1,3561 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "appletalk": {
+    "name": "appletalk",
+    "oid": "1.3.6.1.2.1.13",
+    "class": "objectidentity"
+  },
+  "ATNetworkNumber": {
+    "name": "ATNetworkNumber",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    }
+  },
+  "DdpNodeAddress": {
+    "name": "DdpNodeAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    }
+  },
+  "DdpSocketAddress": {
+    "name": "DdpSocketAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    }
+  },
+  "ATName": {
+    "name": "ATName",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    }
+  },
+  "llap": {
+    "name": "llap",
+    "oid": "1.3.6.1.2.1.13.1",
+    "class": "objectidentity"
+  },
+  "aarp": {
+    "name": "aarp",
+    "oid": "1.3.6.1.2.1.13.2",
+    "class": "objectidentity"
+  },
+  "atport": {
+    "name": "atport",
+    "oid": "1.3.6.1.2.1.13.3",
+    "class": "objectidentity"
+  },
+  "ddp": {
+    "name": "ddp",
+    "oid": "1.3.6.1.2.1.13.4",
+    "class": "objectidentity"
+  },
+  "rtmp": {
+    "name": "rtmp",
+    "oid": "1.3.6.1.2.1.13.5",
+    "class": "objectidentity"
+  },
+  "kip": {
+    "name": "kip",
+    "oid": "1.3.6.1.2.1.13.6",
+    "class": "objectidentity"
+  },
+  "zipRouter": {
+    "name": "zipRouter",
+    "oid": "1.3.6.1.2.1.13.7",
+    "class": "objectidentity"
+  },
+  "nbp": {
+    "name": "nbp",
+    "oid": "1.3.6.1.2.1.13.8",
+    "class": "objectidentity"
+  },
+  "atecho": {
+    "name": "atecho",
+    "oid": "1.3.6.1.2.1.13.9",
+    "class": "objectidentity"
+  },
+  "atp": {
+    "name": "atp",
+    "oid": "1.3.6.1.2.1.13.10",
+    "class": "objectidentity"
+  },
+  "pap": {
+    "name": "pap",
+    "oid": "1.3.6.1.2.1.13.11",
+    "class": "objectidentity"
+  },
+  "asp": {
+    "name": "asp",
+    "oid": "1.3.6.1.2.1.13.12",
+    "class": "objectidentity"
+  },
+  "adsp": {
+    "name": "adsp",
+    "oid": "1.3.6.1.2.1.13.13",
+    "class": "objectidentity"
+  },
+  "atportptop": {
+    "name": "atportptop",
+    "oid": "1.3.6.1.2.1.13.14",
+    "class": "objectidentity"
+  },
+  "rtmpStub": {
+    "name": "rtmpStub",
+    "oid": "1.3.6.1.2.1.13.16",
+    "class": "objectidentity"
+  },
+  "zipEndNode": {
+    "name": "zipEndNode",
+    "oid": "1.3.6.1.2.1.13.17",
+    "class": "objectidentity"
+  },
+  "perPort": {
+    "name": "perPort",
+    "oid": "1.3.6.1.2.1.13.18",
+    "class": "objectidentity"
+  },
+  "llapTable": {
+    "name": "llapTable",
+    "oid": "1.3.6.1.2.1.13.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "llapEntry": {
+    "name": "llapEntry",
+    "oid": "1.3.6.1.2.1.13.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "llapIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "llapIfIndex": {
+    "name": "llapIfIndex",
+    "oid": "1.3.6.1.2.1.13.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "llapInPkts": {
+    "name": "llapInPkts",
+    "oid": "1.3.6.1.2.1.13.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "llapOutPkts": {
+    "name": "llapOutPkts",
+    "oid": "1.3.6.1.2.1.13.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "llapInNoHandlers": {
+    "name": "llapInNoHandlers",
+    "oid": "1.3.6.1.2.1.13.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "llapInLengthErrors": {
+    "name": "llapInLengthErrors",
+    "oid": "1.3.6.1.2.1.13.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "llapInErrors": {
+    "name": "llapInErrors",
+    "oid": "1.3.6.1.2.1.13.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "llapCollisions": {
+    "name": "llapCollisions",
+    "oid": "1.3.6.1.2.1.13.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "llapDefers": {
+    "name": "llapDefers",
+    "oid": "1.3.6.1.2.1.13.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "llapNoDataErrors": {
+    "name": "llapNoDataErrors",
+    "oid": "1.3.6.1.2.1.13.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "llapRandomCTSErrors": {
+    "name": "llapRandomCTSErrors",
+    "oid": "1.3.6.1.2.1.13.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "llapFCSErrors": {
+    "name": "llapFCSErrors",
+    "oid": "1.3.6.1.2.1.13.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aarpTable": {
+    "name": "aarpTable",
+    "oid": "1.3.6.1.2.1.13.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "aarpEntry": {
+    "name": "aarpEntry",
+    "oid": "1.3.6.1.2.1.13.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "aarpIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "APPLETALK-MIB",
+        "object": "aarpNetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "aarpIfIndex": {
+    "name": "aarpIfIndex",
+    "oid": "1.3.6.1.2.1.13.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aarpPhysAddress": {
+    "name": "aarpPhysAddress",
+    "oid": "1.3.6.1.2.1.13.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "aarpNetAddress": {
+    "name": "aarpNetAddress",
+    "oid": "1.3.6.1.2.1.13.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpNodeAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aarpStatus": {
+    "name": "aarpStatus",
+    "oid": "1.3.6.1.2.1.13.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "aarpLookups": {
+    "name": "aarpLookups",
+    "oid": "1.3.6.1.2.1.13.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aarpHits": {
+    "name": "aarpHits",
+    "oid": "1.3.6.1.2.1.13.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportTable": {
+    "name": "atportTable",
+    "oid": "1.3.6.1.2.1.13.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atportEntry": {
+    "name": "atportEntry",
+    "oid": "1.3.6.1.2.1.13.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atportIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atportIndex": {
+    "name": "atportIndex",
+    "oid": "1.3.6.1.2.1.13.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportDescr": {
+    "name": "atportDescr",
+    "oid": "1.3.6.1.2.1.13.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportType": {
+    "name": "atportType",
+    "oid": "1.3.6.1.2.1.13.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "localtalk": 2,
+          "ethertalk1": 3,
+          "ethertalk2": 4,
+          "tokentalk": 5,
+          "iptalk": 6,
+          "serialPPP": 7,
+          "serialNonstandard": 8,
+          "virtual": 9,
+          "fdditalk": 10,
+          "arctalk": 11,
+          "smdstalk": 12,
+          "aurp": 13,
+          "frameRelay": 14,
+          "x25": 15,
+          "ip": 16,
+          "osi": 17,
+          "decnetIV": 18,
+          "arap": 19,
+          "isdnInThePacketMode": 20,
+          "nonAppleTalk3Com": 21,
+          "ipx": 22,
+          "arns": 23,
+          "hdlc": 24
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportNetStart": {
+    "name": "atportNetStart",
+    "oid": "1.3.6.1.2.1.13.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportNetEnd": {
+    "name": "atportNetEnd",
+    "oid": "1.3.6.1.2.1.13.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportNetAddress": {
+    "name": "atportNetAddress",
+    "oid": "1.3.6.1.2.1.13.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpNodeAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportStatus": {
+    "name": "atportStatus",
+    "oid": "1.3.6.1.2.1.13.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routing": 1,
+          "unconfigured": 2,
+          "off": 3,
+          "invalid": 4,
+          "endNode": 5,
+          "offDueToConflict": 6,
+          "other": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportNetConfig": {
+    "name": "atportNetConfig",
+    "oid": "1.3.6.1.2.1.13.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conflictOrientedSeed": 1,
+          "garnered": 2,
+          "guessed": 3,
+          "unconfigured": 4,
+          "conflictAverseSeed": 5,
+          "softSeed": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportZoneConfig": {
+    "name": "atportZoneConfig",
+    "oid": "1.3.6.1.2.1.13.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conflictOrientedSeed": 1,
+          "garnered": 2,
+          "guessed": 3,
+          "unconfigured": 4,
+          "conflictAverseSeed": 5,
+          "softSeed": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportZoneDefault": {
+    "name": "atportZoneDefault",
+    "oid": "1.3.6.1.2.1.13.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportIfIndex": {
+    "name": "atportIfIndex",
+    "oid": "1.3.6.1.2.1.13.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportNetFrom": {
+    "name": "atportNetFrom",
+    "oid": "1.3.6.1.2.1.13.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpNodeAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportZoneFrom": {
+    "name": "atportZoneFrom",
+    "oid": "1.3.6.1.2.1.13.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpNodeAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportInPkts": {
+    "name": "atportInPkts",
+    "oid": "1.3.6.1.2.1.13.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportOutPkts": {
+    "name": "atportOutPkts",
+    "oid": "1.3.6.1.2.1.13.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportHome": {
+    "name": "atportHome",
+    "oid": "1.3.6.1.2.1.13.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "home": 1,
+          "notHome": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportCurrentZone": {
+    "name": "atportCurrentZone",
+    "oid": "1.3.6.1.2.1.13.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportConflictPhysAddr": {
+    "name": "atportConflictPhysAddr",
+    "oid": "1.3.6.1.2.1.13.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atportZoneTable": {
+    "name": "atportZoneTable",
+    "oid": "1.3.6.1.2.1.13.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atportZoneEntry": {
+    "name": "atportZoneEntry",
+    "oid": "1.3.6.1.2.1.13.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atportZonePort",
+        "implied": 0
+      },
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atportZoneName",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atportZonePort": {
+    "name": "atportZonePort",
+    "oid": "1.3.6.1.2.1.13.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atportZoneName": {
+    "name": "atportZoneName",
+    "oid": "1.3.6.1.2.1.13.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATName",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atportZoneStatus": {
+    "name": "atportZoneStatus",
+    "oid": "1.3.6.1.2.1.13.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddpOutRequests": {
+    "name": "ddpOutRequests",
+    "oid": "1.3.6.1.2.1.13.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpOutShorts": {
+    "name": "ddpOutShorts",
+    "oid": "1.3.6.1.2.1.13.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpOutLongs": {
+    "name": "ddpOutLongs",
+    "oid": "1.3.6.1.2.1.13.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpInReceives": {
+    "name": "ddpInReceives",
+    "oid": "1.3.6.1.2.1.13.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpInLocalDatagrams": {
+    "name": "ddpInLocalDatagrams",
+    "oid": "1.3.6.1.2.1.13.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpNoProtocolHandlers": {
+    "name": "ddpNoProtocolHandlers",
+    "oid": "1.3.6.1.2.1.13.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpTooShortErrors": {
+    "name": "ddpTooShortErrors",
+    "oid": "1.3.6.1.2.1.13.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpTooLongErrors": {
+    "name": "ddpTooLongErrors",
+    "oid": "1.3.6.1.2.1.13.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpShortDDPErrors": {
+    "name": "ddpShortDDPErrors",
+    "oid": "1.3.6.1.2.1.13.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpChecksumErrors": {
+    "name": "ddpChecksumErrors",
+    "oid": "1.3.6.1.2.1.13.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpListenerTable": {
+    "name": "ddpListenerTable",
+    "oid": "1.3.6.1.2.1.13.4.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ddpListenerEntry": {
+    "name": "ddpListenerEntry",
+    "oid": "1.3.6.1.2.1.13.4.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "ddpListenerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ddpListenerAddress": {
+    "name": "ddpListenerAddress",
+    "oid": "1.3.6.1.2.1.13.4.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ddpListenerInPkts": {
+    "name": "ddpListenerInPkts",
+    "oid": "1.3.6.1.2.1.13.4.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpListenerStatus": {
+    "name": "ddpListenerStatus",
+    "oid": "1.3.6.1.2.1.13.4.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ddpForwRequests": {
+    "name": "ddpForwRequests",
+    "oid": "1.3.6.1.2.1.13.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpOutNoRoutes": {
+    "name": "ddpOutNoRoutes",
+    "oid": "1.3.6.1.2.1.13.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpBroadcastErrors": {
+    "name": "ddpBroadcastErrors",
+    "oid": "1.3.6.1.2.1.13.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpHopCountErrors": {
+    "name": "ddpHopCountErrors",
+    "oid": "1.3.6.1.2.1.13.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpForwardingTable": {
+    "name": "ddpForwardingTable",
+    "oid": "1.3.6.1.2.1.13.4.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ddpForwardingEntry": {
+    "name": "ddpForwardingEntry",
+    "oid": "1.3.6.1.2.1.13.4.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "ddpForwardingNetEnd",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ddpForwardingNetEnd": {
+    "name": "ddpForwardingNetEnd",
+    "oid": "1.3.6.1.2.1.13.4.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ddpForwardingNetStart": {
+    "name": "ddpForwardingNetStart",
+    "oid": "1.3.6.1.2.1.13.4.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpForwardingNextHop": {
+    "name": "ddpForwardingNextHop",
+    "oid": "1.3.6.1.2.1.13.4.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpForwardingProto": {
+    "name": "ddpForwardingProto",
+    "oid": "1.3.6.1.2.1.13.4.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpForwardingModifiedTime": {
+    "name": "ddpForwardingModifiedTime",
+    "oid": "1.3.6.1.2.1.13.4.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpForwardingUseCounts": {
+    "name": "ddpForwardingUseCounts",
+    "oid": "1.3.6.1.2.1.13.4.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpForwardingPort": {
+    "name": "ddpForwardingPort",
+    "oid": "1.3.6.1.2.1.13.4.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ddpForwProtoOids": {
+    "name": "ddpForwProtoOids",
+    "oid": "1.3.6.1.2.1.13.4.17",
+    "class": "objectidentity"
+  },
+  "rtmpRoutingProto": {
+    "name": "rtmpRoutingProto",
+    "oid": "1.3.6.1.2.1.13.4.17.1",
+    "class": "objectidentity"
+  },
+  "kipRoutingProto": {
+    "name": "kipRoutingProto",
+    "oid": "1.3.6.1.2.1.13.4.17.2",
+    "class": "objectidentity"
+  },
+  "ddpForwardingTableOverflows": {
+    "name": "ddpForwardingTableOverflows",
+    "oid": "1.3.6.1.2.1.13.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpTable": {
+    "name": "rtmpTable",
+    "oid": "1.3.6.1.2.1.13.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "rtmpEntry": {
+    "name": "rtmpEntry",
+    "oid": "1.3.6.1.2.1.13.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "rtmpRangeStart",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "rtmpRangeStart": {
+    "name": "rtmpRangeStart",
+    "oid": "1.3.6.1.2.1.13.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpRangeEnd": {
+    "name": "rtmpRangeEnd",
+    "oid": "1.3.6.1.2.1.13.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpNextHop": {
+    "name": "rtmpNextHop",
+    "oid": "1.3.6.1.2.1.13.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpType": {
+    "name": "rtmpType",
+    "oid": "1.3.6.1.2.1.13.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "appletalk": 2,
+          "serialPPP": 3,
+          "serialNonstandard": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpPort": {
+    "name": "rtmpPort",
+    "oid": "1.3.6.1.2.1.13.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpHops": {
+    "name": "rtmpHops",
+    "oid": "1.3.6.1.2.1.13.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpState": {
+    "name": "rtmpState",
+    "oid": "1.3.6.1.2.1.13.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "suspect": 2,
+          "badZero": 3,
+          "badOne": 4,
+          "invalid": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rtmpInDataPkts": {
+    "name": "rtmpInDataPkts",
+    "oid": "1.3.6.1.2.1.13.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpOutDataPkts": {
+    "name": "rtmpOutDataPkts",
+    "oid": "1.3.6.1.2.1.13.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpInRequestPkts": {
+    "name": "rtmpInRequestPkts",
+    "oid": "1.3.6.1.2.1.13.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpNextIREqualChanges": {
+    "name": "rtmpNextIREqualChanges",
+    "oid": "1.3.6.1.2.1.13.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpNextIRLessChanges": {
+    "name": "rtmpNextIRLessChanges",
+    "oid": "1.3.6.1.2.1.13.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpRouteDeletes": {
+    "name": "rtmpRouteDeletes",
+    "oid": "1.3.6.1.2.1.13.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpRoutingTableOverflows": {
+    "name": "rtmpRoutingTableOverflows",
+    "oid": "1.3.6.1.2.1.13.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpOutRequestPkts": {
+    "name": "rtmpOutRequestPkts",
+    "oid": "1.3.6.1.2.1.13.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpInVersionMismatches": {
+    "name": "rtmpInVersionMismatches",
+    "oid": "1.3.6.1.2.1.13.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtmpInErrors": {
+    "name": "rtmpInErrors",
+    "oid": "1.3.6.1.2.1.13.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "kipTable": {
+    "name": "kipTable",
+    "oid": "1.3.6.1.2.1.13.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "kipEntry": {
+    "name": "kipEntry",
+    "oid": "1.3.6.1.2.1.13.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "kipNetStart",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "kipNetStart": {
+    "name": "kipNetStart",
+    "oid": "1.3.6.1.2.1.13.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "kipNetEnd": {
+    "name": "kipNetEnd",
+    "oid": "1.3.6.1.2.1.13.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipNextHop": {
+    "name": "kipNextHop",
+    "oid": "1.3.6.1.2.1.13.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipHopCount": {
+    "name": "kipHopCount",
+    "oid": "1.3.6.1.2.1.13.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipBCastAddr": {
+    "name": "kipBCastAddr",
+    "oid": "1.3.6.1.2.1.13.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipCore": {
+    "name": "kipCore",
+    "oid": "1.3.6.1.2.1.13.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "core": 1,
+          "notcore": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipType": {
+    "name": "kipType",
+    "oid": "1.3.6.1.2.1.13.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kipRouter": 1,
+          "net": 2,
+          "host": 3,
+          "other": 4,
+          "async": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipState": {
+    "name": "kipState",
+    "oid": "1.3.6.1.2.1.13.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "learned": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipShare": {
+    "name": "kipShare",
+    "oid": "1.3.6.1.2.1.13.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shared": 1,
+          "private": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "kipFrom": {
+    "name": "kipFrom",
+    "oid": "1.3.6.1.2.1.13.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipTable": {
+    "name": "zipTable",
+    "oid": "1.3.6.1.2.1.13.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "zipEntry": {
+    "name": "zipEntry",
+    "oid": "1.3.6.1.2.1.13.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "zipZoneNetStart",
+        "implied": 0
+      },
+      {
+        "module": "APPLETALK-MIB",
+        "object": "zipZoneIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "zipZoneName": {
+    "name": "zipZoneName",
+    "oid": "1.3.6.1.2.1.13.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZoneIndex": {
+    "name": "zipZoneIndex",
+    "oid": "1.3.6.1.2.1.13.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZoneNetStart": {
+    "name": "zipZoneNetStart",
+    "oid": "1.3.6.1.2.1.13.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZoneNetEnd": {
+    "name": "zipZoneNetEnd",
+    "oid": "1.3.6.1.2.1.13.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATNetworkNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZoneState": {
+    "name": "zipZoneState",
+    "oid": "1.3.6.1.2.1.13.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "zipZoneFrom": {
+    "name": "zipZoneFrom",
+    "oid": "1.3.6.1.2.1.13.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZonePort": {
+    "name": "zipZonePort",
+    "oid": "1.3.6.1.2.1.13.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipInZipQueries": {
+    "name": "zipInZipQueries",
+    "oid": "1.3.6.1.2.1.13.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipInZipReplies": {
+    "name": "zipInZipReplies",
+    "oid": "1.3.6.1.2.1.13.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipInZipExtendedReplies": {
+    "name": "zipInZipExtendedReplies",
+    "oid": "1.3.6.1.2.1.13.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZoneConflictErrors": {
+    "name": "zipZoneConflictErrors",
+    "oid": "1.3.6.1.2.1.13.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipInObsoletes": {
+    "name": "zipInObsoletes",
+    "oid": "1.3.6.1.2.1.13.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipRouterNetInfoTable": {
+    "name": "zipRouterNetInfoTable",
+    "oid": "1.3.6.1.2.1.13.7.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "zipRouterNetInfoEntry": {
+    "name": "zipRouterNetInfoEntry",
+    "oid": "1.3.6.1.2.1.13.7.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atportIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "zipInGetNetInfos": {
+    "name": "zipInGetNetInfos",
+    "oid": "1.3.6.1.2.1.13.7.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipOutGetNetInfoReplies": {
+    "name": "zipOutGetNetInfoReplies",
+    "oid": "1.3.6.1.2.1.13.7.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZoneOutInvalids": {
+    "name": "zipZoneOutInvalids",
+    "oid": "1.3.6.1.2.1.13.7.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipAddressInvalids": {
+    "name": "zipAddressInvalids",
+    "oid": "1.3.6.1.2.1.13.7.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipNetInfoTable": {
+    "name": "zipNetInfoTable",
+    "oid": "1.3.6.1.2.1.13.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "zipNetInfoEntry": {
+    "name": "zipNetInfoEntry",
+    "oid": "1.3.6.1.2.1.13.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atportIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "zipOutGetNetInfos": {
+    "name": "zipOutGetNetInfos",
+    "oid": "1.3.6.1.2.1.13.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipInGetNetInfoReplies": {
+    "name": "zipInGetNetInfoReplies",
+    "oid": "1.3.6.1.2.1.13.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipZoneInInvalids": {
+    "name": "zipZoneInInvalids",
+    "oid": "1.3.6.1.2.1.13.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "zipInErrors": {
+    "name": "zipInErrors",
+    "oid": "1.3.6.1.2.1.13.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpTable": {
+    "name": "nbpTable",
+    "oid": "1.3.6.1.2.1.13.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "nbpEntry": {
+    "name": "nbpEntry",
+    "oid": "1.3.6.1.2.1.13.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "nbpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "nbpIndex": {
+    "name": "nbpIndex",
+    "oid": "1.3.6.1.2.1.13.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nbpObject": {
+    "name": "nbpObject",
+    "oid": "1.3.6.1.2.1.13.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATName",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nbpType": {
+    "name": "nbpType",
+    "oid": "1.3.6.1.2.1.13.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATName",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nbpZone": {
+    "name": "nbpZone",
+    "oid": "1.3.6.1.2.1.13.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ATName",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nbpState": {
+    "name": "nbpState",
+    "oid": "1.3.6.1.2.1.13.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "registering": 2,
+          "registrationFailed": 3,
+          "invalid": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nbpAddress": {
+    "name": "nbpAddress",
+    "oid": "1.3.6.1.2.1.13.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nbpEnumerator": {
+    "name": "nbpEnumerator",
+    "oid": "1.3.6.1.2.1.13.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpInLookUpRequests": {
+    "name": "nbpInLookUpRequests",
+    "oid": "1.3.6.1.2.1.13.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpInLookUpReplies": {
+    "name": "nbpInLookUpReplies",
+    "oid": "1.3.6.1.2.1.13.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpInBroadcastRequests": {
+    "name": "nbpInBroadcastRequests",
+    "oid": "1.3.6.1.2.1.13.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpInForwardRequests": {
+    "name": "nbpInForwardRequests",
+    "oid": "1.3.6.1.2.1.13.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpOutLookUpReplies": {
+    "name": "nbpOutLookUpReplies",
+    "oid": "1.3.6.1.2.1.13.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpRegistrationFailures": {
+    "name": "nbpRegistrationFailures",
+    "oid": "1.3.6.1.2.1.13.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nbpInErrors": {
+    "name": "nbpInErrors",
+    "oid": "1.3.6.1.2.1.13.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atechoRequests": {
+    "name": "atechoRequests",
+    "oid": "1.3.6.1.2.1.13.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atechoReplies": {
+    "name": "atechoReplies",
+    "oid": "1.3.6.1.2.1.13.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atechoOutRequests": {
+    "name": "atechoOutRequests",
+    "oid": "1.3.6.1.2.1.13.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atechoInReplies": {
+    "name": "atechoInReplies",
+    "oid": "1.3.6.1.2.1.13.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atpInPkts": {
+    "name": "atpInPkts",
+    "oid": "1.3.6.1.2.1.13.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atpOutPkts": {
+    "name": "atpOutPkts",
+    "oid": "1.3.6.1.2.1.13.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atpTRequestRetransmissions": {
+    "name": "atpTRequestRetransmissions",
+    "oid": "1.3.6.1.2.1.13.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atpTResponseRetransmissions": {
+    "name": "atpTResponseRetransmissions",
+    "oid": "1.3.6.1.2.1.13.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atpReleaseTimerExpiredCounts": {
+    "name": "atpReleaseTimerExpiredCounts",
+    "oid": "1.3.6.1.2.1.13.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atpRetryCountExceededs": {
+    "name": "atpRetryCountExceededs",
+    "oid": "1.3.6.1.2.1.13.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atpListenerTable": {
+    "name": "atpListenerTable",
+    "oid": "1.3.6.1.2.1.13.10.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atpListenerEntry": {
+    "name": "atpListenerEntry",
+    "oid": "1.3.6.1.2.1.13.10.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atpListenerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atpListenerAddress": {
+    "name": "atpListenerAddress",
+    "oid": "1.3.6.1.2.1.13.10.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atpListenerStatus": {
+    "name": "atpListenerStatus",
+    "oid": "1.3.6.1.2.1.13.10.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "papInOpenConns": {
+    "name": "papInOpenConns",
+    "oid": "1.3.6.1.2.1.13.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papOutOpenConns": {
+    "name": "papOutOpenConns",
+    "oid": "1.3.6.1.2.1.13.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papInDatas": {
+    "name": "papInDatas",
+    "oid": "1.3.6.1.2.1.13.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papOutDatas": {
+    "name": "papOutDatas",
+    "oid": "1.3.6.1.2.1.13.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papInCloseConns": {
+    "name": "papInCloseConns",
+    "oid": "1.3.6.1.2.1.13.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papOutCloseConns": {
+    "name": "papOutCloseConns",
+    "oid": "1.3.6.1.2.1.13.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papTickleTimeoutCloses": {
+    "name": "papTickleTimeoutCloses",
+    "oid": "1.3.6.1.2.1.13.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerTable": {
+    "name": "papServerTable",
+    "oid": "1.3.6.1.2.1.13.11.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "papServerEntry": {
+    "name": "papServerEntry",
+    "oid": "1.3.6.1.2.1.13.11.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "papServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "papServerIndex": {
+    "name": "papServerIndex",
+    "oid": "1.3.6.1.2.1.13.11.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "papServerListeningSocket": {
+    "name": "papServerListeningSocket",
+    "oid": "1.3.6.1.2.1.13.11.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "papServerStatus": {
+    "name": "papServerStatus",
+    "oid": "1.3.6.1.2.1.13.11.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerCompletedJobs": {
+    "name": "papServerCompletedJobs",
+    "oid": "1.3.6.1.2.1.13.11.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerBusyJobs": {
+    "name": "papServerBusyJobs",
+    "oid": "1.3.6.1.2.1.13.11.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerFreeJobs": {
+    "name": "papServerFreeJobs",
+    "oid": "1.3.6.1.2.1.13.11.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerAuthenticationFailures": {
+    "name": "papServerAuthenticationFailures",
+    "oid": "1.3.6.1.2.1.13.11.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerAccountingFailures": {
+    "name": "papServerAccountingFailures",
+    "oid": "1.3.6.1.2.1.13.11.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerGeneralFailures": {
+    "name": "papServerGeneralFailures",
+    "oid": "1.3.6.1.2.1.13.11.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "papServerState": {
+    "name": "papServerState",
+    "oid": "1.3.6.1.2.1.13.11.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "papServerLastStatusMsg": {
+    "name": "papServerLastStatusMsg",
+    "oid": "1.3.6.1.2.1.13.11.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspInputTransactions": {
+    "name": "aspInputTransactions",
+    "oid": "1.3.6.1.2.1.13.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspOutputTransactions": {
+    "name": "aspOutputTransactions",
+    "oid": "1.3.6.1.2.1.13.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspInOpenSessions": {
+    "name": "aspInOpenSessions",
+    "oid": "1.3.6.1.2.1.13.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspOutOpenSessions": {
+    "name": "aspOutOpenSessions",
+    "oid": "1.3.6.1.2.1.13.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspInCloseSessions": {
+    "name": "aspInCloseSessions",
+    "oid": "1.3.6.1.2.1.13.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspOutCloseSessions": {
+    "name": "aspOutCloseSessions",
+    "oid": "1.3.6.1.2.1.13.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspNoMoreSessionsErrors": {
+    "name": "aspNoMoreSessionsErrors",
+    "oid": "1.3.6.1.2.1.13.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspTickleTimeOutCloses": {
+    "name": "aspTickleTimeOutCloses",
+    "oid": "1.3.6.1.2.1.13.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspConnTable": {
+    "name": "aspConnTable",
+    "oid": "1.3.6.1.2.1.13.12.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "aspConnEntry": {
+    "name": "aspConnEntry",
+    "oid": "1.3.6.1.2.1.13.12.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "aspConnLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "APPLETALK-MIB",
+        "object": "aspConnRemoteAddress",
+        "implied": 0
+      },
+      {
+        "module": "APPLETALK-MIB",
+        "object": "aspConnID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "aspConnLocalAddress": {
+    "name": "aspConnLocalAddress",
+    "oid": "1.3.6.1.2.1.13.12.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "aspConnRemoteAddress": {
+    "name": "aspConnRemoteAddress",
+    "oid": "1.3.6.1.2.1.13.12.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "aspConnID": {
+    "name": "aspConnID",
+    "oid": "1.3.6.1.2.1.13.12.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "aspConnLastReqNum": {
+    "name": "aspConnLastReqNum",
+    "oid": "1.3.6.1.2.1.13.12.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspConnServerEnd": {
+    "name": "aspConnServerEnd",
+    "oid": "1.3.6.1.2.1.13.12.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sss": 1,
+          "wss": 2,
+          "sls": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "aspConnState": {
+    "name": "aspConnState",
+    "oid": "1.3.6.1.2.1.13.12.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "adspInPkts": {
+    "name": "adspInPkts",
+    "oid": "1.3.6.1.2.1.13.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspOutPkts": {
+    "name": "adspOutPkts",
+    "oid": "1.3.6.1.2.1.13.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspInOctets": {
+    "name": "adspInOctets",
+    "oid": "1.3.6.1.2.1.13.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspOutOctets": {
+    "name": "adspOutOctets",
+    "oid": "1.3.6.1.2.1.13.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspInDataPkts": {
+    "name": "adspInDataPkts",
+    "oid": "1.3.6.1.2.1.13.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspOutDataPkts": {
+    "name": "adspOutDataPkts",
+    "oid": "1.3.6.1.2.1.13.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspTimeoutErrors": {
+    "name": "adspTimeoutErrors",
+    "oid": "1.3.6.1.2.1.13.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspTimeoutCloseErrors": {
+    "name": "adspTimeoutCloseErrors",
+    "oid": "1.3.6.1.2.1.13.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspConnTable": {
+    "name": "adspConnTable",
+    "oid": "1.3.6.1.2.1.13.13.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "adspConnEntry": {
+    "name": "adspConnEntry",
+    "oid": "1.3.6.1.2.1.13.13.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "adspConnLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "APPLETALK-MIB",
+        "object": "adspConnRemoteAddress",
+        "implied": 0
+      },
+      {
+        "module": "APPLETALK-MIB",
+        "object": "adspConnLocalConnID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "adspConnLocalAddress": {
+    "name": "adspConnLocalAddress",
+    "oid": "1.3.6.1.2.1.13.13.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "adspConnLocalConnID": {
+    "name": "adspConnLocalConnID",
+    "oid": "1.3.6.1.2.1.13.13.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "adspConnRemoteAddress": {
+    "name": "adspConnRemoteAddress",
+    "oid": "1.3.6.1.2.1.13.13.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DdpSocketAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "adspConnRemoteConnID": {
+    "name": "adspConnRemoteConnID",
+    "oid": "1.3.6.1.2.1.13.13.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "adspConnState": {
+    "name": "adspConnState",
+    "oid": "1.3.6.1.2.1.13.13.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "localHalfOpen": 2,
+          "remoteHalfOpen": 3,
+          "listening": 4,
+          "closed": 5,
+          "invalid": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportPtoPTable": {
+    "name": "atportPtoPTable",
+    "oid": "1.3.6.1.2.1.13.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atportPtoPEntry": {
+    "name": "atportPtoPEntry",
+    "oid": "1.3.6.1.2.1.13.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atportPtoPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atportPtoPIndex": {
+    "name": "atportPtoPIndex",
+    "oid": "1.3.6.1.2.1.13.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atportPtoPProtocol": {
+    "name": "atportPtoPProtocol",
+    "oid": "1.3.6.1.2.1.13.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportPtoPRemoteName": {
+    "name": "atportPtoPRemoteName",
+    "oid": "1.3.6.1.2.1.13.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportPtoPRemoteAddress": {
+    "name": "atportPtoPRemoteAddress",
+    "oid": "1.3.6.1.2.1.13.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportPtoPPortIndex": {
+    "name": "atportPtoPPortIndex",
+    "oid": "1.3.6.1.2.1.13.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportPtoPStatus": {
+    "name": "atportPtoPStatus",
+    "oid": "1.3.6.1.2.1.13.14.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "atportPtoPProtoOids": {
+    "name": "atportPtoPProtoOids",
+    "oid": "1.3.6.1.2.1.13.14.2",
+    "class": "objectidentity"
+  },
+  "pToPProtoOther": {
+    "name": "pToPProtoOther",
+    "oid": "1.3.6.1.2.1.13.14.2.1",
+    "class": "objectidentity"
+  },
+  "pToPProtoAurp": {
+    "name": "pToPProtoAurp",
+    "oid": "1.3.6.1.2.1.13.14.2.2",
+    "class": "objectidentity"
+  },
+  "pToPProtoCaymanUdp": {
+    "name": "pToPProtoCaymanUdp",
+    "oid": "1.3.6.1.2.1.13.14.2.3",
+    "class": "objectidentity"
+  },
+  "pToPProtoAtkvmsDecnetIV": {
+    "name": "pToPProtoAtkvmsDecnetIV",
+    "oid": "1.3.6.1.2.1.13.14.2.4",
+    "class": "objectidentity"
+  },
+  "pToPProtoLiaisonUdp": {
+    "name": "pToPProtoLiaisonUdp",
+    "oid": "1.3.6.1.2.1.13.14.2.5",
+    "class": "objectidentity"
+  },
+  "pToPProtoIpx": {
+    "name": "pToPProtoIpx",
+    "oid": "1.3.6.1.2.1.13.14.2.6",
+    "class": "objectidentity"
+  },
+  "pToPProtoShivaIp": {
+    "name": "pToPProtoShivaIp",
+    "oid": "1.3.6.1.2.1.13.14.2.7",
+    "class": "objectidentity"
+  },
+  "perPortTable": {
+    "name": "perPortTable",
+    "oid": "1.3.6.1.2.1.13.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "perPortEntry": {
+    "name": "perPortEntry",
+    "oid": "1.3.6.1.2.1.13.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLETALK-MIB",
+        "object": "atportIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "perPortAarpInProbes": {
+    "name": "perPortAarpInProbes",
+    "oid": "1.3.6.1.2.1.13.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortAarpOutProbes": {
+    "name": "perPortAarpOutProbes",
+    "oid": "1.3.6.1.2.1.13.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortAarpInReqs": {
+    "name": "perPortAarpInReqs",
+    "oid": "1.3.6.1.2.1.13.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortAarpOutReqs": {
+    "name": "perPortAarpOutReqs",
+    "oid": "1.3.6.1.2.1.13.18.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortAarpInRsps": {
+    "name": "perPortAarpInRsps",
+    "oid": "1.3.6.1.2.1.13.18.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortAarpOutRsps": {
+    "name": "perPortAarpOutRsps",
+    "oid": "1.3.6.1.2.1.13.18.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortDdpInReceives": {
+    "name": "perPortDdpInReceives",
+    "oid": "1.3.6.1.2.1.13.18.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortDdpInLocalDatagrams": {
+    "name": "perPortDdpInLocalDatagrams",
+    "oid": "1.3.6.1.2.1.13.18.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortDdpNoProtocolHandlers": {
+    "name": "perPortDdpNoProtocolHandlers",
+    "oid": "1.3.6.1.2.1.13.18.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortDdpTooShortErrors": {
+    "name": "perPortDdpTooShortErrors",
+    "oid": "1.3.6.1.2.1.13.18.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortDdpTooLongErrors": {
+    "name": "perPortDdpTooLongErrors",
+    "oid": "1.3.6.1.2.1.13.18.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortDdpChecksumErrors": {
+    "name": "perPortDdpChecksumErrors",
+    "oid": "1.3.6.1.2.1.13.18.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortDdpForwRequests": {
+    "name": "perPortDdpForwRequests",
+    "oid": "1.3.6.1.2.1.13.18.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortRtmpInDataPkts": {
+    "name": "perPortRtmpInDataPkts",
+    "oid": "1.3.6.1.2.1.13.18.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortRtmpOutDataPkts": {
+    "name": "perPortRtmpOutDataPkts",
+    "oid": "1.3.6.1.2.1.13.18.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortRtmpInRequestPkts": {
+    "name": "perPortRtmpInRequestPkts",
+    "oid": "1.3.6.1.2.1.13.18.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortRtmpRouteDeletes": {
+    "name": "perPortRtmpRouteDeletes",
+    "oid": "1.3.6.1.2.1.13.18.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortZipInZipQueries": {
+    "name": "perPortZipInZipQueries",
+    "oid": "1.3.6.1.2.1.13.18.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortZipInZipReplies": {
+    "name": "perPortZipInZipReplies",
+    "oid": "1.3.6.1.2.1.13.18.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortZipInZipExtendedReplies": {
+    "name": "perPortZipInZipExtendedReplies",
+    "oid": "1.3.6.1.2.1.13.18.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortZipZoneConflictErrors": {
+    "name": "perPortZipZoneConflictErrors",
+    "oid": "1.3.6.1.2.1.13.18.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortZipInErrors": {
+    "name": "perPortZipInErrors",
+    "oid": "1.3.6.1.2.1.13.18.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortNbpInLookUpRequests": {
+    "name": "perPortNbpInLookUpRequests",
+    "oid": "1.3.6.1.2.1.13.18.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortNbpInLookUpReplies": {
+    "name": "perPortNbpInLookUpReplies",
+    "oid": "1.3.6.1.2.1.13.18.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortNbpInBroadcastRequests": {
+    "name": "perPortNbpInBroadcastRequests",
+    "oid": "1.3.6.1.2.1.13.18.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortNbpInForwardRequests": {
+    "name": "perPortNbpInForwardRequests",
+    "oid": "1.3.6.1.2.1.13.18.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortNbpOutLookUpReplies": {
+    "name": "perPortNbpOutLookUpReplies",
+    "oid": "1.3.6.1.2.1.13.18.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortNbpRegistrationFailures": {
+    "name": "perPortNbpRegistrationFailures",
+    "oid": "1.3.6.1.2.1.13.18.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortNbpInErrors": {
+    "name": "perPortNbpInErrors",
+    "oid": "1.3.6.1.2.1.13.18.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortEchoRequests": {
+    "name": "perPortEchoRequests",
+    "oid": "1.3.6.1.2.1.13.18.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "perPortEchoReplies": {
+    "name": "perPortEchoReplies",
+    "oid": "1.3.6.1.2.1.13.18.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/APPLETALK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "APPLETALK-MIB"
+  }
+}

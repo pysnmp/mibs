@@ -1,0 +1,1372 @@
+{
+  "imports": {
+    "class": "imports",
+    "PBI-MAIN-MIB": [
+      "mg"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "mgSystem": {
+    "name": "mgSystem",
+    "oid": "1.3.6.1.4.1.1070.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-09-13 10:23",
+        "description": ""
+      }
+    ]
+  },
+  "basicInfo": {
+    "name": "basicInfo",
+    "oid": "1.3.6.1.4.1.1070.3.1.1",
+    "class": "objectidentity"
+  },
+  "unitName": {
+    "name": "unitName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpgaVersion": {
+    "name": "fpgaVersion",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mcuVersion": {
+    "name": "mcuVersion",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macAddress": {
+    "name": "macAddress",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceIP": {
+    "name": "deviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subnetMask": {
+    "name": "subnetMask",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapIpAddress": {
+    "name": "trapIpAddress",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgrade": {
+    "name": "upgrade",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upgradeIP": {
+    "name": "upgradeIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "default": {
+    "name": "default",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceType": {
+    "name": "deviceType",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hardwareVersion": {
+    "name": "hardwareVersion",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externdBoard": {
+    "name": "externdBoard",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapDeviceOffTable": {
+    "name": "trapDeviceOffTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapDeviceOffEntry": {
+    "name": "trapDeviceOffEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "deviceOffDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceOffDeviceName": {
+    "name": "deviceOffDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOffDeviceIP": {
+    "name": "deviceOffDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOffReserve": {
+    "name": "deviceOffReserve",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOffLevel": {
+    "name": "deviceOffLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOffTriggerTime": {
+    "name": "deviceOffTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOffDescription": {
+    "name": "deviceOffDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapDeviceOnTable": {
+    "name": "trapDeviceOnTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapDeviceOnEntry": {
+    "name": "trapDeviceOnEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "deviceOnDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceOnDeviceName": {
+    "name": "deviceOnDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOnDeviceIP": {
+    "name": "deviceOnDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOnReserve": {
+    "name": "deviceOnReserve",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOnLevel": {
+    "name": "deviceOnLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOnTriggerTime": {
+    "name": "deviceOnTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOnDescription": {
+    "name": "deviceOnDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapFanFailedTable": {
+    "name": "trapFanFailedTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapFanFailedEntry": {
+    "name": "trapFanFailedEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "fanFailedDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fanFailedDeviceName": {
+    "name": "fanFailedDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanFailedDeviceIP": {
+    "name": "fanFailedDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanFailedReserve": {
+    "name": "fanFailedReserve",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanFailedLevel": {
+    "name": "fanFailedLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanFailedTriggerTime": {
+    "name": "fanFailedTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fanFailedDescription": {
+    "name": "fanFailedDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapSignalOffTable": {
+    "name": "trapSignalOffTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapSignalOffEntry": {
+    "name": "trapSignalOffEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "signalOffDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "signalOffDeviceName": {
+    "name": "signalOffDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOffDeviceIP": {
+    "name": "signalOffDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOffChannel": {
+    "name": "signalOffChannel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOffLevel": {
+    "name": "signalOffLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOffTriggerTime": {
+    "name": "signalOffTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOffDescription": {
+    "name": "signalOffDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOffSlot": {
+    "name": "signalOffSlot",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapSignalOnTable": {
+    "name": "trapSignalOnTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapSignalOnEntry": {
+    "name": "trapSignalOnEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "signalOnDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "signalOnDeviceName": {
+    "name": "signalOnDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOnDeviceIP": {
+    "name": "signalOnDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOnChannel": {
+    "name": "signalOnChannel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOnLevel": {
+    "name": "signalOnLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOnTriggerTime": {
+    "name": "signalOnTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOnDescription": {
+    "name": "signalOnDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalOnSlot": {
+    "name": "signalOnSlot",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapSignalChangeTable": {
+    "name": "trapSignalChangeTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapSignalChangeEntry": {
+    "name": "trapSignalChangeEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "signalChangeDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "signalChangeDeviceName": {
+    "name": "signalChangeDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalChangeDeviceIP": {
+    "name": "signalChangeDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalChangeChannel": {
+    "name": "signalChangeChannel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalChangeLevel": {
+    "name": "signalChangeLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalChangeTriggerTime": {
+    "name": "signalChangeTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalChangeDescription": {
+    "name": "signalChangeDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "signalChangeSlot": {
+    "name": "signalChangeSlot",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapTSOverflowTable": {
+    "name": "trapTSOverflowTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapTSOverflowEntry": {
+    "name": "trapTSOverflowEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "tsOverflowDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tsOverflowDeviceName": {
+    "name": "tsOverflowDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsOverflowDeviceIP": {
+    "name": "tsOverflowDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsOverflowChannel": {
+    "name": "tsOverflowChannel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsOverflowLevel": {
+    "name": "tsOverflowLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsOverflowTriggerTime": {
+    "name": "tsOverflowTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsOverflowDescription": {
+    "name": "tsOverflowDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsOverflowSlot": {
+    "name": "tsOverflowSlot",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rebootCommand": {
+    "name": "rebootCommand",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapTSIDErrorTable": {
+    "name": "trapTSIDErrorTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapTSIDErrorEntry": {
+    "name": "trapTSIDErrorEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "tsIDErrorDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tsIDErrorDeviceName": {
+    "name": "tsIDErrorDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDErrorDeviceIP": {
+    "name": "tsIDErrorDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDErrorTsID": {
+    "name": "tsIDErrorTsID",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDErrorLevel": {
+    "name": "tsIDErrorLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDErrorTriggerTime": {
+    "name": "tsIDErrorTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDErrorDescription": {
+    "name": "tsIDErrorDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDErrorSlot": {
+    "name": "tsIDErrorSlot",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapTSIDRightTable": {
+    "name": "trapTSIDRightTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapTSIDRightEntry": {
+    "name": "trapTSIDRightEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "tsIDRightDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tsIDRightDeviceName": {
+    "name": "tsIDRightDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDRightDeviceIP": {
+    "name": "tsIDRightDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDRightTSID": {
+    "name": "tsIDRightTSID",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDRightLevel": {
+    "name": "tsIDRightLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDRightTriggerTime": {
+    "name": "tsIDRightTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDRightDescription": {
+    "name": "tsIDRightDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIDRightSlot": {
+    "name": "tsIDRightSlot",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapTSBitRateNormalTable": {
+    "name": "trapTSBitRateNormalTable",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "trapTSBitRateNormalEntry": {
+    "name": "trapTSBitRateNormalEntry",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PBI-MGSYSTEM-MIB",
+        "object": "tsBitRateNormalDeviceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tsBitRateNormalDeviceName": {
+    "name": "tsBitRateNormalDeviceName",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsBitRateNormalDeviceIP": {
+    "name": "tsBitRateNormalDeviceIP",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsBitRateNormalChannel": {
+    "name": "tsBitRateNormalChannel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsBitRateNormalLevel": {
+    "name": "tsBitRateNormalLevel",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsBitRateNormalTriggerTime": {
+    "name": "tsBitRateNormalTriggerTime",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsBitRateNormalDescription": {
+    "name": "tsBitRateNormalDescription",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsBitRateNormalSlot": {
+    "name": "tsBitRateNormalSlot",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.26.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virtualGroupInfo": {
+    "name": "virtualGroupInfo",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "moduleNumber": {
+    "name": "moduleNumber",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chestTemp": {
+    "name": "chestTemp",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lcdSwitch": {
+    "name": "lcdSwitch",
+    "oid": "1.3.6.1.4.1.1070.3.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysOn": 0,
+          "time": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbi/PBI-MGSYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:46:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PBI-MGSYSTEM-MIB"
+  }
+}

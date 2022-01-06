@@ -1,0 +1,2196 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TRUSTSEC-TC-MIB": [
+      "CtsSecurityGroupTag"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoTrustSecIfMIB": {
+    "name": "ciscoTrustSecIfMIB",
+    "oid": "1.3.6.1.4.1.9.9.740",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-28 00:00",
+        "description": "Added following OBJECT-GROUP - ciscoTrustSecIfMIBCriticalAuthStatusGrp Added new compliance - ciscoTrustSecIfMIBCompliance3"
+      },
+      {
+        "revision": "2012-04-06 00:00",
+        "description": "Added following OBJECT-GROUP - ciscoTrustSecIfMIBNotifsCtrlGrp - ciscoTrustSecIfMIBNotifsOnlyInfoGrp - ciscoTrustSecIfMIBNotifsGrp Added new compliance - ciscoTrustSecIfMIBCompliance2 Modified DEFVAL - ctsiIfManualSapModeList."
+      },
+      {
+        "revision": "2010-05-28 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CtsiCasheDataSource": {
+    "name": "CtsiCasheDataSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "acs": 2,
+          "dram": 3,
+          "nvram": 4,
+          "all": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtsSapNegMode": {
+    "name": "CtsSapNegMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "encapNoAuthenNoEncrypt": 1,
+          "gcmAuthenNoEncrypt": 2,
+          "gcmAuthenGcmEncrypt": 3,
+          "noEncap": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CtsSapNegModeList": {
+    "name": "CtsSapNegModeList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CtsiInterfaceControllerState": {
+    "name": "CtsiInterfaceControllerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "initialize": 2,
+          "authenticating": 3,
+          "authorizing": 4,
+          "sapNegotiating": 5,
+          "open": 6,
+          "held": 7,
+          "disconnecting": 8,
+          "invalid": 9,
+          "licenseError": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBNotifs": {
+    "name": "ciscoTrustSecIfMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.740.0",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecIfMIBObjects": {
+    "name": "ciscoTrustSecIfMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecIfMIBConform": {
+    "name": "ciscoTrustSecIfMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.740.2",
+    "class": "objectidentity"
+  },
+  "ctsiIfConfigObjects": {
+    "name": "ctsiIfConfigObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.1",
+    "class": "objectidentity"
+  },
+  "ctsiIfDot1xObjects": {
+    "name": "ctsiIfDot1xObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2",
+    "class": "objectidentity"
+  },
+  "ctsiIfManualObjects": {
+    "name": "ctsiIfManualObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3",
+    "class": "objectidentity"
+  },
+  "ctsiIfL3ForwardObjects": {
+    "name": "ctsiIfL3ForwardObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.4",
+    "class": "objectidentity"
+  },
+  "ctsiIfStatusObjects": {
+    "name": "ctsiIfStatusObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5",
+    "class": "objectidentity"
+  },
+  "ctsiIfStatsObjects": {
+    "name": "ctsiIfStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6",
+    "class": "objectidentity"
+  },
+  "ctsiAuthorizationObjects": {
+    "name": "ctsiAuthorizationObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7",
+    "class": "objectidentity"
+  },
+  "ctsiIfcStatsObjects": {
+    "name": "ctsiIfcStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.8",
+    "class": "objectidentity"
+  },
+  "ctsiEventsStatsObjects": {
+    "name": "ctsiEventsStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9",
+    "class": "objectidentity"
+  },
+  "ctsiIfModeStatsObjects": {
+    "name": "ctsiIfModeStatsObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.10",
+    "class": "objectidentity"
+  },
+  "ctsiIfNotifsControlObjects": {
+    "name": "ctsiIfNotifsControlObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.11",
+    "class": "objectidentity"
+  },
+  "ctsiIfNotifsOnlyInfoObjects": {
+    "name": "ctsiIfNotifsOnlyInfoObjects",
+    "oid": "1.3.6.1.4.1.9.9.740.1.12",
+    "class": "objectidentity"
+  },
+  "ctsiIfConfigTable": {
+    "name": "ctsiIfConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfConfigEntry": {
+    "name": "ctsiIfConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfModeCapability": {
+    "name": "ctsiIfModeCapability",
+    "oid": "1.3.6.1.4.1.9.9.740.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "dot1x": 0,
+        "manual": 1,
+        "l3Forward": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfConfiguredMode": {
+    "name": "ctsiIfConfiguredMode",
+    "oid": "1.3.6.1.4.1.9.9.740.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "none": 2,
+          "dot1x": 3,
+          "manual": 4,
+          "l3Forward": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfCacheClear": {
+    "name": "ctsiIfCacheClear",
+    "oid": "1.3.6.1.4.1.9.9.740.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsiIfRekey": {
+    "name": "ctsiIfRekey",
+    "oid": "1.3.6.1.4.1.9.9.740.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsiIfDot1xTable": {
+    "name": "ctsiIfDot1xTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfDot1xEntry": {
+    "name": "ctsiIfDot1xEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfDot1xSgtPropagateEnabled": {
+    "name": "ctsiIfDot1xSgtPropagateEnabled",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfDot1xReauthInterval": {
+    "name": "ctsiIfDot1xReauthInterval",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfDot1xSapModeList": {
+    "name": "ctsiIfDot1xSapModeList",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSapNegModeList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "04000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfDot1xDownloadReauthInterval": {
+    "name": "ctsiIfDot1xDownloadReauthInterval",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfDot1xOperReauthInterval": {
+    "name": "ctsiIfDot1xOperReauthInterval",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfDot1xReauthTimeLeft": {
+    "name": "ctsiIfDot1xReauthTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfDot1xStorageType": {
+    "name": "ctsiIfDot1xStorageType",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfDot1xRowStatus": {
+    "name": "ctsiIfDot1xRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualTable": {
+    "name": "ctsiIfManualTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfManualEntry": {
+    "name": "ctsiIfManualEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfManualDynamicPeerId": {
+    "name": "ctsiIfManualDynamicPeerId",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualStaticSgt": {
+    "name": "ctsiIfManualStaticSgt",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualStaticSgtTrusted": {
+    "name": "ctsiIfManualStaticSgtTrusted",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualSgtPropagateEnabled": {
+    "name": "ctsiIfManualSgtPropagateEnabled",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualSapPmk": {
+    "name": "ctsiIfManualSapPmk",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 32,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualSapModeList": {
+    "name": "ctsiIfManualSapModeList",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSapNegModeList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualStorageType": {
+    "name": "ctsiIfManualStorageType",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfManualRowStatus": {
+    "name": "ctsiIfManualRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfL3ForwardTable": {
+    "name": "ctsiIfL3ForwardTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfL3ForwardEntry": {
+    "name": "ctsiIfL3ForwardEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfL3ForwardMode": {
+    "name": "ctsiIfL3ForwardMode",
+    "oid": "1.3.6.1.4.1.9.9.740.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l3Ipv4Forward": 1,
+          "l3Ipv6Forward": 2,
+          "l3IpForward": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "l3Ipv4Forward",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfL3ForwardStorageType": {
+    "name": "ctsiIfL3ForwardStorageType",
+    "oid": "1.3.6.1.4.1.9.9.740.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfL3ForwardRowStatus": {
+    "name": "ctsiIfL3ForwardRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ctsiIfStatusTable": {
+    "name": "ctsiIfStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfStatusEntry": {
+    "name": "ctsiIfStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfControllerState": {
+    "name": "ctsiIfControllerState",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsiInterfaceControllerState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthenticationStatus": {
+    "name": "ctsiIfAuthenticationStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "succeeded": 2,
+          "rejected": 3,
+          "logOff": 4,
+          "noRespond": 5,
+          "notApplicable": 6,
+          "incomplete": 7,
+          "failed": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfPeerId": {
+    "name": "ctsiIfPeerId",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfPeerAdvCapability": {
+    "name": "ctsiIfPeerAdvCapability",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sap": 0
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthorizationStatus": {
+    "name": "ctsiIfAuthorizationStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProgress": 2,
+          "succeeded": 3,
+          "failed": 4,
+          "fallBackPolicy": 5,
+          "incomplete": 6,
+          "peerSucceeded": 7,
+          "rbaclSucceeded": 8,
+          "policySucceeded": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfPeerSgt": {
+    "name": "ctsiIfPeerSgt",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfPeerSgtTrusted": {
+    "name": "ctsiIfPeerSgtTrusted",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfSapNegotiationStatus": {
+    "name": "ctsiIfSapNegotiationStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "unknown": 2,
+          "inProgress": 3,
+          "succeeded": 4,
+          "failed": 5,
+          "licenseError": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfSapNegModeList": {
+    "name": "ctsiIfSapNegModeList",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSapNegModeList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfCacheExpirationTime": {
+    "name": "ctsiIfCacheExpirationTime",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfCacheDataSource": {
+    "name": "ctsiIfCacheDataSource",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsiCasheDataSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfCriticalAuthStatus": {
+    "name": "ctsiIfCriticalAuthStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "cache": 2,
+          "default": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfStatsTable": {
+    "name": "ctsiIfStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfStatsEntry": {
+    "name": "ctsiIfStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfAuthenticationSuccess": {
+    "name": "ctsiIfAuthenticationSuccess",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthenticationReject": {
+    "name": "ctsiIfAuthenticationReject",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthenticationFailure": {
+    "name": "ctsiIfAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthenticationNoResponse": {
+    "name": "ctsiIfAuthenticationNoResponse",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthenticationLogoff": {
+    "name": "ctsiIfAuthenticationLogoff",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthorizationSuccess": {
+    "name": "ctsiIfAuthorizationSuccess",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthorizationPolicyFail": {
+    "name": "ctsiIfAuthorizationPolicyFail",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfAuthorizationFail": {
+    "name": "ctsiIfAuthorizationFail",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfSapSuccess": {
+    "name": "ctsiIfSapSuccess",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfSapFail": {
+    "name": "ctsiIfSapFail",
+    "oid": "1.3.6.1.4.1.9.9.740.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationTable": {
+    "name": "ctsiAuthorizationTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiAuthorizationEntry": {
+    "name": "ctsiAuthorizationEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationPeerId",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiAuthorizationPeerId": {
+    "name": "ctsiAuthorizationPeerId",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiAuthorizationPeerSgt": {
+    "name": "ctsiAuthorizationPeerSgt",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSecurityGroupTag",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationState": {
+    "name": "ctsiAuthorizationState",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "start": 2,
+          "waitingRespond": 3,
+          "assessing": 4,
+          "complete": 5,
+          "failure": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationLastRefresh": {
+    "name": "ctsiAuthorizationLastRefresh",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationTimeLeft": {
+    "name": "ctsiAuthorizationTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationTimeToRefresh": {
+    "name": "ctsiAuthorizationTimeToRefresh",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationCacheDataSource": {
+    "name": "ctsiAuthorizationCacheDataSource",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsiCasheDataSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationStatus": {
+    "name": "ctsiAuthorizationStatus",
+    "oid": "1.3.6.1.4.1.9.9.740.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inProgress": 2,
+          "succeeded": 3,
+          "failed": 4,
+          "fallbackPolicy": 5,
+          "incomplete": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiIfcStatsTable": {
+    "name": "ctsiIfcStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfcStatsEntry": {
+    "name": "ctsiIfcStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.740.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfcState",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfcState": {
+    "name": "ctsiIfcState",
+    "oid": "1.3.6.1.4.1.9.9.740.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsiInterfaceControllerState",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ctsiIfcStatsIfCount": {
+    "name": "ctsiIfcStatsIfCount",
+    "oid": "1.3.6.1.4.1.9.9.740.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthenticationSuccess": {
+    "name": "ctsiAuthenticationSuccess",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthenticationReject": {
+    "name": "ctsiAuthenticationReject",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthenticationFailure": {
+    "name": "ctsiAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthenticationLogoff": {
+    "name": "ctsiAuthenticationLogoff",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthenticationNoRespond": {
+    "name": "ctsiAuthenticationNoRespond",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationSuccess": {
+    "name": "ctsiAuthorizationSuccess",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationFailure": {
+    "name": "ctsiAuthorizationFailure",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationPolicyFailure": {
+    "name": "ctsiAuthorizationPolicyFailure",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiSapNegotiationSuccess": {
+    "name": "ctsiSapNegotiationSuccess",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiSapNegotiationFailure": {
+    "name": "ctsiSapNegotiationFailure",
+    "oid": "1.3.6.1.4.1.9.9.740.1.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiInDot1xModeIfCount": {
+    "name": "ctsiInDot1xModeIfCount",
+    "oid": "1.3.6.1.4.1.9.9.740.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiInManualModeIfCount": {
+    "name": "ctsiInManualModeIfCount",
+    "oid": "1.3.6.1.4.1.9.9.740.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiInL3ForwardModeIfCount": {
+    "name": "ctsiInL3ForwardModeIfCount",
+    "oid": "1.3.6.1.4.1.9.9.740.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsiAuthorizationFailNotifEnable": {
+    "name": "ctsiAuthorizationFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsiIfAddSupplicantFailNotifEnable": {
+    "name": "ctsiIfAddSupplicantFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsiIfAuthenticationFailNotifEnable": {
+    "name": "ctsiIfAuthenticationFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsiIfSapNegotiationFailNotifEnable": {
+    "name": "ctsiIfSapNegotiationFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsiIfUnauthorizedNotifEnable": {
+    "name": "ctsiIfUnauthorizedNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.740.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ctsiIfNotifMessage": {
+    "name": "ctsiIfNotifMessage",
+    "oid": "1.3.6.1.4.1.9.9.740.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsiIfDot1xPaeRole": {
+    "name": "ctsiIfDot1xPaeRole",
+    "oid": "1.3.6.1.4.1.9.9.740.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "authenticator": 2,
+          "supplicant": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ctsiAuthorizationFailNotif": {
+    "name": "ctsiAuthorizationFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.740.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationPeerSgt"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfAddSupplicantFailNotif": {
+    "name": "ctsiIfAddSupplicantFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.740.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfAuthenticationFailNotif": {
+    "name": "ctsiIfAuthenticationFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.740.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfPeerId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xPaeRole"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfSapNegotiationFailNotif": {
+    "name": "ctsiIfSapNegotiationFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.740.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ctsiIfUnauthorizedNotif": {
+    "name": "ctsiIfUnauthorizedNotif",
+    "oid": "1.3.6.1.4.1.9.9.740.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBCompliances": {
+    "name": "ciscoTrustSecIfMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.740.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecIfMIBGroups": {
+    "name": "ciscoTrustSecIfMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoTrustSecIfMIBCompliance": {
+    "name": "ciscoTrustSecIfMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.740.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTrustSecIfMIBIfConfigGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBDot1xGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBManualGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBL3ForwardGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBStatusGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBAuthorizationGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBIfcStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBEventStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBIfModeStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecIfMIBCompliance2": {
+    "name": "ciscoTrustSecIfMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.740.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTrustSecIfMIBIfConfigGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBDot1xGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBManualGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBL3ForwardGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBStatusGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBAuthorizationGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBIfcStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBEventStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBIfModeStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBNotifsCtrlGrp",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBNotifsOnlyInfoGrp",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBNotifsGrp",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecIfMIBCompliance3": {
+    "name": "ciscoTrustSecIfMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.740.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoTrustSecIfMIBIfConfigGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBDot1xGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBManualGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBL3ForwardGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBStatusGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBAuthorizationGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBIfcStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBEventStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBIfModeStatisticGroup",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBNotifsCtrlGrp",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBNotifsOnlyInfoGrp",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBNotifsGrp",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoTrustSecIfMIBCriticalAuthStatusGrp",
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBIfConfigGroup": {
+    "name": "ciscoTrustSecIfMIBIfConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfModeCapability"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfConfiguredMode"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfCacheClear"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfRekey"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBDot1xGroup": {
+    "name": "ciscoTrustSecIfMIBDot1xGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xSgtPropagateEnabled"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xReauthInterval"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xSapModeList"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xDownloadReauthInterval"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xOperReauthInterval"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xReauthTimeLeft"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBManualGroup": {
+    "name": "ciscoTrustSecIfMIBManualGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualDynamicPeerId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualStaticSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualStaticSgtTrusted"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualSgtPropagateEnabled"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualSapPmk"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualSapModeList"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfManualRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBL3ForwardGroup": {
+    "name": "ciscoTrustSecIfMIBL3ForwardGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfL3ForwardMode"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfL3ForwardStorageType"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfL3ForwardRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBStatusGroup": {
+    "name": "ciscoTrustSecIfMIBStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfControllerState"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfPeerId"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfPeerAdvCapability"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthorizationStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfPeerSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfPeerSgtTrusted"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfCacheExpirationTime"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfCacheDataSource"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfSapNegotiationStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfSapNegModeList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBStatisticGroup": {
+    "name": "ciscoTrustSecIfMIBStatisticGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationSuccess"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationReject"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationFailure"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationNoResponse"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationLogoff"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthorizationSuccess"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthorizationPolicyFail"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthorizationFail"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfSapSuccess"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfSapFail"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBAuthorizationGroup": {
+    "name": "ciscoTrustSecIfMIBAuthorizationGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationPeerSgt"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationState"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationLastRefresh"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationTimeLeft"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationTimeToRefresh"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationCacheDataSource"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBIfcStatisticGroup": {
+    "name": "ciscoTrustSecIfMIBIfcStatisticGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfcStatsIfCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBEventStatisticGroup": {
+    "name": "ciscoTrustSecIfMIBEventStatisticGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthenticationSuccess"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthenticationReject"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthenticationFailure"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthenticationLogoff"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthenticationNoRespond"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationSuccess"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationFailure"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationPolicyFailure"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiSapNegotiationSuccess"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiSapNegotiationFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBIfModeStatisticGroup": {
+    "name": "ciscoTrustSecIfMIBIfModeStatisticGroup",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiInDot1xModeIfCount"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiInManualModeIfCount"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiInL3ForwardModeIfCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBNotifsCtrlGrp": {
+    "name": "ciscoTrustSecIfMIBNotifsCtrlGrp",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationFailNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAddSupplicantFailNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationFailNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfSapNegotiationFailNotifEnable"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfUnauthorizedNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBNotifsOnlyInfoGrp": {
+    "name": "ciscoTrustSecIfMIBNotifsOnlyInfoGrp",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfNotifMessage"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfDot1xPaeRole"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBNotifsGrp": {
+    "name": "ciscoTrustSecIfMIBNotifsGrp",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiAuthorizationFailNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAddSupplicantFailNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfAuthenticationFailNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfSapNegotiationFailNotif"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfUnauthorizedNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoTrustSecIfMIBCriticalAuthStatusGrp": {
+    "name": "ciscoTrustSecIfMIBCriticalAuthStatusGrp",
+    "oid": "1.3.6.1.4.1.9.9.740.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-INTERFACE-MIB",
+        "object": "ctsiIfCriticalAuthStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-INTERFACE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-TRUSTSEC-INTERFACE-MIB"
+  }
+}

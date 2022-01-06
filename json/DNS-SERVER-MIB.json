@@ -1,0 +1,1319 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dns": {
+    "name": "dns",
+    "oid": "1.3.6.1.2.1.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dnsServMIB": {
+    "name": "dnsServMIB",
+    "oid": "1.3.6.1.2.1.32.1",
+    "class": "moduleidentity"
+  },
+  "dnsServMIBObjects": {
+    "name": "dnsServMIBObjects",
+    "oid": "1.3.6.1.2.1.32.1.1",
+    "class": "objectidentity"
+  },
+  "dnsServConfig": {
+    "name": "dnsServConfig",
+    "oid": "1.3.6.1.2.1.32.1.1.1",
+    "class": "objectidentity"
+  },
+  "dnsServCounter": {
+    "name": "dnsServCounter",
+    "oid": "1.3.6.1.2.1.32.1.1.2",
+    "class": "objectidentity"
+  },
+  "dnsServOptCounter": {
+    "name": "dnsServOptCounter",
+    "oid": "1.3.6.1.2.1.32.1.1.3",
+    "class": "objectidentity"
+  },
+  "dnsServZone": {
+    "name": "dnsServZone",
+    "oid": "1.3.6.1.2.1.32.1.1.4",
+    "class": "objectidentity"
+  },
+  "DnsName": {
+    "name": "DnsName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DnsNameAsIndex": {
+    "name": "DnsNameAsIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "DnsName",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "DnsClass": {
+    "name": "DnsClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "2d",
+    "status": "current"
+  },
+  "DnsType": {
+    "name": "DnsType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "2d",
+    "status": "current"
+  },
+  "DnsQClass": {
+    "name": "DnsQClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "2d",
+    "status": "current"
+  },
+  "DnsQType": {
+    "name": "DnsQType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "2d",
+    "status": "current"
+  },
+  "DnsTime": {
+    "name": "DnsTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "displayhint": "4d",
+    "status": "current"
+  },
+  "DnsOpCode": {
+    "name": "DnsOpCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "DnsRespCode": {
+    "name": "DnsRespCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "dnsServConfigImplementIdent": {
+    "name": "dnsServConfigImplementIdent",
+    "oid": "1.3.6.1.2.1.32.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServConfigRecurs": {
+    "name": "dnsServConfigRecurs",
+    "oid": "1.3.6.1.2.1.32.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "restricted": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsServConfigUpTime": {
+    "name": "dnsServConfigUpTime",
+    "oid": "1.3.6.1.2.1.32.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServConfigResetTime": {
+    "name": "dnsServConfigResetTime",
+    "oid": "1.3.6.1.2.1.32.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServConfigReset": {
+    "name": "dnsServConfigReset",
+    "oid": "1.3.6.1.2.1.32.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2,
+          "initializing": 3,
+          "running": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsServCounterAuthAns": {
+    "name": "dnsServCounterAuthAns",
+    "oid": "1.3.6.1.2.1.32.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterAuthNoNames": {
+    "name": "dnsServCounterAuthNoNames",
+    "oid": "1.3.6.1.2.1.32.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterAuthNoDataResps": {
+    "name": "dnsServCounterAuthNoDataResps",
+    "oid": "1.3.6.1.2.1.32.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterNonAuthDatas": {
+    "name": "dnsServCounterNonAuthDatas",
+    "oid": "1.3.6.1.2.1.32.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterNonAuthNoDatas": {
+    "name": "dnsServCounterNonAuthNoDatas",
+    "oid": "1.3.6.1.2.1.32.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterReferrals": {
+    "name": "dnsServCounterReferrals",
+    "oid": "1.3.6.1.2.1.32.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterErrors": {
+    "name": "dnsServCounterErrors",
+    "oid": "1.3.6.1.2.1.32.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterRelNames": {
+    "name": "dnsServCounterRelNames",
+    "oid": "1.3.6.1.2.1.32.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterReqRefusals": {
+    "name": "dnsServCounterReqRefusals",
+    "oid": "1.3.6.1.2.1.32.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterReqUnparses": {
+    "name": "dnsServCounterReqUnparses",
+    "oid": "1.3.6.1.2.1.32.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterOtherErrors": {
+    "name": "dnsServCounterOtherErrors",
+    "oid": "1.3.6.1.2.1.32.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterTable": {
+    "name": "dnsServCounterTable",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServCounterEntry": {
+    "name": "dnsServCounterEntry",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterOpCode",
+        "implied": 0
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterQClass",
+        "implied": 0
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterQType",
+        "implied": 0
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterTransport",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsServCounterOpCode": {
+    "name": "dnsServCounterOpCode",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsOpCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServCounterQClass": {
+    "name": "dnsServCounterQClass",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServCounterQType": {
+    "name": "dnsServCounterQType",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServCounterTransport": {
+    "name": "dnsServCounterTransport",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServCounterRequests": {
+    "name": "dnsServCounterRequests",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServCounterResponses": {
+    "name": "dnsServCounterResponses",
+    "oid": "1.3.6.1.2.1.32.1.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfAuthAns": {
+    "name": "dnsServOptCounterSelfAuthAns",
+    "oid": "1.3.6.1.2.1.32.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfAuthNoNames": {
+    "name": "dnsServOptCounterSelfAuthNoNames",
+    "oid": "1.3.6.1.2.1.32.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfAuthNoDataResps": {
+    "name": "dnsServOptCounterSelfAuthNoDataResps",
+    "oid": "1.3.6.1.2.1.32.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfNonAuthDatas": {
+    "name": "dnsServOptCounterSelfNonAuthDatas",
+    "oid": "1.3.6.1.2.1.32.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfNonAuthNoDatas": {
+    "name": "dnsServOptCounterSelfNonAuthNoDatas",
+    "oid": "1.3.6.1.2.1.32.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfReferrals": {
+    "name": "dnsServOptCounterSelfReferrals",
+    "oid": "1.3.6.1.2.1.32.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfErrors": {
+    "name": "dnsServOptCounterSelfErrors",
+    "oid": "1.3.6.1.2.1.32.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfRelNames": {
+    "name": "dnsServOptCounterSelfRelNames",
+    "oid": "1.3.6.1.2.1.32.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfReqRefusals": {
+    "name": "dnsServOptCounterSelfReqRefusals",
+    "oid": "1.3.6.1.2.1.32.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfReqUnparses": {
+    "name": "dnsServOptCounterSelfReqUnparses",
+    "oid": "1.3.6.1.2.1.32.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterSelfOtherErrors": {
+    "name": "dnsServOptCounterSelfOtherErrors",
+    "oid": "1.3.6.1.2.1.32.1.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsAuthAns": {
+    "name": "dnsServOptCounterFriendsAuthAns",
+    "oid": "1.3.6.1.2.1.32.1.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsAuthNoNames": {
+    "name": "dnsServOptCounterFriendsAuthNoNames",
+    "oid": "1.3.6.1.2.1.32.1.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsAuthNoDataResps": {
+    "name": "dnsServOptCounterFriendsAuthNoDataResps",
+    "oid": "1.3.6.1.2.1.32.1.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsNonAuthDatas": {
+    "name": "dnsServOptCounterFriendsNonAuthDatas",
+    "oid": "1.3.6.1.2.1.32.1.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsNonAuthNoDatas": {
+    "name": "dnsServOptCounterFriendsNonAuthNoDatas",
+    "oid": "1.3.6.1.2.1.32.1.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsReferrals": {
+    "name": "dnsServOptCounterFriendsReferrals",
+    "oid": "1.3.6.1.2.1.32.1.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsErrors": {
+    "name": "dnsServOptCounterFriendsErrors",
+    "oid": "1.3.6.1.2.1.32.1.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsRelNames": {
+    "name": "dnsServOptCounterFriendsRelNames",
+    "oid": "1.3.6.1.2.1.32.1.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsReqRefusals": {
+    "name": "dnsServOptCounterFriendsReqRefusals",
+    "oid": "1.3.6.1.2.1.32.1.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsReqUnparses": {
+    "name": "dnsServOptCounterFriendsReqUnparses",
+    "oid": "1.3.6.1.2.1.32.1.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServOptCounterFriendsOtherErrors": {
+    "name": "dnsServOptCounterFriendsOtherErrors",
+    "oid": "1.3.6.1.2.1.32.1.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServZoneTable": {
+    "name": "dnsServZoneTable",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServZoneEntry": {
+    "name": "dnsServZoneEntry",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneName",
+        "implied": 0
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsServZoneName": {
+    "name": "dnsServZoneName",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsNameAsIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServZoneClass": {
+    "name": "dnsServZoneClass",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServZoneLastReloadSuccess": {
+    "name": "dnsServZoneLastReloadSuccess",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServZoneLastReloadAttempt": {
+    "name": "dnsServZoneLastReloadAttempt",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServZoneLastSourceAttempt": {
+    "name": "dnsServZoneLastSourceAttempt",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServZoneStatus": {
+    "name": "dnsServZoneStatus",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnsServZoneSerial": {
+    "name": "dnsServZoneSerial",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServZoneCurrent": {
+    "name": "dnsServZoneCurrent",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServZoneLastSourceSuccess": {
+    "name": "dnsServZoneLastSourceSuccess",
+    "oid": "1.3.6.1.2.1.32.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dnsServZoneSrcTable": {
+    "name": "dnsServZoneSrcTable",
+    "oid": "1.3.6.1.2.1.32.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServZoneSrcEntry": {
+    "name": "dnsServZoneSrcEntry",
+    "oid": "1.3.6.1.2.1.32.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSrcName",
+        "implied": 0
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSrcClass",
+        "implied": 0
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSrcAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dnsServZoneSrcName": {
+    "name": "dnsServZoneSrcName",
+    "oid": "1.3.6.1.2.1.32.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsNameAsIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServZoneSrcClass": {
+    "name": "dnsServZoneSrcClass",
+    "oid": "1.3.6.1.2.1.32.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DnsClass",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServZoneSrcAddr": {
+    "name": "dnsServZoneSrcAddr",
+    "oid": "1.3.6.1.2.1.32.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dnsServZoneSrcStatus": {
+    "name": "dnsServZoneSrcStatus",
+    "oid": "1.3.6.1.2.1.32.1.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dnsServMIBGroups": {
+    "name": "dnsServMIBGroups",
+    "oid": "1.3.6.1.2.1.32.1.2",
+    "class": "objectidentity"
+  },
+  "dnsServConfigGroup": {
+    "name": "dnsServConfigGroup",
+    "oid": "1.3.6.1.2.1.32.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServConfigImplementIdent"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServConfigRecurs"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServConfigUpTime"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServConfigResetTime"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServConfigReset"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsServCounterGroup": {
+    "name": "dnsServCounterGroup",
+    "oid": "1.3.6.1.2.1.32.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterAuthAns"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterAuthNoNames"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterAuthNoDataResps"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterNonAuthDatas"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterNonAuthNoDatas"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterReferrals"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterErrors"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterRelNames"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterReqRefusals"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterReqUnparses"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterOtherErrors"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterOpCode"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterQClass"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterQType"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterTransport"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterRequests"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServCounterResponses"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsServOptCounterGroup": {
+    "name": "dnsServOptCounterGroup",
+    "oid": "1.3.6.1.2.1.32.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfAuthAns"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfAuthNoNames"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfAuthNoDataResps"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfNonAuthDatas"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfNonAuthNoDatas"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfReferrals"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfErrors"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfRelNames"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfReqRefusals"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfReqUnparses"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterSelfOtherErrors"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsAuthAns"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsAuthNoNames"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsAuthNoDataResps"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsNonAuthDatas"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsNonAuthNoDatas"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsReferrals"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsErrors"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsRelNames"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsReqRefusals"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsReqUnparses"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServOptCounterFriendsOtherErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsServZoneGroup": {
+    "name": "dnsServZoneGroup",
+    "oid": "1.3.6.1.2.1.32.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneName"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneClass"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneLastReloadSuccess"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneLastReloadAttempt"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneLastSourceAttempt"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneLastSourceSuccess"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneStatus"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSerial"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneCurrent"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSrcName"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSrcClass"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSrcAddr"
+      },
+      {
+        "module": "DNS-SERVER-MIB",
+        "object": "dnsServZoneSrcStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dnsServMIBCompliances": {
+    "name": "dnsServMIBCompliances",
+    "oid": "1.3.6.1.2.1.32.1.3",
+    "class": "objectidentity"
+  },
+  "dnsServMIBCompliance": {
+    "name": "dnsServMIBCompliance",
+    "oid": "1.3.6.1.2.1.32.1.3.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dnsServConfigGroup",
+        "module": "DNS-SERVER-MIB"
+      },
+      {
+        "object": "dnsServCounterGroup",
+        "module": "DNS-SERVER-MIB"
+      },
+      {
+        "object": "dnsServOptCounterGroup",
+        "module": "DNS-SERVER-MIB"
+      },
+      {
+        "object": "dnsServZoneGroup",
+        "module": "DNS-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DNS-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DNS-SERVER-MIB"
+  }
+}

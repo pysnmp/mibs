@@ -1,0 +1,5051 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPort",
+      "CiscoIpProtocol"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalParentRelPos"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoSlbMIB": {
+    "name": "ciscoSlbMIB",
+    "oid": "1.3.6.1.4.1.9.9.161",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-05-15 00:00",
+        "description": "- Deprecated the object slbVServerBWRateLimitDropCounts. - Added following objects to slbVServerInfoTable slbVServerBandWidthRateLimitDropCounts slbVServerL4Decisions slbVServerL7Decisions slbVServerEstablishedConnections - Deprecated OBJECT-GROUP ciscoSlbVServerInfoGroupRev1 - Deprecated MODULE-COMPLIANCE ciscoSlbMIBComplianceRev5 - Added OBJECT-GROUP ciscoSlbVServerInfoGroupRev2 - Added MODULE-COMPLIANCE ciscoSlbMIBComplianceRev6."
+      },
+      {
+        "revision": "2008-04-15 00:00",
+        "description": "- Added enumeration 'inactive' and 'maxLoad' to SlbRealServerState TC."
+      },
+      {
+        "revision": "2008-02-12 00:00",
+        "description": "- Added following objects to slbVServerInfoTable slbVServerDroppedConnections slbVServerClientPacketCounts slbVServerPacketCounts slbVServerClientByteCounts slbVServerByteCounts slbVServerMaxConnLimitDropCounts slbVServerConnRateLimitDropCounts slbVServerBWRateLimitDropCounts - Deprecated OBJECT-GROUP ciscoSlbVServerInfoGroup - Deprecated MODULE-COMPLIANCE ciscoSlbMIBComplianceRev4 - Added OBJECT-GROUP ciscoSlbVServerInfoGroupRev1 - Added MODULE-COMPLIANCE ciscoSlbMIBComplianceRev5."
+      },
+      {
+        "revision": "2007-06-20 00:00",
+        "description": "- Added enumeration 'standby' to SlbRealServerState TC."
+      },
+      {
+        "revision": "2007-04-20 00:00",
+        "description": "- Added arpFailed enum to SlbRealServerState TC"
+      },
+      {
+        "revision": "2006-10-26 00:00",
+        "description": "- Added following notifications ciscoSlbVirtualServerStateChange ciscoSlbRealServerStateChange - Added following groups ciscoSlbNotifObjectsGroup ciscoSlbNotifEnabledGroupRev2 ciscoSlbNotifGroupRev2 - Added following new objects to slbNotificationsObjects slbInetAddressType slbInetAddress slbName slbPort - Deprecated following notifications ciscoSlbRealStateChange ciscoSlbVirtualStateChange - Deprecated following objects under slbNotificationObjects cSlbVirtStateChangeNotifEnabled cSlbRealStateChangeNotifEnabled - Added following in Compliance/Conformance ciscoSlbMIBComplianceRev4 - Added following enums to SlbPredictor TC layer4PayloadHash responseTime leastBandwidth httpContentHash - DEFVAL value of the following objects are modified to avoid compilation errors slbStickyObjectRealIpAddress slbVirtualIpAddress"
+      },
+      {
+        "revision": "2006-01-13 00:00",
+        "description": "- Added following enums to SlbPredictor TC leastLoaded httpCookieHash httpHeaderHash. - Increased the range for SlbServerString TC from 1..15 to 1..96. - Added following Tables: slbVServerInfoTable slbVServerIPTable - Added following Notifications: ciscoSlbVServerStateChange ciscoSlbVServerVIPStateChange - Added cSlbVServerStateChangeNotifEnabled object - Added following in Compliance/Conformance ciscoSlbMIBComplianceRev3."
+      },
+      {
+        "revision": "2005-03-31 00:00",
+        "description": "Extending MIB to support the Server/Application State Protocol (SASP). The following tables were added to the MIB: - slbSaspTable - slbSaspAgentTable, - slbSaspGroupTable, - slbSaspMemberTable - slbSaspStatsTable"
+      },
+      {
+        "revision": "2002-03-18 00:00",
+        "description": "Defining more server states and predictor options for Content Switching Module (CSM) product."
+      },
+      {
+        "revision": "2002-01-15 15:00",
+        "description": "Extending MIB to support GTP service. Updated SlbRealServerState and SlbVirtualServState with more states."
+      },
+      {
+        "revision": "2000-10-20 00:00",
+        "description": "Extending MIB to support VirtualMask and service wsp."
+      },
+      {
+        "revision": "2000-05-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSlbMIBObjects": {
+    "name": "ciscoSlbMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.161.1",
+    "class": "objectidentity"
+  },
+  "slbStats": {
+    "name": "slbStats",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1",
+    "class": "objectidentity"
+  },
+  "slbServerFarms": {
+    "name": "slbServerFarms",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2",
+    "class": "objectidentity"
+  },
+  "slbRealServers": {
+    "name": "slbRealServers",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3",
+    "class": "objectidentity"
+  },
+  "slbVirtualServers": {
+    "name": "slbVirtualServers",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4",
+    "class": "objectidentity"
+  },
+  "slbConnections": {
+    "name": "slbConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5",
+    "class": "objectidentity"
+  },
+  "slbVirtualClients": {
+    "name": "slbVirtualClients",
+    "oid": "1.3.6.1.4.1.9.9.161.1.6",
+    "class": "objectidentity"
+  },
+  "slbStickyObjects": {
+    "name": "slbStickyObjects",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7",
+    "class": "objectidentity"
+  },
+  "slbNotificationObjects": {
+    "name": "slbNotificationObjects",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8",
+    "class": "objectidentity"
+  },
+  "slbDfpPassword": {
+    "name": "slbDfpPassword",
+    "oid": "1.3.6.1.4.1.9.9.161.1.9",
+    "class": "objectidentity"
+  },
+  "slbDfpAgents": {
+    "name": "slbDfpAgents",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10",
+    "class": "objectidentity"
+  },
+  "slbDfpReal": {
+    "name": "slbDfpReal",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11",
+    "class": "objectidentity"
+  },
+  "slbSasp": {
+    "name": "slbSasp",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12",
+    "class": "objectidentity"
+  },
+  "slbSaspAgents": {
+    "name": "slbSaspAgents",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13",
+    "class": "objectidentity"
+  },
+  "slbSaspGroups": {
+    "name": "slbSaspGroups",
+    "oid": "1.3.6.1.4.1.9.9.161.1.14",
+    "class": "objectidentity"
+  },
+  "slbSaspMembers": {
+    "name": "slbSaspMembers",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15",
+    "class": "objectidentity"
+  },
+  "slbSaspStats": {
+    "name": "slbSaspStats",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16",
+    "class": "objectidentity"
+  },
+  "SlbServerString": {
+    "name": "SlbServerString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SlbPasswordString": {
+    "name": "SlbPasswordString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SlbConnectionState": {
+    "name": "SlbConnectionState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "synClient": 2,
+          "synServer": 3,
+          "synBoth": 4,
+          "estab": 5,
+          "finClient": 6,
+          "finServer": 7,
+          "closing": 8,
+          "zombie": 9,
+          "conclient": 10,
+          "conserver": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbPredictor": {
+    "name": "SlbPredictor",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roundRobin": 1,
+          "leastConns": 2,
+          "ipHash": 3,
+          "ipHashSrc": 4,
+          "ipHashDest": 5,
+          "urlHash": 6,
+          "forward": 7,
+          "leastLoaded": 8,
+          "httpCookieHash": 9,
+          "httpHeaderHash": 10,
+          "layer4PayloadHash": 11,
+          "responseTime": 12,
+          "leastBandwidth": 13,
+          "httpContentHash": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbRealServerState": {
+    "name": "SlbRealServerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outOfService": 1,
+          "inService": 2,
+          "failed": 3,
+          "readyToTest": 4,
+          "testing": 5,
+          "maxConnsThrottle": 6,
+          "maxClientsThrottle": 7,
+          "dfpThrottle": 8,
+          "probeFailed": 9,
+          "probeTesting": 10,
+          "operWait": 11,
+          "testWait": 12,
+          "inbandProbeFailed": 13,
+          "returnCodeFailed": 14,
+          "arpFailed": 15,
+          "standby": 16,
+          "inactive": 17,
+          "maxLoad": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbVirtualServState": {
+    "name": "SlbVirtualServState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outOfService": 1,
+          "inService": 2,
+          "standby": 3,
+          "inOperReal": 4,
+          "stbInOperReal": 5,
+          "testReal": 6,
+          "outOfMemory": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbVirtualService": {
+    "name": "SlbVirtualService",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ftp": 2,
+          "wsp": 3,
+          "gtp": 4,
+          "rtsp": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbDfpAgentState": {
+    "name": "SlbDfpAgentState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notOpen": 1,
+          "trying": 2,
+          "connecting": 3,
+          "open": 4,
+          "failed": 5,
+          "securityError": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbSaspLBHealth": {
+    "name": "SlbSaspLBHealth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "idle": 2,
+          "down": 3,
+          "saturated": 4,
+          "overUsed": 5,
+          "msgLimitReached": 6,
+          "heavyLoad": 7,
+          "moderateLoad": 8,
+          "lightLoad": 9,
+          "healthy": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbSaspRedundancy": {
+    "name": "SlbSaspRedundancy",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "master": 2,
+          "backup": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbSaspAgentState": {
+    "name": "SlbSaspAgentState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "initialized": 2,
+          "closed": 3,
+          "trying": 4,
+          "connecting": 5,
+          "established": 6,
+          "downTrying": 7,
+          "downDuplicate": 8,
+          "down": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SlbNatSetting": {
+    "name": "SlbNatSetting",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noNat": 1,
+          "clientNat": 2,
+          "serverNat": 3,
+          "clientAndServerNat": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "slbStatsTable": {
+    "name": "slbStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStatsTableEntry": {
+    "name": "slbStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbEntity": {
+    "name": "slbEntity",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStatsUnassistedSwitchingPkts": {
+    "name": "slbStatsUnassistedSwitchingPkts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsUnassistedSwitchingHCPks": {
+    "name": "slbStatsUnassistedSwitchingHCPks",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsAssistedSwitchingPkts": {
+    "name": "slbStatsAssistedSwitchingPkts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsAssistedSwitchingHCPkts": {
+    "name": "slbStatsAssistedSwitchingHCPkts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsCreatedConnections": {
+    "name": "slbStatsCreatedConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsCreatedHCConnections": {
+    "name": "slbStatsCreatedHCConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsEstablishedConnections": {
+    "name": "slbStatsEstablishedConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsEstablishedHCConnections": {
+    "name": "slbStatsEstablishedHCConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsDestroyedConnections": {
+    "name": "slbStatsDestroyedConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsDestroyedHCConnections": {
+    "name": "slbStatsDestroyedHCConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsReassignedConnections": {
+    "name": "slbStatsReassignedConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsReassignedHCConnections": {
+    "name": "slbStatsReassignedHCConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsZombies": {
+    "name": "slbStatsZombies",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "zombies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStatsHCZombies": {
+    "name": "slbStatsHCZombies",
+    "oid": "1.3.6.1.4.1.9.9.161.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "zombies",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerFarmTable": {
+    "name": "slbServerFarmTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbServerFarmTableEntry": {
+    "name": "slbServerFarmTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbServerFarmName": {
+    "name": "slbServerFarmName",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbServerFarmPredictor": {
+    "name": "slbServerFarmPredictor",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbPredictor",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "roundRobin",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbServerFarmNat": {
+    "name": "slbServerFarmNat",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbNatSetting",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noNat",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServerFarmNumberOfRealServers": {
+    "name": "slbServerFarmNumberOfRealServers",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServerFarmBindId": {
+    "name": "slbServerFarmBindId",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbServerFarmRowStatus": {
+    "name": "slbServerFarmRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealTable": {
+    "name": "slbRealTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbRealTableEntry": {
+    "name": "slbRealTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealServerFarmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbRealServerFarmName": {
+    "name": "slbRealServerFarmName",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbRealIpAddress": {
+    "name": "slbRealIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbRealPort": {
+    "name": "slbRealPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbRealState": {
+    "name": "slbRealState",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbRealServerState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "outOfService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealNumberOfConnections": {
+    "name": "slbRealNumberOfConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbRealNumberOfDummyConnections": {
+    "name": "slbRealNumberOfDummyConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbRealMaxConnections": {
+    "name": "slbRealMaxConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4294967295,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealAdminWeight": {
+    "name": "slbRealAdminWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealOperWeight": {
+    "name": "slbRealOperWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbRealMetric": {
+    "name": "slbRealMetric",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbRealReassign": {
+    "name": "slbRealReassign",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealRetryInterval": {
+    "name": "slbRealRetryInterval",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealFailedConnections": {
+    "name": "slbRealFailedConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealFailedClients": {
+    "name": "slbRealFailedClients",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealConsecutiveFails": {
+    "name": "slbRealConsecutiveFails",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbRealTotalFails": {
+    "name": "slbRealTotalFails",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbRealRowStatus": {
+    "name": "slbRealRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbRealTotalConnections": {
+    "name": "slbRealTotalConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbRealHCTotalConnections": {
+    "name": "slbRealHCTotalConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVirtualServerTable": {
+    "name": "slbVirtualServerTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVirtualServerTableEntry": {
+    "name": "slbVirtualServerTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbVirtualServerName": {
+    "name": "slbVirtualServerName",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVirtualServerState": {
+    "name": "slbVirtualServerState",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbVirtualServState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "outOfService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualIndex": {
+    "name": "slbVirtualIndex",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVirtualIpAddress": {
+    "name": "slbVirtualIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualPort": {
+    "name": "slbVirtualPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualProtocol": {
+    "name": "slbVirtualProtocol",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualService": {
+    "name": "slbVirtualService",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbVirtualService",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualAdvertise": {
+    "name": "slbVirtualAdvertise",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualFarmName": {
+    "name": "slbVirtualFarmName",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "               ",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualDelayTimer": {
+    "name": "slbVirtualDelayTimer",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualIdleTimer": {
+    "name": "slbVirtualIdleTimer",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualStickyTimer": {
+    "name": "slbVirtualStickyTimer",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualStickyGroup": {
+    "name": "slbVirtualStickyGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualSynguardCount": {
+    "name": "slbVirtualSynguardCount",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualSynguardPeriod": {
+    "name": "slbVirtualSynguardPeriod",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualRowStatus": {
+    "name": "slbVirtualRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualNumberOfConnections": {
+    "name": "slbVirtualNumberOfConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVirtualTotalConnections": {
+    "name": "slbVirtualTotalConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVirtualHCTotalConnections": {
+    "name": "slbVirtualHCTotalConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVirtualMask": {
+    "name": "slbVirtualMask",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerInfoTable": {
+    "name": "slbVServerInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVServerInfoTableEntry": {
+    "name": "slbVServerInfoTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbVServerIndex": {
+    "name": "slbVServerIndex",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVServerClassMap": {
+    "name": "slbVServerClassMap",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerPolicyMap": {
+    "name": "slbVServerPolicyMap",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerState": {
+    "name": "slbVServerState",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbVirtualServState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerStateChangeDescr": {
+    "name": "slbVServerStateChangeDescr",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerNumberOfConnections": {
+    "name": "slbVServerNumberOfConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerTotalConnections": {
+    "name": "slbVServerTotalConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerDroppedConnections": {
+    "name": "slbVServerDroppedConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerClientPacketCounts": {
+    "name": "slbVServerClientPacketCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerPacketCounts": {
+    "name": "slbVServerPacketCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerClientByteCounts": {
+    "name": "slbVServerClientByteCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerByteCounts": {
+    "name": "slbVServerByteCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerMaxConnLimitDropCounts": {
+    "name": "slbVServerMaxConnLimitDropCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerConnRateLimitDropCounts": {
+    "name": "slbVServerConnRateLimitDropCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerBWRateLimitDropCounts": {
+    "name": "slbVServerBWRateLimitDropCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slbVServerBandWidthRateLimitDropCounts": {
+    "name": "slbVServerBandWidthRateLimitDropCounts",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerL4Decisions": {
+    "name": "slbVServerL4Decisions",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerL7Decisions": {
+    "name": "slbVServerL7Decisions",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerEstablishedConnections": {
+    "name": "slbVServerEstablishedConnections",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVServerIPTable": {
+    "name": "slbVServerIPTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVServerIPTableEntry": {
+    "name": "slbVServerIPTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerObjectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbVServerObjectIndex": {
+    "name": "slbVServerObjectIndex",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVServerIpAddressType": {
+    "name": "slbVServerIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerIpAddress": {
+    "name": "slbVServerIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerIpMask": {
+    "name": "slbVServerIpMask",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerProtocol": {
+    "name": "slbVServerProtocol",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerPortLow": {
+    "name": "slbVServerPortLow",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerPortHigh": {
+    "name": "slbVServerPortHigh",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerStorageType": {
+    "name": "slbVServerStorageType",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVServerRowStatus": {
+    "name": "slbVServerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbConnectionTable": {
+    "name": "slbConnectionTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbConnectionTableEntry": {
+    "name": "slbConnectionTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionVirtualIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionVirtualPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionProtocol",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionClientIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionClientPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbConnectionIndex": {
+    "name": "slbConnectionIndex",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbConnectionVirtualIpAddress": {
+    "name": "slbConnectionVirtualIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbConnectionVirtualPort": {
+    "name": "slbConnectionVirtualPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbConnectionProtocol": {
+    "name": "slbConnectionProtocol",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbConnectionClientIpAddr": {
+    "name": "slbConnectionClientIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbConnectionClientPort": {
+    "name": "slbConnectionClientPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbConnectionState": {
+    "name": "slbConnectionState",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbConnectionState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbConnectionRealIpAddr": {
+    "name": "slbConnectionRealIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbConnectionServerPort": {
+    "name": "slbConnectionServerPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbConnectionNumCacheEntries": {
+    "name": "slbConnectionNumCacheEntries",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbConnectionSynCount": {
+    "name": "slbConnectionSynCount",
+    "oid": "1.3.6.1.4.1.9.9.161.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbVirtualClientTable": {
+    "name": "slbVirtualClientTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVirtualClientTableEntry": {
+    "name": "slbVirtualClientTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualClientIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualClientMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbVirtualClientIpAddress": {
+    "name": "slbVirtualClientIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVirtualClientMask": {
+    "name": "slbVirtualClientMask",
+    "oid": "1.3.6.1.4.1.9.9.161.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbVirtualClientExclude": {
+    "name": "slbVirtualClientExclude",
+    "oid": "1.3.6.1.4.1.9.9.161.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbVirtualClientRowStatus": {
+    "name": "slbVirtualClientRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbStickyObjectTable": {
+    "name": "slbStickyObjectTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStickyObjectTableEntry": {
+    "name": "slbStickyObjectTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStickyObjectGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStickyObjectClientIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbStickyObjectGroupId": {
+    "name": "slbStickyObjectGroupId",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStickyObjectClientIpAddress": {
+    "name": "slbStickyObjectClientIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbStickyObjectRealIpAddress": {
+    "name": "slbStickyObjectRealIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbStickyObjectConnectionCount": {
+    "name": "slbStickyObjectConnectionCount",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStickyObjectFtpControlCount": {
+    "name": "slbStickyObjectFtpControlCount",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbStickyObjectRowStatus": {
+    "name": "slbStickyObjectRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cSlbVirtStateChangeNotifEnabled": {
+    "name": "cSlbVirtStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cSlbRealStateChangeNotifEnabled": {
+    "name": "cSlbRealStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cSlbVServerStateChangeNotifEnabled": {
+    "name": "cSlbVServerStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSlbVirtualServerStateChangeNotifEnabled": {
+    "name": "cSlbVirtualServerStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cSlbRealServerStateChangeNotifEnabled": {
+    "name": "cSlbRealServerStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbInetAddressType": {
+    "name": "slbInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "slbInetAddress": {
+    "name": "slbInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "slbName": {
+    "name": "slbName",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbServerString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "slbPort": {
+    "name": "slbPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "slbDfpPasswordTable": {
+    "name": "slbDfpPasswordTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpPasswordTableEntry": {
+    "name": "slbDfpPasswordTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbDfpPasswordPending": {
+    "name": "slbDfpPasswordPending",
+    "oid": "1.3.6.1.4.1.9.9.161.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbPasswordString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpPasswordTimeout": {
+    "name": "slbDfpPasswordTimeout",
+    "oid": "1.3.6.1.4.1.9.9.161.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpPasswordRowStatus": {
+    "name": "slbDfpPasswordRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpAgentTable": {
+    "name": "slbDfpAgentTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpAgentTableEntry": {
+    "name": "slbDfpAgentTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpAgentIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpAgentPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbDfpAgentIpAddress": {
+    "name": "slbDfpAgentIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpAgentPort": {
+    "name": "slbDfpAgentPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpAgentState": {
+    "name": "slbDfpAgentState",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbDfpAgentState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbDfpAgentTimeout": {
+    "name": "slbDfpAgentTimeout",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpAgentRetryCount": {
+    "name": "slbDfpAgentRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpAgentInterval": {
+    "name": "slbDfpAgentInterval",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpAgentRowStatus": {
+    "name": "slbDfpAgentRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpRealTable": {
+    "name": "slbDfpRealTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpRealTableEntry": {
+    "name": "slbDfpRealTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpRealIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpRealProtocol",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpRealPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpRealBindId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbDfpRealIpAddress": {
+    "name": "slbDfpRealIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpRealProtocol": {
+    "name": "slbDfpRealProtocol",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpRealPort": {
+    "name": "slbDfpRealPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpRealBindId": {
+    "name": "slbDfpRealBindId",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbDfpRealWeight": {
+    "name": "slbDfpRealWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbDfpRealRowStatus": {
+    "name": "slbDfpRealRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbSaspTable": {
+    "name": "slbSaspTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspTableEntry": {
+    "name": "slbSaspTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbSaspIdentifier": {
+    "name": "slbSaspIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbSaspEnabled": {
+    "name": "slbSaspEnabled",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slbSaspHealth": {
+    "name": "slbSaspHealth",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbSaspLBHealth",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspRedundancy": {
+    "name": "slbSaspRedundancy",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbSaspRedundancy",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspMaxAgents": {
+    "name": "slbSaspMaxAgents",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspMaxLbWeight": {
+    "name": "slbSaspMaxLbWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspAgentTable": {
+    "name": "slbSaspAgentTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspAgentTableEntry": {
+    "name": "slbSaspAgentTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbSaspAgentIpAddressType": {
+    "name": "slbSaspAgentIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspAgentIpAddress": {
+    "name": "slbSaspAgentIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspAgentPort": {
+    "name": "slbSaspAgentPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspAgentLabel": {
+    "name": "slbSaspAgentLabel",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbSaspAgentState": {
+    "name": "slbSaspAgentState",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlbSaspAgentState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspAgentLastStateChange": {
+    "name": "slbSaspAgentLastStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspAgentRowStatus": {
+    "name": "slbSaspAgentRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbSaspGroupTable": {
+    "name": "slbSaspGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspGroupTableEntry": {
+    "name": "slbSaspGroupTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbSaspGroupName": {
+    "name": "slbSaspGroupName",
+    "oid": "1.3.6.1.4.1.9.9.161.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspGroupRowStatus": {
+    "name": "slbSaspGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbSaspMemberTable": {
+    "name": "slbSaspMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspMemberTableEntry": {
+    "name": "slbSaspMemberTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbSaspMemberIpAddressType": {
+    "name": "slbSaspMemberIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspMemberIpAddress": {
+    "name": "slbSaspMemberIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspMemberPort": {
+    "name": "slbSaspMemberPort",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspMemberProtocol": {
+    "name": "slbSaspMemberProtocol",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoIpProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspMemberSaspWeight": {
+    "name": "slbSaspMemberSaspWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspMemberConfidentWeight": {
+    "name": "slbSaspMemberConfidentWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspMemberConvertedWeight": {
+    "name": "slbSaspMemberConvertedWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspMemberDefaultWeight": {
+    "name": "slbSaspMemberDefaultWeight",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbSaspMemberWeightChanges": {
+    "name": "slbSaspMemberWeightChanges",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspMemberLastWeightChange": {
+    "name": "slbSaspMemberLastWeightChange",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspMemberRowStatus": {
+    "name": "slbSaspMemberRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.161.1.15.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slbSaspStatsTable": {
+    "name": "slbSaspStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slbSaspStatsTableEntry": {
+    "name": "slbSaspStatsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbEntity",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slbSaspStatsTxRegMsgs": {
+    "name": "slbSaspStatsTxRegMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsTxDeregMsgs": {
+    "name": "slbSaspStatsTxDeregMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsTxGetWeightMsgs": {
+    "name": "slbSaspStatsTxGetWeightMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsTxSetLBStateMsgs": {
+    "name": "slbSaspStatsTxSetLBStateMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsTxSetMemStateMsgs": {
+    "name": "slbSaspStatsTxSetMemStateMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsRxSendWeightMsgs": {
+    "name": "slbSaspStatsRxSendWeightMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsRxRegMsgs": {
+    "name": "slbSaspStatsRxRegMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsRxDeregMsgs": {
+    "name": "slbSaspStatsRxDeregMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsRxGetWeightMsgs": {
+    "name": "slbSaspStatsRxGetWeightMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsRxSetLBStateMsgs": {
+    "name": "slbSaspStatsRxSetLBStateMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slbSaspStatsRxSetMemStateMsgs": {
+    "name": "slbSaspStatsRxSetMemStateMsgs",
+    "oid": "1.3.6.1.4.1.9.9.161.1.16.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSlbMIBNotificationPrefix": {
+    "name": "ciscoSlbMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.161.2",
+    "class": "objectidentity"
+  },
+  "ciscoSlbMIBNotifications": {
+    "name": "ciscoSlbMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0",
+    "class": "objectidentity"
+  },
+  "ciscoSlbVirtualStateChange": {
+    "name": "ciscoSlbVirtualStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualServerState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbRealStateChange": {
+    "name": "ciscoSlbRealStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealState"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbSaspStateChange": {
+    "name": "ciscoSlbSaspStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbSaspAgentStateChange": {
+    "name": "ciscoSlbSaspAgentStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVServerStateChange": {
+    "name": "ciscoSlbVServerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerStateChangeDescr"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClassMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPolicyMap"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVServerVIPStateChange": {
+    "name": "ciscoSlbVServerVIPStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerStateChangeDescr"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClassMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPolicyMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerIpAddressType"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerIpAddress"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVirtualServerStateChange": {
+    "name": "ciscoSlbVirtualServerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalParentRelPos"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualServerState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualIpAddress"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualProtocol"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualPort"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbRealServerStateChange": {
+    "name": "ciscoSlbRealServerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.161.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalParentRelPos"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbInetAddressType"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbInetAddress"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbPort"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbMIBConformance": {
+    "name": "ciscoSlbMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.161.3",
+    "class": "objectidentity"
+  },
+  "ciscoSlbMIBCompliances": {
+    "name": "ciscoSlbMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSlbMIBGroups": {
+    "name": "ciscoSlbMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSlbMIBCompliance": {
+    "name": "ciscoSlbMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlbStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpPasswordGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbServerFarmsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbRealServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbConnectionsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualClientsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbStickyObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpRealGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbMIBComplianceRev1": {
+    "name": "ciscoSlbMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlbStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpPasswordGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbServerFarmsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbRealServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbConnectionsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualClientsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbStickyObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpRealGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbMIBComplianceRev2": {
+    "name": "ciscoSlbMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlbStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpPasswordGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbServerFarmsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbRealServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbConnectionsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualClientsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbStickyObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpRealGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroupGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspMemberGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbMIBComplianceRev3": {
+    "name": "ciscoSlbMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlbStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpPasswordGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbServerFarmsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbRealServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbConnectionsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbStickyObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpRealGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroupGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspMemberGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualClientsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerInfoGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerIPGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbMIBComplianceRev4": {
+    "name": "ciscoSlbMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlbStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpPasswordGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbServerFarmsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbRealServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbConnectionsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbStickyObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpRealGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifEnabledGroupRev2",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifGroupRev2",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroupGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspMemberGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualClientsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerInfoGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerIPGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbMIBComplianceRev5": {
+    "name": "ciscoSlbMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlbStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpPasswordGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbServerFarmsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbRealServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbConnectionsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbStickyObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpRealGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifEnabledGroupRev2",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifGroupRev2",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroupGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspMemberGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualClientsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerInfoGroupRev1",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerIPGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbMIBComplianceRev6": {
+    "name": "ciscoSlbMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.161.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSlbStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpPasswordGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbServerFarmsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbRealServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbConnectionsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbStickyObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbDfpRealGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifEnabledGroupRev2",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifGroupRev2",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspAgentGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspGroupGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspMemberGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspStatsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbSaspNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualServersGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVirtualClientsGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerInfoGroupRev2",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerIPGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifEnabledGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbVServerNotifGroup",
+        "module": "CISCO-SLB-MIB"
+      },
+      {
+        "object": "ciscoSlbNotifObjectsGroup",
+        "module": "CISCO-SLB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbStatsGroup": {
+    "name": "ciscoSlbStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsUnassistedSwitchingPkts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsUnassistedSwitchingHCPks"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsAssistedSwitchingPkts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsAssistedSwitchingHCPkts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsCreatedConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsCreatedHCConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsEstablishedConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsEstablishedHCConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsDestroyedConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsDestroyedHCConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsReassignedConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsReassignedHCConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsZombies"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStatsHCZombies"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbServerFarmsGroup": {
+    "name": "ciscoSlbServerFarmsGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmPredictor"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmNat"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmNumberOfRealServers"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmBindId"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbServerFarmRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbRealServersGroup": {
+    "name": "ciscoSlbRealServersGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealNumberOfConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealNumberOfDummyConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealMaxConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealAdminWeight"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealOperWeight"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealMetric"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealReassign"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealRetryInterval"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealFailedConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealFailedClients"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealConsecutiveFails"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealTotalFails"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealTotalConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbRealHCTotalConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVirtualServersGroup": {
+    "name": "ciscoSlbVirtualServersGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualServerState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualIndex"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualIpAddress"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualPort"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualProtocol"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualService"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualAdvertise"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualFarmName"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualDelayTimer"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualIdleTimer"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualStickyTimer"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualStickyGroup"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualSynguardCount"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualSynguardPeriod"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualRowStatus"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualNumberOfConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualTotalConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualHCTotalConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbConnectionsGroup": {
+    "name": "ciscoSlbConnectionsGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionRealIpAddr"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionServerPort"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionNumCacheEntries"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbConnectionSynCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVirtualClientsGroup": {
+    "name": "ciscoSlbVirtualClientsGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualClientExclude"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualClientRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbStickyObjectsGroup": {
+    "name": "ciscoSlbStickyObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStickyObjectRealIpAddress"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStickyObjectConnectionCount"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStickyObjectFtpControlCount"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbStickyObjectRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbDfpPasswordGroup": {
+    "name": "ciscoSlbDfpPasswordGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpPasswordPending"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpPasswordTimeout"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpPasswordRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbDfpAgentGroup": {
+    "name": "ciscoSlbDfpAgentGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpAgentState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpAgentTimeout"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpAgentRetryCount"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpAgentInterval"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpAgentRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbDfpRealGroup": {
+    "name": "ciscoSlbDfpRealGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpRealWeight"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbDfpRealRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbNotifEnabledGroup": {
+    "name": "ciscoSlbNotifEnabledGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "cSlbVirtStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "cSlbRealStateChangeNotifEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbVirtualServersAddGroup": {
+    "name": "ciscoSlbVirtualServersAddGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVirtualMask"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbNotifGroup": {
+    "name": "ciscoSlbNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbVirtualStateChange"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbRealStateChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbSaspGroup": {
+    "name": "ciscoSlbSaspGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspIdentifier"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspEnabled"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspHealth"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspRedundancy"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMaxAgents"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMaxLbWeight"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbSaspAgentGroup": {
+    "name": "ciscoSlbSaspAgentGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentLabel"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentLastStateChange"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspAgentRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbSaspGroupGroup": {
+    "name": "ciscoSlbSaspGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbSaspMemberGroup": {
+    "name": "ciscoSlbSaspMemberGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberSaspWeight"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberConfidentWeight"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberConvertedWeight"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberDefaultWeight"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberWeightChanges"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberLastWeightChange"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspMemberRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbSaspStatsGroup": {
+    "name": "ciscoSlbSaspStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsTxRegMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsTxDeregMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsTxGetWeightMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsTxSetLBStateMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsTxSetMemStateMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsRxSendWeightMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsRxRegMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsRxDeregMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsRxGetWeightMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsRxSetLBStateMsgs"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbSaspStatsRxSetMemStateMsgs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbSaspNotifGroup": {
+    "name": "ciscoSlbSaspNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbSaspStateChange"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbSaspAgentStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVServerInfoGroup": {
+    "name": "ciscoSlbVServerInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClassMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPolicyMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerStateChangeDescr"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerNumberOfConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerTotalConnections"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbVServerIPGroup": {
+    "name": "ciscoSlbVServerIPGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerIpAddressType"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerIpAddress"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerIpMask"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerProtocol"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPortLow"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPortHigh"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerStorageType"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVServerNotifEnabledGroup": {
+    "name": "ciscoSlbVServerNotifEnabledGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "cSlbVServerStateChangeNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVServerNotifGroup": {
+    "name": "ciscoSlbVServerNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.24",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbVServerStateChange"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbVServerVIPStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbNotifObjectsGroup": {
+    "name": "ciscoSlbNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbInetAddressType"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbInetAddress"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbName"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbNotifEnabledGroupRev2": {
+    "name": "ciscoSlbNotifEnabledGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "cSlbVirtualServerStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "cSlbRealServerStateChangeNotifEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbNotifGroupRev2": {
+    "name": "ciscoSlbNotifGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.27",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbVirtualServerStateChange"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "ciscoSlbRealServerStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSlbVServerInfoGroupRev1": {
+    "name": "ciscoSlbVServerInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClassMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPolicyMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerStateChangeDescr"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerNumberOfConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerTotalConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerDroppedConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClientPacketCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPacketCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClientByteCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerByteCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerMaxConnLimitDropCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerConnRateLimitDropCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerBWRateLimitDropCounts"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoSlbVServerInfoGroupRev2": {
+    "name": "ciscoSlbVServerInfoGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.161.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClassMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPolicyMap"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerState"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerStateChangeDescr"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerNumberOfConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerTotalConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerDroppedConnections"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClientPacketCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerPacketCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerClientByteCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerByteCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerMaxConnLimitDropCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerConnRateLimitDropCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerBandWidthRateLimitDropCounts"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerL4Decisions"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerL7Decisions"
+      },
+      {
+        "module": "CISCO-SLB-MIB",
+        "object": "slbVServerEstablishedConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SLB-MIB"
+  }
+}

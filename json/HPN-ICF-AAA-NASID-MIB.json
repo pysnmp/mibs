@@ -1,0 +1,100 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfAAANasId": {
+    "name": "hpnicfAAANasId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-03-09 09:45",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hpnicfAAANasIdObjects": {
+    "name": "hpnicfAAANasIdObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1",
+    "class": "objectidentity"
+  },
+  "hpnicfAAANasIdTable": {
+    "name": "hpnicfAAANasIdTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfAAANasIdEntry": {
+    "name": "hpnicfAAANasIdEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-AAA-NASID-MIB",
+        "object": "hpnicfAAANasIdName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfAAANasIdName": {
+    "name": "hpnicfAAANasIdName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.114.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-AAA-NASID-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-AAA-NASID-MIB"
+  }
+}

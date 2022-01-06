@@ -1,0 +1,1819 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfNat": {
+    "name": "hpnicfNat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-01-20 15:18",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfNATGlobalVars": {
+    "name": "hpnicfNATGlobalVars",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1",
+    "class": "objectidentity"
+  },
+  "hpnicfNATClearSession": {
+    "name": "hpnicfNATClearSession",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfNATClearSessionSlotNo": {
+    "name": "hpnicfNATClearSessionSlotNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLConnectLimitPara": {
+    "name": "hpnicfNATBLConnectLimitPara",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfNATBLConnectHighValue": {
+    "name": "hpnicfNATBLConnectHighValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLConnectLowValue": {
+    "name": "hpnicfNATBLConnectLowValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLConnectHighRate": {
+    "name": "hpnicfNATBLConnectHighRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 21474836
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 250,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLConnectLowRate": {
+    "name": "hpnicfNATBLConnectLowRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 21474836
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLSpecialConnectHighRate": {
+    "name": "hpnicfNATBLSpecialConnectHighRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 21474836
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 250,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLSpecialConnectLowRate": {
+    "name": "hpnicfNATBLSpecialConnectLowRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 21474836
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLCtrlEnable": {
+    "name": "hpnicfNATBLCtrlEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfNATBLConnectSumEnable": {
+    "name": "hpnicfNATBLConnectSumEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLConnectRateEnable": {
+    "name": "hpnicfNATBLConnectRateEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATNPTimer": {
+    "name": "hpnicfNATNPTimer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfNATNPAgingTime": {
+    "name": "hpnicfNATNPAgingTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fast": 1,
+          "slow": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fast",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATMibObjects": {
+    "name": "hpnicfNATMibObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2",
+    "class": "objectidentity"
+  },
+  "hpnicfNATPoolInfoTable": {
+    "name": "hpnicfNATPoolInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATPoolInfoEntry": {
+    "name": "hpnicfNATPoolInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATPoolIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATPoolIdx": {
+    "name": "hpnicfNATPoolIdx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 320
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATPoolStartIpAddr": {
+    "name": "hpnicfNATPoolStartIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATPoolEndIpAddr": {
+    "name": "hpnicfNATPoolEndIpAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATPoolSlotNo": {
+    "name": "hpnicfNATPoolSlotNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATPoolRefCounter": {
+    "name": "hpnicfNATPoolRefCounter",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATPoolRowStatus": {
+    "name": "hpnicfNATPoolRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATOutboundTable": {
+    "name": "hpnicfNATOutboundTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATOutboundEntry": {
+    "name": "hpnicfNATOutboundEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATOutboundAclNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATOutboundAclNo": {
+    "name": "hpnicfNATOutboundAclNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 3999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATOutboundPoolIdx": {
+    "name": "hpnicfNATOutboundPoolIdx",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 320
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATOutboundIsNoPat": {
+    "name": "hpnicfNATOutboundIsNoPat",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATOutboundSlotNo": {
+    "name": "hpnicfNATOutboundSlotNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATOutboundRowStatus": {
+    "name": "hpnicfNATOutboundRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATServerTable": {
+    "name": "hpnicfNATServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATServerEntry": {
+    "name": "hpnicfNATServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATServerProType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATServerGlobalIP",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATServerStartGlobalPort",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATServerVpnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATServerProType": {
+    "name": "hpnicfNATServerProType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATServerGlobalIP": {
+    "name": "hpnicfNATServerGlobalIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATServerStartGlobalPort": {
+    "name": "hpnicfNATServerStartGlobalPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATServerEndGlobalPort": {
+    "name": "hpnicfNATServerEndGlobalPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATServerStartInsideIP": {
+    "name": "hpnicfNATServerStartInsideIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATServerEndInsideIP": {
+    "name": "hpnicfNATServerEndInsideIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATServerInsidePort": {
+    "name": "hpnicfNATServerInsidePort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATServerSlotNo": {
+    "name": "hpnicfNATServerSlotNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATServerVpnIndex": {
+    "name": "hpnicfNATServerVpnIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATServerAclNumber": {
+    "name": "hpnicfNATServerAclNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATServerRowStatus": {
+    "name": "hpnicfNATServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATTimeOutTable": {
+    "name": "hpnicfNATTimeOutTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATTimeOutEntry": {
+    "name": "hpnicfNATTimeOutEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATTimeOutProtocol",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATTimeOutProtocol": {
+    "name": "hpnicfNATTimeOutProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "udp": 2,
+          "icmp": 3,
+          "pptp": 4,
+          "dns": 5,
+          "tcpFin": 6,
+          "tcpSyn": 7,
+          "ftpCtrl": 8,
+          "ftpData": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATTimeOutTimeValue": {
+    "name": "hpnicfNATTimeOutTimeValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLEnableTable": {
+    "name": "hpnicfNATBLEnableTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATBLEnableEntry": {
+    "name": "hpnicfNATBLEnableEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATBLEnableSlotNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATBLEnableSlotNo": {
+    "name": "hpnicfNATBLEnableSlotNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATBLEnable": {
+    "name": "hpnicfNATBLEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATBLIPConnectLimitParaTable": {
+    "name": "hpnicfNATBLIPConnectLimitParaTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATBLIPConnectLimitParaEntry": {
+    "name": "hpnicfNATBLIPConnectLimitParaEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATBLIPConnectLimitParaIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATBLIPConnectLimitParaIP": {
+    "name": "hpnicfNATBLIPConnectLimitParaIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATBLIPConnectHighValue": {
+    "name": "hpnicfNATBLIPConnectHighValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATBLIPConnectLowValue": {
+    "name": "hpnicfNATBLIPConnectLowValue",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATBLIPUseSpecialConnectRate": {
+    "name": "hpnicfNATBLIPUseSpecialConnectRate",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATBLIPConnectLimitRowStatus": {
+    "name": "hpnicfNATBLIPConnectLimitRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATBLManagerTable": {
+    "name": "hpnicfNATBLManagerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATBLManagerEntry": {
+    "name": "hpnicfNATBLManagerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATBLIpAdress",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATBLSlotNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATBLIpAdress": {
+    "name": "hpnicfNATBLIpAdress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATBLSlotNo": {
+    "name": "hpnicfNATBLSlotNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATBLConSum": {
+    "name": "hpnicfNATBLConSum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATBLConSpd": {
+    "name": "hpnicfNATBLConSpd",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "red": 1,
+          "yellow": 2,
+          "green": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatTable": {
+    "name": "hpnicfNATStatTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATStatEntry": {
+    "name": "hpnicfNATStatEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATStatNATBoardNo",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATStatNATBoardNo": {
+    "name": "hpnicfNATStatNATBoardNo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 14
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATStatActiveTblCount": {
+    "name": "hpnicfNATStatActiveTblCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatActiveTblCountInNP": {
+    "name": "hpnicfNATStatActiveTblCountInNP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatActiveNatTblCount": {
+    "name": "hpnicfNATStatActiveNatTblCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatActiveSvrTblCount": {
+    "name": "hpnicfNATStatActiveSvrTblCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatActivePoolTblCount": {
+    "name": "hpnicfNATStatActivePoolTblCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatNumOfUsedPort": {
+    "name": "hpnicfNATStatNumOfUsedPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatNumOfGoodPkt": {
+    "name": "hpnicfNATStatNumOfGoodPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStatNumOfBadPkt": {
+    "name": "hpnicfNATStatNumOfBadPkt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStaticSessionCount": {
+    "name": "hpnicfNATStaticSessionCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATFragmentSessionCount": {
+    "name": "hpnicfNATFragmentSessionCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATSequenceSessionCount": {
+    "name": "hpnicfNATSequenceSessionCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATLogCount": {
+    "name": "hpnicfNATLogCount",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATSessionTable": {
+    "name": "hpnicfNATSessionTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionEntry": {
+    "name": "hpnicfNATSessionEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATSessionHashNumber",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATSessionProtocol",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATSessionInsideIP",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATSessionInsidePort",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATSessionPeerIP",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATSessionPeerPort",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATSessionVpnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATSessionHashNumber": {
+    "name": "hpnicfNATSessionHashNumber",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionProtocol": {
+    "name": "hpnicfNATSessionProtocol",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionGlobalIP": {
+    "name": "hpnicfNATSessionGlobalIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATSessionGlobalPort": {
+    "name": "hpnicfNATSessionGlobalPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATSessionInsideIP": {
+    "name": "hpnicfNATSessionInsideIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionInsidePort": {
+    "name": "hpnicfNATSessionInsidePort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionPeerIP": {
+    "name": "hpnicfNATSessionPeerIP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionPeerPort": {
+    "name": "hpnicfNATSessionPeerPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionVpnIndex": {
+    "name": "hpnicfNATSessionVpnIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATSessionTTL": {
+    "name": "hpnicfNATSessionTTL",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATSessionStatus": {
+    "name": "hpnicfNATSessionStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATSessionLeftTime": {
+    "name": "hpnicfNATSessionLeftTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfNATStaticConfTable": {
+    "name": "hpnicfNATStaticConfTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATStaticConfEntry": {
+    "name": "hpnicfNATStaticConfEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATStaticInsideIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATStaticInsideIp": {
+    "name": "hpnicfNATStaticInsideIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATStaticGlobalIp": {
+    "name": "hpnicfNATStaticGlobalIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATStaticRowStatus": {
+    "name": "hpnicfNATStaticRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATStaticEnableTable": {
+    "name": "hpnicfNATStaticEnableTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATStaticEnableEntry": {
+    "name": "hpnicfNATStaticEnableEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATStaticEnable": {
+    "name": "hpnicfNATStaticEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNATDnsMapTable": {
+    "name": "hpnicfNATDnsMapTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATDnsMapEntry": {
+    "name": "hpnicfNATDnsMapEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-NAT-MIB",
+        "object": "hpnicfNATDnsMapDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNATDnsMapDomainName": {
+    "name": "hpnicfNATDnsMapDomainName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfNATDnsMapGlobalIp": {
+    "name": "hpnicfNATDnsMapGlobalIp",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATDnsMapGlobalPort": {
+    "name": "hpnicfNATDnsMapGlobalPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATDnsMapProtocolType": {
+    "name": "hpnicfNATDnsMapProtocolType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 0,
+          "typeTCP": 1,
+          "typeUDP": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATDnsMapLastUseTime": {
+    "name": "hpnicfNATDnsMapLastUseTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfNATDnsMapRowStatus": {
+    "name": "hpnicfNATDnsMapRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.18.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-NAT-MIB"
+  }
+}

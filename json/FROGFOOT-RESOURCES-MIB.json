@@ -1,0 +1,534 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "resources": {
+    "name": "resources",
+    "oid": "1.3.6.1.4.1.10002.1.1.1",
+    "class": "moduleidentity"
+  },
+  "frogfoot": {
+    "name": "frogfoot",
+    "oid": "1.3.6.1.4.1.10002",
+    "class": "objectidentity"
+  },
+  "servers": {
+    "name": "servers",
+    "oid": "1.3.6.1.4.1.10002.1",
+    "class": "objectidentity"
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.4.1.10002.1.1",
+    "class": "objectidentity"
+  },
+  "memory": {
+    "name": "memory",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "swap": {
+    "name": "swap",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "storage": {
+    "name": "storage",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "load": {
+    "name": "load",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "resMIB": {
+    "name": "resMIB",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31",
+    "class": "objectidentity"
+  },
+  "resMIBObjects": {
+    "name": "resMIBObjects",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.1",
+    "class": "objectidentity"
+  },
+  "resConformance": {
+    "name": "resConformance",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2",
+    "class": "objectidentity"
+  },
+  "resGroups": {
+    "name": "resGroups",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2.1",
+    "class": "objectidentity"
+  },
+  "resCompliances": {
+    "name": "resCompliances",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2.2",
+    "class": "objectidentity"
+  },
+  "TableIndex": {
+    "name": "TableIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "memTotal": {
+    "name": "memTotal",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memFree": {
+    "name": "memFree",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memBuffer": {
+    "name": "memBuffer",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memCache": {
+    "name": "memCache",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swapTotal": {
+    "name": "swapTotal",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "swapFree": {
+    "name": "swapFree",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskNumber": {
+    "name": "diskNumber",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTable": {
+    "name": "diskTable",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskEntry": {
+    "name": "diskEntry",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "diskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskIndex": {
+    "name": "diskIndex",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskDev": {
+    "name": "diskDev",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskDir": {
+    "name": "diskDir",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskFSType": {
+    "name": "diskFSType",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "adfs": 1,
+          "affs": 2,
+          "coda": 3,
+          "cramfs": 4,
+          "ext2": 5,
+          "hpfs": 6,
+          "iso9660": 7,
+          "jffs2": 8,
+          "jfs": 9,
+          "minix": 10,
+          "msdos": 11,
+          "ncpfs": 12,
+          "nfs": 13,
+          "ntfs": 14,
+          "qnx4": 15,
+          "reiserfs": 16,
+          "romfs": 17,
+          "smbfs": 18,
+          "sysv": 19,
+          "tmpfs": 20,
+          "udf": 21,
+          "ufs": 22,
+          "vxfs": 23,
+          "xfs": 24
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTotal": {
+    "name": "diskTotal",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskFree": {
+    "name": "diskFree",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loadNumber": {
+    "name": "loadNumber",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loadTable": {
+    "name": "loadTable",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "loadEntry": {
+    "name": "loadEntry",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "loadIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "loadIndex": {
+    "name": "loadIndex",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "loadDescr": {
+    "name": "loadDescr",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "loadValue": {
+    "name": "loadValue",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "resCompliance": {
+    "name": "resCompliance",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "resMemGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      },
+      {
+        "object": "resSwapGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      },
+      {
+        "object": "resDiskGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      },
+      {
+        "object": "resLoadGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      },
+      {
+        "object": "resMemGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      },
+      {
+        "object": "resSwapGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      },
+      {
+        "object": "resDiskGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      },
+      {
+        "object": "resLoadGroup",
+        "module": "FROGFOOT-RESOURCES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "resMemGroup": {
+    "name": "resMemGroup",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "memTotal"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "memFree"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "memBuffer"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "memCache"
+      }
+    ],
+    "status": "current"
+  },
+  "resSwapGroup": {
+    "name": "resSwapGroup",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "swapTotal"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "swapFree"
+      }
+    ],
+    "status": "current"
+  },
+  "resDiskGroup": {
+    "name": "resDiskGroup",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "diskNumber"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "diskDev"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "diskDir"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "diskFSType"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "diskTotal"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "diskFree"
+      }
+    ],
+    "status": "current"
+  },
+  "resLoadGroup": {
+    "name": "resLoadGroup",
+    "oid": "1.3.6.1.4.1.10002.1.1.1.31.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "loadNumber"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "loadDescr"
+      },
+      {
+        "module": "FROGFOOT-RESOURCES-MIB",
+        "object": "loadValue"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/FROGFOOT-RESOURCES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FROGFOOT-RESOURCES-MIB"
+  }
+}

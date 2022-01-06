@@ -1,0 +1,923 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VMWARE-PRODUCTS-MIB": [
+      "vmwESX"
+    ],
+    "VMWARE-RESOURCES-MIB": [
+      "vmwCPU",
+      "vmwMemory"
+    ],
+    "VMWARE-ROOT-MIB": [
+      "vmwResources",
+      "vmwNotifications",
+      "vmwTraps",
+      "vmwObsolete"
+    ],
+    "VMWARE-VMINFO-MIB": [
+      "vmwVmID",
+      "vmwVmConfigFilePath"
+    ]
+  },
+  "vmwObsoleteMIB": {
+    "name": "vmwObsoleteMIB",
+    "oid": "1.3.6.1.4.1.6876.800.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-10-15 11:59",
+        "description": "This is the first version of this mib module. Objects from VMWARE-RESOURCES-MIB, VMWARE-TRAPS-MIB moved here."
+      }
+    ]
+  },
+  "vmkLoaded": {
+    "name": "vmkLoaded",
+    "oid": "1.3.6.1.4.1.6876.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwCpuTable": {
+    "name": "vmwCpuTable",
+    "oid": "1.3.6.1.4.1.6876.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "vmwCpuEntry": {
+    "name": "vmwCpuEntry",
+    "oid": "1.3.6.1.4.1.6876.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwCpuVMID",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwCpuVMID": {
+    "name": "vmwCpuVMID",
+    "oid": "1.3.6.1.4.1.6876.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmwCpuShares": {
+    "name": "vmwCpuShares",
+    "oid": "1.3.6.1.4.1.6876.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "unknown",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwCpuUtil": {
+    "name": "vmwCpuUtil",
+    "oid": "1.3.6.1.4.1.6876.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmwMemTable": {
+    "name": "vmwMemTable",
+    "oid": "1.3.6.1.4.1.6876.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "vmwMemEntry": {
+    "name": "vmwMemEntry",
+    "oid": "1.3.6.1.4.1.6876.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwMemVMID",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwMemVMID": {
+    "name": "vmwMemVMID",
+    "oid": "1.3.6.1.4.1.6876.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "vmwMemShares": {
+    "name": "vmwMemShares",
+    "oid": "1.3.6.1.4.1.6876.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "unknown",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwMemConfigured": {
+    "name": "vmwMemConfigured",
+    "oid": "1.3.6.1.4.1.6876.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwMemUtil": {
+    "name": "vmwMemUtil",
+    "oid": "1.3.6.1.4.1.6876.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwHBATable": {
+    "name": "vmwHBATable",
+    "oid": "1.3.6.1.4.1.6876.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "vmwHBAEntry": {
+    "name": "vmwHBAEntry",
+    "oid": "1.3.6.1.4.1.6876.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwHbaIdx",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwHbaIdx": {
+    "name": "vmwHbaIdx",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "vmwHbaName": {
+    "name": "vmwHbaName",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwHbaVMID": {
+    "name": "vmwHbaVMID",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwDiskShares": {
+    "name": "vmwDiskShares",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNumReads": {
+    "name": "vmwNumReads",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwKbRead": {
+    "name": "vmwKbRead",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNumWrites": {
+    "name": "vmwNumWrites",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwKbWritten": {
+    "name": "vmwKbWritten",
+    "oid": "1.3.6.1.4.1.6876.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetTable": {
+    "name": "vmwNetTable",
+    "oid": "1.3.6.1.4.1.6876.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "vmwNetEntry": {
+    "name": "vmwNetEntry",
+    "oid": "1.3.6.1.4.1.6876.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetIdx",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwNetIdx": {
+    "name": "vmwNetIdx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "vmwNetName": {
+    "name": "vmwNetName",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetVMID": {
+    "name": "vmwNetVMID",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetIfAddr": {
+    "name": "vmwNetIfAddr",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetShares": {
+    "name": "vmwNetShares",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetPktsTx": {
+    "name": "vmwNetPktsTx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetKbTx": {
+    "name": "vmwNetKbTx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetPktsRx": {
+    "name": "vmwNetPktsRx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetKbRx": {
+    "name": "vmwNetKbRx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetHCPktsTx": {
+    "name": "vmwNetHCPktsTx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetHCKbTx": {
+    "name": "vmwNetHCKbTx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetHCPktsRx": {
+    "name": "vmwNetHCPktsRx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vmwNetHCKbRx": {
+    "name": "vmwNetHCKbRx",
+    "oid": "1.3.6.1.4.1.6876.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "vpxdTrapType": {
+    "name": "vpxdTrapType",
+    "oid": "1.3.6.1.4.1.6876.50.301",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vpxdHostName": {
+    "name": "vpxdHostName",
+    "oid": "1.3.6.1.4.1.6876.50.302",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vpxdVMName": {
+    "name": "vpxdVMName",
+    "oid": "1.3.6.1.4.1.6876.50.303",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vpxdOldStatus": {
+    "name": "vpxdOldStatus",
+    "oid": "1.3.6.1.4.1.6876.50.304",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vpxdNewStatus": {
+    "name": "vpxdNewStatus",
+    "oid": "1.3.6.1.4.1.6876.50.305",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vpxdObjValue": {
+    "name": "vpxdObjValue",
+    "oid": "1.3.6.1.4.1.6876.50.306",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vmPoweredOn": {
+    "name": "vmPoweredOn",
+    "oid": "1.3.6.1.4.1.6876.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmID"
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmConfigFilePath"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmPoweredOff": {
+    "name": "vmPoweredOff",
+    "oid": "1.3.6.1.4.1.6876.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmID"
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmConfigFilePath"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmHBLost": {
+    "name": "vmHBLost",
+    "oid": "1.3.6.1.4.1.6876.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmID"
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmConfigFilePath"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmHBDetected": {
+    "name": "vmHBDetected",
+    "oid": "1.3.6.1.4.1.6876.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmID"
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmConfigFilePath"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmSuspended": {
+    "name": "vmSuspended",
+    "oid": "1.3.6.1.4.1.6876.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmID"
+      },
+      {
+        "module": "VMWARE-VMINFO-MIB",
+        "object": "vmwVmConfigFilePath"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vpxdTrap": {
+    "name": "vpxdTrap",
+    "oid": "1.3.6.1.4.1.6876.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdTrapType"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdHostName"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdVMName"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdNewStatus"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdOldStatus"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdObjValue"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwObsoleteMIBConformance": {
+    "name": "vmwObsoleteMIBConformance",
+    "oid": "1.3.6.1.4.1.6876.800.1.2",
+    "class": "objectidentity"
+  },
+  "vmwObsoleteMIBCompliances": {
+    "name": "vmwObsoleteMIBCompliances",
+    "oid": "1.3.6.1.4.1.6876.800.1.2.1",
+    "class": "objectidentity"
+  },
+  "vmwObsMIBGroups": {
+    "name": "vmwObsMIBGroups",
+    "oid": "1.3.6.1.4.1.6876.800.1.2.2",
+    "class": "objectidentity"
+  },
+  "vmwObsoleteObsoleteMIBCompliance": {
+    "name": "vmwObsoleteObsoleteMIBCompliance",
+    "oid": "1.3.6.1.4.1.6876.800.1.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vmwObsoleteGroup",
+        "module": "VMWARE-OBSOLETE-MIB"
+      },
+      {
+        "object": "vmwOldVCNotificationGroup",
+        "module": "VMWARE-OBSOLETE-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwObsoleteGroup": {
+    "name": "vmwObsoleteGroup",
+    "oid": "1.3.6.1.4.1.6876.800.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmkLoaded"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwCpuShares"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwCpuUtil"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwMemShares"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwMemConfigured"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwMemUtil"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwHbaName"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwHbaVMID"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwDiskShares"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNumReads"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwKbRead"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNumWrites"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwKbWritten"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetName"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetVMID"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetIfAddr"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetShares"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetPktsTx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetKbTx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetPktsRx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetKbRx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetHCPktsTx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetHCKbTx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetHCPktsRx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmwNetHCKbRx"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdTrapType"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdHostName"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdVMName"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdOldStatus"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdNewStatus"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdObjValue"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vmwOldVCNotificationGroup": {
+    "name": "vmwOldVCNotificationGroup",
+    "oid": "1.3.6.1.4.1.6876.800.1.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vpxdTrap"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmPoweredOn"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmPoweredOff"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmHBLost"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmHBDetected"
+      },
+      {
+        "module": "VMWARE-OBSOLETE-MIB",
+        "object": "vmSuspended"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-OBSOLETE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "VMWARE-OBSOLETE-MIB"
+  }
+}

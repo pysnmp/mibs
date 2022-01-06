@@ -1,0 +1,1211 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Unsigned64"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalEntry",
+      "entPhysicalName",
+      "entPhysicalContainedIn",
+      "entPhysicalIndex",
+      "entPhysicalDescr"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEntityExtMIB": {
+    "name": "ciscoEntityExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.195",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-17 00:00",
+        "description": "Added ceExtUSBModemTable, ceExtUSBModemPlugInNotif, ceExtUSBModemPlugOutNotif, ceExtEntUsbModemNotifEnable."
+      },
+      {
+        "revision": "2014-09-12 00:00",
+        "description": "Changed the description ceExtEntDoorOpenNotif to include ceExtEntDoorOpenNotif instead of ceExtEntDoorCloseNotif."
+      },
+      {
+        "revision": "2014-03-27 00:00",
+        "description": "Changed the Max Access of ceExtEntDoorNotifEnable from read-only to read-write."
+      },
+      {
+        "revision": "2013-08-06 00:00",
+        "description": "Added following object to ciscoEntityExtMIBNotifications ceExtBreakOutPortInserted ceExtBreakOutPortRemoved Added following object to ceExtNotificationControlObjects ceExtBreakOutPortNotifEnable Added the following new groups to ciscoEntityExtMIBGroups ceExtBreakOutPortNotifGroup ceExtBreakOutPortNotifControlGroup. Added a new compliance ciscoEntityExtMIBComplianceRev5 which deprecates ciscoEntityExtMIBComplianceRev4 A port can be configured to act as multiple interfaces. Ex: One Hundred GigE port can act as 10 TenGigE interface Breakout is the term that can be used to define this behaviour. Alternatively slice term is also used. When a breakout config is applied on the interface, the base interface will be replaced with multiple breakout interfaces. Reference to the base interface will be removed from the system and breakout interface will be made available. Vice versa will happen when breakout config will be removed from the system."
+      },
+      {
+        "revision": "2013-08-05 00:00",
+        "description": "Added following new objects to ciscoEntityExtMIBNotifications. ceExtEntDoorCloseNotif ceExtEntDoorOpenNotif Added following new groups to ciscoEntityExtMIBGroups. ceExtNotificationControlObjects. Added following new objects to ceExtNotificationControlObjects ceExtEntDoorNotifEnable. Added the following new groups to ciscoEntityExtMIBGroups ceExtEntDoorNotifGroup ceExtEntDoorNotifControlGroup. Added a new compliance ciscoEntityExtMIBComplianceRev4 which deprecates ciscoEntityExtMIBComplianceRev3."
+      },
+      {
+        "revision": "2008-11-24 00:00",
+        "description": "Added following new objects to ceExtPhysicalProcessorTable. ceExtProcessorRamOverflow and ceExtHCProcessorRam Added following new groups to ciscoEntityExtMIBGroups. ceExtPhyProcessorOverflowGroup and ceExtPhyProcessorHCGroup. Added a new compliance ciscoEntityExtMIBComplianceRev3 which deprecates ciscoEntityExtMIBComplianceRev2."
+      },
+      {
+        "revision": "2004-07-06 00:00",
+        "description": "Added a new table object 'ceExtEntPhysicalTable' ."
+      },
+      {
+        "revision": "2004-03-03 00:00",
+        "description": "Importing Unsigned32 from SNMPv2-SMI, instead of CISCO-TC."
+      },
+      {
+        "revision": "2004-01-26 00:00",
+        "description": "Added new enum to ceExtEntityLEDType."
+      },
+      {
+        "revision": "2003-08-24 00:00",
+        "description": "Added ceExtEntityLEDTable. Added ceExtKickstartImageList to ceExtConfigRegTable. Added new group ciscoEntityExtLEDGroup. Added group ceExtSysBootImageListGroupRev1."
+      },
+      {
+        "revision": "2001-05-17 00:00",
+        "description": "Corrected the description for the TC ConfigRegisterValue."
+      },
+      {
+        "revision": "2001-04-05 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEntityExtMIBObjects": {
+    "name": "ciscoEntityExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.195.1",
+    "class": "objectidentity"
+  },
+  "ConfigRegisterValue": {
+    "name": "ConfigRegisterValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "2x",
+    "status": "current"
+  },
+  "BootImageList": {
+    "name": "BootImageList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ceExtPhysicalProcessorTable": {
+    "name": "ceExtPhysicalProcessorTable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceExtPhysicalProcessorEntry": {
+    "name": "ceExtPhysicalProcessorEntry",
+    "oid": "1.3.6.1.4.1.9.9.195.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtProcessorRam": {
+    "name": "ceExtProcessorRam",
+    "oid": "1.3.6.1.4.1.9.9.195.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtNVRAMSize": {
+    "name": "ceExtNVRAMSize",
+    "oid": "1.3.6.1.4.1.9.9.195.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtNVRAMUsed": {
+    "name": "ceExtNVRAMUsed",
+    "oid": "1.3.6.1.4.1.9.9.195.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtProcessorRamOverflow": {
+    "name": "ceExtProcessorRamOverflow",
+    "oid": "1.3.6.1.4.1.9.9.195.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtHCProcessorRam": {
+    "name": "ceExtHCProcessorRam",
+    "oid": "1.3.6.1.4.1.9.9.195.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtConfigRegTable": {
+    "name": "ceExtConfigRegTable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceExtConfigRegEntry": {
+    "name": "ceExtConfigRegEntry",
+    "oid": "1.3.6.1.4.1.9.9.195.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtConfigRegister": {
+    "name": "ceExtConfigRegister",
+    "oid": "1.3.6.1.4.1.9.9.195.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigRegisterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtConfigRegNext": {
+    "name": "ceExtConfigRegNext",
+    "oid": "1.3.6.1.4.1.9.9.195.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigRegisterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceExtSysBootImageList": {
+    "name": "ceExtSysBootImageList",
+    "oid": "1.3.6.1.4.1.9.9.195.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BootImageList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceExtKickstartImageList": {
+    "name": "ceExtKickstartImageList",
+    "oid": "1.3.6.1.4.1.9.9.195.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BootImageList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceExtEntityLEDTable": {
+    "name": "ceExtEntityLEDTable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceExtEntityLEDEntry": {
+    "name": "ceExtEntityLEDEntry",
+    "oid": "1.3.6.1.4.1.9.9.195.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtEntityLEDType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtEntityLEDType": {
+    "name": "ceExtEntityLEDType",
+    "oid": "1.3.6.1.4.1.9.9.195.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "status": 1,
+          "system": 2,
+          "active": 3,
+          "power": 4,
+          "battery": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceExtEntityLEDColor": {
+    "name": "ceExtEntityLEDColor",
+    "oid": "1.3.6.1.4.1.9.9.195.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "green": 2,
+          "amber": 3,
+          "red": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtEntPhysicalTable": {
+    "name": "ceExtEntPhysicalTable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceExtEntPhysicalEntry": {
+    "name": "ceExtEntPhysicalEntry",
+    "oid": "1.3.6.1.4.1.9.9.195.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ceExtEntPhysicalEntry",
+      "module": "CISCO-ENTITY-EXT-MIB",
+      "object": "entPhysicalEntry"
+    },
+    "status": "current"
+  },
+  "ceEntPhysicalSecondSerialNum": {
+    "name": "ceEntPhysicalSecondSerialNum",
+    "oid": "1.3.6.1.4.1.9.9.195.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceExtNotificationControlObjects": {
+    "name": "ceExtNotificationControlObjects",
+    "oid": "1.3.6.1.4.1.9.9.195.1.5",
+    "class": "objectidentity"
+  },
+  "ceExtEntDoorNotifEnable": {
+    "name": "ceExtEntDoorNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceExtEntBreakOutPortNotifEnable": {
+    "name": "ceExtEntBreakOutPortNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtEntUsbModemNotifEnable": {
+    "name": "ceExtEntUsbModemNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceExtUSBModemTable": {
+    "name": "ceExtUSBModemTable",
+    "oid": "1.3.6.1.4.1.9.9.195.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceExtUSBModemEntry": {
+    "name": "ceExtUSBModemEntry",
+    "oid": "1.3.6.1.4.1.9.9.195.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtUSBModemIMEI": {
+    "name": "ceExtUSBModemIMEI",
+    "oid": "1.3.6.1.4.1.9.9.195.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtUSBModemIMSI": {
+    "name": "ceExtUSBModemIMSI",
+    "oid": "1.3.6.1.4.1.9.9.195.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtUSBModemServiceProvider": {
+    "name": "ceExtUSBModemServiceProvider",
+    "oid": "1.3.6.1.4.1.9.9.195.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtUSBModemSignalStrength": {
+    "name": "ceExtUSBModemSignalStrength",
+    "oid": "1.3.6.1.4.1.9.9.195.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceExtMIBNotificationPrefix": {
+    "name": "ceExtMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.195.2",
+    "class": "objectidentity"
+  },
+  "ciscoEntityExtMIBNotifications": {
+    "name": "ciscoEntityExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.195.2.0",
+    "class": "objectidentity"
+  },
+  "ceExtEntDoorCloseNotif": {
+    "name": "ceExtEntDoorCloseNotif",
+    "oid": "1.3.6.1.4.1.9.9.195.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtEntDoorOpenNotif": {
+    "name": "ceExtEntDoorOpenNotif",
+    "oid": "1.3.6.1.4.1.9.9.195.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtBreakOutPortInserted": {
+    "name": "ceExtBreakOutPortInserted",
+    "oid": "1.3.6.1.4.1.9.9.195.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtBreakOutPortRemoved": {
+    "name": "ceExtBreakOutPortRemoved",
+    "oid": "1.3.6.1.4.1.9.9.195.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtUSBModemPlugInNotif": {
+    "name": "ceExtUSBModemPlugInNotif",
+    "oid": "1.3.6.1.4.1.9.9.195.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtUSBModemPlugOutNotif": {
+    "name": "ceExtUSBModemPlugOutNotif",
+    "oid": "1.3.6.1.4.1.9.9.195.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalContainedIn"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityExtMIBConformance": {
+    "name": "ciscoEntityExtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.195.3",
+    "class": "objectidentity"
+  },
+  "ciscoEntityExtMIBCompliances": {
+    "name": "ciscoEntityExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityExtMIBGroups": {
+    "name": "ciscoEntityExtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoEntityExtMIBCompliance": {
+    "name": "ciscoEntityExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceExtPhysicalProcessorGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtConfigRegGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityExtMIBComplianceRev1": {
+    "name": "ciscoEntityExtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceExtPhysicalProcessorGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtConfigRegGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtLEDGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroupRev1",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityExtMIBComplianceRev2": {
+    "name": "ciscoEntityExtMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceExtPhysicalProcessorGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtConfigRegGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtLEDGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroupRev1",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoExtEntityPhysicalGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityExtMIBComplianceRev3": {
+    "name": "ciscoEntityExtMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceExtPhysicalProcessorGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtConfigRegGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtLEDGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroupRev1",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoExtEntityPhysicalGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorOverflowGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorHCGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityExtMIBComplianceRev4": {
+    "name": "ciscoEntityExtMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceExtPhysicalProcessorGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtConfigRegGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtLEDGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroupRev1",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoExtEntityPhysicalGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorOverflowGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorHCGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtEntDoorNotifGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtEntDoorNotifControlGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityExtMIBComplianceRev5": {
+    "name": "ciscoEntityExtMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceExtPhysicalProcessorGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtConfigRegGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtLEDGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroupRev1",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoExtEntityPhysicalGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorOverflowGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorHCGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtEntDoorNotifGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtEntDoorNotifControlGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtBreakOutPortNotifGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtBreakOutPortNotifControlGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoEntityExtMIBComplianceRev6": {
+    "name": "ciscoEntityExtMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.195.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceExtPhysicalProcessorGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtConfigRegGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoEntityExtLEDGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtSysBootImageListGroupRev1",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoExtEntityPhysicalGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorOverflowGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtPhyProcessorHCGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtEntDoorNotifGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtEntDoorNotifControlGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtBreakOutPortNotifGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtBreakOutPortNotifControlGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtUSBModemGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtUsbModemNotificationsGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "ceExtUsbModemNotifControlGroup",
+        "module": "CISCO-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtPhysicalProcessorGroup": {
+    "name": "ceExtPhysicalProcessorGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtProcessorRam"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtNVRAMSize"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtNVRAMUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityExtConfigRegGroup": {
+    "name": "ciscoEntityExtConfigRegGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtConfigRegister"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtConfigRegNext"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtSysBootImageListGroup": {
+    "name": "ceExtSysBootImageListGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtSysBootImageList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoEntityExtLEDGroup": {
+    "name": "ciscoEntityExtLEDGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtEntityLEDColor"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtSysBootImageListGroupRev1": {
+    "name": "ceExtSysBootImageListGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtKickstartImageList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtEntityPhysicalGroup": {
+    "name": "ciscoExtEntityPhysicalGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceEntPhysicalSecondSerialNum"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtPhyProcessorOverflowGroup": {
+    "name": "ceExtPhyProcessorOverflowGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtProcessorRamOverflow"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtPhyProcessorHCGroup": {
+    "name": "ceExtPhyProcessorHCGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtHCProcessorRam"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtEntDoorNotifGroup": {
+    "name": "ceExtEntDoorNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtEntDoorCloseNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtEntDoorOpenNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtEntDoorNotifControlGroup": {
+    "name": "ceExtEntDoorNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtEntDoorNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtBreakOutPortNotifGroup": {
+    "name": "ceExtBreakOutPortNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtBreakOutPortInserted"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtBreakOutPortRemoved"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtBreakOutPortNotifControlGroup": {
+    "name": "ceExtBreakOutPortNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtEntBreakOutPortNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtUSBModemGroup": {
+    "name": "ceExtUSBModemGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtUSBModemIMEI"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtUSBModemIMSI"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtUSBModemServiceProvider"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtUSBModemSignalStrength"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtUsbModemNotificationsGroup": {
+    "name": "ceExtUsbModemNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtUSBModemPlugInNotif"
+      },
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtUSBModemPlugOutNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "ceExtUsbModemNotifControlGroup": {
+    "name": "ceExtUsbModemNotifControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.195.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-EXT-MIB",
+        "object": "ceExtEntUsbModemNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-EXT-MIB"
+  }
+}

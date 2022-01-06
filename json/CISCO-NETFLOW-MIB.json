@@ -1,0 +1,2858 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAutonomousSystemNumber",
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoNetflowMIB": {
+    "name": "ciscoNetflowMIB",
+    "oid": "1.3.6.1.4.1.9.9.387",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-04-27 00:00",
+        "description": "Added the following Group: cnfTopFlowsReportGenerateGroup"
+      },
+      {
+        "revision": "2006-04-20 00:00",
+        "description": "Added the cache type expBgpPrefix"
+      },
+      {
+        "revision": "2005-08-30 00:00",
+        "description": "Added the following Groups: cnfMcastNetflowControlGroup cnfBridgedFlowStatsCtrlGroup"
+      },
+      {
+        "revision": "2005-03-27 00:00",
+        "description": "Removed OBJECT IDENTIFIER ::= { ciscoNetflowMIBObjects 3 }."
+      },
+      {
+        "revision": "2004-05-18 00:00",
+        "description": "Added the following objects: cnfTopFlowsGenerate cnfTopFlowsReportAvailable cnfTopFlowsVlan Deprecated the Group cnfTopFlowsGroup. Added the following Groups: cnfTopFlowsDataGroup1 cnfTopFlowsDataGroup2 cnfTopFlowsVlanGroup cnfTopFlowsControlGroup1 cnfTopFlowsControlGroup2"
+      },
+      {
+        "revision": "2004-01-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoNetflowMIBNotifs": {
+    "name": "ciscoNetflowMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.387.0",
+    "class": "objectidentity"
+  },
+  "ciscoNetflowMIBObjects": {
+    "name": "ciscoNetflowMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.387.1",
+    "class": "objectidentity"
+  },
+  "ciscoNetflowMIBConform": {
+    "name": "ciscoNetflowMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.387.2",
+    "class": "objectidentity"
+  },
+  "cnfCacheInfo": {
+    "name": "cnfCacheInfo",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1",
+    "class": "objectidentity"
+  },
+  "cnfExportInfo": {
+    "name": "cnfExportInfo",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2",
+    "class": "objectidentity"
+  },
+  "cnfExportStatistics": {
+    "name": "cnfExportStatistics",
+    "oid": "1.3.6.1.4.1.9.9.387.1.4",
+    "class": "objectidentity"
+  },
+  "cnfProtocolStatistics": {
+    "name": "cnfProtocolStatistics",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5",
+    "class": "objectidentity"
+  },
+  "cnfExportTemplate": {
+    "name": "cnfExportTemplate",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6",
+    "class": "objectidentity"
+  },
+  "cnfTopFlows": {
+    "name": "cnfTopFlows",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7",
+    "class": "objectidentity"
+  },
+  "NfInterfaceDirectionTypes": {
+    "name": "NfInterfaceDirectionTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceDirNone": 0,
+          "interfaceDirIngress": 1,
+          "interfaceDirEgress": 2,
+          "interfaceDirBoth": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NfCacheTypes": {
+    "name": "NfCacheTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 0,
+          "as": 1,
+          "protocolPort": 2,
+          "sourcePrefix": 3,
+          "destinationPrefix": 4,
+          "prefix": 5,
+          "destinationOnly": 6,
+          "sourceDestination": 7,
+          "fullFlow": 8,
+          "asTos": 9,
+          "protocolPortTos": 10,
+          "sourcePrefixTos": 11,
+          "destinationPrefixTos": 12,
+          "prefixTos": 13,
+          "prefixPort": 14,
+          "bgpNexthopTos": 15,
+          "expBgpPrefix": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NfProtocolTypes": {
+    "name": "NfProtocolTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcpTelnet": 1,
+          "tcpFtp": 2,
+          "tcpFtpd": 3,
+          "tcpWww": 4,
+          "tcpSmtp": 5,
+          "tcpX": 6,
+          "tcpBgp": 7,
+          "tcpNntp": 8,
+          "tcpFrag": 9,
+          "tcpOther": 10,
+          "udpDns": 11,
+          "udpNtp": 12,
+          "udpTftp": 13,
+          "udpFrag": 14,
+          "udpOther": 15,
+          "icmp": 16,
+          "igmp": 17,
+          "ipInIp": 18,
+          "ipv6InIp": 19,
+          "gre": 20,
+          "ipOther": 21,
+          "all": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NfTemplateTypes": {
+    "name": "NfTemplateTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "template": 1,
+          "optionTemplate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NfTopFlowsSortTypes": {
+    "name": "NfTopFlowsSortTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSort": 1,
+          "byPackets": 2,
+          "byBytes": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NfFlowDirectionTypes": {
+    "name": "NfFlowDirectionTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flowDirNone": 0,
+          "flowDirIngress": 1,
+          "flowDirEgress": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cnfCIInterfaceTable": {
+    "name": "cnfCIInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfCIInterfaceEntry": {
+    "name": "cnfCIInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfCINetflowEnable": {
+    "name": "cnfCINetflowEnable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NfInterfaceDirectionTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIMcastNetflowEnable": {
+    "name": "cnfCIMcastNetflowEnable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NfInterfaceDirectionTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCICacheTable": {
+    "name": "cnfCICacheTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfCICacheEntry": {
+    "name": "cnfCICacheEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCICacheType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfCICacheType": {
+    "name": "cnfCICacheType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NfCacheTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfCICacheEnable": {
+    "name": "cnfCICacheEnable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCICacheEntries": {
+    "name": "cnfCICacheEntries",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIActiveFlows": {
+    "name": "cnfCIActiveFlows",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfCIInactiveFlows": {
+    "name": "cnfCIInactiveFlows",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfCIActiveTimeOut": {
+    "name": "cnfCIActiveTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIInactiveTimeOut": {
+    "name": "cnfCIInactiveTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIMinSourceMask": {
+    "name": "cnfCIMinSourceMask",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIMinDestinationMask": {
+    "name": "cnfCIMinDestinationMask",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIBridgedFlowStatsCtrlTable": {
+    "name": "cnfCIBridgedFlowStatsCtrlTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfCIBridgedFlowStatsCtrlEntry": {
+    "name": "cnfCIBridgedFlowStatsCtrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIBridgedFlowVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfCIBridgedFlowVlan": {
+    "name": "cnfCIBridgedFlowVlan",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfCIBridgedFlowStatsCrtEnable": {
+    "name": "cnfCIBridgedFlowStatsCrtEnable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIBridgedFlowStatsExpEnable": {
+    "name": "cnfCIBridgedFlowStatsExpEnable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfCIMcastNetflowRPFFailedEnable": {
+    "name": "cnfCIMcastNetflowRPFFailedEnable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfEIExportInfoTable": {
+    "name": "cnfEIExportInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfEIExportInfoEntry": {
+    "name": "cnfEIExportInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCICacheType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfEIExportVersion": {
+    "name": "cnfEIExportVersion",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfEIPeerAS": {
+    "name": "cnfEIPeerAS",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfEIOriginAS": {
+    "name": "cnfEIOriginAS",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfEIBgpNextHop": {
+    "name": "cnfEIBgpNextHop",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfEIMaxCollectors": {
+    "name": "cnfEIMaxCollectors",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfEICollectorTable": {
+    "name": "cnfEICollectorTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfEICollectorEntry": {
+    "name": "cnfEICollectorEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCICacheType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEICollectorAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEICollectorAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEICollectorPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfEICollectorAddressType": {
+    "name": "cnfEICollectorAddressType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfEICollectorAddress": {
+    "name": "cnfEICollectorAddress",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfEICollectorPort": {
+    "name": "cnfEICollectorPort",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfEICollectorStatus": {
+    "name": "cnfEICollectorStatus",
+    "oid": "1.3.6.1.4.1.9.9.387.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cnfESSampledPacket": {
+    "name": "cnfESSampledPacket",
+    "oid": "1.3.6.1.4.1.9.9.387.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfESExportRate": {
+    "name": "cnfESExportRate",
+    "oid": "1.3.6.1.4.1.9.9.387.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfESRecordsExported": {
+    "name": "cnfESRecordsExported",
+    "oid": "1.3.6.1.4.1.9.9.387.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfESPktsExported": {
+    "name": "cnfESPktsExported",
+    "oid": "1.3.6.1.4.1.9.9.387.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfESPktsFailed": {
+    "name": "cnfESPktsFailed",
+    "oid": "1.3.6.1.4.1.9.9.387.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfESPktsDropped": {
+    "name": "cnfESPktsDropped",
+    "oid": "1.3.6.1.4.1.9.9.387.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfPSPacketSizeDistribution": {
+    "name": "cnfPSPacketSizeDistribution",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 52,
+            "max": 52
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfPSLastClearElapsedTime": {
+    "name": "cnfPSLastClearElapsedTime",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfPSProtocolStatTable": {
+    "name": "cnfPSProtocolStatTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfPSProtocolStatEntry": {
+    "name": "cnfPSProtocolStatEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfPSProtocolType": {
+    "name": "cnfPSProtocolType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NfProtocolTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfPSExpiredFlows": {
+    "name": "cnfPSExpiredFlows",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfPSPackets": {
+    "name": "cnfPSPackets",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfPSBytes": {
+    "name": "cnfPSBytes",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfPSActive": {
+    "name": "cnfPSActive",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfPSInactive": {
+    "name": "cnfPSInactive",
+    "oid": "1.3.6.1.4.1.9.9.387.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTemplateOptionsFlag": {
+    "name": "cnfTemplateOptionsFlag",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTemplateTable": {
+    "name": "cnfTemplateTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfTemplateEntry": {
+    "name": "cnfTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTemplateType": {
+    "name": "cnfTemplateType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NfTemplateTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfTemplateAdded": {
+    "name": "cnfTemplateAdded",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTemplateActive": {
+    "name": "cnfTemplateActive",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTemplateAgerPolls": {
+    "name": "cnfTemplateAgerPolls",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTemplateExportInfoTable": {
+    "name": "cnfTemplateExportInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfTemplateExportInfoEntry": {
+    "name": "cnfTemplateExportInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCICacheType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTemplateExportVer9Enable": {
+    "name": "cnfTemplateExportVer9Enable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTemplateExportVer9TplTimeout": {
+    "name": "cnfTemplateExportVer9TplTimeout",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTemplateExportVer9OptTimeout": {
+    "name": "cnfTemplateExportVer9OptTimeout",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTemplateExportVer9TplRefreshRate": {
+    "name": "cnfTemplateExportVer9TplRefreshRate",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTemplateExportVer9OptRefreshRate": {
+    "name": "cnfTemplateExportVer9OptRefreshRate",
+    "oid": "1.3.6.1.4.1.9.9.387.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsTimeStamp": {
+    "name": "cnfTopFlowsTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsTopN": {
+    "name": "cnfTopFlowsTopN",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsAvailableFlows": {
+    "name": "cnfTopFlowsAvailableFlows",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchingFlows": {
+    "name": "cnfTopFlowsMatchingFlows",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsTotalFlows": {
+    "name": "cnfTopFlowsTotalFlows",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsSortBy": {
+    "name": "cnfTopFlowsSortBy",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NfTopFlowsSortTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsCacheTimeout": {
+    "name": "cnfTopFlowsCacheTimeout",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsTable": {
+    "name": "cnfTopFlowsTable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfTopFlowsTableEntry": {
+    "name": "cnfTopFlowsTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTopFlowsIndex": {
+    "name": "cnfTopFlowsIndex",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cnfTopFlowsSrcAddressType": {
+    "name": "cnfTopFlowsSrcAddressType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsSrcAddress": {
+    "name": "cnfTopFlowsSrcAddress",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsSrcAddressMask": {
+    "name": "cnfTopFlowsSrcAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsDstAddressType": {
+    "name": "cnfTopFlowsDstAddressType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsDstAddress": {
+    "name": "cnfTopFlowsDstAddress",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsDstAddressMask": {
+    "name": "cnfTopFlowsDstAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsNhAddressType": {
+    "name": "cnfTopFlowsNhAddressType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsNhAddress": {
+    "name": "cnfTopFlowsNhAddress",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsSrcPort": {
+    "name": "cnfTopFlowsSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsDstPort": {
+    "name": "cnfTopFlowsDstPort",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsSrcAS": {
+    "name": "cnfTopFlowsSrcAS",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsDstAS": {
+    "name": "cnfTopFlowsDstAS",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsInputIfIndex": {
+    "name": "cnfTopFlowsInputIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsOutputIfIndex": {
+    "name": "cnfTopFlowsOutputIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsFirstSwitched": {
+    "name": "cnfTopFlowsFirstSwitched",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsLastSwitched": {
+    "name": "cnfTopFlowsLastSwitched",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsTOS": {
+    "name": "cnfTopFlowsTOS",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsProtocol": {
+    "name": "cnfTopFlowsProtocol",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsTCPFlags": {
+    "name": "cnfTopFlowsTCPFlags",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsSamplerID": {
+    "name": "cnfTopFlowsSamplerID",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsClassID": {
+    "name": "cnfTopFlowsClassID",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsFlags": {
+    "name": "cnfTopFlowsFlags",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsBytes": {
+    "name": "cnfTopFlowsBytes",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsPackets": {
+    "name": "cnfTopFlowsPackets",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsVlan": {
+    "name": "cnfTopFlowsVlan",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchSrcAddressType": {
+    "name": "cnfTopFlowsMatchSrcAddressType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchSrcAddress": {
+    "name": "cnfTopFlowsMatchSrcAddress",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchSrcAddressMask": {
+    "name": "cnfTopFlowsMatchSrcAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchDstAddressType": {
+    "name": "cnfTopFlowsMatchDstAddressType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchDstAddress": {
+    "name": "cnfTopFlowsMatchDstAddress",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchDstAddressMask": {
+    "name": "cnfTopFlowsMatchDstAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchNhAddressType": {
+    "name": "cnfTopFlowsMatchNhAddressType",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchNhAddress": {
+    "name": "cnfTopFlowsMatchNhAddress",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchNhAddressMask": {
+    "name": "cnfTopFlowsMatchNhAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchSrcPortLo": {
+    "name": "cnfTopFlowsMatchSrcPortLo",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchSrcPortHi": {
+    "name": "cnfTopFlowsMatchSrcPortHi",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchDstPortLo": {
+    "name": "cnfTopFlowsMatchDstPortLo",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchDstPortHi": {
+    "name": "cnfTopFlowsMatchDstPortHi",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchSrcAS": {
+    "name": "cnfTopFlowsMatchSrcAS",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchDstAS": {
+    "name": "cnfTopFlowsMatchDstAS",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchInputIf": {
+    "name": "cnfTopFlowsMatchInputIf",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchOutputIf": {
+    "name": "cnfTopFlowsMatchOutputIf",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchTOSByte": {
+    "name": "cnfTopFlowsMatchTOSByte",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchProtocol": {
+    "name": "cnfTopFlowsMatchProtocol",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchSampler": {
+    "name": "cnfTopFlowsMatchSampler",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchClass": {
+    "name": "cnfTopFlowsMatchClass",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchMinPackets": {
+    "name": "cnfTopFlowsMatchMinPackets",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchMaxPackets": {
+    "name": "cnfTopFlowsMatchMaxPackets",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchMinBytes": {
+    "name": "cnfTopFlowsMatchMinBytes",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchMaxBytes": {
+    "name": "cnfTopFlowsMatchMaxBytes",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsMatchDirection": {
+    "name": "cnfTopFlowsMatchDirection",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NfFlowDirectionTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsGenerate": {
+    "name": "cnfTopFlowsGenerate",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cnfTopFlowsReportAvailable": {
+    "name": "cnfTopFlowsReportAvailable",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsNextGenActionEffect": {
+    "name": "cnfTopFlowsNextGenActionEffect",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOp": 1,
+          "generate": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfTopFlowsReportSource": {
+    "name": "cnfTopFlowsReportSource",
+    "oid": "1.3.6.1.4.1.9.9.387.1.7.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "hardware": 2,
+          "software": 3,
+          "both": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnfMIBCompliances": {
+    "name": "cnfMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.387.2.1",
+    "class": "objectidentity"
+  },
+  "cnfMIBGroups": {
+    "name": "cnfMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2",
+    "class": "objectidentity"
+  },
+  "cnfMIBCompliance": {
+    "name": "cnfMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.387.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnfCacheInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfProtocolStatGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportStatisticsGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportTemplateGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cnfMIBCompliance1": {
+    "name": "cnfMIBCompliance1",
+    "oid": "1.3.6.1.4.1.9.9.387.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnfCacheInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfProtocolStatGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportStatisticsGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportTemplateGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsDataGroup1",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsDataGroup2",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsVlanGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsControlGroup1",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsControlGroup2",
+        "module": "CISCO-NETFLOW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cnfMIBCompliance2": {
+    "name": "cnfMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.387.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnfCacheInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfProtocolStatGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportStatisticsGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportTemplateGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsDataGroup1",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsDataGroup2",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsVlanGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsControlGroup1",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsControlGroup2",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfMcastNetflowControlGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfBridgedFlowStatsCtrlGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cnfMIBCompliance3": {
+    "name": "cnfMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.387.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cnfCacheInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfProtocolStatGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportInfoGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportStatisticsGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfExportTemplateGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsDataGroup1",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsDataGroup2",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsVlanGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsControlGroup1",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsControlGroup2",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfMcastNetflowControlGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfBridgedFlowStatsCtrlGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      },
+      {
+        "object": "cnfTopFlowsReportGenerateGroup",
+        "module": "CISCO-NETFLOW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfCacheInfoGroup": {
+    "name": "cnfCacheInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCINetflowEnable"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCICacheEnable"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCICacheEntries"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIActiveFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIInactiveFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIActiveTimeOut"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIInactiveTimeOut"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIMinSourceMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIMinDestinationMask"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfProtocolStatGroup": {
+    "name": "cnfProtocolStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSPacketSizeDistribution"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSLastClearElapsedTime"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSExpiredFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSPackets"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSBytes"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSActive"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfPSInactive"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfExportInfoGroup": {
+    "name": "cnfExportInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEIExportVersion"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEIPeerAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEIOriginAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEIBgpNextHop"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEIMaxCollectors"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfEICollectorStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfExportStatisticsGroup": {
+    "name": "cnfExportStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfESSampledPacket"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfESExportRate"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfESRecordsExported"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfESPktsExported"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfESPktsFailed"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfESPktsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfExportTemplateGroup": {
+    "name": "cnfExportTemplateGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateOptionsFlag"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateAdded"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateActive"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateAgerPolls"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateExportVer9Enable"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateExportVer9TplTimeout"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateExportVer9OptTimeout"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateExportVer9TplRefreshRate"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTemplateExportVer9OptRefreshRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTopFlowsGroup": {
+    "name": "cnfTopFlowsGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTimeStamp"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTopN"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsAvailableFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchingFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTotalFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSortBy"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsCacheTimeout"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsNhAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsNhAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcPort"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstPort"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsInputIfIndex"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsOutputIfIndex"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsFirstSwitched"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsLastSwitched"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTOS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsProtocol"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTCPFlags"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSamplerID"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsClassID"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsFlags"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsBytes"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsPackets"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchNhAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchNhAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchNhAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcPortLo"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcPortHi"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstPortLo"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstPortHi"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchInputIf"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchOutputIf"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchTOSByte"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchProtocol"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSampler"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchClass"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMinPackets"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMaxPackets"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMinBytes"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMaxBytes"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDirection"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cnfTopFlowsDataGroup1": {
+    "name": "cnfTopFlowsDataGroup1",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTimeStamp"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTopN"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsAvailableFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTotalFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSortBy"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcPort"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstPort"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsProtocol"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsBytes"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTopFlowsDataGroup2": {
+    "name": "cnfTopFlowsDataGroup2",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsCacheTimeout"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsNhAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsNhAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSrcAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsDstAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsInputIfIndex"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsOutputIfIndex"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsFirstSwitched"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsLastSwitched"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTOS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsTCPFlags"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsSamplerID"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsClassID"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsFlags"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTopFlowsVlanGroup": {
+    "name": "cnfTopFlowsVlanGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTopFlowsControlGroup1": {
+    "name": "cnfTopFlowsControlGroup1",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchingFlows"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchNhAddressType"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchNhAddress"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchNhAddressMask"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcPortLo"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcPortHi"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstPortLo"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstPortHi"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSrcAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDstAS"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchInputIf"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchOutputIf"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchTOSByte"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchProtocol"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchSampler"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchClass"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMinPackets"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMaxPackets"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMinBytes"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchMaxBytes"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsMatchDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTopFlowsControlGroup2": {
+    "name": "cnfTopFlowsControlGroup2",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsGenerate"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsReportAvailable"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfMcastNetflowControlGroup": {
+    "name": "cnfMcastNetflowControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIMcastNetflowEnable"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIMcastNetflowRPFFailedEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfBridgedFlowStatsCtrlGroup": {
+    "name": "cnfBridgedFlowStatsCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIBridgedFlowStatsCrtEnable"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfCIBridgedFlowStatsExpEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cnfTopFlowsReportGenerateGroup": {
+    "name": "cnfTopFlowsReportGenerateGroup",
+    "oid": "1.3.6.1.4.1.9.9.387.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsNextGenActionEffect"
+      },
+      {
+        "module": "CISCO-NETFLOW-MIB",
+        "object": "cnfTopFlowsReportSource"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NETFLOW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NETFLOW-MIB"
+  }
+}

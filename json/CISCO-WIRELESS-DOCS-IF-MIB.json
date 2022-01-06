@@ -1,0 +1,2476 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-WIRELESS-TC-MIB": [
+      "CwrdBm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoWirelessDocsIfMib": {
+    "name": "ciscoWirelessDocsIfMib",
+    "oid": "1.3.6.1.4.1.9.9.167",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-27 10:03",
+        "description": "Imported Unsigned32 from SNMPv2-SMI."
+      },
+      {
+        "revision": "2000-06-07 10:03",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "cwdIfMibObjects": {
+    "name": "cwdIfMibObjects",
+    "oid": "1.3.6.1.4.1.9.9.167.1",
+    "class": "objectidentity"
+  },
+  "cwdIfBaseObjects": {
+    "name": "cwdIfBaseObjects",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1",
+    "class": "objectidentity"
+  },
+  "cwdIfSuObjects": {
+    "name": "cwdIfSuObjects",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2",
+    "class": "objectidentity"
+  },
+  "cwdIfHeObjects": {
+    "name": "cwdIfHeObjects",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3",
+    "class": "objectidentity"
+  },
+  "cwdIfChannelTable": {
+    "name": "cwdIfChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfChannelEntry": {
+    "name": "cwdIfChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfChannelUpFrequency": {
+    "name": "cwdIfChannelUpFrequency",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfChannelUpWidth": {
+    "name": "cwdIfChannelUpWidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfChannelDownFrequency": {
+    "name": "cwdIfChannelDownFrequency",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfChannelDownWidth": {
+    "name": "cwdIfChannelDownWidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfChannelMiniSlotTimeBaseTick": {
+    "name": "cwdIfChannelMiniSlotTimeBaseTick",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 102400000
+          }
+        ]
+      }
+    },
+    "units": "Microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfChannelSubChannelPlanVer": {
+    "name": "cwdIfChannelSubChannelPlanVer",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfDownstreamChannelTable": {
+    "name": "cwdIfDownstreamChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfDownstreamChannelEntry": {
+    "name": "cwdIfDownstreamChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfDownChannelSubChannelNumber": {
+    "name": "cwdIfDownChannelSubChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfDownChannelId": {
+    "name": "cwdIfDownChannelId",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfDownChannelFrequency": {
+    "name": "cwdIfDownChannelFrequency",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfDownChannelWidth": {
+    "name": "cwdIfDownChannelWidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfDownChannelPower": {
+    "name": "cwdIfDownChannelPower",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -80,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfDownChannelModProfileIndex": {
+    "name": "cwdIfDownChannelModProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpstreamChannelTable": {
+    "name": "cwdIfUpstreamChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfUpstreamChannelEntry": {
+    "name": "cwdIfUpstreamChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfUpChannelSubChannelNumber": {
+    "name": "cwdIfUpChannelSubChannelNumber",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpChannelId": {
+    "name": "cwdIfUpChannelId",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfUpChannelFrequency": {
+    "name": "cwdIfUpChannelFrequency",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfUpChannelWidth": {
+    "name": "cwdIfUpChannelWidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfUpChannelTargetPower": {
+    "name": "cwdIfUpChannelTargetPower",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -80,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpChannelModProfileIndex": {
+    "name": "cwdIfUpChannelModProfileIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpChannelSlotSize": {
+    "name": "cwdIfUpChannelSlotSize",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpChannelTxTimingOffset": {
+    "name": "cwdIfUpChannelTxTimingOffset",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfUpChannelRangBackoffStart": {
+    "name": "cwdIfUpChannelRangBackoffStart",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpChannelRangBackoffEnd": {
+    "name": "cwdIfUpChannelRangBackoffEnd",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpChannelTxBackoffStart": {
+    "name": "cwdIfUpChannelTxBackoffStart",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfUpChannelTxBackoffEnd": {
+    "name": "cwdIfUpChannelTxBackoffEnd",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfQosProfileTable": {
+    "name": "cwdIfQosProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfQosProfileEntry": {
+    "name": "cwdIfQosProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfQosProfIndex": {
+    "name": "cwdIfQosProfIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfQosProfPriority": {
+    "name": "cwdIfQosProfPriority",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfQosProfMaxUpBandwidth": {
+    "name": "cwdIfQosProfMaxUpBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfQosProfGuarUpBandwidth": {
+    "name": "cwdIfQosProfGuarUpBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfQosProfMaxDownBandwidth": {
+    "name": "cwdIfQosProfMaxDownBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfQosProfMaxTxBurst": {
+    "name": "cwdIfQosProfMaxTxBurst",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfQosProfBaselinePrivacy": {
+    "name": "cwdIfQosProfBaselinePrivacy",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfQosProfStatus": {
+    "name": "cwdIfQosProfStatus",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfSignalQualityTable": {
+    "name": "cwdIfSignalQualityTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfSignalQualityEntry": {
+    "name": "cwdIfSignalQualityEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfSigQIncludesContention": {
+    "name": "cwdIfSigQIncludesContention",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSigQUnerroreds": {
+    "name": "cwdIfSigQUnerroreds",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSigQCorrecteds": {
+    "name": "cwdIfSigQCorrecteds",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSigQUncorrectables": {
+    "name": "cwdIfSigQUncorrectables",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSigQSignalNoise": {
+    "name": "cwdIfSigQSignalNoise",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CwrdBm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfModulationTable": {
+    "name": "cwdIfModulationTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfModulationEntry": {
+    "name": "cwdIfModulationEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfModIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfModIndex": {
+    "name": "cwdIfModIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfModRowStatus": {
+    "name": "cwdIfModRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfModBandwidth": {
+    "name": "cwdIfModBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "units": "kHz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfModThroughput": {
+    "name": "cwdIfModThroughput",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50000000
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfModBurstLength": {
+    "name": "cwdIfModBurstLength",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "veryShort": 1,
+          "short": 2,
+          "medium": 3,
+          "long": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "medium",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfModMultipathRobustness": {
+    "name": "cwdIfModMultipathRobustness",
+    "oid": "1.3.6.1.4.1.9.9.167.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "high": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "standard",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cwdIfSuMacTable": {
+    "name": "cwdIfSuMacTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfSuMacEntry": {
+    "name": "cwdIfSuMacEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfSuHeAddress": {
+    "name": "cwdIfSuHeAddress",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuCapabilities": {
+    "name": "cwdIfSuCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "atmCells": 0,
+        "concatenation": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuRangingRespTimeout": {
+    "name": "cwdIfSuRangingRespTimeout",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfSuStatusTable": {
+    "name": "cwdIfSuStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfSuStatusEntry": {
+    "name": "cwdIfSuStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfSuStatusValue": {
+    "name": "cwdIfSuStatusValue",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "notReady": 2,
+          "notSynchronized": 3,
+          "phySynchronized": 4,
+          "usParametersAcquired": 5,
+          "rangingComplete": 6,
+          "ipComplete": 7,
+          "todEstablished": 8,
+          "securityEstablished": 9,
+          "paramTransferComplete": 10,
+          "registrationComplete": 11,
+          "operational": 12,
+          "accessDenied": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusCode": {
+    "name": "cwdIfSuStatusCode",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusTxPower": {
+    "name": "cwdIfSuStatusTxPower",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -80,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "units": "dBm - decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusResets": {
+    "name": "cwdIfSuStatusResets",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusLostSyncs": {
+    "name": "cwdIfSuStatusLostSyncs",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusInvalidMaps": {
+    "name": "cwdIfSuStatusInvalidMaps",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusInvalidUcds": {
+    "name": "cwdIfSuStatusInvalidUcds",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusInvalidRangingResp": {
+    "name": "cwdIfSuStatusInvalidRangingResp",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusInvalidRegResp": {
+    "name": "cwdIfSuStatusInvalidRegResp",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusT1Timeouts": {
+    "name": "cwdIfSuStatusT1Timeouts",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusT2Timeouts": {
+    "name": "cwdIfSuStatusT2Timeouts",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusT3Timeouts": {
+    "name": "cwdIfSuStatusT3Timeouts",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusT4Timeouts": {
+    "name": "cwdIfSuStatusT4Timeouts",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuStatusRangingAborteds": {
+    "name": "cwdIfSuStatusRangingAborteds",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuServiceTable": {
+    "name": "cwdIfSuServiceTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfSuServiceEntry": {
+    "name": "cwdIfSuServiceEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfSuServiceId": {
+    "name": "cwdIfSuServiceId",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfSuServiceQosProfile": {
+    "name": "cwdIfSuServiceQosProfile",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuServiceTxSlotsImmed": {
+    "name": "cwdIfSuServiceTxSlotsImmed",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuServiceTxSlotsDed": {
+    "name": "cwdIfSuServiceTxSlotsDed",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuServiceTxRetries": {
+    "name": "cwdIfSuServiceTxRetries",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuServiceTxExceeded": {
+    "name": "cwdIfSuServiceTxExceeded",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuServiceRqRetries": {
+    "name": "cwdIfSuServiceRqRetries",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfSuServiceRqExceeded": {
+    "name": "cwdIfSuServiceRqExceeded",
+    "oid": "1.3.6.1.4.1.9.9.167.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeMacTable": {
+    "name": "cwdIfHeMacTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfHeMacEntry": {
+    "name": "cwdIfHeMacEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfHeCapabilities": {
+    "name": "cwdIfHeCapabilities",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "atmCells": 0,
+        "concatenation": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSyncInterval": {
+    "name": "cwdIfHeSyncInterval",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "Milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfHeUcdInterval": {
+    "name": "cwdIfHeUcdInterval",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "units": "Milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfHeMaxServiceIds": {
+    "name": "cwdIfHeMaxServiceIds",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeInsertionInterval": {
+    "name": "cwdIfHeInsertionInterval",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfHeInvitedRangingAttempts": {
+    "name": "cwdIfHeInvitedRangingAttempts",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfHeStatusTable": {
+    "name": "cwdIfHeStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfHeStatusEntry": {
+    "name": "cwdIfHeStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfHeStatusInvalidRangeReqs": {
+    "name": "cwdIfHeStatusInvalidRangeReqs",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeStatusRangingAborteds": {
+    "name": "cwdIfHeStatusRangingAborteds",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeStatusInvalidRegReqs": {
+    "name": "cwdIfHeStatusInvalidRegReqs",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeStatusFailedRegReqs": {
+    "name": "cwdIfHeStatusFailedRegReqs",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeStatusInvalidDataReqs": {
+    "name": "cwdIfHeStatusInvalidDataReqs",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeStatusT5Timeouts": {
+    "name": "cwdIfHeStatusT5Timeouts",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusTable": {
+    "name": "cwdIfHeSuStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusEntry": {
+    "name": "cwdIfHeSuStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfHeSuStatusIndex": {
+    "name": "cwdIfHeSuStatusIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusMacAddress": {
+    "name": "cwdIfHeSuStatusMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusIpAddress": {
+    "name": "cwdIfHeSuStatusIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusDownChanIfIndex": {
+    "name": "cwdIfHeSuStatusDownChanIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusUpChanIfIndex": {
+    "name": "cwdIfHeSuStatusUpChanIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusRxPower": {
+    "name": "cwdIfHeSuStatusRxPower",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -80,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "units": "dBm Decibel milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusTimingOffset": {
+    "name": "cwdIfHeSuStatusTimingOffset",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusValue": {
+    "name": "cwdIfHeSuStatusValue",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ranging": 2,
+          "rangingAborted": 3,
+          "rangingComplete": 4,
+          "ipComplete": 5,
+          "registrationComplete": 6,
+          "accessDenied": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusIfIndex": {
+    "name": "cwdIfHeSuStatusIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeSuStatusServiceId": {
+    "name": "cwdIfHeSuStatusServiceId",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeServiceTable": {
+    "name": "cwdIfHeServiceTable",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfHeServiceEntry": {
+    "name": "cwdIfHeServiceEntry",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfHeServiceId": {
+    "name": "cwdIfHeServiceId",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwdIfHeServiceSuStatusIndex": {
+    "name": "cwdIfHeServiceSuStatusIndex",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeServiceAdminStatus": {
+    "name": "cwdIfHeServiceAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "destroyed": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfHeServiceQosProfile": {
+    "name": "cwdIfHeServiceQosProfile",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeServiceCreateTime": {
+    "name": "cwdIfHeServiceCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeServiceInOctets": {
+    "name": "cwdIfHeServiceInOctets",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeServiceInPackets": {
+    "name": "cwdIfHeServiceInPackets",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwdIfHeQosProfilePermissions": {
+    "name": "cwdIfHeQosProfilePermissions",
+    "oid": "1.3.6.1.4.1.9.9.167.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "createByManagement": 0,
+        "updateByManagement": 1,
+        "createBySubscriberUnits": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwdIfNotification": {
+    "name": "cwdIfNotification",
+    "oid": "1.3.6.1.4.1.9.9.167.2",
+    "class": "objectidentity"
+  },
+  "cwdIfConformance": {
+    "name": "cwdIfConformance",
+    "oid": "1.3.6.1.4.1.9.9.167.3",
+    "class": "objectidentity"
+  },
+  "cwdIfCompliances": {
+    "name": "cwdIfCompliances",
+    "oid": "1.3.6.1.4.1.9.9.167.3.1",
+    "class": "objectidentity"
+  },
+  "cwdIfGroups": {
+    "name": "cwdIfGroups",
+    "oid": "1.3.6.1.4.1.9.9.167.3.2",
+    "class": "objectidentity"
+  },
+  "cwdIfBasicCompliance": {
+    "name": "cwdIfBasicCompliance",
+    "oid": "1.3.6.1.4.1.9.9.167.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwdIfBasicGroup",
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB"
+      },
+      {
+        "object": "cwdIfSuGroup",
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB"
+      },
+      {
+        "object": "cwdIfHeGroup",
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB"
+      },
+      {
+        "object": "cwdIfQosGroup",
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB"
+      },
+      {
+        "object": "cwdIfQosHeGroup",
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB"
+      },
+      {
+        "object": "cwdIfModGroup",
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfBasicGroup": {
+    "name": "cwdIfBasicGroup",
+    "oid": "1.3.6.1.4.1.9.9.167.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfChannelUpFrequency"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfChannelUpWidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfChannelDownFrequency"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfChannelDownWidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfChannelMiniSlotTimeBaseTick"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfChannelSubChannelPlanVer"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfDownChannelSubChannelNumber"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfDownChannelId"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfDownChannelFrequency"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfDownChannelWidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfDownChannelPower"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfDownChannelModProfileIndex"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelSubChannelNumber"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelId"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelFrequency"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelWidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelTargetPower"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelModProfileIndex"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelSlotSize"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelTxTimingOffset"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelRangBackoffStart"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelRangBackoffEnd"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelTxBackoffStart"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfUpChannelTxBackoffEnd"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSigQIncludesContention"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSigQUnerroreds"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSigQCorrecteds"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSigQUncorrectables"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSigQSignalNoise"
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfHeGroup": {
+    "name": "cwdIfHeGroup",
+    "oid": "1.3.6.1.4.1.9.9.167.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeCapabilities"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSyncInterval"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeUcdInterval"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeMaxServiceIds"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeInsertionInterval"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeInvitedRangingAttempts"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeStatusInvalidRangeReqs"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeStatusRangingAborteds"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeStatusInvalidRegReqs"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeStatusFailedRegReqs"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeStatusInvalidDataReqs"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeStatusT5Timeouts"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusMacAddress"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusIpAddress"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusDownChanIfIndex"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusUpChanIfIndex"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusRxPower"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusTimingOffset"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusValue"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusIfIndex"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeSuStatusServiceId"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeServiceSuStatusIndex"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeServiceAdminStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeServiceQosProfile"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeServiceCreateTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeServiceInOctets"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeServiceInPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfSuGroup": {
+    "name": "cwdIfSuGroup",
+    "oid": "1.3.6.1.4.1.9.9.167.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuHeAddress"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuCapabilities"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuRangingRespTimeout"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusValue"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusCode"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusTxPower"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusResets"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusLostSyncs"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusInvalidMaps"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusInvalidUcds"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusInvalidRangingResp"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusInvalidRegResp"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusT1Timeouts"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusT2Timeouts"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusT3Timeouts"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusT4Timeouts"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuStatusRangingAborteds"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceQosProfile"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceTxSlotsImmed"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceTxSlotsDed"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceTxRetries"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceTxExceeded"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceRqRetries"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfSuServiceRqExceeded"
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfQosGroup": {
+    "name": "cwdIfQosGroup",
+    "oid": "1.3.6.1.4.1.9.9.167.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfPriority"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfMaxUpBandwidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfGuarUpBandwidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfMaxDownBandwidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfMaxTxBurst"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfBaselinePrivacy"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfQosProfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfQosHeGroup": {
+    "name": "cwdIfQosHeGroup",
+    "oid": "1.3.6.1.4.1.9.9.167.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfHeQosProfilePermissions"
+      }
+    ],
+    "status": "current"
+  },
+  "cwdIfModGroup": {
+    "name": "cwdIfModGroup",
+    "oid": "1.3.6.1.4.1.9.9.167.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfModRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfModBandwidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfModThroughput"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfModBurstLength"
+      },
+      {
+        "module": "CISCO-WIRELESS-DOCS-IF-MIB",
+        "object": "cwdIfModMultipathRobustness"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-DOCS-IF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WIRELESS-DOCS-IF-MIB"
+  }
+}

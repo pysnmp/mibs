@@ -1,0 +1,398 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDot11LbsMIB": {
+    "name": "ciscoDot11LbsMIB",
+    "oid": "1.3.6.1.4.1.9.9.454",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-11-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDot11LbsMIBNotifs": {
+    "name": "ciscoDot11LbsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.454.0",
+    "class": "objectidentity"
+  },
+  "ciscoDot11LbsMIBObjects": {
+    "name": "ciscoDot11LbsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.454.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11LbsMIBConformance": {
+    "name": "ciscoDot11LbsMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.454.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11LbsConfigInfo": {
+    "name": "ciscoDot11LbsConfigInfo",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11LbsStatistics": {
+    "name": "ciscoDot11LbsStatistics",
+    "oid": "1.3.6.1.4.1.9.9.454.1.2",
+    "class": "objectidentity"
+  },
+  "Cdot11LbsTrackMethodType": {
+    "name": "Cdot11LbsTrackMethodType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rssi": 0
+      }
+    },
+    "status": "current"
+  },
+  "Cdot11LbsPsPacketType": {
+    "name": "Cdot11LbsPsPacketType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extended": 1,
+          "short": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cdot11LbsProfileTable": {
+    "name": "cdot11LbsProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11LbsProfileEntry": {
+    "name": "cdot11LbsProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11LbsProfileName": {
+    "name": "cdot11LbsProfileName",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11LbsServerAddressType": {
+    "name": "cdot11LbsServerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsServerAddress": {
+    "name": "cdot11LbsServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsServerUdpPort": {
+    "name": "cdot11LbsServerUdpPort",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsTrackMethod": {
+    "name": "cdot11LbsTrackMethod",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cdot11LbsTrackMethodType",
+      "class": "type"
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "rssi": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsPsPacketType": {
+    "name": "cdot11LbsPsPacketType",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cdot11LbsPsPacketType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "extended",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsTrackMulticast": {
+    "name": "cdot11LbsTrackMulticast",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "014096000010",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsMatchChannel": {
+    "name": "cdot11LbsMatchChannel",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsProfileRowStatus": {
+    "name": "cdot11LbsProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11LbsProfInterfaceTable": {
+    "name": "cdot11LbsProfInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11LbsProfInterfaceEntry": {
+    "name": "cdot11LbsProfInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsProfileName",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11LbsProfInterfaceRowStatus": {
+    "name": "cdot11LbsProfInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.454.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoDot11LbsMIBCompliances": {
+    "name": "ciscoDot11LbsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.454.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11LbsMIBGroups": {
+    "name": "ciscoDot11LbsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.454.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11LbsMIBCompliance": {
+    "name": "ciscoDot11LbsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.454.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11LbsConfigGroup",
+        "module": "CISCO-DOT11-LBS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11LbsConfigGroup": {
+    "name": "ciscoDot11LbsConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.454.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsServerAddressType"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsServerAddress"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsServerUdpPort"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsTrackMethod"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsPsPacketType"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsTrackMulticast"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsMatchChannel"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsProfileRowStatus"
+      },
+      {
+        "module": "CISCO-DOT11-LBS-MIB",
+        "object": "cdot11LbsProfInterfaceRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-LBS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DOT11-LBS-MIB"
+  }
+}

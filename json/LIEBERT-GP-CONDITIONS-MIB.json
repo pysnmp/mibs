@@ -1,0 +1,4196 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "liebertConditionsModuleReg",
+      "lgpConditions"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "liebertGlobalProductsConditionsModule": {
+    "name": "liebertGlobalProductsConditionsModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-02-12 00:00",
+        "description": "Added Surge Protection Device to lgpConditionCondenserTVSSFailure DESCRIPTION"
+      },
+      {
+        "revision": "2008-11-17 00:00",
+        "description": "Added support for NXL unit."
+      },
+      {
+        "revision": "2008-07-02 00:00",
+        "description": "o Expanded condtions table with new columns with a set of richer alarm/condition properties. o Added additional reference columns to conditions table to allow the same alarm to be active on multiple instances of an item. "
+      },
+      {
+        "revision": "2008-01-10 00:00",
+        "description": "Modified contact email address and added lgpNetworkName object."
+      },
+      {
+        "revision": "2007-05-29 00:00",
+        "description": "Added support for XDF Unit."
+      },
+      {
+        "revision": "2006-08-15 00:00",
+        "description": "Added support for HP release and a condition for firmware corrupt."
+      },
+      {
+        "revision": "2006-02-22 00:00",
+        "description": "Added support for Liebert DS Unit."
+      }
+    ]
+  },
+  "lgpConditionsWellKnown": {
+    "name": "lgpConditionsWellKnown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1",
+    "class": "objectidentity"
+  },
+  "lgpConditionsPresent": {
+    "name": "lgpConditionsPresent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionsTable": {
+    "name": "lgpConditionsTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpConditionEntry": {
+    "name": "lgpConditionEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-CONDITIONS-MIB",
+        "object": "lgpConditionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpConditionId": {
+    "name": "lgpConditionId",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionDescr": {
+    "name": "lgpConditionDescr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionTime": {
+    "name": "lgpConditionTime",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionTableRef": {
+    "name": "lgpConditionTableRef",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionTableRowRef": {
+    "name": "lgpConditionTableRowRef",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionType": {
+    "name": "lgpConditionType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "message": 2,
+          "warning": 4,
+          "alarm": 6,
+          "fault": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionCurrentState": {
+    "name": "lgpConditionCurrentState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionSeverity": {
+    "name": "lgpConditionSeverity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "minor": 3,
+          "major": 6,
+          "critical": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionAcknowledged": {
+    "name": "lgpConditionAcknowledged",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAcknowledged": 1,
+          "acknowledged": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpConditionAckReq": {
+    "name": "lgpConditionAckReq",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "required": 1,
+          "notRequired": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionControl": {
+    "name": "lgpConditionControl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4",
+    "class": "objectidentity"
+  },
+  "lgpConditionControlEventReset": {
+    "name": "lgpConditionControlEventReset",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "resetAll": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpConditionControlEventAck": {
+    "name": "lgpConditionControlEventAck",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "ackAll": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpConditionControlTable": {
+    "name": "lgpConditionControlTable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpConditionControlEntry": {
+    "name": "lgpConditionControlEntry",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LIEBERT-GP-CONDITIONS-MIB",
+        "object": "lgpConditionControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lgpConditionControlIndex": {
+    "name": "lgpConditionControlIndex",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lgpConditionControlDescr": {
+    "name": "lgpConditionControlDescr",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionControlEnableStatus": {
+    "name": "lgpConditionControlEnableStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpConditionControlType": {
+    "name": "lgpConditionControlType",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "message": 2,
+          "warning": 4,
+          "alarm": 6,
+          "fault": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lgpConditionControlEnableCapability": {
+    "name": "lgpConditionControlEnableCapability",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.4.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-specified": 0,
+          "readonly": 1,
+          "readwrite": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpConditionDescription": {
+    "name": "lgpConditionDescription",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpNetworkName": {
+    "name": "lgpNetworkName",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lgpFlexConditions": {
+    "name": "lgpFlexConditions",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7",
+    "class": "objectidentity"
+  },
+  "lgpConditionHighTemperature": {
+    "name": "lgpConditionHighTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperature": {
+    "name": "lgpConditionLowTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighHumidity": {
+    "name": "lgpConditionHighHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowHumidity": {
+    "name": "lgpConditionLowHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLossOfAirflow": {
+    "name": "lgpConditionLossOfAirflow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLossOfAirflow1": {
+    "name": "lgpConditionLossOfAirflow1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLossOfAirflow2": {
+    "name": "lgpConditionLossOfAirflow2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLossOfAirflowBlower1": {
+    "name": "lgpConditionLossOfAirflowBlower1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLossOfAirflowAllBlowers": {
+    "name": "lgpConditionLossOfAirflowAllBlowers",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionChangeFilter": {
+    "name": "lgpConditionChangeFilter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorHighHeadPressure": {
+    "name": "lgpConditionCompressorHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1HighHeadPressure": {
+    "name": "lgpConditionCompressor1HighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1AHighHeadPressure": {
+    "name": "lgpConditionCompressor1AHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1BHighHeadPressure": {
+    "name": "lgpConditionCompressor1BHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2HighHeadPressure": {
+    "name": "lgpConditionCompressor2HighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2AHighHeadPressure": {
+    "name": "lgpConditionCompressor2AHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2BHighHeadPressure": {
+    "name": "lgpConditionCompressor2BHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor3HighHeadPressure": {
+    "name": "lgpConditionCompressor3HighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor4HighHeadPressure": {
+    "name": "lgpConditionCompressor4HighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorOverload": {
+    "name": "lgpConditionCompressorOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1Overload": {
+    "name": "lgpConditionCompressor1Overload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2Overload": {
+    "name": "lgpConditionCompressor2Overload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor3Overload": {
+    "name": "lgpConditionCompressor3Overload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.8.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor4Overload": {
+    "name": "lgpConditionCompressor4Overload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.8.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorShortCycle": {
+    "name": "lgpConditionCompressorShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1ShortCycle": {
+    "name": "lgpConditionCompressor1ShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1AShortCycle": {
+    "name": "lgpConditionCompressor1AShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1BShortCycle": {
+    "name": "lgpConditionCompressor1BShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2ShortCycle": {
+    "name": "lgpConditionCompressor2ShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2AShortCycle": {
+    "name": "lgpConditionCompressor2AShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2BShortCycle": {
+    "name": "lgpConditionCompressor2BShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor3ShortCycle": {
+    "name": "lgpConditionCompressor3ShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor4ShortCycle": {
+    "name": "lgpConditionCompressor4ShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.9.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorLowSuctionPressure": {
+    "name": "lgpConditionCompressorLowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1LowSuctionPressure": {
+    "name": "lgpConditionCompressor1LowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2LowSuctionPressure": {
+    "name": "lgpConditionCompressor2LowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor3LowSuctionPressure": {
+    "name": "lgpConditionCompressor3LowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor4LowSuctionPressure": {
+    "name": "lgpConditionCompressor4LowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMainFanOverLoad": {
+    "name": "lgpConditionMainFanOverLoad",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionManualOverride": {
+    "name": "lgpConditionManualOverride",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionStandbyGlycoolPumpOn": {
+    "name": "lgpConditionStandbyGlycoolPumpOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionWaterUnderFloor": {
+    "name": "lgpConditionWaterUnderFloor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidifierProblem": {
+    "name": "lgpConditionHumidifierProblem",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowWaterInHumidifier": {
+    "name": "lgpConditionLowWaterInHumidifier",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSmokeDetected": {
+    "name": "lgpConditionSmokeDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowWaterFlow": {
+    "name": "lgpConditionLowWaterFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLostPower": {
+    "name": "lgpConditionLostPower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpGeneralFault": {
+    "name": "lgpGeneralFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm": {
+    "name": "lgpConditionLocalAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm1": {
+    "name": "lgpConditionLocalAlarm1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm2": {
+    "name": "lgpConditionLocalAlarm2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm3": {
+    "name": "lgpConditionLocalAlarm3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm4": {
+    "name": "lgpConditionLocalAlarm4",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm5": {
+    "name": "lgpConditionLocalAlarm5",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm6": {
+    "name": "lgpConditionLocalAlarm6",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm7": {
+    "name": "lgpConditionLocalAlarm7",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocalAlarm8": {
+    "name": "lgpConditionLocalAlarm8",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.21.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionStandbyUnitOn": {
+    "name": "lgpConditionStandbyUnitOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorLowPressure": {
+    "name": "lgpConditionCompressorLowPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1LowPressure": {
+    "name": "lgpConditionCompressor1LowPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.23.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTandemCompressorCircuit1LowPressure": {
+    "name": "lgpConditionTandemCompressorCircuit1LowPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.23.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2LowPressure": {
+    "name": "lgpConditionCompressor2LowPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.23.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTandemCompressorCircuit2LowPressure": {
+    "name": "lgpConditionTandemCompressorCircuit2LowPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.23.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor3LowPressure": {
+    "name": "lgpConditionCompressor3LowPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.23.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor4LowPressure": {
+    "name": "lgpConditionCompressor4LowPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.23.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighWaterInPan": {
+    "name": "lgpConditionHighWaterInPan",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFaultySensor": {
+    "name": "lgpConditionFaultySensor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionServiceCooling": {
+    "name": "lgpConditionServiceCooling",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionServiceHumidifier": {
+    "name": "lgpConditionServiceHumidifier",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSystemControlBatteryLow": {
+    "name": "lgpConditionSystemControlBatteryLow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionGroundSystemFault": {
+    "name": "lgpConditionGroundSystemFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionGroundFailure": {
+    "name": "lgpConditionGroundFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSecurityBreach": {
+    "name": "lgpConditionSecurityBreach",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEmergencyShutdown": {
+    "name": "lgpConditionEmergencyShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOnBypass": {
+    "name": "lgpConditionOnBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadOnBypass": {
+    "name": "lgpConditionLoadOnBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.33.1",
+    "class": "objectidentity",
+    "status": "obsolete"
+  },
+  "lgpConditionLoadOnMaintenceBypass": {
+    "name": "lgpConditionLoadOnMaintenceBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.33.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionParallelSysLoadOnBypass": {
+    "name": "lgpConditionParallelSysLoadOnBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.33.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadOnBypassByImpact": {
+    "name": "lgpConditionLoadOnBypassByImpact",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.33.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadTransferedToBypass": {
+    "name": "lgpConditionLoadTransferedToBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.33.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEmergencyTransferToBypass": {
+    "name": "lgpConditionEmergencyTransferToBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.33.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadVoltTHD": {
+    "name": "lgpConditionOutputToLoadVoltTHD",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLogicFailure": {
+    "name": "lgpConditionLogicFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerSupplyFault": {
+    "name": "lgpConditionPowerSupplyFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerSupply1Fault": {
+    "name": "lgpConditionPowerSupply1Fault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.36.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerSupply2Fault": {
+    "name": "lgpConditionPowerSupply2Fault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.36.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerSupplyFailure": {
+    "name": "lgpConditionPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerSupply1Failure": {
+    "name": "lgpConditionPowerSupply1Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.37.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerSupply2Failure": {
+    "name": "lgpConditionPowerSupply2Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.37.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1PowerSupplyInputFailure": {
+    "name": "lgpConditionSource1PowerSupplyInputFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.37.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2PowerSupplyInputFailure": {
+    "name": "lgpConditionSource2PowerSupplyInputFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.37.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerSupplyLogicFailure": {
+    "name": "lgpConditionPowerSupplyLogicFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.37.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorPowerSupplyFailure": {
+    "name": "lgpConditionCompressorPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.37.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOverVoltage": {
+    "name": "lgpConditionOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1OverVoltage": {
+    "name": "lgpConditionSource1OverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2OverVoltage": {
+    "name": "lgpConditionSource2OverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOverVoltage": {
+    "name": "lgpConditionOutputToLoadOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputOverVoltage": {
+    "name": "lgpConditionInputOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassOverVoltage": {
+    "name": "lgpConditionBypassOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassOverVoltageFailure": {
+    "name": "lgpConditionBypassOverVoltageFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryOverVoltage": {
+    "name": "lgpConditionBatteryOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBusOverVoltage": {
+    "name": "lgpConditionDcBusOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus1OverVoltage": {
+    "name": "lgpConditionDcBus1OverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus2OverVoltage": {
+    "name": "lgpConditionDcBus2OverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus1OverVoltageFailure": {
+    "name": "lgpConditionDcBus1OverVoltageFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.8.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus2OverVoltageFailure": {
+    "name": "lgpConditionDcBus2OverVoltageFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.38.8.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnderVoltage": {
+    "name": "lgpConditionUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1UnderVoltage": {
+    "name": "lgpConditionSource1UnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2UnderVoltage": {
+    "name": "lgpConditionSource2UnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadUnderVoltage": {
+    "name": "lgpConditionOutputToLoadUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1UnderVoltageRMS": {
+    "name": "lgpConditionSource1UnderVoltageRMS",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2UnderVoltageRMS": {
+    "name": "lgpConditionSource2UnderVoltageRMS",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputUnderVoltage": {
+    "name": "lgpConditionInputUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassUnderVoltage": {
+    "name": "lgpConditionBypassUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassUnderVoltageFailure": {
+    "name": "lgpConditionBypassUnderVoltageFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryUnderVoltage": {
+    "name": "lgpConditionBatteryUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBusUnderVoltage": {
+    "name": "lgpConditionDcBusUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus1UnderVoltage": {
+    "name": "lgpConditionDcBus1UnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus2UnderVoltage": {
+    "name": "lgpConditionDcBus2UnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus1UnderVoltageFailure": {
+    "name": "lgpConditionDcBus1UnderVoltageFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcBus2UnderVoltageFailure": {
+    "name": "lgpConditionDcBus2UnderVoltageFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.39.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOverload": {
+    "name": "lgpConditionOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1Overload": {
+    "name": "lgpConditionSource1Overload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSystemOverload": {
+    "name": "lgpConditionSystemOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1PeakCurrentOverLoad": {
+    "name": "lgpConditionSource1PeakCurrentOverLoad",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2PeakCurrentOverLoad": {
+    "name": "lgpConditionSource2PeakCurrentOverLoad",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOverLimit": {
+    "name": "lgpConditionOutputToLoadOverLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOverload": {
+    "name": "lgpConditionOutputToLoadOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionParallelSysOverload": {
+    "name": "lgpConditionParallelSysOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassCurrentOverload": {
+    "name": "lgpConditionBypassCurrentOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassCurrentOverloadPhsA": {
+    "name": "lgpConditionBypassCurrentOverloadPhsA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassCurrentOverloadPhsB": {
+    "name": "lgpConditionBypassCurrentOverloadPhsB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.8.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassCurrentOverloadPhsC": {
+    "name": "lgpConditionBypassCurrentOverloadPhsC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.40.8.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionScrShort": {
+    "name": "lgpConditionScrShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1ScrShort": {
+    "name": "lgpConditionSource1ScrShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.41.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2ScrShort": {
+    "name": "lgpConditionSource2ScrShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.41.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassScrShort": {
+    "name": "lgpConditionBypassScrShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.41.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInvStaticSwScrShort": {
+    "name": "lgpConditionInvStaticSwScrShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.41.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1NeutralScrShort": {
+    "name": "lgpConditionSource1NeutralScrShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.41.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2NeutralScrShort": {
+    "name": "lgpConditionSource2NeutralScrShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.41.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionScrOpen": {
+    "name": "lgpConditionScrOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1ScrOpen": {
+    "name": "lgpConditionSource1ScrOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.42.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2ScrOpen": {
+    "name": "lgpConditionSource2ScrOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.42.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassScrOpen": {
+    "name": "lgpConditionBypassScrOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.42.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1NeutralScrOpen": {
+    "name": "lgpConditionSource1NeutralScrOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.42.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2NeutralScrOpen": {
+    "name": "lgpConditionSource2NeutralScrOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.42.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFanFailure": {
+    "name": "lgpConditionFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFan1Failure": {
+    "name": "lgpConditionFan1Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRedundantFanFailure": {
+    "name": "lgpConditionRedundantFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMultipleFanFailure": {
+    "name": "lgpConditionMultipleFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBlowerFanFailure": {
+    "name": "lgpConditionBlowerFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBottomBlowerFanFailure": {
+    "name": "lgpConditionBottomBlowerFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTopBlowerFanFailure": {
+    "name": "lgpConditionTopBlowerFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondenserFanVFDFailure": {
+    "name": "lgpConditionCondenserFanVFDFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFanPowerFailure": {
+    "name": "lgpConditionFanPowerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.43.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTransferInhibited": {
+    "name": "lgpConditionTransferInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAutoReTransferPrimed": {
+    "name": "lgpConditionAutoReTransferPrimed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSourcesOutOfSync": {
+    "name": "lgpConditionSourcesOutOfSync",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSourceFailure": {
+    "name": "lgpConditionSourceFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1Failure": {
+    "name": "lgpConditionSource1Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.47.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2Failure": {
+    "name": "lgpConditionSource2Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.47.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAutoReTransferInhibited": {
+    "name": "lgpConditionAutoReTransferInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAutoReTransferFailed": {
+    "name": "lgpConditionAutoReTransferFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFuseOpen": {
+    "name": "lgpConditionFuseOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlFuse1Open": {
+    "name": "lgpConditionControlFuse1Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.50.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlFuse2Open": {
+    "name": "lgpConditionControlFuse2Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.50.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierFuseOpen": {
+    "name": "lgpConditionRectifierFuseOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.50.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterFuseOpen": {
+    "name": "lgpConditionInverterFuseOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.50.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadFuseOpen": {
+    "name": "lgpConditionOutputToLoadFuseOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.50.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcCapacitorFuseOpen": {
+    "name": "lgpConditionDcCapacitorFuseOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.50.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDisconnect": {
+    "name": "lgpConditionDisconnect",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1DisconnectOpen": {
+    "name": "lgpConditionSource1DisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2DisconnectOpen": {
+    "name": "lgpConditionSource2DisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1PduDisconnectOpen": {
+    "name": "lgpConditionSource1PduDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2PduDisconnectOpen": {
+    "name": "lgpConditionSource2PduDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadDisconnect1Open": {
+    "name": "lgpConditionOutputToLoadDisconnect1Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadDisconnect2Open": {
+    "name": "lgpConditionOutputToLoadDisconnect2Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1BypassDisconnectClosed": {
+    "name": "lgpConditionSource1BypassDisconnectClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2BypassDisconnectClosed": {
+    "name": "lgpConditionSource2BypassDisconnectClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadNeutralDisconnectOpen": {
+    "name": "lgpConditionOutputToLoadNeutralDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDisconnectOpen": {
+    "name": "lgpConditionBatteryDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab01": {
+    "name": "lgpConditionBatteryDiscOpenCab01",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab02": {
+    "name": "lgpConditionBatteryDiscOpenCab02",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab03": {
+    "name": "lgpConditionBatteryDiscOpenCab03",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab04": {
+    "name": "lgpConditionBatteryDiscOpenCab04",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab05": {
+    "name": "lgpConditionBatteryDiscOpenCab05",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab06": {
+    "name": "lgpConditionBatteryDiscOpenCab06",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab07": {
+    "name": "lgpConditionBatteryDiscOpenCab07",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDiscOpenCab08": {
+    "name": "lgpConditionBatteryDiscOpenCab08",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.10.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputDisconnectOpen": {
+    "name": "lgpConditionInputDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadDisconnectOpen": {
+    "name": "lgpConditionOutputToLoadDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassDisconnectOpen": {
+    "name": "lgpConditionBypassDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionStaticSwitchDisconnectOpen": {
+    "name": "lgpConditionStaticSwitchDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBreakerOpenFailure": {
+    "name": "lgpConditionBreakerOpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBreakerCloseFailure": {
+    "name": "lgpConditionBreakerCloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.51.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFrequencyDeviation": {
+    "name": "lgpConditionFrequencyDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1FrequencyDeviation": {
+    "name": "lgpConditionSource1FrequencyDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.52.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2FrequencyDeviation": {
+    "name": "lgpConditionSource2FrequencyDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.52.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputFrequencyDeviation": {
+    "name": "lgpConditionInputFrequencyDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.52.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadFrequencyDeviation": {
+    "name": "lgpConditionOutputToLoadFrequencyDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.52.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassFrequencyDeviation": {
+    "name": "lgpConditionBypassFrequencyDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.52.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOverCurrent": {
+    "name": "lgpConditionOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1OverCurrent": {
+    "name": "lgpConditionSource1OverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2OverCurrent": {
+    "name": "lgpConditionSource2OverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOverCurrent": {
+    "name": "lgpConditionOutputToLoadOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOverCurrentPhsA": {
+    "name": "lgpConditionOutputToLoadOverCurrentPhsA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOverCurrentPhsB": {
+    "name": "lgpConditionOutputToLoadOverCurrentPhsB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOverCurrentPhsC": {
+    "name": "lgpConditionOutputToLoadOverCurrentPhsC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionGroundOverCurrent": {
+    "name": "lgpConditionGroundOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierOverCurrent": {
+    "name": "lgpConditionRectifierOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterOverCurrent": {
+    "name": "lgpConditionInverterOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterOverCurrentPhsA": {
+    "name": "lgpConditionInverterOverCurrentPhsA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterOverCurrentPhsB": {
+    "name": "lgpConditionInverterOverCurrentPhsB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterOverCurrentPhsC": {
+    "name": "lgpConditionInverterOverCurrentPhsC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.6.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryConverterOverCurrent": {
+    "name": "lgpConditionBatteryConverterOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryBalancerOverCurrent": {
+    "name": "lgpConditionBatteryBalancerOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidifierOverCurrent": {
+    "name": "lgpConditionHumidifierOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputOverCurrent": {
+    "name": "lgpConditionInputOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1NeutralOverCurrent": {
+    "name": "lgpConditionSource1NeutralOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2NeutralOverCurrent": {
+    "name": "lgpConditionSource2NeutralOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.53.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSensorFailure": {
+    "name": "lgpConditionSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadVoltageSensorFailure": {
+    "name": "lgpConditionOutputToLoadVoltageSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1VoltageSensorFailure": {
+    "name": "lgpConditionSource1VoltageSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2VoltageSensorFailure": {
+    "name": "lgpConditionSource2VoltageSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1ScrSensorFailure": {
+    "name": "lgpConditionSource1ScrSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2ScrSensorFailure": {
+    "name": "lgpConditionSource2ScrSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1CurrentSensorFailure": {
+    "name": "lgpConditionSource1CurrentSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2CurrentSensorFailure": {
+    "name": "lgpConditionSource2CurrentSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRoomTempHumiditySensorFailure": {
+    "name": "lgpConditionRoomTempHumiditySensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionGlycolTempSensorFailure": {
+    "name": "lgpConditionGlycolTempSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLocal1SensorFailure": {
+    "name": "lgpConditionLocal1SensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1SensorFailure": {
+    "name": "lgpConditionCompressor1SensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2SensorFailure": {
+    "name": "lgpConditionCompressor2SensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSupplySensorFailure": {
+    "name": "lgpConditionSupplySensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCabinetTemperatureSensorFailure": {
+    "name": "lgpConditionCabinetTemperatureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCabinetHumiditySensorFailure": {
+    "name": "lgpConditionCabinetHumiditySensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRoomTempSensorFailure": {
+    "name": "lgpConditionRoomTempSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryTempSensorFailure": {
+    "name": "lgpConditionBatteryTempSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAirSensorAFailure": {
+    "name": "lgpConditionAirSensorAFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAirSensorBFailure": {
+    "name": "lgpConditionAirSensorBFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionChilledWaterSupplySensorFailure": {
+    "name": "lgpConditionChilledWaterSupplySensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRefrigerantSupplySensorFailure": {
+    "name": "lgpConditionRefrigerantSupplySensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFluidSupplySensorFailure": {
+    "name": "lgpConditionFluidSupplySensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorLowPressureSensorFailure": {
+    "name": "lgpConditionCompressorLowPressureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor1LowPressureSensorFailure": {
+    "name": "lgpConditionCompressor1LowPressureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.23.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRemoteSensorFailure": {
+    "name": "lgpConditionRemoteSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAirSupplyTempSensorFailure": {
+    "name": "lgpConditionAirSupplyTempSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAirReturnTempSensorFailure": {
+    "name": "lgpConditionAirReturnTempSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorHighPressureSensorFailure": {
+    "name": "lgpConditionCompressorHighPressureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor2HighPressureSensorFailure": {
+    "name": "lgpConditionCompressor2HighPressureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.27.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor3HighPressureSensorFailure": {
+    "name": "lgpConditionCompressor3HighPressureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.27.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressor4HighPressureSensorFailure": {
+    "name": "lgpConditionCompressor4HighPressureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.54.27.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInternalCommunicationFailure": {
+    "name": "lgpConditionInternalCommunicationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalCommunicationFailure": {
+    "name": "lgpConditionExternalCommunicationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSourceGateDriveFailure": {
+    "name": "lgpConditionSourceGateDriveFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1GateDriveFailure": {
+    "name": "lgpConditionSource1GateDriveFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.57.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2GateDriveFailure": {
+    "name": "lgpConditionSource2GateDriveFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.57.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDisconnectFailure": {
+    "name": "lgpConditionDisconnectFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadNeutralDisconnectFailure": {
+    "name": "lgpConditionOutputToLoadNeutralDisconnectFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.58.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1DisconnectShuntTripFailure": {
+    "name": "lgpConditionSource1DisconnectShuntTripFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.58.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2DisconnectShuntTripFailure": {
+    "name": "lgpConditionSource2DisconnectShuntTripFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.58.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterDisconnectFailure": {
+    "name": "lgpConditionInverterDisconnectFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.58.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryDisconnectFailure": {
+    "name": "lgpConditionBatteryDisconnectFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.58.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierDisconnectFailure": {
+    "name": "lgpConditionRectifierDisconnectFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.58.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOverTemperature": {
+    "name": "lgpConditionOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHeatSink1OverTemperature": {
+    "name": "lgpConditionHeatSink1OverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAmbient1OverTemperature": {
+    "name": "lgpConditionAmbient1OverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSystemOverTemperature": {
+    "name": "lgpConditionSystemOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTransformerOverTemperature": {
+    "name": "lgpConditionTransformerOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryOverTemperature": {
+    "name": "lgpConditionBatteryOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierOverTemperature": {
+    "name": "lgpConditionRectifierOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterOverTemperature": {
+    "name": "lgpConditionInverterOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierInductorOverTemperature": {
+    "name": "lgpConditionRectifierInductorOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterInductorOverTemperature": {
+    "name": "lgpConditionInverterInductorOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryConverterOverTemperature": {
+    "name": "lgpConditionBatteryConverterOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryBalancerInductorOverTemperature": {
+    "name": "lgpConditionBatteryBalancerInductorOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionChilledWaterOverTemperature": {
+    "name": "lgpConditionChilledWaterOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionElectricHeatersOverTemperature": {
+    "name": "lgpConditionElectricHeatersOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInletAirOverTemperature": {
+    "name": "lgpConditionInletAirOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSystemOverTempWarning": {
+    "name": "lgpConditionSystemOverTempWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureBattString": {
+    "name": "lgpConditionHighTemperatureBattString",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.59.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadOnAlternateSource": {
+    "name": "lgpConditionLoadOnAlternateSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPhaseRotationError": {
+    "name": "lgpConditionPhaseRotationError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.61",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource1PhaseRotationError": {
+    "name": "lgpConditionSource1PhaseRotationError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.61.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSource2PhaseRotationError": {
+    "name": "lgpConditionSource2PhaseRotationError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.61.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassPhaseRotationError": {
+    "name": "lgpConditionBypassPhaseRotationError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.61.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputPhaseRotationError": {
+    "name": "lgpConditionInputPhaseRotationError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.61.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlModuleFailure": {
+    "name": "lgpConditionControlModuleFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.62",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlModule1Failure": {
+    "name": "lgpConditionControlModule1Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.62.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHistoryLogFull": {
+    "name": "lgpConditionHistoryLogFull",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.63",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionConfigurationModified": {
+    "name": "lgpConditionConfigurationModified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.64",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPasswordModified": {
+    "name": "lgpConditionPasswordModified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.65",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTimeModified": {
+    "name": "lgpConditionTimeModified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.66",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDateModified": {
+    "name": "lgpConditionDateModified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.67",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEventLogCleared": {
+    "name": "lgpConditionEventLogCleared",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.68",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHistoryLogCleared": {
+    "name": "lgpConditionHistoryLogCleared",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.69",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUtilityFailure": {
+    "name": "lgpConditionUtilityFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.70",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryTestInProgress": {
+    "name": "lgpConditionBatteryTestInProgress",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.71",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadOnBattery": {
+    "name": "lgpConditionLoadOnBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.72",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionReplaceBattery": {
+    "name": "lgpConditionReplaceBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUpsShutdownPending": {
+    "name": "lgpConditionUpsShutdownPending",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryChargerFailed": {
+    "name": "lgpConditionBatteryChargerFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassVoltageUnqualified": {
+    "name": "lgpConditionBypassVoltageUnqualified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.77",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCheckAirFilter": {
+    "name": "lgpConditionCheckAirFilter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.78",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBrownOut": {
+    "name": "lgpConditionBrownOut",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.79",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMultipleTransferLockout": {
+    "name": "lgpConditionMultipleTransferLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.80",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassPhaseLost": {
+    "name": "lgpConditionBypassPhaseLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.81",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMaintenceBypassInhibited": {
+    "name": "lgpConditionMaintenceBypassInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.82",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadLockedOnBypass": {
+    "name": "lgpConditionLoadLockedOnBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.83",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadShort": {
+    "name": "lgpConditionOutputToLoadShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.84",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEmergencyTransferToInverter": {
+    "name": "lgpConditionEmergencyTransferToInverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.85",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditonEmergencyPowerOff": {
+    "name": "lgpConditonEmergencyPowerOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.86",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterBackFeed": {
+    "name": "lgpConditionInverterBackFeed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.87",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcGroundFault": {
+    "name": "lgpConditionDcGroundFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.88",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcGroundFaultPos": {
+    "name": "lgpConditionDcGroundFaultPos",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.88.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDcGroundFaultNeg": {
+    "name": "lgpConditionDcGroundFaultNeg",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.88.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionStaticTransferSwitchInhibited": {
+    "name": "lgpConditionStaticTransferSwitchInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.89",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryLogFullWarning": {
+    "name": "lgpConditionBatteryLogFullWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.90",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputCurrentUnbalanced": {
+    "name": "lgpConditionInputCurrentUnbalanced",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.91",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSelfTestFailed": {
+    "name": "lgpConditionSelfTestFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.92",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterOutOfSynchronization": {
+    "name": "lgpConditionInverterOutOfSynchronization",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.93",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionModuleAlarm": {
+    "name": "lgpConditionModuleAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit1Alarm": {
+    "name": "lgpConditioniModuleUnit1Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit2Alarm": {
+    "name": "lgpConditioniModuleUnit2Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit3Alarm": {
+    "name": "lgpConditioniModuleUnit3Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit4Alarm": {
+    "name": "lgpConditioniModuleUnit4Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit5Alarm": {
+    "name": "lgpConditioniModuleUnit5Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit6Alarm": {
+    "name": "lgpConditioniModuleUnit6Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit7Alarm": {
+    "name": "lgpConditioniModuleUnit7Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditioniModuleUnit8Alarm": {
+    "name": "lgpConditioniModuleUnit8Alarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.94.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionActiveModuleAlarm": {
+    "name": "lgpConditionActiveModuleAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.95",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlFailure": {
+    "name": "lgpConditionControlFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.96",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMainControlFailure": {
+    "name": "lgpConditionMainControlFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.96.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRedundantControlFailure": {
+    "name": "lgpConditionRedundantControlFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.96.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionParallelSysControlFailure": {
+    "name": "lgpConditionParallelSysControlFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.96.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMainControlCommFailure": {
+    "name": "lgpConditionMainControlCommFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.96.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlBoardFailure": {
+    "name": "lgpConditionControlBoardFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.96.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidifierControlBdFailure": {
+    "name": "lgpConditionHumidifierControlBdFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.96.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlWarning": {
+    "name": "lgpConditionControlWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.97",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMainControlWarning": {
+    "name": "lgpConditionMainControlWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.97.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRedundantControlWarning": {
+    "name": "lgpConditionRedundantControlWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.97.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUserInterfaceFailure": {
+    "name": "lgpConditionUserInterfaceFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.98",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLostPowerRedundancy": {
+    "name": "lgpConditionLostPowerRedundancy",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.99",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerModuleFailure": {
+    "name": "lgpConditionPowerModuleFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryModuleFailure": {
+    "name": "lgpConditionBatteryModuleFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadOff": {
+    "name": "lgpConditionOutputToLoadOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSystemOff": {
+    "name": "lgpConditionSystemOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.103",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierStartupFailure": {
+    "name": "lgpConditionRectifierStartupFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.104",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierFault": {
+    "name": "lgpConditionRectifierFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.105",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterShutdownLowDc": {
+    "name": "lgpConditionInverterShutdownLowDc",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.106",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterFault": {
+    "name": "lgpConditionInverterFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.107",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterDcOffsetOverrun": {
+    "name": "lgpConditionInverterDcOffsetOverrun",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.108",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionParallelSysLowBatteryWarning": {
+    "name": "lgpConditionParallelSysLowBatteryWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.109",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionParallelSysLoadShareFault": {
+    "name": "lgpConditionParallelSysLoadShareFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.110",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryFault": {
+    "name": "lgpConditionBatteryFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.111",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryConverterFailure": {
+    "name": "lgpConditionBatteryConverterFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.112",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryBalancerFault": {
+    "name": "lgpConditionBatteryBalancerFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.113",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionpsUpsOperationFault": {
+    "name": "lgpConditionpsUpsOperationFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.114",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "lgpConditionOutputToLoadOnJointMode": {
+    "name": "lgpConditionOutputToLoadOnJointMode",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.115",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputNeutralLost": {
+    "name": "lgpConditionInputNeutralLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.116",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowBatteryWarning": {
+    "name": "lgpConditionLowBatteryWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.117",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInternalFault": {
+    "name": "lgpConditionInternalFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.118",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryTestFailed": {
+    "name": "lgpConditionBatteryTestFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.119",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerModuleWarning": {
+    "name": "lgpConditionPowerModuleWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.120",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryModuleWarning": {
+    "name": "lgpConditionBatteryModuleWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.121",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlModuleWarning": {
+    "name": "lgpConditionControlModuleWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.122",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUpsOperationFault": {
+    "name": "lgpConditionUpsOperationFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.123",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionActiveAlarm": {
+    "name": "lgpConditionActiveAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.124",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierCommunicationFailure": {
+    "name": "lgpConditionRectifierCommunicationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.125",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterCommunicationFailure": {
+    "name": "lgpConditionInverterCommunicationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.126",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionParallelSysConnectionFault": {
+    "name": "lgpConditionParallelSysConnectionFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.127",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionParallelSysCommunicationFailure": {
+    "name": "lgpConditionParallelSysCommunicationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.128",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLostBatteryRedundancy": {
+    "name": "lgpConditionLostBatteryRedundancy",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.129",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompPumpDownFailure": {
+    "name": "lgpConditionCompPumpDownFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.130",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComp1PumpDownFailure": {
+    "name": "lgpConditionComp1PumpDownFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.130.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComp2PumpDownFailure": {
+    "name": "lgpConditionComp2PumpDownFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.130.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComp3PumpDownFailure": {
+    "name": "lgpConditionComp3PumpDownFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.130.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComp4PumpDownFailure": {
+    "name": "lgpConditionComp4PumpDownFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.130.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionChilledWaterLowWaterFlow": {
+    "name": "lgpConditionChilledWaterLowWaterFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.131",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionChilledWaterLowWaterFlowCircuit2": {
+    "name": "lgpConditionChilledWaterLowWaterFlowCircuit2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.131.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAirFilterClogged": {
+    "name": "lgpConditionAirFilterClogged",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.132",
+    "class": "objectidentity",
+    "status": "deprecated"
+  },
+  "lgpConditionHumidifierFailure": {
+    "name": "lgpConditionHumidifierFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.133",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRunHoursExceeded": {
+    "name": "lgpConditionRunHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitRunHrsExceeded": {
+    "name": "lgpConditionUnitRunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComp1RunHrsExceeded": {
+    "name": "lgpConditionComp1RunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComp2RunHrsExceeded": {
+    "name": "lgpConditionComp2RunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFreeCoolRunHrsExceeded": {
+    "name": "lgpConditionFreeCoolRunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionElectricalHeater1RunHrsExceeded": {
+    "name": "lgpConditionElectricalHeater1RunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionElectricalHeater2RunHrsExceeded": {
+    "name": "lgpConditionElectricalHeater2RunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionElectricalHeater3RunHrsExceeded": {
+    "name": "lgpConditionElectricalHeater3RunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHotWaterRunHrsExceeded": {
+    "name": "lgpConditionHotWaterRunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHotGasRunHrsExceeded": {
+    "name": "lgpConditionHotGasRunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidifierRunHrsExceeded": {
+    "name": "lgpConditionHumidifierRunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDehumidiferRunHrsExceeded": {
+    "name": "lgpConditionDehumidiferRunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFanRunHrsExceeded": {
+    "name": "lgpConditionFanRunHrsExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.134.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarning": {
+    "name": "lgpConditionCommWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit1": {
+    "name": "lgpConditionCommWarningUnit1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit2": {
+    "name": "lgpConditionCommWarningUnit2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit3": {
+    "name": "lgpConditionCommWarningUnit3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit4": {
+    "name": "lgpConditionCommWarningUnit4",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit5": {
+    "name": "lgpConditionCommWarningUnit5",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit6": {
+    "name": "lgpConditionCommWarningUnit6",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit7": {
+    "name": "lgpConditionCommWarningUnit7",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit8": {
+    "name": "lgpConditionCommWarningUnit8",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit9": {
+    "name": "lgpConditionCommWarningUnit9",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit10": {
+    "name": "lgpConditionCommWarningUnit10",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit11": {
+    "name": "lgpConditionCommWarningUnit11",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit12": {
+    "name": "lgpConditionCommWarningUnit12",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit13": {
+    "name": "lgpConditionCommWarningUnit13",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit14": {
+    "name": "lgpConditionCommWarningUnit14",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit15": {
+    "name": "lgpConditionCommWarningUnit15",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCommWarningUnit16": {
+    "name": "lgpConditionCommWarningUnit16",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.135.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitOn": {
+    "name": "lgpConditionUnitOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.136",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitOff": {
+    "name": "lgpConditionUnitOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.137",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSleepModeOff": {
+    "name": "lgpConditionSleepModeOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.138",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerOn": {
+    "name": "lgpConditionPowerOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.139",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSystemOnStanby": {
+    "name": "lgpConditionSystemOnStanby",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.140",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPowerOff": {
+    "name": "lgpConditionPowerOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.141",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureGroup": {
+    "name": "lgpConditionHighTemperatureGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureSensor1": {
+    "name": "lgpConditionHighTemperatureSensor1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureDigitalScroll1": {
+    "name": "lgpConditionHighTemperatureDigitalScroll1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureDigitalScroll2": {
+    "name": "lgpConditionHighTemperatureDigitalScroll2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureUser1": {
+    "name": "lgpConditionHighTemperatureUser1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureInternal": {
+    "name": "lgpConditionHighTemperatureInternal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureExternalAirSensorA": {
+    "name": "lgpConditionHighTemperatureExternalAirSensorA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureExternalAirSensorB": {
+    "name": "lgpConditionHighTemperatureExternalAirSensorB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureRefrigerantSupply": {
+    "name": "lgpConditionHighTemperatureRefrigerantSupply",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureFluidSupply": {
+    "name": "lgpConditionHighTemperatureFluidSupply",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureSupplyAir": {
+    "name": "lgpConditionHighTemperatureSupplyAir",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighTemperatureReturnAir": {
+    "name": "lgpConditionHighTemperatureReturnAir",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.142.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureGroup": {
+    "name": "lgpConditionLowTemperatureGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureSensor1": {
+    "name": "lgpConditionLowTemperatureSensor1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureInternal": {
+    "name": "lgpConditionLowTemperatureInternal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureExternalAirSensorA": {
+    "name": "lgpConditionLowTemperatureExternalAirSensorA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureExternalAirSensorB": {
+    "name": "lgpConditionLowTemperatureExternalAirSensorB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureRefrigerantSupply": {
+    "name": "lgpConditionLowTemperatureRefrigerantSupply",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureFluidSupply": {
+    "name": "lgpConditionLowTemperatureFluidSupply",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowTemperatureSupplyAir": {
+    "name": "lgpConditionLowTemperatureSupplyAir",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.143.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighHumidityGroup": {
+    "name": "lgpConditionHighHumidityGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.144",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighHumiditySensor1": {
+    "name": "lgpConditionHighHumiditySensor1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.144.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighHumidityReturnAir": {
+    "name": "lgpConditionHighHumidityReturnAir",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.144.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowHumidityGroup": {
+    "name": "lgpConditionLowHumidityGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.145",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowHumiditySensor1": {
+    "name": "lgpConditionLowHumiditySensor1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.145.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowHumidityReturnAir": {
+    "name": "lgpConditionLowHumidityReturnAir",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.145.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPeerNetworkNoMaster": {
+    "name": "lgpConditionPeerNetworkNoMaster",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.146",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionNoOnOffPermissions": {
+    "name": "lgpConditionNoOnOffPermissions",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.147",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPeerNetworkFailure": {
+    "name": "lgpConditionPeerNetworkFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.148",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitDisabled": {
+    "name": "lgpConditionUnitDisabled",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.149",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitShutdown": {
+    "name": "lgpConditionUnitShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.150",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPeerNetworkDiscovered": {
+    "name": "lgpConditionPeerNetworkDiscovered",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.151",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLossOfWaterFlow": {
+    "name": "lgpConditionLossOfWaterFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.152",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondensatePumpHighWater": {
+    "name": "lgpConditionCondensatePumpHighWater",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.153",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionGeneralAlarm": {
+    "name": "lgpConditionGeneralAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.154",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionProductSpecific": {
+    "name": "lgpConditionProductSpecific",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.155",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionReheatLockout": {
+    "name": "lgpConditionReheatLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.156",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidifierLockout": {
+    "name": "lgpConditionHumidifierLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.157",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCompressorsLockout": {
+    "name": "lgpConditionCompressorsLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.158",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCallService": {
+    "name": "lgpConditionCallService",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.159",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowMemoryGroup": {
+    "name": "lgpConditionLowMemoryGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.160",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLowMemory1": {
+    "name": "lgpConditionLowMemory1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.160.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMemoryFailureGroup": {
+    "name": "lgpConditionMemoryFailureGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.161",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMemory1Failure": {
+    "name": "lgpConditionMemory1Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.161.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMemory2Failure": {
+    "name": "lgpConditionMemory2Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.161.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCodeErrorGroup": {
+    "name": "lgpConditionUnitCodeErrorGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCodeNotConfigured": {
+    "name": "lgpConditionUnitCodeNotConfigured",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode01OutOfRange": {
+    "name": "lgpConditionUnitCode01OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode02OutOfRange": {
+    "name": "lgpConditionUnitCode02OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode03OutOfRange": {
+    "name": "lgpConditionUnitCode03OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode04OutOfRange": {
+    "name": "lgpConditionUnitCode04OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode05OutOfRange": {
+    "name": "lgpConditionUnitCode05OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode06OutOfRange": {
+    "name": "lgpConditionUnitCode06OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode07OutOfRange": {
+    "name": "lgpConditionUnitCode07OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode08OutOfRange": {
+    "name": "lgpConditionUnitCode08OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode09OutOfRange": {
+    "name": "lgpConditionUnitCode09OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode10OutOfRange": {
+    "name": "lgpConditionUnitCode10OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode11OutOfRange": {
+    "name": "lgpConditionUnitCode11OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode12OutOfRange": {
+    "name": "lgpConditionUnitCode12OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode13OutOfRange": {
+    "name": "lgpConditionUnitCode13OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode14OutOfRange": {
+    "name": "lgpConditionUnitCode14OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode15OutOfRange": {
+    "name": "lgpConditionUnitCode15OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode16OutOfRange": {
+    "name": "lgpConditionUnitCode16OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode17OutOfRange": {
+    "name": "lgpConditionUnitCode17OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnitCode18OutOfRange": {
+    "name": "lgpConditionUnitCode18OutOfRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.162.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHighExternalDewPoint": {
+    "name": "lgpConditionHighExternalDewPoint",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.163",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHcbDisconnected": {
+    "name": "lgpConditionHcbDisconnected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.164",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBmsResetTimerExpired": {
+    "name": "lgpConditionBmsResetTimerExpired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.165",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAgentFirmwareCorrupt": {
+    "name": "lgpConditionAgentFirmwareCorrupt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.166",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSystemAccessGroup": {
+    "name": "lgpConditionSystemAccessGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.175",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFrontAccessOpen": {
+    "name": "lgpConditionFrontAccessOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.175.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRearAccessOpen": {
+    "name": "lgpConditionRearAccessOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.175.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionsDamperFailure": {
+    "name": "lgpConditionsDamperFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.176",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEmergencyDamperFailure": {
+    "name": "lgpConditionEmergencyDamperFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.176.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRemoteShutdown": {
+    "name": "lgpConditionRemoteShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.177",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFireAlarm": {
+    "name": "lgpConditionFireAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.178",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHeatersOverheated": {
+    "name": "lgpConditionHeatersOverheated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.179",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondenserFailureGroup": {
+    "name": "lgpConditionCondenserFailureGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.180",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondenser1Failure": {
+    "name": "lgpConditionCondenser1Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.180.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondenser2Failure": {
+    "name": "lgpConditionCondenser2Failure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.180.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondenserTVSSFailure": {
+    "name": "lgpConditionCondenserTVSSFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.180.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidifierCyclinderWorn": {
+    "name": "lgpConditionHumidifierCyclinderWorn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.181",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionUnderCurrent": {
+    "name": "lgpConditionUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.182",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidifierUnderCurrent": {
+    "name": "lgpConditionHumidifierUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.182.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputUnderCurrent": {
+    "name": "lgpConditionInputUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.182.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHeatRejectorGroup": {
+    "name": "lgpConditionHeatRejectorGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.183",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHeatRejectorFanFailure": {
+    "name": "lgpConditionHeatRejectorFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.183.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHeatRejectorVoltageSuppressionFailure": {
+    "name": "lgpConditionHeatRejectorVoltageSuppressionFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.183.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFreeCoolLockout": {
+    "name": "lgpConditionFreeCoolLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.184",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionWaterLeakSensorFailure": {
+    "name": "lgpConditionWaterLeakSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.185",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionNoLoadDetectedWarning": {
+    "name": "lgpConditionNoLoadDetectedWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.186",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFirmwareGroup": {
+    "name": "lgpConditionFirmwareGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.187",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionFirmwareUpdateRequired": {
+    "name": "lgpConditionFirmwareUpdateRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.187.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTestGroup": {
+    "name": "lgpConditionTestGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.188",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTest01": {
+    "name": "lgpConditionTest01",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.188.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionReceptacleBranchGroup": {
+    "name": "lgpConditionReceptacleBranchGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.190",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRcpBranchFailure": {
+    "name": "lgpConditionRcpBranchFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.190.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRcpBranchBreakerOpen": {
+    "name": "lgpConditionRcpBranchBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.190.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputUnqualified": {
+    "name": "lgpConditionInputUnqualified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.192",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassUnavailable": {
+    "name": "lgpConditionBypassUnavailable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.193",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAutoTransferFailed": {
+    "name": "lgpConditionAutoTransferFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.194",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSBSUnavailable": {
+    "name": "lgpConditionSBSUnavailable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.195",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSBSOverload": {
+    "name": "lgpConditionSBSOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.196",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExcessPulseParallel": {
+    "name": "lgpConditionExcessPulseParallel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.197",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRemoteBypassSwitchOffExt": {
+    "name": "lgpConditionRemoteBypassSwitchOffExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.198",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionManTransferInhibited": {
+    "name": "lgpConditionManTransferInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.199",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionManReTransferInhibited": {
+    "name": "lgpConditionManReTransferInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryChargeError": {
+    "name": "lgpConditionBatteryChargeError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.201",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryAutoTestInhibited": {
+    "name": "lgpConditionBatteryAutoTestInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.202",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryChargeReducedExt": {
+    "name": "lgpConditionBatteryChargeReducedExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.203",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryCapacityLow": {
+    "name": "lgpConditionBatteryCapacityLow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.204",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryTempImbalance": {
+    "name": "lgpConditionBatteryTempImbalance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.205",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryEqualize": {
+    "name": "lgpConditionBatteryEqualize",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.206",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryChargeInhibitedExt": {
+    "name": "lgpConditionBatteryChargeInhibitedExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.207",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionServiceExtBatteryMonitorGroup": {
+    "name": "lgpConditionServiceExtBatteryMonitorGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.208",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionServiceExtBatteryMonitor1": {
+    "name": "lgpConditionServiceExtBatteryMonitor1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.208.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionServiceExtBatteryMonitor2": {
+    "name": "lgpConditionServiceExtBatteryMonitor2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.208.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryGroundFault": {
+    "name": "lgpConditionBatteryGroundFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.209",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBatteryLowShutdown": {
+    "name": "lgpConditionBatteryLowShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.210",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEmergencyPowerOffLocal": {
+    "name": "lgpConditionEmergencyPowerOffLocal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.211",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputLowPFLagging": {
+    "name": "lgpConditionOutputLowPFLagging",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.212",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputLowPFLeading": {
+    "name": "lgpConditionOutputLowPFLeading",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.213",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionOutputToLoadFault": {
+    "name": "lgpConditionOutputToLoadFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.214",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInvRestartInhibitedExt": {
+    "name": "lgpConditionInvRestartInhibitedExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.215",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterShutdownOverload": {
+    "name": "lgpConditionInverterShutdownOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.216",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInverterOffExt": {
+    "name": "lgpConditionInverterOffExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.217",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContactGroup": {
+    "name": "lgpConditionInputContactGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact01": {
+    "name": "lgpConditionInputContact01",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact02": {
+    "name": "lgpConditionInputContact02",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact03": {
+    "name": "lgpConditionInputContact03",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact04": {
+    "name": "lgpConditionInputContact04",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact05": {
+    "name": "lgpConditionInputContact05",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact06": {
+    "name": "lgpConditionInputContact06",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact07": {
+    "name": "lgpConditionInputContact07",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact08": {
+    "name": "lgpConditionInputContact08",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact09": {
+    "name": "lgpConditionInputContact09",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact10": {
+    "name": "lgpConditionInputContact10",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact11": {
+    "name": "lgpConditionInputContact11",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact12": {
+    "name": "lgpConditionInputContact12",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact13": {
+    "name": "lgpConditionInputContact13",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact14": {
+    "name": "lgpConditionInputContact14",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact15": {
+    "name": "lgpConditionInputContact15",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputContact16": {
+    "name": "lgpConditionInputContact16",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.218.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRectifierOperInhibited": {
+    "name": "lgpConditionRectifierOperInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.219",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBypassBackFeedBrkrOpen": {
+    "name": "lgpConditionBypassBackFeedBrkrOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.220",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAutoRestartInProgress": {
+    "name": "lgpConditionAutoRestartInProgress",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.221",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAutoRestartInhibitedExt": {
+    "name": "lgpConditionAutoRestartInhibitedExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.222",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionAutoRestartFailed": {
+    "name": "lgpConditionAutoRestartFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.223",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputOnGenerator": {
+    "name": "lgpConditionInputOnGenerator",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.224",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputFilterCycleLock": {
+    "name": "lgpConditionInputFilterCycleLock",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.225",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionServiceCodeActive": {
+    "name": "lgpConditionServiceCodeActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.226",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadBusSyncActive": {
+    "name": "lgpConditionLoadBusSyncActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.227",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionLoadBusSyncInhibited": {
+    "name": "lgpConditionLoadBusSyncInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.228",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionControlsResetRequired": {
+    "name": "lgpConditionControlsResetRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.229",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEquipTempSensorFailed": {
+    "name": "lgpConditionEquipTempSensorFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.230",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionInputCurrentImbalance": {
+    "name": "lgpConditionInputCurrentImbalance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.231",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPumpGroup": {
+    "name": "lgpConditionPumpGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPumpFlowLoss": {
+    "name": "lgpConditionPumpFlowLoss",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPump1FlowLoss": {
+    "name": "lgpConditionPump1FlowLoss",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPump2FlowLoss": {
+    "name": "lgpConditionPump2FlowLoss",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPumpShortCycle": {
+    "name": "lgpConditionPumpShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPumpInverterShortCycle": {
+    "name": "lgpConditionPumpInverterShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPump1InverterShortCycle": {
+    "name": "lgpConditionPump1InverterShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionPump2InverterShortCycle": {
+    "name": "lgpConditionPump2InverterShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.232.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionValveGroup": {
+    "name": "lgpConditionValveGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.233",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionChilledWaterValvePosition": {
+    "name": "lgpConditionChilledWaterValvePosition",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.233.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondensationDetected": {
+    "name": "lgpConditionCondensationDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.234",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMaintenanceGroup": {
+    "name": "lgpConditionMaintenanceGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.235",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMaintenanceDue": {
+    "name": "lgpConditionMaintenanceDue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.235.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionMaintenanceComplete": {
+    "name": "lgpConditionMaintenanceComplete",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.235.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalEventSignalGroup": {
+    "name": "lgpConditionExternalEventSignalGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.236",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalFireDetect": {
+    "name": "lgpConditionExternalFireDetect",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.236.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalFlowLoss": {
+    "name": "lgpConditionExternalFlowLoss",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.236.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalReheatLockout": {
+    "name": "lgpConditionExternalReheatLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.236.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalOverTemp": {
+    "name": "lgpConditionExternalOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.236.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalCompLockout": {
+    "name": "lgpConditionExternalCompLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.236.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionExternalHumidifierLockout": {
+    "name": "lgpConditionExternalHumidifierLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.236.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComponentShutdownGroup": {
+    "name": "lgpConditionComponentShutdownGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.237",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComponentShutdownPartial": {
+    "name": "lgpConditionComponentShutdownPartial",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.237.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionComponentShutdownHighPower": {
+    "name": "lgpConditionComponentShutdownHighPower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.237.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondenserProblemGroup": {
+    "name": "lgpConditionCondenserProblemGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.238",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionCondenser1Problem": {
+    "name": "lgpConditionCondenser1Problem",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.238.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionHumidityOutOfPropBand": {
+    "name": "lgpConditionHumidityOutOfPropBand",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.239",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensorGroup": {
+    "name": "lgpConditionEnvRemoteSensorGroup",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor1Issue": {
+    "name": "lgpConditionEnvRemoteSensor1Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor2Issue": {
+    "name": "lgpConditionEnvRemoteSensor2Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor3Issue": {
+    "name": "lgpConditionEnvRemoteSensor3Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor4Issue": {
+    "name": "lgpConditionEnvRemoteSensor4Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor5Issue": {
+    "name": "lgpConditionEnvRemoteSensor5Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor6Issue": {
+    "name": "lgpConditionEnvRemoteSensor6Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor7Issue": {
+    "name": "lgpConditionEnvRemoteSensor7Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor8Issue": {
+    "name": "lgpConditionEnvRemoteSensor8Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor9Issue": {
+    "name": "lgpConditionEnvRemoteSensor9Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionEnvRemoteSensor10Issue": {
+    "name": "lgpConditionEnvRemoteSensor10Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.240.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionNeutralSnubberBoardCommFailure": {
+    "name": "lgpConditionNeutralSnubberBoardCommFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.241",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionRedundantChargerFailure": {
+    "name": "lgpConditionRedundantChargerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.242",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBoardInputContactorPowerFailure": {
+    "name": "lgpConditionBoardInputContactorPowerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.243",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBoard1InputContactorPowerFailure": {
+    "name": "lgpConditionBoard1InputContactorPowerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.243.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionBoard2InputContactorPowerFailure": {
+    "name": "lgpConditionBoard2InputContactorPowerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.243.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionTooManySensors": {
+    "name": "lgpConditionTooManySensors",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5423",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionDoorSwitchOpen": {
+    "name": "lgpConditionDoorSwitchOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5471",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionContactClosureOpen": {
+    "name": "lgpConditionContactClosureOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5479",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionContactClosureClosed": {
+    "name": "lgpConditionContactClosureClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.5480",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpConditionSensorsNotDisplayed": {
+    "name": "lgpConditionSensorsNotDisplayed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.1.6119",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-COND-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LIEBERT-GP-CONDITIONS-MIB"
+  }
+}

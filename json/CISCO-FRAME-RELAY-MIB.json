@@ -1,0 +1,3248 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "RFC1315-MIB": [
+      "frCircuitIfIndex",
+      "frCircuitEntry",
+      "frDlcmiEntry",
+      "frCircuitDlci"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFrameRelayMIB": {
+    "name": "ciscoFrameRelayMIB",
+    "oid": "1.3.6.1.4.1.9.9.49",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-10-13 00:00",
+        "description": "(1) Added objects of FR Switching, FR Fragmentation and FR/ATM Interworking. (2) Objects for per PVC I/O rate is added to cfrExtCircuitTable"
+      },
+      {
+        "revision": "2000-05-22 00:00",
+        "description": "(1) Added ELMI subgroup for ELMI objects."
+      },
+      {
+        "revision": "2000-05-16 00:00",
+        "description": "(1) Added Traffic Shaping parameter objects to cfrExtCircuitTable. (2) Deprecated cfrSvcMinThruputOut and cfrSvcMinThruputIn. Added cfrExtCircuitMinThruputOut and cfrExtCircuitMinThruputIn in cfrExtCircuitTable inorder to make them applicable to both PVC/SVC. (3) Added cfrExtCircuitBandwidth object to cfrExtCircuitTable."
+      },
+      {
+        "revision": "2000-04-26 00:00",
+        "description": "(1) add an integer value for cfrMapPayloadCompressType; (2) reword the Description statements for { cfrMapPayloadCompressType, cfrExtCircuitUncompressIns, cfrExtCircuitUncompressOuts } so that they are not limited to software compression."
+      },
+      {
+        "revision": "1999-08-21 00:00",
+        "description": "(1) Added cfrExtCircuitUncompressOuts and cfrExtCircuitUncompressIns to the circuit subgroup; (2) Added cfrMapRtpHdrCompress and cfrMapPayloadCompressType to the mapping subgroup; (3) cfrMapPayloadCompress becomes deprecated, obsoleted by cfrMapPayloadCompressType; (4) frCircuitSentOctets and frCircuitReceivedOctets per RFC1315 will reflect the number of bytes in Frame Relay frames sent to and received from the physical layer. Same effect is applied to ifOutOctets and ifInOctets as well when ifIndex refers to a Frame Relay subinterface."
+      },
+      {
+        "revision": "1996-08-15 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFrMIBObjects": {
+    "name": "ciscoFrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.49.1",
+    "class": "objectidentity"
+  },
+  "cfrLmiObjs": {
+    "name": "cfrLmiObjs",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1",
+    "class": "objectidentity"
+  },
+  "cfrCircuitObjs": {
+    "name": "cfrCircuitObjs",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2",
+    "class": "objectidentity"
+  },
+  "cfrMapObjs": {
+    "name": "cfrMapObjs",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3",
+    "class": "objectidentity"
+  },
+  "cfrSvcObjs": {
+    "name": "cfrSvcObjs",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4",
+    "class": "objectidentity"
+  },
+  "cfrElmiObjs": {
+    "name": "cfrElmiObjs",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5",
+    "class": "objectidentity"
+  },
+  "cfrFragObjs": {
+    "name": "cfrFragObjs",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6",
+    "class": "objectidentity"
+  },
+  "cfrConnectionObjs": {
+    "name": "cfrConnectionObjs",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7",
+    "class": "objectidentity"
+  },
+  "DlciNumber": {
+    "name": "DlciNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CfrMapProtocols": {
+    "name": "CfrMapProtocols",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arp": 1,
+          "serialArp": 6,
+          "ip": 7,
+          "xns": 10,
+          "novell": 11,
+          "apollo": 12,
+          "vines": 13,
+          "appletalk": 16,
+          "ieeeSpanning": 18,
+          "decnet": 22,
+          "clns": 25,
+          "rsrb": 37,
+          "bridge": 38,
+          "stun": 39,
+          "frArp": 40,
+          "uncompressedTcp": 47,
+          "compressedTcp": 48,
+          "llc2": 49,
+          "frSwitch": 53,
+          "dlsw": 63,
+          "nhrp": 74,
+          "compressedRtp": 83,
+          "wildcard": 999
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cfrLmiTable": {
+    "name": "cfrLmiTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrLmiEntry": {
+    "name": "cfrLmiEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfrLmiEntry",
+      "module": "CISCO-FRAME-RELAY-MIB",
+      "object": "frDlcmiEntry"
+    },
+    "status": "current"
+  },
+  "cfrLmiLinkstatus": {
+    "name": "cfrLmiLinkstatus",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiLinkType": {
+    "name": "cfrLmiLinkType",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 1,
+          "dce": 2,
+          "nni": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiEnquiryIns": {
+    "name": "cfrLmiEnquiryIns",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiEnquiryOuts": {
+    "name": "cfrLmiEnquiryOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiStatusIns": {
+    "name": "cfrLmiStatusIns",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiStatusOuts": {
+    "name": "cfrLmiStatusOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiUpdateStatusIns": {
+    "name": "cfrLmiUpdateStatusIns",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiUpdateStatusOuts": {
+    "name": "cfrLmiUpdateStatusOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiStatusTimeouts": {
+    "name": "cfrLmiStatusTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "times",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiStatusEnqTimeouts": {
+    "name": "cfrLmiStatusEnqTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "times",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiN392Dce": {
+    "name": "cfrLmiN392Dce",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiN393Dce": {
+    "name": "cfrLmiN393Dce",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrLmiT392Dce": {
+    "name": "cfrLmiT392Dce",
+    "oid": "1.3.6.1.4.1.9.9.49.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrCircuitTable": {
+    "name": "cfrCircuitTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrCircuitEntry": {
+    "name": "cfrCircuitEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfrCircuitEntry",
+      "module": "CISCO-FRAME-RELAY-MIB",
+      "object": "frCircuitEntry"
+    },
+    "status": "current"
+  },
+  "cfrCircuitDEins": {
+    "name": "cfrCircuitDEins",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrCircuitDEouts": {
+    "name": "cfrCircuitDEouts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrCircuitDropPktsOuts": {
+    "name": "cfrCircuitDropPktsOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrCircuitType": {
+    "name": "cfrCircuitType",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitTable": {
+    "name": "cfrExtCircuitTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrExtCircuitEntry": {
+    "name": "cfrExtCircuitEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cfrExtCircuitEntry",
+      "module": "CISCO-FRAME-RELAY-MIB",
+      "object": "frCircuitEntry"
+    },
+    "status": "current"
+  },
+  "cfrExtCircuitIfName": {
+    "name": "cfrExtCircuitIfName",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitIfType": {
+    "name": "cfrExtCircuitIfType",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainInterface": 1,
+          "pointToPoint": 2,
+          "multipoint": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitSubifIndex": {
+    "name": "cfrExtCircuitSubifIndex",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitMapStatus": {
+    "name": "cfrExtCircuitMapStatus",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2047
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitCreateType": {
+    "name": "cfrExtCircuitCreateType",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitMulticast": {
+    "name": "cfrExtCircuitMulticast",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitRoutedDlci": {
+    "name": "cfrExtCircuitRoutedDlci",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitRoutedIf": {
+    "name": "cfrExtCircuitRoutedIf",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitUncompressIns": {
+    "name": "cfrExtCircuitUncompressIns",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitUncompressOuts": {
+    "name": "cfrExtCircuitUncompressOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitFECNOuts": {
+    "name": "cfrExtCircuitFECNOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitBECNOuts": {
+    "name": "cfrExtCircuitBECNOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitMinThruputOut": {
+    "name": "cfrExtCircuitMinThruputOut",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9600,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitMinThruputIn": {
+    "name": "cfrExtCircuitMinThruputIn",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9600,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitBcastPktOuts": {
+    "name": "cfrExtCircuitBcastPktOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitBcastByteOuts": {
+    "name": "cfrExtCircuitBcastByteOuts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitBandwidth": {
+    "name": "cfrExtCircuitBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapeByteLimit": {
+    "name": "cfrExtCircuitShapeByteLimit",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 125,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapeInterval": {
+    "name": "cfrExtCircuitShapeInterval",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 125
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapeByteIncrement": {
+    "name": "cfrExtCircuitShapeByteIncrement",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 125,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapePkts": {
+    "name": "cfrExtCircuitShapePkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapeBytes": {
+    "name": "cfrExtCircuitShapeBytes",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapePktsDelay": {
+    "name": "cfrExtCircuitShapePktsDelay",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapeBytesDelay": {
+    "name": "cfrExtCircuitShapeBytesDelay",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapeActive": {
+    "name": "cfrExtCircuitShapeActive",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitShapeAdapting": {
+    "name": "cfrExtCircuitShapeAdapting",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "becn": 2,
+          "foreSight": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitTxDataRate": {
+    "name": "cfrExtCircuitTxDataRate",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 45000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitTxPktRate": {
+    "name": "cfrExtCircuitTxPktRate",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 45000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitRcvDataRate": {
+    "name": "cfrExtCircuitRcvDataRate",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 45000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrExtCircuitRcvPktRate": {
+    "name": "cfrExtCircuitRcvPktRate",
+    "oid": "1.3.6.1.4.1.9.9.49.1.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 45000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapTable": {
+    "name": "cfrMapTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrMapEntry": {
+    "name": "cfrMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitDlci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfrMapIndex": {
+    "name": "cfrMapIndex",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapProtocol": {
+    "name": "cfrMapProtocol",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfrMapProtocols",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapAddress": {
+    "name": "cfrMapAddress",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapType": {
+    "name": "cfrMapType",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "svc": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapEncaps": {
+    "name": "cfrMapEncaps",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 1,
+          "cisco": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapBroadcast": {
+    "name": "cfrMapBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapPayloadCompress": {
+    "name": "cfrMapPayloadCompress",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cfrMapTcpHdrCompress": {
+    "name": "cfrMapTcpHdrCompress",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inapplicable": 1,
+          "passive": 2,
+          "active": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapRtpHdrCompress": {
+    "name": "cfrMapRtpHdrCompress",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inapplicable": 1,
+          "passive": 2,
+          "active": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrMapPayloadCompressType": {
+    "name": "cfrMapPayloadCompressType",
+    "oid": "1.3.6.1.4.1.9.9.49.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inapplicable": 1,
+          "cisco": 2,
+          "frf9Software": 3,
+          "frf9Hardware": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrSvcTable": {
+    "name": "cfrSvcTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrSvcEntry": {
+    "name": "cfrSvcEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfrSvcAddrLocal": {
+    "name": "cfrSvcAddrLocal",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrSvcAddrRemote": {
+    "name": "cfrSvcAddrRemote",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrSvcThroughputIn": {
+    "name": "cfrSvcThroughputIn",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9600,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrSvcMinThruputOut": {
+    "name": "cfrSvcMinThruputOut",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9600,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cfrSvcMinThruputIn": {
+    "name": "cfrSvcMinThruputIn",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9600,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cfrSvcCommitBurstIn": {
+    "name": "cfrSvcCommitBurstIn",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9600,
+            "max": 1544000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrSvcExcessBurstIn": {
+    "name": "cfrSvcExcessBurstIn",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9600,
+            "max": 2440000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrSvcIdleTime": {
+    "name": "cfrSvcIdleTime",
+    "oid": "1.3.6.1.4.1.9.9.49.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiIpAddr": {
+    "name": "cfrElmiIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiTable": {
+    "name": "cfrElmiTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrElmiEntry": {
+    "name": "cfrElmiEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfrElmiLinkStatus": {
+    "name": "cfrElmiLinkStatus",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiArStatus": {
+    "name": "cfrElmiArStatus",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiRemoteStatus": {
+    "name": "cfrElmiRemoteStatus",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiNeighborTable": {
+    "name": "cfrElmiNeighborTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrElmiNeighborEntry": {
+    "name": "cfrElmiNeighborEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfrElmiNeighborArStatus": {
+    "name": "cfrElmiNeighborArStatus",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notsupported": 1,
+          "enabled": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiNeighborIpAddress": {
+    "name": "cfrElmiNeighborIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiNeighborIfIndex": {
+    "name": "cfrElmiNeighborIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiNeighborVendorName": {
+    "name": "cfrElmiNeighborVendorName",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiNeighborPlatformName": {
+    "name": "cfrElmiNeighborPlatformName",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrElmiNeighborDeviceName": {
+    "name": "cfrElmiNeighborDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.49.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragTable": {
+    "name": "cfrFragTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrFragEntry": {
+    "name": "cfrFragEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfrFragSize": {
+    "name": "cfrFragSize",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1600
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragType": {
+    "name": "cfrFragType",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragInPkts": {
+    "name": "cfrFragInPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragOutPkts": {
+    "name": "cfrFragOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragInOctets": {
+    "name": "cfrFragInOctets",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragOutOctets": {
+    "name": "cfrFragOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragNotInPkts": {
+    "name": "cfrFragNotInPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragNotOutPkts": {
+    "name": "cfrFragNotOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragNotInOctets": {
+    "name": "cfrFragNotInOctets",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragNotOutOctets": {
+    "name": "cfrFragNotOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragAssembledInPkts": {
+    "name": "cfrFragAssembledInPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragAssembledInOctets": {
+    "name": "cfrFragAssembledInOctets",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragPreOutPkts": {
+    "name": "cfrFragPreOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragPreOutOctets": {
+    "name": "cfrFragPreOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragDroppedReAssembledInPkts": {
+    "name": "cfrFragDroppedReAssembledInPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragDroppedFragmentedOutPkts": {
+    "name": "cfrFragDroppedFragmentedOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragTimeoutsIn": {
+    "name": "cfrFragTimeoutsIn",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragOutOfSeqFragPkts": {
+    "name": "cfrFragOutOfSeqFragPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragUnexpectedBBitSetPkts": {
+    "name": "cfrFragUnexpectedBBitSetPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragSeqMissedPkts": {
+    "name": "cfrFragSeqMissedPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrFragInterleavedOutPkts": {
+    "name": "cfrFragInterleavedOutPkts",
+    "oid": "1.3.6.1.4.1.9.9.49.1.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnectionTable": {
+    "name": "cfrConnectionTable",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfrConnectionEntry": {
+    "name": "cfrConnectionEntry",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RFC1315-MIB",
+        "object": "frCircuitDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfrConnName": {
+    "name": "cfrConnName",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnID": {
+    "name": "cfrConnID",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnState": {
+    "name": "cfrConnState",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnSegment1Name": {
+    "name": "cfrConnSegment1Name",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnSegment1VCGroup": {
+    "name": "cfrConnSegment1VCGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnSegment1Dlci": {
+    "name": "cfrConnSegment1Dlci",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnSegment2Name": {
+    "name": "cfrConnSegment2Name",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnSegment2Vpi": {
+    "name": "cfrConnSegment2Vpi",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnSegment2Vci": {
+    "name": "cfrConnSegment2Vci",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnServiceTranslation": {
+    "name": "cfrConnServiceTranslation",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serviceTranslationEnabled": 1,
+          "serviceTranslationNotEnabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnFrSscsDlci": {
+    "name": "cfrConnFrSscsDlci",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DlciNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnEfciBit": {
+    "name": "cfrConnEfciBit",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mapFecn": 1,
+          "notMapFecn": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnDeBit": {
+    "name": "cfrConnDeBit",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMapClp": 1,
+          "mapClp": 2,
+          "setDe0": 3,
+          "setDe1": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfrConnClpBit": {
+    "name": "cfrConnClpBit",
+    "oid": "1.3.6.1.4.1.9.9.49.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setClpTo0AndCopyDeToFrsscsDe": 1,
+          "setClpTo1AndCopyDeToFrsscsDe": 2,
+          "copyDeToFrsscsDeAndClp": 3,
+          "copyDeToClp": 4,
+          "setClp1": 5,
+          "setClp0": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFrMIBConformance": {
+    "name": "ciscoFrMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.49.3",
+    "class": "objectidentity"
+  },
+  "ciscoFrMIBCompliances": {
+    "name": "ciscoFrMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.49.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoFrMIBGroups": {
+    "name": "ciscoFrMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoFrMIBCompliance": {
+    "name": "ciscoFrMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.49.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFrMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoFrMIBCompliancesRev1": {
+    "name": "ciscoFrMIBCompliancesRev1",
+    "oid": "1.3.6.1.4.1.9.9.49.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFrMIBGroupRev1",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoFrMIBCompliancesRev2": {
+    "name": "ciscoFrMIBCompliancesRev2",
+    "oid": "1.3.6.1.4.1.9.9.49.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFrLmiMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrCircuitMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoExtCircuitMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrTsMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrMapMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrSvcMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoFrMIBCompliancesRev3": {
+    "name": "ciscoFrMIBCompliancesRev3",
+    "oid": "1.3.6.1.4.1.9.9.49.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFrLmiMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrCircuitMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoExtCircuitMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrTsMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrMapMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrSvcMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrElmiMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFrMIBCompliancesRev4": {
+    "name": "ciscoFrMIBCompliancesRev4",
+    "oid": "1.3.6.1.4.1.9.9.49.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFrLmiMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrCircuitMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoExtCircuitMIBGroup1",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrTsMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrMapMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrSvcMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrElmiMIBGroup1",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrFragMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      },
+      {
+        "object": "ciscoFrConnMIBGroup",
+        "module": "CISCO-FRAME-RELAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrMIBGroup": {
+    "name": "ciscoFrMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiLinkstatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiLinkType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiEnquiryIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiEnquiryOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiUpdateStatusIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiUpdateStatusOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusTimeouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusEnqTimeouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiN392Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiN393Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiT392Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDEins"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDEouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDropPktsOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitSubifIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMapStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitCreateType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMulticast"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedDlci"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedIf"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapProtocol"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapAddress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapEncaps"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapBroadcast"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapPayloadCompress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapTcpHdrCompress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcAddrLocal"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcAddrRemote"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcThroughputIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcMinThruputOut"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcMinThruputIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcCommitBurstIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcExcessBurstIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcIdleTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFrMIBGroupRev1": {
+    "name": "ciscoFrMIBGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiLinkstatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiLinkType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiEnquiryIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiEnquiryOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiUpdateStatusIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiUpdateStatusOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusTimeouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusEnqTimeouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiN392Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiN393Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiT392Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDEins"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDEouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDropPktsOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitSubifIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMapStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitCreateType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMulticast"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedDlci"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedIf"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitUncompressIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitUncompressOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapProtocol"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapAddress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapEncaps"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapBroadcast"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapTcpHdrCompress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapRtpHdrCompress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapPayloadCompressType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcAddrLocal"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcAddrRemote"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcThroughputIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcMinThruputOut"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcMinThruputIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcCommitBurstIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcExcessBurstIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcIdleTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFrLmiMIBGroup": {
+    "name": "ciscoFrLmiMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiLinkstatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiLinkType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiEnquiryIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiEnquiryOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiUpdateStatusIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiUpdateStatusOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusTimeouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiStatusEnqTimeouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiN392Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiN393Dce"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrLmiT392Dce"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrCircuitMIBGroup": {
+    "name": "ciscoFrCircuitMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDEins"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDEouts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitDropPktsOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrCircuitType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoExtCircuitMIBGroup": {
+    "name": "ciscoExtCircuitMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitSubifIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMapStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitCreateType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMulticast"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedDlci"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedIf"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitUncompressIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitUncompressOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitFECNOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBECNOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMinThruputOut"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMinThruputIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBcastPktOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBcastByteOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBandwidth"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoExtCircuitMIBGroup1": {
+    "name": "ciscoExtCircuitMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitIfType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitSubifIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMapStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitCreateType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMulticast"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedDlci"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRoutedIf"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitUncompressIns"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitUncompressOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitFECNOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBECNOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMinThruputOut"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitMinThruputIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBcastPktOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBcastByteOuts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitBandwidth"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitTxDataRate"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitTxPktRate"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRcvDataRate"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitRcvPktRate"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrTsMIBGroup": {
+    "name": "ciscoFrTsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapeByteLimit"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapeInterval"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapeByteIncrement"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapePkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapeBytes"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapePktsDelay"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapeBytesDelay"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapeActive"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrExtCircuitShapeAdapting"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrMapMIBGroup": {
+    "name": "ciscoFrMapMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapProtocol"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapAddress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapEncaps"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapBroadcast"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapTcpHdrCompress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapRtpHdrCompress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrMapPayloadCompressType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrSvcMIBGroup": {
+    "name": "ciscoFrSvcMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcAddrLocal"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcAddrRemote"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcThroughputIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcCommitBurstIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcExcessBurstIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrSvcIdleTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrElmiMIBGroup": {
+    "name": "ciscoFrElmiMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiIpAddr"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiArStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiRemoteStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborArStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborIpAddress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborIfIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborVendorName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborPlatformName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborDeviceName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoFrElmiMIBGroup1": {
+    "name": "ciscoFrElmiMIBGroup1",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiIpAddr"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiArStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiRemoteStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborArStatus"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborIpAddress"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborIfIndex"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborVendorName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborPlatformName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiNeighborDeviceName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrElmiLinkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrFragMIBGroup": {
+    "name": "ciscoFrFragMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragSize"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragType"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragInPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragOutPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragInOctets"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragOutOctets"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragNotInPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragNotOutPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragNotInOctets"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragNotOutOctets"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragAssembledInPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragAssembledInOctets"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragPreOutPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragPreOutOctets"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragDroppedReAssembledInPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragDroppedFragmentedOutPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragTimeoutsIn"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragOutOfSeqFragPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragUnexpectedBBitSetPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragSeqMissedPkts"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrFragInterleavedOutPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFrConnMIBGroup": {
+    "name": "ciscoFrConnMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.49.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnName"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnID"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnState"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnSegment1Name"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnSegment1VCGroup"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnSegment1Dlci"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnSegment2Name"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnSegment2Vpi"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnSegment2Vci"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnServiceTranslation"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnFrSscsDlci"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnEfciBit"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnDeBit"
+      },
+      {
+        "module": "CISCO-FRAME-RELAY-MIB",
+        "object": "cfrConnClpBit"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FRAME-RELAY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FRAME-RELAY-MIB"
+  }
+}

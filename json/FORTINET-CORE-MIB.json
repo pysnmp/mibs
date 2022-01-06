@@ -1,0 +1,692 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "enterprises",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "fortinet": {
+    "name": "fortinet",
+    "oid": "1.3.6.1.4.1.12356",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-14 00:00",
+        "description": "Registered and updated FortiAuthenticatorMib/FortiRecorderMib/FortiVoiceMib/FortiBridgeMib/FortiDirectorMib OIDs"
+      },
+      {
+        "revision": "2014-12-10 00:00",
+        "description": "Registered FortiVoiceMib OID"
+      },
+      {
+        "revision": "2014-04-10 00:00",
+        "description": "Registered FortiADCMib OID"
+      },
+      {
+        "revision": "2014-03-22 00:00",
+        "description": "Added fan failure and AMC bypass traps"
+      },
+      {
+        "revision": "2012-05-09 00:00",
+        "description": "Registered FortiDDoSMib OID"
+      },
+      {
+        "revision": "2012-04-23 00:00",
+        "description": "Registered FortiDNSMib OID"
+      },
+      {
+        "revision": "2011-12-23 00:00",
+        "description": "Registered FortiCacheMib OID"
+      },
+      {
+        "revision": "2011-04-25 00:00",
+        "description": "Supporting portuguese language"
+      },
+      {
+        "revision": "2010-05-14 00:00",
+        "description": "Registered FortiScanMib OID"
+      },
+      {
+        "revision": "2009-05-20 00:00",
+        "description": "MIB module for Fortinet network devices."
+      },
+      {
+        "revision": "2008-11-19 00:00",
+        "description": "Registered FortiWebMib OID"
+      },
+      {
+        "revision": "2008-10-21 00:00",
+        "description": "Added SMI comments"
+      },
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Adjusted fnAdmin tree to start at .1"
+      },
+      {
+        "revision": "2008-06-16 00:00",
+        "description": "Spelling corrections."
+      },
+      {
+        "revision": "2008-04-17 00:00",
+        "description": "Initial version of fortinet core MIB."
+      }
+    ]
+  },
+  "FnBoolState": {
+    "name": "FnBoolState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FnLanguage": {
+    "name": "FnLanguage",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "english": 1,
+          "simplifiedChinese": 2,
+          "japanese": 3,
+          "korean": 4,
+          "spanish": 5,
+          "traditionalChinese": 6,
+          "french": 7,
+          "portuguese": 8,
+          "undefined": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FnIndex": {
+    "name": "FnIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "FnSessionProto": {
+    "name": "FnSessionProto",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 0,
+          "icmp": 1,
+          "igmp": 2,
+          "ipip": 4,
+          "tcp": 6,
+          "egp": 8,
+          "pup": 12,
+          "udp": 17,
+          "idp": 22,
+          "ipv6": 41,
+          "rsvp": 46,
+          "gre": 47,
+          "esp": 50,
+          "ah": 51,
+          "ospf": 89,
+          "pim": 103,
+          "comp": 108,
+          "raw": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "fnCoreMib": {
+    "name": "fnCoreMib",
+    "oid": "1.3.6.1.4.1.12356.100",
+    "class": "objectidentity"
+  },
+  "fnCommon": {
+    "name": "fnCommon",
+    "oid": "1.3.6.1.4.1.12356.100.1",
+    "class": "objectidentity"
+  },
+  "fnSystem": {
+    "name": "fnSystem",
+    "oid": "1.3.6.1.4.1.12356.100.1.1",
+    "class": "objectidentity"
+  },
+  "fnSysSerial": {
+    "name": "fnSysSerial",
+    "oid": "1.3.6.1.4.1.12356.100.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnMgmt": {
+    "name": "fnMgmt",
+    "oid": "1.3.6.1.4.1.12356.100.1.2",
+    "class": "objectidentity"
+  },
+  "fnMgmtLanguage": {
+    "name": "fnMgmtLanguage",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnLanguage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnAdmin": {
+    "name": "fnAdmin",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100",
+    "class": "objectidentity"
+  },
+  "fnAdminNumber": {
+    "name": "fnAdminNumber",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnAdminTable": {
+    "name": "fnAdminTable",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fnAdminEntry": {
+    "name": "fnAdminEntry",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnAdminIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fnAdminIndex": {
+    "name": "fnAdminIndex",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fnAdminName": {
+    "name": "fnAdminName",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnAdminAddrType": {
+    "name": "fnAdminAddrType",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnAdminAddr": {
+    "name": "fnAdminAddr",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnAdminMask": {
+    "name": "fnAdminMask",
+    "oid": "1.3.6.1.4.1.12356.100.1.2.100.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fnTraps": {
+    "name": "fnTraps",
+    "oid": "1.3.6.1.4.1.12356.100.1.3",
+    "class": "objectidentity"
+  },
+  "fnTrapsPrefix": {
+    "name": "fnTrapsPrefix",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0",
+    "class": "objectidentity"
+  },
+  "fnTrapObjects": {
+    "name": "fnTrapObjects",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.1",
+    "class": "objectidentity"
+  },
+  "fnGenTrapMsg": {
+    "name": "fnGenTrapMsg",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fnTrapCpuThreshold": {
+    "name": "fnTrapCpuThreshold",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapMemThreshold": {
+    "name": "fnTrapMemThreshold",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapLogDiskThreshold": {
+    "name": "fnTrapLogDiskThreshold",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapTempHigh": {
+    "name": "fnTrapTempHigh",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapVoltageOutOfRange": {
+    "name": "fnTrapVoltageOutOfRange",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapPowerSupplyFailure": {
+    "name": "fnTrapPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapAmcIfBypassMode": {
+    "name": "fnTrapAmcIfBypassMode",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.107",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapFanFailure": {
+    "name": "fnTrapFanFailure",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.108",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapIpChange": {
+    "name": "fnTrapIpChange",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapTest": {
+    "name": "fnTrapTest",
+    "oid": "1.3.6.1.4.1.12356.100.1.3.0.999",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "current"
+  },
+  "fnMIBConformance": {
+    "name": "fnMIBConformance",
+    "oid": "1.3.6.1.4.1.12356.100.10",
+    "class": "objectidentity"
+  },
+  "fnSystemComplianceGroup": {
+    "name": "fnSystemComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.100.10.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnSysSerial"
+      }
+    ],
+    "status": "current"
+  },
+  "fnMgmtComplianceGroup": {
+    "name": "fnMgmtComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.100.10.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnMgmtLanguage"
+      }
+    ],
+    "status": "current"
+  },
+  "fnAdminComplianceGroup": {
+    "name": "fnAdminComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.100.10.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnAdminNumber"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnAdminName"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnAdminAddrType"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnAdminAddr"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnAdminMask"
+      }
+    ],
+    "status": "current"
+  },
+  "fnTrapsComplianceGroup": {
+    "name": "fnTrapsComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.100.10.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapCpuThreshold"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapMemThreshold"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapLogDiskThreshold"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapTempHigh"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapVoltageOutOfRange"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapPowerSupplyFailure"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapAmcIfBypassMode"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapFanFailure"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapIpChange"
+      },
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnTrapTest"
+      }
+    ],
+    "status": "current"
+  },
+  "fnNotifObjectsComplianceGroup": {
+    "name": "fnNotifObjectsComplianceGroup",
+    "oid": "1.3.6.1.4.1.12356.100.10.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FORTINET-CORE-MIB",
+        "object": "fnGenTrapMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "fnMIBCompliance": {
+    "name": "fnMIBCompliance",
+    "oid": "1.3.6.1.4.1.12356.100.10.100",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fnSystemComplianceGroup",
+        "module": "FORTINET-CORE-MIB"
+      },
+      {
+        "object": "fnMgmtComplianceGroup",
+        "module": "FORTINET-CORE-MIB"
+      },
+      {
+        "object": "fnAdminComplianceGroup",
+        "module": "FORTINET-CORE-MIB"
+      },
+      {
+        "object": "fnTrapsComplianceGroup",
+        "module": "FORTINET-CORE-MIB"
+      },
+      {
+        "object": "fnNotifObjectsComplianceGroup",
+        "module": "FORTINET-CORE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-CORE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:30:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "FORTINET-CORE-MIB"
+  }
+}

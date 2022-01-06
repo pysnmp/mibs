@@ -1,0 +1,2777 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsLsbootLanImagePathType",
+      "CucsLsbootADefBootMode",
+      "CucsLsbootLanType",
+      "CucsLsbootUsbExternalImageType",
+      "CucsLsbootSanImageType",
+      "CucsLsbootLocalLunImagePathType",
+      "CucsLsbootIScsiImagePathType",
+      "CucsLsbootLocalDiskImageType",
+      "CucsLsbootAccessType",
+      "CucsPolicyPolicyOwner",
+      "CucsLsbootSanImagePathType",
+      "CucsLsbootUsbInternalImageType",
+      "CucsLsbootIScsiAccess",
+      "CucsLsbootSanAccess",
+      "CucsLsbootEmbeddedLocalDiskImageType",
+      "CucsLsbootLocalDiskImagePathType",
+      "CucsLsbootSanCatSanImageType",
+      "CucsLsbootLanBootProt",
+      "CucsLsbootLocalHddImageType",
+      "CucsLsbootLanAccess",
+      "CucsLsbootEmbeddedLocalDiskImagePathType",
+      "CucsLsbootIScsiType",
+      "CucsLsbootSanType",
+      "CucsLsbootEmbeddedLocalLunImageType",
+      "CucsLsbootStorageAccess",
+      "CucsLsbootPurpose",
+      "CucsLsbootVirtualMediaType",
+      "CucsLsbootDefaultLocalImageType",
+      "CucsLsbootStorageType",
+      "CucsLsbootSanCatSanImagePathType",
+      "CucsLsbootUsbFlashStorageImageType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsLsbootObjects": {
+    "name": "cucsLsbootObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27",
+    "class": "moduleidentity"
+  },
+  "cucsLsbootBootSecurityTable": {
+    "name": "cucsLsbootBootSecurityTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootBootSecurityEntry": {
+    "name": "cucsLsbootBootSecurityEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootBootSecurityInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootBootSecurityInstanceId": {
+    "name": "cucsLsbootBootSecurityInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootBootSecurityDn": {
+    "name": "cucsLsbootBootSecurityDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootBootSecurityRn": {
+    "name": "cucsLsbootBootSecurityRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootBootSecuritySecureBoot": {
+    "name": "cucsLsbootBootSecuritySecureBoot",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefTable": {
+    "name": "cucsLsbootDefTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootDefEntry": {
+    "name": "cucsLsbootDefEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootDefInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootDefInstanceId": {
+    "name": "cucsLsbootDefInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootDefDn": {
+    "name": "cucsLsbootDefDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefRn": {
+    "name": "cucsLsbootDefRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefDescr": {
+    "name": "cucsLsbootDefDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefEnforceVnicName": {
+    "name": "cucsLsbootDefEnforceVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefIntId": {
+    "name": "cucsLsbootDefIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefName": {
+    "name": "cucsLsbootDefName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefPurpose": {
+    "name": "cucsLsbootDefPurpose",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootPurpose",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefRebootOnUpdate": {
+    "name": "cucsLsbootDefRebootOnUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefPolicyLevel": {
+    "name": "cucsLsbootDefPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefPolicyOwner": {
+    "name": "cucsLsbootDefPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefAdvBootOrderApplicable": {
+    "name": "cucsLsbootDefAdvBootOrderApplicable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefBootMode": {
+    "name": "cucsLsbootDefBootMode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootADefBootMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImageTable": {
+    "name": "cucsLsbootDefaultLocalImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImageEntry": {
+    "name": "cucsLsbootDefaultLocalImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootDefaultLocalImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImageInstanceId": {
+    "name": "cucsLsbootDefaultLocalImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImageDn": {
+    "name": "cucsLsbootDefaultLocalImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImageRn": {
+    "name": "cucsLsbootDefaultLocalImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImageOrder": {
+    "name": "cucsLsbootDefaultLocalImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImageType": {
+    "name": "cucsLsbootDefaultLocalImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootDefaultLocalImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootDefaultLocalImagePropAcl": {
+    "name": "cucsLsbootDefaultLocalImagePropAcl",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImageTable": {
+    "name": "cucsLsbootEmbeddedLocalDiskImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImageEntry": {
+    "name": "cucsLsbootEmbeddedLocalDiskImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootEmbeddedLocalDiskImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImageInstanceId": {
+    "name": "cucsLsbootEmbeddedLocalDiskImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImageDn": {
+    "name": "cucsLsbootEmbeddedLocalDiskImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImageRn": {
+    "name": "cucsLsbootEmbeddedLocalDiskImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImageOrder": {
+    "name": "cucsLsbootEmbeddedLocalDiskImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImageType": {
+    "name": "cucsLsbootEmbeddedLocalDiskImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootEmbeddedLocalDiskImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImagePathTable": {
+    "name": "cucsLsbootEmbeddedLocalDiskImagePathTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImagePathEntry": {
+    "name": "cucsLsbootEmbeddedLocalDiskImagePathEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootEmbeddedLocalDiskImagePathInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImagePathInstanceId": {
+    "name": "cucsLsbootEmbeddedLocalDiskImagePathInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImagePathDn": {
+    "name": "cucsLsbootEmbeddedLocalDiskImagePathDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImagePathRn": {
+    "name": "cucsLsbootEmbeddedLocalDiskImagePathRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImagePathSlotNumber": {
+    "name": "cucsLsbootEmbeddedLocalDiskImagePathSlotNumber",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalDiskImagePathType": {
+    "name": "cucsLsbootEmbeddedLocalDiskImagePathType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootEmbeddedLocalDiskImagePathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalLunImageTable": {
+    "name": "cucsLsbootEmbeddedLocalLunImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalLunImageEntry": {
+    "name": "cucsLsbootEmbeddedLocalLunImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootEmbeddedLocalLunImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalLunImageInstanceId": {
+    "name": "cucsLsbootEmbeddedLocalLunImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalLunImageDn": {
+    "name": "cucsLsbootEmbeddedLocalLunImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalLunImageRn": {
+    "name": "cucsLsbootEmbeddedLocalLunImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalLunImageOrder": {
+    "name": "cucsLsbootEmbeddedLocalLunImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootEmbeddedLocalLunImageType": {
+    "name": "cucsLsbootEmbeddedLocalLunImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.27.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootEmbeddedLocalLunImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiTable": {
+    "name": "cucsLsbootIScsiTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootIScsiEntry": {
+    "name": "cucsLsbootIScsiEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootIScsiInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootIScsiInstanceId": {
+    "name": "cucsLsbootIScsiInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootIScsiDn": {
+    "name": "cucsLsbootIScsiDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiRn": {
+    "name": "cucsLsbootIScsiRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiAccess": {
+    "name": "cucsLsbootIScsiAccess",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootIScsiAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiOrder": {
+    "name": "cucsLsbootIScsiOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiType": {
+    "name": "cucsLsbootIScsiType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootIScsiType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathTable": {
+    "name": "cucsLsbootIScsiImagePathTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathEntry": {
+    "name": "cucsLsbootIScsiImagePathEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootIScsiImagePathInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathInstanceId": {
+    "name": "cucsLsbootIScsiImagePathInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathDn": {
+    "name": "cucsLsbootIScsiImagePathDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathRn": {
+    "name": "cucsLsbootIScsiImagePathRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathISCSIVnicName": {
+    "name": "cucsLsbootIScsiImagePathISCSIVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathType": {
+    "name": "cucsLsbootIScsiImagePathType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootIScsiImagePathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootIScsiImagePathVnicName": {
+    "name": "cucsLsbootIScsiImagePathVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanTable": {
+    "name": "cucsLsbootLanTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLanEntry": {
+    "name": "cucsLsbootLanEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootLanInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootLanInstanceId": {
+    "name": "cucsLsbootLanInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLanDn": {
+    "name": "cucsLsbootLanDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanRn": {
+    "name": "cucsLsbootLanRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanAccess": {
+    "name": "cucsLsbootLanAccess",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLanAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanOrder": {
+    "name": "cucsLsbootLanOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanType": {
+    "name": "cucsLsbootLanType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLanType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanProt": {
+    "name": "cucsLsbootLanProt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLanBootProt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathTable": {
+    "name": "cucsLsbootLanImagePathTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathEntry": {
+    "name": "cucsLsbootLanImagePathEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootLanImagePathInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathInstanceId": {
+    "name": "cucsLsbootLanImagePathInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathDn": {
+    "name": "cucsLsbootLanImagePathDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathRn": {
+    "name": "cucsLsbootLanImagePathRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathType": {
+    "name": "cucsLsbootLanImagePathType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLanImagePathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathVnicName": {
+    "name": "cucsLsbootLanImagePathVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathImgPolicyName": {
+    "name": "cucsLsbootLanImagePathImgPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathImgSecPolicyName": {
+    "name": "cucsLsbootLanImagePathImgSecPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathBootIpPolicyName": {
+    "name": "cucsLsbootLanImagePathBootIpPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathProvSrvPolicyName": {
+    "name": "cucsLsbootLanImagePathProvSrvPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLanImagePathISCSIVnicName": {
+    "name": "cucsLsbootLanImagePathISCSIVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImageTable": {
+    "name": "cucsLsbootLocalDiskImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImageEntry": {
+    "name": "cucsLsbootLocalDiskImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootLocalDiskImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImageInstanceId": {
+    "name": "cucsLsbootLocalDiskImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImageDn": {
+    "name": "cucsLsbootLocalDiskImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImageRn": {
+    "name": "cucsLsbootLocalDiskImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImageOrder": {
+    "name": "cucsLsbootLocalDiskImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImageType": {
+    "name": "cucsLsbootLocalDiskImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLocalDiskImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImagePathTable": {
+    "name": "cucsLsbootLocalDiskImagePathTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImagePathEntry": {
+    "name": "cucsLsbootLocalDiskImagePathEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootLocalDiskImagePathInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImagePathInstanceId": {
+    "name": "cucsLsbootLocalDiskImagePathInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImagePathDn": {
+    "name": "cucsLsbootLocalDiskImagePathDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImagePathRn": {
+    "name": "cucsLsbootLocalDiskImagePathRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImagePathSlotNumber": {
+    "name": "cucsLsbootLocalDiskImagePathSlotNumber",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalDiskImagePathType": {
+    "name": "cucsLsbootLocalDiskImagePathType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLocalDiskImagePathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalHddImageTable": {
+    "name": "cucsLsbootLocalHddImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalHddImageEntry": {
+    "name": "cucsLsbootLocalHddImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootLocalHddImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootLocalHddImageInstanceId": {
+    "name": "cucsLsbootLocalHddImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalHddImageDn": {
+    "name": "cucsLsbootLocalHddImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalHddImageRn": {
+    "name": "cucsLsbootLocalHddImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalHddImageOrder": {
+    "name": "cucsLsbootLocalHddImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalHddImageType": {
+    "name": "cucsLsbootLocalHddImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLocalHddImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalLunImagePathTable": {
+    "name": "cucsLsbootLocalLunImagePathTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalLunImagePathEntry": {
+    "name": "cucsLsbootLocalLunImagePathEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootLocalLunImagePathInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootLocalLunImagePathInstanceId": {
+    "name": "cucsLsbootLocalLunImagePathInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalLunImagePathDn": {
+    "name": "cucsLsbootLocalLunImagePathDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalLunImagePathRn": {
+    "name": "cucsLsbootLocalLunImagePathRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalLunImagePathLunName": {
+    "name": "cucsLsbootLocalLunImagePathLunName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalLunImagePathType": {
+    "name": "cucsLsbootLocalLunImagePathType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootLocalLunImagePathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalStorageTable": {
+    "name": "cucsLsbootLocalStorageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalStorageEntry": {
+    "name": "cucsLsbootLocalStorageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootLocalStorageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootLocalStorageInstanceId": {
+    "name": "cucsLsbootLocalStorageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootLocalStorageDn": {
+    "name": "cucsLsbootLocalStorageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalStorageRn": {
+    "name": "cucsLsbootLocalStorageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootLocalStoragePropAcl": {
+    "name": "cucsLsbootLocalStoragePropAcl",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyTable": {
+    "name": "cucsLsbootPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootPolicyEntry": {
+    "name": "cucsLsbootPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootPolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootPolicyInstanceId": {
+    "name": "cucsLsbootPolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootPolicyDn": {
+    "name": "cucsLsbootPolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyRn": {
+    "name": "cucsLsbootPolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyDescr": {
+    "name": "cucsLsbootPolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyEnforceVnicName": {
+    "name": "cucsLsbootPolicyEnforceVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyIntId": {
+    "name": "cucsLsbootPolicyIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyName": {
+    "name": "cucsLsbootPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyPurpose": {
+    "name": "cucsLsbootPolicyPurpose",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootPurpose",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyRebootOnUpdate": {
+    "name": "cucsLsbootPolicyRebootOnUpdate",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyPolicyLevel": {
+    "name": "cucsLsbootPolicyPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyPolicyOwner": {
+    "name": "cucsLsbootPolicyPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyBootMode": {
+    "name": "cucsLsbootPolicyBootMode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootADefBootMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootPolicyPropAcl": {
+    "name": "cucsLsbootPolicyPropAcl",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanTable": {
+    "name": "cucsLsbootSanTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanEntry": {
+    "name": "cucsLsbootSanEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootSanInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootSanInstanceId": {
+    "name": "cucsLsbootSanInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanDn": {
+    "name": "cucsLsbootSanDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanRn": {
+    "name": "cucsLsbootSanRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanAccess": {
+    "name": "cucsLsbootSanAccess",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootSanAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanOrder": {
+    "name": "cucsLsbootSanOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanType": {
+    "name": "cucsLsbootSanType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootSanType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImageTable": {
+    "name": "cucsLsbootSanCatSanImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImageEntry": {
+    "name": "cucsLsbootSanCatSanImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootSanCatSanImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImageInstanceId": {
+    "name": "cucsLsbootSanCatSanImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImageDn": {
+    "name": "cucsLsbootSanCatSanImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImageRn": {
+    "name": "cucsLsbootSanCatSanImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImageType": {
+    "name": "cucsLsbootSanCatSanImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootSanCatSanImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImageVnicName": {
+    "name": "cucsLsbootSanCatSanImageVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathTable": {
+    "name": "cucsLsbootSanCatSanImagePathTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathEntry": {
+    "name": "cucsLsbootSanCatSanImagePathEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootSanCatSanImagePathInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathInstanceId": {
+    "name": "cucsLsbootSanCatSanImagePathInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathDn": {
+    "name": "cucsLsbootSanCatSanImagePathDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathRn": {
+    "name": "cucsLsbootSanCatSanImagePathRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathLun": {
+    "name": "cucsLsbootSanCatSanImagePathLun",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathType": {
+    "name": "cucsLsbootSanCatSanImagePathType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootSanCatSanImagePathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathVnicName": {
+    "name": "cucsLsbootSanCatSanImagePathVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanCatSanImagePathWwn": {
+    "name": "cucsLsbootSanCatSanImagePathWwn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImageTable": {
+    "name": "cucsLsbootSanImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanImageEntry": {
+    "name": "cucsLsbootSanImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootSanImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootSanImageInstanceId": {
+    "name": "cucsLsbootSanImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanImageDn": {
+    "name": "cucsLsbootSanImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImageRn": {
+    "name": "cucsLsbootSanImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImageType": {
+    "name": "cucsLsbootSanImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootSanImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImageVnicName": {
+    "name": "cucsLsbootSanImageVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathTable": {
+    "name": "cucsLsbootSanImagePathTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathEntry": {
+    "name": "cucsLsbootSanImagePathEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootSanImagePathInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathInstanceId": {
+    "name": "cucsLsbootSanImagePathInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathDn": {
+    "name": "cucsLsbootSanImagePathDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathRn": {
+    "name": "cucsLsbootSanImagePathRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathLun": {
+    "name": "cucsLsbootSanImagePathLun",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathType": {
+    "name": "cucsLsbootSanImagePathType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootSanImagePathType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathVnicName": {
+    "name": "cucsLsbootSanImagePathVnicName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootSanImagePathWwn": {
+    "name": "cucsLsbootSanImagePathWwn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootStorageTable": {
+    "name": "cucsLsbootStorageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootStorageEntry": {
+    "name": "cucsLsbootStorageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootStorageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootStorageInstanceId": {
+    "name": "cucsLsbootStorageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootStorageDn": {
+    "name": "cucsLsbootStorageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootStorageRn": {
+    "name": "cucsLsbootStorageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootStorageAccess": {
+    "name": "cucsLsbootStorageAccess",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootStorageAccess",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootStorageOrder": {
+    "name": "cucsLsbootStorageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootStorageType": {
+    "name": "cucsLsbootStorageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootStorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootStoragePropAcl": {
+    "name": "cucsLsbootStoragePropAcl",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamTable": {
+    "name": "cucsLsbootUEFIBootParamTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamEntry": {
+    "name": "cucsLsbootUEFIBootParamEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootUEFIBootParamInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamInstanceId": {
+    "name": "cucsLsbootUEFIBootParamInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamDn": {
+    "name": "cucsLsbootUEFIBootParamDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamRn": {
+    "name": "cucsLsbootUEFIBootParamRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamBootDescription": {
+    "name": "cucsLsbootUEFIBootParamBootDescription",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamBootLoaderName": {
+    "name": "cucsLsbootUEFIBootParamBootLoaderName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUEFIBootParamBootLoaderPath": {
+    "name": "cucsLsbootUEFIBootParamBootLoaderPath",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbExternalImageTable": {
+    "name": "cucsLsbootUsbExternalImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUsbExternalImageEntry": {
+    "name": "cucsLsbootUsbExternalImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootUsbExternalImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootUsbExternalImageInstanceId": {
+    "name": "cucsLsbootUsbExternalImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUsbExternalImageDn": {
+    "name": "cucsLsbootUsbExternalImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbExternalImageRn": {
+    "name": "cucsLsbootUsbExternalImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbExternalImageOrder": {
+    "name": "cucsLsbootUsbExternalImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbExternalImageType": {
+    "name": "cucsLsbootUsbExternalImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootUsbExternalImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbFlashStorageImageTable": {
+    "name": "cucsLsbootUsbFlashStorageImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUsbFlashStorageImageEntry": {
+    "name": "cucsLsbootUsbFlashStorageImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootUsbFlashStorageImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootUsbFlashStorageImageInstanceId": {
+    "name": "cucsLsbootUsbFlashStorageImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUsbFlashStorageImageDn": {
+    "name": "cucsLsbootUsbFlashStorageImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbFlashStorageImageRn": {
+    "name": "cucsLsbootUsbFlashStorageImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbFlashStorageImageOrder": {
+    "name": "cucsLsbootUsbFlashStorageImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbFlashStorageImageType": {
+    "name": "cucsLsbootUsbFlashStorageImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootUsbFlashStorageImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbInternalImageTable": {
+    "name": "cucsLsbootUsbInternalImageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUsbInternalImageEntry": {
+    "name": "cucsLsbootUsbInternalImageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootUsbInternalImageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootUsbInternalImageInstanceId": {
+    "name": "cucsLsbootUsbInternalImageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootUsbInternalImageDn": {
+    "name": "cucsLsbootUsbInternalImageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbInternalImageRn": {
+    "name": "cucsLsbootUsbInternalImageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbInternalImageOrder": {
+    "name": "cucsLsbootUsbInternalImageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootUsbInternalImageType": {
+    "name": "cucsLsbootUsbInternalImageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootUsbInternalImageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaTable": {
+    "name": "cucsLsbootVirtualMediaTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaEntry": {
+    "name": "cucsLsbootVirtualMediaEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+        "object": "cucsLsbootVirtualMediaInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaInstanceId": {
+    "name": "cucsLsbootVirtualMediaInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaDn": {
+    "name": "cucsLsbootVirtualMediaDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaRn": {
+    "name": "cucsLsbootVirtualMediaRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaAccess": {
+    "name": "cucsLsbootVirtualMediaAccess",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootAccessType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaOrder": {
+    "name": "cucsLsbootVirtualMediaOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaType": {
+    "name": "cucsLsbootVirtualMediaType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsLsbootVirtualMediaType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaLunId": {
+    "name": "cucsLsbootVirtualMediaLunId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaMappingName": {
+    "name": "cucsLsbootVirtualMediaMappingName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsLsbootVirtualMediaPropAcl": {
+    "name": "cucsLsbootVirtualMediaPropAcl",
+    "oid": "1.3.6.1.4.1.9.9.719.1.27.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB"
+  }
+}

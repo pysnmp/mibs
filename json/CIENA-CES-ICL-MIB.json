@@ -1,0 +1,515 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-GLOBAL-MIB": [
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
+    ],
+    "CIENA-SMI": [
+      "cienaCesConfig",
+      "cienaCesNotifications"
+    ],
+    "CIENA-TC": [
+      "CienaMacAddress",
+      "CienaGlobalState",
+      "CienaStatsClear"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus"
+    ]
+  },
+  "cienaCesIclMIB": {
+    "name": "cienaCesIclMIB",
+    "oid": "1.3.6.1.4.1.1271.2.1.32",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-11-07 00:00",
+        "description": "Initial creation."
+      }
+    ]
+  },
+  "cienaCesIclMIBObjects": {
+    "name": "cienaCesIclMIBObjects",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1",
+    "class": "objectidentity"
+  },
+  "cienaCesIcl": {
+    "name": "cienaCesIcl",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1",
+    "class": "objectidentity"
+  },
+  "cienaCesIclMIBNotificationPrefix": {
+    "name": "cienaCesIclMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.2",
+    "class": "objectidentity"
+  },
+  "cienaCesIclMIBNotifications": {
+    "name": "cienaCesIclMIBNotifications",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.2.0",
+    "class": "objectidentity"
+  },
+  "cienaCesIclMIBConformance": {
+    "name": "cienaCesIclMIBConformance",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.3",
+    "class": "objectidentity"
+  },
+  "cienaCesIclMIBCompliances": {
+    "name": "cienaCesIclMIBCompliances",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.3.1",
+    "class": "objectidentity"
+  },
+  "cienaCesIclMIBGroups": {
+    "name": "cienaCesIclMIBGroups",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.3.2",
+    "class": "objectidentity"
+  },
+  "cienaCesIclTable": {
+    "name": "cienaCesIclTable",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cienaCesIclEntry": {
+    "name": "cienaCesIclEntry",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-CES-ICL-MIB",
+        "object": "cienaCesIclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cienaCesIclIndex": {
+    "name": "cienaCesIclIndex",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 47
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclName": {
+    "name": "cienaCesIclName",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclRemoteMacAddress": {
+    "name": "cienaCesIclRemoteMacAddress",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclType": {
+    "name": "cienaCesIclType",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "mplsVs": 2,
+          "qinqVs": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclVlan": {
+    "name": "cienaCesIclVlan",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclVsName": {
+    "name": "cienaCesIclVsName",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclCfmServicePrimary": {
+    "name": "cienaCesIclCfmServicePrimary",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclCfmServiceSecondary": {
+    "name": "cienaCesIclCfmServiceSecondary",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclOperState": {
+    "name": "cienaCesIclOperState",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclStatus": {
+    "name": "cienaCesIclStatus",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "active": 2,
+          "failed": 3,
+          "down": 4,
+          "none": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclAdminState": {
+    "name": "cienaCesIclAdminState",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CienaGlobalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclCfmFault": {
+    "name": "cienaCesIclCfmFault",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclVplsFault": {
+    "name": "cienaCesIclVplsFault",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclRxTimeout": {
+    "name": "cienaCesIclRxTimeout",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclIntervalMismatch": {
+    "name": "cienaCesIclIntervalMismatch",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclHeartbeatInterval": {
+    "name": "cienaCesIclHeartbeatInterval",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclUpTime": {
+    "name": "cienaCesIclUpTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclTotalDownTime": {
+    "name": "cienaCesIclTotalDownTime",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclRxFrames": {
+    "name": "cienaCesIclRxFrames",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclTxFrames": {
+    "name": "cienaCesIclTxFrames",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclRxUnknownFrames": {
+    "name": "cienaCesIclRxUnknownFrames",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclRxHtbtFrames": {
+    "name": "cienaCesIclRxHtbtFrames",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclTxHtbtFrames": {
+    "name": "cienaCesIclTxHtbtFrames",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclTxFailedFrames": {
+    "name": "cienaCesIclTxFailedFrames",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclNumberFailures": {
+    "name": "cienaCesIclNumberFailures",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclRxConfigMismatch": {
+    "name": "cienaCesIclRxConfigMismatch",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaCesIclStateChange": {
+    "name": "cienaCesIclStateChange",
+    "oid": "1.3.6.1.4.1.1271.2.1.32.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalSeverity"
+      },
+      {
+        "module": "CIENA-GLOBAL-MIB",
+        "object": "cienaGlobalMacAddress"
+      },
+      {
+        "module": "CIENA-CES-ICL-MIB",
+        "object": "cienaCesIclIndex"
+      },
+      {
+        "module": "CIENA-CES-ICL-MIB",
+        "object": "cienaCesIclName"
+      },
+      {
+        "module": "CIENA-CES-ICL-MIB",
+        "object": "cienaCesIclAdminState"
+      },
+      {
+        "module": "CIENA-CES-ICL-MIB",
+        "object": "cienaCesIclOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-ICL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-CES-ICL-MIB"
+  }
+}

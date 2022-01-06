@@ -1,0 +1,1071 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwSurveillanceVlanMIB": {
+    "name": "dlinkSwSurveillanceVlanMIB",
+    "oid": "1.3.6.1.4.1.171.14.34",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-08 00:00",
+        "description": "Initial version of this MIB module."
+      },
+      {
+        "revision": "2016-03-28 00:00",
+        "description": "Add new objects dsvOnvifGlobal, dsvOnvifInterface, dsvOnvifIpcInfo, dsvOnvifNvrInfo and dsvOnvifNvrAdminIpcInfo to support auto surveillance vlan v2.0."
+      },
+      {
+        "revision": "2016-10-18 00:00",
+        "description": "Remove the objects dsvLocation. Add the new objects dsvOnvifIpcIpAddress, dsvOnvifNvrIpAddress, dsvOnvifNvrGroupNvrIpAddress, dsvOnvifNvrGroupIpcIpAddress."
+      }
+    ]
+  },
+  "OuiComponentType": {
+    "name": "OuiComponentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dlink": 2,
+          "vms": 3,
+          "vmsClient": 4,
+          "videoEncoder": 5,
+          "networkStorage": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dsvMIBNotifications": {
+    "name": "dsvMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.34.0",
+    "class": "objectidentity"
+  },
+  "dsvMIBObjects": {
+    "name": "dsvMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.34.1",
+    "class": "objectidentity"
+  },
+  "dsvMIBConformance": {
+    "name": "dsvMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.34.2",
+    "class": "objectidentity"
+  },
+  "dsvGlobal": {
+    "name": "dsvGlobal",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1",
+    "class": "objectidentity"
+  },
+  "dsvVlanId": {
+    "name": "dsvVlanId",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvQos": {
+    "name": "dsvQos",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvAgingTime": {
+    "name": "dsvAgingTime",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 720,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvOuiTable": {
+    "name": "dsvOuiTable",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOuiEntry": {
+    "name": "dsvOuiEntry",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOuiAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOuiMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOuiAddr": {
+    "name": "dsvOuiAddr",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOuiMask": {
+    "name": "dsvOuiMask",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOuiComponentType": {
+    "name": "dsvOuiComponentType",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OuiComponentType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsvOuiDescription": {
+    "name": "dsvOuiDescription",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsvOuiRowStatus": {
+    "name": "dsvOuiRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dsvOnvifDiscoverPort": {
+    "name": "dsvOnvifDiscoverPort",
+    "oid": "1.3.6.1.4.1.171.14.34.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 554,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvInterface": {
+    "name": "dsvInterface",
+    "oid": "1.3.6.1.4.1.171.14.34.1.2",
+    "class": "objectidentity"
+  },
+  "dsvInterfaceTable": {
+    "name": "dsvInterfaceTable",
+    "oid": "1.3.6.1.4.1.171.14.34.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvInterfaceEntry": {
+    "name": "dsvInterfaceEntry",
+    "oid": "1.3.6.1.4.1.171.14.34.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsvIfIndex": {
+    "name": "dsvIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.34.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvIfEnabled": {
+    "name": "dsvIfEnabled",
+    "oid": "1.3.6.1.4.1.171.14.34.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvInfo": {
+    "name": "dsvInfo",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3",
+    "class": "objectidentity"
+  },
+  "dsvMemberPorts": {
+    "name": "dsvMemberPorts",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvDynamicPorts": {
+    "name": "dsvDynamicPorts",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvDeviceTable": {
+    "name": "dsvDeviceTable",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvDeviceEntry": {
+    "name": "dsvDeviceEntry",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvDevicePortIfIdx",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvDeviceAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsvDevicePortIfIdx": {
+    "name": "dsvDevicePortIfIdx",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvDeviceAddr": {
+    "name": "dsvDeviceAddr",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvDeviceCompType": {
+    "name": "dsvDeviceCompType",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OuiComponentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvDeviceDescr": {
+    "name": "dsvDeviceDescr",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvDeviceStartTime": {
+    "name": "dsvDeviceStartTime",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvDeviceStatus": {
+    "name": "dsvDeviceStatus",
+    "oid": "1.3.6.1.4.1.171.14.34.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "aging": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifIpcInfo": {
+    "name": "dsvOnvifIpcInfo",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4",
+    "class": "objectidentity"
+  },
+  "dsvOnvifIpcTable": {
+    "name": "dsvOnvifIpcTable",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifIpcEntry": {
+    "name": "dsvOnvifIpcEntry",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOnvifIpcIfIndex": {
+    "name": "dsvOnvifIpcIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifIpcAddress": {
+    "name": "dsvOnvifIpcAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifIpcIpAddress": {
+    "name": "dsvOnvifIpcIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifIpcState": {
+    "name": "dsvOnvifIpcState",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvOnvifIpcModel": {
+    "name": "dsvOnvifIpcModel",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifIpcManufacturer": {
+    "name": "dsvOnvifIpcManufacturer",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifIpcDescription": {
+    "name": "dsvOnvifIpcDescription",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvOnvifIpcThroughput": {
+    "name": "dsvOnvifIpcThroughput",
+    "oid": "1.3.6.1.4.1.171.14.34.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Mbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifNvrInfo": {
+    "name": "dsvOnvifNvrInfo",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5",
+    "class": "objectidentity"
+  },
+  "dsvOnvifNvrTable": {
+    "name": "dsvOnvifNvrTable",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifNvrEntry": {
+    "name": "dsvOnvifNvrEntry",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOnvifNvrIfIndex": {
+    "name": "dsvOnvifNvrIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifNvrAddress": {
+    "name": "dsvOnvifNvrAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifNvrIpAddress": {
+    "name": "dsvOnvifNvrIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifNvrIpcNumber": {
+    "name": "dsvOnvifNvrIpcNumber",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifNvrThroughput": {
+    "name": "dsvOnvifNvrThroughput",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Mbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroup": {
+    "name": "dsvOnvifNvrGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifNvrDescription": {
+    "name": "dsvOnvifNvrDescription",
+    "oid": "1.3.6.1.4.1.171.14.34.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupInfo": {
+    "name": "dsvOnvifNvrGroupInfo",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6",
+    "class": "objectidentity"
+  },
+  "dsvOnvifNvrGroupTable": {
+    "name": "dsvOnvifNvrGroupTable",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupEntry": {
+    "name": "dsvOnvifNvrGroupEntry",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrGroupIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrGroupNvrAddress",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrGroupIpcAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupIfIndex": {
+    "name": "dsvOnvifNvrGroupIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupNvrAddress": {
+    "name": "dsvOnvifNvrGroupNvrAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupIpcAddress": {
+    "name": "dsvOnvifNvrGroupIpcAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupNvrIpAddress": {
+    "name": "dsvOnvifNvrGroupNvrIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupIpcIpAddress": {
+    "name": "dsvOnvifNvrGroupIpcIpAddress",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupNvrGroup": {
+    "name": "dsvOnvifNvrGroupNvrGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsvMIBCompliances": {
+    "name": "dsvMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.34.2.1",
+    "class": "objectidentity"
+  },
+  "dsvMIBGroups": {
+    "name": "dsvMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.34.2.2",
+    "class": "objectidentity"
+  },
+  "dsvMIBCompliance": {
+    "name": "dsvMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.34.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsvBasicGroup",
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB"
+      },
+      {
+        "object": "dsvOUICfgGroup",
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB"
+      },
+      {
+        "object": "dsvDeviceInfoGroup",
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsvBasicGroup": {
+    "name": "dsvBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvVlanId"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvQos"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvAgingTime"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifDiscoverPort"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvIfEnabled"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvMemberPorts"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvDynamicPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOUICfgGroup": {
+    "name": "dsvOUICfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOuiComponentType"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOuiDescription"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOuiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dsvDeviceInfoGroup": {
+    "name": "dsvDeviceInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvDeviceCompType"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvDeviceDescr"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvDeviceStartTime"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvDeviceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOnvifIpcCfgGroup": {
+    "name": "dsvOnvifIpcCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcIpAddress"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcState"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcModel"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcManufacturer"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcDescription"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifIpcThroughput"
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOnvifNvrCfgGroup": {
+    "name": "dsvOnvifNvrCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrIpAddress"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrIpcNumber"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrThroughput"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrGroup"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "dsvOnvifNvrGroupCfgGroup": {
+    "name": "dsvOnvifNvrGroupCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.34.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrGroupNvrIpAddress"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrGroupIpcIpAddress"
+      },
+      {
+        "module": "DLINKSW-SURVEILLANCE-VLAN-MIB",
+        "object": "dsvOnvifNvrGroupNvrGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SURVEILLANCE-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-SURVEILLANCE-VLAN-MIB"
+  }
+}

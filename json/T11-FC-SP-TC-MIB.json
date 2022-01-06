@@ -1,0 +1,527 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "t11FcTcMIB": {
+    "name": "t11FcTcMIB",
+    "oid": "1.3.6.1.2.1.175",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-20 00:00",
+        "description": "Initial version of this MIB module, published as RFC 5324."
+      }
+    ]
+  },
+  "t11FcSpIdentities": {
+    "name": "t11FcSpIdentities",
+    "oid": "1.3.6.1.2.1.175.1",
+    "class": "objectidentity"
+  },
+  "t11FcSpAlgorithms": {
+    "name": "t11FcSpAlgorithms",
+    "oid": "1.3.6.1.2.1.175.1.1",
+    "class": "objectidentity"
+  },
+  "T11FcSpPolicyHashFormat": {
+    "name": "T11FcSpPolicyHashFormat",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpPolicyHashValue": {
+    "name": "T11FcSpPolicyHashValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpHashCalculationStatus": {
+    "name": "T11FcSpHashCalculationStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "calculate": 1,
+          "correct": 2,
+          "stale": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpAuthRejectReasonCode": {
+    "name": "T11FcSpAuthRejectReasonCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authFailure": 1,
+          "logicalError": 2,
+          "logicalBusy": 3,
+          "authILSNotSupported": 4,
+          "authELSNotSupported": 5,
+          "notLoggedIn": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpAuthRejReasonCodeExp": {
+    "name": "T11FcSpAuthRejReasonCodeExp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authMechanismNotUsable": 1,
+          "dhGroupNotUsable": 2,
+          "hashFunctionNotUsable": 3,
+          "authTransactionAlreadyStarted": 4,
+          "authenticationFailed": 5,
+          "incorrectPayload": 6,
+          "incorrectAuthProtocolMessage": 7,
+          "restartAuthProtocol": 8,
+          "authConcatNotSupported": 9,
+          "unsupportedProtocolVersion": 10,
+          "logicalBusy": 11,
+          "authILSNotSupported": 12,
+          "authELSNotSupported": 13,
+          "notLoggedIn": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpHashFunctions": {
+    "name": "T11FcSpHashFunctions",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "md5": 0,
+        "sha1": 1
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpSignFunctions": {
+    "name": "T11FcSpSignFunctions",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rsaSha1": 0
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpDhGroups": {
+    "name": "T11FcSpDhGroups",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "null": 0,
+        "group1024": 1,
+        "group1280": 2,
+        "group1536": 3,
+        "group2048": 4,
+        "group3072": 5,
+        "group4096": 6,
+        "group6144": 7,
+        "group8192": 8
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpPolicyObjectType": {
+    "name": "T11FcSpPolicyObjectType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "summary": 1,
+          "switchMemberList": 2,
+          "nodeMemberList": 3,
+          "switchConnectivity": 4,
+          "ipMgmtList": 5,
+          "attribute": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpPolicyNameType": {
+    "name": "T11FcSpPolicyNameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeName": 1,
+          "restrictedNodeName": 2,
+          "portName": 3,
+          "restrictedPortName": 4,
+          "wildcard": 5,
+          "restrictedWildcard": 6,
+          "alphaNumericName": 7,
+          "ipv6AddressRange": 8,
+          "ipv4AddressRange": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpPolicyName": {
+    "name": "T11FcSpPolicyName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpAlphaNumName": {
+    "name": "T11FcSpAlphaNumName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpAlphaNumNameOrAbsent": {
+    "name": "T11FcSpAlphaNumNameOrAbsent",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSaDirection": {
+    "name": "T11FcSaDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingress": 1,
+          "egress": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpiIndex": {
+    "name": "T11FcSpiIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpPrecedence": {
+    "name": "T11FcSpPrecedence",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "T11FcRoutingControl": {
+    "name": "T11FcRoutingControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "T11FcSpType": {
+    "name": "T11FcSpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "2x",
+    "status": "current"
+  },
+  "T11FcSpTransforms": {
+    "name": "T11FcSpTransforms",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "encrNull": 0,
+        "encrAesCbc": 1,
+        "encrAesCtr": 2,
+        "encrAesGcm": 3,
+        "encr3Des": 4,
+        "prfHmacMd5": 5,
+        "prfHmacSha1": 6,
+        "prfAesCbc": 7,
+        "authHmacMd5L96": 8,
+        "authHmacSha1L96": 9,
+        "authHmacMd5L128": 10,
+        "authHmacSha1L160": 11,
+        "encrNullAuthAesGmac": 12,
+        "dhGroups1024bit": 13,
+        "dhGroups2048bit": 14
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpSecurityProtocolId": {
+    "name": "T11FcSpSecurityProtocolId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "espHeader": 1,
+          "ctAuth": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "T11FcSpLifetimeLeft": {
+    "name": "T11FcSpLifetimeLeft",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "T11FcSpLifetimeLeftUnits": {
+    "name": "T11FcSpLifetimeLeftUnits",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "seconds": 1,
+          "kiloBytes": 2,
+          "megaBytes": 3,
+          "gigaBytes": 4,
+          "teraBytes": 5,
+          "petaBytes": 6,
+          "exaBytes": 7,
+          "zettaBytes": 8,
+          "yottaBytes": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "t11FcSpEncryptAlgorithms": {
+    "name": "t11FcSpEncryptAlgorithms",
+    "oid": "1.3.6.1.2.1.175.1.1.1",
+    "class": "objectidentity"
+  },
+  "t11FcSpEncrNull": {
+    "name": "t11FcSpEncrNull",
+    "oid": "1.3.6.1.2.1.175.1.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpEncrAesCbc": {
+    "name": "t11FcSpEncrAesCbc",
+    "oid": "1.3.6.1.2.1.175.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpEncrAesCtr": {
+    "name": "t11FcSpEncrAesCtr",
+    "oid": "1.3.6.1.2.1.175.1.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpEncrAesGcm": {
+    "name": "t11FcSpEncrAesGcm",
+    "oid": "1.3.6.1.2.1.175.1.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpEncr3Des": {
+    "name": "t11FcSpEncr3Des",
+    "oid": "1.3.6.1.2.1.175.1.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuthAlgorithms": {
+    "name": "t11FcSpAuthAlgorithms",
+    "oid": "1.3.6.1.2.1.175.1.1.2",
+    "class": "objectidentity"
+  },
+  "t11FcSpAuthNull": {
+    "name": "t11FcSpAuthNull",
+    "oid": "1.3.6.1.2.1.175.1.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuthHmacMd5L96": {
+    "name": "t11FcSpAuthHmacMd5L96",
+    "oid": "1.3.6.1.2.1.175.1.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuthHmacSha1L96": {
+    "name": "t11FcSpAuthHmacSha1L96",
+    "oid": "1.3.6.1.2.1.175.1.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuthHmacMd5L128": {
+    "name": "t11FcSpAuthHmacMd5L128",
+    "oid": "1.3.6.1.2.1.175.1.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpAuthHmacSha1L160": {
+    "name": "t11FcSpAuthHmacSha1L160",
+    "oid": "1.3.6.1.2.1.175.1.1.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "t11FcSpEncrNullAuthAesGmac": {
+    "name": "t11FcSpEncrNullAuthAesGmac",
+    "oid": "1.3.6.1.2.1.175.1.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-FC-SP-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "T11-FC-SP-TC-MIB"
+  }
+}

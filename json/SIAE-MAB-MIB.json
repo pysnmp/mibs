@@ -1,0 +1,617 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress",
+      "DisplayString"
+    ]
+  },
+  "mabMib": {
+    "name": "mabMib",
+    "oid": "1.3.6.1.4.1.3373.1103.93",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-02-17 00:00",
+        "description": "Initial version 01.00.00. "
+      }
+    ]
+  },
+  "MabBwCalculationMethod": {
+    "name": "MabBwCalculationMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "average": 1,
+          "min": 2,
+          "max": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MabPduCompliance": {
+    "name": "MabPduCompliance",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stdMcmCompliant": 1,
+          "extMcmCompliant": 2,
+          "ituG8013Compliant": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MabSenderOption": {
+    "name": "MabSenderOption",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "enableAlways": 0,
+        "enableSignalFail": 1
+      }
+    },
+    "status": "current"
+  },
+  "mabMibVersion": {
+    "name": "mabMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.93.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mabSensorTable": {
+    "name": "mabSensorTable",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mabSensorEntry": {
+    "name": "mabSensorEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-MAB-MIB",
+        "object": "mabSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mabSensorIndex": {
+    "name": "mabSensorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mabSensorRowStatus": {
+    "name": "mabSensorRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorAdminStatus": {
+    "name": "mabSensorAdminStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorIfIndex": {
+    "name": "mabSensorIfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorLinkId": {
+    "name": "mabSensorLinkId",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorBwMode": {
+    "name": "mabSensorBwMode",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MabBwCalculationMethod",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "average",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorHoldoffTime": {
+    "name": "mabSensorHoldoffTime",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorObservationTime": {
+    "name": "mabSensorObservationTime",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorFastTime": {
+    "name": "mabSensorFastTime",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorFastCount": {
+    "name": "mabSensorFastCount",
+    "oid": "1.3.6.1.4.1.3373.1103.93.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabSensorStatusTable": {
+    "name": "mabSensorStatusTable",
+    "oid": "1.3.6.1.4.1.3373.1103.93.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mabSensorStatusEntry": {
+    "name": "mabSensorStatusEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.93.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-MAB-MIB",
+        "object": "mabSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mabSensorNominalBw": {
+    "name": "mabSensorNominalBw",
+    "oid": "1.3.6.1.4.1.3373.1103.93.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mabSensorCurrentBw": {
+    "name": "mabSensorCurrentBw",
+    "oid": "1.3.6.1.4.1.3373.1103.93.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mabPduSenderTable": {
+    "name": "mabPduSenderTable",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mabPduSenderEntry": {
+    "name": "mabPduSenderEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-MAB-MIB",
+        "object": "mabPduSenderIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mabPduSenderIndex": {
+    "name": "mabPduSenderIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mabPduSenderRowStatus": {
+    "name": "mabPduSenderRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderAdminStatus": {
+    "name": "mabPduSenderAdminStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderIfIndex": {
+    "name": "mabPduSenderIfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderSensorIndex": {
+    "name": "mabPduSenderSensorIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderVlanId": {
+    "name": "mabPduSenderVlanId",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderPcp": {
+    "name": "mabPduSenderPcp",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderOamMaintLevel": {
+    "name": "mabPduSenderOamMaintLevel",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderDAType": {
+    "name": "mabPduSenderDAType",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multicastDA": 1,
+          "unicastDA": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "multicastDA",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderUnicastDA": {
+    "name": "mabPduSenderUnicastDA",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderOption": {
+    "name": "mabPduSenderOption",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MabSenderOption",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mabPduSenderPduCompliance": {
+    "name": "mabPduSenderPduCompliance",
+    "oid": "1.3.6.1.4.1.3373.1103.93.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MabPduCompliance",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "stdMcmCompliant",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-MAB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-MAB-MIB"
+  }
+}

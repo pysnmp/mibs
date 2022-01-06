@@ -1,0 +1,2224 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-IP": [
+      "ipSpec",
+      "ipRipFilter",
+      "rlOspf",
+      "ipRouteLeaking",
+      "rip2Spec",
+      "ipRedundancy",
+      "rlIpRoutingProtPreference"
+    ],
+    "OSPF-MIB": [
+      "AreaID",
+      "ospfIfEntry",
+      "ospfVirtIfEntry",
+      "RouterID"
+    ],
+    "RIPv2-MIB": [
+      "rip2IfConfEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlIpRouter": {
+    "name": "rlIpRouter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-01 00:00",
+        "description": "Initial version of this MIB."
+      }
+    ]
+  },
+  "rsRip2IfConfTable": {
+    "name": "rsRip2IfConfTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsRip2IfConfEntry": {
+    "name": "rsRip2IfConfEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rsRip2IfConfAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsRip2IfConfAddress": {
+    "name": "rsRip2IfConfAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsRip2IfConfVirtualDis": {
+    "name": "rsRip2IfConfVirtualDis",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfKeyChain": {
+    "name": "rlRip2IfConfKeyChain",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfAdminStatus": {
+    "name": "rlRip2IfConfAdminStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfInFilteringType": {
+    "name": "rlRip2IfConfInFilteringType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "stdIpAcl": 2,
+          "pefixList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfOutFilteringType": {
+    "name": "rlRip2IfConfOutFilteringType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "stdIpAcl": 2,
+          "pefixList": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfInFilterListName": {
+    "name": "rlRip2IfConfInFilterListName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfOutFilterListName": {
+    "name": "rlRip2IfConfOutFilterListName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfDefInfOriginate": {
+    "name": "rlRip2IfConfDefInfOriginate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "passiveOnly": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "global",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2MibVersion": {
+    "name": "rlRip2MibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRip2RedistDefaultMetric": {
+    "name": "rlRip2RedistDefaultMetric",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2RedistStaticTransparent": {
+    "name": "rlRip2RedistStaticTransparent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2ClearStatistics": {
+    "name": "rlRip2ClearStatistics",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2IfConfGlobalPassiveInterface": {
+    "name": "rlRip2IfConfGlobalPassiveInterface",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2GlobalDefInfOriginate": {
+    "name": "rlRip2GlobalDefInfOriginate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "passiveOnly": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2RedistConnected": {
+    "name": "rlRip2RedistConnected",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2RedistConnectedTransparent": {
+    "name": "rlRip2RedistConnectedTransparent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRip2RedistConnectedMetric": {
+    "name": "rlRip2RedistConnectedMetric",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipRedundAdminStatus": {
+    "name": "ipRedundAdminStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipRedundOperStatus": {
+    "name": "ipRedundOperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipRedundRoutersTable": {
+    "name": "ipRedundRoutersTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipRedundRoutersEntry": {
+    "name": "ipRedundRoutersEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "ipRedundRoutersIfAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "ipRedundRoutersMainRouterAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipRedundRoutersIfAddr": {
+    "name": "ipRedundRoutersIfAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipRedundRoutersMainRouterAddr": {
+    "name": "ipRedundRoutersMainRouterAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipRedundRoutersOperStatus": {
+    "name": "ipRedundRoutersOperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipRedundRoutersPollInterval": {
+    "name": "ipRedundRoutersPollInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipRedundRoutersTimeout": {
+    "name": "ipRedundRoutersTimeout",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipRedundRoutersStatus": {
+    "name": "ipRedundRoutersStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "notReady": 3,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLeakStaticToRip": {
+    "name": "ipLeakStaticToRip",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLeakStaticToOspf": {
+    "name": "ipLeakStaticToOspf",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLeakOspfToRip": {
+    "name": "ipLeakOspfToRip",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLeakRipToOspf": {
+    "name": "ipLeakRipToOspf",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipLeakExtDirectToOspf": {
+    "name": "ipLeakExtDirectToOspf",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbTable": {
+    "name": "rsIpRipFilterGlbTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbEntry": {
+    "name": "rsIpRipFilterGlbEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rsIpRipFilterGlbType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rsIpRipFilterGlbNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpRipFilterGlbType": {
+    "name": "rsIpRipFilterGlbType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbNumber": {
+    "name": "rsIpRipFilterGlbNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbStatus": {
+    "name": "rsIpRipFilterGlbStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2,
+          "underCreation": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "valid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbIpAddr": {
+    "name": "rsIpRipFilterGlbIpAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbNetworkMaskBits": {
+    "name": "rsIpRipFilterGlbNetworkMaskBits",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbMatchBits": {
+    "name": "rsIpRipFilterGlbMatchBits",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterGlbAction": {
+    "name": "rsIpRipFilterGlbAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterLclTable": {
+    "name": "rsIpRipFilterLclTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rsIpRipFilterLclEntry": {
+    "name": "rsIpRipFilterLclEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rsIpRipFilterLclIpIntf",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rsIpRipFilterLclType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rsIpRipFilterLclNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rsIpRipFilterLclIpIntf": {
+    "name": "rsIpRipFilterLclIpIntf",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpRipFilterLclType": {
+    "name": "rsIpRipFilterLclType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpRipFilterLclNumber": {
+    "name": "rsIpRipFilterLclNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsIpRipFilterLclStatus": {
+    "name": "rsIpRipFilterLclStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2,
+          "underCreation": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "valid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterLclIpAddr": {
+    "name": "rsIpRipFilterLclIpAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterLclNetworkMaskBits": {
+    "name": "rsIpRipFilterLclNetworkMaskBits",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterLclMatchBits": {
+    "name": "rsIpRipFilterLclMatchBits",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsIpRipFilterLclAction": {
+    "name": "rsIpRipFilterLclAction",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceDirect": {
+    "name": "rlIpRoutingProtPreferenceDirect",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceStatic": {
+    "name": "rlIpRoutingProtPreferenceStatic",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceOspfInter": {
+    "name": "rlIpRoutingProtPreferenceOspfInter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceOspfExt": {
+    "name": "rlIpRoutingProtPreferenceOspfExt",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceOspfReject": {
+    "name": "rlIpRoutingProtPreferenceOspfReject",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 254,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceRipNormal": {
+    "name": "rlIpRoutingProtPreferenceRipNormal",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceRipAggregate": {
+    "name": "rlIpRoutingProtPreferenceRipAggregate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 254,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlIpRoutingProtPreferenceBgp": {
+    "name": "rlIpRoutingProtPreferenceBgp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlOspfMibVersion": {
+    "name": "rlOspfMibVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAutoInterfaceCreation": {
+    "name": "rlOspfAutoInterfaceCreation",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfIfExtTable": {
+    "name": "rlOspfIfExtTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlOspfIfExtEntry": {
+    "name": "rlOspfIfExtEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlOspfIfExtEntry",
+      "module": "CISCOSB-IpRouter",
+      "object": "ospfIfEntry"
+    },
+    "status": "current"
+  },
+  "rlOspfifKeyChain": {
+    "name": "rlOspfifKeyChain",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlOspfRtrLnkTable": {
+    "name": "rlOspfRtrLnkTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlOspfRtrLnkEntry": {
+    "name": "rlOspfRtrLnkEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfRtrLnkAreaId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfRtrLnkLsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfRtrLnkRouterId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfRtrLnkIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlOspfRtrLnkAreaId": {
+    "name": "rlOspfRtrLnkAreaId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkLsid": {
+    "name": "rlOspfRtrLnkLsid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkRouterId": {
+    "name": "rlOspfRtrLnkRouterId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkIdx": {
+    "name": "rlOspfRtrLnkIdx",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkSequence": {
+    "name": "rlOspfRtrLnkSequence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkAge": {
+    "name": "rlOspfRtrLnkAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkChecksum": {
+    "name": "rlOspfRtrLnkChecksum",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkLength": {
+    "name": "rlOspfRtrLnkLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkBitV": {
+    "name": "rlOspfRtrLnkBitV",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkBitE": {
+    "name": "rlOspfRtrLnkBitE",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkBitB": {
+    "name": "rlOspfRtrLnkBitB",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkLinks": {
+    "name": "rlOspfRtrLnkLinks",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkLinkID": {
+    "name": "rlOspfRtrLnkLinkID",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkLinkData": {
+    "name": "rlOspfRtrLnkLinkData",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkType": {
+    "name": "rlOspfRtrLnkType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "transitNetwork": 2,
+          "stubNetwork": 3,
+          "virtualLink": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfRtrLnkMetric": {
+    "name": "rlOspfRtrLnkMetric",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkTable": {
+    "name": "rlOspfNetLnkTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlOspfNetLnkEntry": {
+    "name": "rlOspfNetLnkEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfNetLnkAreaId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfNetLnkLsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfNetLnkRouterId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfNetLnkIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlOspfNetLnkAreaId": {
+    "name": "rlOspfNetLnkAreaId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkLsid": {
+    "name": "rlOspfNetLnkLsid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkRouterId": {
+    "name": "rlOspfNetLnkRouterId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkIdx": {
+    "name": "rlOspfNetLnkIdx",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkSequence": {
+    "name": "rlOspfNetLnkSequence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkAge": {
+    "name": "rlOspfNetLnkAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkChecksum": {
+    "name": "rlOspfNetLnkChecksum",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkLength": {
+    "name": "rlOspfNetLnkLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkMask": {
+    "name": "rlOspfNetLnkMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfNetLnkAttRouter": {
+    "name": "rlOspfNetLnkAttRouter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkTable": {
+    "name": "rlOspfSumLnkTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlOspfSumLnkEntry": {
+    "name": "rlOspfSumLnkEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfSumLnkAreaId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfSumLnkLsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfSumLnkRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlOspfSumLnkAreaId": {
+    "name": "rlOspfSumLnkAreaId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkLsid": {
+    "name": "rlOspfSumLnkLsid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkRouterId": {
+    "name": "rlOspfSumLnkRouterId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkSequence": {
+    "name": "rlOspfSumLnkSequence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkAge": {
+    "name": "rlOspfSumLnkAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkChecksum": {
+    "name": "rlOspfSumLnkChecksum",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkLength": {
+    "name": "rlOspfSumLnkLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkMask": {
+    "name": "rlOspfSumLnkMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfSumLnkMetric": {
+    "name": "rlOspfSumLnkMetric",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkTable": {
+    "name": "rlOspfAsbLnkTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlOspfAsbLnkEntry": {
+    "name": "rlOspfAsbLnkEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfAsbLnkAreaId",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfAsbLnkLsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfAsbLnkRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlOspfAsbLnkAreaId": {
+    "name": "rlOspfAsbLnkAreaId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkLsid": {
+    "name": "rlOspfAsbLnkLsid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkRouterId": {
+    "name": "rlOspfAsbLnkRouterId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkSequence": {
+    "name": "rlOspfAsbLnkSequence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkAge": {
+    "name": "rlOspfAsbLnkAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkChecksum": {
+    "name": "rlOspfAsbLnkChecksum",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkLength": {
+    "name": "rlOspfAsbLnkLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAsbLnkMetric": {
+    "name": "rlOspfAsbLnkMetric",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkTable": {
+    "name": "rlOspfAseLnkTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlOspfAseLnkEntry": {
+    "name": "rlOspfAseLnkEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfAseLnkLsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-IpRouter",
+        "object": "rlOspfAseLnkRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlOspfAseLnkLsid": {
+    "name": "rlOspfAseLnkLsid",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkRouterId": {
+    "name": "rlOspfAseLnkRouterId",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkSequence": {
+    "name": "rlOspfAseLnkSequence",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkAge": {
+    "name": "rlOspfAseLnkAge",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkChecksum": {
+    "name": "rlOspfAseLnkChecksum",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkLength": {
+    "name": "rlOspfAseLnkLength",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkMask": {
+    "name": "rlOspfAseLnkMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkFrwAddress": {
+    "name": "rlOspfAseLnkFrwAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkBitE": {
+    "name": "rlOspfAseLnkBitE",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkMetric": {
+    "name": "rlOspfAseLnkMetric",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlOspfAseLnkTag": {
+    "name": "rlOspfAseLnkTag",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlospfVirtIfExtTable": {
+    "name": "rlospfVirtIfExtTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlospfVirtIfExtEntry": {
+    "name": "rlospfVirtIfExtEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlospfVirtIfExtEntry",
+      "module": "CISCOSB-IpRouter",
+      "object": "ospfVirtIfEntry"
+    },
+    "status": "current"
+  },
+  "rlospfVirtifKeyChain": {
+    "name": "rlospfVirtifKeyChain",
+    "oid": "1.3.6.1.4.1.9.6.1.101.26.14.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IpRouter",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-IpRouter"
+  }
+}

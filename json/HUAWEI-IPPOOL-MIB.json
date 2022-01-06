@@ -1,0 +1,1954 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwIPpool": {
+    "name": "hwIPpool",
+    "oid": "1.3.6.1.4.1.2011.6.8",
+    "class": "moduleidentity"
+  },
+  "hwIPPoolMibObjects": {
+    "name": "hwIPPoolMibObjects",
+    "oid": "1.3.6.1.4.1.2011.6.8.1",
+    "class": "objectidentity"
+  },
+  "hwIPPoolTable": {
+    "name": "hwIPPoolTable",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIPPoolEntry": {
+    "name": "hwIPPoolEntry",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIPPoolIndex": {
+    "name": "hwIPPoolIndex",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolName": {
+    "name": "hwIPPoolName",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 35
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolRouterIPAddr": {
+    "name": "hwIPPoolRouterIPAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolRouterIPMask": {
+    "name": "hwIPPoolRouterIPMask",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolPriDNSIPAddr": {
+    "name": "hwIPPoolPriDNSIPAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolSecDNSIPAddr": {
+    "name": "hwIPPoolSecDNSIPAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolPriNBNSIPAddr": {
+    "name": "hwIPPoolPriNBNSIPAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolSecNBNSIPAddr": {
+    "name": "hwIPPoolSecNBNSIPAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolIPAddrLease": {
+    "name": "hwIPPoolIPAddrLease",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolStatus": {
+    "name": "hwIPPoolStatus",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolVPNInstance": {
+    "name": "hwIPPoolVPNInstance",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolType": {
+    "name": "hwIPPoolType",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "relay": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolNetwork": {
+    "name": "hwIPPoolNetwork",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolNetworkMask": {
+    "name": "hwIPPoolNetworkMask",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolIPTotalNum": {
+    "name": "hwIPPoolIPTotalNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolIPUsedNum": {
+    "name": "hwIPPoolIPUsedNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolIPConflictNum": {
+    "name": "hwIPPoolIPConflictNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolIPExcludeNum": {
+    "name": "hwIPPoolIPExcludeNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolIPIdleNum": {
+    "name": "hwIPPoolIPIdleNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolIPUsedPercent": {
+    "name": "hwIPPoolIPUsedPercent",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPSectionTable": {
+    "name": "hwIPSectionTable",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIPSectionEntry": {
+    "name": "hwIPSectionEntry",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIPSectionIndex": {
+    "name": "hwIPSectionIndex",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPSectionDesc": {
+    "name": "hwIPSectionDesc",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPSectionLowAddr": {
+    "name": "hwIPSectionLowAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPSectionHighAddr": {
+    "name": "hwIPSectionHighAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPSectionLength": {
+    "name": "hwIPSectionLength",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPSectionUsedNum": {
+    "name": "hwIPSectionUsedNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPSectionConflict": {
+    "name": "hwIPSectionConflict",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPSectionInvalid": {
+    "name": "hwIPSectionInvalid",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPSectionAvailableNum": {
+    "name": "hwIPSectionAvailableNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPSectionRowStatus": {
+    "name": "hwIPSectionRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPPoolExtTable": {
+    "name": "hwIPPoolExtTable",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIPPoolExtEntry": {
+    "name": "hwIPPoolExtEntry",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIPPoolAvailableStatus": {
+    "name": "hwIPPoolAvailableStatus",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOptionId1": {
+    "name": "hwIPDhcpOptionId1",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOption1": {
+    "name": "hwIPDhcpOption1",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOptionId2": {
+    "name": "hwIPDhcpOptionId2",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOption2": {
+    "name": "hwIPDhcpOption2",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOptionId3": {
+    "name": "hwIPDhcpOptionId3",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOption3": {
+    "name": "hwIPDhcpOption3",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOptionId4": {
+    "name": "hwIPDhcpOptionId4",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 128,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpOption4": {
+    "name": "hwIPDhcpOption4",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDnsSuffix": {
+    "name": "hwIPDnsSuffix",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPAddressStatusTable": {
+    "name": "hwIPAddressStatusTable",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIPAddressStatusEntry": {
+    "name": "hwIPAddressStatusEntry",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIPAddress": {
+    "name": "hwIPAddress",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPAddressStatus": {
+    "name": "hwIPAddressStatus",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "occupied": 1,
+          "prohibitive": 2,
+          "conflictive": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoolName": {
+    "name": "hwPoolName",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwDhcpSvrGroupTable": {
+    "name": "hwDhcpSvrGroupTable",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwDhcpSvrGroupEntry": {
+    "name": "hwDhcpSvrGroupEntry",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpSvrGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIPPoolDhcpSvrGroupIndex": {
+    "name": "hwIPPoolDhcpSvrGroupIndex",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolDhcpSvrGroupName": {
+    "name": "hwIPPoolDhcpSvrGroupName",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPDhcpSvrPriAddr": {
+    "name": "hwIPDhcpSvrPriAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpSvrScdiAddr": {
+    "name": "hwIPDhcpSvrScdiAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpSvrPriState": {
+    "name": "hwIPDhcpSvrPriState",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 0,
+          "use": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPDhcpScdPriState": {
+    "name": "hwIPDhcpScdPriState",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 0,
+          "use": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPDhcpSvrAutoRelease": {
+    "name": "hwIPDhcpSvrAutoRelease",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIPDhcpSvrRefCount": {
+    "name": "hwIPDhcpSvrRefCount",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPDhcpSvrRowStatus": {
+    "name": "hwIPDhcpSvrRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPDhcpSvrPriVpnInstance": {
+    "name": "hwIPDhcpSvrPriVpnInstance",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIPDhcpSvrScdVpnInstance": {
+    "name": "hwIPDhcpSvrScdVpnInstance",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRemotePoolTable": {
+    "name": "hwRemotePoolTable",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwRemotePoolEntry": {
+    "name": "hwRemotePoolEntry",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwRemoteIPPoolIndex": {
+    "name": "hwRemoteIPPoolIndex",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwRemoteIPPoolName": {
+    "name": "hwRemoteIPPoolName",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRemoteIPPoolRouterIPAddr": {
+    "name": "hwRemoteIPPoolRouterIPAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolRouterIPMask": {
+    "name": "hwRemoteIPPoolRouterIPMask",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolDhcpSvrGroupID": {
+    "name": "hwRemoteIPPoolDhcpSvrGroupID",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolAvailableStatus": {
+    "name": "hwRemoteIPPoolAvailableStatus",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 0,
+          "unlocked": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolRowStatus": {
+    "name": "hwRemoteIPPoolRowStatus",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwRemoteIPPoolPriDNSIPAddress": {
+    "name": "hwRemoteIPPoolPriDNSIPAddress",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolSecDNSIPAddress": {
+    "name": "hwRemoteIPPoolSecDNSIPAddress",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolPriNBNSIPAddress": {
+    "name": "hwRemoteIPPoolPriNBNSIPAddress",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolSecNBNSIPAddress": {
+    "name": "hwRemoteIPPoolSecNBNSIPAddress",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolVPNInstance": {
+    "name": "hwRemoteIPPoolVPNInstance",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwRemoteIPPoolDhcpGroupName": {
+    "name": "hwRemoteIPPoolDhcpGroupName",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolStatistic": {
+    "name": "hwIPPoolStatistic",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7",
+    "class": "objectidentity"
+  },
+  "hwIPPoolNum": {
+    "name": "hwIPPoolNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPIdleTotalNum": {
+    "name": "hwIPIdleTotalNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPUsedTotalNum": {
+    "name": "hwIPUsedTotalNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPConflictTotalNum": {
+    "name": "hwIPConflictTotalNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPExcludeTotalNum": {
+    "name": "hwIPExcludeTotalNum",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIPPoolMibTrap": {
+    "name": "hwIPPoolMibTrap",
+    "oid": "1.3.6.1.4.1.2011.6.8.2",
+    "class": "objectidentity"
+  },
+  "hwIPPoolTrapOid": {
+    "name": "hwIPPoolTrapOid",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1",
+    "class": "objectidentity"
+  },
+  "hwUserIPAddress": {
+    "name": "hwUserIPAddress",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDHCPServerAddr": {
+    "name": "hwDHCPServerAddr",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwDhcpSvrVrfName": {
+    "name": "hwDhcpSvrVrfName",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwIPPoolTrapsDefine": {
+    "name": "hwIPPoolTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2",
+    "class": "objectidentity"
+  },
+  "hwIPPoolTraps": {
+    "name": "hwIPPoolTraps",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0",
+    "class": "objectidentity"
+  },
+  "hwUserIPConflictAlarm": {
+    "name": "hwUserIPConflictAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwUserIPLeaseAlarm": {
+    "name": "hwUserIPLeaseAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "hwAllocUserIPFailAlarm": {
+    "name": "hwAllocUserIPFailAlarm",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpServerDown": {
+    "name": "hwDhcpServerDown",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDHCPServerAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpSvrVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLocalIPPoolDifferWithServer": {
+    "name": "hwLocalIPPoolDifferWithServer",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpPoolMIBConformance": {
+    "name": "hwIpPoolMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.6.8.3",
+    "class": "objectidentity"
+  },
+  "hwIpPoolCompliances": {
+    "name": "hwIpPoolCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.1",
+    "class": "objectidentity"
+  },
+  "hwIpPoolCompliance": {
+    "name": "hwIpPoolCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwIpPoolTableGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwIpSectionTableGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwIpPoolExtTableGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwIpAddressStatusTableGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwDhcpSvrGroupTableGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwRemotePoolTableGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwIpPoolStatisticGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwIpPoolTrapOidGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      },
+      {
+        "object": "hwIpPoolTrapsGroup",
+        "module": "HUAWEI-IPPOOL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpPoolObjectGroups": {
+    "name": "hwIpPoolObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2",
+    "class": "objectidentity"
+  },
+  "hwIpPoolTableGroup": {
+    "name": "hwIpPoolTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolPriDNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSecDNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolPriNBNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSecNBNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPAddrLease"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolVPNInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolType"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNetwork"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNetworkMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPConflictNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPExcludeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPIdleNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPUsedPercent"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpSectionTableGroup": {
+    "name": "hwIpSectionTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionDesc"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionLowAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionHighAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionLength"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionConflict"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionInvalid"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionAvailableNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpPoolExtTableGroup": {
+    "name": "hwIpPoolExtTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolAvailableStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId3"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption3"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId4"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption4"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDnsSuffix"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpAddressStatusTableGroup": {
+    "name": "hwIpAddressStatusTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPAddressStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwDhcpSvrGroupTableGroup": {
+    "name": "hwDhcpSvrGroupTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpSvrGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpSvrGroupName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrPriAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrScdiAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrPriState"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpScdPriState"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrAutoRelease"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrRefCount"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrPriVpnInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrScdVpnInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRemotePoolTableGroup": {
+    "name": "hwRemotePoolTableGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRouterIPMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolDhcpSvrGroupID"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolAvailableStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolPriDNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolSecDNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolPriNBNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolSecNBNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolVPNInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolDhcpGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpPoolStatisticGroup": {
+    "name": "hwIpPoolStatisticGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPIdleTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPUsedTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPConflictTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPExcludeTotalNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpPoolTrapOidGroup": {
+    "name": "hwIpPoolTrapOidGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDHCPServerAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpSvrVrfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpPoolTrapsGroup": {
+    "name": "hwIpPoolTrapsGroup",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPConflictAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPLeaseAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllocUserIPFailAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpServerDown"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwLocalIPPoolDifferWithServer"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPPOOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-IPPOOL-MIB"
+  }
+}

@@ -1,0 +1,1392 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "TruthValue",
+      "RowPointer",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoIetfIpMIB": {
+    "name": "ciscoIetfIpMIB",
+    "oid": "1.3.6.1.4.1.9.10.86",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-03-04 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoIetfIpMIBObjects": {
+    "name": "ciscoIetfIpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.86.1",
+    "class": "objectidentity"
+  },
+  "cIp": {
+    "name": "cIp",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1",
+    "class": "objectidentity"
+  },
+  "cIpv6": {
+    "name": "cIpv6",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2",
+    "class": "objectidentity"
+  },
+  "cIcmp": {
+    "name": "cIcmp",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3",
+    "class": "objectidentity"
+  },
+  "Ipv6AddrIfIdentifier": {
+    "name": "Ipv6AddrIfIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "2x:",
+    "status": "current"
+  },
+  "ScopeId": {
+    "name": "ScopeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "cIpv6Forwarding": {
+    "name": "cIpv6Forwarding",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 1,
+          "notForwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpv6DefaultHopLimit": {
+    "name": "cIpv6DefaultHopLimit",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpv6InterfaceTable": {
+    "name": "cIpv6InterfaceTable",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpv6InterfaceEntry": {
+    "name": "cIpv6InterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6InterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpv6InterfaceIfIndex": {
+    "name": "cIpv6InterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpv6InterfaceEffectiveMtu": {
+    "name": "cIpv6InterfaceEffectiveMtu",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6InterfaceReasmMaxSize": {
+    "name": "cIpv6InterfaceReasmMaxSize",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6InterfaceIdentifier": {
+    "name": "cIpv6InterfaceIdentifier",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6AddrIfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpv6InterfaceIdentifierLength": {
+    "name": "cIpv6InterfaceIdentifierLength",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cIpv6InterfacePhysicalAddress": {
+    "name": "cIpv6InterfacePhysicalAddress",
+    "oid": "1.3.6.1.4.1.9.10.86.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressPfxTable": {
+    "name": "cIpAddressPfxTable",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressPfxEntry": {
+    "name": "cIpAddressPfxEntry",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxPfx",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpAddressPfxIfIndex": {
+    "name": "cIpAddressPfxIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressPfxType": {
+    "name": "cIpAddressPfxType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressPfxPfx": {
+    "name": "cIpAddressPfxPfx",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressPfxLength": {
+    "name": "cIpAddressPfxLength",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressPfxOrigin": {
+    "name": "cIpAddressPfxOrigin",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "manual": 2,
+          "wellknown": 3,
+          "dhcp": 4,
+          "routeradv": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressPfxOnLinkFlag": {
+    "name": "cIpAddressPfxOnLinkFlag",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressPfxAutonomousFlag": {
+    "name": "cIpAddressPfxAutonomousFlag",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressPfxAdvPfdLifetime": {
+    "name": "cIpAddressPfxAdvPfdLifetime",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressPfxAdvValidLifetime": {
+    "name": "cIpAddressPfxAdvValidLifetime",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressTable": {
+    "name": "cIpAddressTable",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressEntry": {
+    "name": "cIpAddressEntry",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpAddressAddrType": {
+    "name": "cIpAddressAddrType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressAddr": {
+    "name": "cIpAddressAddr",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpAddressIfIndex": {
+    "name": "cIpAddressIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressType": {
+    "name": "cIpAddressType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "anycast": 2,
+          "broadcast": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressPrefix": {
+    "name": "cIpAddressPrefix",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressOrigin": {
+    "name": "cIpAddressOrigin",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "manual": 2,
+          "wellknown": 3,
+          "dhcp": 4,
+          "linklayer": 5,
+          "random": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpAddressStatus": {
+    "name": "cIpAddressStatus",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preferred": 1,
+          "deprecated": 2,
+          "invalid": 3,
+          "inaccessible": 4,
+          "unknown": 5,
+          "tentative": 6,
+          "duplicate": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetNetToMediaTable": {
+    "name": "cInetNetToMediaTable",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetNetToMediaEntry": {
+    "name": "cInetNetToMediaEntry",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetNetToMediaNetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetNetToMediaNetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cInetNetToMediaNetAddressType": {
+    "name": "cInetNetToMediaNetAddressType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetNetToMediaNetAddress": {
+    "name": "cInetNetToMediaNetAddress",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetNetToMediaPhysAddress": {
+    "name": "cInetNetToMediaPhysAddress",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetNetToMediaLastUpdated": {
+    "name": "cInetNetToMediaLastUpdated",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetNetToMediaType": {
+    "name": "cInetNetToMediaType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "dynamic": 3,
+          "static": 4,
+          "local": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cInetNetToMediaState": {
+    "name": "cInetNetToMediaState",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reachable": 1,
+          "stale": 2,
+          "delay": 3,
+          "probe": 4,
+          "invalid": 5,
+          "unknown": 6,
+          "incomplete": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdTable": {
+    "name": "cIpv6ScopeIdTable",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpv6ScopeIdEntry": {
+    "name": "cIpv6ScopeIdEntry",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cIpv6ScopeIdIfIndex": {
+    "name": "cIpv6ScopeIdIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cIpv6ScopeIdLinkLocal": {
+    "name": "cIpv6ScopeIdLinkLocal",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdSubnetLocal": {
+    "name": "cIpv6ScopeIdSubnetLocal",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdAdminLocal": {
+    "name": "cIpv6ScopeIdAdminLocal",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdSiteLocal": {
+    "name": "cIpv6ScopeIdSiteLocal",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeId6": {
+    "name": "cIpv6ScopeId6",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeId7": {
+    "name": "cIpv6ScopeId7",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdOrganizationLocal": {
+    "name": "cIpv6ScopeIdOrganizationLocal",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeId9": {
+    "name": "cIpv6ScopeId9",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdA": {
+    "name": "cIpv6ScopeIdA",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdB": {
+    "name": "cIpv6ScopeIdB",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdC": {
+    "name": "cIpv6ScopeIdC",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6ScopeIdD": {
+    "name": "cIpv6ScopeIdD",
+    "oid": "1.3.6.1.4.1.9.10.86.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScopeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetIcmpTable": {
+    "name": "cInetIcmpTable",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpEntry": {
+    "name": "cInetIcmpEntry",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpAFType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cInetIcmpAFType": {
+    "name": "cInetIcmpAFType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpIfIndex": {
+    "name": "cInetIcmpIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpInMsgs": {
+    "name": "cInetIcmpInMsgs",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetIcmpInErrors": {
+    "name": "cInetIcmpInErrors",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetIcmpOutMsgs": {
+    "name": "cInetIcmpOutMsgs",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetIcmpOutErrors": {
+    "name": "cInetIcmpOutErrors",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetIcmpMsgTable": {
+    "name": "cInetIcmpMsgTable",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpMsgEntry": {
+    "name": "cInetIcmpMsgEntry",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpMsgAFType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpMsgIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpMsgType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpMsgCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cInetIcmpMsgAFType": {
+    "name": "cInetIcmpMsgAFType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpMsgIfIndex": {
+    "name": "cInetIcmpMsgIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpMsgType": {
+    "name": "cInetIcmpMsgType",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpMsgCode": {
+    "name": "cInetIcmpMsgCode",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cInetIcmpMsgInPkts": {
+    "name": "cInetIcmpMsgInPkts",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cInetIcmpMsgOutPkts": {
+    "name": "cInetIcmpMsgOutPkts",
+    "oid": "1.3.6.1.4.1.9.10.86.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoIpMIBConformance": {
+    "name": "ciscoIpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.86.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpMIBCompliances": {
+    "name": "ciscoIpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.86.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpMIBGroups": {
+    "name": "ciscoIpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpMIBCompliance": {
+    "name": "ciscoIpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.86.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoIpAddressPfxGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      },
+      {
+        "object": "ciscoIpAddressGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      },
+      {
+        "object": "ciscoInetNetToMediaGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      },
+      {
+        "object": "ciscoInetIcmpGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      },
+      {
+        "object": "ciscoInetIcmpMsgGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      },
+      {
+        "object": "ciscoIpv6GeneralGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      },
+      {
+        "object": "ciscoIpv6InterfaceGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      },
+      {
+        "object": "ciscoIpv6ScopeGroup",
+        "module": "CISCO-IETF-IP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpAddressPfxGroup": {
+    "name": "ciscoIpAddressPfxGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxOrigin"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxOnLinkFlag"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxAutonomousFlag"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxAdvPfdLifetime"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPfxAdvValidLifetime"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpAddressGroup": {
+    "name": "ciscoIpAddressGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressType"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressPrefix"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressOrigin"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpAddressStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoInetNetToMediaGroup": {
+    "name": "ciscoInetNetToMediaGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetNetToMediaPhysAddress"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetNetToMediaLastUpdated"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetNetToMediaType"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetNetToMediaState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoInetIcmpGroup": {
+    "name": "ciscoInetIcmpGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpInMsgs"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpInErrors"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpOutMsgs"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoInetIcmpMsgGroup": {
+    "name": "ciscoInetIcmpMsgGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpMsgInPkts"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cInetIcmpMsgOutPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpv6GeneralGroup": {
+    "name": "ciscoIpv6GeneralGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6Forwarding"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6DefaultHopLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpv6InterfaceGroup": {
+    "name": "ciscoIpv6InterfaceGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6InterfaceEffectiveMtu"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6InterfaceReasmMaxSize"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6InterfaceIdentifier"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6InterfaceIdentifierLength"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6InterfacePhysicalAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpv6ScopeGroup": {
+    "name": "ciscoIpv6ScopeGroup",
+    "oid": "1.3.6.1.4.1.9.10.86.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdLinkLocal"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdSubnetLocal"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdAdminLocal"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdSiteLocal"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeId6"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeId7"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdOrganizationLocal"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeId9"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdA"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdB"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdC"
+      },
+      {
+        "module": "CISCO-IETF-IP-MIB",
+        "object": "cIpv6ScopeIdD"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-IP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-IP-MIB"
+  }
+}

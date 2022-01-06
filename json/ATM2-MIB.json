@@ -1,0 +1,3404 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-MIB": [
+      "atmVclEntry",
+      "atmInterfaceConfEntry",
+      "atmMIBObjects",
+      "atmVclVpi",
+      "atmVclVci",
+      "atmVplVpi",
+      "atmVpCrossConnectEntry",
+      "atmVplEntry",
+      "atmVcCrossConnectEntry"
+    ],
+    "ATM-TC-MIB": [
+      "AtmAddr",
+      "AtmSigDescrParamIndex",
+      "AtmInterfaceType",
+      "AtmVcIdentifier",
+      "AtmVpIdentifier",
+      "AtmTrafficDescrParamIndex",
+      "AtmIlmiNetworkPrefix"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "atm2MIB": {
+    "name": "atm2MIB",
+    "oid": "1.3.6.1.2.1.37.1.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-09-23 00:00",
+        "description": "Initial version of this MIB, published as RFC 3606."
+      }
+    ]
+  },
+  "atm2MIBObjects": {
+    "name": "atm2MIBObjects",
+    "oid": "1.3.6.1.2.1.37.1.14.1",
+    "class": "objectidentity"
+  },
+  "atm2MIBTraps": {
+    "name": "atm2MIBTraps",
+    "oid": "1.3.6.1.2.1.37.1.14.2",
+    "class": "objectidentity"
+  },
+  "atmSvcVpCrossConnectTable": {
+    "name": "atmSvcVpCrossConnectTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectEntry": {
+    "name": "atmSvcVpCrossConnectEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVpCrossConnectIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVpCrossConnectLowIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVpCrossConnectLowVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVpCrossConnectHighIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVpCrossConnectHighVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectIndex": {
+    "name": "atmSvcVpCrossConnectIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectLowIfIndex": {
+    "name": "atmSvcVpCrossConnectLowIfIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectLowVpi": {
+    "name": "atmSvcVpCrossConnectLowVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectHighIfIndex": {
+    "name": "atmSvcVpCrossConnectHighIfIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectHighVpi": {
+    "name": "atmSvcVpCrossConnectHighVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectCreationTime": {
+    "name": "atmSvcVpCrossConnectCreationTime",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSvcVpCrossConnectRowStatus": {
+    "name": "atmSvcVpCrossConnectRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectTable": {
+    "name": "atmSvcVcCrossConnectTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectEntry": {
+    "name": "atmSvcVcCrossConnectEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectLowIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectLowVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectLowVci",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectHighIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectHighVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectHighVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectIndex": {
+    "name": "atmSvcVcCrossConnectIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectLowIfIndex": {
+    "name": "atmSvcVcCrossConnectLowIfIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectLowVpi": {
+    "name": "atmSvcVcCrossConnectLowVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectLowVci": {
+    "name": "atmSvcVcCrossConnectLowVci",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectHighIfIndex": {
+    "name": "atmSvcVcCrossConnectHighIfIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectHighVpi": {
+    "name": "atmSvcVcCrossConnectHighVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectHighVci": {
+    "name": "atmSvcVcCrossConnectHighVci",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectCreationTime": {
+    "name": "atmSvcVcCrossConnectCreationTime",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSvcVcCrossConnectRowStatus": {
+    "name": "atmSvcVcCrossConnectRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigStatTable": {
+    "name": "atmSigStatTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSigStatEntry": {
+    "name": "atmSigStatEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmSigSSCOPConEvents": {
+    "name": "atmSigSSCOPConEvents",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigSSCOPErrdPdus": {
+    "name": "atmSigSSCOPErrdPdus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectSetupAttempts": {
+    "name": "atmSigDetectSetupAttempts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitSetupAttempts": {
+    "name": "atmSigEmitSetupAttempts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectUnavailRoutes": {
+    "name": "atmSigDetectUnavailRoutes",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitUnavailRoutes": {
+    "name": "atmSigEmitUnavailRoutes",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectUnavailResrcs": {
+    "name": "atmSigDetectUnavailResrcs",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitUnavailResrcs": {
+    "name": "atmSigEmitUnavailResrcs",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectCldPtyEvents": {
+    "name": "atmSigDetectCldPtyEvents",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitCldPtyEvents": {
+    "name": "atmSigEmitCldPtyEvents",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectMsgErrors": {
+    "name": "atmSigDetectMsgErrors",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitMsgErrors": {
+    "name": "atmSigEmitMsgErrors",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectClgPtyEvents": {
+    "name": "atmSigDetectClgPtyEvents",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitClgPtyEvents": {
+    "name": "atmSigEmitClgPtyEvents",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectTimerExpireds": {
+    "name": "atmSigDetectTimerExpireds",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitTimerExpireds": {
+    "name": "atmSigEmitTimerExpireds",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigDetectRestarts": {
+    "name": "atmSigDetectRestarts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigEmitRestarts": {
+    "name": "atmSigEmitRestarts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigInEstabls": {
+    "name": "atmSigInEstabls",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigOutEstabls": {
+    "name": "atmSigOutEstabls",
+    "oid": "1.3.6.1.2.1.37.1.14.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmSigSupportTable": {
+    "name": "atmSigSupportTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSigSupportEntry": {
+    "name": "atmSigSupportEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmSigSupportClgPtyNumDel": {
+    "name": "atmSigSupportClgPtyNumDel",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigSupportClgPtySubAddr": {
+    "name": "atmSigSupportClgPtySubAddr",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigSupportCldPtySubAddr": {
+    "name": "atmSigSupportCldPtySubAddr",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigSupportHiLyrInfo": {
+    "name": "atmSigSupportHiLyrInfo",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigSupportLoLyrInfo": {
+    "name": "atmSigSupportLoLyrInfo",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigSupportBlliRepeatInd": {
+    "name": "atmSigSupportBlliRepeatInd",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigSupportAALInfo": {
+    "name": "atmSigSupportAALInfo",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigSupportPrefCarrier": {
+    "name": "atmSigSupportPrefCarrier",
+    "oid": "1.3.6.1.2.1.37.1.14.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmSigDescrParamTable": {
+    "name": "atmSigDescrParamTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSigDescrParamEntry": {
+    "name": "atmSigDescrParamEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmSigDescrParamIndex": {
+    "name": "atmSigDescrParamIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmSigDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSigDescrParamAalType": {
+    "name": "atmSigDescrParamAalType",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "aal1": 2,
+          "aal34": 3,
+          "aal5": 4,
+          "userDefined": 5,
+          "aal2": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamAalSscsType": {
+    "name": "atmSigDescrParamAalSscsType",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "assured": 2,
+          "nonassured": 3,
+          "frameRelay": 4,
+          "null": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBhliType": {
+    "name": "atmSigDescrParamBhliType",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "iso": 2,
+          "user": 3,
+          "hiProfile": 4,
+          "vendorSpecific": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBhliInfo": {
+    "name": "atmSigDescrParamBhliInfo",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBbcConnConf": {
+    "name": "atmSigDescrParamBbcConnConf",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptp": 1,
+          "ptmp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ptp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBlliLayer2": {
+    "name": "atmSigDescrParamBlliLayer2",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "iso1745": 2,
+          "q921": 3,
+          "x25linklayer": 4,
+          "x25multilink": 5,
+          "lapb": 6,
+          "hdlcArm": 7,
+          "hdlcNrm": 8,
+          "hdlcAbm": 9,
+          "iso88022": 10,
+          "x75slp": 11,
+          "q922": 12,
+          "userDef": 13,
+          "iso7776": 14
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBlliLayer3": {
+    "name": "atmSigDescrParamBlliLayer3",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "x25pkt": 2,
+          "isoiec8208": 3,
+          "x223iso8878": 4,
+          "isoiec8473": 5,
+          "t70": 6,
+          "tr9577": 7,
+          "userDef": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBlliPktSize": {
+    "name": "atmSigDescrParamBlliPktSize",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "s16": 2,
+          "s32": 3,
+          "s64": 4,
+          "s128": 5,
+          "s256": 6,
+          "s512": 7,
+          "s1024": 8,
+          "s2048": 9,
+          "s4096": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBlliSnapId": {
+    "name": "atmSigDescrParamBlliSnapId",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "true": 2,
+          "false": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamBlliOuiPid": {
+    "name": "atmSigDescrParamBlliOuiPid",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSigDescrParamRowStatus": {
+    "name": "atmSigDescrParamRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmIfRegisteredAddrTable": {
+    "name": "atmIfRegisteredAddrTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIfRegisteredAddrEntry": {
+    "name": "atmIfRegisteredAddrEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIfRegAddrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmIfRegAddrAddress": {
+    "name": "atmIfRegAddrAddress",
+    "oid": "1.3.6.1.2.1.37.1.14.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIfRegAddrAddressSource": {
+    "name": "atmIfRegAddrAddressSource",
+    "oid": "1.3.6.1.2.1.37.1.14.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "static": 2,
+          "dynamic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIfRegAddrOrgScope": {
+    "name": "atmIfRegAddrOrgScope",
+    "oid": "1.3.6.1.2.1.37.1.14.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localNetwork": 1,
+          "localNetworkPlusOne": 2,
+          "localNetworkPlusTwo": 3,
+          "siteMinusOne": 4,
+          "intraSite": 5,
+          "sitePlusOne": 6,
+          "organizationMinusOne": 7,
+          "intraOrganization": 8,
+          "organizationPlusOne": 9,
+          "communityMinusOne": 10,
+          "intraCommunity": 11,
+          "communityPlusOne": 12,
+          "regional": 13,
+          "interRegional": 14,
+          "global": 15
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmIfRegAddrRowStatus": {
+    "name": "atmIfRegAddrRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmVclAddrTable": {
+    "name": "atmVclAddrTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVclAddrEntry": {
+    "name": "atmVclAddrEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclAddrAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmVclAddrAddr": {
+    "name": "atmVclAddrAddr",
+    "oid": "1.3.6.1.2.1.37.1.14.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVclAddrType": {
+    "name": "atmVclAddrType",
+    "oid": "1.3.6.1.2.1.37.1.14.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "callingParty": 1,
+          "calledParty": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmVclAddrRowStatus": {
+    "name": "atmVclAddrRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmAddrVclTable": {
+    "name": "atmAddrVclTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAddrVclEntry": {
+    "name": "atmAddrVclEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclAddrAddr",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAddrVclAtmIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAddrVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAddrVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmAddrVclAtmIfIndex": {
+    "name": "atmAddrVclAtmIfIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAddrVclVpi": {
+    "name": "atmAddrVclVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAddrVclVci": {
+    "name": "atmAddrVclVci",
+    "oid": "1.3.6.1.2.1.37.1.14.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAddrVclAddrType": {
+    "name": "atmAddrVclAddrType",
+    "oid": "1.3.6.1.2.1.37.1.14.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "callingParty": 1,
+          "calledParty": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplStatTable": {
+    "name": "atmVplStatTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVplStatEntry": {
+    "name": "atmVplStatEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVplVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmVplStatTotalCellIns": {
+    "name": "atmVplStatTotalCellIns",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplStatClp0CellIns": {
+    "name": "atmVplStatClp0CellIns",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplStatTotalDiscards": {
+    "name": "atmVplStatTotalDiscards",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplStatClp0Discards": {
+    "name": "atmVplStatClp0Discards",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplStatTotalCellOuts": {
+    "name": "atmVplStatTotalCellOuts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplStatClp0CellOuts": {
+    "name": "atmVplStatClp0CellOuts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplStatClp0Tagged": {
+    "name": "atmVplStatClp0Tagged",
+    "oid": "1.3.6.1.2.1.37.1.14.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVplLogicalPortTable": {
+    "name": "atmVplLogicalPortTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVplLogicalPortEntry": {
+    "name": "atmVplLogicalPortEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atmVplLogicalPortEntry",
+      "module": "ATM2-MIB",
+      "object": "atmVplEntry"
+    },
+    "status": "current"
+  },
+  "atmVplLogicalPortDef": {
+    "name": "atmVplLogicalPortDef",
+    "oid": "1.3.6.1.2.1.37.1.14.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notLogicalIf": 1,
+          "isLogicalIf": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notLogicalIf",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmVplLogicalPortIndex": {
+    "name": "atmVplLogicalPortIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclStatTable": {
+    "name": "atmVclStatTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVclStatEntry": {
+    "name": "atmVclStatEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmVclStatTotalCellIns": {
+    "name": "atmVclStatTotalCellIns",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclStatClp0CellIns": {
+    "name": "atmVclStatClp0CellIns",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclStatTotalDiscards": {
+    "name": "atmVclStatTotalDiscards",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclStatClp0Discards": {
+    "name": "atmVclStatClp0Discards",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclStatTotalCellOuts": {
+    "name": "atmVclStatTotalCellOuts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclStatClp0CellOuts": {
+    "name": "atmVclStatClp0CellOuts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclStatClp0Tagged": {
+    "name": "atmVclStatClp0Tagged",
+    "oid": "1.3.6.1.2.1.37.1.14.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmAal5VclStatTable": {
+    "name": "atmAal5VclStatTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAal5VclStatEntry": {
+    "name": "atmAal5VclStatEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmAal5VclInPkts": {
+    "name": "atmAal5VclInPkts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmAal5VclOutPkts": {
+    "name": "atmAal5VclOutPkts",
+    "oid": "1.3.6.1.2.1.37.1.14.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmAal5VclInOctets": {
+    "name": "atmAal5VclInOctets",
+    "oid": "1.3.6.1.2.1.37.1.14.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmAal5VclOutOctets": {
+    "name": "atmAal5VclOutOctets",
+    "oid": "1.3.6.1.2.1.37.1.14.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVclGenTable": {
+    "name": "atmVclGenTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVclGenEntry": {
+    "name": "atmVclGenEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atmVclGenEntry",
+      "module": "ATM2-MIB",
+      "object": "atmVclEntry"
+    },
+    "status": "current"
+  },
+  "atmVclGenSigDescrIndex": {
+    "name": "atmVclGenSigDescrIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmSigDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmInterfaceExtTable": {
+    "name": "atmInterfaceExtTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmInterfaceExtEntry": {
+    "name": "atmInterfaceExtEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atmInterfaceExtEntry",
+      "module": "ATM2-MIB",
+      "object": "atmInterfaceConfEntry"
+    },
+    "status": "current"
+  },
+  "atmIntfConfigType": {
+    "name": "atmIntfConfigType",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmInterfaceType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "autoConfig",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfActualType": {
+    "name": "atmIntfActualType",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmInterfaceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfConfigSide": {
+    "name": "atmIntfConfigSide",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "user": 2,
+          "network": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfActualSide": {
+    "name": "atmIntfActualSide",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "user": 2,
+          "network": 3,
+          "symmetric": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfIlmiAdminStatus": {
+    "name": "atmIntfIlmiAdminStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ilmi": 0,
+        "ilmiAddressRegistration": 1,
+        "ilmiConnectivity": 2,
+        "ilmiPvcPvpMgmt": 3,
+        "ilmiSigVccParamNegotiation": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfIlmiOperStatus": {
+    "name": "atmIntfIlmiOperStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ilmi": 0,
+        "ilmiAddressRegistration": 1,
+        "ilmiConnectivity": 2,
+        "ilmiPvcPvpMgmt": 3,
+        "ilmiSigVccParamNegotiation": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfIlmiFsmState": {
+    "name": "atmIntfIlmiFsmState",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stopped": 1,
+          "linkFailing": 2,
+          "establishing": 3,
+          "configuring": 4,
+          "retrievingNetworkPrefixes": 5,
+          "registeringNetworkPrefixes": 6,
+          "retrievingAddresses": 7,
+          "registeringAddresses": 8,
+          "verifying": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfIlmiEstablishConPollIntvl": {
+    "name": "atmIntfIlmiEstablishConPollIntvl",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfIlmiCheckConPollIntvl": {
+    "name": "atmIntfIlmiCheckConPollIntvl",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfIlmiConPollInactFactor": {
+    "name": "atmIntfIlmiConPollInactFactor",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfIlmiPublicPrivateIndctr": {
+    "name": "atmIntfIlmiPublicPrivateIndctr",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "public": 2,
+          "private": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "private",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmInterfaceConfMaxSvpcVpi": {
+    "name": "atmInterfaceConfMaxSvpcVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmInterfaceCurrentMaxSvpcVpi": {
+    "name": "atmInterfaceCurrentMaxSvpcVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmInterfaceConfMaxSvccVpi": {
+    "name": "atmInterfaceConfMaxSvccVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmInterfaceCurrentMaxSvccVpi": {
+    "name": "atmInterfaceCurrentMaxSvccVpi",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmInterfaceConfMinSvccVci": {
+    "name": "atmInterfaceConfMinSvccVci",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmInterfaceCurrentMinSvccVci": {
+    "name": "atmInterfaceCurrentMinSvccVci",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfSigVccRxTrafficDescrIndex": {
+    "name": "atmIntfSigVccRxTrafficDescrIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfSigVccTxTrafficDescrIndex": {
+    "name": "atmIntfSigVccTxTrafficDescrIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmTrafficDescrParamIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfPvcFailures": {
+    "name": "atmIntfPvcFailures",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfCurrentlyFailingPVpls": {
+    "name": "atmIntfCurrentlyFailingPVpls",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfCurrentlyFailingPVcls": {
+    "name": "atmIntfCurrentlyFailingPVcls",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfPvcFailuresTrapEnable": {
+    "name": "atmIntfPvcFailuresTrapEnable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfPvcNotificationInterval": {
+    "name": "atmIntfPvcNotificationInterval",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atmIntfLeafSetupFailures": {
+    "name": "atmIntfLeafSetupFailures",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIntfLeafSetupRequests": {
+    "name": "atmIntfLeafSetupRequests",
+    "oid": "1.3.6.1.2.1.37.1.14.1.14.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmIlmiSrvcRegTable": {
+    "name": "atmIlmiSrvcRegTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIlmiSrvcRegEntry": {
+    "name": "atmIlmiSrvcRegEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiSrvcRegIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiSrvcRegServiceID",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiSrvcRegAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmIlmiSrvcRegIndex": {
+    "name": "atmIlmiSrvcRegIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIlmiSrvcRegServiceID": {
+    "name": "atmIlmiSrvcRegServiceID",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIlmiSrvcRegAddressIndex": {
+    "name": "atmIlmiSrvcRegAddressIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIlmiSrvcRegATMAddress": {
+    "name": "atmIlmiSrvcRegATMAddress",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmIlmiSrvcRegParm1": {
+    "name": "atmIlmiSrvcRegParm1",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmIlmiSrvcRegRowStatus": {
+    "name": "atmIlmiSrvcRegRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmIlmiNetworkPrefixTable": {
+    "name": "atmIlmiNetworkPrefixTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIlmiNetworkPrefixEntry": {
+    "name": "atmIlmiNetworkPrefixEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiNetPrefixPrefix",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmIlmiNetPrefixPrefix": {
+    "name": "atmIlmiNetPrefixPrefix",
+    "oid": "1.3.6.1.2.1.37.1.14.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmIlmiNetworkPrefix",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmIlmiNetPrefixRowStatus": {
+    "name": "atmIlmiNetPrefixRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSwitchAddressTable": {
+    "name": "atmSwitchAddressTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSwitchAddressEntry": {
+    "name": "atmSwitchAddressEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSwitchAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmSwitchAddressIndex": {
+    "name": "atmSwitchAddressIndex",
+    "oid": "1.3.6.1.2.1.37.1.14.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmSwitchAddressAddress": {
+    "name": "atmSwitchAddressAddress",
+    "oid": "1.3.6.1.2.1.37.1.14.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 13,
+            "max": 13
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmSwitchAddressRowStatus": {
+    "name": "atmSwitchAddressRowStatus",
+    "oid": "1.3.6.1.2.1.37.1.14.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmVpCrossConnectXTable": {
+    "name": "atmVpCrossConnectXTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVpCrossConnectXEntry": {
+    "name": "atmVpCrossConnectXEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atmVpCrossConnectXEntry",
+      "module": "ATM2-MIB",
+      "object": "atmVpCrossConnectEntry"
+    },
+    "status": "current"
+  },
+  "atmVpCrossConnectUserName": {
+    "name": "atmVpCrossConnectUserName",
+    "oid": "1.3.6.1.2.1.37.1.14.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmVpCrossConnectProviderName": {
+    "name": "atmVpCrossConnectProviderName",
+    "oid": "1.3.6.1.2.1.37.1.14.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmVcCrossConnectXTable": {
+    "name": "atmVcCrossConnectXTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmVcCrossConnectXEntry": {
+    "name": "atmVcCrossConnectXEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atmVcCrossConnectXEntry",
+      "module": "ATM2-MIB",
+      "object": "atmVcCrossConnectEntry"
+    },
+    "status": "current"
+  },
+  "atmVcCrossConnectUserName": {
+    "name": "atmVcCrossConnectUserName",
+    "oid": "1.3.6.1.2.1.37.1.14.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "atmVcCrossConnectProviderName": {
+    "name": "atmVcCrossConnectProviderName",
+    "oid": "1.3.6.1.2.1.37.1.14.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmCurrentlyFailingPVplTable": {
+    "name": "atmCurrentlyFailingPVplTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmCurrentlyFailingPVplEntry": {
+    "name": "atmCurrentlyFailingPVplEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVplVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmCurrentlyFailingPVplTimeStamp": {
+    "name": "atmCurrentlyFailingPVplTimeStamp",
+    "oid": "1.3.6.1.2.1.37.1.14.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmCurrentlyFailingPVclTable": {
+    "name": "atmCurrentlyFailingPVclTable",
+    "oid": "1.3.6.1.2.1.37.1.14.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmCurrentlyFailingPVclEntry": {
+    "name": "atmCurrentlyFailingPVclEntry",
+    "oid": "1.3.6.1.2.1.37.1.14.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atmCurrentlyFailingPVclTimeStamp": {
+    "name": "atmCurrentlyFailingPVclTimeStamp",
+    "oid": "1.3.6.1.2.1.37.1.14.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atmPvcTraps": {
+    "name": "atmPvcTraps",
+    "oid": "1.3.6.1.2.1.37.1.14.2.1",
+    "class": "objectidentity"
+  },
+  "atmPvcTrapsPrefix": {
+    "name": "atmPvcTrapsPrefix",
+    "oid": "1.3.6.1.2.1.37.1.14.2.1.0",
+    "class": "objectidentity"
+  },
+  "atmIntfPvcFailuresTrap": {
+    "name": "atmIntfPvcFailuresTrap",
+    "oid": "1.3.6.1.2.1.37.1.14.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfPvcFailures"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfCurrentlyFailingPVpls"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfCurrentlyFailingPVcls"
+      }
+    ],
+    "status": "current"
+  },
+  "atm2MIBConformance": {
+    "name": "atm2MIBConformance",
+    "oid": "1.3.6.1.2.1.37.1.14.3",
+    "class": "objectidentity"
+  },
+  "atm2MIBGroups": {
+    "name": "atm2MIBGroups",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1",
+    "class": "objectidentity"
+  },
+  "atm2MIBCompliances": {
+    "name": "atm2MIBCompliances",
+    "oid": "1.3.6.1.2.1.37.1.14.3.2",
+    "class": "objectidentity"
+  },
+  "atm2MIBCompliance": {
+    "name": "atm2MIBCompliance",
+    "oid": "1.3.6.1.2.1.37.1.14.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atmCommonGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmCommonStatsGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmSwitchServcGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmSwitchServcSigGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmSwitchServcNotifGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmSwitchGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmServcGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmHostGroup",
+        "module": "ATM2-MIB"
+      },
+      {
+        "object": "atmHostSigDescrGroup",
+        "module": "ATM2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "atmCommonGroup": {
+    "name": "atmCommonGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSSCOPConEvents"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSSCOPErrdPdus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectSetupAttempts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitSetupAttempts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectUnavailRoutes"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitUnavailRoutes"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectUnavailResrcs"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitUnavailResrcs"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectCldPtyEvents"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitCldPtyEvents"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectMsgErrors"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitMsgErrors"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectClgPtyEvents"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitClgPtyEvents"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectTimerExpireds"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitTimerExpireds"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDetectRestarts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigEmitRestarts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigInEstabls"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigOutEstabls"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplLogicalPortDef"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplLogicalPortIndex"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmInterfaceConfMaxSvpcVpi"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmInterfaceCurrentMaxSvpcVpi"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmInterfaceConfMaxSvccVpi"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmInterfaceCurrentMaxSvccVpi"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmInterfaceConfMinSvccVci"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmInterfaceCurrentMinSvccVci"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfSigVccRxTrafficDescrIndex"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfSigVccTxTrafficDescrIndex"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfPvcFailures"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfCurrentlyFailingPVpls"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfCurrentlyFailingPVcls"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfPvcNotificationInterval"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfPvcFailuresTrapEnable"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfLeafSetupFailures"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfLeafSetupRequests"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfConfigType"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfActualType"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfConfigSide"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfActualSide"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfIlmiAdminStatus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfIlmiOperStatus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfIlmiFsmState"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfIlmiEstablishConPollIntvl"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfIlmiCheckConPollIntvl"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfIlmiConPollInactFactor"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfIlmiPublicPrivateIndctr"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmCurrentlyFailingPVplTimeStamp"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmCurrentlyFailingPVclTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "atmCommonStatsGroup": {
+    "name": "atmCommonStatsGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclStatTotalCellIns"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclStatClp0CellIns"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclStatTotalDiscards"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclStatClp0Discards"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclStatTotalCellOuts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclStatClp0CellOuts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclStatClp0Tagged"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplStatTotalCellIns"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplStatClp0CellIns"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplStatTotalDiscards"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplStatClp0Discards"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplStatTotalCellOuts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplStatClp0CellOuts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVplStatClp0Tagged"
+      }
+    ],
+    "status": "current"
+  },
+  "atmSwitchServcGroup": {
+    "name": "atmSwitchServcGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiSrvcRegATMAddress"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiSrvcRegParm1"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiSrvcRegRowStatus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIlmiNetPrefixRowStatus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVpCrossConnectCreationTime"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVpCrossConnectRowStatus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectCreationTime"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSvcVcCrossConnectRowStatus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIfRegAddrAddressSource"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIfRegAddrOrgScope"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIfRegAddrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atmSwitchServcSigGroup": {
+    "name": "atmSwitchServcSigGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportClgPtyNumDel"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportClgPtySubAddr"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportCldPtySubAddr"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportHiLyrInfo"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportLoLyrInfo"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportBlliRepeatInd"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportAALInfo"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigSupportPrefCarrier"
+      }
+    ],
+    "status": "current"
+  },
+  "atmSwitchServcNotifGroup": {
+    "name": "atmSwitchServcNotifGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmIntfPvcFailuresTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "atmSwitchGroup": {
+    "name": "atmSwitchGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSwitchAddressAddress"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSwitchAddressRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "atmServcGroup": {
+    "name": "atmServcGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVpCrossConnectUserName"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVpCrossConnectProviderName"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVcCrossConnectUserName"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVcCrossConnectProviderName"
+      }
+    ],
+    "status": "current"
+  },
+  "atmHostGroup": {
+    "name": "atmHostGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAal5VclInPkts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAal5VclOutPkts"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAal5VclInOctets"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAal5VclOutOctets"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclAddrType"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclAddrRowStatus"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmAddrVclAddrType"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmVclGenSigDescrIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "atmHostSigDescrGroup": {
+    "name": "atmHostSigDescrGroup",
+    "oid": "1.3.6.1.2.1.37.1.14.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamAalType"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamAalSscsType"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBhliType"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBhliInfo"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBbcConnConf"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBlliLayer2"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBlliLayer3"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBlliPktSize"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBlliSnapId"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamBlliOuiPid"
+      },
+      {
+        "module": "ATM2-MIB",
+        "object": "atmSigDescrParamRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/ATM2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ATM2-MIB"
+  }
+}

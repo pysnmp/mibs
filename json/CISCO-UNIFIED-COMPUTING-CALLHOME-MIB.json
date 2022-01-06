@@ -1,0 +1,1799 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsConditionCallHomeCause",
+      "CucsFsmCompletion",
+      "CucsCallhomeLevel",
+      "CucsCallhomeAlertMessageSubtype",
+      "CucsCallhomeAnonymousReportingAdminState",
+      "CucsCallhomeAlertLevel",
+      "CucsCallhomeEpFsmTaskItem",
+      "CucsCallhomeEpFsmStageName",
+      "CucsCallhomeAlertMessageType",
+      "CucsPolicyPolicyOwner",
+      "CucsCallhomeAlertGroup",
+      "CucsCallhomeEpConfigState",
+      "CucsCallhomeAdminState",
+      "CucsCallhomeEpFsmCurrentFsm",
+      "CucsCallhomeUrgency",
+      "CucsCallhomeAlertThrottlingAdminState",
+      "CucsFsmFlags",
+      "CucsCallhomeFormat",
+      "CucsFsmFsmStageStatus",
+      "CucsCallhomePolicyAdminState",
+      "CucsCallhomeAlertGroups",
+      "CucsConditionRemoteInvRslt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsCallhomeObjects": {
+    "name": "cucsCallhomeObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6",
+    "class": "moduleidentity"
+  },
+  "cucsCallhomeAnonymousReportingTable": {
+    "name": "cucsCallhomeAnonymousReportingTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingEntry": {
+    "name": "cucsCallhomeAnonymousReportingEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeAnonymousReportingInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingInstanceId": {
+    "name": "cucsCallhomeAnonymousReportingInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingDn": {
+    "name": "cucsCallhomeAnonymousReportingDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingRn": {
+    "name": "cucsCallhomeAnonymousReportingRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingAdminState": {
+    "name": "cucsCallhomeAnonymousReportingAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAnonymousReportingAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingCount": {
+    "name": "cucsCallhomeAnonymousReportingCount",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingSleepInterval": {
+    "name": "cucsCallhomeAnonymousReportingSleepInterval",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeAnonymousReportingUserAcknowledged": {
+    "name": "cucsCallhomeAnonymousReportingUserAcknowledged",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeDestTable": {
+    "name": "cucsCallhomeDestTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeDestEntry": {
+    "name": "cucsCallhomeDestEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeDestInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeDestInstanceId": {
+    "name": "cucsCallhomeDestInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeDestDn": {
+    "name": "cucsCallhomeDestDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeDestRn": {
+    "name": "cucsCallhomeDestRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeDestEmail": {
+    "name": "cucsCallhomeDestEmail",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpTable": {
+    "name": "cucsCallhomeEpTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpEntry": {
+    "name": "cucsCallhomeEpEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeEpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeEpInstanceId": {
+    "name": "cucsCallhomeEpInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpDn": {
+    "name": "cucsCallhomeEpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpRn": {
+    "name": "cucsCallhomeEpRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpAdminState": {
+    "name": "cucsCallhomeEpAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpAlertThrottlingAdminState": {
+    "name": "cucsCallhomeEpAlertThrottlingAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAlertThrottlingAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmDescr": {
+    "name": "cucsCallhomeEpFsmDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmPrev": {
+    "name": "cucsCallhomeEpFsmPrev",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmProgr": {
+    "name": "cucsCallhomeEpFsmProgr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmRmtInvErrCode": {
+    "name": "cucsCallhomeEpFsmRmtInvErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmRmtInvErrDescr": {
+    "name": "cucsCallhomeEpFsmRmtInvErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmRmtInvRslt": {
+    "name": "cucsCallhomeEpFsmRmtInvRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageDescr": {
+    "name": "cucsCallhomeEpFsmStageDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStamp": {
+    "name": "cucsCallhomeEpFsmStamp",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStatus": {
+    "name": "cucsCallhomeEpFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTry": {
+    "name": "cucsCallhomeEpFsmTry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpConfigState": {
+    "name": "cucsCallhomeEpConfigState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeEpConfigState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpDescr": {
+    "name": "cucsCallhomeEpDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpIntId": {
+    "name": "cucsCallhomeEpIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpName": {
+    "name": "cucsCallhomeEpName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpPolicyLevel": {
+    "name": "cucsCallhomeEpPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpPolicyOwner": {
+    "name": "cucsCallhomeEpPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTable": {
+    "name": "cucsCallhomeEpFsmTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmEntry": {
+    "name": "cucsCallhomeEpFsmEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeEpFsmInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmInstanceId": {
+    "name": "cucsCallhomeEpFsmInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmDn": {
+    "name": "cucsCallhomeEpFsmDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmRn": {
+    "name": "cucsCallhomeEpFsmRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmCompletionTime": {
+    "name": "cucsCallhomeEpFsmCompletionTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmCurrentFsm": {
+    "name": "cucsCallhomeEpFsmCurrentFsm",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeEpFsmCurrentFsm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmDescrData": {
+    "name": "cucsCallhomeEpFsmDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmFsmStatus": {
+    "name": "cucsCallhomeEpFsmFsmStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmProgress": {
+    "name": "cucsCallhomeEpFsmProgress",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmRmtErrCode": {
+    "name": "cucsCallhomeEpFsmRmtErrCode",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmRmtErrDescr": {
+    "name": "cucsCallhomeEpFsmRmtErrDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmRmtRslt": {
+    "name": "cucsCallhomeEpFsmRmtRslt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionRemoteInvRslt",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageTable": {
+    "name": "cucsCallhomeEpFsmStageTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageEntry": {
+    "name": "cucsCallhomeEpFsmStageEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeEpFsmStageInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageInstanceId": {
+    "name": "cucsCallhomeEpFsmStageInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageDn": {
+    "name": "cucsCallhomeEpFsmStageDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageRn": {
+    "name": "cucsCallhomeEpFsmStageRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageDescrData": {
+    "name": "cucsCallhomeEpFsmStageDescrData",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageLastUpdateTime": {
+    "name": "cucsCallhomeEpFsmStageLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageName": {
+    "name": "cucsCallhomeEpFsmStageName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeEpFsmStageName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageOrder": {
+    "name": "cucsCallhomeEpFsmStageOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageRetry": {
+    "name": "cucsCallhomeEpFsmStageRetry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmStageStageStatus": {
+    "name": "cucsCallhomeEpFsmStageStageStatus",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFsmStageStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskTable": {
+    "name": "cucsCallhomeEpFsmTaskTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskEntry": {
+    "name": "cucsCallhomeEpFsmTaskEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeEpFsmTaskInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskInstanceId": {
+    "name": "cucsCallhomeEpFsmTaskInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskDn": {
+    "name": "cucsCallhomeEpFsmTaskDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskRn": {
+    "name": "cucsCallhomeEpFsmTaskRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskCompletion": {
+    "name": "cucsCallhomeEpFsmTaskCompletion",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmCompletion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskFlags": {
+    "name": "cucsCallhomeEpFsmTaskFlags",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsFsmFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskItem": {
+    "name": "cucsCallhomeEpFsmTaskItem",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeEpFsmTaskItem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeEpFsmTaskSeqId": {
+    "name": "cucsCallhomeEpFsmTaskSeqId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryTable": {
+    "name": "cucsCallhomePeriodicSystemInventoryTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryEntry": {
+    "name": "cucsCallhomePeriodicSystemInventoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomePeriodicSystemInventoryInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryInstanceId": {
+    "name": "cucsCallhomePeriodicSystemInventoryInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryDn": {
+    "name": "cucsCallhomePeriodicSystemInventoryDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryRn": {
+    "name": "cucsCallhomePeriodicSystemInventoryRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryAdminState": {
+    "name": "cucsCallhomePeriodicSystemInventoryAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryIntervalDays": {
+    "name": "cucsCallhomePeriodicSystemInventoryIntervalDays",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryLastDeadline": {
+    "name": "cucsCallhomePeriodicSystemInventoryLastDeadline",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryMaximumRetryCount": {
+    "name": "cucsCallhomePeriodicSystemInventoryMaximumRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryMinimumSendNowIntervalSeconds": {
+    "name": "cucsCallhomePeriodicSystemInventoryMinimumSendNowIntervalSeconds",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryNextDeadline": {
+    "name": "cucsCallhomePeriodicSystemInventoryNextDeadline",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryPollIntervalSeconds": {
+    "name": "cucsCallhomePeriodicSystemInventoryPollIntervalSeconds",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryRetryCount": {
+    "name": "cucsCallhomePeriodicSystemInventoryRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryRetryDelayMinutes": {
+    "name": "cucsCallhomePeriodicSystemInventoryRetryDelayMinutes",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventorySendNow": {
+    "name": "cucsCallhomePeriodicSystemInventorySendNow",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryTimeOfDayHour": {
+    "name": "cucsCallhomePeriodicSystemInventoryTimeOfDayHour",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryTimeOfDayMinute": {
+    "name": "cucsCallhomePeriodicSystemInventoryTimeOfDayMinute",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryTimeOfLastAttempt": {
+    "name": "cucsCallhomePeriodicSystemInventoryTimeOfLastAttempt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePeriodicSystemInventoryTimeOfLastSuccess": {
+    "name": "cucsCallhomePeriodicSystemInventoryTimeOfLastSuccess",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePolicyTable": {
+    "name": "cucsCallhomePolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomePolicyEntry": {
+    "name": "cucsCallhomePolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomePolicyInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomePolicyInstanceId": {
+    "name": "cucsCallhomePolicyInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomePolicyDn": {
+    "name": "cucsCallhomePolicyDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePolicyRn": {
+    "name": "cucsCallhomePolicyRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePolicyAdminState": {
+    "name": "cucsCallhomePolicyAdminState",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomePolicyAdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePolicyCause": {
+    "name": "cucsCallhomePolicyCause",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsConditionCallHomeCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePolicyDescr": {
+    "name": "cucsCallhomePolicyDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomePolicyName": {
+    "name": "cucsCallhomePolicyName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileTable": {
+    "name": "cucsCallhomeProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeProfileEntry": {
+    "name": "cucsCallhomeProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeProfileInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeProfileInstanceId": {
+    "name": "cucsCallhomeProfileInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeProfileDn": {
+    "name": "cucsCallhomeProfileDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileRn": {
+    "name": "cucsCallhomeProfileRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileAlertGroups": {
+    "name": "cucsCallhomeProfileAlertGroups",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAlertGroups",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileDescr": {
+    "name": "cucsCallhomeProfileDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileFormat": {
+    "name": "cucsCallhomeProfileFormat",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeFormat",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileLevel": {
+    "name": "cucsCallhomeProfileLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileMaxSize": {
+    "name": "cucsCallhomeProfileMaxSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeProfileName": {
+    "name": "cucsCallhomeProfileName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSmtpTable": {
+    "name": "cucsCallhomeSmtpTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeSmtpEntry": {
+    "name": "cucsCallhomeSmtpEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeSmtpInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeSmtpInstanceId": {
+    "name": "cucsCallhomeSmtpInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeSmtpDn": {
+    "name": "cucsCallhomeSmtpDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSmtpRn": {
+    "name": "cucsCallhomeSmtpRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSmtpHost": {
+    "name": "cucsCallhomeSmtpHost",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSmtpPort": {
+    "name": "cucsCallhomeSmtpPort",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceTable": {
+    "name": "cucsCallhomeSourceTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeSourceEntry": {
+    "name": "cucsCallhomeSourceEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeSourceInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeSourceInstanceId": {
+    "name": "cucsCallhomeSourceInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeSourceDn": {
+    "name": "cucsCallhomeSourceDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceRn": {
+    "name": "cucsCallhomeSourceRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceAddr": {
+    "name": "cucsCallhomeSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceContact": {
+    "name": "cucsCallhomeSourceContact",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceContract": {
+    "name": "cucsCallhomeSourceContract",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceCustomer": {
+    "name": "cucsCallhomeSourceCustomer",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceEmail": {
+    "name": "cucsCallhomeSourceEmail",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceFrom": {
+    "name": "cucsCallhomeSourceFrom",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourcePhone": {
+    "name": "cucsCallhomeSourcePhone",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceReplyTo": {
+    "name": "cucsCallhomeSourceReplyTo",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceSite": {
+    "name": "cucsCallhomeSourceSite",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeSourceUrgency": {
+    "name": "cucsCallhomeSourceUrgency",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeUrgency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertTable": {
+    "name": "cucsCallhomeTestAlertTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertEntry": {
+    "name": "cucsCallhomeTestAlertEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+        "object": "cucsCallhomeTestAlertInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertInstanceId": {
+    "name": "cucsCallhomeTestAlertInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertDn": {
+    "name": "cucsCallhomeTestAlertDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertRn": {
+    "name": "cucsCallhomeTestAlertRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertDescription": {
+    "name": "cucsCallhomeTestAlertDescription",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertGroup": {
+    "name": "cucsCallhomeTestAlertGroup",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAlertGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertLevel": {
+    "name": "cucsCallhomeTestAlertLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAlertLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertMessageSubtype": {
+    "name": "cucsCallhomeTestAlertMessageSubtype",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAlertMessageSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertMessageType": {
+    "name": "cucsCallhomeTestAlertMessageType",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsCallhomeAlertMessageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsCallhomeTestAlertSendNow": {
+    "name": "cucsCallhomeTestAlertSendNow",
+    "oid": "1.3.6.1.4.1.9.9.719.1.6.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB"
+  }
+}

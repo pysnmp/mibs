@@ -1,0 +1,2576 @@
+{
+  "imports": {
+    "class": "imports",
+    "RUCKUS-ROOT-MIB": [
+      "ruckusEvents"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "ruckusZDEventMIB": {
+    "name": "ruckusZDEventMIB",
+    "oid": "1.3.6.1.4.1.25053.2.2",
+    "class": "moduleidentity"
+  },
+  "ruckusZDEventTraps": {
+    "name": "ruckusZDEventTraps",
+    "oid": "1.3.6.1.4.1.25053.2.2.1",
+    "class": "objectidentity"
+  },
+  "ruckusZDEventObjects": {
+    "name": "ruckusZDEventObjects",
+    "oid": "1.3.6.1.4.1.25053.2.2.2",
+    "class": "objectidentity"
+  },
+  "ruckusZDEventAPJoinTrap": {
+    "name": "ruckusZDEventAPJoinTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSSIDSpoofTrap": {
+    "name": "ruckusZDEventSSIDSpoofTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventMACSpoofTrap": {
+    "name": "ruckusZDEventMACSpoofTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventRogueAPTrap": {
+    "name": "ruckusZDEventRogueAPTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPLostTrap": {
+    "name": "ruckusZDEventAPLostTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPLostHeartbeatTrap": {
+    "name": "ruckusZDEventAPLostHeartbeatTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientAuthFailBlockTrap": {
+    "name": "ruckusZDEventClientAuthFailBlockTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPResetTrap": {
+    "name": "ruckusZDEventAPResetTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventIPChangeTrap": {
+    "name": "ruckusZDEventIPChangeTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemColdStartTrap": {
+    "name": "ruckusZDEventSystemColdStartTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPChannelChangeTrap": {
+    "name": "ruckusZDEventAPChannelChangeTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventRadiusAuthUnavailableTrap": {
+    "name": "ruckusZDEventRadiusAuthUnavailableTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventRadiusAcctUnavailableTrap": {
+    "name": "ruckusZDEventRadiusAcctUnavailableTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientJoinFailAPBusyTrap": {
+    "name": "ruckusZDEventClientJoinFailAPBusyTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventInterferenceADHoc": {
+    "name": "ruckusZDEventInterferenceADHoc",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventImageUpgradeFailTrap": {
+    "name": "ruckusZDEventImageUpgradeFailTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventHeartbeatTrap": {
+    "name": "ruckusZDEventHeartbeatTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAttackedTrap": {
+    "name": "ruckusZDEventAttackedTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemWarmStartTrap": {
+    "name": "ruckusZDEventSystemWarmStartTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventInterfereAPTrap": {
+    "name": "ruckusZDEventInterfereAPTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPSystemColdStartTrap": {
+    "name": "ruckusZDEventAPSystemColdStartTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPSystemWarmStartTrap": {
+    "name": "ruckusZDEventAPSystemWarmStartTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPSSIDChangedTrap": {
+    "name": "ruckusZDEventAPSSIDChangedTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPClientExceedValve": {
+    "name": "ruckusZDEventAPClientExceedValve",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPAvailableStatusTrap": {
+    "name": "ruckusZDEventAPAvailableStatusTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPWirelessInterfaceFaultTrap": {
+    "name": "ruckusZDEventAPWirelessInterfaceFaultTrap",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemCpuUtilExceedValve": {
+    "name": "ruckusZDEventSystemCpuUtilExceedValve",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemMemUtilExceedValve": {
+    "name": "ruckusZDEventSystemMemUtilExceedValve",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemBandwidthUtilExceedValve": {
+    "name": "ruckusZDEventSystemBandwidthUtilExceedValve",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemDropPacketRateExceedValve": {
+    "name": "ruckusZDEventSystemDropPacketRateExceedValve",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPSyncTimeFail": {
+    "name": "ruckusZDEventAPSyncTimeFail",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemCpuUtilClrWarn": {
+    "name": "ruckusZDEventSystemCpuUtilClrWarn",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSystemMemUtilClrwarn": {
+    "name": "ruckusZDEventSystemMemUtilClrwarn",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientJoin": {
+    "name": "ruckusZDEventClientJoin",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientJoinFailed": {
+    "name": "ruckusZDEventClientJoinFailed",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientJoinFailedAPBusy": {
+    "name": "ruckusZDEventClientJoinFailedAPBusy",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientDisconnect": {
+    "name": "ruckusZDEventClientDisconnect",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientRoamOut": {
+    "name": "ruckusZDEventClientRoamOut",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientRoamIn": {
+    "name": "ruckusZDEventClientRoamIn",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientAuthFailed": {
+    "name": "ruckusZDEventClientAuthFailed",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventClientAuthorizationFailed": {
+    "name": "ruckusZDEventClientAuthorizationFailed",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventClientMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPCPUvalve": {
+    "name": "ruckusZDEventAPCPUvalve",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.83",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPMEMvalve": {
+    "name": "ruckusZDEventAPMEMvalve",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.84",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPCPUvalveClrwarn": {
+    "name": "ruckusZDEventAPCPUvalveClrwarn",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.85",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPMEMvalveClrwarn": {
+    "name": "ruckusZDEventAPMEMvalveClrwarn",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.86",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventAPNumStaExceedValveClrwarn": {
+    "name": "ruckusZDEventAPNumStaExceedValveClrwarn",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.87",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventAPMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventDhcpPoolFull": {
+    "name": "ruckusZDEventDhcpPoolFull",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.88",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventDhcpPoolAbun": {
+    "name": "ruckusZDEventDhcpPoolAbun",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.89",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSmartRedundancyChangetoActive": {
+    "name": "ruckusZDEventSmartRedundancyChangetoActive",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSmartRedundancyActiveConnected": {
+    "name": "ruckusZDEventSmartRedundancyActiveConnected",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSmartRedundancyActiveDisconnected": {
+    "name": "ruckusZDEventSmartRedundancyActiveDisconnected",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSmartRedundancyStandbyConnected": {
+    "name": "ruckusZDEventSmartRedundancyStandbyConnected",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSmartRedundancyStandbyDisconnected": {
+    "name": "ruckusZDEventSmartRedundancyStandbyDisconnected",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventLBSAdminEnabled": {
+    "name": "ruckusZDEventLBSAdminEnabled",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.120",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventLBSAdminDisabled": {
+    "name": "ruckusZDEventLBSAdminDisabled",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.121",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventLBSZDLSConnectionUp": {
+    "name": "ruckusZDEventLBSZDLSConnectionUp",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.122",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventLBSZDLSConnectionDown": {
+    "name": "ruckusZDEventLBSZDLSConnectionDown",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.123",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventLBSReceiveCMDFootfall": {
+    "name": "ruckusZDEventLBSReceiveCMDFootfall",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.124",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventLBSReceiveCMDCalibration": {
+    "name": "ruckusZDEventLBSReceiveCMDCalibration",
+    "oid": "1.3.6.1.4.1.25053.2.2.1.125",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSerial"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventNEID"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventSeverity"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventType"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTime"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventStatus"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventTitle"
+      },
+      {
+        "module": "RUCKUS-ZD-EVENT-MIB",
+        "object": "ruckusZDEventContent"
+      }
+    ],
+    "status": "current"
+  },
+  "ruckusZDEventSerial": {
+    "name": "ruckusZDEventSerial",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventNEID": {
+    "name": "ruckusZDEventNEID",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventSeverity": {
+    "name": "ruckusZDEventSeverity",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventType": {
+    "name": "ruckusZDEventType",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventTime": {
+    "name": "ruckusZDEventTime",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventStatus": {
+    "name": "ruckusZDEventStatus",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raise": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventTitle": {
+    "name": "ruckusZDEventTitle",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventContent": {
+    "name": "ruckusZDEventContent",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventClientMacAddr": {
+    "name": "ruckusZDEventClientMacAddr",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventAPMacAddr": {
+    "name": "ruckusZDEventAPMacAddr",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventRogueMacAddr": {
+    "name": "ruckusZDEventRogueMacAddr",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventSSID": {
+    "name": "ruckusZDEventSSID",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventChannel": {
+    "name": "ruckusZDEventChannel",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventReason": {
+    "name": "ruckusZDEventReason",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ruckusZDEventIpAddr": {
+    "name": "ruckusZDEventIpAddr",
+    "oid": "1.3.6.1.4.1.25053.2.2.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-EVENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RUCKUS-ZD-EVENT-MIB"
+  }
+}

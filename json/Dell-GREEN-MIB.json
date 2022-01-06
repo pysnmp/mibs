@@ -1,0 +1,315 @@
+{
+  "imports": {
+    "class": "imports",
+    "Dell-MIB": [
+      "rnd"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlGreenEth": {
+    "name": "rlGreenEth",
+    "oid": "1.3.6.1.4.1.89.134",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-08-15 00:00",
+        "description": "Add Green Ethernet Energy Detect and Short Reach support per port and per system rlGreenEthernet"
+      }
+    ]
+  },
+  "rlGreenEthEnergyDetectEnable": {
+    "name": "rlGreenEthEnergyDetectEnable",
+    "oid": "1.3.6.1.4.1.89.134.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGreenEthShortReachEnable": {
+    "name": "rlGreenEthShortReachEnable",
+    "oid": "1.3.6.1.4.1.89.134.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGreenEthCurrentEnergyConsumption": {
+    "name": "rlGreenEthCurrentEnergyConsumption",
+    "oid": "1.3.6.1.4.1.89.134.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "mWatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlGreenEthCurrentMaxEnergyConsumption": {
+    "name": "rlGreenEthCurrentMaxEnergyConsumption",
+    "oid": "1.3.6.1.4.1.89.134.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "mWatt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlGreenEthCumulativePowerSaveMeter": {
+    "name": "rlGreenEthCumulativePowerSaveMeter",
+    "oid": "1.3.6.1.4.1.89.134.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Watt*Hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlGreenEthShortReachThreshold": {
+    "name": "rlGreenEthShortReachThreshold",
+    "oid": "1.3.6.1.4.1.89.134.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 70
+          }
+        ]
+      }
+    },
+    "units": "meter",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGreenEthCumulativePowerSaveMeterReset": {
+    "name": "rlGreenEthCumulativePowerSaveMeterReset",
+    "oid": "1.3.6.1.4.1.89.134.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "RlGreenSavingType": {
+    "name": "RlGreenSavingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "energyDetect": 1,
+          "shortReach": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NonOperReasonType": {
+    "name": "NonOperReasonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "np": 1,
+          "lt": 2,
+          "lu": 3,
+          "ls": 4,
+          "ll": 5,
+          "er": 6,
+          "ld": 7,
+          "unknown": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlGreenEthPortTable": {
+    "name": "rlGreenEthPortTable",
+    "oid": "1.3.6.1.4.1.89.134.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlGreenEthPortEntry": {
+    "name": "rlGreenEthPortEntry",
+    "oid": "1.3.6.1.4.1.89.134.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "Dell-GREEN-MIB",
+        "object": "rlGreenEthPortSavingTypeValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlGreenEthPortSavingTypeValue": {
+    "name": "rlGreenEthPortSavingTypeValue",
+    "oid": "1.3.6.1.4.1.89.134.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlGreenSavingType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlGreenEthPortAdminState": {
+    "name": "rlGreenEthPortAdminState",
+    "oid": "1.3.6.1.4.1.89.134.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGreenEthPortOperState": {
+    "name": "rlGreenEthPortOperState",
+    "oid": "1.3.6.1.4.1.89.134.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlGreenEthPortNonOperReason": {
+    "name": "rlGreenEthPortNonOperReason",
+    "oid": "1.3.6.1.4.1.89.134.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NonOperReasonType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlGreenEthForceShortReachIfIndexList": {
+    "name": "rlGreenEthForceShortReachIfIndexList",
+    "oid": "1.3.6.1.4.1.89.134.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlGreenEthMaskLedStatus": {
+    "name": "rlGreenEthMaskLedStatus",
+    "oid": "1.3.6.1.4.1.89.134.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-GREEN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Dell-GREEN-MIB"
+  }
+}

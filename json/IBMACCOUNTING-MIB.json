@@ -1,0 +1,1888 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibm6611": {
+    "name": "ibm6611",
+    "oid": "1.3.6.1.4.1.2.6.2",
+    "class": "objectidentity"
+  },
+  "ibmappn": {
+    "name": "ibmappn",
+    "oid": "1.3.6.1.4.1.2.6.2.13",
+    "class": "objectidentity"
+  },
+  "ibmappnSession": {
+    "name": "ibmappnSession",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7",
+    "class": "objectidentity"
+  },
+  "ibmappnSessIntermediate": {
+    "name": "ibmappnSessIntermediate",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3",
+    "class": "objectidentity"
+  },
+  "ibmappnIsAccounting": {
+    "name": "ibmappnIsAccounting",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2",
+    "class": "objectidentity"
+  },
+  "ibmappnIsAcGlobal": {
+    "name": "ibmappnIsAcGlobal",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1",
+    "class": "objectidentity"
+  },
+  "ibmappnIsAcGlobeStatus": {
+    "name": "ibmappnIsAcGlobeStatus",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "activeNotFull": 2,
+          "activeButFull": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeByteThresh": {
+    "name": "ibmappnIsAcGlobeByteThresh",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeCheckPt": {
+    "name": "ibmappnIsAcGlobeCheckPt",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcSecs": {
+    "name": "ibmappnIsAcGlobeMgrUtcSecs",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcMins": {
+    "name": "ibmappnIsAcGlobeMgrUtcMins",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcHours": {
+    "name": "ibmappnIsAcGlobeMgrUtcHours",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcMdays": {
+    "name": "ibmappnIsAcGlobeMgrUtcMdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcMonths": {
+    "name": "ibmappnIsAcGlobeMgrUtcMonths",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "january": 0,
+          "february": 1,
+          "march": 2,
+          "april": 3,
+          "may": 4,
+          "june": 5,
+          "july": 6,
+          "august": 7,
+          "september": 8,
+          "october": 9,
+          "november": 10,
+          "december": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcYears": {
+    "name": "ibmappnIsAcGlobeMgrUtcYears",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcWdays": {
+    "name": "ibmappnIsAcGlobeMgrUtcWdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcYdays": {
+    "name": "ibmappnIsAcGlobeMgrUtcYdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 365
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrUtcIsdst": {
+    "name": "ibmappnIsAcGlobeMgrUtcIsdst",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcGlobeMgrName": {
+    "name": "ibmappnIsAcGlobeMgrName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeTable": {
+    "name": "ibmappnIsAcBtypeTable",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeEntry": {
+    "name": "ibmappnIsAcBtypeEntry",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMACCOUNTING-MIB",
+        "object": "ibmappnIsAcBtypeMedia",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeMedia": {
+    "name": "ibmappnIsAcBtypeMedia",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memory": 1,
+          "dasd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeActive": {
+    "name": "ibmappnIsAcBtypeActive",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeDirName": {
+    "name": "ibmappnIsAcBtypeDirName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypePrdMaxBufs": {
+    "name": "ibmappnIsAcBtypePrdMaxBufs",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeMaxBufs": {
+    "name": "ibmappnIsAcBtypeMaxBufs",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeCurBufs": {
+    "name": "ibmappnIsAcBtypeCurBufs",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypePrdRecPerBuf": {
+    "name": "ibmappnIsAcBtypePrdRecPerBuf",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeRecPerBuf": {
+    "name": "ibmappnIsAcBtypeRecPerBuf",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeRecFormat": {
+    "name": "ibmappnIsAcBtypeRecFormat",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "binary": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeFullAction": {
+    "name": "ibmappnIsAcBtypeFullAction",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "halt": 1,
+          "wrap": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeFullTime": {
+    "name": "ibmappnIsAcBtypeFullTime",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeFullReason": {
+    "name": "ibmappnIsAcBtypeFullReason",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notFull": 1,
+          "physicallyFull": 2,
+          "logicallyFull": 3,
+          "ioErrors": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeFullWraps": {
+    "name": "ibmappnIsAcBtypeFullWraps",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeFullLosts": {
+    "name": "ibmappnIsAcBtypeFullLosts",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeErrorWraps": {
+    "name": "ibmappnIsAcBtypeErrorWraps",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeErrorLosts": {
+    "name": "ibmappnIsAcBtypeErrorLosts",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeCheckPts": {
+    "name": "ibmappnIsAcBtypeCheckPts",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypePurges": {
+    "name": "ibmappnIsAcBtypePurges",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeDeletes": {
+    "name": "ibmappnIsAcBtypeDeletes",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeResets": {
+    "name": "ibmappnIsAcBtypeResets",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBtypeClearStats": {
+    "name": "ibmappnIsAcBtypeClearStats",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufTable": {
+    "name": "ibmappnIsAcBufTable",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufEntry": {
+    "name": "ibmappnIsAcBufEntry",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMACCOUNTING-MIB",
+        "object": "ibmappnIsAcBufMedia",
+        "implied": 0
+      },
+      {
+        "module": "IBMACCOUNTING-MIB",
+        "object": "ibmappnIsAcBufNumber",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufMedia": {
+    "name": "ibmappnIsAcBufMedia",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memory": 1,
+          "dasd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufNumber": {
+    "name": "ibmappnIsAcBufNumber",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufState": {
+    "name": "ibmappnIsAcBufState",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "complete": 1,
+          "active": 2,
+          "purge": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufRecFormat": {
+    "name": "ibmappnIsAcBufRecFormat",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "binary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufMaxRecords": {
+    "name": "ibmappnIsAcBufMaxRecords",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufOldestIndex": {
+    "name": "ibmappnIsAcBufOldestIndex",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufNewestIndex": {
+    "name": "ibmappnIsAcBufNewestIndex",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcBufName": {
+    "name": "ibmappnIsAcBufName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeTable": {
+    "name": "ibmappnIsAcTimeTable",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeEntry": {
+    "name": "ibmappnIsAcTimeEntry",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMACCOUNTING-MIB",
+        "object": "ibmappnIsAcTimeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeIndex": {
+    "name": "ibmappnIsAcTimeIndex",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeEntryType": {
+    "name": "ibmappnIsAcTimeEntryType",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startCollection": 1,
+          "endCollection": 2,
+          "createdMedia": 3,
+          "wrappedMedia": 4,
+          "timeChange": 5,
+          "managerSetTime": 6,
+          "recordFormatChanged": 7,
+          "timeReference": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeForMedia": {
+    "name": "ibmappnIsAcTimeForMedia",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "memoryMedia": 1,
+          "dasdMedia": 2,
+          "allMedias": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeRecTime": {
+    "name": "ibmappnIsAcTimeRecTime",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcSecs": {
+    "name": "ibmappnIsAcTimeAgtUtcSecs",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcMins": {
+    "name": "ibmappnIsAcTimeAgtUtcMins",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcHours": {
+    "name": "ibmappnIsAcTimeAgtUtcHours",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcMdays": {
+    "name": "ibmappnIsAcTimeAgtUtcMdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcMonths": {
+    "name": "ibmappnIsAcTimeAgtUtcMonths",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "january": 0,
+          "february": 1,
+          "march": 2,
+          "april": 3,
+          "may": 4,
+          "june": 5,
+          "july": 6,
+          "august": 7,
+          "september": 8,
+          "october": 9,
+          "november": 10,
+          "december": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcYears": {
+    "name": "ibmappnIsAcTimeAgtUtcYears",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcWdays": {
+    "name": "ibmappnIsAcTimeAgtUtcWdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcYdays": {
+    "name": "ibmappnIsAcTimeAgtUtcYdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 365
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtUtcIsdst": {
+    "name": "ibmappnIsAcTimeAgtUtcIsdst",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeAgtName": {
+    "name": "ibmappnIsAcTimeAgtName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcSecs": {
+    "name": "ibmappnIsAcTimeMgrUtcSecs",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcMins": {
+    "name": "ibmappnIsAcTimeMgrUtcMins",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcHours": {
+    "name": "ibmappnIsAcTimeMgrUtcHours",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcMdays": {
+    "name": "ibmappnIsAcTimeMgrUtcMdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcMonths": {
+    "name": "ibmappnIsAcTimeMgrUtcMonths",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "january": 0,
+          "february": 1,
+          "march": 2,
+          "april": 3,
+          "may": 4,
+          "june": 5,
+          "july": 6,
+          "august": 7,
+          "september": 8,
+          "october": 9,
+          "november": 10,
+          "december": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcYears": {
+    "name": "ibmappnIsAcTimeMgrUtcYears",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcWdays": {
+    "name": "ibmappnIsAcTimeMgrUtcWdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sunday": 0,
+          "monday": 1,
+          "tuesday": 2,
+          "wednesday": 3,
+          "thursday": 4,
+          "friday": 5,
+          "saturday": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcYdays": {
+    "name": "ibmappnIsAcTimeMgrUtcYdays",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 365
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrUtcIsdst": {
+    "name": "ibmappnIsAcTimeMgrUtcIsdst",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrName": {
+    "name": "ibmappnIsAcTimeMgrName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTimeMgrTimeValid": {
+    "name": "ibmappnIsAcTimeMgrTimeValid",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.4.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notvalid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcDataTable": {
+    "name": "ibmappnIsAcDataTable",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcDataEntry": {
+    "name": "ibmappnIsAcDataEntry",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBMACCOUNTING-MIB",
+        "object": "ibmappnIsAcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmappnIsAcIndex": {
+    "name": "ibmappnIsAcIndex",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcEntryType": {
+    "name": "ibmappnIsAcEntryType",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startEntry": 1,
+          "endEntry": 2,
+          "thresholdEntry": 3,
+          "checkpointEntry": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcRecTime": {
+    "name": "ibmappnIsAcRecTime",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcFqLuName": {
+    "name": "ibmappnIsAcFqLuName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcPcid": {
+    "name": "ibmappnIsAcPcid",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcPriLuName": {
+    "name": "ibmappnIsAcPriLuName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcSecLuName": {
+    "name": "ibmappnIsAcSecLuName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcModeName": {
+    "name": "ibmappnIsAcModeName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcCosName": {
+    "name": "ibmappnIsAcCosName",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcTransPriority": {
+    "name": "ibmappnIsAcTransPriority",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "network": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcSessType": {
+    "name": "ibmappnIsAcSessType",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lu62": 1,
+          "lu0thru3": 2,
+          "lu62dlur": 3,
+          "lu0thru3dlur": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcSessState": {
+    "name": "ibmappnIsAcSessState",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "pendactive": 2,
+          "active": 3,
+          "pendinact": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcSessStartTime": {
+    "name": "ibmappnIsAcSessStartTime",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcSessUpTime": {
+    "name": "ibmappnIsAcSessUpTime",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcCtrUpTime": {
+    "name": "ibmappnIsAcCtrUpTime",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcEndReason": {
+    "name": "ibmappnIsAcEndReason",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcP2SFmdPius": {
+    "name": "ibmappnIsAcP2SFmdPius",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcS2PFmdPius": {
+    "name": "ibmappnIsAcS2PFmdPius",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcP2SNonFmdPius": {
+    "name": "ibmappnIsAcP2SNonFmdPius",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcS2PNonFmdPius": {
+    "name": "ibmappnIsAcS2PNonFmdPius",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcP2SFmdBytes": {
+    "name": "ibmappnIsAcP2SFmdBytes",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcS2PFmdBytes": {
+    "name": "ibmappnIsAcS2PFmdBytes",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcP2SNonFmdBytes": {
+    "name": "ibmappnIsAcP2SNonFmdBytes",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcS2PNonFmdBytes": {
+    "name": "ibmappnIsAcS2PNonFmdBytes",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmappnIsAcRouteInfo": {
+    "name": "ibmappnIsAcRouteInfo",
+    "oid": "1.3.6.1.4.1.2.6.2.13.7.3.2.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMACCOUNTING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBMACCOUNTING-MIB"
+  }
+}

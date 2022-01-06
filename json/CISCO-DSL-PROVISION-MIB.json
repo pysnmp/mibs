@@ -1,0 +1,2859 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDslProvisionMIB": {
+    "name": "ciscoDslProvisionMIB",
+    "oid": "1.3.6.1.4.1.9.10.30",
+    "class": "moduleidentity"
+  },
+  "ciscoDslProvMIBObjects": {
+    "name": "ciscoDslProvMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.30.1",
+    "class": "objectidentity"
+  },
+  "cdslNrpSlot": {
+    "name": "cdslNrpSlot",
+    "oid": "1.3.6.1.4.1.9.10.30.1.1",
+    "class": "objectidentity"
+  },
+  "cdslVirtualTemplate": {
+    "name": "cdslVirtualTemplate",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2",
+    "class": "objectidentity"
+  },
+  "cdslLocalIpAddrPool": {
+    "name": "cdslLocalIpAddrPool",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3",
+    "class": "objectidentity"
+  },
+  "cdslAtmPvc": {
+    "name": "cdslAtmPvc",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4",
+    "class": "objectidentity"
+  },
+  "cdslVcClass": {
+    "name": "cdslVcClass",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5",
+    "class": "objectidentity"
+  },
+  "cdslMaxNrps": {
+    "name": "cdslMaxNrps",
+    "oid": "1.3.6.1.4.1.9.10.30.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslNrpNumber": {
+    "name": "cdslNrpNumber",
+    "oid": "1.3.6.1.4.1.9.10.30.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslNrpIpAddressTable": {
+    "name": "cdslNrpIpAddressTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslNrpIpAddressEntry": {
+    "name": "cdslNrpIpAddressEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdslNrpSlotIndex": {
+    "name": "cdslNrpSlotIndex",
+    "oid": "1.3.6.1.4.1.9.10.30.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslNrpIpAddress": {
+    "name": "cdslNrpIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.30.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslVirtualTemplateNumberTable": {
+    "name": "cdslVirtualTemplateNumberTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslVirtualTemplateNumberEntry": {
+    "name": "cdslVirtualTemplateNumberEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdslMaxVirtualTemplates": {
+    "name": "cdslMaxVirtualTemplates",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslVirtualTemplates": {
+    "name": "cdslVirtualTemplates",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslVirtualTemplateTable": {
+    "name": "cdslVirtualTemplateTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslVirtualTemplateEntry": {
+    "name": "cdslVirtualTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdslVTIndex": {
+    "name": "cdslVTIndex",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslVTIpAddressMethod": {
+    "name": "cdslVTIpAddressMethod",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ipAddress": 1,
+          "interfaceIp": 2,
+          "negotiate": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTIpAddress": {
+    "name": "cdslVTIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTIpAddressMask": {
+    "name": "cdslVTIpAddressMask",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ffffffff",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTIpIfIndex": {
+    "name": "cdslVTIpIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPeerIpAddressMethod": {
+    "name": "cdslVTPeerIpAddressMethod",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "negotiate": 1,
+          "ipAddressPool": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPeerIpAddrPool": {
+    "name": "cdslVTPeerIpAddrPool",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppAuthChap": {
+    "name": "cdslVTPppAuthChap",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppAuthMSChap": {
+    "name": "cdslVTPppAuthMSChap",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppAuthPap": {
+    "name": "cdslVTPppAuthPap",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppChapHost": {
+    "name": "cdslVTPppChapHost",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppChapPassword": {
+    "name": "cdslVTPppChapPassword",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppChapEncrypType": {
+    "name": "cdslVTPppChapEncrypType",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppChapRefuse": {
+    "name": "cdslVTPppChapRefuse",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "refuse": 2,
+          "refuseCallinOnly": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppChapWaitPeer": {
+    "name": "cdslVTPppChapWaitPeer",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppPapUserName": {
+    "name": "cdslVTPppPapUserName",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppPapPassword": {
+    "name": "cdslVTPppPapPassword",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppPapEncrypType": {
+    "name": "cdslVTPppPapEncrypType",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTPppUseTacacs": {
+    "name": "cdslVTPppUseTacacs",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "singleLine": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVTRowStatus": {
+    "name": "cdslVTRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.30.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslLocalIpAddrPoolNumberTable": {
+    "name": "cdslLocalIpAddrPoolNumberTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslLocalIpAddrPoolNumberEntry": {
+    "name": "cdslLocalIpAddrPoolNumberEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdslMaxLocalIpAddrPools": {
+    "name": "cdslMaxLocalIpAddrPools",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslLocalIpAddrPools": {
+    "name": "cdslLocalIpAddrPools",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslLocalIpAddrPoolTable": {
+    "name": "cdslLocalIpAddrPoolTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslLocalIpAddrPoolEntry": {
+    "name": "cdslLocalIpAddrPoolEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrPoolName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cdslLocalIpAddrPoolName": {
+    "name": "cdslLocalIpAddrPoolName",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslLocalIpAddrPoolFreeAddresses": {
+    "name": "cdslLocalIpAddrPoolFreeAddresses",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslLocalIpAddrPoolInUseAddresses": {
+    "name": "cdslLocalIpAddrPoolInUseAddresses",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslLocalIpAddrRangeTable": {
+    "name": "cdslLocalIpAddrRangeTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslLocalIpAddrRangeEntry": {
+    "name": "cdslLocalIpAddrRangeEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrRangeLowAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrRangeHighAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrPoolName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cdslLocalIpAddrRangeLowAddr": {
+    "name": "cdslLocalIpAddrRangeLowAddr",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslLocalIpAddrRangeHighAddr": {
+    "name": "cdslLocalIpAddrRangeHighAddr",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslLocalIpAddrRangeRowStatus": {
+    "name": "cdslLocalIpAddrRangeRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.30.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslPppOverAtmPvcNumberTable": {
+    "name": "cdslPppOverAtmPvcNumberTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslPppOverAtmPvcNumberEntry": {
+    "name": "cdslPppOverAtmPvcNumberEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdslPppOverAtmPvcs": {
+    "name": "cdslPppOverAtmPvcs",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcTable": {
+    "name": "cdslAtmPvcTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslAtmPvcEntry": {
+    "name": "cdslAtmPvcEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdslAtmPvcVpi": {
+    "name": "cdslAtmPvcVpi",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslAtmPvcVci": {
+    "name": "cdslAtmPvcVci",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslAtmPvcName": {
+    "name": "cdslAtmPvcName",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslAtmPvcSubIfNumber": {
+    "name": "cdslAtmPvcSubIfNumber",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslAtmPvcClass": {
+    "name": "cdslAtmPvcClass",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default-vc-class",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslAtmPvcQosType": {
+    "name": "cdslAtmPvcQosType",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ubrDefault": 0,
+          "cbr": 1,
+          "ubr": 2,
+          "ubrPlus": 3,
+          "vbrRt": 4,
+          "vbrNrt": 5,
+          "abr": 6,
+          "max": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcAbrPCR": {
+    "name": "cdslAtmPvcAbrPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcAbrMCR": {
+    "name": "cdslAtmPvcAbrMCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcAbrIORIF": {
+    "name": "cdslAtmPvcAbrIORIF",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcAbrIORDF": {
+    "name": "cdslAtmPvcAbrIORDF",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcBroadcast": {
+    "name": "cdslAtmPvcBroadcast",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcEncapsulation": {
+    "name": "cdslAtmPvcEncapsulation",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "aal5snap": 1,
+          "aal5mux": 2,
+          "aal5nlpid": 3,
+          "aal34smds": 4,
+          "aal5ilmi": 5,
+          "aal5qsaal": 6,
+          "aal5ciscoppp": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcMuxLinkType": {
+    "name": "cdslAtmPvcMuxLinkType",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ppp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ppp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslAtmPvcVirtualTemplate": {
+    "name": "cdslAtmPvcVirtualTemplate",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslAtmPvcILMIManage": {
+    "name": "cdslAtmPvcILMIManage",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcInarp": {
+    "name": "cdslAtmPvcInarp",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcOamRetryUpCount": {
+    "name": "cdslAtmPvcOamRetryUpCount",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcOamRetryDownCount": {
+    "name": "cdslAtmPvcOamRetryDownCount",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcOamPvcManaged": {
+    "name": "cdslAtmPvcOamPvcManaged",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcOamPvcLF": {
+    "name": "cdslAtmPvcOamPvcLF",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcProtocolIpBC": {
+    "name": "cdslAtmPvcProtocolIpBC",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcProtocolIpxBC": {
+    "name": "cdslAtmPvcProtocolIpxBC",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcUbrPCR": {
+    "name": "cdslAtmPvcUbrPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcUbrPlusPCR": {
+    "name": "cdslAtmPvcUbrPlusPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcUbrPlusMCR": {
+    "name": "cdslAtmPvcUbrPlusMCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcVbrNrtPCR": {
+    "name": "cdslAtmPvcVbrNrtPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcVbrNrtSCR": {
+    "name": "cdslAtmPvcVbrNrtSCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslAtmPvcRowStatus": {
+    "name": "cdslAtmPvcRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.30.1.4.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassNumberTable": {
+    "name": "cdslVcClassNumberTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslVcClassNumberEntry": {
+    "name": "cdslVcClassNumberEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdslMaxVcClasses": {
+    "name": "cdslMaxVcClasses",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslVcClasses": {
+    "name": "cdslVcClasses",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslVcClassTable": {
+    "name": "cdslVcClassTable",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslVcClassEntry": {
+    "name": "cdslVcClassEntry",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cdslVcClassName": {
+    "name": "cdslVcClassName",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdslVcClassType": {
+    "name": "cdslVcClassType",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atm": 1,
+          "funi": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdslVcClassQosType": {
+    "name": "cdslVcClassQosType",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ubrDefault": 0,
+          "cbr": 1,
+          "ubr": 2,
+          "ubrPlus": 3,
+          "vbrRt": 4,
+          "vbrNrt": 5,
+          "abr": 6,
+          "max": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ubrDefault",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassAbrPCR": {
+    "name": "cdslVcClassAbrPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 56,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassAbrMcr": {
+    "name": "cdslVcClassAbrMcr",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassAbrIORIF": {
+    "name": "cdslVcClassAbrIORIF",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassAbrIORDF": {
+    "name": "cdslVcClassAbrIORDF",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassBroadcast": {
+    "name": "cdslVcClassBroadcast",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassEncapsulation": {
+    "name": "cdslVcClassEncapsulation",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "aal5snap": 1,
+          "aal5mux": 2,
+          "aal5nlpid": 3,
+          "aal34smds": 4,
+          "aal5ilmi": 5,
+          "aal5qsaal": 6,
+          "aal5ciscoppp": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassMuxLinkType": {
+    "name": "cdslVcClassMuxLinkType",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ppp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ppp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassVirtualTemplate": {
+    "name": "cdslVcClassVirtualTemplate",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassIdleTimeout": {
+    "name": "cdslVcClassIdleTimeout",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassIdleMTR": {
+    "name": "cdslVcClassIdleMTR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassILMIManage": {
+    "name": "cdslVcClassILMIManage",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassInarp": {
+    "name": "cdslVcClassInarp",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassOamRetryUpCount": {
+    "name": "cdslVcClassOamRetryUpCount",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassOamRetryDownCount": {
+    "name": "cdslVcClassOamRetryDownCount",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassOamPvcManaged": {
+    "name": "cdslVcClassOamPvcManaged",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassOamPvcLF": {
+    "name": "cdslVcClassOamPvcLF",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassOamSvcManaged": {
+    "name": "cdslVcClassOamSvcManaged",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassOamSvcLF": {
+    "name": "cdslVcClassOamSvcLF",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassProtocolIpBC": {
+    "name": "cdslVcClassProtocolIpBC",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassProtocolIpxBC": {
+    "name": "cdslVcClassProtocolIpxBC",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassTransmitPriority": {
+    "name": "cdslVcClassTransmitPriority",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassUbrPCR": {
+    "name": "cdslVcClassUbrPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassUbrInputPCR": {
+    "name": "cdslVcClassUbrInputPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassUbrPlusPCR": {
+    "name": "cdslVcClassUbrPlusPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassUbrPlusMCR": {
+    "name": "cdslVcClassUbrPlusMCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassUbrPlusInputPCR": {
+    "name": "cdslVcClassUbrPlusInputPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassUbrPlusInputMCR": {
+    "name": "cdslVcClassUbrPlusInputMCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassVbrNrtPCR": {
+    "name": "cdslVcClassVbrNrtPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassVbrNrtSCR": {
+    "name": "cdslVcClassVbrNrtSCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassVbrNrtInputBP": {
+    "name": "cdslVcClassVbrNrtInputBP",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassVbrNrtInputPCR": {
+    "name": "cdslVcClassVbrNrtInputPCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 155000
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassVbrNrtInputSCR": {
+    "name": "cdslVcClassVbrNrtInputSCR",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassVbrNrtInputMBS": {
+    "name": "cdslVcClassVbrNrtInputMBS",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "units": "cells",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdslVcClassRowStatus": {
+    "name": "cdslVcClassRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.30.1.5.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoDslProvMIBNotificationPrefix": {
+    "name": "ciscoDslProvMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.10.30.2",
+    "class": "objectidentity"
+  },
+  "ciscoDslProvMIBConformance": {
+    "name": "ciscoDslProvMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.30.3",
+    "class": "objectidentity"
+  },
+  "ciscoDslProvMIBCompliances": {
+    "name": "ciscoDslProvMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.30.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoDslProvMIBGroups": {
+    "name": "ciscoDslProvMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.30.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoDslProvMIBBasicCompliance": {
+    "name": "ciscoDslProvMIBBasicCompliance",
+    "oid": "1.3.6.1.4.1.9.10.30.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoNrpSlotGroup",
+        "module": "CISCO-DSL-PROVISION-MIB"
+      },
+      {
+        "object": "ciscoVirtualTemplateGroup",
+        "module": "CISCO-DSL-PROVISION-MIB"
+      },
+      {
+        "object": "ciscoIpPoolGroup",
+        "module": "CISCO-DSL-PROVISION-MIB"
+      },
+      {
+        "object": "ciscoDslPVCGroup",
+        "module": "CISCO-DSL-PROVISION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoNrpSlotGroup": {
+    "name": "ciscoNrpSlotGroup",
+    "oid": "1.3.6.1.4.1.9.10.30.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslMaxNrps"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpNumber"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslNrpIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVirtualTemplateGroup": {
+    "name": "ciscoVirtualTemplateGroup",
+    "oid": "1.3.6.1.4.1.9.10.30.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslMaxVirtualTemplates"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVirtualTemplates"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTIpAddressMethod"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTIpAddress"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTIpAddressMask"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTIpIfIndex"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPeerIpAddressMethod"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPeerIpAddrPool"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppAuthPap"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppAuthChap"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppAuthMSChap"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppChapHost"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppChapPassword"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppChapEncrypType"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppChapRefuse"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppChapWaitPeer"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppPapUserName"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppPapPassword"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppPapEncrypType"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTPppUseTacacs"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVTRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpPoolGroup": {
+    "name": "ciscoIpPoolGroup",
+    "oid": "1.3.6.1.4.1.9.10.30.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrPools"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslMaxLocalIpAddrPools"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrPoolFreeAddresses"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrPoolInUseAddresses"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslLocalIpAddrRangeRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDslPVCGroup": {
+    "name": "ciscoDslPVCGroup",
+    "oid": "1.3.6.1.4.1.9.10.30.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslPppOverAtmPvcs"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcName"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcSubIfNumber"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcClass"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcAbrPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcAbrIORIF"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcAbrIORDF"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcBroadcast"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcEncapsulation"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcMuxLinkType"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcILMIManage"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcInarp"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcOamRetryUpCount"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcOamRetryDownCount"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcOamPvcManaged"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcOamPvcLF"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcProtocolIpBC"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcProtocolIpxBC"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcUbrPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcUbrPlusPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcUbrPlusMCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcVbrNrtPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcVbrNrtSCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcVirtualTemplate"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcRowStatus"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcQosType"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslAtmPvcAbrMCR"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVcClassGroup": {
+    "name": "ciscoVcClassGroup",
+    "oid": "1.3.6.1.4.1.9.10.30.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClasses"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslMaxVcClasses"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassType"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassQosType"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassAbrPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassAbrMcr"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassAbrIORIF"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassAbrIORDF"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassBroadcast"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassEncapsulation"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassMuxLinkType"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassIdleTimeout"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassIdleMTR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassILMIManage"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassInarp"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassOamRetryUpCount"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassOamRetryDownCount"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassOamPvcManaged"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassOamPvcLF"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassOamSvcManaged"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassOamSvcLF"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassProtocolIpBC"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassProtocolIpxBC"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassTransmitPriority"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassUbrPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassUbrInputPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassUbrPlusPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassUbrPlusMCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassUbrPlusInputPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassUbrPlusInputMCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassVbrNrtPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassVbrNrtSCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassVbrNrtInputBP"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassVbrNrtInputPCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassVbrNrtInputSCR"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassVbrNrtInputMBS"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassVirtualTemplate"
+      },
+      {
+        "module": "CISCO-DSL-PROVISION-MIB",
+        "object": "cdslVcClassRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DSL-PROVISION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DSL-PROVISION-MIB"
+  }
+}

@@ -1,0 +1,1149 @@
+{
+  "imports": {
+    "class": "imports",
+    "PRVT-SWITCH-MIB": [
+      "switch"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "prvtY1564Mib": {
+    "name": "prvtY1564Mib",
+    "oid": "1.3.6.1.4.1.738.1.5.129",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-27 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "prvtY1564Notifications": {
+    "name": "prvtY1564Notifications",
+    "oid": "1.3.6.1.4.1.738.1.5.129.0",
+    "class": "objectidentity"
+  },
+  "prvtY1564Objects": {
+    "name": "prvtY1564Objects",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1",
+    "class": "objectidentity"
+  },
+  "prvtY1564Conformance": {
+    "name": "prvtY1564Conformance",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2",
+    "class": "objectidentity"
+  },
+  "prvtY1564Test": {
+    "name": "prvtY1564Test",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1",
+    "class": "objectidentity"
+  },
+  "prvtY1564TestResult": {
+    "name": "prvtY1564TestResult",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2",
+    "class": "objectidentity"
+  },
+  "prvtY1564Profiles": {
+    "name": "prvtY1564Profiles",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3",
+    "class": "objectidentity"
+  },
+  "prvtY1564TestTable": {
+    "name": "prvtY1564TestTable",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtY1564TestEntry": {
+    "name": "prvtY1564TestEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564TestName": {
+    "name": "prvtY1564TestName",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtY1564TestType": {
+    "name": "prvtY1564TestType",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testHead": 1,
+          "testLoopback": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestMode": {
+    "name": "prvtY1564TestMode",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationTest": 1,
+          "performanceTest": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestExecStatus": {
+    "name": "prvtY1564TestExecStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRunning": 1,
+          "running": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notRunning",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestSourceType": {
+    "name": "prvtY1564TestSourceType",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "mac": 1,
+          "mep": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestSource": {
+    "name": "prvtY1564TestSource",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestTargetType": {
+    "name": "prvtY1564TestTargetType",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "mac": 1,
+          "mep": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestTarget": {
+    "name": "prvtY1564TestTarget",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestTimeout": {
+    "name": "prvtY1564TestTimeout",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestCIR": {
+    "name": "prvtY1564TestCIR",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestEIR": {
+    "name": "prvtY1564TestEIR",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestConfigurationTestTrafficPolicing": {
+    "name": "prvtY1564TestConfigurationTestTrafficPolicing",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestConfigurationTestCirSteps": {
+    "name": "prvtY1564TestConfigurationTestCirSteps",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestConfigurationStepDuration": {
+    "name": "prvtY1564TestConfigurationStepDuration",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestPerformanceTestDuration": {
+    "name": "prvtY1564TestPerformanceTestDuration",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testDuration15min": 15,
+          "testDuration30min": 30
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestCVLAN": {
+    "name": "prvtY1564TestCVLAN",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestCVLANPriority": {
+    "name": "prvtY1564TestCVLANPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestCVLANDropEligible": {
+    "name": "prvtY1564TestCVLANDropEligible",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestSVLAN": {
+    "name": "prvtY1564TestSVLAN",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestSVLANPriority": {
+    "name": "prvtY1564TestSVLANPriority",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestSVLANDropEligible": {
+    "name": "prvtY1564TestSVLANDropEligible",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestPDUSize": {
+    "name": "prvtY1564TestPDUSize",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "value64": 64,
+          "value128": 128,
+          "value256": 256,
+          "value512": 512,
+          "value1024": 1024,
+          "value1280": 1280,
+          "value1518": 1518,
+          "value2000": 2000,
+          "value9000": 9000
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestLoopbackType": {
+    "name": "prvtY1564TestLoopbackType",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macSwap": 1,
+          "oam": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestPaternType": {
+    "name": "prvtY1564TestPaternType",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 1,
+          "nullCRC": 2,
+          "prbs": 3,
+          "prbsCRC": 4,
+          "none": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prvtY1564TestProfileName": {
+    "name": "prvtY1564TestProfileName",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestRowStatus": {
+    "name": "prvtY1564TestRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564TestResultTable": {
+    "name": "prvtY1564TestResultTable",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtY1564TestResultEntry": {
+    "name": "prvtY1564TestResultEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestName",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564TestResultIndex": {
+    "name": "prvtY1564TestResultIndex",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtY1564TestResultSentInformationRate": {
+    "name": "prvtY1564TestResultSentInformationRate",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestResultPacketSize": {
+    "name": "prvtY1564TestResultPacketSize",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestResultMode": {
+    "name": "prvtY1564TestResultMode",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "configurationCIRTest": 2,
+          "configurationEIRTest": 3,
+          "configurationPolicingTest": 4,
+          "performanceTest": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestResultFrameLoss": {
+    "name": "prvtY1564TestResultFrameLoss",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestResultInformationRate": {
+    "name": "prvtY1564TestResultInformationRate",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestResultFrameTransferDelay": {
+    "name": "prvtY1564TestResultFrameTransferDelay",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestResutFrameDelayVariation": {
+    "name": "prvtY1564TestResutFrameDelayVariation",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564TestResultStatus": {
+    "name": "prvtY1564TestResultStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "ready": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtY1564ProfileTable": {
+    "name": "prvtY1564ProfileTable",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtY1564ProfileEntry": {
+    "name": "prvtY1564ProfileEntry",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564ProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564ProfileName": {
+    "name": "prvtY1564ProfileName",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtY1564ProfileFrameLoss": {
+    "name": "prvtY1564ProfileFrameLoss",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564ProfileFrameTransferDelay": {
+    "name": "prvtY1564ProfileFrameTransferDelay",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564ProfileFrameDelayVariation": {
+    "name": "prvtY1564ProfileFrameDelayVariation",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564ProfileRowStatus": {
+    "name": "prvtY1564ProfileRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.5.129.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtY1564ProbeFailed": {
+    "name": "prvtY1564ProbeFailed",
+    "oid": "1.3.6.1.4.1.738.1.5.129.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestType"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564ProbeSuccess": {
+    "name": "prvtY1564ProbeSuccess",
+    "oid": "1.3.6.1.4.1.738.1.5.129.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestType"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564TestFinished": {
+    "name": "prvtY1564TestFinished",
+    "oid": "1.3.6.1.4.1.738.1.5.129.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestExecStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564Compliances": {
+    "name": "prvtY1564Compliances",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2.1",
+    "class": "objectidentity"
+  },
+  "prvtY1564Groups": {
+    "name": "prvtY1564Groups",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2.2",
+    "class": "objectidentity"
+  },
+  "prvtY1564TestGroup": {
+    "name": "prvtY1564TestGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestType"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestMode"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestExecStatus"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestSourceType"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestSource"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestTargetType"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestTarget"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestTimeout"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestCIR"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestEIR"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestConfigurationTestTrafficPolicing"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestConfigurationTestCirSteps"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestConfigurationStepDuration"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestPerformanceTestDuration"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestCVLAN"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestCVLANPriority"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestCVLANDropEligible"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestSVLAN"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestSVLANPriority"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestSVLANDropEligible"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestPDUSize"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestLoopbackType"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestPaternType"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestProfileName"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564TestResultsGroup": {
+    "name": "prvtY1564TestResultsGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultSentInformationRate"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultPacketSize"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultMode"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultFrameLoss"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultInformationRate"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultFrameTransferDelay"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResutFrameDelayVariation"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestResultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564ProfilesGroup": {
+    "name": "prvtY1564ProfilesGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564ProfileFrameLoss"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564ProfileFrameTransferDelay"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564ProfileFrameDelayVariation"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564ProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564NotificationsGroup": {
+    "name": "prvtY1564NotificationsGroup",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564ProbeFailed"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564ProbeSuccess"
+      },
+      {
+        "module": "PRVT-Y1564-MIB",
+        "object": "prvtY1564TestFinished"
+      }
+    ],
+    "status": "current"
+  },
+  "prvtY1564Compliance": {
+    "name": "prvtY1564Compliance",
+    "oid": "1.3.6.1.4.1.738.1.5.129.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "prvtY1564TestGroup",
+        "module": "PRVT-Y1564-MIB"
+      },
+      {
+        "object": "prvtY1564TestResultsGroup",
+        "module": "PRVT-Y1564-MIB"
+      },
+      {
+        "object": "prvtY1564ProfilesGroup",
+        "module": "PRVT-Y1564-MIB"
+      },
+      {
+        "object": "prvtY1564NotificationsGroup",
+        "module": "PRVT-Y1564-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-Y1564-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-Y1564-MIB"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cOspf": {
+    "name": "hh3cOspf",
+    "oid": "1.3.6.1.4.1.25506.2.161",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-12-17 17:00",
+        "description": "The initial version of this MIB file."
+      }
+    ]
+  },
+  "hh3cOspfNetworkTable": {
+    "name": "hh3cOspfNetworkTable",
+    "oid": "1.3.6.1.4.1.25506.2.161.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cOspfNetworkEntry": {
+    "name": "hh3cOspfNetworkEntry",
+    "oid": "1.3.6.1.4.1.25506.2.161.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-OSPF-MIB",
+        "object": "hh3cOspfProcessId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-OSPF-MIB",
+        "object": "hh3cOspfAreaId",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-OSPF-MIB",
+        "object": "hh3cOspfNetworkIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cOspfProcessId": {
+    "name": "hh3cOspfProcessId",
+    "oid": "1.3.6.1.4.1.25506.2.161.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cOspfAreaId": {
+    "name": "hh3cOspfAreaId",
+    "oid": "1.3.6.1.4.1.25506.2.161.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cOspfNetworkIpAddr": {
+    "name": "hh3cOspfNetworkIpAddr",
+    "oid": "1.3.6.1.4.1.25506.2.161.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cOspfNetworkIpMask": {
+    "name": "hh3cOspfNetworkIpMask",
+    "oid": "1.3.6.1.4.1.25506.2.161.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-OSPF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-OSPF-MIB"
+  }
+}

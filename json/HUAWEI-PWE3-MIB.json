@@ -1,0 +1,6215 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-L2VPN-MIB": [
+      "hwL2vpnAcIfMinEncapNum",
+      "hwL2vpnAcIfCfgTtpHeader",
+      "hwL2vpnAcIfMaxEncapNum",
+      "hwL2vpnAcIfEncapStep",
+      "hwL2vpnAcIfEncap",
+      "hwL2vpnAcIfMinJitterBuffer",
+      "hwL2vpnAcIfMinIdleCode",
+      "hwL2vpnAcIfMaxIdleCode",
+      "hwL2vpnAcIfIndex",
+      "hwL2vpnAcIfLinkType",
+      "hwL2vpnAcIfPhyType",
+      "hwL2vpnAcIfJitterBufferStep",
+      "hwL2vpnAcIfMaxJitterBuffer"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWEnableValue",
+      "hwL2vpnTnlType",
+      "HWL2VpnStateChangeReason",
+      "HWL2VpnVcEncapsType",
+      "hwL2vpnTunnelIndex"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "BITS",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "hwL2VpnPwe3": {
+    "name": "hwL2VpnPwe3",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 17:24",
+        "description": "Modify the description of hwSvcExtPWType"
+      },
+      {
+        "revision": "2016-01-12 18:00",
+        "description": "Modify the description of hwSvcExtPWType"
+      },
+      {
+        "revision": "2015-12-28 17:00",
+        "description": "Add OBJECT(hwSvcExtCir, hwSvcExtPir,hwSvcExtQosProfile) to SVC MIB Extend Table(hwSvcExtTable)"
+      },
+      {
+        "revision": "2015-11-28 16:00",
+        "description": "Support query the secondary static VCs"
+      },
+      {
+        "revision": "2015-07-18 16:00",
+        "description": "Add ifName to hwRemoteApPwParaMisMatch "
+      },
+      {
+        "revision": "2015-07-14 16:00",
+        "description": "Add PWE3 MIB Trap(hwVpwsPwRedundancyDegraded)."
+      },
+      {
+        "revision": "2015-04-07 16:00",
+        "description": "Modify the description of hwSvcActive."
+      },
+      {
+        "revision": "2014-10-27 16:00",
+        "description": "Add PWE3 MIB Trap(hwVpwsPwRedundancyDegraded)."
+      },
+      {
+        "revision": "2014-10-27 16:00",
+        "description": "Add PWE3 MIB Trap(hwVpwsPwRedundancyDegradedClear)."
+      },
+      {
+        "revision": "2014-10-08 16:00",
+        "description": "Modify the description of hwSvcForBfdIndex,hwSvcDelayTime, hwSvcReroutePolicy, hwSvcRerouteReason, hwSvcLastRerouteTime."
+      },
+      {
+        "revision": "2014-02-11 16:00",
+        "description": "The max length of hwPWVcQosProfile,hwPWVcSwitchQosProfile, hwPwVcSwitchBackupVcQosProfile, hwSvcQosProfile, hwPWTemplateQosProfile changed from 31 to 63."
+      },
+      {
+        "revision": "2013-08-29 11:00",
+        "description": " Add PWE3 MIB Trap(hwPWVcStatusChange)."
+      },
+      {
+        "revision": "2013-07-13 11:00",
+        "description": "Add OBJECT(hwL2vpnTnlType, hwL2vpnTunnelIndex) to SVC MIB Trap(hwSvcDown); Add OBJECT(hwL2vpnTnlType, hwL2vpnTunnelIndex) to PWE3 MIB Trap(hwPWVcDown)."
+      },
+      {
+        "revision": "2013-06-18 11:00",
+        "description": "Add OBJECT(hwSvcActive) to SVC MIB Trap(hwSvcDown,hwSvcUp); Add OBJECT(hwPWVcActive) to PWE3 MIB Trap(hwPWVcDown,hwPWVcUp,hwPWVcBackup)."
+      }
+    ]
+  },
+  "HWLdpPwStateChangeReason": {
+    "name": "HWLdpPwStateChangeReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ldpSessionDown": 1,
+          "interfaceDown": 2,
+          "tunnelDown": 3,
+          "receivedNoMapping": 4,
+          "paraUnMatched": 5,
+          "notifiNotForward": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HWL2VpnVcType": {
+    "name": "HWL2VpnVcType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 1,
+          "secondary": 2,
+          "bypass": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwL2Vpn": {
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119",
+    "class": "objectidentity"
+  },
+  "hwPwe3MIBObjects": {
+    "name": "hwPwe3MIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1",
+    "class": "objectidentity"
+  },
+  "hwPwe3Objects": {
+    "name": "hwPwe3Objects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1",
+    "class": "objectidentity"
+  },
+  "hwPWVcTable": {
+    "name": "hwPWVcTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWVcEntry": {
+    "name": "hwPWVcEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcID": {
+    "name": "hwPWVcID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWVcType": {
+    "name": "hwPWVcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWVcPeerAddrType": {
+    "name": "hwPWVcPeerAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcPeerAddr": {
+    "name": "hwPWVcPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcStatus": {
+    "name": "hwPWVcStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "plugout": 3,
+          "backup": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcInboundLabel": {
+    "name": "hwPWVcInboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcOutboundLabel": {
+    "name": "hwPWVcOutboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchSign": {
+    "name": "hwPWVcSwitchSign",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staticTostatic": 1,
+          "ldpTostatic": 2,
+          "ldpToldp": 3,
+          "upe": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcSwitchID": {
+    "name": "hwPWVcSwitchID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchPeerAddrType": {
+    "name": "hwPWVcSwitchPeerAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchPeerAddr": {
+    "name": "hwPWVcSwitchPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchInboundLabel": {
+    "name": "hwPWVcSwitchInboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchOutboundLabel": {
+    "name": "hwPWVcSwitchOutboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcGroupID": {
+    "name": "hwPWVcGroupID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcIfIndex": {
+    "name": "hwPWVcIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcAcStatus": {
+    "name": "hwPWVcAcStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "plugout": 3,
+          "notify": 4,
+          "notifyDown": 5,
+          "downNotify": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcACOAMStatus": {
+    "name": "hwPWVcACOAMStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcMtu": {
+    "name": "hwPWVcMtu",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 46,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcCtrlWord": {
+    "name": "hwPWVcCtrlWord",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcVCCV": {
+    "name": "hwPWVcVCCV",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ccCw": 0,
+        "ccAlert": 1,
+        "ccLabel": 2,
+        "cvIcmpping": 3,
+        "cvLspping": 4,
+        "cvBfd": 5,
+        "ccTtl": 6
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcBandWidth": {
+    "name": "hwPWVcBandWidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcMaxAtmCells": {
+    "name": "hwPWVcMaxAtmCells",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 28
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcTnlPolicyName": {
+    "name": "hwPWVcTnlPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcQoSBehaviorIndex": {
+    "name": "hwPWVcQoSBehaviorIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcExplicitPathName": {
+    "name": "hwPWVcExplicitPathName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcTemplateName": {
+    "name": "hwPWVcTemplateName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSecondary": {
+    "name": "hwPWVcSecondary",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcUpTime": {
+    "name": "hwPWVcUpTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWOAMSync": {
+    "name": "hwPWOAMSync",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVCForBfdIndex": {
+    "name": "hwPWVCForBfdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcDelayTime": {
+    "name": "hwPWVcDelayTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcReroutePolicy": {
+    "name": "hwPWVcReroutePolicy",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "immediately": 2,
+          "never": 3,
+          "none": 4,
+          "err": 5,
+          "invalid": 6,
+          "immediatelySwitch": 7
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcResumeTime": {
+    "name": "hwPWVcResumeTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcRerouteReason": {
+    "name": "hwPWVcRerouteReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcLastRerouteTime": {
+    "name": "hwPWVcLastRerouteTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcManualSetFault": {
+    "name": "hwPWVcManualSetFault",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcActive": {
+    "name": "hwPWVcActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcVrIfIndex": {
+    "name": "hwPWVcVrIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcVrID": {
+    "name": "hwPWVcVrID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWBFDDetectMultiplier": {
+    "name": "hwPWBFDDetectMultiplier",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWBFDMinReceiveInterval": {
+    "name": "hwPWBFDMinReceiveInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWBFDMinTransmitInterval": {
+    "name": "hwPWBFDMinTransmitInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWDynamicBFDDetect": {
+    "name": "hwPWDynamicBFDDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWBFDRemoteVcID": {
+    "name": "hwPWBFDRemoteVcID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWEthOamType": {
+    "name": "hwPWEthOamType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethOam1ag": 1,
+          "ethOam3ah": 2,
+          "noEthOamCfg": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWCfmMaIndex": {
+    "name": "hwPWCfmMaIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcUpStartTime": {
+    "name": "hwPWVcUpStartTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcUpSumTime": {
+    "name": "hwPWVcUpSumTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcIfName": {
+    "name": "hwPWVcIfName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcRowStatus": {
+    "name": "hwPWVcRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcAtmPackOvertime": {
+    "name": "hwPWVcAtmPackOvertime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 100,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcPwJitterBufferDepth": {
+    "name": "hwPWVcPwJitterBufferDepth",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcPwTdmEncapsulationNum": {
+    "name": "hwPWVcPwTdmEncapsulationNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcPwIdleCode": {
+    "name": "hwPWVcPwIdleCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcPwRtpHeader": {
+    "name": "hwPWVcPwRtpHeader",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchTnlPolicyName": {
+    "name": "hwPWVcSwitchTnlPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcCfmMdIndex": {
+    "name": "hwPWVcCfmMdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcCfmMaName": {
+    "name": "hwPWVcCfmMaName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 43
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcCfmMdName": {
+    "name": "hwPWVcCfmMdName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 43
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcRawOrTagged": {
+    "name": "hwPWVcRawOrTagged",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raw": 1,
+          "tagged": 2,
+          "rawTagNotConfiged": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcInterworkingType": {
+    "name": "hwPWVcInterworkingType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipInterWorking": 1,
+          "ipLayer2": 2,
+          "ipUnknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcCir": {
+    "name": "hwPWVcCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcPir": {
+    "name": "hwPWVcPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcQosProfile": {
+    "name": "hwPWVcQosProfile",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchCir": {
+    "name": "hwPWVcSwitchCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchPir": {
+    "name": "hwPWVcSwitchPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchQosProfile": {
+    "name": "hwPWVcSwitchQosProfile",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcTrigger": {
+    "name": "hwPWVcTrigger",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcEnableACOAM": {
+    "name": "hwPWVcEnableACOAM",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchVrIfIndex": {
+    "name": "hwPWVcSwitchVrIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcSwitchVrID": {
+    "name": "hwPWVcSwitchVrID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcQosParaFromPWT": {
+    "name": "hwPWVcQosParaFromPWT",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cliOrMib": 1,
+          "pwTemplate": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcBfdParaFromPWT": {
+    "name": "hwPWVcBfdParaFromPWT",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cliOrMib": 1,
+          "pwTemplate": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcNegotiateMode": {
+    "name": "hwPwVcNegotiateMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slaveOrMaster": 1,
+          "independent": 2,
+          "unknown": 3,
+          "frr": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcIsBypass": {
+    "name": "hwPwVcIsBypass",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcIsAdmin": {
+    "name": "hwPwVcIsAdmin",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcAdminPwIfIndex": {
+    "name": "hwPwVcAdminPwIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcAdminPwLinkStatus": {
+    "name": "hwPwVcAdminPwLinkStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchAdminPwIfIndex": {
+    "name": "hwPwVcSwitchAdminPwIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchAdminPwLinkStatus": {
+    "name": "hwPwVcSwitchAdminPwLinkStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupAdminPwIfIndex": {
+    "name": "hwPwVcSwitchBackupAdminPwIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupAdminPwLinkStatus": {
+    "name": "hwPwVcSwitchBackupAdminPwLinkStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcId": {
+    "name": "hwPwVcSwitchBackupVcId",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcPeerAddrType": {
+    "name": "hwPwVcSwitchBackupVcPeerAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcPeerAddr": {
+    "name": "hwPwVcSwitchBackupVcPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcReceiveLabel": {
+    "name": "hwPwVcSwitchBackupVcReceiveLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcSendLabel": {
+    "name": "hwPwVcSwitchBackupVcSendLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcTnlPolicyName": {
+    "name": "hwPwVcSwitchBackupVcTnlPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcCir": {
+    "name": "hwPwVcSwitchBackupVcCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcPir": {
+    "name": "hwPwVcSwitchBackupVcPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcQosProfile": {
+    "name": "hwPwVcSwitchBackupVcQosProfile",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSlaveMasterMode": {
+    "name": "hwPwVcSlaveMasterMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2,
+          "unknown": 3,
+          "bypass": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchVcSlaveMasterMode": {
+    "name": "hwPwVcSwitchVcSlaveMasterMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcSlaveMasterMode": {
+    "name": "hwPwVcSwitchBackupVcSlaveMasterMode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchVcActive": {
+    "name": "hwPwVcSwitchVcActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcActive": {
+    "name": "hwPwVcSwitchBackupVcActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwVcSwitchCwTrans": {
+    "name": "hwPwVcSwitchCwTrans",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchVcServiceName": {
+    "name": "hwPwVcSwitchVcServiceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPwVcSwitchBackupVcServiceName": {
+    "name": "hwPwVcSwitchBackupVcServiceName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWVcTnlTable": {
+    "name": "hwPWVcTnlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWVcTnlEntry": {
+    "name": "hwPWVcTnlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcTnlIndex": {
+    "name": "hwPWVcTnlIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWVcTnlType": {
+    "name": "hwPWVcTnlType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lsp": 1,
+          "gre": 2,
+          "ipsec": 3,
+          "crLsp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTnlForBfdIndex": {
+    "name": "hwPWTnlForBfdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcStatisticsTable": {
+    "name": "hwPWVcStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWVcStatisticsEntry": {
+    "name": "hwPWVcStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcStatisticsRcvPkts": {
+    "name": "hwPWVcStatisticsRcvPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcStatisticsRcvBytes": {
+    "name": "hwPWVcStatisticsRcvBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcStatisticsSndPkts": {
+    "name": "hwPWVcStatisticsSndPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcStatisticsSndBytes": {
+    "name": "hwPWVcStatisticsSndBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcTable": {
+    "name": "hwPWRemoteVcTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWRemoteVcEntry": {
+    "name": "hwPWRemoteVcEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWRemoteVcID": {
+    "name": "hwPWRemoteVcID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcType": {
+    "name": "hwPWRemoteVcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcStatus": {
+    "name": "hwPWRemoteVcStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "plugout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcGroupID": {
+    "name": "hwPWRemoteVcGroupID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcMtu": {
+    "name": "hwPWRemoteVcMtu",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 46,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcCtrlword": {
+    "name": "hwPWRemoteVcCtrlword",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcMaxAtmCells": {
+    "name": "hwPWRemoteVcMaxAtmCells",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWRemoteVcNotif": {
+    "name": "hwPWRemoteVcNotif",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcSwitchNotifEnable": {
+    "name": "hwPWVcSwitchNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPWVcUpDownNotifEnable": {
+    "name": "hwPWVcUpDownNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPWVcDeletedNotifEnable": {
+    "name": "hwPWVcDeletedNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPWVcStateChangeReason": {
+    "name": "hwPWVcStateChangeReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPWVcSwitchRmtID": {
+    "name": "hwPWVcSwitchRmtID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwLdpPWStateChangeReason": {
+    "name": "hwLdpPWStateChangeReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWLdpPwStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentTable": {
+    "name": "hwPWVcTDMPerfCurrentTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentEntry": {
+    "name": "hwPWVcTDMPerfCurrentEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentMissingPkts": {
+    "name": "hwPWVcTDMPerfCurrentMissingPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentJtrBfrOverruns": {
+    "name": "hwPWVcTDMPerfCurrentJtrBfrOverruns",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentJtrBfrUnderruns": {
+    "name": "hwPWVcTDMPerfCurrentJtrBfrUnderruns",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentMisOrderDropped": {
+    "name": "hwPWVcTDMPerfCurrentMisOrderDropped",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentMalformedPkt": {
+    "name": "hwPWVcTDMPerfCurrentMalformedPkt",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentESs": {
+    "name": "hwPWVcTDMPerfCurrentESs",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentSESs": {
+    "name": "hwPWVcTDMPerfCurrentSESs",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentUASs": {
+    "name": "hwPWVcTDMPerfCurrentUASs",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3MIBTraps": {
+    "name": "hwPwe3MIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2",
+    "class": "objectidentity"
+  },
+  "hwPWVcSwitchWtoP": {
+    "name": "hwPWVcSwitchWtoP",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchRmtID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcSwitchPtoW": {
+    "name": "hwPWVcSwitchPtoW",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchRmtID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcDown": {
+    "name": "hwPWVcDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcActive"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwL2vpnTnlType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwL2vpnTunnelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcUp": {
+    "name": "hwPWVcUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcActive"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcDeleted": {
+    "name": "hwPWVcDeleted",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcBackup": {
+    "name": "hwPWVcBackup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcActive"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLdpPWVcDown": {
+    "name": "hwLdpPWVcDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLdpPWVcUp": {
+    "name": "hwLdpPWVcUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcStatusChange": {
+    "name": "hwPWVcStatusChange",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcActive"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVpwsPwRedundancyDegraded": {
+    "name": "hwVpwsPwRedundancyDegraded",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwVpwsPwRedundancyDegradedClear": {
+    "name": "hwVpwsPwRedundancyDegradedClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRemoteApPwParaMisMatch": {
+    "name": "hwRemoteApPwParaMisMatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfPhyType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfLinkType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfEncap"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinEncapNum"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxEncapNum"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfEncapStep"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinJitterBuffer"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxJitterBuffer"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfJitterBufferStep"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfCfgTtpHeader"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinIdleCode"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxIdleCode"
+      }
+    ],
+    "status": "current"
+  },
+  "hwRemoteApPwParaMisMatchResume": {
+    "name": "hwRemoteApPwParaMisMatchResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfPhyType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfLinkType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfEncap"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinEncapNum"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxEncapNum"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfEncapStep"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinJitterBuffer"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxJitterBuffer"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfJitterBufferStep"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfCfgTtpHeader"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMinIdleCode"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2vpnAcIfMaxIdleCode"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcObjects": {
+    "name": "hwSvcObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3",
+    "class": "objectidentity"
+  },
+  "hwSvcTable": {
+    "name": "hwSvcTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcEntry": {
+    "name": "hwSvcEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcIfIndex": {
+    "name": "hwSvcIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcID": {
+    "name": "hwSvcID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcType": {
+    "name": "hwSvcType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPeerAddrType": {
+    "name": "hwSvcPeerAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPeerAddr": {
+    "name": "hwSvcPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcStatus": {
+    "name": "hwSvcStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "plugout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcInboundLabel": {
+    "name": "hwSvcInboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcOutboundLabel": {
+    "name": "hwSvcOutboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcGroupID": {
+    "name": "hwSvcGroupID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcAcStatus": {
+    "name": "hwSvcAcStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "plugout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcACOAMStatus": {
+    "name": "hwSvcACOAMStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcMtu": {
+    "name": "hwSvcMtu",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 46,
+            "max": 9600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcCtrlWord": {
+    "name": "hwSvcCtrlWord",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcVCCV": {
+    "name": "hwSvcVCCV",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ccCw": 0,
+        "ccAlert": 1,
+        "ccLabel": 2,
+        "cvIcmpping": 3,
+        "cvLspping": 4,
+        "cvBfd": 5
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcBandWidth": {
+    "name": "hwSvcBandWidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcMaxAtmCells": {
+    "name": "hwSvcMaxAtmCells",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 28
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcTnlPolicyName": {
+    "name": "hwSvcTnlPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcQoSBehaviorIndex": {
+    "name": "hwSvcQoSBehaviorIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPWTemplateName": {
+    "name": "hwSvcPWTemplateName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcUpTime": {
+    "name": "hwSvcUpTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcOAMSync": {
+    "name": "hwSvcOAMSync",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcForBfdIndex": {
+    "name": "hwSvcForBfdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcSecondary": {
+    "name": "hwSvcSecondary",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcDelayTime": {
+    "name": "hwSvcDelayTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcReroutePolicy": {
+    "name": "hwSvcReroutePolicy",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "immediately": 2,
+          "never": 3,
+          "none": 4,
+          "err": 5,
+          "invalid": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcResumeTime": {
+    "name": "hwSvcResumeTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcRerouteReason": {
+    "name": "hwSvcRerouteReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcLastRerouteTime": {
+    "name": "hwSvcLastRerouteTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcManualSetFault": {
+    "name": "hwSvcManualSetFault",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcActive": {
+    "name": "hwSvcActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcUpStartTime": {
+    "name": "hwSvcUpStartTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcUpSumTime": {
+    "name": "hwSvcUpSumTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcAtmPackOvertime": {
+    "name": "hwSvcAtmPackOvertime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 100,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPwJitterBufferDepth": {
+    "name": "hwSvcPwJitterBufferDepth",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPwTdmEncapsulationNum": {
+    "name": "hwSvcPwTdmEncapsulationNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPwIdleCode": {
+    "name": "hwSvcPwIdleCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPwRtpHeader": {
+    "name": "hwSvcPwRtpHeader",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcRawOrTagged": {
+    "name": "hwSvcRawOrTagged",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raw": 1,
+          "tagged": 2,
+          "rawTagNotConfiged": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcInterworkingType": {
+    "name": "hwSvcInterworkingType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipInterWorking": 1,
+          "ipLayer2": 2,
+          "ipUnknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcCir": {
+    "name": "hwSvcCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcPir": {
+    "name": "hwSvcPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcQosProfile": {
+    "name": "hwSvcQosProfile",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcRowStatus": {
+    "name": "hwSvcRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcTnlTable": {
+    "name": "hwSvcTnlTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcTnlEntry": {
+    "name": "hwSvcTnlEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcTnlIndex": {
+    "name": "hwSvcTnlIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcTnlType": {
+    "name": "hwSvcTnlType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lsp": 1,
+          "gre": 2,
+          "ipsec": 3,
+          "crLsp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcTnlForBfdIndex": {
+    "name": "hwSvcTnlForBfdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcStatisticsTable": {
+    "name": "hwSvcStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcStatisticsEntry": {
+    "name": "hwSvcStatisticsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcStatisticsRcvPkts": {
+    "name": "hwSvcStatisticsRcvPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcStatisticsRcvBytes": {
+    "name": "hwSvcStatisticsRcvBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcStatisticsSndPkts": {
+    "name": "hwSvcStatisticsSndPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcStatisticsSndBytes": {
+    "name": "hwSvcStatisticsSndBytes",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtTable": {
+    "name": "hwSvcExtTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcExtEntry": {
+    "name": "hwSvcExtEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcExtIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcExtPWType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcExtIfIndex": {
+    "name": "hwSvcExtIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcExtPWType": {
+    "name": "hwSvcExtPWType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwSvcExtID": {
+    "name": "hwSvcExtID",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtType": {
+    "name": "hwSvcExtType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPeerAddrType": {
+    "name": "hwSvcExtPeerAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPeerAddr": {
+    "name": "hwSvcExtPeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtStatus": {
+    "name": "hwSvcExtStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "plugout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtInboundLabel": {
+    "name": "hwSvcExtInboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtOutboundLabel": {
+    "name": "hwSvcExtOutboundLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtAcStatus": {
+    "name": "hwSvcExtAcStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "plugout": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtACOAMStatus": {
+    "name": "hwSvcExtACOAMStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtCtrlWord": {
+    "name": "hwSvcExtCtrlWord",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtVCCV": {
+    "name": "hwSvcExtVCCV",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ccCw": 0,
+        "ccAlert": 1,
+        "ccLabel": 2,
+        "cvIcmpping": 3,
+        "cvLspping": 4,
+        "cvBfd": 5
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtMaxAtmCells": {
+    "name": "hwSvcExtMaxAtmCells",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 28
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtTnlPolicyName": {
+    "name": "hwSvcExtTnlPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPWTemplateName": {
+    "name": "hwSvcExtPWTemplateName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtUpTime": {
+    "name": "hwSvcExtUpTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtOAMSync": {
+    "name": "hwSvcExtOAMSync",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtForBfdIndex": {
+    "name": "hwSvcExtForBfdIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtSecondary": {
+    "name": "hwSvcExtSecondary",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtDelayTime": {
+    "name": "hwSvcExtDelayTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtReroutePolicy": {
+    "name": "hwSvcExtReroutePolicy",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "immediately": 2,
+          "never": 3,
+          "none": 4,
+          "err": 5,
+          "invalid": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtRerouteReason": {
+    "name": "hwSvcExtRerouteReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtLastRerouteTime": {
+    "name": "hwSvcExtLastRerouteTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtManualSetFault": {
+    "name": "hwSvcExtManualSetFault",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtActive": {
+    "name": "hwSvcExtActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtUpStartTime": {
+    "name": "hwSvcExtUpStartTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtUpSumTime": {
+    "name": "hwSvcExtUpSumTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwSvcExtAtmPackOvertime": {
+    "name": "hwSvcExtAtmPackOvertime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 100,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPwJitterBufferDepth": {
+    "name": "hwSvcExtPwJitterBufferDepth",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPwTdmEncapsulationNum": {
+    "name": "hwSvcExtPwTdmEncapsulationNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPwIdleCode": {
+    "name": "hwSvcExtPwIdleCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPwRtpHeader": {
+    "name": "hwSvcExtPwRtpHeader",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtRawOrTagged": {
+    "name": "hwSvcExtRawOrTagged",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raw": 1,
+          "tagged": 2,
+          "rawTagNotConfiged": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtInterworkingType": {
+    "name": "hwSvcExtInterworkingType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipInterWorking": 1,
+          "ipLayer2": 2,
+          "ipUnknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtRowStatus": {
+    "name": "hwSvcExtRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtCir": {
+    "name": "hwSvcExtCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtPir": {
+    "name": "hwSvcExtPir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcExtQosProfile": {
+    "name": "hwSvcExtQosProfile",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.8.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwSvcSwitchNotifEnable": {
+    "name": "hwSvcSwitchNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSvcUpDownNotifEnable": {
+    "name": "hwSvcUpDownNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSvcDeletedNotifEnable": {
+    "name": "hwSvcDeletedNotifEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwSvcStateChangeReason": {
+    "name": "hwSvcStateChangeReason",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnStateChangeReason",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwL2vpnSvcMIBTraps": {
+    "name": "hwL2vpnSvcMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4",
+    "class": "objectidentity"
+  },
+  "hwSvcSwitchWtoP": {
+    "name": "hwSvcSwitchWtoP",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcSwitchPtoW": {
+    "name": "hwSvcSwitchPtoW",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcDown": {
+    "name": "hwSvcDown",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcActive"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwL2vpnTnlType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwL2vpnTunnelIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcUp": {
+    "name": "hwSvcUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcActive"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcDeleted": {
+    "name": "hwSvcDeleted",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWTemplateTable": {
+    "name": "hwPWTemplateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWTemplateEntry": {
+    "name": "hwPWTemplateEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWTemplateName": {
+    "name": "hwPWTemplateName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPWTemplatePeerAddrType": {
+    "name": "hwPWTemplatePeerAddrType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplatePeerAddr": {
+    "name": "hwPWTemplatePeerAddr",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateCtrlword": {
+    "name": "hwPWTemplateCtrlword",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateVCCV": {
+    "name": "hwPWTemplateVCCV",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ccCw": 0,
+        "ccAlert": 1,
+        "ccLabel": 2,
+        "cvIcmpping": 3,
+        "cvLspping": 4,
+        "cvBfd": 5,
+        "ccTtl": 6
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateFrag": {
+    "name": "hwPWTemplateFrag",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateBandwidth": {
+    "name": "hwPWTemplateBandwidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPWTemplateTnlPolicyName": {
+    "name": "hwPWTemplateTnlPolicyName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateQoSBehaviorIndex": {
+    "name": "hwPWTemplateQoSBehaviorIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateExplicitPathName": {
+    "name": "hwPWTemplateExplicitPathName",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateBFDDetectMultiplier": {
+    "name": "hwPWTemplateBFDDetectMultiplier",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateBFDMinReceiveInterval": {
+    "name": "hwPWTemplateBFDMinReceiveInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateBFDMinTransmitInterval": {
+    "name": "hwPWTemplateBFDMinTransmitInterval",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateDynamicBFDDetect": {
+    "name": "hwPWTemplateDynamicBFDDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateMaxAtmCells": {
+    "name": "hwPWTemplateMaxAtmCells",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 28
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateAtmPackOvertime": {
+    "name": "hwPWTemplateAtmPackOvertime",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 100,
+            "max": 50000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplatePwJitterBufferDepth": {
+    "name": "hwPWTemplatePwJitterBufferDepth",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplatePwTdmEncapsulationNum": {
+    "name": "hwPWTemplatePwTdmEncapsulationNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplatePwIdleCode": {
+    "name": "hwPWTemplatePwIdleCode",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          },
+          {
+            "min": 65535,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplatePwRtpHeader": {
+    "name": "hwPWTemplatePwRtpHeader",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplatePwCCSeqEnable": {
+    "name": "hwPWTemplatePwCCSeqEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateCir": {
+    "name": "hwPWTemplateCir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplatePir": {
+    "name": "hwPWTemplatePir",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateQosProfile": {
+    "name": "hwPWTemplateQosProfile",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateFlowLabel": {
+    "name": "hwPWTemplateFlowLabel",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateRowStatus": {
+    "name": "hwPWTemplateRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwPWTemplateMIBTraps": {
+    "name": "hwPWTemplateMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.6",
+    "class": "objectidentity"
+  },
+  "hwPWTemplateCannotDeleted": {
+    "name": "hwPWTemplateCannotDeleted",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.6.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWTableObjects": {
+    "name": "hwPWTableObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7",
+    "class": "objectidentity"
+  },
+  "hwPWTable": {
+    "name": "hwPWTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWEntry": {
+    "name": "hwPWEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWId",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWPeerIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWId": {
+    "name": "hwPWId",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWType": {
+    "name": "hwPWType",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWL2VpnVcEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWPeerIp": {
+    "name": "hwPWPeerIp",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPWInterfaceIndex": {
+    "name": "hwPWInterfaceIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPwe3MIBConformance": {
+    "name": "hwPwe3MIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3",
+    "class": "objectidentity"
+  },
+  "hwPwe3MIBCompliances": {
+    "name": "hwPwe3MIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.1",
+    "class": "objectidentity"
+  },
+  "hwPwe3MIBCompliance": {
+    "name": "hwPwe3MIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwPWVcGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWVcTnlGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWVcStatisticsGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWRemoteVcGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWTemplateGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWNotificationControlGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWVcStateChangeReasonGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWVcNotificationGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      },
+      {
+        "object": "hwPWTableGroup",
+        "module": "HUAWEI-PWE3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPwe3MIBGroups": {
+    "name": "hwPwe3MIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2",
+    "class": "objectidentity"
+  },
+  "hwPWVcGroup": {
+    "name": "hwPWVcGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchSign"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcGroupID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcAcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcACOAMStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcMtu"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcVCCV"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcBandWidth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcQoSBehaviorIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcExplicitPathName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTemplateName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWOAMSync"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVCForBfdIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDelayTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcReroutePolicy"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcResumeTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcRerouteReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcLastRerouteTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcManualSetFault"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcVrIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcVrID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDMinReceiveInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDMinTransmitInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWDynamicBFDDetect"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDRemoteVcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWEthOamType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWCfmMaIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpStartTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpSumTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcRowStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcAtmPackOvertime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCfmMdIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCfmMaName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCfmMdName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcRawOrTagged"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInterworkingType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTrigger"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcEnableACOAM"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchVrIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchVrID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcQosParaFromPWT"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcBfdParaFromPWT"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcNegotiateMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcIsBypass"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcIsAdmin"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcAdminPwIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcAdminPwLinkStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchAdminPwIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchAdminPwLinkStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupAdminPwIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupAdminPwLinkStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcReceiveLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcSendLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSlaveMasterMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchVcSlaveMasterMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcSlaveMasterMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchVcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchCwTrans"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchVcServiceName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcServiceName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcTnlGroup": {
+    "name": "hwPWVcTnlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTnlForBfdIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcStatisticsGroup": {
+    "name": "hwPWVcStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsRcvPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsRcvBytes"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsSndPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsSndBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWRemoteVcGroup": {
+    "name": "hwPWRemoteVcGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcGroupID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcMtu"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcCtrlword"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWTemplateGroup": {
+    "name": "hwPWTemplateGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateCtrlword"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateVCCV"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateFrag"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBandwidth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateQoSBehaviorIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateExplicitPathName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBFDDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBFDMinReceiveInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBFDMinTransmitInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateDynamicBFDDetect"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateAtmPackOvertime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwCCSeqEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateFlowLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWNotificationControlGroup": {
+    "name": "hwPWNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpDownNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDeletedNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcStateChangeReasonGroup": {
+    "name": "hwPWVcStateChangeReasonGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchRmtID"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcNotificationGroup": {
+    "name": "hwPWVcNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchWtoP"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPtoW"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDown"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUp"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDeleted"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcBackup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWVcDown"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWVcUp"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatusChange"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwVpwsPwRedundancyDegraded"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwVpwsPwRedundancyDegradedClear"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwRemoteApPwParaMisMatch"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwRemoteApPwParaMisMatchResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLdpPWStateChangeReasonGroup": {
+    "name": "hwLdpPWStateChangeReasonGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentGroup": {
+    "name": "hwPWVcTDMPerfCurrentGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentMissingPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentJtrBfrOverruns"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentJtrBfrUnderruns"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentMisOrderDropped"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentMalformedPkt"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentESs"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentSESs"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2vpnSvcMIBGroups": {
+    "name": "hwL2vpnSvcMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3",
+    "class": "objectidentity"
+  },
+  "hwSvcGroup": {
+    "name": "hwSvcGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcGroupID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcAcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcACOAMStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcMtu"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcVCCV"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcBandWidth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcQoSBehaviorIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPWTemplateName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOAMSync"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcForBfdIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDelayTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcReroutePolicy"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcResumeTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcRerouteReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcLastRerouteTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcManualSetFault"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpStartTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpSumTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcAtmPackOvertime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcRawOrTagged"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInterworkingType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcTnlGroup": {
+    "name": "hwSvcTnlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlForBfdIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcStatisticsGroup": {
+    "name": "hwSvcStatisticsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsRcvPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsRcvBytes"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsSndPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsSndBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcNotificationControlGroup": {
+    "name": "hwSvcNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSwitchNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpDownNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDeletedNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcStateChangeReasonGroup": {
+    "name": "hwSvcStateChangeReasonGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      }
+    ],
+    "status": "current"
+  },
+  "hwSvcNotificationGroup": {
+    "name": "hwSvcNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSwitchWtoP"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSwitchPtoW"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDown"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUp"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "hwL2vpnPWTableMIBGroups": {
+    "name": "hwL2vpnPWTableMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.4",
+    "class": "objectidentity"
+  },
+  "hwPWTableGroup": {
+    "name": "hwPWTableGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPWTemplateMIBGroups": {
+    "name": "hwPWTemplateMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.5",
+    "class": "objectidentity"
+  },
+  "hwPWTemplateNotificationGroup": {
+    "name": "hwPWTemplateNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.5.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateCannotDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PWE3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-PWE3-MIB"
+  }
+}

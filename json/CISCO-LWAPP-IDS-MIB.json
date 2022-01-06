@@ -1,0 +1,438 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappIdsMIB": {
+    "name": "ciscoLwappIdsMIB",
+    "oid": "1.3.6.1.4.1.9.9.519",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-04-10 00:00",
+        "description": "Initial version of this MIB module. "
+      }
+    ]
+  },
+  "ciscoLwappIdsMIBNotifs": {
+    "name": "ciscoLwappIdsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.519.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIdsMIBObjects": {
+    "name": "ciscoLwappIdsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.519.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIdsMIBConform": {
+    "name": "ciscoLwappIdsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.519.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIdsConfig": {
+    "name": "ciscoLwappIdsConfig",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIdsStatus": {
+    "name": "ciscoLwappIdsStatus",
+    "oid": "1.3.6.1.4.1.9.9.519.1.2",
+    "class": "objectidentity"
+  },
+  "cLIdsIpsSensorConfigTable": {
+    "name": "cLIdsIpsSensorConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIdsIpsSensorConfigEntry": {
+    "name": "cLIdsIpsSensorConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLIdsIpsSensorAddressType": {
+    "name": "cLIdsIpsSensorAddressType",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIdsIpsSensorAddress": {
+    "name": "cLIdsIpsSensorAddress",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIdsIpsSensorUserName": {
+    "name": "cLIdsIpsSensorUserName",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIdsIpsSensorPassword": {
+    "name": "cLIdsIpsSensorPassword",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIdsIpsSensorQueryInterval": {
+    "name": "cLIdsIpsSensorQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 360000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "units": "Hundredths-seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIdsIpsSensorEnabled": {
+    "name": "cLIdsIpsSensorEnabled",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIdsIpsSensorFingerPrintHex": {
+    "name": "cLIdsIpsSensorFingerPrintHex",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIdsIpsSensorPort": {
+    "name": "cLIdsIpsSensorPort",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIdsIpsSensorRowStatus": {
+    "name": "cLIdsIpsSensorRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.519.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIdsClientExclTable": {
+    "name": "cLIdsClientExclTable",
+    "oid": "1.3.6.1.4.1.9.9.519.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIdsClientExclEntry": {
+    "name": "cLIdsClientExclEntry",
+    "oid": "1.3.6.1.4.1.9.9.519.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsClientAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsClientAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLIdsClientAddressType": {
+    "name": "cLIdsClientAddressType",
+    "oid": "1.3.6.1.4.1.9.9.519.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIdsClientAddress": {
+    "name": "cLIdsClientAddress",
+    "oid": "1.3.6.1.4.1.9.9.519.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIdsClientTimeRemaining": {
+    "name": "cLIdsClientTimeRemaining",
+    "oid": "1.3.6.1.4.1.9.9.519.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "hundredths-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappIdsShunClientUpdate": {
+    "name": "ciscoLwappIdsShunClientUpdate",
+    "oid": "1.3.6.1.4.1.9.9.519.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsClientTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappIdsMIBCompliances": {
+    "name": "ciscoLwappIdsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.519.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIdsMIBGroups": {
+    "name": "ciscoLwappIdsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.519.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIdsMIBCompliance": {
+    "name": "ciscoLwappIdsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.519.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappIdsConfigGroup",
+        "module": "CISCO-LWAPP-IDS-MIB"
+      },
+      {
+        "object": "ciscoLwappIdsStatusGroup",
+        "module": "CISCO-LWAPP-IDS-MIB"
+      },
+      {
+        "object": "ciscoLwappIdsNotifsGroup",
+        "module": "CISCO-LWAPP-IDS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappIdsConfigGroup": {
+    "name": "ciscoLwappIdsConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.519.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorUserName"
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorQueryInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorFingerPrintHex"
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorPort"
+      },
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsIpsSensorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappIdsStatusGroup": {
+    "name": "ciscoLwappIdsStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.519.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "cLIdsClientTimeRemaining"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappIdsNotifsGroup": {
+    "name": "ciscoLwappIdsNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.519.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-IDS-MIB",
+        "object": "ciscoLwappIdsShunClientUpdate"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-IDS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-IDS-MIB"
+  }
+}

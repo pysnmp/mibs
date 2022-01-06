@@ -1,0 +1,142 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalSerialNum",
+      "entPhysicalHardwareRev",
+      "entPhysicalDescr",
+      "entPhysicalSoftwareRev"
+    ],
+    "IF-MIB": [
+      "ifPhysAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysObjectID"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TN-DEV-SYS-IPMGMT-MIB": [
+      "tnIpAddr",
+      "tnIpv6Addr"
+    ],
+    "TRANSITION-SMI": [
+      "tnProducts"
+    ]
+  },
+  "tnZeroTouchProvisionMIB": {
+    "name": "tnZeroTouchProvisionMIB",
+    "oid": "1.3.6.1.4.1.868.2.5.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "tnZeroTouchProvisionNotifications": {
+    "name": "tnZeroTouchProvisionNotifications",
+    "oid": "1.3.6.1.4.1.868.2.5.12.0",
+    "class": "objectidentity"
+  },
+  "tnZeroTouchProvisionMIBObjects": {
+    "name": "tnZeroTouchProvisionMIBObjects",
+    "oid": "1.3.6.1.4.1.868.2.5.12.1",
+    "class": "objectidentity"
+  },
+  "tnZTPAutoDiscoveryMode": {
+    "name": "tnZTPAutoDiscoveryMode",
+    "oid": "1.3.6.1.4.1.868.2.5.12.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "dhcp": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dhcp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tnZTPAutoDiscoveryNotification": {
+    "name": "tnZTPAutoDiscoveryNotification",
+    "oid": "1.3.6.1.4.1.868.2.5.12.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysObjectID"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalDescr"
+      },
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnIpAddr"
+      },
+      {
+        "module": "TN-DEV-SYS-IPMGMT-MIB",
+        "object": "tnIpv6Addr"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalSoftwareRev"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalHardwareRev"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalSerialNum"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-ZERO-TOUCH-PROVISION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN-ZERO-TOUCH-PROVISION-MIB"
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "irt": {
+    "name": "irt",
+    "oid": "1.3.6.1.4.1.19831",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change LocalRemote add SFNMFN "
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "Correction"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT "
+      }
+    ]
+  },
+  "SelectManualAuto": {
+    "name": "SelectManualAuto",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "manual": 1,
+          "automatic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SelectOnOff": {
+    "name": "SelectOnOff",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Input1Input2": {
+    "name": "Input1Input2",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OkNotOk": {
+    "name": "OkNotOk",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "ok": 1,
+          "notok": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FaultOK": {
+    "name": "FaultOK",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "fault": 1,
+          "ok": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "WarningOK": {
+    "name": "WarningOK",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "warning": 1,
+          "ok": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LocalRemote": {
+    "name": "LocalRemote",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MuteOk": {
+    "name": "MuteOk",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "mute": 1,
+          "ok": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ReadyNotReady": {
+    "name": "ReadyNotReady",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "ready": 1,
+          "notready": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ExecutedNotExecuted": {
+    "name": "ExecutedNotExecuted",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "executed": 1,
+          "notexecuted": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PresentNotPresent": {
+    "name": "PresentNotPresent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "present": 1,
+          "notpresent": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SFNMFN": {
+    "name": "SFNMFN",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "sfn": 1,
+          "mfn": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "broadcast": {
+    "name": "broadcast",
+    "oid": "1.3.6.1.4.1.19831.1",
+    "class": "objectidentity"
+  },
+  "transmitter": {
+    "name": "transmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1",
+    "class": "objectidentity"
+  },
+  "dvbT": {
+    "name": "dvbT",
+    "oid": "1.3.6.1.4.1.19831.1.1.1",
+    "class": "objectidentity"
+  },
+  "dab": {
+    "name": "dab",
+    "oid": "1.3.6.1.4.1.19831.1.1.2",
+    "class": "objectidentity"
+  },
+  "fm": {
+    "name": "fm",
+    "oid": "1.3.6.1.4.1.19831.1.1.3",
+    "class": "objectidentity"
+  },
+  "drm": {
+    "name": "drm",
+    "oid": "1.3.6.1.4.1.19831.1.1.4",
+    "class": "objectidentity"
+  },
+  "common": {
+    "name": "common",
+    "oid": "1.3.6.1.4.1.19831.1.1.7",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-TRANSMITTER-SMI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IRT-TRANSMITTER-SMI-MIB"
+  }
+}

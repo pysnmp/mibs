@@ -1,0 +1,4407 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "FileTransferProtocol",
+      "fsp150cm",
+      "TrapCounter"
+    ],
+    "CM-COMMON-MIB": [
+      "RestartType",
+      "IpVersion"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "LLDP-V2-MIB": [
+      "lldpV2RemEntry"
+    ],
+    "LLDP-V2-TC-MIB": [
+      "LldpV2DestAddressTableIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpEngineID"
+    ],
+    "SNMP-TARGET-MIB": [
+      "snmpTargetAddrName"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
+    ]
+  },
+  "cmSystemMIB": {
+    "name": "cmSystemMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-01-27 00:00",
+        "description": " Notes from release 201910080000Z a)Added the literals ntp-server-and-peering(4) and ntp-peering(5) to CmNtpMode Notes from release 201908260000Z a)Added the literal ntpclock(5) to TimeOfDayType Notes from release 201912010000Z (1) Added fileServicesCsrName Notes from release 201901230000Z a) added softwarePeerCondition object b) added PeerUpgradeStatus object Notes from release 201901100000Z, (1)Added the following scalars f3ApplicationsBootCompleted f3ApplicationsUpTime. Notes from release 201810290000Z a) added softwareAffectedEntity object b) added fileServicesAffectedEntity object c) added AffectedEntity textual convention Notes from release 201805140000Z a) added sysLogFacilityCode scalar variable Notes from release 201803130000Z a) added usbPortEnabled scalar variable Notes from release 201801170000Z a) added fileServicesDbFileName variable Notes from release 201802020000Z a) added f3SysAuthKeyTable Notes from release 201801030000Z a) added sysLogTimestampFormat scalar variable Notes from release 201711270000Z a) added sysLogTimestampFormat scalar variable b) added SysLogFormatType textual convention Notes from release 201706210000Z a) Modified aclTable index: -New range for aclEntryIndex Notes from release 201601150000Z a) added f3SnmpLongIfAlias scalar variable Notes from release 201307310000Z Added raw data functionality objects f3RawDataObjects -f3RawDataServerFtProtocol, f3RawDataServerFtServerName, f3RawDataServerFtPasswd and f3RawDataServerFtUserId Notes from release 201111220000Z (i)Added configuration file functionality objects f3ConfigFileObjects -f3ConfigFileActionFileName, f3ConfigFileAction and f3ConfigFileTable (ii)Added f3SystemFeatureTable Notes from release 201106110000Z (i)Added f3DatabaseSyncTrapObject and f3DatabaseSyncTrap for NMS database sync facility in the case of bulk changes Notes from release 201010140000Z (i)Added the following literal to CmFileServicesMode securitylogfileupload, alarmlogfileupload, auditlogfileupload, (ii)Added the following literals to fileServicesAction put-securitylog-file, put-alarmlog-file, put-auditlog-file Notes from release 201005130000Z Added the following literal to CmFileServicesMode debugfileupload Notes from release 201005130000Z Added the following new objects, f3SysLastResetType, f3SysLastResetCauseType, f3SysLastAbnormalResetTimestamp1, f3SysLastAbnormalResetTimestamp2, f3SysLastAbnormalResetTimestamp3 Notes from release 201003250000Z This release is applicable to the FSP150CC Release 4.3 device GE201. New objects added in this release, ntpServerRoundTripDelay, ntpServerPrecision Notes from release 200906080000Z This release is applicable to the FSP150CC Release 4.1 devices GE101 and GE206. New table added in this release, f3SnmpTargetAddrExtTable New notification added in this release, cmSnmpDyingGaspTrap New scalar added in this release, serialPortDisconnectAutoLogOff, httpsEnabled, sftpEnabled Notes from release 200803030000Z, (1)MIB version ready for release FSP150CM 3.1."
+      }
+    ]
+  },
+  "cmSystemObjects": {
+    "name": "cmSystemObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1",
+    "class": "objectidentity"
+  },
+  "cmSystemNotifications": {
+    "name": "cmSystemNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.2",
+    "class": "objectidentity"
+  },
+  "cmSystemConformance": {
+    "name": "cmSystemConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3",
+    "class": "objectidentity"
+  },
+  "f3BulkNotifObjects": {
+    "name": "f3BulkNotifObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.4",
+    "class": "objectidentity"
+  },
+  "f3SystemBulkNotifications": {
+    "name": "f3SystemBulkNotifications",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.5",
+    "class": "objectidentity"
+  },
+  "cmErrorInfoObjects": {
+    "name": "cmErrorInfoObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.1",
+    "class": "objectidentity"
+  },
+  "cmCliObjects": {
+    "name": "cmCliObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.2",
+    "class": "objectidentity"
+  },
+  "cmAccessProtocols": {
+    "name": "cmAccessProtocols",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3",
+    "class": "objectidentity"
+  },
+  "cmSysSecObjects": {
+    "name": "cmSysSecObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4",
+    "class": "objectidentity"
+  },
+  "cmSysModeObjects": {
+    "name": "cmSysModeObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5",
+    "class": "objectidentity"
+  },
+  "cmDatabaseObjects": {
+    "name": "cmDatabaseObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6",
+    "class": "objectidentity"
+  },
+  "cmSoftwareObjects": {
+    "name": "cmSoftwareObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7",
+    "class": "objectidentity"
+  },
+  "cmFileServicesObjects": {
+    "name": "cmFileServicesObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8",
+    "class": "objectidentity"
+  },
+  "cmLogObjects": {
+    "name": "cmLogObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9",
+    "class": "objectidentity"
+  },
+  "cmTimeObjects": {
+    "name": "cmTimeObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10",
+    "class": "objectidentity"
+  },
+  "cmSnmpObjects": {
+    "name": "cmSnmpObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11",
+    "class": "objectidentity"
+  },
+  "cmResetCauseObjects": {
+    "name": "cmResetCauseObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.12",
+    "class": "objectidentity"
+  },
+  "f3NotifObjects": {
+    "name": "f3NotifObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.13",
+    "class": "objectidentity"
+  },
+  "f3ConfigFileObjects": {
+    "name": "f3ConfigFileObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14",
+    "class": "objectidentity"
+  },
+  "cmFeatureManagementObjects": {
+    "name": "cmFeatureManagementObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.15",
+    "class": "objectidentity"
+  },
+  "cmLldpV2DestAdressADVAExtObjects": {
+    "name": "cmLldpV2DestAdressADVAExtObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16",
+    "class": "objectidentity"
+  },
+  "f3LldpV2ConfigurationADVAExtObjects": {
+    "name": "f3LldpV2ConfigurationADVAExtObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.17",
+    "class": "objectidentity"
+  },
+  "snmpIPv6UDPDomain": {
+    "name": "snmpIPv6UDPDomain",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.18",
+    "class": "objectidentity"
+  },
+  "f3RawDataObjects": {
+    "name": "f3RawDataObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.19",
+    "class": "objectidentity"
+  },
+  "f3LldpV2RemoteSystemsData": {
+    "name": "f3LldpV2RemoteSystemsData",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.20",
+    "class": "objectidentity"
+  },
+  "f3SimpleLtpObjects": {
+    "name": "f3SimpleLtpObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21",
+    "class": "objectidentity"
+  },
+  "f3SysAuthenKeyObjects": {
+    "name": "f3SysAuthenKeyObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22",
+    "class": "objectidentity"
+  },
+  "f3CallhomeServerObjects": {
+    "name": "f3CallhomeServerObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.23",
+    "class": "objectidentity"
+  },
+  "f3SystemInfoObjects": {
+    "name": "f3SystemInfoObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.24",
+    "class": "objectidentity"
+  },
+  "f3ZtpObjects": {
+    "name": "f3ZtpObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.25",
+    "class": "objectidentity"
+  },
+  "CmAclFilterAction": {
+    "name": "CmAclFilterAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmAutoProvMode": {
+    "name": "CmAutoProvMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "confirm": 2,
+          "auto": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmNtpType": {
+    "name": "CmNtpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmNtpMode": {
+    "name": "CmNtpMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "server": 2,
+          "both": 3,
+          "ntp-server-and-peering": 4,
+          "ntp-peering": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmNtpServerType": {
+    "name": "CmNtpServerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmFileTransferMethod": {
+    "name": "CmFileTransferMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "scp": 2,
+          "sftp": 3,
+          "web": 4,
+          "tftp": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmVersionType": {
+    "name": "CmVersionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "standby": 2,
+          "staging": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmFileServicesStatus": {
+    "name": "CmFileServicesStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in-progress": 1,
+          "success": 2,
+          "login-failed": 3,
+          "file-not-found": 4,
+          "permission-denied": 5,
+          "server-unreachable": 6,
+          "no-space-left": 7,
+          "invalid-file-type": 8,
+          "nobackup-database": 9,
+          "no-sw-toinstall": 10,
+          "sw-not-installed": 11,
+          "validation-timer-notactive": 12,
+          "cannot-revert": 13,
+          "install-failed": 14,
+          "upgrade-failed": 15,
+          "revert-failed": 16,
+          "failure": 17,
+          "badarchive": 18,
+          "incompatarchive": 19,
+          "swVersionNotApproved": 20
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmFileServicesMode": {
+    "name": "CmFileServicesMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "dbupload": 2,
+          "dbdownload": 3,
+          "dbbackup": 4,
+          "dbrestore": 5,
+          "swdownload": 6,
+          "swinstall": 7,
+          "swupgrade": 8,
+          "swvalidate": 9,
+          "swcancelupgrade": 10,
+          "swrevert": 11,
+          "rebooting": 12,
+          "debugfileupload": 13,
+          "securitylogfileupload": 14,
+          "alarmlogfileupload": 15,
+          "auditlogfileupload": 16,
+          "dbpropagate": 17,
+          "swpropagate": 18,
+          "sysdiagfileupload": 19,
+          "sysdiagfilesave": 20,
+          "configfileupload": 21,
+          "configfiledownload": 22,
+          "defaultvalsfiledownload": 23,
+          "satresultupload": 24,
+          "sslcertificatedownload": 25,
+          "sslprivatekeydownload": 26,
+          "sslencprivatekeydownload": 27,
+          "sslkeypairdownload": 28,
+          "csrUpload": 29,
+          "rfc2544testreportupload": 30
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CmRestartCauseType": {
+    "name": "CmRestartCauseType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "poweronreset": 1,
+          "userinitiated": 2,
+          "unreoverableappevent": 3,
+          "unrecoverablesysevent": 4,
+          "hwwatchdogexpired": 5,
+          "bustxntimeout": 6,
+          "hardware": 7,
+          "buttonReset": 8,
+          "buttonFactoryDefaultReset": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "F3ConfigFileAction": {
+    "name": "F3ConfigFileAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "restart-with-file": 1,
+          "save-delta": 2,
+          "remove": 3,
+          "save-full": 4,
+          "load-config": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "F3ConfigFileStatus": {
+    "name": "F3ConfigFileStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "initial": 1,
+          "in-progress": 2,
+          "completed": 3,
+          "failed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeOfDayType": {
+    "name": "TimeOfDayType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "ntp": 2,
+          "ptp": 3,
+          "timeclock": 4,
+          "ntpclock": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpV2ConfigurationADVAExtMaxNeighborsAction": {
+    "name": "LldpV2ConfigurationADVAExtMaxNeighborsAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete-entry": 1,
+          "discard-lldppdu": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FileTransferServerType": {
+    "name": "FileTransferServerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipaddr": 1,
+          "ipv6addr": 2,
+          "hostname": 3,
+          "url": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServerConfigType": {
+    "name": "ServerConfigType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dhcp": 1,
+          "userdefined": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NtpAuthKeyType": {
+    "name": "NtpAuthKeyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "md5": 1,
+          "sha1": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SysLogFormatType": {
+    "name": "SysLogFormatType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adva": 1,
+          "rfc3164": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SysAuthKeyType": {
+    "name": "SysAuthKeyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "md5": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AffectedEntity": {
+    "name": "AffectedEntity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "none": 1,
+          "shelf": 2,
+          "card1": 3,
+          "card2": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PeerUpgradeReadyCondition": {
+    "name": "PeerUpgradeReadyCondition",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "ignorealarms": 2,
+          "nocriticalalarms": 3,
+          "nomjandcrialarms": 4,
+          "noalarms": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PeerUpgradeStatus": {
+    "name": "PeerUpgradeStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inprogress": 1,
+          "ready": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CallhomeState": {
+    "name": "CallhomeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 1,
+          "failed": 2,
+          "inProgress": 3,
+          "notStarted": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "F3TargetAddressLifetime": {
+    "name": "F3TargetAddressLifetime",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "duration1hour": 1,
+          "duration1day": 2,
+          "duration3days": 3,
+          "duration1week": 4,
+          "duration1month": 5,
+          "unlimited": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "lastSetErrorInformation": {
+    "name": "lastSetErrorInformation",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cliCmdPromptPrefix": {
+    "name": "cliCmdPromptPrefix",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "securityBanner": {
+    "name": "securityBanner",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclTable": {
+    "name": "aclTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclEntry": {
+    "name": "aclEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclEntryIndex": {
+    "name": "aclEntryIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclEntryFilterAction": {
+    "name": "aclEntryFilterAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmAclFilterAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclEntryNetworkAddress": {
+    "name": "aclEntryNetworkAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclEntryNetworkMask": {
+    "name": "aclEntryNetworkMask",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclEntryEnabled": {
+    "name": "aclEntryEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclEntryIpVersion": {
+    "name": "aclEntryIpVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclEntryNetworkIpv6Addr": {
+    "name": "aclEntryNetworkIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aclEntryPrefixLength": {
+    "name": "aclEntryPrefixLength",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "serialPortDisconnectAutoLogOff": {
+    "name": "serialPortDisconnectAutoLogOff",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "securityPromptEnabled": {
+    "name": "securityPromptEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "telnetEnabled": {
+    "name": "telnetEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sshEnabled": {
+    "name": "sshEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ftpEnabled": {
+    "name": "ftpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scpEnabled": {
+    "name": "scpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "serialPortEnabled": {
+    "name": "serialPortEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpEnabled": {
+    "name": "httpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpsEnabled": {
+    "name": "httpsEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sftpEnabled": {
+    "name": "sftpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tftpEnabled": {
+    "name": "tftpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "netconfOverSSHEnabled": {
+    "name": "netconfOverSSHEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usbPortEnabled": {
+    "name": "usbPortEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpMode": {
+    "name": "ntpMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmNtpMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoProvMode": {
+    "name": "autoProvMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "confirm": 2,
+          "auto": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysTimeOfDayType": {
+    "name": "sysTimeOfDayType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeOfDayType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpServerConfigType": {
+    "name": "ntpServerConfigType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerConfigType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogServerConfigType": {
+    "name": "sysLogServerConfigType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServerConfigType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysUseUtcLeapOffsetEnable": {
+    "name": "sysUseUtcLeapOffsetEnable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogTimestampFormat": {
+    "name": "sysLogTimestampFormat",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SysLogFormatType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogFacilityCode": {
+    "name": "sysLogFacilityCode",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesAction": {
+    "name": "fileServicesAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "get-database": 1,
+          "put-database": 2,
+          "software-copy": 3,
+          "get-sys-database": 4,
+          "put-sys-database": 5,
+          "get-defaultsvalue-file": 6,
+          "put-sysresetdebuginfo-file": 7,
+          "put-securitylog-file": 8,
+          "put-alarmlog-file": 9,
+          "put-auditlog-file": 10,
+          "get-config-file": 11,
+          "put-config-file": 12,
+          "put-sat-result": 13,
+          "get-ssl-certificate": 14,
+          "get-ssl-private-key": 15,
+          "get-ssl-encrypt-private-Key": 16,
+          "get-ssl-key-pair": 17,
+          "put-csr": 18,
+          "put-rfc2544-test-report": 19
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesMethod": {
+    "name": "fileServicesMethod",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmFileTransferMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesServerIp": {
+    "name": "fileServicesServerIp",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesUserId": {
+    "name": "fileServicesUserId",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesPassword": {
+    "name": "fileServicesPassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesRemoteFile": {
+    "name": "fileServicesRemoteFile",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesStatus": {
+    "name": "fileServicesStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmFileServicesStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileServicesPercentComplete": {
+    "name": "fileServicesPercentComplete",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileServicesMode": {
+    "name": "fileServicesMode",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmFileServicesMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileServicesServerType": {
+    "name": "fileServicesServerType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FileTransferServerType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesServerIpv6Addr": {
+    "name": "fileServicesServerIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesDbFileName": {
+    "name": "fileServicesDbFileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fileServicesAffectedEntity": {
+    "name": "fileServicesAffectedEntity",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AffectedEntity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesSslKeyPairName": {
+    "name": "fileServicesSslKeyPairName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesDecryptionPassword": {
+    "name": "fileServicesDecryptionPassword",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fileServicesCsrName": {
+    "name": "fileServicesCsrName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.8.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "databaseAction": {
+    "name": "databaseAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "backup": 1,
+          "restore": 2,
+          "activate": 3,
+          "save-sysdefaults": 4,
+          "new-sysdefaults": 5,
+          "restore-sysdefaults": 6,
+          "restore-factorydefaults": 7,
+          "propagate-to-standby-nemi": 8,
+          "force-normal": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "databaseLastSaveTime": {
+    "name": "databaseLastSaveTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "databaseTable": {
+    "name": "databaseTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "databaseEntry": {
+    "name": "databaseEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "databaseIndex": {
+    "name": "databaseIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "databaseType": {
+    "name": "databaseType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "databaseVersion": {
+    "name": "databaseVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "databaseActionPassphrase": {
+    "name": "databaseActionPassphrase",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareAction": {
+    "name": "softwareAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-applicable": 0,
+          "install": 1,
+          "schedule-upgrade": 2,
+          "cancel-upgrade": 3,
+          "validate-upgrade": 4,
+          "revert-upgrade": 5,
+          "propagate-to-standby-nemi": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareUpgradeTime": {
+    "name": "softwareUpgradeTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareValidationTimer": {
+    "name": "softwareValidationTimer",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 720
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareTable": {
+    "name": "softwareTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "softwareEntry": {
+    "name": "softwareEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "softwareIndex": {
+    "name": "softwareIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareType": {
+    "name": "softwareType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmVersionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareVersion": {
+    "name": "softwareVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareAffectedEntity": {
+    "name": "softwareAffectedEntity",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AffectedEntity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwarePeerCondition": {
+    "name": "softwarePeerCondition",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerUpgradeReadyCondition",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "peerUpgradeStatus": {
+    "name": "peerUpgradeStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerUpgradeStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSysLogObjects": {
+    "name": "cmSysLogObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1",
+    "class": "objectidentity"
+  },
+  "cmSecLogObjects": {
+    "name": "cmSecLogObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.2",
+    "class": "objectidentity"
+  },
+  "cmAuditLogObjects": {
+    "name": "cmAuditLogObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.3",
+    "class": "objectidentity"
+  },
+  "cmAlarmLogObjects": {
+    "name": "cmAlarmLogObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.4",
+    "class": "objectidentity"
+  },
+  "sysLogServerTable": {
+    "name": "sysLogServerTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysLogServerEntry": {
+    "name": "sysLogServerEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysLogServerIndex": {
+    "name": "sysLogServerIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysLogIpAddress": {
+    "name": "sysLogIpAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogPort": {
+    "name": "sysLogPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogIpVersion": {
+    "name": "sysLogIpVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogIpv6Addr": {
+    "name": "sysLogIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secLog2sysLogEnabled": {
+    "name": "secLog2sysLogEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "auditLog2sysLogEnabled": {
+    "name": "auditLog2sysLogEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "auditLog2fileEnabled": {
+    "name": "auditLog2fileEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLog2sysLogEnabled": {
+    "name": "alarmLog2sysLogEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmLog2fileEnabled": {
+    "name": "alarmLog2fileEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.9.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpClientEnabled": {
+    "name": "ntpClientEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpPrimaryServer": {
+    "name": "ntpPrimaryServer",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpBackupServer": {
+    "name": "ntpBackupServer",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpType": {
+    "name": "ntpType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmNtpType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpActiveServer": {
+    "name": "ntpActiveServer",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmNtpServerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpSwitchServer": {
+    "name": "ntpSwitchServer",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmNtpServerType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpServerRoundTripDelay": {
+    "name": "ntpServerRoundTripDelay",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpServerPrecision": {
+    "name": "ntpServerPrecision",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpPollingInterval": {
+    "name": "ntpPollingInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpPrimaryServerIpVersion": {
+    "name": "ntpPrimaryServerIpVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpPrimaryServerIpv6Addr": {
+    "name": "ntpPrimaryServerIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpBackupServerIpVersion": {
+    "name": "ntpBackupServerIpVersion",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpBackupServerIpv6Addr": {
+    "name": "ntpBackupServerIpv6Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpPrimaryServerAuthKey": {
+    "name": "ntpPrimaryServerAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpBackupServerAuthKey": {
+    "name": "ntpBackupServerAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NtpAuthKeyTable": {
+    "name": "f3NtpAuthKeyTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3NtpAuthKeyEntry": {
+    "name": "f3NtpAuthKeyEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3NtpAuthKeyId": {
+    "name": "f3NtpAuthKeyId",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3NtpAuthKeyNumber": {
+    "name": "f3NtpAuthKeyNumber",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NtpAuthKeyType": {
+    "name": "f3NtpAuthKeyType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NtpAuthKeyType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NtpAuthKey": {
+    "name": "f3NtpAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3NtpAuthKeyStorageType": {
+    "name": "f3NtpAuthKeyStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3NtpAuthKeyRowStatus": {
+    "name": "f3NtpAuthKeyRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.10.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SnmpTargetAddrExtTable": {
+    "name": "f3SnmpTargetAddrExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SnmpTargetAddrExtEntry": {
+    "name": "f3SnmpTargetAddrExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-TARGET-MIB",
+        "object": "snmpTargetAddrName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "f3SnmpTargetAddrExtDyingGaspPort": {
+    "name": "f3SnmpTargetAddrExtDyingGaspPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SnmpTargetAddrExtDyingGaspEnabled": {
+    "name": "f3SnmpTargetAddrExtDyingGaspEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SnmpTargetAddrExtDyingGaspActive": {
+    "name": "f3SnmpTargetAddrExtDyingGaspActive",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SnmpTargetAddrExtBulkTrapsEnabled": {
+    "name": "f3SnmpTargetAddrExtBulkTrapsEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SnmpTargetAddrExtLifetime": {
+    "name": "f3SnmpTargetAddrExtLifetime",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F3TargetAddressLifetime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SnmpEngineID": {
+    "name": "f3SnmpEngineID",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpEngineID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SnmpLongIfAlias": {
+    "name": "f3SnmpLongIfAlias",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SysLastResetType": {
+    "name": "f3SysLastResetType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RestartType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SysLastResetCauseType": {
+    "name": "f3SysLastResetCauseType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmRestartCauseType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SysLastAbnormalResetTimestamp1": {
+    "name": "f3SysLastAbnormalResetTimestamp1",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SysLastAbnormalResetTimestamp2": {
+    "name": "f3SysLastAbnormalResetTimestamp2",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SysLastAbnormalResetTimestamp3": {
+    "name": "f3SysLastAbnormalResetTimestamp3",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SysResetButtonControl": {
+    "name": "f3SysResetButtonControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3DatabaseSyncTrapObject": {
+    "name": "f3DatabaseSyncTrapObject",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3StartNeEventLogIndex": {
+    "name": "f3StartNeEventLogIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EndNeEventLogIndex": {
+    "name": "f3EndNeEventLogIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TrapCounter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConfigFileActionFileName": {
+    "name": "f3ConfigFileActionFileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConfigFileAction": {
+    "name": "f3ConfigFileAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F3ConfigFileAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConfigFileStatus": {
+    "name": "f3ConfigFileStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F3ConfigFileStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConfigFileErrorInformation": {
+    "name": "f3ConfigFileErrorInformation",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConfigFileTable": {
+    "name": "f3ConfigFileTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConfigFileEntry": {
+    "name": "f3ConfigFileEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3ConfigFileIndex": {
+    "name": "f3ConfigFileIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3ConfigFileName": {
+    "name": "f3ConfigFileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConfigFileDescription": {
+    "name": "f3ConfigFileDescription",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3ConfigFilePercentComplete": {
+    "name": "f3ConfigFilePercentComplete",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ConfigFilePassphrase": {
+    "name": "f3ConfigFilePassphrase",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.14.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemFeatureTable": {
+    "name": "f3SystemFeatureTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemFeatureEntry": {
+    "name": "f3SystemFeatureEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemFeatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SystemFeatureIndex": {
+    "name": "f3SystemFeatureIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SystemFeatureName": {
+    "name": "f3SystemFeatureName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SystemFeatureEnabled": {
+    "name": "f3SystemFeatureEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemLldpV2DestAddressADVAExtTable": {
+    "name": "f3SystemLldpV2DestAddressADVAExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemLldpV2DestAddressADVAExtEntry": {
+    "name": "f3SystemLldpV2DestAddressADVAExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2DestAddressADVAExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SystemLldpV2DestAddressADVAExtIndex": {
+    "name": "f3SystemLldpV2DestAddressADVAExtIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemLldpV2ADVAExtDestMacAddress": {
+    "name": "f3SystemLldpV2ADVAExtDestMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemLldpV2DestAddressADVAExtRowStatus": {
+    "name": "f3SystemLldpV2DestAddressADVAExtRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtTable": {
+    "name": "f3SystemLldpV2PortConfigADVAExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtEntry": {
+    "name": "f3SystemLldpV2PortConfigADVAExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtDestAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtIfIndex": {
+    "name": "f3SystemLldpV2PortConfigADVAExtIfIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtDestAddressIndex": {
+    "name": "f3SystemLldpV2PortConfigADVAExtDestAddressIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2DestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtAdminStatus": {
+    "name": "f3SystemLldpV2PortConfigADVAExtAdminStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txOnly": 1,
+          "rxOnly": 2,
+          "txAndRx": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "txAndRx",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtNotificationEnable": {
+    "name": "f3SystemLldpV2PortConfigADVAExtNotificationEnable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtTLVsTxEnable": {
+    "name": "f3SystemLldpV2PortConfigADVAExtTLVsTxEnable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "portDesc": 0,
+        "sysName": 1,
+        "sysDesc": 2,
+        "sysCap": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtStorageType": {
+    "name": "f3SystemLldpV2PortConfigADVAExtStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SystemLldpV2PortConfigADVAExtRowStatus": {
+    "name": "f3SystemLldpV2PortConfigADVAExtRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SystemLldpV2ManAddrConfigTxPortsADVAExtTable": {
+    "name": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemLldpV2ManAddrConfigTxPortsADVAExtEntry": {
+    "name": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtDestAddressIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtRefInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SystemLldpV2ManAddrConfigTxPortsADVAExtRefInterface": {
+    "name": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtRefInterface",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SystemLldpV2ManAddrConfigTxPortsADVAExtEnable": {
+    "name": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtEnable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SystemLldpV2ManAddrConfigTxPortsADVAExtStorageType": {
+    "name": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SystemLldpV2ManAddrConfigTxPortsADVAExtRowStatus": {
+    "name": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.16.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3LldpMaxNeighborsAction": {
+    "name": "f3LldpMaxNeighborsAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ConfigurationADVAExtMaxNeighborsAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RawDataServerFtProtocol": {
+    "name": "f3RawDataServerFtProtocol",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmFileTransferMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RawDataServerFtServerName": {
+    "name": "f3RawDataServerFtServerName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RawDataServerFtUserId": {
+    "name": "f3RawDataServerFtUserId",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3RawDataServerFtPasswd": {
+    "name": "f3RawDataServerFtPasswd",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3LldpV2RemExtTable": {
+    "name": "f3LldpV2RemExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3LldpV2RemExtEntry": {
+    "name": "f3LldpV2RemExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3LldpV2RemExtEntry",
+      "module": "CM-SYSTEM-MIB",
+      "object": "lldpV2RemEntry"
+    },
+    "status": "current"
+  },
+  "f3LldpV2RemTTL": {
+    "name": "f3LldpV2RemTTL",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3SimpleLtpControl": {
+    "name": "f3SimpleLtpControl",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SimpleLtpTransferProtocol": {
+    "name": "f3SimpleLtpTransferProtocol",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CmFileTransferMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SimpleLtpServerIpv4Addr": {
+    "name": "f3SimpleLtpServerIpv4Addr",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SimpleLtpUserName": {
+    "name": "f3SimpleLtpUserName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SimpleLtpPasswd": {
+    "name": "f3SimpleLtpPasswd",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SimpleLtpConfigFileName": {
+    "name": "f3SimpleLtpConfigFileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SimpleLtpSoftwareFileName": {
+    "name": "f3SimpleLtpSoftwareFileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.21.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SysAuthKeyTable": {
+    "name": "f3SysAuthKeyTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SysAuthKeyEntry": {
+    "name": "f3SysAuthKeyEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3SysAuthKeyIndex": {
+    "name": "f3SysAuthKeyIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3SysAuthKeyId": {
+    "name": "f3SysAuthKeyId",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SysAuthKeyType": {
+    "name": "f3SysAuthKeyType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SysAuthKeyType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SysAuthKey": {
+    "name": "f3SysAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3SysAuthKeyStorageType": {
+    "name": "f3SysAuthKeyStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3SysAuthKeyRowStatus": {
+    "name": "f3SysAuthKeyRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.22.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3CallhomeClientIpAddress": {
+    "name": "f3CallhomeClientIpAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.23.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3CallhomeState": {
+    "name": "f3CallhomeState",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.23.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CallhomeState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ApplicationsBootCompleted": {
+    "name": "f3ApplicationsBootCompleted",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.24.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3ApplicationsUpTime": {
+    "name": "f3ApplicationsUpTime",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.24.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EnsembleZtpEnabled": {
+    "name": "f3EnsembleZtpEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.1.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmStateChangeTrap": {
+    "name": "cmStateChangeTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.2.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cmAttributeValueChangeTrap": {
+    "name": "cmAttributeValueChangeTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.2.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cmObjectCreationTrap": {
+    "name": "cmObjectCreationTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.2.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cmObjectDeletionTrap": {
+    "name": "cmObjectDeletionTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.2.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cmSnmpDyingGaspTrap": {
+    "name": "cmSnmpDyingGaspTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "f3DatabaseSyncTrap": {
+    "name": "f3DatabaseSyncTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.2.6",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "f3BulkTrap": {
+    "name": "f3BulkTrap",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.5.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cmSystemCompliances": {
+    "name": "cmSystemCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.1",
+    "class": "objectidentity"
+  },
+  "cmSystemGroups": {
+    "name": "cmSystemGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.2",
+    "class": "objectidentity"
+  },
+  "f3SystemBulkGroups": {
+    "name": "f3SystemBulkGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.3",
+    "class": "objectidentity"
+  },
+  "cmSystemCompliance": {
+    "name": "cmSystemCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmSystemObjectGroup",
+        "module": "CM-SYSTEM-MIB"
+      },
+      {
+        "object": "cmSystemNotifGroup",
+        "module": "CM-SYSTEM-MIB"
+      },
+      {
+        "object": "f3SystemObjectBulkGroup",
+        "module": "CM-SYSTEM-MIB"
+      },
+      {
+        "object": "f3SystemNotifBulkGroup",
+        "module": "CM-SYSTEM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSystemObjectGroup": {
+    "name": "cmSystemObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "lastSetErrorInformation"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "cliCmdPromptPrefix"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "securityPromptEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "securityBanner"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryFilterAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryNetworkAddress"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryNetworkMask"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryIpVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryNetworkIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryPrefixLength"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "serialPortDisconnectAutoLogOff"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "telnetEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sshEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ftpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "scpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "serialPortEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "httpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "httpsEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sftpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "tftpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "netconfOverSSHEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "usbPortEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpMode"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "autoProvMode"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysTimeOfDayType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpServerConfigType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogServerConfigType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogTimestampFormat"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogFacilityCode"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesMethod"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesServerIp"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesUserId"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesPassword"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesRemoteFile"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesDbFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesPercentComplete"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesMode"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesServerType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesServerIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesAffectedEntity"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesSslKeyPairName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesDecryptionPassword"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogIpVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesCsrName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServerIpVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServerIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServerIpVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServerIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServerAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServerAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseLastSaveTime"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseActionPassphrase"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareUpgradeTime"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareValidationTimer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareAffectedEntity"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwarePeerCondition"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "peerUpgradeStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogServerIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogIpAddress"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogPort"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "secLog2sysLogEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "auditLog2sysLogEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "auditLog2fileEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "alarmLog2sysLogEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "alarmLog2fileEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpClientEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpActiveServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpSwitchServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpServerRoundTripDelay"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpServerPrecision"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPollingInterval"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtDyingGaspPort"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtDyingGaspEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtDyingGaspActive"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtBulkTrapsEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtLifetime"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastResetType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastResetCauseType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastAbnormalResetTimestamp1"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastAbnormalResetTimestamp2"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastAbnormalResetTimestamp3"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysResetButtonControl"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpControl"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpTransferProtocol"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpServerIpv4Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpUserName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpPasswd"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpConfigFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpSoftwareFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3DatabaseSyncTrapObject"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileActionFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileErrorInformation"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFileDescription"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFilePercentComplete"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ConfigFilePassphrase"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemFeatureIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemFeatureName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemFeatureEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2DestAddressADVAExtIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2ADVAExtDestMacAddress"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2DestAddressADVAExtRowStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3LldpMaxNeighborsAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtIfIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtDestAddressIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtAdminStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtNotificationEnable"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtTLVsTxEnable"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtStorageType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2PortConfigADVAExtRowStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtRefInterface"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtEnable"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtStorageType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SystemLldpV2ManAddrConfigTxPortsADVAExtRowStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3RawDataServerFtProtocol"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3RawDataServerFtServerName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3RawDataServerFtUserId"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3RawDataServerFtPasswd"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3LldpV2RemTTL"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyId"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyNumber"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyStorageType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyRowStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyId"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyStorageType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyRowStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3CallhomeClientIpAddress"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3CallhomeState"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ApplicationsBootCompleted"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3ApplicationsUpTime"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3EnsembleZtpEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSystemNotifGroup": {
+    "name": "cmSystemNotifGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "cmStateChangeTrap"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "cmAttributeValueChangeTrap"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "cmObjectCreationTrap"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "cmObjectDeletionTrap"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "cmSnmpDyingGaspTrap"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3DatabaseSyncTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSystemObjectGroupCmHub": {
+    "name": "cmSystemObjectGroupCmHub",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "lastSetErrorInformation"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "cliCmdPromptPrefix"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "securityPromptEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "securityBanner"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryFilterAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryNetworkAddress"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryNetworkMask"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "aclEntryEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "serialPortDisconnectAutoLogOff"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "telnetEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sshEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ftpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "scpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "serialPortEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "httpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "httpsEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sftpEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpMode"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "autoProvMode"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesMethod"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesServerIp"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesUserId"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesPassword"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesRemoteFile"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesDbFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesPercentComplete"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesMode"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesServerType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "fileServicesServerIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogIpVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServerIpVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServerIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServerIpVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServerIpv6Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServerAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServerAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyId"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyNumber"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyStorageType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3NtpAuthKeyRowStatus"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseLastSaveTime"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "databaseVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareAction"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareUpgradeTime"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareValidationTimer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "softwareVersion"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogServerIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogIpAddress"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "sysLogPort"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "secLog2sysLogEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "auditLog2sysLogEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "auditLog2fileEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "alarmLog2sysLogEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "alarmLog2fileEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpClientEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPrimaryServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpBackupServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpActiveServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpSwitchServer"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpServerRoundTripDelay"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpServerPrecision"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "ntpPollingInterval"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtDyingGaspPort"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtDyingGaspEnabled"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SnmpTargetAddrExtDyingGaspActive"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastResetType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastResetCauseType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastAbnormalResetTimestamp1"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastAbnormalResetTimestamp2"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysLastAbnormalResetTimestamp3"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysResetButtonControl"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpControl"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpTransferProtocol"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpServerIpv4Addr"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpUserName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpPasswd"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpConfigFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SimpleLtpSoftwareFileName"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3DatabaseSyncTrapObject"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyId"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKey"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyStorageType"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3SysAuthKeyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "f3SystemObjectBulkGroup": {
+    "name": "f3SystemObjectBulkGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3StartNeEventLogIndex"
+      },
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3EndNeEventLogIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "f3SystemNotifBulkGroup": {
+    "name": "f3SystemNotifBulkGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.2.3.3.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CM-SYSTEM-MIB",
+        "object": "f3BulkTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CM-SYSTEM-MIB"
+  }
+}

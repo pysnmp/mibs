@@ -1,0 +1,1308 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1PortMirroringMonitoring",
+      "portMirroringMonitoringTraps"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SFLOW-MIB": [
+      "sFlowFsEntry",
+      "sFlowCpEntry"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1PortMirrorMonitoringMIB": {
+    "name": "alcatelIND1PortMirrorMonitoringMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "Addressing discrepancies with Alcatel Standard."
+      }
+    ]
+  },
+  "alcatelIND1PortMirMonMIBObjects": {
+    "name": "alcatelIND1PortMirMonMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1PortMirMonMIBConformance": {
+    "name": "alcatelIND1PortMirMonMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1PortMirMonMIBGroups": {
+    "name": "alcatelIND1PortMirMonMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1PortMirMonMIBCompliances": {
+    "name": "alcatelIND1PortMirMonMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mirmonMirroring": {
+    "name": "mirmonMirroring",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1",
+    "class": "objectidentity"
+  },
+  "mirrorTable": {
+    "name": "mirrorTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mirrorEntry": {
+    "name": "mirrorEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSessionNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mirrorSessionNumber": {
+    "name": "mirrorSessionNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirrorMirroredIfindex": {
+    "name": "mirrorMirroredIfindex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mirrorMirroringIfindex": {
+    "name": "mirrorMirroringIfindex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorStatus": {
+    "name": "mirrorStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorUnblockedVLAN": {
+    "name": "mirrorUnblockedVLAN",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorRowStatus": {
+    "name": "mirrorRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorDirection": {
+    "name": "mirrorDirection",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inport": 1,
+          "outport": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bidirectional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "mirrorSessOperStatus": {
+    "name": "mirrorSessOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirrorTaggedVLAN": {
+    "name": "mirrorTaggedVLAN",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorSrcTable": {
+    "name": "mirrorSrcTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mirrorSrcEntry": {
+    "name": "mirrorSrcEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSessionNumber",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSrcMirroredIf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mirrorSrcMirroredIf": {
+    "name": "mirrorSrcMirroredIf",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirrorSrcStatus": {
+    "name": "mirrorSrcStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorSrcDirection": {
+    "name": "mirrorSrcDirection",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inport": 1,
+          "outport": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bidirectional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorSrcRowStatus": {
+    "name": "mirrorSrcRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirrorSrcOperStatus": {
+    "name": "mirrorSrcOperStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirmonMonitoring": {
+    "name": "mirmonMonitoring",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2",
+    "class": "objectidentity"
+  },
+  "monitorTable": {
+    "name": "monitorTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "monitorEntry": {
+    "name": "monitorEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorSessionNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "monitorSessionNumber": {
+    "name": "monitorSessionNumber",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "monitorIfindex": {
+    "name": "monitorIfindex",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorFileStatus": {
+    "name": "monitorFileStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorFileName": {
+    "name": "monitorFileName",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorFileSize": {
+    "name": "monitorFileSize",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorScreenStatus": {
+    "name": "monitorScreenStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorScreenLine": {
+    "name": "monitorScreenLine",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 24,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorTrafficType": {
+    "name": "monitorTrafficType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "unicast": 2,
+          "multicast": 3,
+          "broadcast": 4,
+          "unimulti": 5,
+          "unibroad": 6,
+          "multibroad": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "all",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorStatus": {
+    "name": "monitorStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "suspended": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorFileOverWrite": {
+    "name": "monitorFileOverWrite",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorDirection": {
+    "name": "monitorDirection",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inport": 1,
+          "outport": 2,
+          "bidirectional": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bidirectional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorTimeout": {
+    "name": "monitorTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "monitorRowStatus": {
+    "name": "monitorRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mirmonNotificationVars": {
+    "name": "mirmonNotificationVars",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3",
+    "class": "objectidentity"
+  },
+  "MirMonErrorIds": {
+    "name": "MirMonErrorIds",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "wrongSession": 2,
+          "hwQError": 3,
+          "swQError": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mirmonPrimarySlot": {
+    "name": "mirmonPrimarySlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirmonPrimaryPort": {
+    "name": "mirmonPrimaryPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirroringSlot": {
+    "name": "mirroringSlot",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirroringPort": {
+    "name": "mirroringPort",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirMonSession": {
+    "name": "mirMonSession",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirMonError": {
+    "name": "mirMonError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MirMonErrorIds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirMonErrorNi": {
+    "name": "mirMonErrorNi",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mirrorConfigError": {
+    "name": "mirrorConfigError",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimarySlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimaryPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirroringSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirroringPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirMonErrorNi"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirMonError"
+      }
+    ],
+    "status": "current"
+  },
+  "monitorFileWritten": {
+    "name": "monitorFileWritten",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.8.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimarySlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimaryPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorFileSize"
+      }
+    ],
+    "status": "current"
+  },
+  "mirrorUnlikeNi": {
+    "name": "mirrorUnlikeNi",
+    "oid": "1.3.6.1.4.1.6486.800.1.3.2.8.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimarySlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimaryPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirroringSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirroringPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirMonErrorNi"
+      }
+    ],
+    "status": "current"
+  },
+  "mirmonSFlowObjects": {
+    "name": "mirmonSFlowObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4",
+    "class": "objectidentity"
+  },
+  "alasFlowFsTable": {
+    "name": "alasFlowFsTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alasFlowFsEntry": {
+    "name": "alasFlowFsEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alasFlowFsEntry",
+      "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+      "object": "sFlowFsEntry"
+    },
+    "status": "current"
+  },
+  "alasFlowFsDeleteEntry": {
+    "name": "alasFlowFsDeleteEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "delete": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alasFlowCpTable": {
+    "name": "alasFlowCpTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alasFlowCpEntry": {
+    "name": "alasFlowCpEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alasFlowCpEntry",
+      "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+      "object": "sFlowCpEntry"
+    },
+    "status": "current"
+  },
+  "alasFlowCpDeleteEntry": {
+    "name": "alasFlowCpDeleteEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notInService": 2,
+          "delete": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alasFlowAgentConfigType": {
+    "name": "alasFlowAgentConfigType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "user": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alasFlowAgentAddressType": {
+    "name": "alasFlowAgentAddressType",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alasFlowAgentAddress": {
+    "name": "alasFlowAgentAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alcatelIND1PortMirMonMIBCompliance": {
+    "name": "alcatelIND1PortMirMonMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "portMirroringGroup",
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB"
+      },
+      {
+        "object": "portMonitoringGroup",
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB"
+      },
+      {
+        "object": "portNotificationVarsGroup",
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "portMirroringGroup": {
+    "name": "portMirroringGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSessionNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorMirroredIfindex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorMirroringIfindex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorUnblockedVLAN"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorDirection"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSessOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSrcMirroredIf"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSrcStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSrcDirection"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSrcRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorSrcOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "portMonitoringGroup": {
+    "name": "portMonitoringGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorSessionNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorIfindex"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorFileStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorFileSize"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorScreenStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorScreenLine"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorTrafficType"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorFileOverWrite"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorDirection"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "monitorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "portNotificationVarsGroup": {
+    "name": "portNotificationVarsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimarySlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirmonPrimaryPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirroringSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirroringPort"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirMonSession"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirMonError"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirMonErrorNi"
+      }
+    ],
+    "status": "current"
+  },
+  "mirmonTrapsGroup": {
+    "name": "mirmonTrapsGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.19.1.2.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorConfigError"
+      },
+      {
+        "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+        "object": "mirrorUnlikeNi"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB"
+  }
+}

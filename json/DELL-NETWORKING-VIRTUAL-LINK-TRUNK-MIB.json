@@ -1,0 +1,1033 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "MacAddress"
+    ]
+  },
+  "dellNetVirtualLinkTrunkMib": {
+    "name": "dellNetVirtualLinkTrunkMib",
+    "oid": "1.3.6.1.4.1.6027.3.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-11-28 00:00",
+        "description": " - Added new objects dellNetVLTPeerRouting, dellNetVLTPeerRoutingTimeout,dellNetVLTRemotePeerRouting in dellNetVirtualLinkTrunkTable - Added additional error reason peerRoutMismatch in dellNetVltErrorReason object"
+      },
+      {
+        "revision": "2012-05-21 00:00",
+        "description": "Added new object dellNetVLTCfgSysMacAddr in dellNetVirtualLinkTrunkTable"
+      },
+      {
+        "revision": "2012-05-14 00:00",
+        "description": "Re arranged MIB objects in the dellNetVirtualLinkTrunkTable to make it compatible with older version. Moved the newly added objects at the bottom"
+      },
+      {
+        "revision": "2012-04-02 00:00",
+        "description": "Re arrenged the dellNetVirtualLinkTrunkTable, additional objects are added. - dellNetVirtualLinkTrunkNotifications added to make notifications separate subtree from dellNetVirtualLinkTrunkMib. - dellNetVirtualLinkDetailsTable is added for VLT details. - dellNetVLTIclBwUsageExceed, dellNetVLTDomainConfigError new notifications are added. - Updated the corresponding conformance groups - Some indentation change"
+      },
+      {
+        "revision": "2011-05-06 00:00",
+        "description": "Modified MIB OID from 13 to 16."
+      },
+      {
+        "revision": "2011-03-14 00:00",
+        "description": "Initial draft of VLT MIB."
+      }
+    ]
+  },
+  "dellNetVirtualLinkTrunkObjects": {
+    "name": "dellNetVirtualLinkTrunkObjects",
+    "oid": "1.3.6.1.4.1.6027.3.17.1",
+    "class": "objectidentity"
+  },
+  "dellNetVirtualLinkTrunkNotifObjects": {
+    "name": "dellNetVirtualLinkTrunkNotifObjects",
+    "oid": "1.3.6.1.4.1.6027.3.17.2",
+    "class": "objectidentity"
+  },
+  "DellNetVLTMemberLinkStatus": {
+    "name": "DellNetVLTMemberLinkStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkNotEstablished": 0,
+          "linkUp": 1,
+          "linkDown": 2,
+          "linkError": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dellNetVirtualLinkTrunkTable": {
+    "name": "dellNetVirtualLinkTrunkTable",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetVirtualLinkTrunkTableEntry": {
+    "name": "dellNetVirtualLinkTrunkTableEntry",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDomainId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVLTDomainId": {
+    "name": "dellNetVLTDomainId",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTMacAddr": {
+    "name": "dellNetVLTMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTPriority": {
+    "name": "dellNetVLTPriority",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTIclIfIndex": {
+    "name": "dellNetVLTIclIfIndex",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTRole": {
+    "name": "dellNetVLTRole",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standAlone": 0,
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTPeerStatus": {
+    "name": "dellNetVLTPeerStatus",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notEstablished": 0,
+          "peerUp": 1,
+          "peerDown": 2,
+          "linkDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTIclStatus": {
+    "name": "dellNetVLTIclStatus",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetVLTMemberLinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTHBeatStatus": {
+    "name": "dellNetVLTHBeatStatus",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetVLTMemberLinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTBkUpIpAddrType": {
+    "name": "dellNetVLTBkUpIpAddrType",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTBkUpIpAddr": {
+    "name": "dellNetVLTBkUpIpAddr",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTBkUpInterval": {
+    "name": "dellNetVLTBkUpInterval",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTRemoteMacAddr": {
+    "name": "dellNetVLTRemoteMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTRemoteRolePriority": {
+    "name": "dellNetVLTRemoteRolePriority",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTUnitId": {
+    "name": "dellNetVLTUnitId",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTVersionMajor": {
+    "name": "dellNetVLTVersionMajor",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTVersionMinor": {
+    "name": "dellNetVLTVersionMinor",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTRemoteUnitId": {
+    "name": "dellNetVLTRemoteUnitId",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTRemoteVersionMajor": {
+    "name": "dellNetVLTRemoteVersionMajor",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTRemoteVersionMinor": {
+    "name": "dellNetVLTRemoteVersionMinor",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTIclBwStatus": {
+    "name": "dellNetVLTIclBwStatus",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "belowthreshold": 0,
+          "abovethreshold": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTCfgSysMacAddr": {
+    "name": "dellNetVLTCfgSysMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTPeerRouting": {
+    "name": "dellNetVLTPeerRouting",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTPeerRoutingTimeout": {
+    "name": "dellNetVLTPeerRoutingTimeout",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTRemotePeerRouting": {
+    "name": "dellNetVLTRemotePeerRouting",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVirtualLinkStatsTable": {
+    "name": "dellNetVirtualLinkStatsTable",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetVirtualLinkStatsTableEntry": {
+    "name": "dellNetVirtualLinkStatsTableEntry",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dellNetVirtualLinkStatsTableEntry",
+      "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+      "object": "dellNetVirtualLinkTrunkTableEntry"
+    },
+    "status": "current"
+  },
+  "dellNetVLTStatNumHelloSent": {
+    "name": "dellNetVLTStatNumHelloSent",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTStatNumHelloRcvd": {
+    "name": "dellNetVLTStatNumHelloRcvd",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTStatNumHbeatSent": {
+    "name": "dellNetVLTStatNumHbeatSent",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTStatNumHbeatRcvd": {
+    "name": "dellNetVLTStatNumHbeatRcvd",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTStatNumDomainErrors": {
+    "name": "dellNetVLTStatNumDomainErrors",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTStatNumVersionErrors": {
+    "name": "dellNetVLTStatNumVersionErrors",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVirtualLinkDetailsTable": {
+    "name": "dellNetVirtualLinkDetailsTable",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetVirtualLinkDetailsTableEntry": {
+    "name": "dellNetVirtualLinkDetailsTableEntry",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDetailLocalLagID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVLTDetailLocalLagID": {
+    "name": "dellNetVLTDetailLocalLagID",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTDetailPeerLagID": {
+    "name": "dellNetVLTDetailPeerLagID",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTDetailLocalStatus": {
+    "name": "dellNetVLTDetailLocalStatus",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTDetailPeerStatus": {
+    "name": "dellNetVLTDetailPeerStatus",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetVLTErrorReason": {
+    "name": "dellNetVLTErrorReason",
+    "oid": "1.3.6.1.4.1.6027.3.17.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "domainIdMismatch": 2,
+          "unitIdMismatch": 3,
+          "versionMismatch": 4,
+          "sysMacMismatch": 5,
+          "peerRoutingMismatch": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetVirtualLinkTrunkNotifications": {
+    "name": "dellNetVirtualLinkTrunkNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.17.2.0",
+    "class": "objectidentity"
+  },
+  "dellNetVLTRoleChange": {
+    "name": "dellNetVLTRoleChange",
+    "oid": "1.3.6.1.4.1.6027.3.17.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRole"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVLTIclStatusChange": {
+    "name": "dellNetVLTIclStatusChange",
+    "oid": "1.3.6.1.4.1.6027.3.17.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVLTPeerStatusChange": {
+    "name": "dellNetVLTPeerStatusChange",
+    "oid": "1.3.6.1.4.1.6027.3.17.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTPeerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVLTHBeatStatusChange": {
+    "name": "dellNetVLTHBeatStatusChange",
+    "oid": "1.3.6.1.4.1.6027.3.17.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTHBeatStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVLTIclBwUsageExceed": {
+    "name": "dellNetVLTIclBwUsageExceed",
+    "oid": "1.3.6.1.4.1.6027.3.17.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclIfIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclBwStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVLTDomainConfigError": {
+    "name": "dellNetVLTDomainConfigError",
+    "oid": "1.3.6.1.4.1.6027.3.17.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTErrorReason"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVirtualLinkTrunkConformance": {
+    "name": "dellNetVirtualLinkTrunkConformance",
+    "oid": "1.3.6.1.4.1.6027.3.17.3",
+    "class": "objectidentity"
+  },
+  "dellNetVirtualLinkTrunkCompliances": {
+    "name": "dellNetVirtualLinkTrunkCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.17.3.1",
+    "class": "objectidentity"
+  },
+  "dellNetVirtualLinkTrunkGroups": {
+    "name": "dellNetVirtualLinkTrunkGroups",
+    "oid": "1.3.6.1.4.1.6027.3.17.3.2",
+    "class": "objectidentity"
+  },
+  "dellNetVirtualLinkTrunkCompliance": {
+    "name": "dellNetVirtualLinkTrunkCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.17.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dellNetVirtualLinkTrunkGroup",
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB"
+      },
+      {
+        "object": "dellNetVirtualLinkStatisticsGroup",
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB"
+      },
+      {
+        "object": "dellNetVirtualLinkNotificationGroup",
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB"
+      },
+      {
+        "object": "dellNetVirtualLinkDetailsTableGroup",
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVirtualLinkTrunkGroup": {
+    "name": "dellNetVirtualLinkTrunkGroup",
+    "oid": "1.3.6.1.4.1.6027.3.17.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDomainId"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTMacAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTPriority"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclIfIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRole"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTPeerStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTHBeatStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTBkUpIpAddrType"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTBkUpIpAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTBkUpInterval"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRemoteMacAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRemoteRolePriority"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTUnitId"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTVersionMajor"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTVersionMinor"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRemoteUnitId"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRemoteVersionMajor"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRemoteVersionMinor"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclBwStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTCfgSysMacAddr"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTPeerRouting"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTPeerRoutingTimeout"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRemotePeerRouting"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTErrorReason"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVirtualLinkStatisticsGroup": {
+    "name": "dellNetVirtualLinkStatisticsGroup",
+    "oid": "1.3.6.1.4.1.6027.3.17.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTStatNumHelloSent"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTStatNumHelloRcvd"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTStatNumHbeatSent"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTStatNumHbeatRcvd"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTStatNumDomainErrors"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTStatNumVersionErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVirtualLinkNotificationGroup": {
+    "name": "dellNetVirtualLinkNotificationGroup",
+    "oid": "1.3.6.1.4.1.6027.3.17.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTRoleChange"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclStatusChange"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTPeerStatusChange"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTHBeatStatusChange"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTIclBwUsageExceed"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDomainConfigError"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetVirtualLinkDetailsTableGroup": {
+    "name": "dellNetVirtualLinkDetailsTableGroup",
+    "oid": "1.3.6.1.4.1.6027.3.17.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDetailLocalLagID"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDetailPeerLagID"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDetailLocalStatus"
+      },
+      {
+        "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+        "object": "dellNetVLTDetailPeerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB"
+  }
+}

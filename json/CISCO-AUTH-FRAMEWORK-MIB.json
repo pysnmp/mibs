@@ -1,0 +1,1955 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-NAC-TC-MIB": [
+      "CnnEouPostureTokenString"
+    ],
+    "CISCO-PRIVATE-VLAN-MIB": [
+      "VlanIndexOrZero"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAuthFrameworkMIB": {
+    "name": "ciscoAuthFrameworkMIB",
+    "oid": "1.3.6.1.4.1.9.9.656",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-23 00:00",
+        "description": "Added notification cafAuthFailNotif. Added new objects cafAuthFailNotifEnable and cafAuthFailClient. Added new groups cafAuthFailNotifGroup, cafAuthFailNotifEnableGroup and cafAuthFailClientGroup. A new compliance ciscoAuthFrameworkMIBCompliance4 is added which deprecates ciscoAuthFrameworkMIBCompliance3."
+      },
+      {
+        "revision": "2010-11-17 00:00",
+        "description": "Added cafMacMoveConfigGroup and cafCoACommandConfigGroup groups."
+      },
+      {
+        "revision": "2010-04-01 00:00",
+        "description": "Added value 'replace' to cafPortViolationAction."
+      },
+      {
+        "revision": "2009-04-20 00:00",
+        "description": "Added cafSessionVlanGroupNameGroup."
+      },
+      {
+        "revision": "2008-10-24 00:00",
+        "description": "Added value 'protect' to cafPortViolationAction."
+      },
+      {
+        "revision": "2008-08-25 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoAuthFrameworkMIBNotifs": {
+    "name": "ciscoAuthFrameworkMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.656.0",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrameworkMIBObjects": {
+    "name": "ciscoAuthFrameworkMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.656.1",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrameworkMIBConform": {
+    "name": "ciscoAuthFrameworkMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.656.2",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrameworkSystem": {
+    "name": "ciscoAuthFrameworkSystem",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrwkAuthenticator": {
+    "name": "ciscoAuthFrwkAuthenticator",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrameworkEvent": {
+    "name": "ciscoAuthFrameworkEvent",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrameworkSession": {
+    "name": "ciscoAuthFrameworkSession",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrwkNotifControl": {
+    "name": "ciscoAuthFrwkNotifControl",
+    "oid": "1.3.6.1.4.1.9.9.656.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrwkNotifInfo": {
+    "name": "ciscoAuthFrwkNotifInfo",
+    "oid": "1.3.6.1.4.1.9.9.656.1.6",
+    "class": "objectidentity"
+  },
+  "CiscoAuthControlledDirections": {
+    "name": "CiscoAuthControlledDirections",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 0,
+          "in": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoAuthControlledPortControl": {
+    "name": "CiscoAuthControlledPortControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceUnauthorized": 1,
+          "auto": 2,
+          "forceAuthorized": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoAuthMethod": {
+    "name": "CiscoAuthMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dot1x": 2,
+          "macAuthBypass": 3,
+          "webAuth": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoAuthMethodList": {
+    "name": "CiscoAuthMethodList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CiscoAuthHostMode": {
+    "name": "CiscoAuthHostMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleHost": 1,
+          "multiHost": 2,
+          "multiAuth": 3,
+          "multiDomain": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cafAaaNoRespRecoveryDelay": {
+    "name": "cafAaaNoRespRecoveryDelay",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafAuthMethodRegTable": {
+    "name": "cafAuthMethodRegTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafAuthMethodRegEntry": {
+    "name": "cafAuthMethodRegEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthMethod": {
+    "name": "cafAuthMethod",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafAuthMethodDefaultPriority": {
+    "name": "cafAuthMethodDefaultPriority",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafAuthMethodDefaultExecOrder": {
+    "name": "cafAuthMethodDefaultExecOrder",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafMacMoveMode": {
+    "name": "cafMacMoveMode",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafCoABouncePortCommandIgnoreEnabled": {
+    "name": "cafCoABouncePortCommandIgnoreEnabled",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafCoADisablePortCommandIgnoreEnabled": {
+    "name": "cafCoADisablePortCommandIgnoreEnabled",
+    "oid": "1.3.6.1.4.1.9.9.656.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortConfigTable": {
+    "name": "cafPortConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafPortConfigEntry": {
+    "name": "cafPortConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cafPortControlledDirection": {
+    "name": "cafPortControlledDirection",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthControlledDirections",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortFallBackProfile": {
+    "name": "cafPortFallBackProfile",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortAuthHostMode": {
+    "name": "cafPortAuthHostMode",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthHostMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortPreAuthOpenAccess": {
+    "name": "cafPortPreAuthOpenAccess",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortAuthorizeControl": {
+    "name": "cafPortAuthorizeControl",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthControlledPortControl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortReauthEnabled": {
+    "name": "cafPortReauthEnabled",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortReauthInterval": {
+    "name": "cafPortReauthInterval",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortRestartInterval": {
+    "name": "cafPortRestartInterval",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortInactivityTimeout": {
+    "name": "cafPortInactivityTimeout",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortViolationAction": {
+    "name": "cafPortViolationAction",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restrict": 1,
+          "shutdown": 2,
+          "protect": 3,
+          "replace": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortMethodTable": {
+    "name": "cafPortMethodTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafPortMethodEntry": {
+    "name": "cafPortMethodEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cafPortMethodAdminExecOrder": {
+    "name": "cafPortMethodAdminExecOrder",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthMethodList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortMethodAdminPriority": {
+    "name": "cafPortMethodAdminPriority",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthMethodList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafPortMethodAvailable": {
+    "name": "cafPortMethodAvailable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthMethodList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafPortMethodOperExecOrder": {
+    "name": "cafPortMethodOperExecOrder",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthMethodList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafPortMethodOperPriority": {
+    "name": "cafPortMethodOperPriority",
+    "oid": "1.3.6.1.4.1.9.9.656.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthMethodList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafAuthFailedEventPortTable": {
+    "name": "cafAuthFailedEventPortTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafAuthFailedEventPortEntry": {
+    "name": "cafAuthFailedEventPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthFailedMaxRetry": {
+    "name": "cafAuthFailedMaxRetry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafAuthFailedNoActionEnabled": {
+    "name": "cafAuthFailedNoActionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafAuthFailedAuthorizedVlan": {
+    "name": "cafAuthFailedAuthorizedVlan",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafAuthFailedNextMethodEnabled": {
+    "name": "cafAuthFailedNextMethodEnabled",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafSecurityViolationClient": {
+    "name": "cafSecurityViolationClient",
+    "oid": "1.3.6.1.4.1.9.9.656.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cafAuthFailClient": {
+    "name": "cafAuthFailClient",
+    "oid": "1.3.6.1.4.1.9.9.656.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cafClientNoRespEventPortTable": {
+    "name": "cafClientNoRespEventPortTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafClientNoRespEventPortEntry": {
+    "name": "cafClientNoRespEventPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cafClientNoRespNoActionEnabled": {
+    "name": "cafClientNoRespNoActionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafClientNoRespAuthorizedVlan": {
+    "name": "cafClientNoRespAuthorizedVlan",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafServerEventPortTable": {
+    "name": "cafServerEventPortTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafServerEventPortEntry": {
+    "name": "cafServerEventPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cafServerDeadNoActionEnabled": {
+    "name": "cafServerDeadNoActionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafServerDeadRemainAuthorized": {
+    "name": "cafServerDeadRemainAuthorized",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafServerDeadAuthorizedVlan": {
+    "name": "cafServerDeadAuthorizedVlan",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafServerAliveAction": {
+    "name": "cafServerAliveAction",
+    "oid": "1.3.6.1.4.1.9.9.656.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "reinitialize": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafSessionTable": {
+    "name": "cafSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafSessionEntry": {
+    "name": "cafSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionId",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cafSessionId": {
+    "name": "cafSessionId",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafSessionClientMacAddress": {
+    "name": "cafSessionClientMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionClientAddrType": {
+    "name": "cafSessionClientAddrType",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionClientAddress": {
+    "name": "cafSessionClientAddress",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionStatus": {
+    "name": "cafSessionStatus",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "running": 2,
+          "noMethod": 3,
+          "authenticationSuccess": 4,
+          "authenticationFailed": 5,
+          "authorizationSuccess": 6,
+          "authorizationFailed": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionDomain": {
+    "name": "cafSessionDomain",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "data": 2,
+          "voice": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionAuthHostMode": {
+    "name": "cafSessionAuthHostMode",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthHostMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionControlledDirection": {
+    "name": "cafSessionControlledDirection",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthControlledDirections",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionPostureToken": {
+    "name": "cafSessionPostureToken",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CnnEouPostureTokenString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionAuthUserName": {
+    "name": "cafSessionAuthUserName",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionClientFramedIpPool": {
+    "name": "cafSessionClientFramedIpPool",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionAuthorizedBy": {
+    "name": "cafSessionAuthorizedBy",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionCriticalTimeLeft": {
+    "name": "cafSessionCriticalTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionAuthVlan": {
+    "name": "cafSessionAuthVlan",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionTimeout": {
+    "name": "cafSessionTimeout",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionTimeLeft": {
+    "name": "cafSessionTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionTimeoutAction": {
+    "name": "cafSessionTimeoutAction",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "terminate": 2,
+          "reauthenticate": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionInactivityTimeout": {
+    "name": "cafSessionInactivityTimeout",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionInactivityTimeLeft": {
+    "name": "cafSessionInactivityTimeLeft",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionReauth": {
+    "name": "cafSessionReauth",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafSessionTerminate": {
+    "name": "cafSessionTerminate",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafSessionVlanGroupName": {
+    "name": "cafSessionVlanGroupName",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSessionMethodsInfoTable": {
+    "name": "cafSessionMethodsInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafSessionMethodsInfoEntry": {
+    "name": "cafSessionMethodsInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cafSessionMethod": {
+    "name": "cafSessionMethod",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAuthMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cafSessionMethodState": {
+    "name": "cafSessionMethodState",
+    "oid": "1.3.6.1.4.1.9.9.656.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRun": 1,
+          "running": 2,
+          "failedOver": 3,
+          "authcSuccess": 4,
+          "authcFailed": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cafSecurityViolationNotifEnable": {
+    "name": "cafSecurityViolationNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafAuthFailNotifEnable": {
+    "name": "cafAuthFailNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.656.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cafSecurityViolationNotif": {
+    "name": "cafSecurityViolationNotif",
+    "oid": "1.3.6.1.4.1.9.9.656.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSecurityViolationClient"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthFailNotif": {
+    "name": "cafAuthFailNotif",
+    "oid": "1.3.6.1.4.1.9.9.656.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailClient"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAuthFrameworkMIBCompliances": {
+    "name": "ciscoAuthFrameworkMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.656.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrameworkMIBGroups": {
+    "name": "ciscoAuthFrameworkMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoAuthFrameworkMIBCompliance": {
+    "name": "ciscoAuthFrameworkMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.656.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cafAuthMethodRegGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthPortConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafPortMethodGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionMethodInfoGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAaaNoRespRecoveryDelayGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthFailedEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafClientNoRespEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafServerEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecViolationNotifEnableGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationNotifGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationClientGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAuthFrameworkMIBCompliance2": {
+    "name": "ciscoAuthFrameworkMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.656.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cafAuthMethodRegGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthPortConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafPortMethodGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionMethodInfoGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAaaNoRespRecoveryDelayGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthFailedEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafClientNoRespEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafServerEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecViolationNotifEnableGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationNotifGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationClientGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionVlanGroupNameGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAuthFrameworkMIBCompliance3": {
+    "name": "ciscoAuthFrameworkMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.656.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cafAuthMethodRegGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthPortConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafPortMethodGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionMethodInfoGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAaaNoRespRecoveryDelayGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthFailedEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafClientNoRespEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafServerEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecViolationNotifEnableGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationNotifGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationClientGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionVlanGroupNameGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafMacMoveConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafCoACommandConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAuthFrameworkMIBCompliance4": {
+    "name": "ciscoAuthFrameworkMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.656.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cafAuthMethodRegGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthPortConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafPortMethodGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionMethodInfoGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAaaNoRespRecoveryDelayGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthFailedEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafClientNoRespEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafServerEventGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecViolationNotifEnableGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationNotifGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSecurityViolationClientGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafSessionVlanGroupNameGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafMacMoveConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafCoACommandConfigGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthFailNotifGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthFailNotifEnableGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      },
+      {
+        "object": "cafAuthFailClientGroup",
+        "module": "CISCO-AUTH-FRAMEWORK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthMethodRegGroup": {
+    "name": "cafAuthMethodRegGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthMethodDefaultPriority"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthMethodDefaultExecOrder"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAaaNoRespRecoveryDelayGroup": {
+    "name": "cafAaaNoRespRecoveryDelayGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAaaNoRespRecoveryDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthPortConfigGroup": {
+    "name": "cafAuthPortConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortControlledDirection"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortFallBackProfile"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortAuthHostMode"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortPreAuthOpenAccess"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortAuthorizeControl"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortReauthEnabled"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortReauthInterval"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortRestartInterval"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortInactivityTimeout"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortViolationAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cafPortMethodGroup": {
+    "name": "cafPortMethodGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortMethodAdminExecOrder"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortMethodAdminPriority"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortMethodAvailable"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortMethodOperExecOrder"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafPortMethodOperPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthFailedEventGroup": {
+    "name": "cafAuthFailedEventGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailedMaxRetry"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailedNoActionEnabled"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailedAuthorizedVlan"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailedNextMethodEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cafClientNoRespEventGroup": {
+    "name": "cafClientNoRespEventGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafClientNoRespNoActionEnabled"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafClientNoRespAuthorizedVlan"
+      }
+    ],
+    "status": "current"
+  },
+  "cafServerEventGroup": {
+    "name": "cafServerEventGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafServerDeadNoActionEnabled"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafServerDeadRemainAuthorized"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafServerDeadAuthorizedVlan"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafServerAliveAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cafSessionGroup": {
+    "name": "cafSessionGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionClientMacAddress"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionClientAddrType"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionClientAddress"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionDomain"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionStatus"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionAuthHostMode"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionControlledDirection"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionPostureToken"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionAuthUserName"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionClientFramedIpPool"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionAuthorizedBy"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionCriticalTimeLeft"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionAuthVlan"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionTimeout"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionTimeLeft"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionTimeoutAction"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionInactivityTimeout"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionInactivityTimeLeft"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionReauth"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionTerminate"
+      }
+    ],
+    "status": "current"
+  },
+  "cafSessionMethodInfoGroup": {
+    "name": "cafSessionMethodInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionMethodState"
+      }
+    ],
+    "status": "current"
+  },
+  "cafSecViolationNotifEnableGroup": {
+    "name": "cafSecViolationNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSecurityViolationNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cafSecurityViolationNotifGroup": {
+    "name": "cafSecurityViolationNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSecurityViolationNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cafSecurityViolationClientGroup": {
+    "name": "cafSecurityViolationClientGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSecurityViolationClient"
+      }
+    ],
+    "status": "current"
+  },
+  "cafSessionVlanGroupNameGroup": {
+    "name": "cafSessionVlanGroupNameGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafSessionVlanGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "cafMacMoveConfigGroup": {
+    "name": "cafMacMoveConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafMacMoveMode"
+      }
+    ],
+    "status": "current"
+  },
+  "cafCoACommandConfigGroup": {
+    "name": "cafCoACommandConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafCoABouncePortCommandIgnoreEnabled"
+      },
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafCoADisablePortCommandIgnoreEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthFailNotifGroup": {
+    "name": "cafAuthFailNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthFailNotifEnableGroup": {
+    "name": "cafAuthFailNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cafAuthFailClientGroup": {
+    "name": "cafAuthFailClientGroup",
+    "oid": "1.3.6.1.4.1.9.9.656.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-AUTH-FRAMEWORK-MIB",
+        "object": "cafAuthFailClient"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-AUTH-FRAMEWORK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-AUTH-FRAMEWORK-MIB"
+  }
+}

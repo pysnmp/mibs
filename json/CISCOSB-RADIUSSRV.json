@@ -1,0 +1,1319 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001",
+      "rlRadius",
+      "rlAAAEap"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlRadiusServ": {
+    "name": "rlRadiusServ",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-21 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "rlRadiusServEnable": {
+    "name": "rlRadiusServEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServAcctPort": {
+    "name": "rlRadiusServAcctPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1813,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServAuthPort": {
+    "name": "rlRadiusServAuthPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1812,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServDefaultKey": {
+    "name": "rlRadiusServDefaultKey",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServDefaultKeyMD5": {
+    "name": "rlRadiusServDefaultKeyMD5",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServTrapAcct": {
+    "name": "rlRadiusServTrapAcct",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServTrapAuthFailure": {
+    "name": "rlRadiusServTrapAuthFailure",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServTrapAuthSuccess": {
+    "name": "rlRadiusServTrapAuthSuccess",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupTable": {
+    "name": "rlRadiusServGroupTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServGroupEntry": {
+    "name": "rlRadiusServGroupEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlRadiusServGroupName": {
+    "name": "rlRadiusServGroupName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupVLAN": {
+    "name": "rlRadiusServGroupVLAN",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupVLANName": {
+    "name": "rlRadiusServGroupVLANName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupACL1": {
+    "name": "rlRadiusServGroupACL1",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupACL2": {
+    "name": "rlRadiusServGroupACL2",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupPrvLevel": {
+    "name": "rlRadiusServGroupPrvLevel",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupTimeRangeName": {
+    "name": "rlRadiusServGroupTimeRangeName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServGroupStatus": {
+    "name": "rlRadiusServGroupStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServUserTable": {
+    "name": "rlRadiusServUserTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServUserEntry": {
+    "name": "rlRadiusServUserEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlRadiusServUserName": {
+    "name": "rlRadiusServUserName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServUserPassword": {
+    "name": "rlRadiusServUserPassword",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServUserPasswordMD5": {
+    "name": "rlRadiusServUserPasswordMD5",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServUserGroupName": {
+    "name": "rlRadiusServUserGroupName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServUserStatus": {
+    "name": "rlRadiusServUserStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClientInetTable": {
+    "name": "rlRadiusServClientInetTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServClientInetEntry": {
+    "name": "rlRadiusServClientInetEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServClientInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServClientInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlRadiusServClientInetAddressType": {
+    "name": "rlRadiusServClientInetAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClientInetAddress": {
+    "name": "rlRadiusServClientInetAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClientInetKey": {
+    "name": "rlRadiusServClientInetKey",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClientInetKeyMD5": {
+    "name": "rlRadiusServClientInetKeyMD5",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServClientInetStatus": {
+    "name": "rlRadiusServClientInetStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClientInetUseGlobalKey": {
+    "name": "rlRadiusServClientInetUseGlobalKey",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClearAccounting": {
+    "name": "rlRadiusServClearAccounting",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClearRejectedUsers": {
+    "name": "rlRadiusServClearRejectedUsers",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClearStatistics": {
+    "name": "rlRadiusServClearStatistics",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClearUsersOfGivenGroup": {
+    "name": "rlRadiusServClearUsersOfGivenGroup",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClearClientStatisticsTable": {
+    "name": "rlRadiusServClearClientStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServClearClientStatisticsEntry": {
+    "name": "rlRadiusServClearClientStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServClearClientStatisticsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlRadiusServClearClientStatisticsIndex": {
+    "name": "rlRadiusServClearClientStatisticsIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServClearClientStatisticsInetAddressType": {
+    "name": "rlRadiusServClearClientStatisticsInetAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlRadiusServClearClientStatisticsInetAddress": {
+    "name": "rlRadiusServClearClientStatisticsInetAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "RlRadiusServUserType": {
+    "name": "RlRadiusServUserType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "x": 1,
+          "login": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlRadiusServRejectedEventType": {
+    "name": "RlRadiusServRejectedEventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "reboot": 2,
+          "dateTimeChanged": 3,
+          "rejected": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlRadiusServRejectedReasonType": {
+    "name": "RlRadiusServRejectedReasonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "unknownUser": 1,
+          "illegalPassword": 2,
+          "notAllowedTime": 3,
+          "notSupportedEAPMethod": 4,
+          "notAllowedPrivLevel": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlRadiusServRejectedTable": {
+    "name": "rlRadiusServRejectedTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServRejectedEntry": {
+    "name": "rlRadiusServRejectedEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServRejectedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlRadiusServRejectedIndex": {
+    "name": "rlRadiusServRejectedIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServRejectedUserName": {
+    "name": "rlRadiusServRejectedUserName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedUserType": {
+    "name": "rlRadiusServRejectedUserType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlRadiusServUserType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedEvent": {
+    "name": "rlRadiusServRejectedEvent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlRadiusServRejectedEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedDateTime": {
+    "name": "rlRadiusServRejectedDateTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedUpdatedDateTime": {
+    "name": "rlRadiusServRejectedUpdatedDateTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedNASInetAddressType": {
+    "name": "rlRadiusServRejectedNASInetAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedNASInetAddress": {
+    "name": "rlRadiusServRejectedNASInetAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedNASPort": {
+    "name": "rlRadiusServRejectedNASPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedUserAddress": {
+    "name": "rlRadiusServRejectedUserAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServRejectedReason": {
+    "name": "rlRadiusServRejectedReason",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlRadiusServRejectedReasonType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "RlRadiusServAcctLogUserAuthType": {
+    "name": "RlRadiusServAcctLogUserAuthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "radius": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlRadiusServAcctLogEventType": {
+    "name": "RlRadiusServAcctLogEventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "reboot": 2,
+          "dateTimeChanged": 3,
+          "start": 4,
+          "stop": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlRadiusServAcctLogTerminationReasonType": {
+    "name": "RlRadiusServAcctLogTerminationReasonType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "userRequest": 1,
+          "lostCarrier": 2,
+          "lostService": 3,
+          "idleTimeout": 4,
+          "sessionTimeout": 5,
+          "adminReset": 6,
+          "adminReboot": 7,
+          "portError": 8,
+          "nasError": 9,
+          "nasRequest": 10,
+          "nasReboot": 11,
+          "portUnneeded": 12,
+          "portPreempted": 13,
+          "portSuspended": 14,
+          "serviceUnavailable": 15,
+          "callback": 16,
+          "userError": 17,
+          "hostRequest": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlRadiusServAcctLogTable": {
+    "name": "rlRadiusServAcctLogTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogEntry": {
+    "name": "rlRadiusServAcctLogEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServAcctLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlRadiusServAcctLogIndex": {
+    "name": "rlRadiusServAcctLogIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogUserName": {
+    "name": "rlRadiusServAcctLogUserName",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogUserAuth": {
+    "name": "rlRadiusServAcctLogUserAuth",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlRadiusServAcctLogUserAuthType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogEvent": {
+    "name": "rlRadiusServAcctLogEvent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlRadiusServAcctLogEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogDateTime": {
+    "name": "rlRadiusServAcctLogDateTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogUpdatedDateTime": {
+    "name": "rlRadiusServAcctLogUpdatedDateTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogSessionDuration": {
+    "name": "rlRadiusServAcctLogSessionDuration",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogNASInetAddressType": {
+    "name": "rlRadiusServAcctLogNASInetAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogNASInetAddress": {
+    "name": "rlRadiusServAcctLogNASInetAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogNASPort": {
+    "name": "rlRadiusServAcctLogNASPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogUserAddress": {
+    "name": "rlRadiusServAcctLogUserAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServAcctLogTerminationReason": {
+    "name": "rlRadiusServAcctLogTerminationReason",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlRadiusServAcctLogTerminationReasonType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "RlRadiusServUnknownNasEventType": {
+    "name": "RlRadiusServUnknownNasEventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "reboot": 2,
+          "dateTimeChanged": 3,
+          "nas": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasTable": {
+    "name": "rlRadiusServUnknownNasTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasEntry": {
+    "name": "rlRadiusServUnknownNasEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-RADIUSSRV",
+        "object": "rlRadiusServUnknownNasIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasIndex": {
+    "name": "rlRadiusServUnknownNasIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasEvent": {
+    "name": "rlRadiusServUnknownNasEvent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlRadiusServUnknownNasEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasDateTime": {
+    "name": "rlRadiusServUnknownNasDateTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasUpdatedDateTime": {
+    "name": "rlRadiusServUnknownNasUpdatedDateTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasInetAddressType": {
+    "name": "rlRadiusServUnknownNasInetAddressType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServUnknownNasInetAddress": {
+    "name": "rlRadiusServUnknownNasInetAddress",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlRadiusServClearUnknownNas": {
+    "name": "rlRadiusServClearUnknownNas",
+    "oid": "1.3.6.1.4.1.9.6.1.101.226.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-RADIUSSRV",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-RADIUSSRV"
+  }
+}

@@ -1,0 +1,735 @@
+{
+  "imports": {
+    "class": "imports",
+    "EXTREME-BASE-MIB": [
+      "extremeV2Traps",
+      "extremeAgent",
+      "extremenetworks"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "extremeCable": {
+    "name": "extremeCable",
+    "oid": "1.3.6.1.4.1.1916.1.24",
+    "class": "moduleidentity"
+  },
+  "extremeDiagConfigGroup": {
+    "name": "extremeDiagConfigGroup",
+    "oid": "1.3.6.1.4.1.1916.1.24.1",
+    "class": "objectidentity"
+  },
+  "extremeDiagConfigTime": {
+    "name": "extremeDiagConfigTime",
+    "oid": "1.3.6.1.4.1.1916.1.24.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeDiagConfigRoF": {
+    "name": "extremeDiagConfigRoF",
+    "oid": "1.3.6.1.4.1.1916.1.24.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeDiagPortConfigTable": {
+    "name": "extremeDiagPortConfigTable",
+    "oid": "1.3.6.1.4.1.1916.1.24.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeDiagPortConfigEntry": {
+    "name": "extremeDiagPortConfigEntry",
+    "oid": "1.3.6.1.4.1.1916.1.24.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortCfgPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortCfgMode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeDiagPortCfgPortIfIndex": {
+    "name": "extremeDiagPortCfgPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.24.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortCfgMode": {
+    "name": "extremeDiagPortCfgMode",
+    "oid": "1.3.6.1.4.1.1916.1.24.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortCfgStatus": {
+    "name": "extremeDiagPortCfgStatus",
+    "oid": "1.3.6.1.4.1.1916.1.24.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "run": 3,
+          "diagfail": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "extremeDiagPortDiagTable": {
+    "name": "extremeDiagPortDiagTable",
+    "oid": "1.3.6.1.4.1.1916.1.24.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeDiagPortDiagEntry": {
+    "name": "extremeDiagPortDiagEntry",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortDiagPortIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortDiagMode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeDiagPortDiagPortIfIndex": {
+    "name": "extremeDiagPortDiagPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortDiagMode": {
+    "name": "extremeDiagPortDiagMode",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortSpeed": {
+    "name": "extremeDiagPortSpeed",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed10": 1,
+          "speed100": 2,
+          "speed1000": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortSwapAB": {
+    "name": "extremeDiagPortSwapAB",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swap": 1,
+          "noswap": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortSwapCD": {
+    "name": "extremeDiagPortSwapCD",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "swap": 1,
+          "noswap": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairAPol": {
+    "name": "extremeDiagPortPairAPol",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positive": 1,
+          "negative": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairAFlen": {
+    "name": "extremeDiagPortPairAFlen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairALen": {
+    "name": "extremeDiagPortPairALen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairASkew": {
+    "name": "extremeDiagPortPairASkew",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairAStatus": {
+    "name": "extremeDiagPortPairAStatus",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "short": 2,
+          "terminated": 3,
+          "imperror": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairBPol": {
+    "name": "extremeDiagPortPairBPol",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positive": 1,
+          "negative": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairBFlen": {
+    "name": "extremeDiagPortPairBFlen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairBLen": {
+    "name": "extremeDiagPortPairBLen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairBSkew": {
+    "name": "extremeDiagPortPairBSkew",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairBStatus": {
+    "name": "extremeDiagPortPairBStatus",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "short": 2,
+          "terminated": 3,
+          "imperror": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairCPol": {
+    "name": "extremeDiagPortPairCPol",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positive": 1,
+          "negative": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairCFlen": {
+    "name": "extremeDiagPortPairCFlen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairCLen": {
+    "name": "extremeDiagPortPairCLen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairCSkew": {
+    "name": "extremeDiagPortPairCSkew",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairCStatus": {
+    "name": "extremeDiagPortPairCStatus",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "short": 2,
+          "terminated": 3,
+          "imperror": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairDPol": {
+    "name": "extremeDiagPortPairDPol",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "positive": 1,
+          "negative": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairDFlen": {
+    "name": "extremeDiagPortPairDFlen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairDLen": {
+    "name": "extremeDiagPortPairDLen",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairDSkew": {
+    "name": "extremeDiagPortPairDSkew",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortPairDStatus": {
+    "name": "extremeDiagPortPairDStatus",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "short": 2,
+          "terminated": 3,
+          "imperror": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortDateTime": {
+    "name": "extremeDiagPortDateTime",
+    "oid": "1.3.6.1.4.1.1916.1.24.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 64,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortStatsTable": {
+    "name": "extremeDiagPortStatsTable",
+    "oid": "1.3.6.1.4.1.1916.1.24.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "extremeDiagPortStatsEntry": {
+    "name": "extremeDiagPortStatsEntry",
+    "oid": "1.3.6.1.4.1.1916.1.24.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortStatsPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "extremeDiagPortStatsPortIfIndex": {
+    "name": "extremeDiagPortStatsPortIfIndex",
+    "oid": "1.3.6.1.4.1.1916.1.24.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortStatsNumDiag": {
+    "name": "extremeDiagPortStatsNumDiag",
+    "oid": "1.3.6.1.4.1.1916.1.24.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortStatsNumSuccess": {
+    "name": "extremeDiagPortStatsNumSuccess",
+    "oid": "1.3.6.1.4.1.1916.1.24.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortStatsNumFail": {
+    "name": "extremeDiagPortStatsNumFail",
+    "oid": "1.3.6.1.4.1.1916.1.24.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortStatsNumChange": {
+    "name": "extremeDiagPortStatsNumChange",
+    "oid": "1.3.6.1.4.1.1916.1.24.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeDiagPortStatsNumAbort": {
+    "name": "extremeDiagPortStatsNumAbort",
+    "oid": "1.3.6.1.4.1.1916.1.24.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "extremeCableTraps": {
+    "name": "extremeCableTraps",
+    "oid": "1.3.6.1.4.1.1916.4.13",
+    "class": "objectidentity"
+  },
+  "extremeCableTrapsPrefix": {
+    "name": "extremeCableTrapsPrefix",
+    "oid": "1.3.6.1.4.1.1916.4.13.0",
+    "class": "objectidentity"
+  },
+  "extremeTrapDiagPortDiagnostics": {
+    "name": "extremeTrapDiagPortDiagnostics",
+    "oid": "1.3.6.1.4.1.1916.4.13.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortCfgPortIfIndex"
+      },
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortCfgMode"
+      },
+      {
+        "module": "EXTREME-CABLE-MIB",
+        "object": "extremeDiagPortCfgStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:52 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EXTREME-CABLE-MIB"
+  }
+}

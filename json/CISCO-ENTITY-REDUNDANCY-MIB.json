@@ -1,0 +1,1305 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ENTITY-REDUNDANCY-TC-MIB": [
+      "CeRedunScope",
+      "CeRedunSwitchCommand",
+      "CeRedunArch",
+      "CeRedunMode",
+      "CeRedunStateCategories",
+      "CeRedunMbrStatus",
+      "CeRedunType",
+      "CeRedunReasonCategories"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "AutonomousType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoEntityRedunMIB": {
+    "name": "ciscoEntityRedunMIB",
+    "oid": "1.3.6.1.4.1.9.9.498",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-10-01 00:00",
+        "description": "The initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoEntityRedunMIBNotifs": {
+    "name": "ciscoEntityRedunMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.498.0",
+    "class": "objectidentity"
+  },
+  "ciscoEntityRedunMIBObjects": {
+    "name": "ciscoEntityRedunMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.498.1",
+    "class": "objectidentity"
+  },
+  "ciscoEntityRedunMIBConform": {
+    "name": "ciscoEntityRedunMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.498.2",
+    "class": "objectidentity"
+  },
+  "ceRedunGroup": {
+    "name": "ceRedunGroup",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1",
+    "class": "objectidentity"
+  },
+  "ceRedunGroupTypesTable": {
+    "name": "ceRedunGroupTypesTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunGroupTypesEntry": {
+    "name": "ceRedunGroupTypesEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunGroupTypeIndex": {
+    "name": "ceRedunGroupTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunGroupTypeName": {
+    "name": "ceRedunGroupTypeName",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunGroupCounts": {
+    "name": "ceRedunGroupCounts",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunNextUnusedGroupIndex": {
+    "name": "ceRedunNextUnusedGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMaxMbrsInGroup": {
+    "name": "ceRedunMaxMbrsInGroup",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunUsesGroupName": {
+    "name": "ceRedunUsesGroupName",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunGroupDefinitionChanged": {
+    "name": "ceRedunGroupDefinitionChanged",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunVendorTypesTable": {
+    "name": "ceRedunVendorTypesTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunVendorTypesEntry": {
+    "name": "ceRedunVendorTypesEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunVendorType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunVendorType": {
+    "name": "ceRedunVendorType",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunInternalStatesTable": {
+    "name": "ceRedunInternalStatesTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunInternalStatesEntry": {
+    "name": "ceRedunInternalStatesEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunInternalStateIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunInternalStateIndex": {
+    "name": "ceRedunInternalStateIndex",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunStateCategory": {
+    "name": "ceRedunStateCategory",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunStateCategories",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunInternalStateDescr": {
+    "name": "ceRedunInternalStateDescr",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunSwitchoverReasonTable": {
+    "name": "ceRedunSwitchoverReasonTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunSwitchoverReasonEntry": {
+    "name": "ceRedunSwitchoverReasonEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunSwitchoverReasonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunSwitchoverReasonIndex": {
+    "name": "ceRedunSwitchoverReasonIndex",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunReasonCategory": {
+    "name": "ceRedunReasonCategory",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunReasonCategories",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunSwitchoverReasonDescr": {
+    "name": "ceRedunSwitchoverReasonDescr",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunGroupLastChanged": {
+    "name": "ceRedunGroupLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunGroupTable": {
+    "name": "ceRedunGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunGroupEntry": {
+    "name": "ceRedunGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunGroupIndex": {
+    "name": "ceRedunGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunGroupString": {
+    "name": "ceRedunGroupString",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupRedunType": {
+    "name": "ceRedunGroupRedunType",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupScope": {
+    "name": "ceRedunGroupScope",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunScope",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "local",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupArch": {
+    "name": "ceRedunGroupArch",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunArch",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "onePlusOne",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupRevert": {
+    "name": "ceRedunGroupRevert",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonrevertive": 1,
+          "revertive": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupWaitToRestore": {
+    "name": "ceRedunGroupWaitToRestore",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupDirection": {
+    "name": "ceRedunGroupDirection",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unidirectional": 1,
+          "bidirectional": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupStorageType": {
+    "name": "ceRedunGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunGroupRowStatus": {
+    "name": "ceRedunGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.498.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMembers": {
+    "name": "ceRedunMembers",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2",
+    "class": "objectidentity"
+  },
+  "ceRedunMbrLastChanged": {
+    "name": "ceRedunMbrLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrConfigTable": {
+    "name": "ceRedunMbrConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunMbrConfigEntry": {
+    "name": "ceRedunMbrConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunMbrNumber": {
+    "name": "ceRedunMbrNumber",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunMbrPhysIndex": {
+    "name": "ceRedunMbrPhysIndex",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMbrMode": {
+    "name": "ceRedunMbrMode",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMbrAddressType": {
+    "name": "ceRedunMbrAddressType",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMbrRemoteAddress": {
+    "name": "ceRedunMbrRemoteAddress",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMbrPriority": {
+    "name": "ceRedunMbrPriority",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "low",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMbrStorageType": {
+    "name": "ceRedunMbrStorageType",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMbrRowStatus": {
+    "name": "ceRedunMbrRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ceRedunMbrStatusLastChanged": {
+    "name": "ceRedunMbrStatusLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrStatusTable": {
+    "name": "ceRedunMbrStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunMbrStatusEntry": {
+    "name": "ceRedunMbrStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ceRedunMbrStatusEntry",
+      "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+      "object": "ceRedunMbrConfigEntry"
+    },
+    "status": "current"
+  },
+  "ceRedunMbrStatusCurrent": {
+    "name": "ceRedunMbrStatusCurrent",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunMbrStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrProtectingMbr": {
+    "name": "ceRedunMbrProtectingMbr",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrInternalState": {
+    "name": "ceRedunMbrInternalState",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrSwitchoverCounts": {
+    "name": "ceRedunMbrSwitchoverCounts",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrLastSwitchover": {
+    "name": "ceRedunMbrLastSwitchover",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrSwitchoverReason": {
+    "name": "ceRedunMbrSwitchoverReason",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunMbrSwitchoverSeconds": {
+    "name": "ceRedunMbrSwitchoverSeconds",
+    "oid": "1.3.6.1.4.1.9.9.498.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceRedunCommandTable": {
+    "name": "ceRedunCommandTable",
+    "oid": "1.3.6.1.4.1.9.9.498.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ceRedunCommandEntry": {
+    "name": "ceRedunCommandEntry",
+    "oid": "1.3.6.1.4.1.9.9.498.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunCommandMbrNumber": {
+    "name": "ceRedunCommandMbrNumber",
+    "oid": "1.3.6.1.4.1.9.9.498.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceRedunCommandSwitch": {
+    "name": "ceRedunCommandSwitch",
+    "oid": "1.3.6.1.4.1.9.9.498.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CeRedunSwitchCommand",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceRedunEnableSwitchoverNotifs": {
+    "name": "ceRedunEnableSwitchoverNotifs",
+    "oid": "1.3.6.1.4.1.9.9.498.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceRedunEnableStatusChangeNotifs": {
+    "name": "ceRedunEnableStatusChangeNotifs",
+    "oid": "1.3.6.1.4.1.9.9.498.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ceRedunEventSwitchover": {
+    "name": "ceRedunEventSwitchover",
+    "oid": "1.3.6.1.4.1.9.9.498.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrProtectingMbr"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrStatusCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunProtectStatusChange": {
+    "name": "ceRedunProtectStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.498.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrStatusCurrent"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunCompliances": {
+    "name": "ceRedunCompliances",
+    "oid": "1.3.6.1.4.1.9.9.498.2.1",
+    "class": "objectidentity"
+  },
+  "ceRedunGroups": {
+    "name": "ceRedunGroups",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2",
+    "class": "objectidentity"
+  },
+  "ceRedunCompliance": {
+    "name": "ceRedunCompliance",
+    "oid": "1.3.6.1.4.1.9.9.498.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ceRedunGroupTypeGroup",
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB"
+      },
+      {
+        "object": "ceRedunGroupObjects",
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB"
+      },
+      {
+        "object": "ceRedunMemberConfig",
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB"
+      },
+      {
+        "object": "ceRedunMemberStatus",
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunGroupTypeGroup": {
+    "name": "ceRedunGroupTypeGroup",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunNextUnusedGroupIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMaxMbrsInGroup"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunUsesGroupName"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupDefinitionChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunOptionalGroupTypes": {
+    "name": "ceRedunOptionalGroupTypes",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupTypeName"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupCounts"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunInternalStates": {
+    "name": "ceRedunInternalStates",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunStateCategory"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunInternalStateDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunSwitchoverReason": {
+    "name": "ceRedunSwitchoverReason",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunReasonCategory"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunSwitchoverReasonDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunGroupObjects": {
+    "name": "ceRedunGroupObjects",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupLastChanged"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupString"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupRedunType"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupScope"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupArch"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupStorageType"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunRevertiveGroup": {
+    "name": "ceRedunRevertiveGroup",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupRevert"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupWaitToRestore"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunBidirectional": {
+    "name": "ceRedunBidirectional",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunGroupDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunMemberConfig": {
+    "name": "ceRedunMemberConfig",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrLastChanged"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrPhysIndex"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrMode"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrStorageType"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunRemoteSystem": {
+    "name": "ceRedunRemoteSystem",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrAddressType"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrRemoteAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunOneToN": {
+    "name": "ceRedunOneToN",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunMemberStatus": {
+    "name": "ceRedunMemberStatus",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrStatusLastChanged"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrStatusCurrent"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrProtectingMbr"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrSwitchoverCounts"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrLastSwitchover"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunOptionalMbrStatus": {
+    "name": "ceRedunOptionalMbrStatus",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrInternalState"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrSwitchoverReason"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunMbrSwitchoverSeconds"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunCommandsGroup": {
+    "name": "ceRedunCommandsGroup",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunCommandMbrNumber"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunCommandSwitch"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunNotifEnables": {
+    "name": "ceRedunNotifEnables",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunEnableSwitchoverNotifs"
+      },
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunEnableStatusChangeNotifs"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunSwitchNotifGroup": {
+    "name": "ceRedunSwitchNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunEventSwitchover"
+      }
+    ],
+    "status": "current"
+  },
+  "ceRedunProtectStatusNotifGroup": {
+    "name": "ceRedunProtectStatusNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.498.2.2.16",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ENTITY-REDUNDANCY-MIB",
+        "object": "ceRedunProtectStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ENTITY-REDUNDANCY-MIB"
+  }
+}

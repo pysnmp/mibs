@@ -1,0 +1,1210 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfTotalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFcPmMIB": {
+    "name": "ciscoFcPmMIB",
+    "oid": "1.3.6.1.4.1.9.9.99997",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-02-06 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFcPmMIBNotifs": {
+    "name": "ciscoFcPmMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.99997.0",
+    "class": "objectidentity"
+  },
+  "ciscoFcPmMIBObjects": {
+    "name": "ciscoFcPmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.99997.1",
+    "class": "objectidentity"
+  },
+  "ciscoFcPmMIBConform": {
+    "name": "ciscoFcPmMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.99997.2",
+    "class": "objectidentity"
+  },
+  "cfcpmPortPerfStatus": {
+    "name": "cfcpmPortPerfStatus",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.1",
+    "class": "objectidentity"
+  },
+  "cfcpmPortErrorStatusBlock": {
+    "name": "cfcpmPortErrorStatusBlock",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2",
+    "class": "objectidentity"
+  },
+  "cfcpmPortPerfStatusTable": {
+    "name": "cfcpmPortPerfStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcpmPortPerfStatusEntry": {
+    "name": "cfcpmPortPerfStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcpmTimeElapsed": {
+    "name": "cfcpmTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 899
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmValidIntervals": {
+    "name": "cfcpmValidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmInvalidIntervals": {
+    "name": "cfcpmInvalidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmTotalPortErrorTable": {
+    "name": "cfcpmTotalPortErrorTable",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcpmTotalPortErrorEntry": {
+    "name": "cfcpmTotalPortErrorEntry",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcpmtPortRxLinkResets": {
+    "name": "cfcpmtPortRxLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortTxLinkResets": {
+    "name": "cfcpmtPortTxLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortLinkResets": {
+    "name": "cfcpmtPortLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortRxOfflineSequences": {
+    "name": "cfcpmtPortRxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortTxOfflineSequences": {
+    "name": "cfcpmtPortTxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortLinkFailures": {
+    "name": "cfcpmtPortLinkFailures",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortSynchLosses": {
+    "name": "cfcpmtPortSynchLosses",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortSignalLosses": {
+    "name": "cfcpmtPortSignalLosses",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortPrimSeqProtocolErrors": {
+    "name": "cfcpmtPortPrimSeqProtocolErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortInvalidTxWords": {
+    "name": "cfcpmtPortInvalidTxWords",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortInvalidCRCs": {
+    "name": "cfcpmtPortInvalidCRCs",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortInvalidOrderedSets": {
+    "name": "cfcpmtPortInvalidOrderedSets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortFramesTooLong": {
+    "name": "cfcpmtPortFramesTooLong",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortTruncatedFrames": {
+    "name": "cfcpmtPortTruncatedFrames",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortAddressErrors": {
+    "name": "cfcpmtPortAddressErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortDelimiterErrors": {
+    "name": "cfcpmtPortDelimiterErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortEncDisparityErrors": {
+    "name": "cfcpmtPortEncDisparityErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmtPortOtherErrors": {
+    "name": "cfcpmtPortOtherErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfTotalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmCurrentPortErrorTable": {
+    "name": "cfcpmCurrentPortErrorTable",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcpmCurrentPortErrorEntry": {
+    "name": "cfcpmCurrentPortErrorEntry",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcpmcPortRxLinkResets": {
+    "name": "cfcpmcPortRxLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortTxLinkResets": {
+    "name": "cfcpmcPortTxLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortLinkResets": {
+    "name": "cfcpmcPortLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortRxOfflineSequences": {
+    "name": "cfcpmcPortRxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortTxOfflineSequences": {
+    "name": "cfcpmcPortTxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortLinkFailures": {
+    "name": "cfcpmcPortLinkFailures",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortSynchLosses": {
+    "name": "cfcpmcPortSynchLosses",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortSignalLosses": {
+    "name": "cfcpmcPortSignalLosses",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortPrimSeqProtocolErrors": {
+    "name": "cfcpmcPortPrimSeqProtocolErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortInvalidTxWords": {
+    "name": "cfcpmcPortInvalidTxWords",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortInvalidCRCs": {
+    "name": "cfcpmcPortInvalidCRCs",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortInvalidOrderedSets": {
+    "name": "cfcpmcPortInvalidOrderedSets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortFramesTooLong": {
+    "name": "cfcpmcPortFramesTooLong",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortTruncatedFrames": {
+    "name": "cfcpmcPortTruncatedFrames",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortAddressErrors": {
+    "name": "cfcpmcPortAddressErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortDelimiterErrors": {
+    "name": "cfcpmcPortDelimiterErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortEncDisparityErrors": {
+    "name": "cfcpmcPortEncDisparityErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmcPortOtherErrors": {
+    "name": "cfcpmcPortOtherErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmIntervalPortErrorTable": {
+    "name": "cfcpmIntervalPortErrorTable",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcpmIntervalPortErrorEntry": {
+    "name": "cfcpmIntervalPortErrorEntry",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortErrorIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcpmiPortErrorIntervalNumber": {
+    "name": "cfcpmiPortErrorIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcpmiPortRxLinkResets": {
+    "name": "cfcpmiPortRxLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortTxLinkResets": {
+    "name": "cfcpmiPortTxLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortLinkResets": {
+    "name": "cfcpmiPortLinkResets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortRxOfflineSequences": {
+    "name": "cfcpmiPortRxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortTxOfflineSequences": {
+    "name": "cfcpmiPortTxOfflineSequences",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortLinkFailures": {
+    "name": "cfcpmiPortLinkFailures",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortSynchLosses": {
+    "name": "cfcpmiPortSynchLosses",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortSignalLosses": {
+    "name": "cfcpmiPortSignalLosses",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortPrimSeqProtocolErrors": {
+    "name": "cfcpmiPortPrimSeqProtocolErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortInvalidTxWords": {
+    "name": "cfcpmiPortInvalidTxWords",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortInvalidCRCs": {
+    "name": "cfcpmiPortInvalidCRCs",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortInvalidOrderedSets": {
+    "name": "cfcpmiPortInvalidOrderedSets",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortFramesTooLong": {
+    "name": "cfcpmiPortFramesTooLong",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortTruncatedFrames": {
+    "name": "cfcpmiPortTruncatedFrames",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortAddressErrors": {
+    "name": "cfcpmiPortAddressErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortDelimiterErrors": {
+    "name": "cfcpmiPortDelimiterErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortEncDisparityErrors": {
+    "name": "cfcpmiPortEncDisparityErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortOtherErrors": {
+    "name": "cfcpmiPortOtherErrors",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmiPortValidData": {
+    "name": "cfcpmiPortValidData",
+    "oid": "1.3.6.1.4.1.9.9.99997.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcpmMibCompliances": {
+    "name": "cfcpmMibCompliances",
+    "oid": "1.3.6.1.4.1.9.9.99997.2.1",
+    "class": "objectidentity"
+  },
+  "cfcpmMibGroups": {
+    "name": "cfcpmMibGroups",
+    "oid": "1.3.6.1.4.1.9.9.99997.2.2",
+    "class": "objectidentity"
+  },
+  "cfcpmMibCompliance": {
+    "name": "cfcpmMibCompliance",
+    "oid": "1.3.6.1.4.1.9.9.99997.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfcpmPortStatusGroup",
+        "module": "CISCO-FC-PM-MIB"
+      },
+      {
+        "object": "cfcpmMandatoryGroup",
+        "module": "CISCO-FC-PM-MIB"
+      },
+      {
+        "object": "cfcpmOptionalGroup",
+        "module": "CISCO-FC-PM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcpmPortStatusGroup": {
+    "name": "cfcpmPortStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.99997.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmTimeElapsed"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmValidIntervals"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmInvalidIntervals"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcpmMandatoryGroup": {
+    "name": "cfcpmMandatoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.99997.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortPrimSeqProtocolErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortPrimSeqProtocolErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortPrimSeqProtocolErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortValidData"
+      }
+    ],
+    "status": "current"
+  },
+  "cfcpmOptionalGroup": {
+    "name": "cfcpmOptionalGroup",
+    "oid": "1.3.6.1.4.1.9.9.99997.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortRxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortTxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortRxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortTxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortLinkFailures"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortSynchLosses"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortSignalLosses"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortInvalidTxWords"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortInvalidCRCs"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortInvalidOrderedSets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortFramesTooLong"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortTruncatedFrames"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortAddressErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortDelimiterErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortEncDisparityErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmtPortOtherErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortRxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortTxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortRxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortTxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortLinkFailures"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortSynchLosses"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortSignalLosses"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortInvalidTxWords"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortInvalidCRCs"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortInvalidOrderedSets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortFramesTooLong"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortTruncatedFrames"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortAddressErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortDelimiterErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortEncDisparityErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmcPortOtherErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortRxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortTxLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortLinkResets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortRxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortTxOfflineSequences"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortLinkFailures"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortSynchLosses"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortSignalLosses"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortInvalidTxWords"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortInvalidCRCs"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortInvalidOrderedSets"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortFramesTooLong"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortTruncatedFrames"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortAddressErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortDelimiterErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortEncDisparityErrors"
+      },
+      {
+        "module": "CISCO-FC-PM-MIB",
+        "object": "cfcpmiPortOtherErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-PM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FC-PM-MIB"
+  }
+}

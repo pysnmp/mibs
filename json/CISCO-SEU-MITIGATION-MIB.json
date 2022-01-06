@@ -1,0 +1,851 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoSeuMitigationMIB": {
+    "name": "ciscoSeuMitigationMIB",
+    "oid": "1.3.6.1.4.1.9.9.701",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-24 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSeuMitigationMIBNotifs": {
+    "name": "ciscoSeuMitigationMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.701.0",
+    "class": "objectidentity"
+  },
+  "ciscoSeuMitigationMIBObjects": {
+    "name": "ciscoSeuMitigationMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.701.1",
+    "class": "objectidentity"
+  },
+  "ciscoSeuMitigationMIBConform": {
+    "name": "ciscoSeuMitigationMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.701.2",
+    "class": "objectidentity"
+  },
+  "csmScrubTable": {
+    "name": "csmScrubTable",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmScrubEntry": {
+    "name": "csmScrubEntry",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csmScrubIndex": {
+    "name": "csmScrubIndex",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmScrubEntPhysicalIndex": {
+    "name": "csmScrubEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubScrubName": {
+    "name": "csmScrubScrubName",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubRateAdaptive": {
+    "name": "csmScrubRateAdaptive",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubAlgorithmEnabled": {
+    "name": "csmScrubAlgorithmEnabled",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csmScrubRunInterval": {
+    "name": "csmScrubRunInterval",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csmScrubRunIntervalUnits": {
+    "name": "csmScrubRunIntervalUnits",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "Minutes",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubDeltaInterval": {
+    "name": "csmScrubDeltaInterval",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csmScrubDeltaIntervalUnits": {
+    "name": "csmScrubDeltaIntervalUnits",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "Minutes",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubRetryInterval": {
+    "name": "csmScrubRetryInterval",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csmScrubRetryIntervalUnits": {
+    "name": "csmScrubRetryIntervalUnits",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "Minutes",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubCurrentInterval": {
+    "name": "csmScrubCurrentInterval",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubCurrentIntervalUnits": {
+    "name": "csmScrubCurrentIntervalUnits",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubThresholdInterval": {
+    "name": "csmScrubThresholdInterval",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csmScrubThresholdIntervalUnits": {
+    "name": "csmScrubThresholdIntervalUnits",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "Minutes",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubThresholdIntervalCount": {
+    "name": "csmScrubThresholdIntervalCount",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csmScrubThresholdErrorValue": {
+    "name": "csmScrubThresholdErrorValue",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "csmScrubRunning": {
+    "name": "csmScrubRunning",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubStatus": {
+    "name": "csmScrubStatus",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "elevated": 1,
+          "decreased": 2,
+          "normal": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubLastRun": {
+    "name": "csmScrubLastRun",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubPassesCompleted": {
+    "name": "csmScrubPassesCompleted",
+    "oid": "1.3.6.1.4.1.9.9.701.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubErrorsTable": {
+    "name": "csmScrubErrorsTable",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmScrubErrorsEntry": {
+    "name": "csmScrubErrorsEntry",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csmScrubErrorsIndex": {
+    "name": "csmScrubErrorsIndex",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmScrubErrorsEntPhysicalIndex": {
+    "name": "csmScrubErrorsEntPhysicalIndex",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubErrorsDescription": {
+    "name": "csmScrubErrorsDescription",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubErrorsReference": {
+    "name": "csmScrubErrorsReference",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubErrorsSingleBit": {
+    "name": "csmScrubErrorsSingleBit",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubErrorsSingleBitInterrupts": {
+    "name": "csmScrubErrorsSingleBitInterrupts",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubErrorsMultibit": {
+    "name": "csmScrubErrorsMultibit",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmScrubErrorsMultibitInterrupts": {
+    "name": "csmScrubErrorsMultibitInterrupts",
+    "oid": "1.3.6.1.4.1.9.9.701.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmSeuEventLogMaxEntries": {
+    "name": "csmSeuEventLogMaxEntries",
+    "oid": "1.3.6.1.4.1.9.9.701.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmSeuEventLogTable": {
+    "name": "csmSeuEventLogTable",
+    "oid": "1.3.6.1.4.1.9.9.701.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmSeuEventLogEntry": {
+    "name": "csmSeuEventLogEntry",
+    "oid": "1.3.6.1.4.1.9.9.701.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmSeuEventLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csmSeuEventLogIndex": {
+    "name": "csmSeuEventLogIndex",
+    "oid": "1.3.6.1.4.1.9.9.701.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmSeuEventLogDescription": {
+    "name": "csmSeuEventLogDescription",
+    "oid": "1.3.6.1.4.1.9.9.701.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 64,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmSeuEventLogReference": {
+    "name": "csmSeuEventLogReference",
+    "oid": "1.3.6.1.4.1.9.9.701.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmSeuEventLogAddress": {
+    "name": "csmSeuEventLogAddress",
+    "oid": "1.3.6.1.4.1.9.9.701.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmSeuEventLogTimeStamp": {
+    "name": "csmSeuEventLogTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.701.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmSeuScrubAlert": {
+    "name": "csmSeuScrubAlert",
+    "oid": "1.3.6.1.4.1.9.9.701.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSeuMitigationMIBCompliances": {
+    "name": "ciscoSeuMitigationMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.701.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoSeuMitigationMIBGroups": {
+    "name": "ciscoSeuMitigationMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.701.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoSeuMitigationMIBCompliance": {
+    "name": "ciscoSeuMitigationMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.701.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoSeuMitigationMIBMainObjectGroup",
+        "module": "CISCO-SEU-MITIGATION-MIB"
+      },
+      {
+        "object": "ciscoSeuMitigationMIBNotificationGroup",
+        "module": "CISCO-SEU-MITIGATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSeuMitigationMIBMainObjectGroup": {
+    "name": "ciscoSeuMitigationMIBMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.701.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubEntPhysicalIndex"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubAlgorithmEnabled"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubScrubName"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubRateAdaptive"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubRunInterval"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubRunIntervalUnits"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubDeltaInterval"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubDeltaIntervalUnits"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubRetryInterval"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubRetryIntervalUnits"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubThresholdInterval"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubThresholdIntervalUnits"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubCurrentInterval"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubCurrentIntervalUnits"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubThresholdIntervalCount"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubThresholdErrorValue"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubRunning"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubStatus"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubLastRun"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubPassesCompleted"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsEntPhysicalIndex"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsDescription"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsReference"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsSingleBit"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsSingleBitInterrupts"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsMultibit"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmScrubErrorsMultibitInterrupts"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmSeuEventLogMaxEntries"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmSeuEventLogDescription"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmSeuEventLogReference"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmSeuEventLogAddress"
+      },
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmSeuEventLogTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSeuMitigationMIBNotificationGroup": {
+    "name": "ciscoSeuMitigationMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.701.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SEU-MITIGATION-MIB",
+        "object": "csmSeuScrubAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SEU-MITIGATION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SEU-MITIGATION-MIB"
+  }
+}

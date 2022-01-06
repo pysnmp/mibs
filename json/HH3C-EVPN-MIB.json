@@ -1,0 +1,321 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hh3cEvpn": {
+    "name": "hh3cEvpn",
+    "oid": "1.3.6.1.4.1.25506.2.173",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-10-21 09:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hh3cEvpnObjects": {
+    "name": "hh3cEvpnObjects",
+    "oid": "1.3.6.1.4.1.25506.2.173.1",
+    "class": "objectidentity"
+  },
+  "hh3cEvpnESTable": {
+    "name": "hh3cEvpnESTable",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEvpnESEntry": {
+    "name": "hh3cEvpnESEntry",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-EVPN-MIB",
+        "object": "hh3cEvpnESESI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEvpnESESI": {
+    "name": "hh3cEvpnESESI",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEvpnESIfIndex": {
+    "name": "hh3cEvpnESIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESIfName": {
+    "name": "hh3cEvpnESIfName",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESMode": {
+    "name": "hh3cEvpnESMode",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESMemberTable": {
+    "name": "hh3cEvpnESMemberTable",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEvpnESMemberEntry": {
+    "name": "hh3cEvpnESMemberEntry",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-EVPN-MIB",
+        "object": "hh3cEvpnESESI",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-EVPN-MIB",
+        "object": "hh3cEvpnESMemberIPType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-EVPN-MIB",
+        "object": "hh3cEvpnESMemberIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEvpnESMemberIPType": {
+    "name": "hh3cEvpnESMemberIPType",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEvpnESMemberIP": {
+    "name": "hh3cEvpnESMemberIP",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEvpnESMemberIsSelf": {
+    "name": "hh3cEvpnESMemberIsSelf",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESDFTable": {
+    "name": "hh3cEvpnESDFTable",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEvpnESDFEntry": {
+    "name": "hh3cEvpnESDFEntry",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-EVPN-MIB",
+        "object": "hh3cEvpnESESI",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-EVPN-MIB",
+        "object": "hh3cEvpnESDFVLANID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cEvpnESDFVLANID": {
+    "name": "hh3cEvpnESDFVLANID",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cEvpnESDFAcIfIndex": {
+    "name": "hh3cEvpnESDFAcIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESDFACEvcSrvInstId": {
+    "name": "hh3cEvpnESDFACEvcSrvInstId",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESDFMode": {
+    "name": "hh3cEvpnESDFMode",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESDFRouterIPType": {
+    "name": "hh3cEvpnESDFRouterIPType",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cEvpnESDFRouterIP": {
+    "name": "hh3cEvpnESDFRouterIP",
+    "oid": "1.3.6.1.4.1.25506.2.173.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-EVPN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-EVPN-MIB"
+  }
+}

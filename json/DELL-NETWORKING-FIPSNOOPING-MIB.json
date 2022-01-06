@@ -1,0 +1,2129 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qVlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dellNetFipSnooping": {
+    "name": "dellNetFipSnooping",
+    "oid": "1.3.6.1.4.1.6027.3.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-12-08 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dellNetFIPSCfgGroup": {
+    "name": "dellNetFIPSCfgGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.1",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSAdminMode": {
+    "name": "dellNetFIPSAdminMode",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSFCMAP": {
+    "name": "dellNetFIPSFCMAP",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0x0EFC00",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSStatsClear": {
+    "name": "dellNetFIPSStatsClear",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "ignore": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSVlanCfgTable": {
+    "name": "dellNetFIPSVlanCfgTable",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSVlanCfgEntry": {
+    "name": "dellNetFIPSVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSVlanAdminMode": {
+    "name": "dellNetFIPSVlanAdminMode",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFCMAP": {
+    "name": "dellNetFIPSVlanFCMAP",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0x0EFC00",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSVlanStatsClear": {
+    "name": "dellNetFIPSVlanStatsClear",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "ignore": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSIntfTable": {
+    "name": "dellNetFIPSIntfTable",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSIntfEntry": {
+    "name": "dellNetFIPSIntfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSIntfPortModeFcf": {
+    "name": "dellNetFIPSIntfPortModeFcf",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "fcf": 1,
+          "fcoetrusted": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSIntfStatsClear": {
+    "name": "dellNetFIPSIntfStatsClear",
+    "oid": "1.3.6.1.4.1.6027.3.22.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "ignore": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dellNetFIPSStatusGroup": {
+    "name": "dellNetFIPSStatusGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.2",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSSessionTable": {
+    "name": "dellNetFIPSSessionTable",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSSessionEntry": {
+    "name": "dellNetFIPSSessionEntry",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionFCFMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionENodeMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionLoginType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCoEMacAddr",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionTentativeIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionFCID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSSessionVlanIndex": {
+    "name": "dellNetFIPSSessionVlanIndex",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSSessionFCFMacAddr": {
+    "name": "dellNetFIPSSessionFCFMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSSessionENodeMacAddr": {
+    "name": "dellNetFIPSSessionENodeMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSSessionLoginType": {
+    "name": "dellNetFIPSSessionLoginType",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flogi": 0,
+          "fdisc": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSFCoEMacAddr": {
+    "name": "dellNetFIPSFCoEMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSSessionTentativeIndex": {
+    "name": "dellNetFIPSSessionTentativeIndex",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSSessionFCID": {
+    "name": "dellNetFIPSSessionFCID",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSSessionENodeIntf": {
+    "name": "dellNetFIPSSessionENodeIntf",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSSessionFCFIntf": {
+    "name": "dellNetFIPSSessionFCFIntf",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSSessionTime": {
+    "name": "dellNetFIPSSessionTime",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSSessionExpiryTime": {
+    "name": "dellNetFIPSSessionExpiryTime",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 450
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSSessionState": {
+    "name": "dellNetFIPSSessionState",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeTable": {
+    "name": "dellNetFIPSENodeTable",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSENodeEntry": {
+    "name": "dellNetFIPSENodeEntry",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSENodeVlanIndex": {
+    "name": "dellNetFIPSENodeVlanIndex",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSENodeMacAddr": {
+    "name": "dellNetFIPSENodeMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSENodeIntf": {
+    "name": "dellNetFIPSENodeIntf",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeNameID": {
+    "name": "dellNetFIPSENodeNameID",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeMaxFCoESize": {
+    "name": "dellNetFIPSENodeMaxFCoESize",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeConnectedFCFsCount": {
+    "name": "dellNetFIPSENodeConnectedFCFsCount",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeActiveSessions": {
+    "name": "dellNetFIPSENodeActiveSessions",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeWaitingSessions": {
+    "name": "dellNetFIPSENodeWaitingSessions",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeRejectedSessions": {
+    "name": "dellNetFIPSENodeRejectedSessions",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSENodeTimeSinceDiscovered": {
+    "name": "dellNetFIPSENodeTimeSinceDiscovered",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFTable": {
+    "name": "dellNetFIPSFCFTable",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSFCFEntry": {
+    "name": "dellNetFIPSFCFEntry",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSFCFVlanIndex": {
+    "name": "dellNetFIPSFCFVlanIndex",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSFCFMacAddr": {
+    "name": "dellNetFIPSFCFMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSFCFIntf": {
+    "name": "dellNetFIPSFCFIntf",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFNameID": {
+    "name": "dellNetFIPSFCFNameID",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFFabricName": {
+    "name": "dellNetFIPSFCFFabricName",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFAddressingMode": {
+    "name": "dellNetFIPSFCFAddressingMode",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fpma": 1,
+          "spma": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFPriority": {
+    "name": "dellNetFIPSFCFPriority",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFDbit": {
+    "name": "dellNetFIPSFCFDbit",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFIsAvailableForLogin": {
+    "name": "dellNetFIPSFCFIsAvailableForLogin",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFConfiguredFKA": {
+    "name": "dellNetFIPSFCFConfiguredFKA",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 450
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFTimeSinceDiscovered": {
+    "name": "dellNetFIPSFCFTimeSinceDiscovered",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFConnectedENodesCount": {
+    "name": "dellNetFIPSFCFConnectedENodesCount",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFSessions": {
+    "name": "dellNetFIPSFCFSessions",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSFCFExpiryTime": {
+    "name": "dellNetFIPSFCFExpiryTime",
+    "oid": "1.3.6.1.4.1.6027.3.22.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSStatisticsGroup": {
+    "name": "dellNetFIPSStatisticsGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.3",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSVlanStatsTable": {
+    "name": "dellNetFIPSVlanStatsTable",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSVlanStatsEntry": {
+    "name": "dellNetFIPSVlanStatsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSVlanVlanRequests": {
+    "name": "dellNetFIPSVlanVlanRequests",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanVlanNotifications": {
+    "name": "dellNetFIPSVlanVlanNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanMCDiscSolicits": {
+    "name": "dellNetFIPSVlanMCDiscSolicits",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanUnicastDiscSolicits": {
+    "name": "dellNetFIPSVlanUnicastDiscSolicits",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFLogis": {
+    "name": "dellNetFIPSVlanFLogis",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFDiscs": {
+    "name": "dellNetFIPSVlanFDiscs",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFLogouts": {
+    "name": "dellNetFIPSVlanFLogouts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanVnPortKeepAlives": {
+    "name": "dellNetFIPSVlanVnPortKeepAlives",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanMCDiscAdverts": {
+    "name": "dellNetFIPSVlanMCDiscAdverts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanUnicastDiscAdverts": {
+    "name": "dellNetFIPSVlanUnicastDiscAdverts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFLogiAccepts": {
+    "name": "dellNetFIPSVlanFLogiAccepts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFLogiRejects": {
+    "name": "dellNetFIPSVlanFLogiRejects",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFDiscAccepts": {
+    "name": "dellNetFIPSVlanFDiscAccepts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFDiscRejects": {
+    "name": "dellNetFIPSVlanFDiscRejects",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFLogoutAccepts": {
+    "name": "dellNetFIPSVlanFLogoutAccepts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFLogoutRejects": {
+    "name": "dellNetFIPSVlanFLogoutRejects",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanClearVirtLinks": {
+    "name": "dellNetFIPSVlanClearVirtLinks",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanVnPortSeshTimeouts": {
+    "name": "dellNetFIPSVlanVnPortSeshTimeouts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanFcfDiscAdvTimeouts": {
+    "name": "dellNetFIPSVlanFcfDiscAdvTimeouts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanSeshFailsDueToHwCfg": {
+    "name": "dellNetFIPSVlanSeshFailsDueToHwCfg",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanSeshDenyFcfLmtRch": {
+    "name": "dellNetFIPSVlanSeshDenyFcfLmtRch",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanSeshDenyENodeLmtRch": {
+    "name": "dellNetFIPSVlanSeshDenyENodeLmtRch",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSVlanSeshDenySysLmtRch": {
+    "name": "dellNetFIPSVlanSeshDenySysLmtRch",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfStatsTable": {
+    "name": "dellNetFIPSIntfStatsTable",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFIPSIntfStatsEntry": {
+    "name": "dellNetFIPSIntfStatsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSIntfVlanRequests": {
+    "name": "dellNetFIPSIntfVlanRequests",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfVlanNotifications": {
+    "name": "dellNetFIPSIntfVlanNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfMCDiscSolicits": {
+    "name": "dellNetFIPSIntfMCDiscSolicits",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfUnicastDiscSolicits": {
+    "name": "dellNetFIPSIntfUnicastDiscSolicits",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFLogis": {
+    "name": "dellNetFIPSIntfFLogis",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFDiscs": {
+    "name": "dellNetFIPSIntfFDiscs",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFLogouts": {
+    "name": "dellNetFIPSIntfFLogouts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfVnPortKeepAlives": {
+    "name": "dellNetFIPSIntfVnPortKeepAlives",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfMCDiscAdverts": {
+    "name": "dellNetFIPSIntfMCDiscAdverts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfUnicastDiscAdverts": {
+    "name": "dellNetFIPSIntfUnicastDiscAdverts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFLogiAccepts": {
+    "name": "dellNetFIPSIntfFLogiAccepts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFLogiRejects": {
+    "name": "dellNetFIPSIntfFLogiRejects",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFDiscAccepts": {
+    "name": "dellNetFIPSIntfFDiscAccepts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFDiscRejects": {
+    "name": "dellNetFIPSIntfFDiscRejects",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFLogoutAccepts": {
+    "name": "dellNetFIPSIntfFLogoutAccepts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFLogoutRejects": {
+    "name": "dellNetFIPSIntfFLogoutRejects",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfClearVirtLinks": {
+    "name": "dellNetFIPSIntfClearVirtLinks",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfVnPortSeshTimeouts": {
+    "name": "dellNetFIPSIntfVnPortSeshTimeouts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfFcfDiscAdvTimeouts": {
+    "name": "dellNetFIPSIntfFcfDiscAdvTimeouts",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfSeshFailsDueToHwCfg": {
+    "name": "dellNetFIPSIntfSeshFailsDueToHwCfg",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfSeshDenyFcfLmtRch": {
+    "name": "dellNetFIPSIntfSeshDenyFcfLmtRch",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfSeshDenyENodeLmtRch": {
+    "name": "dellNetFIPSIntfSeshDenyENodeLmtRch",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSIntfSeshDenySysLmtRch": {
+    "name": "dellNetFIPSIntfSeshDenySysLmtRch",
+    "oid": "1.3.6.1.4.1.6027.3.22.3.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFIPSNotifications": {
+    "name": "dellNetFIPSNotifications",
+    "oid": "1.3.6.1.4.1.6027.3.22.4",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSTraps": {
+    "name": "dellNetFIPSTraps",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSTrapObjects": {
+    "name": "dellNetFIPSTrapObjects",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.1",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSTrapVlanIndex": {
+    "name": "dellNetFIPSTrapVlanIndex",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetFIPSTrapMacAddr": {
+    "name": "dellNetFIPSTrapMacAddr",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "dellNetMaxFcfsInVlanLmtRchTrap": {
+    "name": "dellNetMaxFcfsInVlanLmtRchTrap",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetMaxENodesLmtRchTrap": {
+    "name": "dellNetMaxENodesLmtRchTrap",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dellNetMaxSessionLmtRchTrap": {
+    "name": "dellNetMaxSessionLmtRchTrap",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dellNetFcfDroppedTrap": {
+    "name": "dellNetFcfDroppedTrap",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapVlanIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFIntf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetENodeDroppedTrap": {
+    "name": "dellNetENodeDroppedTrap",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapVlanIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeIntf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetSessionRequestDroppedTrap": {
+    "name": "dellNetSessionRequestDroppedTrap",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapVlanIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeIntf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetAclInstallationFailureTrap": {
+    "name": "dellNetAclInstallationFailureTrap",
+    "oid": "1.3.6.1.4.1.6027.3.22.4.0.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dellNetFIPSMibConformance": {
+    "name": "dellNetFIPSMibConformance",
+    "oid": "1.3.6.1.4.1.6027.3.22.5",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSMibCompliances": {
+    "name": "dellNetFIPSMibCompliances",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.1",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSMibGroups": {
+    "name": "dellNetFIPSMibGroups",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2",
+    "class": "objectidentity"
+  },
+  "dellNetFIPSMibCompliance": {
+    "name": "dellNetFIPSMibCompliance",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dellNetFIPSCfgObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSVlanCfgObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSIntfObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSSessionObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSENodeObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSFCFObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSVlanStatsObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSIntfStatsObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSTrapsObjectGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      },
+      {
+        "object": "dellNetFIPSTrapObjectsGroup",
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSCfgObjectGroup": {
+    "name": "dellNetFIPSCfgObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSAdminMode"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCMAP"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSVlanCfgObjectGroup": {
+    "name": "dellNetFIPSVlanCfgObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanAdminMode"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFCMAP"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSIntfObjectGroup": {
+    "name": "dellNetFIPSIntfObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfPortModeFcf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSSessionObjectGroup": {
+    "name": "dellNetFIPSSessionObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionENodeIntf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionFCFIntf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionTime"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionExpiryTime"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSSessionState"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfStatsClear"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSENodeObjectGroup": {
+    "name": "dellNetFIPSENodeObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeIntf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeNameID"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeMaxFCoESize"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeConnectedFCFsCount"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeActiveSessions"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeWaitingSessions"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeRejectedSessions"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSENodeTimeSinceDiscovered"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSFCFObjectGroup": {
+    "name": "dellNetFIPSFCFObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFIntf"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFNameID"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFFabricName"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFAddressingMode"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFPriority"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFDbit"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFIsAvailableForLogin"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFConfiguredFKA"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFTimeSinceDiscovered"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFConnectedENodesCount"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFSessions"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSFCFExpiryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSVlanStatsObjectGroup": {
+    "name": "dellNetFIPSVlanStatsObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanVlanRequests"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanVlanNotifications"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanMCDiscSolicits"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanUnicastDiscSolicits"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFLogis"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFDiscs"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFLogouts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanVnPortKeepAlives"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanMCDiscAdverts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanUnicastDiscAdverts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFLogiAccepts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFLogiRejects"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFDiscAccepts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFDiscRejects"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFLogoutAccepts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFLogoutRejects"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanClearVirtLinks"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanVnPortSeshTimeouts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanFcfDiscAdvTimeouts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanSeshFailsDueToHwCfg"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanSeshDenyFcfLmtRch"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanSeshDenyENodeLmtRch"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSVlanSeshDenySysLmtRch"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSIntfStatsObjectGroup": {
+    "name": "dellNetFIPSIntfStatsObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfVlanRequests"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfVlanNotifications"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfMCDiscSolicits"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfUnicastDiscSolicits"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFLogis"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFDiscs"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFLogouts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfVnPortKeepAlives"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfMCDiscAdverts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfUnicastDiscAdverts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFLogiAccepts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFLogiRejects"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFDiscAccepts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFDiscRejects"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFLogoutAccepts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFLogoutRejects"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfClearVirtLinks"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfVnPortSeshTimeouts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfFcfDiscAdvTimeouts"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfSeshFailsDueToHwCfg"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfSeshDenyFcfLmtRch"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfSeshDenyENodeLmtRch"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSIntfSeshDenySysLmtRch"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSTrapsObjectGroup": {
+    "name": "dellNetFIPSTrapsObjectGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetMaxFcfsInVlanLmtRchTrap"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetMaxENodesLmtRchTrap"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetMaxSessionLmtRchTrap"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFcfDroppedTrap"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetENodeDroppedTrap"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetSessionRequestDroppedTrap"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetAclInstallationFailureTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFIPSTrapObjectsGroup": {
+    "name": "dellNetFIPSTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.6027.3.22.5.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapVlanIndex"
+      },
+      {
+        "module": "DELL-NETWORKING-FIPSNOOPING-MIB",
+        "object": "dellNetFIPSTrapMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-FIPSNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-FIPSNOOPING-MIB"
+  }
+}

@@ -1,0 +1,1232 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-DOT11-IF-MIB": [
+      "CDot11IfVlanIdOrZero"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IEEE802dot11-MIB": [
+      "dot11AuthenticationAlgorithmsIndex"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoDot11SsidSecMIB": {
+    "name": "ciscoDot11SsidSecMIB",
+    "oid": "1.3.6.1.4.1.9.9.413",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-12 00:00",
+        "description": "The following changes have been made - Added the following enumerations to CDot11SecAuthKeyMgmtType. - 'wpa1' - 'wpa2' - Added more explanations for the object cdot11SecAuxSsidAuthKeyMgmt to describe about the new key management 'wpa1' and 'wpa2'."
+      },
+      {
+        "revision": "2006-05-16 00:00",
+        "description": "Add cdot11SecSsidMaxBackupVlans, and cdot11SecSsidBackupVlanTable, and cdot11SecSsidvlanManagementGroup to manage the backup VLAN configuration."
+      },
+      {
+        "revision": "2004-09-14 00:00",
+        "description": "Added cdot11MbssidMacAddrSupportTable and cdot11MbssidInterfaceTable to support MBSSID feature."
+      },
+      {
+        "revision": "2004-05-15 00:00",
+        "description": "This is the initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDot11SsidSecMIBObjects": {
+    "name": "ciscoDot11SsidSecMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.413.1",
+    "class": "objectidentity"
+  },
+  "cdot11SecSsidManagement": {
+    "name": "cdot11SecSsidManagement",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1",
+    "class": "objectidentity"
+  },
+  "cdot11SecAuthManagement": {
+    "name": "cdot11SecAuthManagement",
+    "oid": "1.3.6.1.4.1.9.9.413.1.2",
+    "class": "objectidentity"
+  },
+  "cdot11SecStatistics": {
+    "name": "cdot11SecStatistics",
+    "oid": "1.3.6.1.4.1.9.9.413.1.3",
+    "class": "objectidentity"
+  },
+  "cdot11SecVlanManagement": {
+    "name": "cdot11SecVlanManagement",
+    "oid": "1.3.6.1.4.1.9.9.413.1.4",
+    "class": "objectidentity"
+  },
+  "CDot11SecAuthKeyMgmtType": {
+    "name": "CDot11SecAuthKeyMgmtType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cckm": 0,
+        "wpa": 1,
+        "wpa1": 2,
+        "wpa2": 3
+      }
+    },
+    "status": "current"
+  },
+  "CDot11WiFiPaPreSharedKey": {
+    "name": "CDot11WiFiPaPreSharedKey",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CDot11SsidString": {
+    "name": "CDot11SsidString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CDot11VlanName": {
+    "name": "CDot11VlanName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CDot11InformationElementType": {
+    "name": "CDot11InformationElementType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ssidl": 0,
+        "advertisement": 1,
+        "wps": 2
+      }
+    },
+    "status": "current"
+  },
+  "cdot11SecAuxSsidTable": {
+    "name": "cdot11SecAuxSsidTable",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidEntry": {
+    "name": "cdot11SecAuxSsidEntry",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecAuxSsid": {
+    "name": "cdot11SecAuxSsid",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11SsidString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidBroadcast": {
+    "name": "cdot11SecAuxSsidBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidInfraStruct": {
+    "name": "cdot11SecAuxSsidInfraStruct",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "infraStructure": 1,
+          "nonInfraStructure": 2,
+          "optional": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nonInfraStructure",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidProxyMobileIp": {
+    "name": "cdot11SecAuxSsidProxyMobileIp",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidMaxStations": {
+    "name": "cdot11SecAuxSsidMaxStations",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2007
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidVlan": {
+    "name": "cdot11SecAuxSsidVlan",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidWpaPsk": {
+    "name": "cdot11SecAuxSsidWpaPsk",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11WiFiPaPreSharedKey",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxRadiusAccounting": {
+    "name": "cdot11SecAuxRadiusAccounting",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidLoginUsername": {
+    "name": "cdot11SecAuxSsidLoginUsername",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidLoginPassword": {
+    "name": "cdot11SecAuxSsidLoginPassword",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthKeyMgmt": {
+    "name": "cdot11SecAuxSsidAuthKeyMgmt",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11SecAuthKeyMgmtType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthKeyMgmtOpt": {
+    "name": "cdot11SecAuxSsidAuthKeyMgmtOpt",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidRowStatus": {
+    "name": "cdot11SecAuxSsidRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidWirelessNetId": {
+    "name": "cdot11SecAuxSsidWirelessNetId",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecSsidRedirectAddrType": {
+    "name": "cdot11SecSsidRedirectAddrType",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecSsidRedirectDestAddr": {
+    "name": "cdot11SecSsidRedirectDestAddr",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecSsidRedirectFilter": {
+    "name": "cdot11SecSsidRedirectFilter",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecSsidInformationElement": {
+    "name": "cdot11SecSsidInformationElement",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11InformationElementType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidVlanName": {
+    "name": "cdot11SecAuxSsidVlanName",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11VlanName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": " ",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidMbssidBroadcast": {
+    "name": "cdot11SecAuxSsidMbssidBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidMbssidDtimPeriod": {
+    "name": "cdot11SecAuxSsidMbssidDtimPeriod",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "beacons",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthTable": {
+    "name": "cdot11SecAuxSsidAuthTable",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthEntry": {
+    "name": "cdot11SecAuxSsidAuthEntry",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsid",
+        "implied": 0
+      },
+      {
+        "module": "IEEE802dot11-MIB",
+        "object": "dot11AuthenticationAlgorithmsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthEnabled": {
+    "name": "cdot11SecAuxSsidAuthEnabled",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthPlusEap": {
+    "name": "cdot11SecAuxSsidAuthPlusEap",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthPlusMac": {
+    "name": "cdot11SecAuxSsidAuthPlusMac",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthEapMethod": {
+    "name": "cdot11SecAuxSsidAuthEapMethod",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthMacMethod": {
+    "name": "cdot11SecAuxSsidAuthMacMethod",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecAuxSsidAuthMacAlternate": {
+    "name": "cdot11SecAuxSsidAuthMacAlternate",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecInterfSsidTable": {
+    "name": "cdot11SecInterfSsidTable",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecInterfSsidEntry": {
+    "name": "cdot11SecInterfSsidEntry",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecInterfSsidRowStatus": {
+    "name": "cdot11SecInterfSsidRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11MbssidMacAddrSupportTable": {
+    "name": "cdot11MbssidMacAddrSupportTable",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11MbssidMacAddrSupportEntry": {
+    "name": "cdot11MbssidMacAddrSupportEntry",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11MbssidMacAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11MbssidMacAddrIndex": {
+    "name": "cdot11MbssidMacAddrIndex",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot11MbssidMacAddrSupported": {
+    "name": "cdot11MbssidMacAddrSupported",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot11MbssidInterfaceTable": {
+    "name": "cdot11MbssidInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11MbssidInterfaceEntry": {
+    "name": "cdot11MbssidInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsid",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11MbssidIfMacAddress": {
+    "name": "cdot11MbssidIfMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot11MbssidIfBroadcast": {
+    "name": "cdot11MbssidIfBroadcast",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot11SecSsidMaxBackupVlans": {
+    "name": "cdot11SecSsidMaxBackupVlans",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecSsidBackupVlanTable": {
+    "name": "cdot11SecSsidBackupVlanTable",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecSsidBackupVlanEntry": {
+    "name": "cdot11SecSsidBackupVlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecSsidBackupVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecSsidBackupVlan": {
+    "name": "cdot11SecSsidBackupVlan",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecSsidBackupVlanRowStatus": {
+    "name": "cdot11SecSsidBackupVlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.413.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecLocalAuthServerEnabled": {
+    "name": "cdot11SecLocalAuthServerEnabled",
+    "oid": "1.3.6.1.4.1.9.9.413.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot11SecVlanNameTable": {
+    "name": "cdot11SecVlanNameTable",
+    "oid": "1.3.6.1.4.1.9.9.413.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecVlanNameEntry": {
+    "name": "cdot11SecVlanNameEntry",
+    "oid": "1.3.6.1.4.1.9.9.413.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecVlanName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecVlanName": {
+    "name": "cdot11SecVlanName",
+    "oid": "1.3.6.1.4.1.9.9.413.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11VlanName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot11SecVlanNameId": {
+    "name": "cdot11SecVlanNameId",
+    "oid": "1.3.6.1.4.1.9.9.413.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdot11SecVlanNameRowStatus": {
+    "name": "cdot11SecVlanNameRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.413.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoDot11SsidSecMIBConformance": {
+    "name": "ciscoDot11SsidSecMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.413.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11SsidSecMIBCompliances": {
+    "name": "ciscoDot11SsidSecMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.413.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDot11SsidSecMIBGroups": {
+    "name": "ciscoDot11SsidSecMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.413.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDot11SsidSecCompliance": {
+    "name": "ciscoDot11SsidSecCompliance",
+    "oid": "1.3.6.1.4.1.9.9.413.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdot11SecSsidManagementGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11SsidAuthenticationGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11ModuleAuthenticationGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11SecVlanManagementGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11MbssidSupportGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11SsidSecComplianceRev1": {
+    "name": "ciscoDot11SsidSecComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.413.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdot11SecSsidManagementGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11SsidAuthenticationGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11ModuleAuthenticationGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11SecSsidBackupVlanManagementGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11SecVlanManagementGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      },
+      {
+        "object": "cdot11MbssidSupportGroup",
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecSsidManagementGroup": {
+    "name": "cdot11SecSsidManagementGroup",
+    "oid": "1.3.6.1.4.1.9.9.413.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidBroadcast"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidInfraStruct"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidProxyMobileIp"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidMaxStations"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidVlan"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidWpaPsk"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxRadiusAccounting"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidLoginUsername"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidLoginPassword"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthKeyMgmt"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthKeyMgmtOpt"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidRowStatus"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidWirelessNetId"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecSsidRedirectAddrType"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecSsidRedirectDestAddr"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecSsidRedirectFilter"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecSsidInformationElement"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidVlanName"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecInterfSsidRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SsidAuthenticationGroup": {
+    "name": "cdot11SsidAuthenticationGroup",
+    "oid": "1.3.6.1.4.1.9.9.413.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthEnabled"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthPlusEap"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthPlusMac"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthEapMethod"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthMacMethod"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidAuthMacAlternate"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11ModuleAuthenticationGroup": {
+    "name": "cdot11ModuleAuthenticationGroup",
+    "oid": "1.3.6.1.4.1.9.9.413.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecLocalAuthServerEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecVlanManagementGroup": {
+    "name": "cdot11SecVlanManagementGroup",
+    "oid": "1.3.6.1.4.1.9.9.413.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecVlanNameId"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecVlanNameRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11MbssidSupportGroup": {
+    "name": "cdot11MbssidSupportGroup",
+    "oid": "1.3.6.1.4.1.9.9.413.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidMbssidBroadcast"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecAuxSsidMbssidDtimPeriod"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11MbssidMacAddrIndex"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11MbssidMacAddrSupported"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11MbssidIfMacAddress"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11MbssidIfBroadcast"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot11SecSsidBackupVlanManagementGroup": {
+    "name": "cdot11SecSsidBackupVlanManagementGroup",
+    "oid": "1.3.6.1.4.1.9.9.413.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecSsidBackupVlanRowStatus"
+      },
+      {
+        "module": "CISCO-DOT11-SSID-SECURITY-MIB",
+        "object": "cdot11SecSsidMaxBackupVlans"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-SSID-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DOT11-SSID-SECURITY-MIB"
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwTask": {
+    "name": "hwTask",
+    "oid": "1.3.6.1.4.1.2011.5.25.27",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-08-17 00:00",
+        "description": "V2.02, Modify hwKeyTaskIndex."
+      },
+      {
+        "revision": "2014-09-25 00:00",
+        "description": "V2.01, modify hwKeyTaskIndex, hwKeyTaskID and hwKeyTaskName."
+      },
+      {
+        "revision": "2003-07-31 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "HwTaskStatusType": {
+    "name": "HwTaskStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalready": 0,
+          "block": 1,
+          "sleep": 2,
+          "suspend": 4,
+          "blockAndSuspend": 5,
+          "sleptAndSuspend": 6,
+          "running": 8,
+          "queueblock": 17,
+          "queueblockAndSuspend": 21,
+          "semaphoreblock": 33,
+          "semaphoreblockAandSuspend": 37,
+          "eventblock": 65,
+          "eventblockAndSuspend": 69,
+          "prioblock": 128,
+          "preemptready": 256,
+          "writequeueblock": 513,
+          "writequeueblockAndSuspend": 517
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hwTaskObjects": {
+    "name": "hwTaskObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1",
+    "class": "objectidentity"
+  },
+  "hwTaskTable": {
+    "name": "hwTaskTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTaskEntry": {
+    "name": "hwTaskEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwTaskIndex": {
+    "name": "hwTaskIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTaskID": {
+    "name": "hwTaskID",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwTaskName": {
+    "name": "hwTaskName",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTaskStatus": {
+    "name": "hwTaskStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HwTaskStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTaskCpuUsage": {
+    "name": "hwTaskCpuUsage",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTaskuSecs": {
+    "name": "hwTaskuSecs",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "millseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKeyTaskTable": {
+    "name": "hwKeyTaskTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKeyTaskEntry": {
+    "name": "hwKeyTaskEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwKeyTaskIndex": {
+    "name": "hwKeyTaskIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKeyTaskID": {
+    "name": "hwKeyTaskID",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwKeyTaskName": {
+    "name": "hwKeyTaskName",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwKeyTaskCpuUsage": {
+    "name": "hwKeyTaskCpuUsage",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwTaskNotifications": {
+    "name": "hwTaskNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.2",
+    "class": "objectidentity"
+  },
+  "hwTaskConformance": {
+    "name": "hwTaskConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3",
+    "class": "objectidentity"
+  },
+  "hwTaskCompliances": {
+    "name": "hwTaskCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.1",
+    "class": "objectidentity"
+  },
+  "hwTaskCompliance": {
+    "name": "hwTaskCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwTaskGroup",
+        "module": "HUAWEI-TASK-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwTaskGroups": {
+    "name": "hwTaskGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.2",
+    "class": "objectidentity"
+  },
+  "hwTaskGroup": {
+    "name": "hwTaskGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskName"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskStatus"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskCpuUsage"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskuSecs"
+      }
+    ],
+    "status": "current"
+  },
+  "hwKeyTaskGroup": {
+    "name": "hwKeyTaskGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskName"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskCpuUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TASK-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-TASK-MIB"
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADTRAN-AOS": [
+      "adGenAOSCommon",
+      "adGenAOSConformance"
+    ],
+    "ADTRAN-MIB": [
+      "adIdentity"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TDomain",
+      "DisplayString",
+      "RowStatus",
+      "TAddress",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adGenAOSFileSystemMib": {
+    "name": "adGenAOSFileSystemMib",
+    "oid": "1.3.6.1.4.1.664.6.10000.53.1.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-05-18 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "adGenAOSFileSystem": {
+    "name": "adGenAOSFileSystem",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6",
+    "class": "objectidentity"
+  },
+  "adAOSFileSystemRecordTable": {
+    "name": "adAOSFileSystemRecordTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adAOSFileSystemRecordEntry": {
+    "name": "adAOSFileSystemRecordEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adAOSFileSystemRecordID": {
+    "name": "adAOSFileSystemRecordID",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemRecordSystem": {
+    "name": "adAOSFileSystemRecordSystem",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemRecordType": {
+    "name": "adAOSFileSystemRecordType",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "file": 1,
+          "directory": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemRecordPath": {
+    "name": "adAOSFileSystemRecordPath",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemRecordName": {
+    "name": "adAOSFileSystemRecordName",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemRecordSize": {
+    "name": "adAOSFileSystemRecordSize",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemRecordStatus": {
+    "name": "adAOSFileSystemRecordStatus",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adAOSFileSystemTable": {
+    "name": "adAOSFileSystemTable",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adAOSFileSystemEntry": {
+    "name": "adAOSFileSystemEntry",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adAOSFileSystemID": {
+    "name": "adAOSFileSystemID",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemType": {
+    "name": "adAOSFileSystemType",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemTotalSize": {
+    "name": "adAOSFileSystemTotalSize",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adAOSFileSystemFreeSize": {
+    "name": "adAOSFileSystemFreeSize",
+    "oid": "1.3.6.1.4.1.664.5.53.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adGenAOSFileSystemConformance": {
+    "name": "adGenAOSFileSystemConformance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.5",
+    "class": "objectidentity"
+  },
+  "adAOSFileSystemCompliances": {
+    "name": "adAOSFileSystemCompliances",
+    "oid": "1.3.6.1.4.1.664.5.53.99.5.1",
+    "class": "objectidentity"
+  },
+  "adAOSFileSystemRecordGroups": {
+    "name": "adAOSFileSystemRecordGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.5.2",
+    "class": "objectidentity"
+  },
+  "adAOSFileSystemGroups": {
+    "name": "adAOSFileSystemGroups",
+    "oid": "1.3.6.1.4.1.664.5.53.99.5.3",
+    "class": "objectidentity"
+  },
+  "adAOSFileSystemCompliance": {
+    "name": "adAOSFileSystemCompliance",
+    "oid": "1.3.6.1.4.1.664.5.53.99.5.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adGenAOSFileSystemRecordGroup",
+        "module": "ADTRAN-AOSFILESYSTEM"
+      },
+      {
+        "object": "adGenAOSFileSystemGroup",
+        "module": "ADTRAN-AOSFILESYSTEM"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSFileSystemRecordGroup": {
+    "name": "adGenAOSFileSystemRecordGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.5.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordID"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordSystem"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordType"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordPath"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordName"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordSize"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemRecordStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adGenAOSFileSystemGroup": {
+    "name": "adGenAOSFileSystemGroup",
+    "oid": "1.3.6.1.4.1.664.5.53.99.5.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemID"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemType"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemTotalSize"
+      },
+      {
+        "module": "ADTRAN-AOSFILESYSTEM",
+        "object": "adAOSFileSystemFreeSize"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSFILESYSTEM",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADTRAN-AOSFILESYSTEM"
+  }
+}

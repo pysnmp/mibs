@@ -1,0 +1,900 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity"
+    ],
+    "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
+    ],
+    "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsPoolElementOwner",
+      "CucsIqnpoolTransportBlockTo",
+      "CucsPolicyPolicyOwner",
+      "CucsIqnpoolBlockFrom",
+      "CucsIqnpoolBlockTo",
+      "CucsIqnpoolTransportBlockFrom",
+      "CucsIqnpoolPoolAssignmentOrder"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv6",
+      "InetAddressIPv4"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cucsIqnpoolObjects": {
+    "name": "cucsIqnpoolObjects",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59",
+    "class": "moduleidentity"
+  },
+  "cucsIqnpoolAddrTable": {
+    "name": "cucsIqnpoolAddrTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrEntry": {
+    "name": "cucsIqnpoolAddrEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolAddrInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolAddrInstanceId": {
+    "name": "cucsIqnpoolAddrInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrDn": {
+    "name": "cucsIqnpoolAddrDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrRn": {
+    "name": "cucsIqnpoolAddrRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrAssigned": {
+    "name": "cucsIqnpoolAddrAssigned",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrAssignedToDn": {
+    "name": "cucsIqnpoolAddrAssignedToDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrName": {
+    "name": "cucsIqnpoolAddrName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrOwner": {
+    "name": "cucsIqnpoolAddrOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPoolElementOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrGlobalAssignedCnt": {
+    "name": "cucsIqnpoolAddrGlobalAssignedCnt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolAddrGlobalDefinedCnt": {
+    "name": "cucsIqnpoolAddrGlobalDefinedCnt",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolBlockTable": {
+    "name": "cucsIqnpoolBlockTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolBlockEntry": {
+    "name": "cucsIqnpoolBlockEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolBlockInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolBlockInstanceId": {
+    "name": "cucsIqnpoolBlockInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolBlockDn": {
+    "name": "cucsIqnpoolBlockDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolBlockRn": {
+    "name": "cucsIqnpoolBlockRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolBlockFrom": {
+    "name": "cucsIqnpoolBlockFrom",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIqnpoolBlockFrom",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolBlockSuffix": {
+    "name": "cucsIqnpoolBlockSuffix",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolBlockTo": {
+    "name": "cucsIqnpoolBlockTo",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIqnpoolBlockTo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolFormatTable": {
+    "name": "cucsIqnpoolFormatTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolFormatEntry": {
+    "name": "cucsIqnpoolFormatEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolFormatInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolFormatInstanceId": {
+    "name": "cucsIqnpoolFormatInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolFormatDn": {
+    "name": "cucsIqnpoolFormatDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolFormatRn": {
+    "name": "cucsIqnpoolFormatRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolFormatFormat": {
+    "name": "cucsIqnpoolFormatFormat",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolTable": {
+    "name": "cucsIqnpoolPoolTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolEntry": {
+    "name": "cucsIqnpoolPoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolPoolInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolPoolInstanceId": {
+    "name": "cucsIqnpoolPoolInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolDn": {
+    "name": "cucsIqnpoolPoolDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolRn": {
+    "name": "cucsIqnpoolPoolRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolAssigned": {
+    "name": "cucsIqnpoolPoolAssigned",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolDescr": {
+    "name": "cucsIqnpoolPoolDescr",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolIntId": {
+    "name": "cucsIqnpoolPoolIntId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolName": {
+    "name": "cucsIqnpoolPoolName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolPrefix": {
+    "name": "cucsIqnpoolPoolPrefix",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolSize": {
+    "name": "cucsIqnpoolPoolSize",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolAssignmentOrder": {
+    "name": "cucsIqnpoolPoolAssignmentOrder",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIqnpoolPoolAssignmentOrder",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolPolicyLevel": {
+    "name": "cucsIqnpoolPoolPolicyLevel",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolPolicyOwner": {
+    "name": "cucsIqnpoolPoolPolicyOwner",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsPolicyPolicyOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolableTable": {
+    "name": "cucsIqnpoolPoolableTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolableEntry": {
+    "name": "cucsIqnpoolPoolableEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolPoolableInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolPoolableInstanceId": {
+    "name": "cucsIqnpoolPoolableInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolableDn": {
+    "name": "cucsIqnpoolPoolableDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolableRn": {
+    "name": "cucsIqnpoolPoolableRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolableId": {
+    "name": "cucsIqnpoolPoolableId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPoolablePoolDn": {
+    "name": "cucsIqnpoolPoolablePoolDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledTable": {
+    "name": "cucsIqnpoolPooledTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledEntry": {
+    "name": "cucsIqnpoolPooledEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolPooledInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolPooledInstanceId": {
+    "name": "cucsIqnpoolPooledInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledDn": {
+    "name": "cucsIqnpoolPooledDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledRn": {
+    "name": "cucsIqnpoolPooledRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledAssigned": {
+    "name": "cucsIqnpoolPooledAssigned",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledAssignedToDn": {
+    "name": "cucsIqnpoolPooledAssignedToDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledName": {
+    "name": "cucsIqnpoolPooledName",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledPoolableDn": {
+    "name": "cucsIqnpoolPooledPoolableDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolPooledPrevAssignedToDn": {
+    "name": "cucsIqnpoolPooledPrevAssignedToDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockTable": {
+    "name": "cucsIqnpoolTransportBlockTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockEntry": {
+    "name": "cucsIqnpoolTransportBlockEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolTransportBlockInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockInstanceId": {
+    "name": "cucsIqnpoolTransportBlockInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockDn": {
+    "name": "cucsIqnpoolTransportBlockDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockRn": {
+    "name": "cucsIqnpoolTransportBlockRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockFrom": {
+    "name": "cucsIqnpoolTransportBlockFrom",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIqnpoolTransportBlockFrom",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockSuffix": {
+    "name": "cucsIqnpoolTransportBlockSuffix",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolTransportBlockTo": {
+    "name": "cucsIqnpoolTransportBlockTo",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsIqnpoolTransportBlockTo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolUniverseTable": {
+    "name": "cucsIqnpoolUniverseTable",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolUniverseEntry": {
+    "name": "cucsIqnpoolUniverseEntry",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+        "object": "cucsIqnpoolUniverseInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cucsIqnpoolUniverseInstanceId": {
+    "name": "cucsIqnpoolUniverseInstanceId",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cucsIqnpoolUniverseDn": {
+    "name": "cucsIqnpoolUniverseDn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CucsManagedObjectDn",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cucsIqnpoolUniverseRn": {
+    "name": "cucsIqnpoolUniverseRn",
+    "oid": "1.3.6.1.4.1.9.9.719.1.59.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB"
+  }
+}

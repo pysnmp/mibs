@@ -1,0 +1,1422 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "dot1dBridge": {
+    "name": "dot1dBridge",
+    "oid": "1.3.6.1.2.1.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-09-19 00:00",
+        "description": "Third revision, published as part of RFC 4188. The MIB module has been converted to SMIv2 format. Conformance statements have been added and some description and reference clauses have been updated. The object dot1dStpPortPathCost32 was added to support IEEE 802.1t and the permissible values of dot1dStpPriority and dot1dStpPortPriority have been clarified for bridges supporting IEEE 802.1t or IEEE 802.1w. The interpretation of dot1dStpTimeSinceTopologyChange has been clarified for bridges supporting the Rapid Spanning Tree Protocol (RSTP)."
+      },
+      {
+        "revision": "1993-07-31 00:00",
+        "description": "Second revision, published as part of RFC 1493."
+      },
+      {
+        "revision": "1991-12-31 00:00",
+        "description": "Initial revision, published as part of RFC 1286."
+      }
+    ]
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Timeout": {
+    "name": "Timeout",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "dot1dNotifications": {
+    "name": "dot1dNotifications",
+    "oid": "1.3.6.1.2.1.17.0",
+    "class": "objectidentity"
+  },
+  "dot1dBase": {
+    "name": "dot1dBase",
+    "oid": "1.3.6.1.2.1.17.1",
+    "class": "objectidentity"
+  },
+  "dot1dStp": {
+    "name": "dot1dStp",
+    "oid": "1.3.6.1.2.1.17.2",
+    "class": "objectidentity"
+  },
+  "dot1dSr": {
+    "name": "dot1dSr",
+    "oid": "1.3.6.1.2.1.17.3",
+    "class": "objectidentity"
+  },
+  "dot1dTp": {
+    "name": "dot1dTp",
+    "oid": "1.3.6.1.2.1.17.4",
+    "class": "objectidentity"
+  },
+  "dot1dStatic": {
+    "name": "dot1dStatic",
+    "oid": "1.3.6.1.2.1.17.5",
+    "class": "objectidentity"
+  },
+  "dot1dConformance": {
+    "name": "dot1dConformance",
+    "oid": "1.3.6.1.2.1.17.8",
+    "class": "objectidentity"
+  },
+  "dot1dBaseBridgeAddress": {
+    "name": "dot1dBaseBridgeAddress",
+    "oid": "1.3.6.1.2.1.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dBaseNumPorts": {
+    "name": "dot1dBaseNumPorts",
+    "oid": "1.3.6.1.2.1.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dBaseType": {
+    "name": "dot1dBaseType",
+    "oid": "1.3.6.1.2.1.17.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "transparent-only": 2,
+          "sourceroute-only": 3,
+          "srt": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dBasePortTable": {
+    "name": "dot1dBasePortTable",
+    "oid": "1.3.6.1.2.1.17.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1dBasePortEntry": {
+    "name": "dot1dBasePortEntry",
+    "oid": "1.3.6.1.2.1.17.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dBasePort": {
+    "name": "dot1dBasePort",
+    "oid": "1.3.6.1.2.1.17.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dBasePortIfIndex": {
+    "name": "dot1dBasePortIfIndex",
+    "oid": "1.3.6.1.2.1.17.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dBasePortCircuit": {
+    "name": "dot1dBasePortCircuit",
+    "oid": "1.3.6.1.2.1.17.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dBasePortDelayExceededDiscards": {
+    "name": "dot1dBasePortDelayExceededDiscards",
+    "oid": "1.3.6.1.2.1.17.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dBasePortMtuExceededDiscards": {
+    "name": "dot1dBasePortMtuExceededDiscards",
+    "oid": "1.3.6.1.2.1.17.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpProtocolSpecification": {
+    "name": "dot1dStpProtocolSpecification",
+    "oid": "1.3.6.1.2.1.17.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "decLb100": 2,
+          "ieee8021d": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPriority": {
+    "name": "dot1dStpPriority",
+    "oid": "1.3.6.1.2.1.17.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpTimeSinceTopologyChange": {
+    "name": "dot1dStpTimeSinceTopologyChange",
+    "oid": "1.3.6.1.2.1.17.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpTopChanges": {
+    "name": "dot1dStpTopChanges",
+    "oid": "1.3.6.1.2.1.17.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpDesignatedRoot": {
+    "name": "dot1dStpDesignatedRoot",
+    "oid": "1.3.6.1.2.1.17.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpRootCost": {
+    "name": "dot1dStpRootCost",
+    "oid": "1.3.6.1.2.1.17.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpRootPort": {
+    "name": "dot1dStpRootPort",
+    "oid": "1.3.6.1.2.1.17.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpMaxAge": {
+    "name": "dot1dStpMaxAge",
+    "oid": "1.3.6.1.2.1.17.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpHelloTime": {
+    "name": "dot1dStpHelloTime",
+    "oid": "1.3.6.1.2.1.17.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpHoldTime": {
+    "name": "dot1dStpHoldTime",
+    "oid": "1.3.6.1.2.1.17.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpForwardDelay": {
+    "name": "dot1dStpForwardDelay",
+    "oid": "1.3.6.1.2.1.17.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type"
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpBridgeMaxAge": {
+    "name": "dot1dStpBridgeMaxAge",
+    "oid": "1.3.6.1.2.1.17.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 600,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpBridgeHelloTime": {
+    "name": "dot1dStpBridgeHelloTime",
+    "oid": "1.3.6.1.2.1.17.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpBridgeForwardDelay": {
+    "name": "dot1dStpBridgeForwardDelay",
+    "oid": "1.3.6.1.2.1.17.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Timeout",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 400,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPortTable": {
+    "name": "dot1dStpPortTable",
+    "oid": "1.3.6.1.2.1.17.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1dStpPortEntry": {
+    "name": "dot1dStpPortEntry",
+    "oid": "1.3.6.1.2.1.17.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStpPort": {
+    "name": "dot1dStpPort",
+    "oid": "1.3.6.1.2.1.17.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortPriority": {
+    "name": "dot1dStpPortPriority",
+    "oid": "1.3.6.1.2.1.17.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPortState": {
+    "name": "dot1dStpPortState",
+    "oid": "1.3.6.1.2.1.17.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortEnable": {
+    "name": "dot1dStpPortEnable",
+    "oid": "1.3.6.1.2.1.17.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPortPathCost": {
+    "name": "dot1dStpPortPathCost",
+    "oid": "1.3.6.1.2.1.17.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPortDesignatedRoot": {
+    "name": "dot1dStpPortDesignatedRoot",
+    "oid": "1.3.6.1.2.1.17.2.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortDesignatedCost": {
+    "name": "dot1dStpPortDesignatedCost",
+    "oid": "1.3.6.1.2.1.17.2.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortDesignatedBridge": {
+    "name": "dot1dStpPortDesignatedBridge",
+    "oid": "1.3.6.1.2.1.17.2.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortDesignatedPort": {
+    "name": "dot1dStpPortDesignatedPort",
+    "oid": "1.3.6.1.2.1.17.2.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortForwardTransitions": {
+    "name": "dot1dStpPortForwardTransitions",
+    "oid": "1.3.6.1.2.1.17.2.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStpPortPathCost32": {
+    "name": "dot1dStpPortPathCost32",
+    "oid": "1.3.6.1.2.1.17.2.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dTpLearnedEntryDiscards": {
+    "name": "dot1dTpLearnedEntryDiscards",
+    "oid": "1.3.6.1.2.1.17.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpAgingTime": {
+    "name": "dot1dTpAgingTime",
+    "oid": "1.3.6.1.2.1.17.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dTpFdbTable": {
+    "name": "dot1dTpFdbTable",
+    "oid": "1.3.6.1.2.1.17.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1dTpFdbEntry": {
+    "name": "dot1dTpFdbEntry",
+    "oid": "1.3.6.1.2.1.17.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpFdbAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dTpFdbAddress": {
+    "name": "dot1dTpFdbAddress",
+    "oid": "1.3.6.1.2.1.17.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpFdbPort": {
+    "name": "dot1dTpFdbPort",
+    "oid": "1.3.6.1.2.1.17.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpFdbStatus": {
+    "name": "dot1dTpFdbStatus",
+    "oid": "1.3.6.1.2.1.17.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "learned": 3,
+          "self": 4,
+          "mgmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpPortTable": {
+    "name": "dot1dTpPortTable",
+    "oid": "1.3.6.1.2.1.17.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1dTpPortEntry": {
+    "name": "dot1dTpPortEntry",
+    "oid": "1.3.6.1.2.1.17.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dTpPort": {
+    "name": "dot1dTpPort",
+    "oid": "1.3.6.1.2.1.17.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpPortMaxInfo": {
+    "name": "dot1dTpPortMaxInfo",
+    "oid": "1.3.6.1.2.1.17.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpPortInFrames": {
+    "name": "dot1dTpPortInFrames",
+    "oid": "1.3.6.1.2.1.17.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpPortOutFrames": {
+    "name": "dot1dTpPortOutFrames",
+    "oid": "1.3.6.1.2.1.17.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dTpPortInDiscards": {
+    "name": "dot1dTpPortInDiscards",
+    "oid": "1.3.6.1.2.1.17.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1dStaticTable": {
+    "name": "dot1dStaticTable",
+    "oid": "1.3.6.1.2.1.17.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot1dStaticEntry": {
+    "name": "dot1dStaticEntry",
+    "oid": "1.3.6.1.2.1.17.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStaticAddress",
+        "implied": 0
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStaticReceivePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStaticAddress": {
+    "name": "dot1dStaticAddress",
+    "oid": "1.3.6.1.2.1.17.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1dStaticReceivePort": {
+    "name": "dot1dStaticReceivePort",
+    "oid": "1.3.6.1.2.1.17.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1dStaticAllowedToGoTo": {
+    "name": "dot1dStaticAllowedToGoTo",
+    "oid": "1.3.6.1.2.1.17.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1dStaticStatus": {
+    "name": "dot1dStaticStatus",
+    "oid": "1.3.6.1.2.1.17.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "invalid": 2,
+          "permanent": 3,
+          "deleteOnReset": 4,
+          "deleteOnTimeout": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "newRoot": {
+    "name": "newRoot",
+    "oid": "1.3.6.1.2.1.17.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "topologyChange": {
+    "name": "topologyChange",
+    "oid": "1.3.6.1.2.1.17.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dot1dGroups": {
+    "name": "dot1dGroups",
+    "oid": "1.3.6.1.2.1.17.8.1",
+    "class": "objectidentity"
+  },
+  "dot1dCompliances": {
+    "name": "dot1dCompliances",
+    "oid": "1.3.6.1.2.1.17.8.2",
+    "class": "objectidentity"
+  },
+  "dot1dBaseBridgeGroup": {
+    "name": "dot1dBaseBridgeGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBaseBridgeAddress"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBaseNumPorts"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBaseType"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dBasePortGroup": {
+    "name": "dot1dBasePortGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePortIfIndex"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePortCircuit"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePortDelayExceededDiscards"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePortMtuExceededDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStpBridgeGroup": {
+    "name": "dot1dStpBridgeGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpProtocolSpecification"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPriority"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpTimeSinceTopologyChange"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpTopChanges"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpDesignatedRoot"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpRootCost"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpRootPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpMaxAge"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpHelloTime"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpHoldTime"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpForwardDelay"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpBridgeMaxAge"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpBridgeHelloTime"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpBridgeForwardDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStpPortGroup": {
+    "name": "dot1dStpPortGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortPriority"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortState"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortEnable"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortPathCost"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedRoot"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedCost"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedBridge"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortForwardTransitions"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStpPortGroup2": {
+    "name": "dot1dStpPortGroup2",
+    "oid": "1.3.6.1.2.1.17.8.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortPriority"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortState"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortEnable"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedRoot"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedCost"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedBridge"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortDesignatedPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortForwardTransitions"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortPathCost32"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStpPortGroup3": {
+    "name": "dot1dStpPortGroup3",
+    "oid": "1.3.6.1.2.1.17.8.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStpPortPathCost32"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dTpBridgeGroup": {
+    "name": "dot1dTpBridgeGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpLearnedEntryDiscards"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpAgingTime"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dTpFdbGroup": {
+    "name": "dot1dTpFdbGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpFdbAddress"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpFdbPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpFdbStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dTpGroup": {
+    "name": "dot1dTpGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpPort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpPortMaxInfo"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpPortInFrames"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpPortOutFrames"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dTpPortInDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dStaticGroup": {
+    "name": "dot1dStaticGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStaticAddress"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStaticReceivePort"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStaticAllowedToGoTo"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "dot1dStaticStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1dNotificationGroup": {
+    "name": "dot1dNotificationGroup",
+    "oid": "1.3.6.1.2.1.17.8.1.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BRIDGE-MIB",
+        "object": "newRoot"
+      },
+      {
+        "module": "BRIDGE-MIB",
+        "object": "topologyChange"
+      }
+    ],
+    "status": "current"
+  },
+  "bridgeCompliance1493": {
+    "name": "bridgeCompliance1493",
+    "oid": "1.3.6.1.2.1.17.8.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dot1dBaseBridgeGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dBasePortGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dStpBridgeGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dStpPortGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dTpBridgeGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dTpFdbGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dTpGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dStaticGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dNotificationGroup",
+        "module": "BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bridgeCompliance4188": {
+    "name": "bridgeCompliance4188",
+    "oid": "1.3.6.1.2.1.17.8.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dot1dBaseBridgeGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dBasePortGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dStpBridgeGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dStpPortGroup2",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dStpPortGroup3",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dTpBridgeGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dTpFdbGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dTpGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dStaticGroup",
+        "module": "BRIDGE-MIB"
+      },
+      {
+        "object": "dot1dNotificationGroup",
+        "module": "BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BRIDGE-MIB"
+  }
+}

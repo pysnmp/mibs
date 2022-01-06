@@ -1,0 +1,3509 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "routingIND1IsisSpb"
+    ],
+    "IEEE8021-CFM-MIB": [
+      "VlanIdOrNone"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PbbServiceIdentifierOrUnassigned",
+      "IEEE8021PbbIngressEgress",
+      "IEEE8021BridgePortNumber"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TimeStamp",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "alcatelIND1IsisSpbMib": {
+    "name": "alcatelIND1IsisSpbMib",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "AlcatelIND1IsisSpbAreaAddress": {
+    "name": "AlcatelIND1IsisSpbAreaAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x-",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbSystemName": {
+    "name": "AlcatelIND1IsisSpbSystemName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbEctAlgorithm": {
+    "name": "AlcatelIND1IsisSpbEctAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "1x-",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbMode": {
+    "name": "AlcatelIND1IsisSpbMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbDigestConvention": {
+    "name": "AlcatelIND1IsisSpbDigestConvention",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "loopFreeBoth": 2,
+          "loopFreeMcastOnly": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbLinkMetric": {
+    "name": "AlcatelIND1IsisSpbLinkMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbAdjState": {
+    "name": "AlcatelIND1IsisSpbAdjState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbmSPsourceId": {
+    "name": "AlcatelIND1IsisSpbmSPsourceId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "displayhint": "1x-",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbBridgePriority": {
+    "name": "AlcatelIND1IsisSpbBridgePriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "displayhint": "1x-",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbMTID": {
+    "name": "AlcatelIND1IsisSpbMTID",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbmMulticastMode": {
+    "name": "AlcatelIND1IsisSpbmMulticastMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sgmode": 0,
+          "gmode": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbIfOperState": {
+    "name": "AlcatelIND1IsisSpbIfOperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "inService": 2,
+          "outOfService": 3,
+          "transition": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlcatelSpbServiceIdentifier": {
+    "name": "AlcatelSpbServiceIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 255,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "AlcatelIND1IsisSpbmIsidFlags": {
+    "name": "AlcatelIND1IsisSpbmIsidFlags",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "tx": 1,
+          "rx": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMibObjects": {
+    "name": "alcatelIND1IsisSpbMibObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IsisSpbSys": {
+    "name": "alcatelIND1IsisSpbSys",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IsisSpbProtocolConfig": {
+    "name": "alcatelIND1IsisSpbProtocolConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IsisSpbSysControlBvlan": {
+    "name": "alcatelIND1IsisSpbSysControlBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysAdminState": {
+    "name": "alcatelIND1IsisSpbSysAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysAreaAddress": {
+    "name": "alcatelIND1IsisSpbSysAreaAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbAreaAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysId": {
+    "name": "alcatelIND1IsisSpbSysId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysControlAddr": {
+    "name": "alcatelIND1IsisSpbSysControlAddr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysName": {
+    "name": "alcatelIND1IsisSpbSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysBridgePriority": {
+    "name": "alcatelIND1IsisSpbSysBridgePriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbBridgePriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbmSysSPSourceId": {
+    "name": "alcatelIND1IsisSpbmSysSPSourceId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbmSPsourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbvSysMode": {
+    "name": "alcatelIND1IsisSpbvSysMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbmSysMode": {
+    "name": "alcatelIND1IsisSpbmSysMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysDigestConvention": {
+    "name": "alcatelIND1IsisSpbSysDigestConvention",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbDigestConvention",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysSetOverload": {
+    "name": "alcatelIND1IsisSpbSysSetOverload",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysOverloadTimeout": {
+    "name": "alcatelIND1IsisSpbSysOverloadTimeout",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysOverloadOnBoot": {
+    "name": "alcatelIND1IsisSpbSysOverloadOnBoot",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysOverloadOnBootTimeout": {
+    "name": "alcatelIND1IsisSpbSysOverloadOnBootTimeout",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysOverloadStatus": {
+    "name": "alcatelIND1IsisSpbSysOverloadStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInOverload": 1,
+          "dynamic": 2,
+          "manual": 3,
+          "manualOnBoot": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysLastEnabledTime": {
+    "name": "alcatelIND1IsisSpbSysLastEnabledTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1isisSpbSysLastSpfRun": {
+    "name": "alcatelIND1isisSpbSysLastSpfRun",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysNumLSPs": {
+    "name": "alcatelIND1IsisSpbSysNumLSPs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysLastEnabledTimeStamp": {
+    "name": "alcatelIND1IsisSpbSysLastEnabledTimeStamp",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1isisSpbSysLastSpfRunTimeStamp": {
+    "name": "alcatelIND1isisSpbSysLastSpfRunTimeStamp",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolSpfMaxWait": {
+    "name": "alcatelIND1IsisSpbProtocolSpfMaxWait",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 120000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolSpfInitialWait": {
+    "name": "alcatelIND1IsisSpbProtocolSpfInitialWait",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolSpfSecondWait": {
+    "name": "alcatelIND1IsisSpbProtocolSpfSecondWait",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolLspMaxWait": {
+    "name": "alcatelIND1IsisSpbProtocolLspMaxWait",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 120000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolLspInitialWait": {
+    "name": "alcatelIND1IsisSpbProtocolLspInitialWait",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolLspSecondWait": {
+    "name": "alcatelIND1IsisSpbProtocolLspSecondWait",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolGracefulRestart": {
+    "name": "alcatelIND1IsisSpbProtocolGracefulRestart",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolGRHelperMode": {
+    "name": "alcatelIND1IsisSpbProtocolGRHelperMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticTable": {
+    "name": "alcatelIND1IsisSpbAdjStaticTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticTableEntry": {
+    "name": "alcatelIND1IsisSpbAdjStaticTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryTopIx": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryIfIndex": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryMetric": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryMetric",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbLinkMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryHelloInterval": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryHelloMultiplier": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryHelloMultiplier",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryIfAdminState": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryIfAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbAdjState",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryRowStatus": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryCircuitId": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryCircuitId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryIfOperState": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryIfOperState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbIfOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryAFDConfig": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryAFDConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticTable": {
+    "name": "alcatelIND1IsisSpbEctStaticTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticTableEntry": {
+    "name": "alcatelIND1IsisSpbEctStaticTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbEctStaticEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbEctStaticEntryBaseVid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticEntryTopIx": {
+    "name": "alcatelIND1IsisSpbEctStaticEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticEntryBaseVid": {
+    "name": "alcatelIND1IsisSpbEctStaticEntryBaseVid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticEntryEctAlgorithm": {
+    "name": "alcatelIND1IsisSpbEctStaticEntryEctAlgorithm",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbEctAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbvEctStaticEntrySpvid": {
+    "name": "alcatelIND1IsisSpbvEctStaticEntrySpvid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticEntryRowStatus": {
+    "name": "alcatelIND1IsisSpbEctStaticEntryRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticEntryMulticastMode": {
+    "name": "alcatelIND1IsisSpbEctStaticEntryMulticastMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbmMulticastMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "sgmode",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticEntryRootBridgeSysName": {
+    "name": "alcatelIND1IsisSpbEctStaticEntryRootBridgeSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbEctStaticEntryRootBridgeSysMac": {
+    "name": "alcatelIND1IsisSpbEctStaticEntryRootBridgeSysMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicTable": {
+    "name": "alcatelIND1IsisSpbAdjDynamicTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntry": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryPeerSysId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryTopIx": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryIfIndex": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryPeerSysId": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryPeerSysId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryAdjState": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryAdjState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbAdjState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryAdjUpTime": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryAdjUpTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryHoldRemaining": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryHoldRemaining",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryHoldTimer": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryHoldTimer",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryNbrExtLocalCircuitId": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryNbrExtLocalCircuitId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryNeighPriority": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryNeighPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryPeerSysName": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryPeerSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryRestartStatus": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryRestartStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notHelping": 1,
+          "restarting": 2,
+          "restartComplete": 3,
+          "helping": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryRestartSupport": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryRestartSupport",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryRestartSuppressed": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryRestartSuppressed",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjDynamicEntryAdjUpTimeStamp": {
+    "name": "alcatelIND1IsisSpbAdjDynamicEntryAdjUpTimeStamp",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeTable": {
+    "name": "alcatelIND1IsisSpbNodeTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeTableEntry": {
+    "name": "alcatelIND1IsisSpbNodeTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbNodeTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbNodeSysId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeTopIx": {
+    "name": "alcatelIND1IsisSpbNodeTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeSysId": {
+    "name": "alcatelIND1IsisSpbNodeSysId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeSysName": {
+    "name": "alcatelIND1IsisSpbNodeSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeSPSourceId": {
+    "name": "alcatelIND1IsisSpbNodeSPSourceId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbmSPsourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeBridgePriority": {
+    "name": "alcatelIND1IsisSpbNodeBridgePriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbBridgePriority",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastTable": {
+    "name": "alcatelIND1IsisSpbUnicastTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastTableEntry": {
+    "name": "alcatelIND1IsisSpbUnicastTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbUnicastTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbUnicastBvlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbUnicastSysMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastTopIx": {
+    "name": "alcatelIND1IsisSpbUnicastTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastBvlan": {
+    "name": "alcatelIND1IsisSpbUnicastBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastSysMac": {
+    "name": "alcatelIND1IsisSpbUnicastSysMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastSysName": {
+    "name": "alcatelIND1IsisSpbUnicastSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastOutboundIfIndex": {
+    "name": "alcatelIND1IsisSpbUnicastOutboundIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTable": {
+    "name": "alcatelIND1IsisSpbMulticastTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntry": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntryBvlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntryMulticastMac",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntryIfIndexOutbound",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntryTopIx": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntryBvlan": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntryBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntryMulticastMac": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntryMulticastMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntryIfIndexOutbound": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntryIfIndexOutbound",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntrySrcMac": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntrySrcMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntryIfIndexInbound": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntryIfIndexInbound",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntrySysName": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntrySysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntryIsid": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntryIsid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelSpbServiceIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPTable": {
+    "name": "alcatelIND1IsisSpbLSPTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPEntry": {
+    "name": "alcatelIND1IsisSpbLSPEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPTopIx": {
+    "name": "alcatelIND1IsisSpbLSPTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPId": {
+    "name": "alcatelIND1IsisSpbLSPId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPSeq": {
+    "name": "alcatelIND1IsisSpbLSPSeq",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPChecksum": {
+    "name": "alcatelIND1IsisSpbLSPChecksum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPLifetimeRemain": {
+    "name": "alcatelIND1IsisSpbLSPLifetimeRemain",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPVersion": {
+    "name": "alcatelIND1IsisSpbLSPVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPPktType": {
+    "name": "alcatelIND1IsisSpbLSPPktType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPPktVersion": {
+    "name": "alcatelIND1IsisSpbLSPPktVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPMaxArea": {
+    "name": "alcatelIND1IsisSpbLSPMaxArea",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPSysIdLen": {
+    "name": "alcatelIND1IsisSpbLSPSysIdLen",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPAttributes": {
+    "name": "alcatelIND1IsisSpbLSPAttributes",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPUsedLen": {
+    "name": "alcatelIND1IsisSpbLSPUsedLen",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPAllocLen": {
+    "name": "alcatelIND1IsisSpbLSPAllocLen",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPBuff": {
+    "name": "alcatelIND1IsisSpbLSPBuff",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceTable": {
+    "name": "alcatelIND1IsisSpbMulticastSourceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceEntry": {
+    "name": "alcatelIND1IsisSpbMulticastSourceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSysMac",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceBvlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceTopIx": {
+    "name": "alcatelIND1IsisSpbMulticastSourceTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSysMac": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSysMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceBvlan": {
+    "name": "alcatelIND1IsisSpbMulticastSourceBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSysName": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceReachable": {
+    "name": "alcatelIND1IsisSpbMulticastSourceReachable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfTable": {
+    "name": "alcatelIND1IsisSpbSpfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfTableEntry": {
+    "name": "alcatelIND1IsisSpbSpfTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfBvlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfSysMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfBvlan": {
+    "name": "alcatelIND1IsisSpbSpfBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfSysMac": {
+    "name": "alcatelIND1IsisSpbSpfSysMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfSysName": {
+    "name": "alcatelIND1IsisSpbSpfSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfIfIndex": {
+    "name": "alcatelIND1IsisSpbSpfIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfNextHopSysMac": {
+    "name": "alcatelIND1IsisSpbSpfNextHopSysMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfNextHopSysName": {
+    "name": "alcatelIND1IsisSpbSpfNextHopSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfMetric": {
+    "name": "alcatelIND1IsisSpbSpfMetric",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbLinkMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfHopCount": {
+    "name": "alcatelIND1IsisSpbSpfHopCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTable": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntry": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryBMac",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryBvlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryDestMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryTopIx": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryBMac": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryBMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryBvlan": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryDestMac": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryDestMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryIfIndex": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryNHopName": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryNHopName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryNHopMac": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryNHopMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryMetric": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryMetric",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbLinkMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceSpfTableEntryHopCount": {
+    "name": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryHopCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbIngressMacFilterTable": {
+    "name": "alcatelIND1IsisSpbIngressMacFilterTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbIngressMacFilterEntry": {
+    "name": "alcatelIND1IsisSpbIngressMacFilterEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbIngressMacBvlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbIngressMacSysMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbIngressMacBvlan": {
+    "name": "alcatelIND1IsisSpbIngressMacBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbIngressMacSysMac": {
+    "name": "alcatelIND1IsisSpbIngressMacSysMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbIngressMacSysName": {
+    "name": "alcatelIND1IsisSpbIngressMacSysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbIngressMacIfIndex": {
+    "name": "alcatelIND1IsisSpbIngressMacIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTable": {
+    "name": "alcatelIND1IsisSpbServiceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntry": {
+    "name": "alcatelIND1IsisSpbServiceTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbServiceTableEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbServiceTableEntryBvlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbServiceTableEntryIsid",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbServiceTableEntrySysMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntryTopIx": {
+    "name": "alcatelIND1IsisSpbServiceTableEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntryBvlan": {
+    "name": "alcatelIND1IsisSpbServiceTableEntryBvlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntryIsid": {
+    "name": "alcatelIND1IsisSpbServiceTableEntryIsid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelSpbServiceIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntrySysMac": {
+    "name": "alcatelIND1IsisSpbServiceTableEntrySysMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntrySysName": {
+    "name": "alcatelIND1IsisSpbServiceTableEntrySysName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbSystemName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntryIsidFlags": {
+    "name": "alcatelIND1IsisSpbServiceTableEntryIsidFlags",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbmIsidFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindTable": {
+    "name": "alcatelIND1SpbIPVPNBindTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindTableEntry": {
+    "name": "alcatelIND1SpbIPVPNBindTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNBindTableEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNBindVrfName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNBindIsid",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNBindGateway",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindTableEntryTopIx": {
+    "name": "alcatelIND1SpbIPVPNBindTableEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindVrfName": {
+    "name": "alcatelIND1SpbIPVPNBindVrfName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindIsid": {
+    "name": "alcatelIND1SpbIPVPNBindIsid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindGateway": {
+    "name": "alcatelIND1SpbIPVPNBindGateway",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindImportRouteMap": {
+    "name": "alcatelIND1SpbIPVPNBindImportRouteMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNBindRowStatus": {
+    "name": "alcatelIND1SpbIPVPNBindRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRouteTable": {
+    "name": "alcatelIND1SpbIPVPNRouteTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRouteTableEntry": {
+    "name": "alcatelIND1SpbIPVPNRouteTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRouteTableEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRouteIsid",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRoutePrefix",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRoutePrefixLen",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRouteGateway",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRouteTableEntryTopIx": {
+    "name": "alcatelIND1SpbIPVPNRouteTableEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRouteIsid": {
+    "name": "alcatelIND1SpbIPVPNRouteIsid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRoutePrefix": {
+    "name": "alcatelIND1SpbIPVPNRoutePrefix",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRoutePrefixLen": {
+    "name": "alcatelIND1SpbIPVPNRoutePrefixLen",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRouteGateway": {
+    "name": "alcatelIND1SpbIPVPNRouteGateway",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRouteNodeName": {
+    "name": "alcatelIND1SpbIPVPNRouteNodeName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRouteMetric": {
+    "name": "alcatelIND1SpbIPVPNRouteMetric",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistVrfTable": {
+    "name": "alcatelIND1SpbIPVPNRedistVrfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistVrfTableEntry": {
+    "name": "alcatelIND1SpbIPVPNRedistVrfTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistVrfTableEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistVrfSourceVrf",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistVrfDestIsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistVrfTableEntryTopIx": {
+    "name": "alcatelIND1SpbIPVPNRedistVrfTableEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistVrfSourceVrf": {
+    "name": "alcatelIND1SpbIPVPNRedistVrfSourceVrf",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistVrfDestIsid": {
+    "name": "alcatelIND1SpbIPVPNRedistVrfDestIsid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistVrfRouteMap": {
+    "name": "alcatelIND1SpbIPVPNRedistVrfRouteMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistVrfRowStatus": {
+    "name": "alcatelIND1SpbIPVPNRedistVrfRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistIsidTable": {
+    "name": "alcatelIND1SpbIPVPNRedistIsidTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistIsidTableEntry": {
+    "name": "alcatelIND1SpbIPVPNRedistIsidTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistIsidTableEntryTopIx",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistIsidSourceIsid",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistIsidDestIsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistIsidTableEntryTopIx": {
+    "name": "alcatelIND1SpbIPVPNRedistIsidTableEntryTopIx",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlcatelIND1IsisSpbMTID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistIsidSourceIsid": {
+    "name": "alcatelIND1SpbIPVPNRedistIsidSourceIsid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistIsidDestIsid": {
+    "name": "alcatelIND1SpbIPVPNRedistIsidDestIsid",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistIsidRouteMap": {
+    "name": "alcatelIND1SpbIPVPNRedistIsidRouteMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1SpbIPVPNRedistIsidRowStatus": {
+    "name": "alcatelIND1SpbIPVPNRedistIsidRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbConformance": {
+    "name": "alcatelIND1IsisSpbConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IsisSpbGroups": {
+    "name": "alcatelIND1IsisSpbGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IsisSpbCompliances": {
+    "name": "alcatelIND1IsisSpbCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1IsisSpbSysGroupSPBM": {
+    "name": "alcatelIND1IsisSpbSysGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysControlBvlan"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysNumLSPs"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1isisSpbSysLastSpfRun"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysLastEnabledTime"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysOverloadStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysOverloadOnBootTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysOverloadOnBoot"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysOverloadTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysSetOverload"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1isisSpbSysLastSpfRunTimeStamp"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysLastEnabledTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbProtocolConfigGroupSPBM": {
+    "name": "alcatelIND1IsisSpbProtocolConfigGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolSpfMaxWait"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolSpfInitialWait"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolSpfSecondWait"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolLspMaxWait"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolLspInitialWait"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolLspSecondWait"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolGracefulRestart"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbProtocolGRHelperMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjStaticEntryConfigGroupSPBM": {
+    "name": "alcatelIND1IsisSpbAdjStaticEntryConfigGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryHelloMultiplier"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryIfAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryMetric"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbEctStaticEntryEctAlgorithm"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbEctStaticEntryRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbvEctStaticEntrySpvid"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSysConfigGroupSPBM": {
+    "name": "alcatelIND1IsisSpbSysConfigGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysAreaAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysBridgePriority"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysControlAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysDigestConvention"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysId"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSysName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbmSysMode"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbmSysSPSourceId"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbvSysMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbAdjGroupSPBM": {
+    "name": "alcatelIND1IsisSpbAdjGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryAdjState"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryAdjUpTime"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryHoldRemaining"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryHoldTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryNbrExtLocalCircuitId"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryNeighPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryPeerSysName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryRestartStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryRestartSupport"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryRestartSuppressed"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryCircuitId"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryIfOperState"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbEctStaticEntryMulticastMode"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbEctStaticEntryRootBridgeSysMac"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbEctStaticEntryRootBridgeSysName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjStaticEntryAFDConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbAdjDynamicEntryAdjUpTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbIngressMacGroupSPBM": {
+    "name": "alcatelIND1IsisSpbIngressMacGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbIngressMacSysName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbIngressMacIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbLSPGroupSPBM": {
+    "name": "alcatelIND1IsisSpbLSPGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPAllocLen"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPAttributes"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPBuff"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPChecksum"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPLifetimeRemain"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPMaxArea"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPPktType"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPPktVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPSeq"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPSysIdLen"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPUsedLen"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbLSPVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastSourceGroupSPBM": {
+    "name": "alcatelIND1IsisSpbMulticastSourceGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceReachable"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryHopCount"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryMetric"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryNHopMac"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSpfTableEntryNHopName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastSourceSysName"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbMulticastTableEntryGroupSPBM": {
+    "name": "alcatelIND1IsisSpbMulticastTableEntryGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntryIfIndexInbound"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntryIsid"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntrySysName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbMulticastTableEntrySrcMac"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbServiceTableEntryGroupSPBM": {
+    "name": "alcatelIND1IsisSpbServiceTableEntryGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbServiceTableEntryIsidFlags"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbServiceTableEntrySysName"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbSpfGroupSPBM": {
+    "name": "alcatelIND1IsisSpbSpfGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfHopCount"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfMetric"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfNextHopSysName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfNextHopSysMac"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbSpfSysName"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbUnicastGroupSPBM": {
+    "name": "alcatelIND1IsisSpbUnicastGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbUnicastOutboundIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbUnicastSysName"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbNodeGroupSPBM": {
+    "name": "alcatelIND1IsisSpbNodeGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbNodeBridgePriority"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbNodeSPSourceId"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1IsisSpbNodeSysName"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbVPNBindTableGroupSPBM": {
+    "name": "alcatelIND1IsisSpbVPNBindTableGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNBindImportRouteMap"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNBindRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbVPNRouteTableGroupSPBM": {
+    "name": "alcatelIND1IsisSpbVPNRouteTableGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRouteNodeName"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRouteMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbVPNRedistVrfTableGroupSPBM": {
+    "name": "alcatelIND1IsisSpbVPNRedistVrfTableGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistVrfRouteMap"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistVrfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbVPNRedistIsidTableGroupSPBM": {
+    "name": "alcatelIND1IsisSpbVPNRedistIsidTableGroupSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistIsidRouteMap"
+      },
+      {
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB",
+        "object": "alcatelIND1SpbIPVPNRedistIsidRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IsisSpbComplianceSPBM": {
+    "name": "alcatelIND1IsisSpbComplianceSPBM",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.17.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alcatelIND1IsisSpbSysGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbAdjGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbIngressMacGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbLSPGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbProtocolConfigGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbMulticastSourceGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbMulticastTableEntryGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbServiceTableEntryGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbSpfGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbUnicastGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbNodeGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbVPNBindTableGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbVPNRouteTableGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbVPNRedistVrfTableGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      },
+      {
+        "object": "alcatelIND1IsisSpbVPNRedistIsidTableGroupSPBM",
+        "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-ISIS-SPB-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-ISIS-SPB-MIB"
+  }
+}

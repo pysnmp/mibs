@@ -1,0 +1,2213 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RAISECOM-BASE-MIB": [
+      "rosMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "rosMgmtOpticalTransceiver": {
+    "name": "rosMgmtOpticalTransceiver",
+    "oid": "1.3.6.1.4.1.8886.60.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-04-16 00:00",
+        "description": "The initial revision of this MIB."
+      }
+    ]
+  },
+  "rosMgmtOpticalTransceiverNotifications": {
+    "name": "rosMgmtOpticalTransceiverNotifications",
+    "oid": "1.3.6.1.4.1.8886.60.18.0",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverObjects": {
+    "name": "rosMgmtOpticalTransceiverObjects",
+    "oid": "1.3.6.1.4.1.8886.60.18.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverConformance": {
+    "name": "rosMgmtOpticalTransceiverConformance",
+    "oid": "1.3.6.1.4.1.8886.60.18.2",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverAbsentTrap": {
+    "name": "rosMgmtOpticalTransceiverAbsentTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverHwInfoAbsStatus"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverSpecificationCheckStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPresentTrap": {
+    "name": "rosMgmtOpticalTransceiverPresentTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverHwInfoAbsStatus"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverSpecificationCheckStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverNRAlarmTrap": {
+    "name": "rosMgmtOpticalTransceiverNRAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverHwInfoNRStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverNRNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverNRNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverHwInfoNRStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverRxLosAlarmTrap": {
+    "name": "rosMgmtOpticalTransceiverRxLosAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverHwInfoRxLosStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverRxLosNormaTrap": {
+    "name": "rosMgmtOpticalTransceiverRxLosNormaTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverHwInfoRxLosStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamAlarmTrap": {
+    "name": "rosMgmtOpticalTransceiverParamAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamAlarmNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverParamAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamWarningTrap": {
+    "name": "rosMgmtOpticalTransceiverParamWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamWarningNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverParamWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverLaserBackLightAlarmTrap": {
+    "name": "rosMgmtOpticalTransceiverLaserBackLightAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverLaserBackLightAlarmNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverLaserBackLightAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverLaserLifeAlarmTrap": {
+    "name": "rosMgmtOpticalTransceiverLaserLifeAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverLaserLifeAlarmNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverLaserLifeAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamLowAlarmTrap": {
+    "name": "rosMgmtOpticalTransceiverParamLowAlarmTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamLowAlarmNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverParamLowAlarmNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamLowWarningTrap": {
+    "name": "rosMgmtOpticalTransceiverParamLowWarningTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamLowWarningNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverParamLowWarningNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterValue"
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParamAlarmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTxFaultTrap": {
+    "name": "rosMgmtOpticalTransceiverTxFaultTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverTxFaultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTxNormalTrap": {
+    "name": "rosMgmtOpticalTransceiverTxNormalTrap",
+    "oid": "1.3.6.1.4.1.8886.60.18.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverTxFaultStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "EnableVar": {
+    "name": "EnableVar",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalParameterType": {
+    "name": "OpticalParameterType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transceiverTemperature": 1,
+          "txbiasCurrent": 2,
+          "txPower": 3,
+          "rxPower": 4,
+          "laserTemperature": 5,
+          "p5V0supplyVoltage": 6,
+          "p3V3supplyVoltage": 7,
+          "p1V8supplyVoltage": 8,
+          "n5V2supplyVoltage": 9,
+          "apdBiasVoltage": 10,
+          "p5V0supplyCurrent": 11,
+          "p3V3supplyCurrent": 12,
+          "p1V8supplyCurrent": 13,
+          "n5V2supplyCurrent": 14,
+          "tecCurrent": 15,
+          "laserWavelength": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OpticalParameterValue": {
+    "name": "OpticalParameterValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000000,
+            "max": -1000000
+          },
+          {
+            "min": -40000,
+            "max": 6553600
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "OpticalPMPeriod": {
+    "name": "OpticalPMPeriod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMin": 1,
+          "twentyFourHour": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverScalarGroup": {
+    "name": "rosMgmtOpticalTransceiverScalarGroup",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverNotifyEnable": {
+    "name": "rosMgmtOpticalTransceiverNotifyEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDDMEnable": {
+    "name": "rosMgmtOpticalTransceiverDDMEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCheckPwdEnable": {
+    "name": "rosMgmtOpticalTransceiverCheckPwdEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPollInterval": {
+    "name": "rosMgmtOpticalTransceiverPollInterval",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCRCCheckEnable": {
+    "name": "rosMgmtOpticalTransceiverCRCCheckEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCfgObjects": {
+    "name": "rosMgmtOpticalTransceiverCfgObjects",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverInfoGroup": {
+    "name": "rosMgmtOpticalTransceiverInfoGroup",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverDDMGroup": {
+    "name": "rosMgmtOpticalTransceiverDDMGroup",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverPMGroup": {
+    "name": "rosMgmtOpticalTransceiverPMGroup",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverStatusGroup": {
+    "name": "rosMgmtOpticalTransceiverStatusGroup",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4",
+    "class": "objectidentity"
+  },
+  "rosMgmtOpticalTransceiverInfoTable": {
+    "name": "rosMgmtOpticalTransceiverInfoTable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverInfoEntry": {
+    "name": "rosMgmtOpticalTransceiverInfoEntry",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverType": {
+    "name": "rosMgmtOpticalTransceiverType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "gbic": 2,
+          "soldered": 3,
+          "sfp": 4,
+          "xbi": 5,
+          "xenpak": 6,
+          "xfp": 7,
+          "xff": 8,
+          "xfpe": 9,
+          "xpak": 10,
+          "x2": 11,
+          "sfpj": 12,
+          "qsfp": 14,
+          "qsfp28": 18
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverConnectorType": {
+    "name": "rosMgmtOpticalTransceiverConnectorType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "sc": 2,
+          "db9": 3,
+          "hssdc": 4,
+          "bnctnc": 5,
+          "fibercoaxialhead": 6,
+          "fiberjack": 7,
+          "lc": 8,
+          "mtrj": 9,
+          "mu": 10,
+          "sg": 11,
+          "fiberpigtail": 12,
+          "mpoparalleloptic": 13,
+          "hssdcII": 14,
+          "copper": 15,
+          "rj45": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverVendorName": {
+    "name": "rosMgmtOpticalTransceiverVendorName",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverVendorPN": {
+    "name": "rosMgmtOpticalTransceiverVendorPN",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverVendorSN": {
+    "name": "rosMgmtOpticalTransceiverVendorSN",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverMediaType": {
+    "name": "rosMgmtOpticalTransceiverMediaType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlemode": 1,
+          "multimodeE50": 2,
+          "multimode50": 3,
+          "multimode625": 4,
+          "copper": 5,
+          "singlemodeKm": 6,
+          "multimodeOM3": 7,
+          "multimodeOM3Qsfp": 8,
+          "multimodeOM2Qsfp": 9,
+          "multimodeOM1Qsfp": 10,
+          "multimodeOM4Qsfp": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTransmissionDistance": {
+    "name": "rosMgmtOpticalTransceiverTransmissionDistance",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverAbility": {
+    "name": "rosMgmtOpticalTransceiverAbility",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDDM": {
+    "name": "rosMgmtOpticalTransceiverDDM",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCalibrationType": {
+    "name": "rosMgmtOpticalTransceiverCalibrationType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "internal": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverRSSI": {
+    "name": "rosMgmtOpticalTransceiverRSSI",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverVendorRev": {
+    "name": "rosMgmtOpticalTransceiverVendorRev",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverBRMax": {
+    "name": "rosMgmtOpticalTransceiverBRMax",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverBRMin": {
+    "name": "rosMgmtOpticalTransceiverBRMin",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverWavelengthContrl": {
+    "name": "rosMgmtOpticalTransceiverWavelengthContrl",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverWavelength": {
+    "name": "rosMgmtOpticalTransceiverWavelength",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverWaveTolerance": {
+    "name": "rosMgmtOpticalTransceiverWaveTolerance",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCompatibility": {
+    "name": "rosMgmtOpticalTransceiverCompatibility",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPowerDissipation": {
+    "name": "rosMgmtOpticalTransceiverPowerDissipation",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p1W5": 1,
+          "p2W5": 2,
+          "p3W5": 3,
+          "exceed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCDR": {
+    "name": "rosMgmtOpticalTransceiverCDR",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverRefClock": {
+    "name": "rosMgmtOpticalTransceiverRefClock",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "required": 1,
+          "notrequired": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTransmitterType": {
+    "name": "rosMgmtOpticalTransceiverTransmitterType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vcsel850nm": 1,
+          "vcsel1310nm": 2,
+          "vcsel1550nm": 3,
+          "fp1310nm": 4,
+          "dfb1310nm": 5,
+          "dfb1550nm": 6,
+          "eml1310nm": 7,
+          "eml1550nm": 8,
+          "copperothers": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCooled": {
+    "name": "rosMgmtOpticalTransceiverCooled",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cooled": 1,
+          "uncooled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTunalbe": {
+    "name": "rosMgmtOpticalTransceiverTunalbe",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunable": 1,
+          "untunable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDetectorType": {
+    "name": "rosMgmtOpticalTransceiverDetectorType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pin": 1,
+          "apd": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverLineLoopBack": {
+    "name": "rosMgmtOpticalTransceiverLineLoopBack",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverXFILoopBack": {
+    "name": "rosMgmtOpticalTransceiverXFILoopBack",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverVps": {
+    "name": "rosMgmtOpticalTransceiverVps",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTxDis": {
+    "name": "rosMgmtOpticalTransceiverTxDis",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverStandby": {
+    "name": "rosMgmtOpticalTransceiverStandby",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverInVpsLowPower": {
+    "name": "rosMgmtOpticalTransceiverInVpsLowPower",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverOutVpsLowPower": {
+    "name": "rosMgmtOpticalTransceiverOutVpsLowPower",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverFEC": {
+    "name": "rosMgmtOpticalTransceiverFEC",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCMU": {
+    "name": "rosMgmtOpticalTransceiverCMU",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "support": 1,
+          "notsupport": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverBR": {
+    "name": "rosMgmtOpticalTransceiverBR",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "bitrate125Mbps": 1,
+          "bitrate155Mbps": 2,
+          "bitrate622Mbps": 6,
+          "bitrate1250Mbps": 12,
+          "bitrate1DOT25Gbps": 13,
+          "bitrate2DOT5Gbps": 19,
+          "bitrate10GbpsOr100Gbps1": 103,
+          "bitrate100Gbps2": 114,
+          "bitrate25Gbps": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDDMTable": {
+    "name": "rosMgmtOpticalTransceiverDDMTable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDDMEntry": {
+    "name": "rosMgmtOpticalTransceiverDDMEntry",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverParameterType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParameterType": {
+    "name": "rosMgmtOpticalTransceiverParameterType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParameterValue": {
+    "name": "rosMgmtOpticalTransceiverParameterValue",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamHighAlarmThresh": {
+    "name": "rosMgmtOpticalTransceiverParamHighAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamHighWarningThresh": {
+    "name": "rosMgmtOpticalTransceiverParamHighWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamLowAlarmThresh": {
+    "name": "rosMgmtOpticalTransceiverParamLowAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamLowWarningThresh": {
+    "name": "rosMgmtOpticalTransceiverParamLowWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamAlarmStatus": {
+    "name": "rosMgmtOpticalTransceiverParamAlarmStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "highalarm": 2,
+          "highwarning": 3,
+          "lowalarm": 4,
+          "lowwarning": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamAlarmLastValue": {
+    "name": "rosMgmtOpticalTransceiverParamAlarmLastValue",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverParamAlarmLastChange": {
+    "name": "rosMgmtOpticalTransceiverParamAlarmLastChange",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDDM15MinValidIntervals": {
+    "name": "rosMgmtOpticalTransceiverDDM15MinValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDDM24HrValidIntervals": {
+    "name": "rosMgmtOpticalTransceiverDDM24HrValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDDMValidStatus": {
+    "name": "rosMgmtOpticalTransceiverDDMValidStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "invalid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParameterValue": {
+    "name": "rosMgmtOpticalTransceiverQsfpParameterValue",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParamHighAlarmThresh": {
+    "name": "rosMgmtOpticalTransceiverQsfpParamHighAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParamHighWarningThresh": {
+    "name": "rosMgmtOpticalTransceiverQsfpParamHighWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParamLowAlarmThresh": {
+    "name": "rosMgmtOpticalTransceiverQsfpParamLowAlarmThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParamLowWarningThresh": {
+    "name": "rosMgmtOpticalTransceiverQsfpParamLowWarningThresh",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParamAlarmStatus": {
+    "name": "rosMgmtOpticalTransceiverQsfpParamAlarmStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParamAlarmLastValue": {
+    "name": "rosMgmtOpticalTransceiverQsfpParamAlarmLastValue",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpParamAlarmLastChange": {
+    "name": "rosMgmtOpticalTransceiverQsfpParamAlarmLastChange",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpDDM15MinValidIntervals": {
+    "name": "rosMgmtOpticalTransceiverQsfpDDM15MinValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpDDM24HrValidIntervals": {
+    "name": "rosMgmtOpticalTransceiverQsfpDDM24HrValidIntervals",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpDDMValidStatus": {
+    "name": "rosMgmtOpticalTransceiverQsfpDDMValidStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMCurrentTable": {
+    "name": "rosMgmtOpticalTransceiverPMCurrentTable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMCurrentEntry": {
+    "name": "rosMgmtOpticalTransceiverPMCurrentEntry",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverPMCurrentPeriod",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverPMCurrentParamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMCurrentPeriod": {
+    "name": "rosMgmtOpticalTransceiverPMCurrentPeriod",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPMPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMCurrentParamType": {
+    "name": "rosMgmtOpticalTransceiverPMCurrentParamType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMCurrentMaxParam": {
+    "name": "rosMgmtOpticalTransceiverPMCurrentMaxParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMCurrentMinParam": {
+    "name": "rosMgmtOpticalTransceiverPMCurrentMinParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMCurrentMeanParam": {
+    "name": "rosMgmtOpticalTransceiverPMCurrentMeanParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpPMCurrentMaxParam": {
+    "name": "rosMgmtOpticalTransceiverQsfpPMCurrentMaxParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpPMCurrentMinParam": {
+    "name": "rosMgmtOpticalTransceiverQsfpPMCurrentMinParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpPMCurrentMeanParam": {
+    "name": "rosMgmtOpticalTransceiverQsfpPMCurrentMeanParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalTable": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalTable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalEntry": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalEntry",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverPMIntervalPeriod",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverPMIntervalNumber",
+        "implied": 0
+      },
+      {
+        "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+        "object": "rosMgmtOpticalTransceiverPMIntervalParamType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalPeriod": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalPeriod",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalPMPeriod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalNumber": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalNumber",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalParamType": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalParamType",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalMaxParam": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalMaxParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalMinParam": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalMinParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPMIntervalMeanParam": {
+    "name": "rosMgmtOpticalTransceiverPMIntervalMeanParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OpticalParameterValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpPMIntervalMaxParam": {
+    "name": "rosMgmtOpticalTransceiverQsfpPMIntervalMaxParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpPMIntervalMinParam": {
+    "name": "rosMgmtOpticalTransceiverQsfpPMIntervalMinParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverQsfpPMIntervalMeanParam": {
+    "name": "rosMgmtOpticalTransceiverQsfpPMIntervalMeanParam",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCurrentStatusTable": {
+    "name": "rosMgmtOpticalTransceiverCurrentStatusTable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverCurrentStatusEntry": {
+    "name": "rosMgmtOpticalTransceiverCurrentStatusEntry",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverHwInfoAbsStatus": {
+    "name": "rosMgmtOpticalTransceiverHwInfoAbsStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 1,
+          "present": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverHwInfoNRStatus": {
+    "name": "rosMgmtOpticalTransceiverHwInfoNRStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "notready": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverHwInfoRxLosStatus": {
+    "name": "rosMgmtOpticalTransceiverHwInfoRxLosStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "loss": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverHwInfoStandby": {
+    "name": "rosMgmtOpticalTransceiverHwInfoStandby",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "standby": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverHwInfoLaser": {
+    "name": "rosMgmtOpticalTransceiverHwInfoLaser",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverWaveLengthError": {
+    "name": "rosMgmtOpticalTransceiverWaveLengthError",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverUserWaveLength": {
+    "name": "rosMgmtOpticalTransceiverUserWaveLength",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3276800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverUserDataRate": {
+    "name": "rosMgmtOpticalTransceiverUserDataRate",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9500,
+            "max": 12500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverUserLineLoopBack": {
+    "name": "rosMgmtOpticalTransceiverUserLineLoopBack",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "lineLoopback": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverUserXFILoopBack": {
+    "name": "rosMgmtOpticalTransceiverUserXFILoopBack",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "xfiLoopback": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPortNotifyEnable": {
+    "name": "rosMgmtOpticalTransceiverPortNotifyEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPortDDMEnable": {
+    "name": "rosMgmtOpticalTransceiverPortDDMEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPortCheckPwdEnable": {
+    "name": "rosMgmtOpticalTransceiverPortCheckPwdEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTxFaultCount": {
+    "name": "rosMgmtOpticalTransceiverTxFaultCount",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTxFaultCountClear": {
+    "name": "rosMgmtOpticalTransceiverTxFaultCountClear",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverSpecificationCheckStatus": {
+    "name": "rosMgmtOpticalTransceiverSpecificationCheckStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "accord": 1,
+          "notaccord": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverTxFaultStatus": {
+    "name": "rosMgmtOpticalTransceiverTxFaultStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "txfault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverPortCRCCheckEnable": {
+    "name": "rosMgmtOpticalTransceiverPortCRCCheckEnable",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableVar",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverBaseCRCCheckStatus": {
+    "name": "rosMgmtOpticalTransceiverBaseCRCCheckStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pass": 1,
+          "notpass": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverStaticDdmCRCCheckStatus": {
+    "name": "rosMgmtOpticalTransceiverStaticDdmCRCCheckStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pass": 1,
+          "notpass": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rosMgmtOpticalTransceiverDynamicDdmCRCCheckStatus": {
+    "name": "rosMgmtOpticalTransceiverDynamicDdmCRCCheckStatus",
+    "oid": "1.3.6.1.4.1.8886.60.18.1.2.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pass": 1,
+          "notpass": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB"
+  }
+}

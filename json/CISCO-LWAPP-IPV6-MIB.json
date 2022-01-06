@@ -1,0 +1,1575 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-ACL-MIB": [
+      "claCpuAclName",
+      "claAclCounterClear",
+      "claAclCounterEnable",
+      "claCpuAclPacketApplicability",
+      "claAclRuleHits"
+    ],
+    "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcClientMacAddress"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappIpv6MIB": {
+    "name": "ciscoLwappIpv6MIB",
+    "oid": "1.3.6.1.4.1.9.9.9999",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-03-04 00:00",
+        "description": "Added claAclTable and claAclRuleTable."
+      }
+    ]
+  },
+  "ciscoLwappIpv6MIBNotifs": {
+    "name": "ciscoLwappIpv6MIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.9999.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIpv6MIBObjects": {
+    "name": "ciscoLwappIpv6MIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.9999.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIpv6MIBConform": {
+    "name": "ciscoLwappIpv6MIBConform",
+    "oid": "1.3.6.1.4.1.9.9.9999.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIpv6Config": {
+    "name": "ciscoLwappIpv6Config",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIpv6Stats": {
+    "name": "ciscoLwappIpv6Stats",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIpv6NbRaThrottleConfig": {
+    "name": "ciscoLwappIpv6NbRaThrottleConfig",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoLwappIpv6NbTimerConfig": {
+    "name": "ciscoLwappIpv6NbTimerConfig",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5",
+    "class": "objectidentity"
+  },
+  "cLIpv6AclTable": {
+    "name": "cLIpv6AclTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIpv6AclEntry": {
+    "name": "cLIpv6AclEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-IPV6-MIB",
+        "object": "cLIpv6AclName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLIpv6AclName": {
+    "name": "cLIpv6AclName",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclApplyMode": {
+    "name": "cLIpv6AclApplyMode",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplied": 0,
+          "applied": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6AclCounterClear": {
+    "name": "cLIpv6AclCounterClear",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6AclRowStatus": {
+    "name": "cLIpv6AclRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleTable": {
+    "name": "cLIpv6AclRuleTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIpv6AclRuleEntry": {
+    "name": "cLIpv6AclRuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-IPV6-MIB",
+        "object": "cLIpv6AclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-IPV6-MIB",
+        "object": "cLIpv6AclRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLIpv6AclRuleIndex": {
+    "name": "cLIpv6AclRuleIndex",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleAction": {
+    "name": "cLIpv6AclRuleAction",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleDirection": {
+    "name": "cLIpv6AclRuleDirection",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 0,
+          "outbound": 1,
+          "any": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleSourceInetAddressType": {
+    "name": "cLIpv6AclRuleSourceInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleSourceInetAddress": {
+    "name": "cLIpv6AclRuleSourceInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleSourcePrefixLength": {
+    "name": "cLIpv6AclRuleSourcePrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleDestinationInetAddressType": {
+    "name": "cLIpv6AclRuleDestinationInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleDestinationInetAddress": {
+    "name": "cLIpv6AclRuleDestinationInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleDestinationPrefixLength": {
+    "name": "cLIpv6AclRuleDestinationPrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleProtocol": {
+    "name": "cLIpv6AclRuleProtocol",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleStartSourcePort": {
+    "name": "cLIpv6AclRuleStartSourcePort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleEndSourcePort": {
+    "name": "cLIpv6AclRuleEndSourcePort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleStartDestinationPort": {
+    "name": "cLIpv6AclRuleStartDestinationPort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleEndDestinationPort": {
+    "name": "cLIpv6AclRuleEndDestinationPort",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleDscp": {
+    "name": "cLIpv6AclRuleDscp",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclNewRuleIndex": {
+    "name": "cLIpv6AclNewRuleIndex",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6AclRuleHits": {
+    "name": "cLIpv6AclRuleHits",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6AclRuleRowStatus": {
+    "name": "cLIpv6AclRuleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappIpv6RaFiltering": {
+    "name": "ciscoLwappIpv6RaFiltering",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3",
+    "class": "objectidentity"
+  },
+  "cLIpv6RaFilteringEnabled": {
+    "name": "cLIpv6RaFilteringEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6RaFilteringOnApEnabled": {
+    "name": "cLIpv6RaFilteringOnApEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6RaFilteringClientInfoTable": {
+    "name": "cLIpv6RaFilteringClientInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIpv6RaFilteringClientInfoEntry": {
+    "name": "cLIpv6RaFilteringClientInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLIpv6RaFilteringClientInfoApName": {
+    "name": "cLIpv6RaFilteringClientInfoApName",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6RaFilteringClientInfoWlan": {
+    "name": "cLIpv6RaFilteringClientInfoWlan",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6RaFilteringClientInfoPktsDropped": {
+    "name": "cLIpv6RaFilteringClientInfoPktsDropped",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottleEnabled": {
+    "name": "cLIpv6NbRaThrottleEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottlePeriod": {
+    "name": "cLIpv6NbRaThrottlePeriod",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottleMaxThrough": {
+    "name": "cLIpv6NbRaThrottleMaxThrough",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottleMaxThroughNoLimitEnabled": {
+    "name": "cLIpv6NbRaThrottleMaxThroughNoLimitEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottleIntervalOption": {
+    "name": "cLIpv6NbRaThrottleIntervalOption",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "passthrough": 2,
+          "throttle": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottleAllowAtleast": {
+    "name": "cLIpv6NbRaThrottleAllowAtleast",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottleAllowAtmost": {
+    "name": "cLIpv6NbRaThrottleAllowAtmost",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6NbRaThrottleAllowNoLimitEnabled": {
+    "name": "cLIpv6NbRaThrottleAllowNoLimitEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLIpv6NbTimerDownLifeTimeEnabled": {
+    "name": "cLIpv6NbTimerDownLifeTimeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NbTimerDownLifeTimeInterval": {
+    "name": "cLIpv6NbTimerDownLifeTimeInterval",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NbTimerStaleLifeTimeEnabled": {
+    "name": "cLIpv6NbTimerStaleLifeTimeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NbTimerStaleLifeTimeInterval": {
+    "name": "cLIpv6NbTimerStaleLifeTimeInterval",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 86400,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NbTimerReachableLifeTimeEnabled": {
+    "name": "cLIpv6NbTimerReachableLifeTimeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NbTimerReachableLifeTimeInterval": {
+    "name": "cLIpv6NbTimerReachableLifeTimeInterval",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NbTimerNsMulticastCacheMissForward": {
+    "name": "cLIpv6NbTimerNsMulticastCacheMissForward",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterTable": {
+    "name": "cLIpv6NeighborBindingCounterTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterEntry": {
+    "name": "cLIpv6NeighborBindingCounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-IPV6-MIB",
+        "object": "cLIpv6NeighborBindingCounterType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterType": {
+    "name": "cLIpv6NeighborBindingCounterType",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "receivedMessages": 1,
+          "bridgedMessages": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterNdpRs": {
+    "name": "cLIpv6NeighborBindingCounterNdpRs",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterNdpRa": {
+    "name": "cLIpv6NeighborBindingCounterNdpRa",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterNdpNs": {
+    "name": "cLIpv6NeighborBindingCounterNdpNs",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterNdpNa": {
+    "name": "cLIpv6NeighborBindingCounterNdpNa",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterNdpRedirect": {
+    "name": "cLIpv6NeighborBindingCounterNdpRedirect",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterNdpCertSol": {
+    "name": "cLIpv6NeighborBindingCounterNdpCertSol",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterNdpCertAdv": {
+    "name": "cLIpv6NeighborBindingCounterNdpCertAdv",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Sol": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Sol",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Adv": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Adv",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Request": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Request",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Confirm": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Confirm",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Renew": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Renew",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Rebind": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Rebind",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Reply": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Reply",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Release": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Release",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Decline": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Decline",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6Recfg": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6Recfg",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6InfoReq": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6InfoReq",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6RelayForward": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6RelayForward",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterDhcpV6RelayReplay": {
+    "name": "cLIpv6NeighborBindingCounterDhcpV6RelayReplay",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbNdSuppressDropCounter": {
+    "name": "cLIpv6NbNdSuppressDropCounter",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2",
+    "class": "objectidentity"
+  },
+  "cLIpv6NbNdSuppressDropCounterTotal": {
+    "name": "cLIpv6NbNdSuppressDropCounterTotal",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbNdSuppressDropCounterReasonSilent": {
+    "name": "cLIpv6NbNdSuppressDropCounterReasonSilent",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cIpv6NbNdSuppressDropCounterReasonInOut": {
+    "name": "cIpv6NbNdSuppressDropCounterReasonInOut",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbNdSuppressDropCounterReasonDad": {
+    "name": "cLIpv6NbNdSuppressDropCounterReasonDad",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbNdSuppressDropCounterReasonUnicast": {
+    "name": "cLIpv6NbNdSuppressDropCounterReasonUnicast",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbNdSuppressDropCounterReasonMulticast": {
+    "name": "cLIpv6NbNdSuppressDropCounterReasonMulticast",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbNdSuppressDropCounterReasonInt": {
+    "name": "cLIpv6NbNdSuppressDropCounterReasonInt",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterTable": {
+    "name": "cLIpv6NbSnoopingDropCounterTable",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterEntry": {
+    "name": "cLIpv6NbSnoopingDropCounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-IPV6-MIB",
+        "object": "cLIpv6NbSnoopingDropCounterType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterType": {
+    "name": "cLIpv6NbSnoopingDropCounterType",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ndpRs": 1,
+          "ndpRa": 2,
+          "ndpNs": 3,
+          "ndpNa": 4,
+          "ndpRedirect": 5,
+          "ndpCertSol": 6,
+          "ndpCertAdv": 7,
+          "nhcpV6Sol": 8,
+          "nhcpV6Adv": 9,
+          "dhcpV6Request": 10,
+          "dhcpV6Confirm": 11,
+          "dhcpV6Renew": 12,
+          "dhcpV6Rebind": 13,
+          "dhcpV6Reply": 14,
+          "dhcpV6Release": 15,
+          "dhcpV6Decline": 16,
+          "dhcpV6Recfg": 17,
+          "dhcpV6InfoReq": 18,
+          "dhcpV6RelayForward": 19,
+          "dhcpV6RelayReplay": 20
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterTotal": {
+    "name": "cLIpv6NbSnoopingDropCounterTotal",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterSilent": {
+    "name": "cLIpv6NbSnoopingDropCounterSilent",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonInt": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonInt",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonCga": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonCga",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonRsa": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonRsa",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonLimit": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonLimit",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonMartian": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonMartian",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonMartianMac": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonMartianMac",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonNotAllowed": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonNotAllowed",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonNotAuthorised": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonNotAuthorised",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NbSnoopingDropCounterReasonStop": {
+    "name": "cLIpv6NbSnoopingDropCounterReasonStop",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLIpv6NeighborBindingCounterClear": {
+    "name": "cLIpv6NeighborBindingCounterClear",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIpv6GlobalEnabled": {
+    "name": "cLIpv6GlobalEnabled",
+    "oid": "1.3.6.1.4.1.9.9.9999.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-IPV6-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-IPV6-MIB"
+  }
+}
